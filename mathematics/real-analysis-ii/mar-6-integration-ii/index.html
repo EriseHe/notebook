@@ -1,0 +1,140 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  I. Equivalent Conditions for Integrability
+  #
+
+
+[!definition|Main] Reall
+Let $f: A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}$ be a bounded function on a bounded set. Then the following are equivalent:
+
+$f$ is integrable on $A$:
+$$
+\overline{\int_A} f = \underline{\int_A} f (= I)
+$$
+$f$ satisfies the Riemann condition:
+For all $\varepsilon > 0$, there exists a partition $P_\varepsilon$ (of $B$) s.t.
+$$
+0 \leq U(f, P_\varepsilon) - L(f, P_\varepsilon) < \varepsilon
+$$
+$f$ satisfies Darboux’s condition:
+For every number $I$ that has the following property:
+$\forall \varepsilon > 0, \exists \delta > 0$, such that for any partition $P = { B_1, B_2, \dots, B_N }$ with side length $< \delta$, we have
+$$
+\geq\left| \sum_{i=1}^{N} f(x_i)V(B_i) - I \right| < \varepsilon
+$$
+for any choice of $x_i \in B_i$, $i = 1, \dots, N$.
+
+
+  I*. Proof of the Equivalence (continued)
+  #
+
+Proof of (1) $\Leftrightarrow$ (2): Done!"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://erisehe.github.io/mathematics/real-analysis-ii/mar-6-integration-ii/"><meta property="og:site_name" content="Lecture Notes"><meta property="og:title" content="Lecture Notes"><meta property="og:description" content="I. Equivalent Conditions for Integrability # [!definition|Main] Reall Let $f: A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}$ be a bounded function on a bounded set. Then the following are equivalent:
+$f$ is integrable on $A$:
+$$ \overline{\int_A} f = \underline{\int_A} f (= I) $$ $f$ satisfies the Riemann condition:
+For all $\varepsilon > 0$, there exists a partition $P_\varepsilon$ (of $B$) s.t. $$ 0 \leq U(f, P_\varepsilon) - L(f, P_\varepsilon) < \varepsilon $$ $f$ satisfies Darboux’s condition:
+For every number $I$ that has the following property:
+$\forall \varepsilon > 0, \exists \delta > 0$, such that for any partition $P = { B_1, B_2, \dots, B_N }$ with side length $< \delta$, we have $$ \geq\left| \sum_{i=1}^{N} f(x_i)V(B_i) - I \right| < \varepsilon $$ for any choice of $x_i \in B_i$, $i = 1, \dots, N$. I*. Proof of the Equivalence (continued) # Proof of (1) $\Leftrightarrow$ (2): Done!"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="mathematics"><title>Mar 6 Integration Ii | Lecture Notes</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://erisehe.github.io/mathematics/real-analysis-ii/mar-6-integration-ii/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.4e5da4d11a0241e3cb2d2469612c27452491375ae4618920fd769bfbebfeaa23.js integrity="sha256-Tl2k0RoCQePLLSRpYSwnRSSRN1rkYYkg/Xab++v+qiM=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Lecture Notes</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>Mar 6 Integration Ii</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#i-equivalent-conditions-for-integrability>I. Equivalent Conditions for Integrability</a></li><li><a href=#i-proof-of-the-equivalence-continued>I*. Proof of the Equivalence (continued)</a><ul><li></li><li></li></ul></li><li><a href=#ii-criterion-for-integrability>II Criterion for Integrability</a><ul><li><a href=#measuring-the-size-of-a-set>Measuring the Size of a Set</a></li></ul></li><li><a href=#generalization-of-measure-zero>Generalization of Measure Zero</a></li><li><a href=#measuring-the-size-of-a-set-1>Measuring the Size of a Set</a><ul><li><a href=#a-volume-of-a-1>(a) Volume of $A$</a></li><li><a href=#b-small-sets-1>(b) &ldquo;Small&rdquo; Sets</a></li><li><a href=#example>Example</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h2 id=i-equivalent-conditions-for-integrability>I. Equivalent Conditions for Integrability
+<a class=anchor href=#i-equivalent-conditions-for-integrability>#</a></h2><blockquote><p>[!definition|Main] Reall
+Let $f: A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}$ be a bounded function on a bounded set. Then the <strong>following are equivalent</strong>:</p><ol><li>$f$ is <strong>integrable</strong> on $A$:<br>$$
+\overline{\int_A} f = \underline{\int_A} f (= I)
+$$</li><li>$f$ satisfies the <strong>Riemann condition</strong>:<br>For all $\varepsilon > 0$, there <em>exists a partition</em> $P_\varepsilon$ (of $B$) s.t.
+$$
+0 \leq U(f, P_\varepsilon) - L(f, P_\varepsilon) &lt; \varepsilon
+$$</li><li>$f$ satisfies <strong>Darboux’s condition</strong>:<br>For every number $I$ that has the following property:<br>$\forall \varepsilon > 0, \exists \delta > 0$, such that for <strong>any partition</strong> $P = { B_1, B_2, \dots, B_N }$ with <strong>side length</strong> $&lt; \delta$, we have
+$$
+\geq\left| \sum_{i=1}^{N} f(x_i)V(B_i) - I \right| &lt; \varepsilon
+$$
+for <strong>any</strong> choice of $x_i \in B_i$, $i = 1, \dots, N$.</li></ol></blockquote><h2 id=i-proof-of-the-equivalence-continued>I*. Proof of the Equivalence (continued)
+<a class=anchor href=#i-proof-of-the-equivalence-continued>#</a></h2><p><strong>Proof of (1) $\Leftrightarrow$ (2):</strong> Done!</p><h4 id=step-3>Step 3:
+<a class=anchor href=#step-3>#</a></h4><p>Prove (3) $\Rightarrow$ (2):</p><p><em>Note:</em> Darboux’s condition $\Rightarrow$ integrability.<br>Let $I$ be the number in condition (3).<br><strong>Want to show:</strong> $\overline{\int_A} f = \underline{\int_A} f = \int_A f$</p><blockquote><p>[!claim]
+$\forall \varepsilon > 0$, $\exists$ partition $P$ s.t.
+$$
+\boxed{|L(f, P) - I| &lt; \varepsilon}\quad(*)
+$$</p></blockquote><p>We want to show that:
+$$\begin{align}
+L(f, p) - I & = \Big| L(f, p) - \sum f(x_i)V(h_i) \Big|</p><ul><li>\Big| \sum f(x_i)V(h_i) - I \Big| \
+& = \sum \Big|\inf_{h_i} f - f(x_i)\Big| V(h_i)</li><li>\frac{\varepsilon}{2} \
+& &lt; \sum_{i=1}^{N}\frac{\frac{\varepsilon}{2}}{2V(B_i)} \cdot V(h_i)
+\end{align}$$</li></ul><p>Given $\varepsilon > 0$, by (3), $\exists , \delta > 0$ s.t. for any partition
+$$
+P = {B_1, \dots, B_N}\quad \text{with sides} &lt; \delta
+$$
+we have
+$$
+\left|\sum_{i=1}^{N} f(x_i)V(B_i) - I\right| &lt; \frac{\varepsilon}{2}
+$$</p><p>for any $x_i \in B_i$.</p><p>To prove $(*)$, we can choose $x_i \in B_i$ s.t.
+$$
+0 \leq f(x_i) - \inf_{B_i} f(x) &lt; \frac{\varepsilon}{2N,V(B_i)}
+$$</p><p>Then it follows that
+$$
+|L(f,p)-I| \leq |L(f,p)-\sum_i f(x_i)V(B_i)| + |\sum_i f(x_i)V(B_i)-I|
+$$
+$$
+\leq \sum_{i=1}^{N}|\inf_{B_i} f(x)-f(x_i)|\cdot V(B_i) + \frac{\varepsilon}{2}
+$$
+$$
+&lt; \sum_{i=1}^{N}\frac{\varepsilon}{2N,V(B_i)}\cdot V(B_i) + \frac{\varepsilon}{2}
+$$
+$$
+= \frac{\varepsilon}{2}+\frac{\varepsilon}{2} = \varepsilon \quad \Longrightarrow (*)
+$$</p><p>Furthermore, $(*)\Rightarrow$
+$$
+L(f,p)>I-\varepsilon\quad \forall \varepsilon >0.
+$$
+Thus,
+$$
+\left( \underline{\int}<em>A f = \sup</em>{P}L(f,p)\geq I \right).
+$$</p><p>Similarly, $\forall \varepsilon>0$, $\exists P$ s.t.
+$$
+|U(f,p)-I|&lt;\varepsilon
+$$
+$$
+\Longrightarrow \overline{\int}<em>A f = \inf</em>{P}U(f,p)\leq I
+$$</p><h4 id=step-4-1--3-ideas>Step 4 (1) ⇒ (3) (Ideas)
+<a class=anchor href=#step-4-1--3-ideas>#</a></h4><ul><li>Given $\varepsilon > 0$, $\exists$ partition $P$ such that</li></ul><p>$$
+I - \frac{\varepsilon}{2} &lt; L(f,P) \leq \sum_j f(x_j)V(b_j) \leq U(f,P) &lt; I + \frac{\varepsilon}{2}
+$$</p><ul><li>Given partition $P$, $\exists \delta > 0$ such that <strong>for any partition</strong> $P&rsquo;$ with <strong>side length &lt; $\delta$</strong>, the sum of volumes of the subrectangles in $P&rsquo;$ that are not <strong>entirely contained in a subrectangle</strong> in $P$ is less than $\varepsilon$.</li></ul><h3><a class=anchor href=#>#</a></h3><blockquote><p>[!exercise]
+Compute upper and lower sums for:
+$$
+\int_0^1 x , dx
+$$
+with special $P$ where
+$$
+P_n = {0, \frac{1}{n}, \frac{2}{n}, \dots, \frac{n-1}{n}, 1}
+$$</p></blockquote><h2 id=ii-criterion-for-integrability>II Criterion for Integrability
+<a class=anchor href=#ii-criterion-for-integrability>#</a></h2><p><strong>Question:</strong> When is $f$ integrable?</p><p>(How can we tell from other properties?)</p><p><strong>Answer:</strong> It is integrable when <strong>the set</strong> of discontinuity is &ldquo;small&rdquo;.</p><h3 id=measuring-the-size-of-a-set>Measuring the Size of a Set
+<a class=anchor href=#measuring-the-size-of-a-set>#</a></h3><h4 id=a-volume-of-a>(a) Volume of $A$
+<a class=anchor href=#a-volume-of-a>#</a></h4><p>Given a bounded set $A \subset \mathbb{R}^n$, define the characteristic function of $A$ by:</p><p>$$
+1_A(x) = \begin{cases}
+1, & x \in A \
+0, & x \notin A
+\end{cases}
+$$</p><p>We say $A$ has volume (or is measurable) if $1_A(x)$ is integrable on $A$. Then, the volume is given by:</p><p>$$
+V(A) = \int_A 1_A(x),dx
+$$</p><p><strong>Remark:</strong></p><ul><li>If $n = 1$, then $V(A)$ represents &ldquo;length.&rdquo;</li><li>If $n = 2$, then $V(A)$ represents &ldquo;area&rdquo;.</li></ul><h4 id=b-small-sets>(b) &ldquo;Small&rdquo; Sets
+<a class=anchor href=#b-small-sets>#</a></h4><p>These are <strong>sets of measure zero</strong>, defined as sets for which, given any $\varepsilon > 0$, there exists a finite covering by rectangles (or intervals) whose total volume is less than $\varepsilon$. Formally:</p><p>$$
+\text{For every } \varepsilon > 0, \text{ there exist sets } S_1, S_2, \dots, S_N \text{ such that } A \subset \bigcup_{i=1}^{N} S_i \text{ and } \sum_{i=1}^{N} V(S_i) &lt; \varepsilon.
+$$</p><h4 id=proof-of-implication-rightarrow>Proof of implication $(\Rightarrow)$:
+<a class=anchor href=#proof-of-implication-rightarrow>#</a></h4><p>Suppose $V(A) = \int_A 1_A(x),dx = 0$. Then, for every $\varepsilon > 0$, there exists a partition $P = {P_j}$ covering the set $A$ such that:</p><p>$$
+U(1_A(x), P) &lt; \varepsilon
+$$</p><p>Thus, selecting all sets $P_j$ where $P_j \cap A \neq \emptyset$, we obtain a finite covering of $A$ satisfying:</p><p>$$
+\sum_{P_j \cap A \ne \emptyset} V(P_j) &lt; \varepsilon
+$$</p><h2 id=generalization-of-measure-zero>Generalization of Measure Zero
+<a class=anchor href=#generalization-of-measure-zero>#</a></h2><blockquote><p>[!definition]
+A set $A \subset \mathbb{R}^n$ (not necessarily bounded) is said to have measure zero if, for every $\varepsilon > 0$, there exists a countable covering of $A$ by rectangles ${S_i}$ satisfying:
+$$\sum_{i=1}^{\infty} V(S_i) &lt; \varepsilon
+$$</p></blockquote><p><strong>Remarks</strong>:</p><ul><li>If $V(A) = 0$, then it implies measure $m(A) = 0$.</li><li>Any finite set has volume zero.</li><li>Any countable set has measure zero.</li></ul><h2 id=measuring-the-size-of-a-set-1>Measuring the Size of a Set
+<a class=anchor href=#measuring-the-size-of-a-set-1>#</a></h2><h3 id=a-volume-of-a-1>(a) Volume of $A$
+<a class=anchor href=#a-volume-of-a-1>#</a></h3><p>Given a bounded set $A \subset \mathbb{R}^n$, define the characteristic function of $A$ by:</p><p>$$
+1_A(x) = \begin{cases}
+1, & x \in A \
+0, & x \notin A
+\end{cases}
+$$</p><p>We say $A$ has volume (or is measurable) if $1_A(x)$ is integrable on $A$. Then, the volume is given by:</p><p>$$
+V(A) = \int_A 1_A(x),dx
+$$</p><p><strong>Remark:</strong></p><ul><li>If $n = 1$, then $V(A)$ represents &ldquo;length.&rdquo;</li><li>If $n = 2$, then $V(A)$ represents &ldquo;area.&rdquo;</li></ul><h3 id=b-small-sets-1>(b) &ldquo;Small&rdquo; Sets
+<a class=anchor href=#b-small-sets-1>#</a></h3><p>These are <strong>sets of measure zero</strong>, defined as sets for which, given any $\varepsilon > 0$, there exists a countable covering by rectangles (or intervals) whose total volume is less than $\varepsilon$. Formally:</p><p>$$
+\text{For every } \varepsilon > 0, \text{ there exist rectangles } {S_i} \text{ such that } A \subset \bigcup_{i=1}^{\infty} S_i \text{ and } \sum_{i=1}^{\infty} V(S_i) &lt; \varepsilon.
+$$</p><h3 id=example>Example
+<a class=anchor href=#example>#</a></h3><p>Let $A$ be the $x$-axis (real line).</p><ul><li>If $A$ is considered as a subset of $\mathbb{R}^2$, then $m(A) = 0$.</li><li>If $A$ is considered as a subset of $\mathbb{R}^1$, then $m(A) \ne 0$.</li></ul><p>This highlights the dependency of measure</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#i-equivalent-conditions-for-integrability>I. Equivalent Conditions for Integrability</a></li><li><a href=#i-proof-of-the-equivalence-continued>I*. Proof of the Equivalence (continued)</a><ul><li></li><li></li></ul></li><li><a href=#ii-criterion-for-integrability>II Criterion for Integrability</a><ul><li><a href=#measuring-the-size-of-a-set>Measuring the Size of a Set</a></li></ul></li><li><a href=#generalization-of-measure-zero>Generalization of Measure Zero</a></li><li><a href=#measuring-the-size-of-a-set-1>Measuring the Size of a Set</a><ul><li><a href=#a-volume-of-a-1>(a) Volume of $A$</a></li><li><a href=#b-small-sets-1>(b) &ldquo;Small&rdquo; Sets</a></li><li><a href=#example>Example</a></li></ul></li></ul></nav></div></aside></main></body></html>

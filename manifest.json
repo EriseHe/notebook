@@ -1,6 +1,6 @@
 {
-  "name": "My Hugo Book Site",
-  "short_name": "My Hugo Book Site",
+  "name": "Lecture Notes",
+  "short_name": "Lecture Notes",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
