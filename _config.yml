@@ -1,0 +1,10 @@
+title: Lecture Notes Collection
+description: mathematics & physics lecture notes.
+baseurl: "/lecture-notes"        # e.g. "/lecture-notes" if publishing to a sub-path
+url: "https://<your-username>.github.io"
+
+# Optional: add plugins if needed
+plugins:
+  - jekyll-feed
+
+markdown: kramdown
