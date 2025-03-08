@@ -1,0 +1,140 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Outline
+  #
+
+
+Definition of Integrals (meaning)
+Criteria for Integrability (necessary and sufficient conditions)
+Properties (Convergence)
+Compute/Estimate Integrals
+
+
+  I. Definitions of Integrals
+  #
+
+
+  1. Geometric Motivation
+  #
+
+To compute the area of the region under the curve $y = f(x)$:
+
+Form the upper and lower approximations:$$
+\begin{align}
+U(f, P)  & = \sum_{i=1}^{n} \sup_{I_i} f(x) \cdot \ell(I_i) \
+L(f, P)  & = \sum_{i=1}^{n} \inf_{I_i} f(x) \cdot \ell(I_i)
+\end{align}
+$$
+Form upper and lower integrals:
+$$
+\begin{align}
+\overline{S}_A f  & = \inf_P U(f, P) \
+\underline{S}_A f  & = \sup_P L(f, P)\end{align}$$
+
+
+  2. General Formulation
+  #
+
+Step up: Let $f: A \to \mathbb{R}$ be a bold function on a bold set $A$ in $\mathbb{R}^n$."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://erisehe.github.io/mathematics/real-analysis-ii/mar-4-integration/"><meta property="og:site_name" content="Lecture Notes"><meta property="og:title" content="Lecture Notes"><meta property="og:description" content="Outline # Definition of Integrals (meaning) Criteria for Integrability (necessary and sufficient conditions) Properties (Convergence) Compute/Estimate Integrals I. Definitions of Integrals # 1. Geometric Motivation # To compute the area of the region under the curve $y = f(x)$:
+Form the upper and lower approximations:$$ \begin{align} U(f, P) & = \sum_{i=1}^{n} \sup_{I_i} f(x) \cdot \ell(I_i) \ L(f, P) & = \sum_{i=1}^{n} \inf_{I_i} f(x) \cdot \ell(I_i) \end{align} $$ Form upper and lower integrals: $$ \begin{align} \overline{S}_A f & = \inf_P U(f, P) \ \underline{S}_A f & = \sup_P L(f, P)\end{align}$$ 2. General Formulation # Step up: Let $f: A \to \mathbb{R}$ be a bold function on a bold set $A$ in $\mathbb{R}^n$."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="mathematics"><title>Mar 4 Integration | Lecture Notes</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://erisehe.github.io/mathematics/real-analysis-ii/mar-4-integration/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.4e5da4d11a0241e3cb2d2469612c27452491375ae4618920fd769bfbebfeaa23.js integrity="sha256-Tl2k0RoCQePLLSRpYSwnRSSRN1rkYYkg/Xab++v+qiM=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Lecture Notes</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>Mar 4 Integration</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li><a href=#outline>Outline</a></li></ul></li><li><a href=#i-definitions-of-integrals>I. Definitions of Integrals</a><ul><li><a href=#1-geometric-motivation>1. Geometric Motivation</a></li><li><a href=#2-general-formulation>2. General Formulation</a></li><li><a href=#3-equivalent-conditions-for-f-to-be-integrable>3. Equivalent Conditions (for $f$ to be integrable)</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h3 id=outline>Outline
+<a class=anchor href=#outline>#</a></h3><ul><li><strong>Definition of Integrals</strong> (meaning)</li><li><strong>Criteria for Integrability</strong> (necessary and sufficient conditions)</li><li><strong>Properties</strong> (Convergence)</li><li><strong>Compute/Estimate Integrals</strong></li></ul><h2 id=i-definitions-of-integrals>I. Definitions of Integrals
+<a class=anchor href=#i-definitions-of-integrals>#</a></h2><h3 id=1-geometric-motivation>1. Geometric Motivation
+<a class=anchor href=#1-geometric-motivation>#</a></h3><p>To compute the area of the region under the curve $y = f(x)$:</p><ol><li><strong>Form the upper and lower approximations</strong>:$$
+\begin{align}
+U(f, P) & = \sum_{i=1}^{n} \sup_{I_i} f(x) \cdot \ell(I_i) \
+L(f, P) & = \sum_{i=1}^{n} \inf_{I_i} f(x) \cdot \ell(I_i)
+\end{align}
+$$</li><li><strong>Form upper and lower integrals</strong>:
+$$
+\begin{align}
+\overline{S}_A f & = \inf_P U(f, P) \
+\underline{S}_A f & = \sup_P L(f, P)\end{align}$$</li></ol><h3 id=2-general-formulation>2. General Formulation
+<a class=anchor href=#2-general-formulation>#</a></h3><p><strong>Step up</strong>: Let $f: A \to \mathbb{R}$ be a bold function on a <strong>bold set</strong> $A$ in $\mathbb{R}^n$.</p><p><strong>Goal</strong>: We want to define the volume of the region under the surface $y = f(x)$<br>(or the integral $\int_A f(x)dx$).</p><h5 id=step-1---choose-a-rectangle>Step 1 - Choose a rectangle
+<a class=anchor href=#step-1---choose-a-rectangle>#</a></h5><p>Choose a rectangle<br>$$ B = [a_1, b_1] \times [a_2, b_2] \times \dots \times [a_n, b_n] $$<br>that contains $A$ and extend $f$ such that<br>$$ f(x) = 0 \quad \text{when } x \notin A. $$
+Then, <strong>Volume over $A$ = Volume over $B$</strong> :<br>$$ \int_A f(x) dx = \int_B f(x) dx. $$</p><h5 id=step-2-partition-b>Step 2: Partition $B$
+<a class=anchor href=#step-2-partition-b>#</a></h5><p>Divide sides of $B$ into subintervals to obtain a partition $P$:<br>a <strong>collection of smaller rectangles</strong>.</p><h5 id=step-3-form-upper-and-lower-sums>Step 3: Form upper and lower sums
+<a class=anchor href=#step-3-form-upper-and-lower-sums>#</a></h5><p>$$
+\begin{align}
+U(f, P) &= \sum_{R \in P} (\sup_{R} f) V(R) \longrightarrow \text{Upper sum of $f$ w.r.t. $P$}\
+L(f, P) &= \sum_{R \in P} (\inf_R f) V(R)\longrightarrow \text{Lower sum of $f$ w.r.t. $P$}
+\end{align}
+$$</p><h5 id=step-4-form-upper-and-lower-integrals>Step 4: Form upper and lower integrals
+<a class=anchor href=#step-4-form-upper-and-lower-integrals>#</a></h5><p>$$
+\begin{align}
+\overline{\int }_A f & = \inf_P U(f, P) \
+\underline{\int }_A f & = \sup_P L(f, P)
+\end{align}
+$$</p><h5 id=observation>Observation:
+<a class=anchor href=#observation>#</a></h5><p>$$
+L(f, P) \leq \text{&ldquo;real volume&rdquo;} \leq U(f, P)
+$$</p><p>$$
+\underline{\int_A} f \leq \int_A f \leq \overline{\int_A} f
+$$</p><blockquote><p>[!definition|*] Riemann integrable
+We say that $f$ is <strong>Riemann integrable</strong> if:
+$$
+\underline{\int_A} f = \overline{\int_A} f
+$$
+and the integral of $f$ on $A$ is defined as:$$
+\int_A f(x)dx = \int_A f
+$$</p></blockquote><hr><h5 id=other-notations>Other Notations:
+<a class=anchor href=#other-notations>#</a></h5><p>$$\int_A f$$
+is also denoted as the <strong>Lebesgue integral</strong> or just the integral of $f$ over $A$.</p><hr><h3 id=3-equivalent-conditions-for-f-to-be-integrable>3. Equivalent Conditions (for $f$ to be integrable)
+<a class=anchor href=#3-equivalent-conditions-for-f-to-be-integrable>#</a></h3><p><strong>General setting:</strong></p><ul><li>$f: A \subset \mathbb{R}^n \to \mathbb{R}$ is bold</li><li>$A \subset B$ is bold</li><li>$B$ is a rectangle in $\mathbb{R}^n$</li><li>$f(x) = 0$ for $x \notin A$</li></ul><h4 id=riemanns-condition><strong>Riemann’s Condition</strong>
+<a class=anchor href=#riemanns-condition>#</a></h4><blockquote><p>[!definition] Riemann’s Condition
+For every $\epsilon > 0$, there exists a partition $P_\epsilon$ of $B$ such that:
+$$
+0 \leq U(f, P_\epsilon) - L(f, P_\epsilon) &lt; \epsilon
+$$</p></blockquote><h4 id=darbouxs-condition><strong>Darboux’s Condition</strong>
+<a class=anchor href=#darbouxs-condition>#</a></h4><blockquote><p>[!definition]
+$\exists ,I$ s.t. $\forall,\epsilon > 0$, $\exists ,\delta > 0$ s.t:</p><ol><li>If $P$ is any partition of $B$ into rectangles $B_1, B_2, \dots, B_N$ with side length $\leq \delta$</li><li>If $x_{1} \in B_1, x_{2}\in B_{2}$, &mldr;, $x \in B_N$, then we have:
+$$
+\left| \sum_{i=1}^{N} f(x_i) V(B_i) - I \right| &lt; \epsilon
+$$</li></ol></blockquote><h4 id=remarks>Remarks
+<a class=anchor href=#remarks>#</a></h4><ul><li>The number $I$ is the <strong>value of the integral</strong>.</li><li>This sum is called the <strong>Riemann Sum</strong> of $f$ with respect to $P$.</li><li><strong>Interpretation</strong>: Darboux’s Condition says that when the partition is <strong>fine enough</strong> (i.e., side length $\leq \delta$), the Riemann Sum is a good approximation of the integral.</li></ul><blockquote><p>[!theorem|*]
+The following conditions are equivalent:</p><ol><li>$f$ is integrable on $A$.</li><li>$f$ satisfies <strong>Riemann’s Condition</strong>.</li><li>$f$ satisfies <strong>Darboux’s Condition</strong>.</li></ol></blockquote><h4 id=proof-of-the-theorem><strong>Proof of the Theorem</strong>
+<a class=anchor href=#proof-of-the-theorem>#</a></h4><h5 id=step-1-if-f-is-integrable-rightarrow-riemanns-condition><strong>Step 1: If $f$ is integrable $\Rightarrow$ Riemann’s Condition</strong>
+<a class=anchor href=#step-1-if-f-is-integrable-rightarrow-riemanns-condition>#</a></h5><p>Given $\epsilon > 0$, we need to find a partition $P_\epsilon$ such that:
+$$
+U\left( f, P_\epsilon \right) - L\left( f, P_\epsilon \right) &lt; \epsilon
+$$
+Since:
+$$
+\overline{\int_A} f = \inf_P U(f, P)
+$$</p><p>By the definition of infimum:</p><ol><li>$\exists P_1$ such that:
+$$
+U(f, P_1) \leq \overline{\int_A} f + \frac{\epsilon}{2}
+$$</li><li>$\exists P_2$ such that (similarly):
+$$
+L(f, P_2) \geq \underline{\int_A} f - \frac{\epsilon}{2}
+$$
+Now, let:
+$$
+P_\epsilon = P_1 \cup P_2
+$$
+Since $P_\epsilon$ is a <strong>refinement</strong> of both $P_1$ and $P_2$, it follows that:
+$$
+\begin{align}
+U(f, P_\epsilon) \leq U(f, P_1)\
+L(f, P_\epsilon) \geq L(f, P_2)
+\end{align}
+$$</li></ol><p>Thus,</p><p>$$
+\begin{align}
+U(f, P_\epsilon) - L(f, P_\epsilon) \leq U(f, P_1) - L(f, P_2)
+& &lt; \left(\overline{\int_A} f + \frac{\epsilon}{2}\right) - \left(\underline{\int_A} f - \frac{\epsilon}{2}\right) \
+& = \overline{\int_A} f - \underline{\int_A} f + \epsilon \
+& = 0+\epsilon \quad\Longrightarrow \text{Riemann’s Condition}
+\end{align}
+$$</p><h5 id=step-2-riemann-condition-rightarrow-f-integrable><strong>Step 2: Riemann Condition $\Rightarrow$ $f$ integrable</strong>
+<a class=anchor href=#step-2-riemann-condition-rightarrow-f-integrable>#</a></h5><p>By assumption, $\forall \epsilon > 0$, $\exists P_\epsilon$ such that:
+$$
+0 \leq U(f, P_\epsilon) - L(f, P_\epsilon) &lt; \epsilon
+$$
+Since $\overline{\int_A} f \leq U(f, P_\epsilon)$ and $\underline{\int_A} f \geq L(f, P_\epsilon)$, we have:
+$$
+0 \leq \overline{\int_A} f - \underline{\int_A} f \leq U(f, P_\epsilon) - L(f, P_\epsilon) &lt; \epsilon
+$$
+Thus,
+$$
+\overline{\int_A} f = \underline{\int_A} f \Rightarrow f \text{ integrable.}
+$$</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#outline>Outline</a></li></ul></li><li><a href=#i-definitions-of-integrals>I. Definitions of Integrals</a><ul><li><a href=#1-geometric-motivation>1. Geometric Motivation</a></li><li><a href=#2-general-formulation>2. General Formulation</a></li><li><a href=#3-equivalent-conditions-for-f-to-be-integrable>3. Equivalent Conditions (for $f$ to be integrable)</a></li></ul></li></ul></nav></div></aside></main></body></html>
