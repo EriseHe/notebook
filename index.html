@@ -1,18 +1,14 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Homepage</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="assets/js/script.js" defer></script>
-</head>
-<body>
-    <nav>
-        <a href="index.html">Home</a> |
-        <a href="about.html">About</a> |
-        <a href="contact.html">Contact</a>
-    </nav>
-    <h1>Welcome to My Site!</h1>
-    <p>This is the homepage of my awesome website.</p>
-</body>
-</html>
+---
+layout: default
+title: "Lecture Notes Collection"
+---
+
+<div class="container mt-5">
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Lecture Notes Collection</h1>
+      <p class="col-md-8 fs-4">Welcome to a modern, organized repository of lecture notes. Browse the topics below or use the navigation bar to explore further.</p>
+      <a href="{{ site.baseurl }}/notes/" class="btn btn-primary btn-lg">View Notes</a>
+    </div>
+  </div>
+</div>
