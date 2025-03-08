@@ -10,11 +10,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="he"
-                href="https://erisehe.github.io/he/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="zh"
                 href="https://erisehe.github.io/zh/categories/"
                 />
@@ -27,11 +22,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="he"
-                href="https://erisehe.github.io/he/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="zh"
                 href="https://erisehe.github.io/zh/"
                 />
@@ -41,11 +31,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://erisehe.github.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="he"
-                href="https://erisehe.github.io/he/tags/"
                 />
     <xhtml:link
                 rel="alternate"
