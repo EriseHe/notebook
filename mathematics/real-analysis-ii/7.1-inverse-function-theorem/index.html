@@ -14,23 +14,25 @@ B: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems
   1. Linear Case
   #
 
-Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.
 $$
 x = (x_1, x_2, \dots, x_n)^T
-$$
-Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:
-$$
+$$$$
 \begin{aligned}
-y_1 &amp;= a_{11} x_1 &#43; a_{12} x_2 &#43; \dots &#43; a_{1n} x_n \
-y_2 &amp;= a_{21} x_1 &#43; a_{22} x_2 &#43; \dots &#43; a_{2n} x_n \
-&amp;\vdots \
-y_n &amp;= a_{n1} x_1 &#43; \dots &#43; a_{nn} x_n
+y_1 &= a_{11} x_1 &#43; a_{12} x_2 &#43; \dots &#43; a_{1n} x_n \\
+y_2 &= a_{21} x_1 &#43; a_{22} x_2 &#43; \dots &#43; a_{2n} x_n \\
+&\vdots \\
+y_n &= a_{n1} x_1 &#43; \dots &#43; a_{nn} x_n
 \end{aligned}
-$$
-or
-$$
+$$$$
 A_{n\times n}X_{n\times 1} = Y_{n\times 1}
-$$">
+$$
+$$X \text{ has a unique solution} \Longleftrightarrow \det(A) \neq 0.$$
+$$
+X = A^{-1} Y
+$$$$
+f^{-1} \circ f = \text{Identity}
+$$
+The inverse theorem for $y = f(x)$:">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://erisehe.github.io/mathematics/real-analysis-ii/7.1-inverse-function-theorem/">
@@ -39,7 +41,7 @@ $$">
   <meta property="og:description" content="Two lines of ideas:
 A: CMP $⇒$ Inverse FT $⇒$ Applications in ODE
 B: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems
-I. Inverse Function Theorem # 1. Linear Case # Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$. $$ x = (x_1, x_2, \dots, x_n)^T $$ Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations: $$ \begin{aligned} y_1 &amp;= a_{11} x_1 &#43; a_{12} x_2 &#43; \dots &#43; a_{1n} x_n \ y_2 &amp;= a_{21} x_1 &#43; a_{22} x_2 &#43; \dots &#43; a_{2n} x_n \ &amp;\vdots \ y_n &amp;= a_{n1} x_1 &#43; \dots &#43; a_{nn} x_n \end{aligned} $$ or $$ A_{n\times n}X_{n\times 1} = Y_{n\times 1} $$">
+I. Inverse Function Theorem # 1. Linear Case # $$ x = (x_1, x_2, \dots, x_n)^T $$$$ \begin{aligned} y_1 &amp;= a_{11} x_1 &#43; a_{12} x_2 &#43; \dots &#43; a_{1n} x_n \\ y_2 &amp;= a_{21} x_1 &#43; a_{22} x_2 &#43; \dots &#43; a_{2n} x_n \\ &amp;\vdots \\ y_n &amp;= a_{n1} x_1 &#43; \dots &#43; a_{nn} x_n \end{aligned} $$$$ A_{n\times n}X_{n\times 1} = Y_{n\times 1} $$ $$X \text{ has a unique solution} \Longleftrightarrow \det(A) \neq 0.$$ $$ X = A^{-1} Y $$$$ f^{-1} \circ f = \text{Identity} $$ The inverse theorem for $y = f(x)$:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="mathematics">
@@ -49,7 +51,7 @@ I. Inverse Function Theorem # 1. Linear Case # Consider a linear map, $y = f(x):
 <link rel="canonical" href="https://erisehe.github.io/mathematics/real-analysis-ii/7.1-inverse-function-theorem/">
 <link rel="stylesheet" href="/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css" integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.24bf0fe5f2134c1b5824f7961a884442ec09ce5460c7f34bf16a46e829fdfee1.js" integrity="sha256-JL8P5fITTBtYJPeWGohEQuwJzlRgx/NL8WpG6Cn9/uE=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.8e8ca59eb9e79cecc4b55976057f6d548db146ebb3d4cfd1b18fbc5711d634aa.js" integrity="sha256-joylnrnnnOzEtVl2BX9tVI2xRuuz1M/RsY&#43;8VxHWNKo=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -144,9 +146,7 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#i-inverse-function-theorem">I. Inverse Function Theorem</a></li>
       </ul>
     </li>
-    <li><a href="#heading">$$
-f(f^{-1}(y)) = A A^{-1} y = y
-$$</a>
+    <li>
       <ul>
         <li></li>
         <li><a href="#visualization">Visualization:</a></li>
@@ -198,76 +198,59 @@ $$</a>
   1. Linear Case
   <a class="anchor" href="#1-linear-case">#</a>
 </h5>
-<p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.
 $$
 x = (x_1, x_2, \dots, x_n)^T
-$$
-Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:
-$$
+$$$$
 \begin{aligned}
-y_1 &amp;= a_{11} x_1 + a_{12} x_2 + \dots + a_{1n} x_n \
-y_2 &amp;= a_{21} x_1 + a_{22} x_2 + \dots + a_{2n} x_n \
-&amp;\vdots \
-y_n &amp;= a_{n1} x_1 + \dots + a_{nn} x_n
+y_1 &= a_{11} x_1 + a_{12} x_2 + \dots + a_{1n} x_n \\
+y_2 &= a_{21} x_1 + a_{22} x_2 + \dots + a_{2n} x_n \\
+&\vdots \\
+y_n &= a_{n1} x_1 + \dots + a_{nn} x_n
 \end{aligned}
-$$
-or
-$$
+$$$$
 A_{n\times n}X_{n\times 1} = Y_{n\times 1}
-$$</p>
-<blockquote>
-<p>[!assumption|*]
-$$X \text{ has a unique solution} \Longleftrightarrow \det(A) \neq 0.$$</p></blockquote>
-<p>In this case, the solution is given by:
+$$<blockquote>
+$$X \text{ has a unique solution} \Longleftrightarrow \det(A) \neq 0.$$</blockquote>
 $$
 X = A^{-1} Y
-$$
-Thus, the inverse function satisfies:
-$$
+$$$$
 f^{-1} \circ f = \text{Identity}
-$$
+$$<p>
 <strong>The inverse theorem for $y = f(x)$:</strong></p>
-<h2 id="heading">
+<h2 id="">
   $$
 f(f^{-1}(y)) = A A^{-1} y = y
 $$
-  <a class="anchor" href="#heading">#</a>
+  <a class="anchor" href="#">#</a>
 </h2>
 <h5 id="question-when-can-we-solve-a-nonlinear-system">
   Question: When can we solve a <strong>nonlinear</strong> system?
   <a class="anchor" href="#question-when-can-we-solve-a-nonlinear-system">#</a>
 </h5>
-<p>We consider a system of nonlinear equations:
 $$
 \begin{cases}
-f_1(x_1, x_2, \dots, x_n) = y_1 \
-f_2(x_1, x_2, \dots, x_n) = y_2 \
-\quad \vdots \
-f_n(x_1, x_2, \dots, x_n) = y_n
+    f_1(x_1, x_2, \dots, x_n) = y_1 \\
+    f_2(x_1, x_2, \dots, x_n) = y_2 \\
+    \quad \vdots \\
+    f_n(x_1, x_2, \dots, x_n) = y_n
 \end{cases}
-$$
-or equivalently,
-$$
+$$$$
 f(x) = y
-$$</p>
-<h5 id="2-the-inverse-of-a-general-function">
+$$<h5 id="2-the-inverse-of-a-general-function">
   2. The Inverse of a General Function
   <a class="anchor" href="#2-the-inverse-of-a-general-function">#</a>
 </h5>
 <p><strong>Notation:</strong><br>
 Let $y = f(x): A \subset \mathbb{R}^n \to \mathbb{R}^n$ be a <strong>diffeomorphism</strong>.</p>
-<p>$$
+$$
 y = (y_1, y_2, \dots, y_n)
-$$</p>
-<p>where</p>
-<p>$$
+$$<p>where</p>
+$$
 y_i = f_i(x_1, x_2, \dots, x_n)
-$$</p>
-<p>The Jacobian determinant of $f$ at $x$ is:</p>
-<p>$$
+$$<p>The Jacobian determinant of $f$ at $x$ is:</p>
+$$
 \det \left( \frac{\partial f_i}{\partial x_j} \right)
-$$</p>
-<blockquote>
+$$<blockquote>
 <p>[!theorem|7.1.1]
 Let $y = f(x): A \subset \mathbb{R}^n \to \mathbb{R}^n$ be of class $C^1$. Suppose $x_0 \in A$ and $\det(Df(x_0)) \neq 0$. Then there exists a neighborhood $U$ of $x_0$ and a neighborhood $W$ of $y_0 = f(x_0)$ such that:</p>
 <ol>
@@ -289,18 +272,15 @@ Let $y = f(x): A \subset \mathbb{R}^n \to \mathbb{R}^n$ be of class $C^1$. Suppo
   <a class="anchor" href="#recall-contraction-mapping-principle-cmp">#</a>
 </h1>
 <p>Let $\mathbb{X}$ be a <strong>complete metric space</strong> and let</p>
-<p>$$
+$$
 \varphi: \mathbb{X} \to \mathbb{X}
-$$</p>
-<p>be a function satisfying a contraction condition for some constant $k$ with $0 &lt; k &lt; 1$:</p>
-<p>$$
+$$<p>be a function satisfying a contraction condition for some constant $k$ with $0 &lt; k &lt; 1$:</p>
+$$
 d(\varphi(x), \varphi(y)) \leq k \cdot d(x,y), \quad \forall x,y \in \mathbb{X}.
-$$</p>
-<p>Then, there exists a <strong>unique fixed point</strong> $X^*$ such that:</p>
-<p>$$
-\varphi(X^<em>) = X^</em>.
-$$</p>
-<hr>
+$$<p>Then, there exists a <strong>unique fixed point</strong> $X^*$ such that:</p>
+$$
+\varphi(X^*) = X^*.
+$$<hr>
 <h2 id="proof-of-the-inverse-function-theorem-ift">
   Proof of the Inverse Function Theorem (IFT)
   <a class="anchor" href="#proof-of-the-inverse-function-theorem-ift">#</a>
@@ -309,109 +289,86 @@ $$</p>
   <strong>Step 1: Reductions</strong>
   <a class="anchor" href="#step-1-reductions">#</a>
 </h3>
-<p>(a) <strong>May assume</strong> that the Jacobian matrix at $x_0$ is the identity:
 $$
 D f(x_0) = I.
-$$
-In fact, define the transformation:
-$$
+$$$$
 T = D f(x_0).
-$$
+$$<p>
 Then, we can consider a new function:</p>
-<p>$$
+$$
 \tilde{f} = T^{-1} \circ f.
-$$</p>
-<p>Thus,</p>
-<p>$$
+$$<p>Thus,</p>
+$$
 D(\tilde{f})(x_0) = I.
-$$</p>
-<p>(b) <strong>Main assumption:</strong></p>
-<p>$$
+$$<p>(b) <strong>Main assumption:</strong></p>
+$$
 x_0 = f^{-1}(y_0).
-$$</p>
-<p>To see this, define:</p>
-<p>$$
+$$<p>To see this, define:</p>
+$$
 h(x) = f(x) - f(x_0).
-$$</p>
-<p>Then,</p>
-<p>$$
+$$<p>Then,</p>
+$$
 D h(x_0) = D f(x_0) - D f(x_0) = 0.
-$$</p>
-<p>If $h^{-1}$ exists, then $y = f(x)$ can be solved as:</p>
-<p>$$
+$$<p>If $h^{-1}$ exists, then $y = f(x)$ can be solved as:</p>
+$$
 f(x) = h(x) + f(x_0) = y.
-$$</p>
-<p>Thus, the inverse function satisfies:</p>
-<p>$$
+$$<p>Thus, the inverse function satisfies:</p>
+$$
 x = x_0 - h^{-1}(y - f(x_0)).
-$$</p>
-<hr>
+$$<hr>
 <h2 id="step-2-existence-of-the-inverse-function">
   <strong>Step 2: Existence of the Inverse Function</strong>
   <a class="anchor" href="#step-2-existence-of-the-inverse-function">#</a>
 </h2>
 <p>(a) <strong>Setup:</strong> By the reduction above, we assume:</p>
-<p>$$
+$$
 x_0 = 0, \quad y_0 = f(x_0) = 0, \quad D f(x_0) = I.
-$$</p>
-<p><strong>Need to show:</strong><br>
+$$<p><strong>Need to show:</strong><br>
 There exist neighborhoods $U$ and $W$ such that the mapping:</p>
-<p>$$
+$$
 y = f(x): U \to W
-$$</p>
-<p>has an <strong>inverse function</strong> in $W$, meaning:</p>
-<p>$$
+$$<p>has an <strong>inverse function</strong> in $W$, meaning:</p>
+$$
 \forall y \in W, \quad \exists! x \in U \text{ such that } y = f(x).
-$$</p>
-<p><strong>Illustration:</strong></p>
+$$<p><strong>Illustration:</strong></p>
 <p>A diagram representing $U$ mapping to $W$ via $f$, where $f$ is invertible.</p>
 <hr>
 <h3 id="for-a-fixed-y-in-mathbbrn-define">
   <strong>For a fixed $y \in \mathbb{R}^n$, define:</strong>
   <a class="anchor" href="#for-a-fixed-y-in-mathbbrn-define">#</a>
 </h3>
-<p>$$
+$$
 g_x = g(y) = y + x - f(x).
-$$</p>
-<p>We need to show that <strong>$g_x$ has a unique fixed point</strong>.</p>
+$$<p>We need to show that <strong>$g_x$ has a unique fixed point</strong>.</p>
 <p>(b) <strong>Construction of neighborhoods $U$ and $W$</strong></p>
 <p>Let:</p>
-<p>$$
+$$
 g(x) = x - f(x).
-$$</p>
-<p>Then:</p>
-<p>$$
+$$<p>Then:</p>
+$$
 D g(x) = I - D f(x).
-$$</p>
-<p>Since:</p>
-<p>$$
+$$<p>Since:</p>
+$$
 D g(x_0) = I - I = 0,
-$$</p>
-<p>it follows that:</p>
-<p>$$
+$$<p>it follows that:</p>
+$$
 D g(x) \text{ is close to zero}.
-$$</p>
-<p>Thus, choosing:</p>
-<p>$$
+$$<p>Thus, choosing:</p>
+$$
 \epsilon = \frac{1}{2n},
-$$</p>
-<p>there exists $\delta &gt; 0$ such that:</p>
-<p>$$
-|x - x_0| &lt; \delta \implies |D g_x(x)| \leq \frac{1}{2n}.
-$$</p>
-<p>Applying the <strong>Contraction Mapping Principle</strong> to $g_x$, we obtain:</p>
-<p>$$
+$$<p>there exists $\delta &gt; 0$ such that:</p>
+$$
+\|x - x_0\| < \delta \implies \|D g_x(x)\| \leq \frac{1}{2n}.
+$$<p>Applying the <strong>Contraction Mapping Principle</strong> to $g_x$, we obtain:</p>
+$$
 \exists x \in B_{\delta}(x_0) \text{ such that } g_x(x) = x.
-$$</p>
-<p>Thus:</p>
-<p>$$
+$$<p>Thus:</p>
+$$
 g_x(x) = g_x(x_0) + D g_x(\xi)(x - x_0),
-$$</p>
-<p>which shows:</p>
-<p>$$
+$$<p>which shows:</p>
+$$
 D g_x(\xi) (x - x_0).
-$$</p>
-<hr>
+$$<hr>
 <h1 id="chapter-7-inverse-and-implicit-function-theorems">
   Chapter 7: Inverse and Implicit Function Theorems
   <a class="anchor" href="#chapter-7-inverse-and-implicit-function-theorems">#</a>
@@ -421,10 +378,9 @@ $$</p>
   <a class="anchor" href="#contraction-mapping-principle-cmp">#</a>
 </h2>
 <p>Let $\mathbb{X}$ be a <strong>complete metric space</strong>, and let $\varphi: \mathbb{X} \to \mathbb{X}$ satisfy:</p>
-<p>$$
-d(\varphi(x), \varphi(y)) \leq k \cdot d(x,y), \quad 0 &lt; k &lt; 1.
-$$</p>
-<p>Then, there exists a <strong>unique fixed point</strong> $X^<em>$ such that $\varphi(X^</em>) = X^*$.</p>
+$$
+d(\varphi(x), \varphi(y)) \leq k \cdot d(x,y), \quad 0 < k < 1.
+$$<p>Then, there exists a <strong>unique fixed point</strong> $X^<em>$ such that $\varphi(X^</em>) = X^*$.</p>
 <hr>
 <h2 id="proof-of-the-inverse-function-theorem-ift-1">
   <strong>Proof of the Inverse Function Theorem (IFT)</strong>
@@ -436,27 +392,24 @@ $$</p>
 </h3>
 <p>Assume $Df(x_0) = I$. Define $\tilde{f} = Df(x_0)^{-1} \circ f$, ensuring $D\tilde{f}(x_0) = I$.<br>
 For $x_0 = f^{-1}(y_0)$, define $h(x) = f(x) - f(x_0)$. Since $Dh(x_0) = 0$, solving $f(x) = y$ reduces to:</p>
-<p>$$
+$$
 x = x_0 - h^{-1}(y - f(x_0)).
-$$</p>
-<hr>
+$$<hr>
 <h3 id="step-2-existence-of-the-inverse">
   <strong>Step 2: Existence of the Inverse</strong>
   <a class="anchor" href="#step-2-existence-of-the-inverse">#</a>
 </h3>
 <p>Set up: $x_0 = 0, y_0 = f(x_0) = 0, Df(x_0) = I$. Need to show a local inverse:</p>
-<p>$$
-\forall y \in W, \quad \exists! x \in U \text{ such that } y = f(x).
-$$</p>
-<p>Define:</p>
-<p>$$
-g_x(y) = y + x - f(x).
-$$</p>
-<p>We need to show $g_x$ has a <strong>unique fixed point</strong>.</p>
-<p>Let $g(x) = x - f(x)$, then $Dg(x) = I - Df(x)$. Since $Dg(x_0) = 0$, choosing $\epsilon = \frac{1}{2n}$ ensures $|D g_x(x)|$ is small. Applying <strong>CMP</strong>, we get:</p>
-<p>$$
-\exists x \in B_{\delta}(x_0) \text{ such that } g_x(x) = x.
 $$
+\forall y \in W, \quad \exists! x \in U \text{ such that } y = f(x).
+$$<p>Define:</p>
+$$
+g_x(y) = y + x - f(x).
+$$<p>We need to show $g_x$ has a <strong>unique fixed point</strong>.</p>
+<p>Let $g(x) = x - f(x)$, then $Dg(x) = I - Df(x)$. Since $Dg(x_0) = 0$, choosing $\epsilon = \frac{1}{2n}$ ensures $|D g_x(x)|$ is small. Applying <strong>CMP</strong>, we get:</p>
+$$
+\exists x \in B_{\delta}(x_0) \text{ such that } g_x(x) = x.
+$$<p>
 Thus, the inverse exists and is unique.</p>
 </article>
  
@@ -504,9 +457,7 @@ Thus, the inverse exists and is unique.</p>
         <li><a href="#i-inverse-function-theorem">I. Inverse Function Theorem</a></li>
       </ul>
     </li>
-    <li><a href="#heading">$$
-f(f^{-1}(y)) = A A^{-1} y = y
-$$</a>
+    <li>
       <ul>
         <li></li>
         <li><a href="#visualization">Visualization:</a></li>
