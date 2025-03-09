@@ -1,6 +1,6 @@
 {
-  "name": "Lecture Notes",
-  "short_name": "Lecture Notes",
+  "name": "Lecture Note",
+  "short_name": "Lecture Note",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
