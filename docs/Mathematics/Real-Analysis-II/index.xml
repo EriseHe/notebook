@@ -1,39 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Real Analysis II on Lecture Note</title><link>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/</link><description>Recent content in Real Analysis II on Lecture Note</description><generator>Hugo</generator><language>en</language><atom:link href="https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/index.xml" rel="self" type="application/rss+xml"/><item><title>7.1 Inverse Function Theorem</title><link>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/</guid><description>&lt;h1 id="71-inverse-function-theorem-ift">
- 7.1 Inverse Function Theorem (IFT)
- &lt;a class="anchor" href="#71-inverse-function-theorem-ift">#&lt;/a>
-&lt;/h1>
-&lt;p>Two lines of ideas:&lt;/p>
-&lt;p>&lt;strong>A&lt;/strong>: CMP $⇒$ Inverse FT $⇒$ Applications in ODE&lt;br>
-&lt;strong>B&lt;/strong>: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems&lt;/p>
-&lt;h3 id="i-inverse-function-theorem">
- I. Inverse Function Theorem
- &lt;a class="anchor" href="#i-inverse-function-theorem">#&lt;/a>
-&lt;/h3>
-&lt;h5 id="1-linear-case">
- 1. Linear Case
- &lt;a class="anchor" href="#1-linear-case">#&lt;/a>
-&lt;/h5>
-&lt;p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.
-$$
-x = (x_1, x_2, \dots, x_n)^T
-$$
-Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p></description></item><item><title>7.2 Implicit Function Theorem</title><link>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/without-toc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/without-toc/</guid><description>&lt;h1 id="71-inverse-function-theorem-ift">
- 7.1 Inverse Function Theorem (IFT)
- &lt;a class="anchor" href="#71-inverse-function-theorem-ift">#&lt;/a>
-&lt;/h1>
-&lt;p>Two lines of ideas:&lt;/p>
-&lt;p>&lt;strong>A&lt;/strong>: CMP $⇒$ Inverse FT $⇒$ Applications in ODE&lt;br>
-&lt;strong>B&lt;/strong>: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems&lt;/p>
-&lt;h3 id="i-inverse-function-theorem">
- I. Inverse Function Theorem
- &lt;a class="anchor" href="#i-inverse-function-theorem">#&lt;/a>
-&lt;/h3>
-&lt;h5 id="1-linear-case">
- 1. Linear Case
- &lt;a class="anchor" href="#1-linear-case">#&lt;/a>
-&lt;/h5>
-&lt;p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.
-$$
-x = (x_1, x_2, \dots, x_n)^T
-$$
-Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Real Analysis II on エリスの講義ノート</title>
+    <link>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/</link>
+    <description>Recent content in Real Analysis II on エリスの講義ノート</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>7.1 Inverse Function Theorem</title>
+      <link>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/</guid>
+      <description>&lt;h1 id=&#34;71-inverse-function-theorem-ift&#34;&gt;&#xA;  7.1 Inverse Function Theorem (IFT)&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#71-inverse-function-theorem-ift&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Two lines of ideas:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: CMP $⇒$ Inverse FT $⇒$ Applications in ODE&lt;br&gt;&#xA;&lt;strong&gt;B&lt;/strong&gt;: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems&lt;/p&gt;&#xA;&lt;h3 id=&#34;i-inverse-function-theorem&#34;&gt;&#xA;  I. Inverse Function Theorem&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#i-inverse-function-theorem&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;h5 id=&#34;1-linear-case&#34;&gt;&#xA;  1. Linear Case&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#1-linear-case&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h5&gt;&#xA;&lt;p&gt;Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.&#xA;$$&#xA;x = (x_1, x_2, \dots, x_n)^T&#xA;$$&#xA;Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>7.2 Implicit Function Theorem</title>
+      <link>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/without-toc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/without-toc/</guid>
+      <description>&lt;h1 id=&#34;71-inverse-function-theorem-ift&#34;&gt;&#xA;  7.1 Inverse Function Theorem (IFT)&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#71-inverse-function-theorem-ift&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Two lines of ideas:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: CMP $⇒$ Inverse FT $⇒$ Applications in ODE&lt;br&gt;&#xA;&lt;strong&gt;B&lt;/strong&gt;: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems&lt;/p&gt;&#xA;&lt;h3 id=&#34;i-inverse-function-theorem&#34;&gt;&#xA;  I. Inverse Function Theorem&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#i-inverse-function-theorem&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;h5 id=&#34;1-linear-case&#34;&gt;&#xA;  1. Linear Case&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#1-linear-case&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h5&gt;&#xA;&lt;p&gt;Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.&#xA;$$&#xA;x = (x_1, x_2, \dots, x_n)^T&#xA;$$&#xA;Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

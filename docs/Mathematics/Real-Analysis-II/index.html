@@ -1,12 +1,488 @@
-<!doctype html><html lang=en dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
-  MATH 412 Lecture Notes
-  #
-"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/"><meta property="og:site_name" content="Lecture Note"><meta property="og:title" content="Real Analysis II"><meta property="og:description" content="MATH 412 Lecture Notes #"><meta property="og:locale" content="en"><meta property="og:type" content="website"><title>Real Analysis II | Lecture Note</title>
-<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/><link rel=stylesheet href=/book.min.aa9afc3ef2a415f35a8a90cc760146f4c762517d6a67531a3720979f45f7b45d.css integrity="sha256-qpr8PvKkFfNaipDMdgFG9MdiUX1qZ1MaNyCXn0X3tF0=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.ad362039298d53c31792eeb2c76c6eec62722196afc06885e50ed6b6151d75f0.js integrity="sha256-rTYgOSmNU8MXku6yx2xu7GJyIZavwGiF5Q7WthUddfA=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/index.xml title="Lecture Note"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Lecture Note</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
-<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/svg/translate.svg class=book-icon alt=Languages>
-English</a></label><ul><li><a href=/zh/>中文</a></li></ul></li></ul><ul><li class=book-section-flat><a href=/docs/Mathematics/>Mathematics</a><ul><li><input type=checkbox id=section-d2c0bdb9ba2e52b838f477b5da5eb38c class=toggle checked>
-<label for=section-d2c0bdb9ba2e52b838f477b5da5eb38c class="flex justify-between"><a href=/docs/Mathematics/Real-Analysis-II/ class=active>Real Analysis II</a></label><ul><li><a href=/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/>7.1 Inverse Function Theorem</a></li><li><a href=/docs/Mathematics/Real-Analysis-II/without-toc/>7.2 Implicit Function Theorem</a></li></ul></li><li><input type=checkbox id=section-4a9e156344eedecf7a5a6bee1935763f class=toggle>
-<label for=section-4a9e156344eedecf7a5a6bee1935763f class="flex justify-between"><a role=button>PDE</a></label><ul><li><a href=/docs/Mathematics/PDE/Numerical-Methods/>Numerical Methods</a><ul><li><a href=/docs/Mathematics/PDE/Numerical-Methods/4th-level/>4th Level</a></li></ul></li></ul></li></ul></li><li class=book-section-flat><span>Physics</span><ul><li><a href=/docs/Physics/buttons/>Buttons</a></li><li><a href=/docs/Physics/columns/>Columns</a></li><li><a href=/docs/Physics/details/>Details</a></li><li><a href=/docs/Physics/hints/>Hints</a></li><li><a href=/docs/Physics/mermaid/>Mermaid</a></li><li><a href=/docs/Physics/tabs/>Tabs</a></li><li><a href=/docs/Physics/katex/>KaTeX</a></li></ul></li></ul><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/alex-shpak/hugo-book target=_blank rel=noopener>Github</a></li><li><a href=https://themes.gohugo.io/themes/hugo-book/ target=_blank rel=noopener>Hugo Themes</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>Real Analysis II</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#math-412-lecture-notes>MATH 412 Lecture Notes</a></li></ul></nav></aside></header><article class="markdown book-article markdown-content"><h1 id=math-412-lecture-notes>MATH 412 Lecture Notes
-<a class=anchor href=#math-412-lecture-notes>#</a></h1></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/alex-shpak/hugo-book/edit/main/exampleSite/content/docs/Mathematics/Real%20Analysis%20II/_index.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
-<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#math-412-lecture-notes>MATH 412 Lecture Notes</a></li></ul></nav></div></aside></main><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]]},svg:{fontCache:"global"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js></script></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/">
+  <meta property="og:site_name" content="エリスの講義ノート">
+  <meta property="og:title" content="Real Analysis II">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+<title>Real Analysis II | エリスの講義ノート</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/">
+<link rel="stylesheet" href="/book.min.aa9afc3ef2a415f35a8a90cc760146f4c762517d6a67531a3720979f45f7b45d.css" integrity="sha256-qpr8PvKkFfNaipDMdgFG9MdiUX1qZ1MaNyCXn0X3tF0=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.15eb01a3338f8df728849c5b1b153174e5d0505712e28d798c698595044db0d9.js" integrity="sha256-FesBozOPjfcohJxbGxUxdOXQUFcS4o15jGmFlQRNsNk=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/index.xml" title="エリスの講義ノート" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>エリスの講義ノート</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/zh/">
+          中文
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Mathematics</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d2c0bdb9ba2e52b838f477b5da5eb38c" class="toggle" checked />
+    <label for="section-d2c0bdb9ba2e52b838f477b5da5eb38c" class="flex justify-between">
+      <a role="button" class="active">Real Analysis II</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/" class="">7.1 Inverse Function Theorem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/Real-Analysis-II/without-toc/" class="">7.2 Implicit Function Theorem</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4a9e156344eedecf7a5a6bee1935763f" class="toggle"  />
+    <label for="section-4a9e156344eedecf7a5a6bee1935763f" class="flex justify-between">
+      <a role="button" class="">PDE</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/PDE/Numerical-Methods/" class="">Numerical Methods</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/PDE/Numerical-Methods/4th-level/" class="">4th Level</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Physics</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/katex/" class="">KaTeX</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/alex-shpak/hugo-book"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/themes/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Real Analysis II</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  
+  <article class="markdown book-article markdown-content"></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/alex-shpak/hugo-book/edit/main/exampleSite/content/docs/Mathematics/Real%20Analysis%20II/_index.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents"></nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+  
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
