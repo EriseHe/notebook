@@ -1,6 +1,6 @@
 {
-  "name": "Lecture Note",
-  "short_name": "Lecture Note",
+  "name": "エリスの講義ノート",
+  "short_name": "エリスの講義ノート",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
