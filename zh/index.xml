@@ -1,11 +1,154 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>エリスの講義ノート</title>
-    <link>https://erisehe.github.io/zh/</link>
-    <description>Recent content on エリスの講義ノート</description>
-    <generator>Hugo</generator>
-    <language>zh</language>
-    <atom:link href="https://erisehe.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>欢迎 on エリスの講義ノート</title><link>https://erisehe.github.io/zh/</link><description>Recent content in 欢迎 on エリスの講義ノート</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/zh/index.xml" rel="self" type="application/rss+xml"/><item><title>7.1 反函数定理</title><link>https://erisehe.github.io/zh/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/zh/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/</guid><description>&lt;h1 id="71-inverse-function-theorem-ift">
+ 7.1 Inverse Function Theorem (IFT)
+ &lt;a class="anchor" href="#71-inverse-function-theorem-ift">#&lt;/a>
+&lt;/h1>
+&lt;p>Two lines of ideas:&lt;/p>
+&lt;p>&lt;strong>A&lt;/strong>: CMP $⇒$ Inverse FT $⇒$ Applications in ODE&lt;br>
+&lt;strong>B&lt;/strong>: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems&lt;/p>
+&lt;h3 id="i-inverse-function-theorem">
+ I. Inverse Function Theorem
+ &lt;a class="anchor" href="#i-inverse-function-theorem">#&lt;/a>
+&lt;/h3>
+&lt;h5 id="1-linear-case">
+ 1. Linear Case
+ &lt;a class="anchor" href="#1-linear-case">#&lt;/a>
+&lt;/h5>
+&lt;p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.
+$$
+x = (x_1, x_2, \dots, x_n)^T
+$$
+Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p></description></item><item><title>7.2 隐函数定理</title><link>https://erisehe.github.io/zh/docs/Mathematics/Real-Analysis-II/without-toc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/zh/docs/Mathematics/Real-Analysis-II/without-toc/</guid><description>&lt;h1 id="71-inverse-function-theorem-ift">
+ 7.1 Inverse Function Theorem (IFT)
+ &lt;a class="anchor" href="#71-inverse-function-theorem-ift">#&lt;/a>
+&lt;/h1>
+&lt;p>Two lines of ideas:&lt;/p>
+&lt;p>&lt;strong>A&lt;/strong>: CMP $⇒$ Inverse FT $⇒$ Applications in ODE&lt;br>
+&lt;strong>B&lt;/strong>: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems&lt;/p>
+&lt;h3 id="i-inverse-function-theorem">
+ I. Inverse Function Theorem
+ &lt;a class="anchor" href="#i-inverse-function-theorem">#&lt;/a>
+&lt;/h3>
+&lt;h5 id="1-linear-case">
+ 1. Linear Case
+ &lt;a class="anchor" href="#1-linear-case">#&lt;/a>
+&lt;/h5>
+&lt;p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.
+$$
+x = (x_1, x_2, \dots, x_n)^T
+$$
+Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p></description></item><item><title>Creating a New Theme</title><link>https://erisehe.github.io/zh/posts/creating-a-new-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/zh/posts/creating-a-new-theme/</guid><description>&lt;h2 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h2>
+&lt;p>This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p>
+&lt;p>We&amp;rsquo;ll start with creating a new site with a very basic template. Then we&amp;rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.&lt;/p></description></item><item><title>Migrate to Hugo from Jekyll</title><link>https://erisehe.github.io/zh/posts/migrate-from-jekyll/</link><pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/zh/posts/migrate-from-jekyll/</guid><description>&lt;h2 id="move-static-content-to-static">
+ Move static content to &lt;code>static&lt;/code>
+ &lt;a class="anchor" href="#move-static-content-to-static">#&lt;/a>
+&lt;/h2>
+&lt;p>Jekyll has a rule that any directory not starting with &lt;code>_&lt;/code> will be copied as-is to the &lt;code>_site&lt;/code> output. Hugo keeps all static content under &lt;code>static&lt;/code>. You should therefore move it all there.
+With Jekyll, something that looked like&lt;/p>
+&lt;pre>&lt;code>▾ &amp;lt;root&amp;gt;/
+ ▾ images/
+ logo.png
+&lt;/code>&lt;/pre>
+&lt;p>should become&lt;/p>
+&lt;pre>&lt;code>▾ &amp;lt;root&amp;gt;/
+ ▾ static/
+ ▾ images/
+ logo.png
+&lt;/code>&lt;/pre>
+&lt;p>Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as &lt;code>CNAME&lt;/code>) to be moved to &lt;code>static&lt;/code>.&lt;/p></description></item><item><title>(Hu)go Template Primer</title><link>https://erisehe.github.io/zh/posts/goisforlovers/</link><pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/zh/posts/goisforlovers/</guid><description>&lt;p>Hugo uses the excellent 
+ &lt;a href="https://golang.org/">Go&lt;/a> 
+ &lt;a href="https://golang.org/pkg/html/template/">html/template&lt;/a> library for
+its template engine. It is an extremely lightweight engine that provides a very
+small amount of logic. In our experience that it is just the right amount of
+logic to be able to create a good static website. If you have used other
+template systems from different languages or frameworks you will find a lot of
+similarities in Go templates.&lt;/p>
+&lt;p>This document is a brief primer on using Go templates. The 
+ &lt;a href="https://golang.org/pkg/html/template/">Go docs&lt;/a>
+provide more details.&lt;/p></description></item><item><title>Getting Started with Hugo</title><link>https://erisehe.github.io/zh/posts/hugoisforlovers/</link><pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/zh/posts/hugoisforlovers/</guid><description>&lt;h2 id="step-1-install-hugo">
+ Step 1. Install Hugo
+ &lt;a class="anchor" href="#step-1-install-hugo">#&lt;/a>
+&lt;/h2>
+&lt;p>Go to 
+ &lt;a href="https://github.com/spf13/hugo/releases">Hugo releases&lt;/a> and download the
+appropriate version for your OS and architecture.&lt;/p>
+&lt;p>Save it somewhere specific as we will be using it in the next step.&lt;/p>
+&lt;p>More complete instructions are available at 
+ &lt;a href="https://gohugo.io/getting-started/installing/">Install Hugo&lt;/a>&lt;/p>
+&lt;h2 id="step-2-build-the-docs">
+ Step 2. Build the Docs
+ &lt;a class="anchor" href="#step-2-build-the-docs">#&lt;/a>
+&lt;/h2>
+&lt;p>Hugo has its own example site which happens to also be the documentation site
+you are reading right now.&lt;/p>
+&lt;p>Follow the following steps:&lt;/p></description></item><item><title/><link>https://erisehe.github.io/zh/docs/Mathematics/hidden/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/zh/docs/Mathematics/hidden/</guid><description>&lt;h1 id="this-page-is-hidden-in-menu">
+ This page is hidden in menu
+ &lt;a class="anchor" href="#this-page-is-hidden-in-menu">#&lt;/a>
+&lt;/h1>
+&lt;h1 id="quondam-non-pater-est-dignior-ille-eurotas">
+ Quondam non pater est dignior ille Eurotas
+ &lt;a class="anchor" href="#quondam-non-pater-est-dignior-ille-eurotas">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="latent-te-facies">
+ Latent te facies
+ &lt;a class="anchor" href="#latent-te-facies">#&lt;/a>
+&lt;/h2>
+&lt;p>Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus,
+frementes, qui in vel. Hippotades Peleus 
+ &lt;a href="http://gratia.net/tot-qua.php">pennas
+conscia&lt;/a> cuiquam Caeneus quas.&lt;/p>
+&lt;ul>
+&lt;li>Pater demittere evincitque reddunt&lt;/li>
+&lt;li>Maxime adhuc pressit huc Danaas quid freta&lt;/li>
+&lt;li>Soror ego&lt;/li>
+&lt;li>Luctus linguam saxa ultroque prior Tatiumque inquit&lt;/li>
+&lt;li>Saepe liquitur subita superata dederat Anius sudor&lt;/li>
+&lt;/ul>
+&lt;h2 id="cum-honorum-latona">
+ Cum honorum Latona
+ &lt;a class="anchor" href="#cum-honorum-latona">#&lt;/a>
+&lt;/h2>
+&lt;p>O fallor 
+ &lt;a href="http://www.spectataharundine.org/aquas-relinquit.html">in sustinui
+iussorum&lt;/a> equidem.
+Nymphae operi oris alii fronde parens dumque, in auro ait mox ingenti proxima
+iamdudum maius?&lt;/p></description></item><item><title/><link>https://erisehe.github.io/zh/docs/Mathematics/PDE/Numerical-Methods/4th-level/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/zh/docs/Mathematics/PDE/Numerical-Methods/4th-level/</guid><description>&lt;h1 id="4th-level-of-menu">
+ 4th Level of Menu
+ &lt;a class="anchor" href="#4th-level-of-menu">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="caesorum-illa-tu-sentit-micat-vestes-papyriferi">
+ Caesorum illa tu sentit micat vestes papyriferi
+ &lt;a class="anchor" href="#caesorum-illa-tu-sentit-micat-vestes-papyriferi">#&lt;/a>
+&lt;/h2>
+&lt;p>Inde aderam facti; Theseus vis de tauri illa peream. Oculos &lt;strong>uberaque&lt;/strong> non
+regisque vobis cursuque, opus venit quam vulnera. Et maiora necemque, lege modo;
+gestanda nitidi, vero? Dum ne pectoraque testantur.&lt;/p>
+&lt;p>Venasque repulsa Samos qui, exspectatum eram animosque hinc, 
+ &lt;a href="http://www.creveratnon.net/apricaaetheriis">aut
+manes&lt;/a>, Assyrii. Cupiens auctoribus
+pariter rubet, profana magni super nocens. Vos ius sibilat inpar turba visae
+iusto! Sedes ante dum superest &lt;strong>extrema&lt;/strong>.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/zh/docs/Physics/buttons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/zh/docs/Physics/buttons/</guid><description>&lt;h1 id="buttons">
+ Buttons
+ &lt;a class="anchor" href="#buttons">#&lt;/a>
+&lt;/h1>
+&lt;p>Buttons are styled links that can lead to local page or external link.&lt;/p>
+&lt;h2 id="example">
+ Example
+ &lt;a class="anchor" href="#example">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tpl" data-lang="tpl">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">button&lt;/span> &lt;span style="color:#a6e22e">relref&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;/&amp;#34;&lt;/span> &lt;span style="color:#f92672">[&lt;/span>&lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;...&amp;#34;&lt;/span>&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>Get Home&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">button&lt;/span> &lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">button&lt;/span> &lt;span style="color:#a6e22e">href&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>Contribute&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">button&lt;/span> &lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://erisehe.github.io/zh/" class="book-btn">Get Home&lt;/a>
+
+&lt;a href="https://github.com/alex-shpak/hugo-book" target="_blank" rel="noopener" class="book-btn">Contribute&lt;/a>
+&lt;/p></description></item><item><title/><link>https://erisehe.github.io/zh/docs/Physics/section/first-page/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/zh/docs/Physics/section/first-page/</guid><description>&lt;h1 id="first-page">
+ First page
+ &lt;a class="anchor" href="#first-page">#&lt;/a>
+&lt;/h1>
+&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/zh/docs/Physics/section/second-page/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/zh/docs/Physics/section/second-page/</guid><description>&lt;h1 id="second-page">
+ Second Page
+ &lt;a class="anchor" href="#second-page">#&lt;/a>
+&lt;/h1>
+&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p></description></item></channel></rss>
