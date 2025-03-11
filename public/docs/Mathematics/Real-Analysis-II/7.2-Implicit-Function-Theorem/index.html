@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  7.2 Implicit Function Theorem (IFT)
+  #
+
+
+  1. Recall IFT
+  #
+
+Theorem 7.1.1: Let $y = f(x): A \subset \mathbb{R}^n \to \mathbb{R}^n$ be of class $C^1$. Suppose $x_0 \in A$ with:
+$$
+J_f(x_0) = \det(Df(x_0)) \ne 0
+$$
+Then there exist neighborhoods $U$ of $x_0$ in $A$ and $W$ of $y_0 = f(x_0)$ such that:
+
+$f(U) = W$ and $f: U \to W$ has an inverse $f^{-1}: W \to U$.
+$f^{-1} \in C^1$ (If $f \in C^r$, then $f^{-1} \in C^r$).
+$Df^{-1}(y) = [Df(x)]^{-1}$ for $x \in U$ and $y = f(x)$.
+
+
+  2. Proof of Theorem 7.1.1
+  #
+
+
+  Step 1: Reduction
+  #
+
+We may assume $Df(x_0) = I$ and $x_0 = 0$, $y_0 = f(x_0)$.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/7.2-Implicit-Function-Theorem/">
+  <meta property="og:site_name" content="エリスの講義ノート:3">
+  <meta property="og:title" content="7.2 Implicit Function Theorem">
+  <meta property="og:description" content="7.2 Implicit Function Theorem (IFT) # 1. Recall IFT # Theorem 7.1.1: Let $y = f(x): A \subset \mathbb{R}^n \to \mathbb{R}^n$ be of class $C^1$. Suppose $x_0 \in A$ with: $$ J_f(x_0) = \det(Df(x_0)) \ne 0 $$ Then there exist neighborhoods $U$ of $x_0$ in $A$ and $W$ of $y_0 = f(x_0)$ such that:
+$f(U) = W$ and $f: U \to W$ has an inverse $f^{-1}: W \to U$. $f^{-1} \in C^1$ (If $f \in C^r$, then $f^{-1} \in C^r$). $Df^{-1}(y) = [Df(x)]^{-1}$ for $x \in U$ and $y = f(x)$. 2. Proof of Theorem 7.1.1 # Step 1: Reduction # We may assume $Df(x_0) = I$ and $x_0 = 0$, $y_0 = f(x_0)$.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>7.2 Implicit Function Theorem | エリスの講義ノート:3</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/7.2-Implicit-Function-Theorem/">
+<link rel="stylesheet" href="/book.min.434035e7885c7f5d12818bd9f111cf1a0925c6fb78382667381c3d5eda3fb4f1.css" integrity="sha256-Q0A154hcf10SgYvZ8RHPGgklxvt4OCZnOBw9Xto/tPE=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.97b92c8b2e95a7639f91e312f67b953715482445a19edd1cf2ffa05faec800e7.js" integrity="sha256-l7ksiy6Vp2OfkeMS9nuVNxVIJEWhnt0c8v&#43;gX67IAOc=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>エリスの講義ノート:3</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/zh/">
+          中文
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Mathematics</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-597170feb080294b234a840dade24b28" class="toggle" checked />
+    <label for="section-597170feb080294b234a840dade24b28" class="flex justify-between">
+      <a role="button" class="">Real Analysis II</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/" class="">7.1 Inverse Function Theorem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/Real-Analysis-II/7.2-Implicit-Function-Theorem/" class="active">7.2 Implicit Function Theorem</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9e586a4d18188af609cd481908c741d4" class="toggle"  />
+    <label for="section-9e586a4d18188af609cd481908c741d4" class="flex justify-between">
+      <a role="button" class="">PDE</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/PDE/Numerical-Methods/" class="">Numerical Methods</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/PDE/Numerical-Methods/4th-level/" class="">4th Level</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Physics</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/katex/" class="">KaTeX</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/alex-shpak/hugo-book"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/themes/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>7.2 Implicit Function Theorem</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#72-implicit-function-theorem-ift">7.2 Implicit Function Theorem (IFT)</a>
+      <ul>
+        <li><a href="#1-recall-ift">1. Recall IFT</a></li>
+        <li><a href="#2-proof-of-theorem-711">2. Proof of Theorem 7.1.1</a>
+          <ul>
+            <li><a href="#step-1-reduction">Step 1: Reduction</a></li>
+            <li><a href="#step-2-existence-of-inverse">Step 2: Existence of inverse</a></li>
+            <li><a href="#step-3-existence-of-f-1-w-to-u">Step 3: Existence of $f^{-1}: W \to U$</a></li>
+            <li><a href="#step-4-differentiability-of-f-1">Step 4: Differentiability of $f^{-1}$</a></li>
+            <li><a href="#example">Example:</a></li>
+          </ul>
+        </li>
+        <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#additional-notes">Additional Notes</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="72-implicit-function-theorem-ift">
+  7.2 Implicit Function Theorem (IFT)
+  <a class="anchor" href="#72-implicit-function-theorem-ift">#</a>
+</h1>
+<h2 id="1-recall-ift">
+  1. Recall IFT
+  <a class="anchor" href="#1-recall-ift">#</a>
+</h2>
+<p><strong>Theorem 7.1.1:</strong> Let $y = f(x): A \subset \mathbb{R}^n \to \mathbb{R}^n$ be of class $C^1$. Suppose $x_0 \in A$ with:
+$$
+J_f(x_0) = \det(Df(x_0)) \ne 0
+$$
+Then there exist neighborhoods $U$ of $x_0$ in $A$ and $W$ of $y_0 = f(x_0)$ such that:</p>
+<ol>
+<li>$f(U) = W$ and $f: U \to W$ has an inverse $f^{-1}: W \to U$.</li>
+<li>$f^{-1} \in C^1$ (If $f \in C^r$, then $f^{-1} \in C^r$).</li>
+<li>$Df^{-1}(y) = [Df(x)]^{-1}$ for $x \in U$ and $y = f(x)$.</li>
+</ol>
+<h2 id="2-proof-of-theorem-711">
+  2. Proof of Theorem 7.1.1
+  <a class="anchor" href="#2-proof-of-theorem-711">#</a>
+</h2>
+<h3 id="step-1-reduction">
+  Step 1: Reduction
+  <a class="anchor" href="#step-1-reduction">#</a>
+</h3>
+<p>We may assume $Df(x_0) = I$ and $x_0 = 0$, $y_0 = f(x_0)$.</p>
+<h3 id="step-2-existence-of-inverse">
+  Step 2: Existence of inverse
+  <a class="anchor" href="#step-2-existence-of-inverse">#</a>
+</h3>
+<p>Consider the function $g(x) = x - f(x)$.</p>
+<ul>
+<li>Using continuity of $Dg(x)$ at $0$ and Mean Value Theorem, one can show there exists $\delta &gt; 0$ such that for $x \in B(0, \delta)$:
+$$
+|g(x)| \le \frac{\delta}{2}
+$$</li>
+<li>Define $g: B(0, \delta) \to B(0, \frac{\delta}{2})$.</li>
+<li>Let $W = B(0, \frac{\delta}{2})$, and define:
+$$
+U = { x \in B(0, \delta): f(x) \in W }
+$$</li>
+</ul>
+<h3 id="step-3-existence-of-f-1-w-to-u">
+  Step 3: Existence of $f^{-1}: W \to U$
+  <a class="anchor" href="#step-3-existence-of-f-1-w-to-u">#</a>
+</h3>
+<p>Fix $y \in W$. Apply the Contraction Mapping Principle (CMP) to:
+$$
+g_y(x) = y + x - f(x) = y + g(x)
+$$
+Then $g_y(x): B(0, \delta) \to B(0, \delta)$. Thus, there exists a unique $x \in B(0, \delta)$ such that:
+$$
+g_y(x) = x \quad \Longrightarrow \quad f(x) = y
+$$
+Therefore, $\exists! x \in U$ such that $f(x) = y$.</p>
+<p>Fix $y, y_1, y_2 \in W$, let $x_i = f^{-1}(y_i), i = 1,2$. Then:
+$$
+| f^{-1}(y_1) - f^{-1}(y_2) | = | x_1 - x_2 |
+= | g_{y_1}(x_1) - g_{y_2}(x_2) |
+$$</p>
+<p>Since $| Dg(x) | \le \frac{1}{2}$ for $x \in B(0, \delta)$, we get:
+$$
+| x_1 - x_2 | \le 2 | y_1 - y_2 |
+$$</p>
+<p>Thus, $f^{-1}$ is Lipschitz continuous.</p>
+<h3 id="step-4-differentiability-of-f-1">
+  Step 4: Differentiability of $f^{-1}$
+  <a class="anchor" href="#step-4-differentiability-of-f-1">#</a>
+</h3>
+<p>(i) <strong>Observation:</strong> $[Df(x_0)]^{-1}$ exists and $Df(x)$ is continuous at $x_0$.</p>
+<p>$$ \Rightarrow \exists \delta &gt; 0 \text{ such that } [Df(x)]^{-1} \text{ exists and bounded by } M \text{, } \forall |x| \leq \delta $$
+$$ | [Df(x)]^{-1} | \leq M, \quad \forall x \in B(0, \delta) $$</p>
+<p>(ii) Show $f^{-1}$ is differentiable at any $y_* \in W$ and:
+$$
+Df^{-1}(y_0) = [Df(x_0)]^{-1}, \quad \text{where} \quad y_0 = f(x_0)
+$$</p>
+<p>Fix $y_* \in W$. Then:
+$$
+\frac{| f^{-1}(y) - f^{-1}(y_<em>) - [Df(x_0)]^{-1}(y - y_</em>) |}{| y - y_* |}
+$$
+can be simplified, and as $y \to y_*$, it tends to $0$.</p>
+<p>Thus, in conclusion, $f^{-1}(y)$ is differentiable at $y_* \in W$ and:
+$$
+Df^{-1}(y_<em>) = [Df(x_</em>)]^{-1}
+$$</p>
+<hr>
+<h3 id="example">
+  Example:
+  <a class="anchor" href="#example">#</a>
+</h3>
+<p>Investigate the invertibility (both local and global) for the map:
+$$f \in C^\infty, \quad A = \mathbb{R}^2$$</p>
+<p>$$W = (u,v) = f(x,y): \mathbb{R}^2 \to \mathbb{R}^2$$
+Given by:
+$$
+u = e^x\cos y, \quad v = e^x\sin y$$</p>
+<ul>
+<li>Compute Jacobian determinant:
+$$
+J_f(x,y) = \det(Df(x,y)) =
+\begin{vmatrix}
+e^x\cos y &amp; -e^x\sin y \\
+e^x\sin y &amp; e^x\cos y
+\end{vmatrix}
+= e^{2x} &gt; 0
+$$</li>
+</ul>
+<p>Thus, by IFT, $f$ is invertible locally at any point and:
+$$
+Df^{-1}(u,v) = [Df(x,y)]^{-1} =
+\begin{bmatrix}
+e^x\cos y &amp; -e^x\sin y \\
+e^x\sin y &amp; e^x\cos y
+\end{bmatrix}^{-1}
+= \begin{bmatrix}
+e^{-x}\cos y &amp; e^{-x}\sin y \\
+-e^{-x}\sin y &amp; e^{-x}\cos y
+\end{bmatrix}
+$$</p>
+<p>However, $f$ is <strong>not globally invertible</strong> (not injective). Consider:
+$$
+\begin{aligned}
+f(x_0, y_0 + 2\pi) &amp;= (e^{x_0}\cos(y_0 + 2\pi), e^{x_0}\sin(y_0 + 2\pi))\\
+&amp;= (e^{x_0}\cos y_0, e^{x_0}\sin y_0)\\
+&amp;= (u_0, v_0)
+\end{aligned}
+$$</p>
+<p>In complex notation, $f$ can be written as:
+$$
+f(z) = e^z = e^{x+iy} = e^x e^{iy} = e^x(\cos y + i \sin y)
+$$
+with $u = e^x \cos y$, $v = e^x \sin y$.</p>
+<hr>
+<h2 id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h2>
+<p>Since $f(x, y)$ maps points periodically in $y$, it is not globally injective, despite being locally invertible.</p>
+<hr>
+<h2 id="additional-notes">
+  Additional Notes
+  <a class="anchor" href="#additional-notes">#</a>
+</h2>
+<p>The periodic nature is reflected in the mapping:
+$$f(x_0, y_0 + 2\pi) = f(x_0, y_0)$$
+This demonstrates that multiple points in the domain map to the same point in the range, confirming non-injectivity.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/alex-shpak/hugo-book/edit/main/exampleSite/content.en/docs/Mathematics/Real%20Analysis%20II/7.2%20Implicit%20Function%20Theorem.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#72-implicit-function-theorem-ift">7.2 Implicit Function Theorem (IFT)</a>
+      <ul>
+        <li><a href="#1-recall-ift">1. Recall IFT</a></li>
+        <li><a href="#2-proof-of-theorem-711">2. Proof of Theorem 7.1.1</a>
+          <ul>
+            <li><a href="#step-1-reduction">Step 1: Reduction</a></li>
+            <li><a href="#step-2-existence-of-inverse">Step 2: Existence of inverse</a></li>
+            <li><a href="#step-3-existence-of-f-1-w-to-u">Step 3: Existence of $f^{-1}: W \to U$</a></li>
+            <li><a href="#step-4-differentiability-of-f-1">Step 4: Differentiability of $f^{-1}$</a></li>
+            <li><a href="#example">Example:</a></li>
+          </ul>
+        </li>
+        <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#additional-notes">Additional Notes</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
