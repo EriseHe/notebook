@@ -122,7 +122,22 @@ a .book-icon {
   }
 
   a.active {
+    display: block;
+    position: relative;
     color: var(--color-link);
+    text-decoration: none;
+  }
+  
+  a.active::before {
+    content: "";
+    position: absolute;
+    top: -0.3rem;
+    bottom: -0.3rem;
+    left: -0.5rem;
+    right: 0; /* extends background to the right edge of the container */
+    background-color: #e0e0e095;
+    border-radius: 6px;
+    z-index: -1;
   }
 
   input.toggle + label + ul {

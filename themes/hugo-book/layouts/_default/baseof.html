@@ -34,15 +34,24 @@
     </div>
 
     {{ if default true (default .Site.Params.BookToC .Params.BookToC) }}
-    <aside class="book-toc">
-      <div class="book-toc-content">
-        {{ template "toc" . }} <!-- Table of Contents -->
-      </div>
-    </aside>
+      <!-- The TOC aside -->
+      <aside class="book-toc">
+          <div class="book-toc-content">
+
+            {{ partial "docs/button-prev.html" . }}
+
+            <div class="toc-entries">
+              {{ template "toc" . }}
+            </div>
+
+            {{ partial "docs/button-next.html" . }}
+
+          </div>
+      </aside>
     {{ end }}
   </main>
-
   {{ partial "docs/inject/body" . }}
+  {{ partial "docs/mathjax.html" . }}
 </body>
 </html>
 
@@ -54,6 +63,7 @@
   {{ partial "docs/header" . }}
 
   {{ if default true (default .Site.Params.BookToC .Params.BookToC) }}
+  
   <aside class="hidden clearfix">
     {{ template "toc" . }}
   </aside>

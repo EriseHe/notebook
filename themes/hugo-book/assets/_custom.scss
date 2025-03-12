@@ -1,3 +1,80 @@
-/* You can add custom styles here. */
+/* Global styling */
+/* Ensure containers are transparent so the body background shows through */
+.book-page,
+.book-menu,
+.book-toc,
+.book-page .book-article {
+  background-color: transparent !important;
+}
 
-// @import "plugins/numbered";
+.markdown {
+  font-family: "Computer Modern", serif;
+}
+
+/* The pseudo-element extends the background vertically without altering the text width */
+a.active {
+  display: block;
+  position: relative;
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a.active::before {
+  content: "";
+  position: absolute;
+  top: -0.3rem;
+  bottom: -0.3rem;
+  left: -0.5rem;
+  right: 0; /* extends background to the right edge of the container */
+  background-color: #e0e0e095;
+  border-radius: 6px;
+  z-index: -1;
+}
+  
+.btn-prev,
+.btn-next {
+  display: inline-block;         /* Makes the container shrink-wrap its content */
+  background-color: #f2f2f2dc; /* Light gray background */
+  border-radius: 6px;
+  padding: 0.6rem;                 /* Adjust padding as desired */
+  font-size: none;             /* Set your font size */
+  white-space: nowrap;           /* Keeps the text on one line */
+  text-align: center;            /* Centers text inside the button */
+  width: auto;                   /* Ensures the width is determined by content */
+  transition: background-color 0.1s ease, color 0.1s ease; /* Smooth transition */
+}
+
+.btn-prev:hover,
+.btn-next:hover {
+  background-color: #e0e0e0;      /* New background on hover */
+  color: none;              
+}
+
+
+.book-toc-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;  /* Controls vertical space between all children */
+}
+
+.toc-entries {
+  background-color: #e9e9ef93; /* Light gray background */
+  border-radius: 6px;  
+  padding: 1rem;      /* Internal spacing */
+}
+
+.book-toc .book-toc-content {
+  transform: translateX(2rem); 
+}
+
+.book-menu .book-menu-content {
+  transform: translateX(-1rem); /* Adjust the value as needed */
+}
+
+
+
+
+
+
+
+
