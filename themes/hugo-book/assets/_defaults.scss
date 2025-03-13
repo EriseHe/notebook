@@ -33,17 +33,37 @@ $hint-colors: (
   --gray-200: #e9ecef;
   --gray-500: #adb5bd;
 
+  //link & texts
   --color-link: #0055bb;
+  --color-link-hover: #eeeeee;
   --color-visited-link: #8440f1;
 
+  //body
   --body-background: white;
+  --md-background: white;
   --body-font-color: black;
 
+  //TOC
+  --toc-font-color: #0055bb;
+
+  //buttons
+  --color-btn: #f2f2f2dc;
+  --color-btn-hover: #e0e0e0;
+  --color-toc-hover: #e9e9ef93;
+
+  //images
   --icon-filter: none;
 
+  //hint
   --hint-color-info: #6bf;
   --hint-color-warning: #fd6;
   --hint-color-danger: #f66;
+
+
+  //variable
+  --transition-time: 0.1s ease;
+  --transition-color: 0.1s ease;
+
 }
 
 @mixin theme-dark {
@@ -51,15 +71,37 @@ $hint-colors: (
   --gray-200: #5c6165;
   --gray-500: #999d9f;
 
-  --color-link: #84b2ff;
-  --color-visited-link: #b88dff;
+  //link & texts
+  --color-link: rgb(196, 191, 124);
+  --color-link-hover: #420a1d;
+  --color-visited-link: #ff8d8d;
 
-  --body-background: #343a40;
-  --body-font-color: #e9ecef;
+  //body
+  --body-background: #0b031c;
+  --md-background: #1b0b34;
+  --body-font-color: #c7c7d0;
 
+  //TOC
+  --toc-font-color: #0055bb;
+
+  //buttons
+  --color-btn: #2f1e7d62;
+  --color-btn-hover: #420093;
+  --color-toc-hover: #140c3c45;
+
+  //images
   --icon-filter: brightness(0) invert(1);
 
+  //hint
   --hint-color-info: #6bf;
   --hint-color-warning: #fd6;
   --hint-color-danger: #f66;
+
+
+  //variable
+  --transition-time: 0.3s ease;
+  --transition-color: 0.3s ease;
+
 }
+
+

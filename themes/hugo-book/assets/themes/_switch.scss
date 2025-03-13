@@ -1,0 +1,10 @@
+/* Define the light theme when data-theme="light" */
+:root[data-theme="light"],
+:root:not([data-theme]) {
+  @include theme-light;
+}
+
+/* Define the dark theme when data-theme="dark" */
+:root[data-theme="dark"] {
+  @include theme-dark;
+}
