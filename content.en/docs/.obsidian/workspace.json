@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mathematics/Real Analysis II/7.2 Implicit Function Theorem.md",
+                "file": "Mathematics/Real Analysis II/7.1 Inverse Function Theorem.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "7.2 Implicit Function Theorem"
+              "title": "7.1 Inverse Function Theorem"
             }
           }
         ]
@@ -170,7 +170,9 @@
   },
   "active": "8bc56067c144f29e",
   "lastOpenFiles": [
+    "Mathematics/Real Analysis II/7.1* Implicit Function Theorem.md",
     "Mathematics/Real Analysis II/7.1 Inverse Function Theorem.md",
-    "Mathematics/Real Analysis II/7.2 Implicit Function Theorem.md"
+    "Mathematics/_index.md",
+    "Mathematics/Real Analysis II/_index.md"
   ]
 }
