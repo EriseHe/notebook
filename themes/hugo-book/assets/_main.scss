@@ -30,6 +30,7 @@ h5 {
 }
 
 a {
+  transition: transform 0.3s ease;
   text-decoration: none;
   color: var(--color-link);
 }
@@ -57,7 +58,9 @@ aside nav ul {
   }
 
   a:hover {
+    transform: scale(1.02);
     opacity: 0.5;
+    transition: transform 0.1s ease;
   }
 
   ul {
@@ -78,7 +81,7 @@ ul.pagination {
 
 .container {
   max-width: $container-max-width;
-  margin:  auto;
+  margin: 0 auto;
 }
 
 .book-icon {
@@ -125,7 +128,7 @@ a .book-icon {
     display: block;
     position: relative;
     color: var(--color-link);
-    text-decoration: none;
+    text-decoration: bold;
   }
   
   a.active::before {
@@ -141,20 +144,30 @@ a .book-icon {
   }
 
   input.toggle + label + ul {
-    display: none;
-  }
+    max-height: 0; // Collapsed state
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 0.1s ease-in-out, opacity 0.1s ease-in-out;
+}
 
-  input.toggle:checked + label + ul {
-    display: block;
-  }
+input.toggle:checked + label + ul {
+    max-height: 500px; // Expanded state with enough space for content
+    opacity: 1;
+    visibility: visible;
+}
 
-  input.toggle + label::after {
-    content: "▸";
-  }
+input.toggle + label::after {
+    content: "▸"; // Collapsed icon
+    transition: transform 0.1s ease-in-out;
+}
 
-  input.toggle:checked + label::after {
-    content: "▾";
-  }
+input.toggle:checked + label::after {
+    content: "▾"; // Expanded icon
+    transform: rotate(0deg); // Ensures smooth visual change
+}
+
+
 }
 
 // for RTL support

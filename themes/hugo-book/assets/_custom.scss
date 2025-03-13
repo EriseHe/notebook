@@ -4,17 +4,21 @@
 .book-menu,
 .book-toc,
 .book-page .book-article {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 /*-------------body styling--------------*/
 .markdown {
   font-family: "Computer Modern", serif;
-  background-color: var(--md-background) !important;
+  background-color: var(--md-background) ;
   padding: 20px; /* This expands the background */
   border-radius: 12px; /* Rounded corners */
 }
 
+
+
+
 /*-------------button styling-------------*/
+
 
 .btn-prev,
 .btn-next {
@@ -32,8 +36,46 @@
 .btn-prev:hover,
 .btn-next:hover {
   background-color: var(--color-btn-hover);      /* New background on hover */
-  color: none;              
+  color: none;      
+  transform: scale(1.02);
+  transition: all 0.3s ease;        
 }
+
+.submenu {
+  position: absolute;
+  outline: 2px solid rgba(0, 0, 0, 0.061);
+  bottom: 6.1rem;
+  left: 10px;               /* Align to the left */
+  right: 20px;              /* Extend to the right */
+  background-color: var(--color-btn);
+  border-radius: 6px;
+  padding: 0.4rem;
+}
+
+.theme-toggle-btn img {
+  width: 1.2rem;  // adjust the size as needed
+  height: auto;
+}
+
+.theme-toggle-btn{
+  background: white; /* Light gray background */
+  outline: none;
+  padding-top: 3px;
+  border: none;
+  border-radius: 36px;
+  transition: all 0.5s ease;  // Smooth transition for BOTH enter and exit
+
+}
+
+.theme-toggle-btn:hover {
+  background: white; /* Light gray background */
+  border: none;
+  border-radius: 3px;
+  transform: scale(1.4);
+  transition: all 0.3s ease;
+}
+
+
 
 /*-------------TOC styling--------------*/
 
@@ -56,9 +98,6 @@
 .book-menu .book-menu-content {
   transform: translateX(-1rem); /* Adjust the value as needed */
 }
-
-
-
 
 
 
