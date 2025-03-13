@@ -78,7 +78,7 @@ ul.pagination {
 
 .container {
   max-width: $container-max-width;
-  margin: 0 auto;
+  margin:  auto;
 }
 
 .book-icon {
@@ -135,7 +135,7 @@ a .book-icon {
     bottom: -0.3rem;
     left: -0.5rem;
     right: 0; /* extends background to the right edge of the container */
-    background-color: #e0e0e095;
+    background-color: var(--color-link-hover);
     border-radius: 6px;
     z-index: -1;
   }
