@@ -1,10 +1,26 @@
-/* Define the light theme when data-theme="light" */
-:root[data-theme="light"],
+/* 
+  Auto mode: if no manual override is present, default to light,
+  but if the system prefers dark, switch to dark.
+*/
 :root:not([data-theme]) {
-  @include theme-light;
-}
-
-/* Define the dark theme when data-theme="dark" */
-:root[data-theme="dark"] {
-  @include theme-dark;
-}
+    @include theme-light;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      @include theme-dark;
+    }
+  }
+  
+  /* 
+    Manual overrides: if the data-theme attribute is set, then use
+    that explicit theme.
+  */
+  :root[data-theme="light"] {
+    @include theme-light;
+  }
+  
+  :root[data-theme="dark"] {
+    @include theme-dark;
+  }
+  
