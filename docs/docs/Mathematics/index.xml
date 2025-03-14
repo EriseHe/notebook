@@ -29,69 +29,7 @@ conscia&lt;/a> cuiquam Caeneus quas.&lt;/p>
  &lt;a href="http://www.spectataharundine.org/aquas-relinquit.html">in sustinui
 iussorum&lt;/a> equidem.
 Nymphae operi oris alii fronde parens dumque, in auro ait mox ingenti proxima
-iamdudum maius?&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-352-PDE-in-Action/Mid-Point-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-352-PDE-in-Action/Mid-Point-Method/</guid><description>&lt;h2 id="formula-derivation">
- Formula Derivation
- &lt;a class="anchor" href="#formula-derivation">#&lt;/a>
-&lt;/h2>
-&lt;p>The derivative approximation:&lt;/p>
-&lt;p>$$
-\begin{aligned}
-f(t_i, u_i) &amp;amp;= \frac{dy}{dt} \Big|&lt;em>{t_i} \approx \frac{y(t&lt;/em>{i+1}) - y(t_{i-1})}{2\Delta t} + \mathcal{O}(\Delta t^2)
-\end{aligned}
-$$&lt;/p>
-&lt;p>Update formula:&lt;/p>
-&lt;p>$$
-\begin{aligned}
-u_{i+1} &amp;amp;= u_{i-1} + 2\Delta t f(t_i, u_i)
-\end{aligned}
-$$&lt;/p>
-&lt;hr>
-&lt;h3 id="initial-conditions">
- Initial Conditions
- &lt;a class="anchor" href="#initial-conditions">#&lt;/a>
-&lt;/h3>
-&lt;ol>
-&lt;li>
-&lt;p>&lt;strong>Initial Condition Calculation&lt;/strong>:
-Given $y_0$
-$$
-\begin{aligned}
-u_2 &amp;amp;= y_0 + 2\Delta t f(t_1, u_1)
-\end{aligned}
-$$&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Predictor-Corrector Steps&lt;/strong>:&lt;/p>
-&lt;p>$$
-\begin{aligned}
-u_1^* &amp;amp;= y_0 + \Delta t f(t_0, y_0), \
-u_1 &amp;amp;= y_0 + \frac{\Delta t}{2} (f(t_0, y_0) + f(t_1, u_1^*))
-\end{aligned}
-$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/</guid><description>&lt;h2 id="1-ok-honestly-i-have-no-idea-where-he-started">
- 1. Ok Honestly I Have No Idea Where He Started
- &lt;a class="anchor" href="#1-ok-honestly-i-have-no-idea-where-he-started">#&lt;/a>
-&lt;/h2>
-&lt;blockquote>
-&lt;p>MATH 212 is useless
-- Alessandro Veneziani&lt;/p>&lt;/blockquote>
-&lt;p>Given the population problem #Implicit:&lt;/p>
-&lt;h2 id="heading">
- $$
-\dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y
-$$
- &lt;a class="anchor" href="#heading">#&lt;/a>
-&lt;/h2>
-&lt;p>&lt;strong>Numerically&lt;/strong>, the problem is:
-$$
-\frac{u_{i+1} - u_i}{\Delta t} = A \left(1 - \frac{u_{i+1}}{B} \right) u_{i+1}
-$$
-To solve this numerically, we rewrite the equation:
-$$
-\begin{align}
-x - u_i &amp;amp;= A \left(1 - \frac{x}{B} \right) x \
-&amp;amp;= A x - \frac{A}{B} x^2
-\end{align}
-$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</guid><description>&lt;p>7.2: 1, 2, [3,4]; Chapter 7: [4], 5, [6], 9, [12].&lt;/p>
+iamdudum maius?&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</guid><description>&lt;p>7.2: 1, 2, [3,4]; Chapter 7: [4], 5, [6], 9, [12].&lt;/p>
 &lt;p>&lt;strong>&lt;font color="#c00000">Problem 7.2.3&lt;/font>&lt;/strong> In the system
 $$\begin{array}{r}
 3 x+2 y+z^2+u+v^2=0 \

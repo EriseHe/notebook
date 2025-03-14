@@ -30,6 +30,7 @@ Contraction
 Construction
 Caeneus
 Cum
+Copenhagen
 font
 for
 functions
@@ -68,6 +69,10 @@ firewire
 framework
 further
 forced
+false
+finding
+fall
+fashion
 color
 curve
 can
@@ -152,6 +157,7 @@ completely
 crime
 changing
 close
+collapses
 Problem
 Partial
 Putting
@@ -170,6 +176,11 @@ Principle
 Peleus
 Pater
 PDE
+Physics
+Planck
+Pauli
+Physical
+Processes
 In
 Implicit
 Invertibility
@@ -192,6 +203,7 @@ Idea
 Illustration
 II
 Investigate
+Interpretation
 the
 terms
 that
@@ -246,6 +258,8 @@ towards
 thinking
 throughout
 through
+theory
+than
 system
 solvability
 such
@@ -352,6 +366,10 @@ supports
 sexuality
 sciences
 studying
+section
+summary
+should
+something
 discuss
 determine
 described
@@ -419,6 +437,9 @@ destabilized
 develops
 discontinuous
 discourses
+description
+defect
+discontinuously
 in
 inverse
 implicit
@@ -486,6 +507,7 @@ interpret
 institutions
 implications
 illusion
+indeterminacy
 of
 our
 out
@@ -514,6 +536,7 @@ oscula
 onProcessorUnmount
 objects
 objectivity
+orthodox
 near
 neighborhood
 necessary
@@ -546,6 +569,8 @@ nanometer
 noctisque
 nature
 notion
+natural
+needle
 Does
 Determine
 Differentiability
@@ -567,6 +592,7 @@ Discretization
 Difference
 Differentiation
 Danaas
+Distinct
 map
 matrix
 mapping
@@ -617,6 +643,8 @@ make
 me
 madness
 medicalization
+measurement
+many
 have
 holds
 has
@@ -646,6 +674,8 @@ honeypot
 his
 historical
 historically
+hide
+however
 local
 limit
 lim
@@ -676,6 +706,9 @@ long
 legitimate
 logic
 later
+list
+logically
+leisurely
 Show
 Sufficient
 Substitute
@@ -713,6 +746,9 @@ Started
 Setup
 Soror
 Saepe
+Section
+Schrodinger
+Statistical
 equations
 equation
 exists
@@ -776,6 +812,9 @@ established
 epistemes
 epistemic
 examination
+eliminated
+experiment
+evolves
 whether
 written
 which
@@ -798,6 +837,11 @@ within
 what
 well
 ways
+wave
+wonder
+wasn
+widely
+when
 by
 be
 bijective
@@ -830,6 +874,7 @@ broken
 behave
 between
 been
+brain
 allow
 and
 as
@@ -889,6 +934,16 @@ almost
 argument
 abandoned
 authority
+analogous
+anywhere
+accepted
+agnosticism
+about
+anything
+ancient
+angels
+able
+alters
 you
 yields
 yF
@@ -986,6 +1041,11 @@ redefines
 reading
 really
 reflect
+renders
+realist
+result
+refuse
+rack
 partials
 partial
 point
@@ -1044,6 +1104,11 @@ preservation
 psychiatric
 passage
 progress
+pages
+param
+probability
+position
+produce
 Ex
 Evaluate
 Evaluating
@@ -1119,6 +1184,8 @@ Between
 Buttons
 BDF
 Backward
+Born
+Bell
 Function
 For
 FT
@@ -1138,6 +1205,7 @@ Fix
 Foucault
 Jacobian
 Jobcobian
+John
 At
 And
 Again
@@ -1240,6 +1308,7 @@ Main
 Maxime
 Mean
 My
+Measurements
 Using
 Up
 Ut
@@ -1258,6 +1327,7 @@ quoque
 quas
 quamvis
 quote
+quantum
 zero
 zoom
 Let
@@ -1273,6 +1343,7 @@ Latent
 Luctus
 Latona
 Lipschitz
+Law
 Value
 Verifying
 Verify
@@ -1292,6 +1363,8 @@ Order
 Ok
 ODE
 Observation
+Optional
+Ordinary
 Given
 Get
 Guessing
@@ -1302,5 +1375,6 @@ xxii
 xmp
 Question
 Quondam
+QM
 jpeg
 Kuhn
