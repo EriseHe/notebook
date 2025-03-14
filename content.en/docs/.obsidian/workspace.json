@@ -4,37 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "358763cbcbf2601b",
+        "id": "d8f71568d8438c92",
         "type": "tabs",
         "children": [
           {
-            "id": "1fe3c1b275951f01",
+            "id": "dbb8e03db6d88630",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Philosophy/Commentary on Foucault's The Order of Things.md",
+                "file": "Physics/Quantum Mechenics/Chapter  1 The Wave Function.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Commentary on Foucault's The Order of Things"
-            }
-          },
-          {
-            "id": "414d4c18f538fb7d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "GPT Conversion.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "GPT Conversion"
+              "title": "Chapter  1 The Wave Function"
             }
           }
         ]
@@ -197,21 +182,26 @@
       "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "1fe3c1b275951f01",
+  "active": "dbb8e03db6d88630",
   "lastOpenFiles": [
-    "GPT Conversion.md",
-    "Mathematics/hidden.md",
+    "Physics/Quantum Mechenics/_index.md",
+    "Mathematics/Real Analysis II/_index.md",
     "Mathematics/_index.md",
+    "GPT Conversion.md",
+    "Physics/_index.md",
+    "Physics/_index.md",
+    "Mathematics/PDE/_index.md",
+    "Mathematics/MATH 352 PDE in Action/_index.md",
+    "Mathematics/MATH 352 PDE in Action/Three-Point Backward Differentiation Formula (Feb 4).md",
+    "Mathematics/hidden.md",
+    "Physics/section/_index.md",
+    "Philosophy/_index.md",
+    "Philosophy/Commentary on Foucault's The Order of Things.md",
     "Mathematics/Real Analysis II/7.1 Inverse Function Theorem.md",
     "Mathematics/Real Analysis II/7.1* Implicit Function Theorem.md",
-    "Mathematics/Real Analysis II/_index.md",
     "Mathematics/PDE/Partial Differential Equation/Partial Differential Equation.md",
-    "Mathematics/PDE/_index.md",
     "Mathematics/PDE/Partial Differential Equation/Heat Equation Solution.md",
     "Mathematics/MATH 352 PDE in Action/Mid-Point Method.md",
-    "Mathematics/MATH 352 PDE in Action/Three-Point Backward Differentiation Formula (Feb 4).md",
-    "Philosophy/_index.md",
-    "Physics/Quantum Mechenics/_index.md",
     "Physics/section/first-page.md",
     "Physics/section/second-page.md",
     "Untitled.md",
@@ -220,11 +210,6 @@
     "Philosophy/Object petit a.md",
     "Philosophy/50-words Close Reading.md",
     "Untitled",
-    "Philosophy/福柯视角下的物理学转变以及新范式的可能.md",
-    "Physics/section/buttons.md",
-    "Physics/tabs.md",
-    "Physics/mermaid.md",
-    "Physics/hints.md",
-    "Physics/details.md"
+    "Philosophy/福柯视角下的物理学转变以及新范式的可能.md"
   ]
 }
