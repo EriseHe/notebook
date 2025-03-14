@@ -6,6 +6,14 @@
 .book-page .book-article {
   background-color: transparent !important;
 }
+
+.book-toc .book-toc-content {
+  transform: translateX(2rem); 
+}
+
+.book-menu .book-menu-content {
+  transform: translateX(-1rem); /* Adjust the value as needed */
+}
 /*-------------body styling--------------*/
 .markdown {
   font-family: "Computer Modern", serif;
@@ -14,12 +22,7 @@
   border-radius: 12px; /* Rounded corners */
 }
 
-
-
-
 /*-------------button styling-------------*/
-
-
 .btn-prev,
 .btn-next {
   display: inline-block;         /* Makes the container shrink-wrap its content */
@@ -41,48 +44,101 @@
   transition: all 0.3s ease;        
 }
 
+/*-----------------SUBMENU styling-----------------*/
 .submenu {
-  position: absolute;
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: auto; /* adjust as needed */
   outline: 2px solid rgba(0, 0, 0, 0.061);
-  bottom: 6.1rem;
-  left: 10px;               /* Align to the left */
-  right: 20px;              /* Extend to the right */
   background-color: var(--color-btn);
   border-radius: 6px;
   padding: 0.4rem;
+  z-index: 999;
+
+  /* Vertical stacking: */
+  display: flex;
+  flex-direction: column;  /* Stack children vertically */
+  justify-content: flex-start; /* Start stacking at the top */
+  align-items: center;    /* Center children horizontally, or use flex-end if preferred */
+  gap: 0.5rem;  /* Adds a gap between each button */
+
 }
 
+
+/*theme toggle button styling*/
+
+.toc-toggle-btn img,
 .theme-toggle-btn img {
   width: 1.2rem;  // adjust the size as needed
-  height: auto;
+  height: 1.2rem; // adjust the size as needed
 }
 
+
+
+.toc-toggle-btn,
 .theme-toggle-btn{
   background: white; /* Light gray background */
   outline: none;
-  padding-top: 3px;
+  padding-top: 0.3rem;
   border: none;
-  border-radius: 36px;
+  border-radius: 18rem;
   transition: all 0.5s ease;  // Smooth transition for BOTH enter and exit
 
 }
 
+/* customized btn */
+.toc-toggle-btn img{
+  filter: var(--icon-filter);
+}
+
+.toc-toggle-btn:hover img{
+  filter: none;
+  transition: all 0.3s ease;
+}
+
+.toc-toggle-btn {
+  background: var(--color-toc-hover);
+  padding-top: 0.35rem;
+
+}
+
+
+.toc-toggle-btn:hover,
 .theme-toggle-btn:hover {
   background: white; /* Light gray background */
   border: none;
   border-radius: 3px;
   transform: scale(1.4);
   transition: all 0.3s ease;
+  
 }
 
+.hidden {
+  animation: fade-in all 0.5s ease; 
+}
 
+/*---------ANIMATION customized---------*/
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); // Slight movement for smoother entry
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /*-------------TOC styling--------------*/
 
 .book-toc-content {
   display: flex;
+  margin-top: 0.2rem;
   flex-direction: column;
   gap: 1rem;  /* Controls vertical space between all children */
+  
 }
 
 .toc-entries {
@@ -91,13 +147,12 @@
   padding: 1rem;      /* Internal spacing */
 }
 
-.book-toc .book-toc-content {
-  transform: translateX(2rem); 
+.book-toc {
+  padding: 0;
 }
 
-.book-menu .book-menu-content {
-  transform: translateX(-1rem); /* Adjust the value as needed */
-}
+
+
 
 
 

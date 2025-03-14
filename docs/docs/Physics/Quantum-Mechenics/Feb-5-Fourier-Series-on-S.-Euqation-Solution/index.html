@@ -1,0 +1,112 @@
+<!doctype html><html lang=en dir=ltr><head><script>(function(){const e=localStorage.getItem("theme");e&&document.documentElement.setAttribute("data-theme",e)})()</script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  0. Review
+  #
+
+$$
+\hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x+V(x)
+$$
+Stationary States
+$$
+\Psi(x,t)=\psi(x)e^{-iEt/\hbar}
+$$
+Eigenvalue equation:
+$$\hat{H}\psi(x) = E\psi(x)$$
+In newtonian mechanics, note
+$$F(x)=-\frac{ \partial V(x) }{ \partial x } $$
+
+  1. Infinite Finite Well (particle on a box)
+  #
+
+$$E = \frac{p^{2}}{2m}$$
+
+knowing $E$ results in knowing momentum $p^{2}$
+Problem Set-up
+Between $x=0$, and $x=a$,
+$$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$
+Subject to &ldquo;boundary condition&rdquo;: $\Psi(0)=\Psi(a)=0$
+$$
+\begin{align}
+\frac{d^{2}\Psi}{dx} & =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \
+& =-k^{2}\Psi
+\end{align}
+$$
+Recall"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/"><meta property="og:site_name" content="エリスの講義ノート:3"><meta property="og:title" content="エリスの講義ノート:3"><meta property="og:description" content="0. Review # $$ \hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x+V(x) $$ Stationary States $$ \Psi(x,t)=\psi(x)e^{-iEt/\hbar} $$ Eigenvalue equation: $$\hat{H}\psi(x) = E\psi(x)$$ In newtonian mechanics, note $$F(x)=-\frac{ \partial V(x) }{ \partial x } $$
+1. Infinite Finite Well (particle on a box) # $$E = \frac{p^{2}}{2m}$$
+knowing $E$ results in knowing momentum $p^{2}$
+Problem Set-up Between $x=0$, and $x=a$, $$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$ Subject to “boundary condition”: $\Psi(0)=\Psi(a)=0$ $$ \begin{align} \frac{d^{2}\Psi}{dx} & =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \ & =-k^{2}\Psi \end{align} $$ Recall"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>Feb 5 Fourier Series on S. Euqation Solution | エリスの講義ノート:3</title>
+<link rel=icon href=/blackhole2.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/><link rel=stylesheet href=/book.min.c8220ea781c4a0d6d5cca83b80c65dd939233b2b34dc25bac0627e4f3173191f.css integrity="sha256-yCIOp4HEoNbVzKg7gMZd2TkjOys03CW6wGJ+TzFzGR8=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.73516e3a983d0a4eb01b638079e27b9702722b81f51f0f111b73e6b8baed6c67.js integrity="sha256-c1FuOpg9Ck6wG2OAeeJ7lwJyK4H1Hw8RG3PmuLrtbGc=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>エリスの講義ノート:3</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/svg/translate.svg class=book-icon alt=Languages>
+English</a></label><ul><li><a href=/zh/>中文</a></li></ul></li></ul><ul><li class=book-section-flat><span>Mathematics</span><ul><li><input type=checkbox id=section-35a4841f54f1aa8de50fa9ab69bb4022 class=toggle>
+<label for=section-35a4841f54f1aa8de50fa9ab69bb4022 class="flex justify-between"><a role=button>Real Analysis II</a></label><ul><li><a href=/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/>7.1 Inverse Function Theorem</a></li><li><a href=/docs/Mathematics/Real-Analysis-II/7.1-Implicit-Function-Theorem/>7.2 Implicit Function Theorem</a></li></ul></li><li><input type=checkbox id=section-4108e7ffbd87252d17d4df445c81e01d class=toggle>
+<label for=section-4108e7ffbd87252d17d4df445c81e01d class="flex justify-between"><a role=button>PDE</a></label><ul><li><a href=/docs/Mathematics/PDE/Numerical-Methods/>Numerical Methods</a><ul><li><a href=/docs/Mathematics/PDE/Numerical-Methods/4th-level/>4th Level</a></li></ul></li><li><a href=/docs/Mathematics/PDE/Partial-Differential-Equation/Heat-Equation-Solution/>Heat Equation Solution</a></li></ul></li><li><a href=/docs/Mathematics/MATH-352-PDE-in-Action/Mid-Point-Method/>Mid Point Method</a></li><li><a href=/docs/Mathematics/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/>Three Point Backward Differentiation Formula ( Feb 4)</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/>Homework 6</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.4-Sufficient-Conditions-for-Differentiability/>6.4 Sufficient Conditions for Differentiability</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.9-Taylor-Higher-Dimentions/>6.9 Taylor Higher Dimentions</a></li></ul></li><li class=book-section-flat><span>Quantum Mechenics</span><ul><li><a href=/docs/Physics/Quantum-Mechenics/Chapter-1-The-Wave-Function/>Chapter 1 the Wave Function</a></li><li><a href=/docs/Physics/Quantum-Mechenics/Chapter-2-Time-Independent-Schrodinger-Equation-Stationary-States/>Chapter 2 Time Independent Schrodinger Equation Stationary States</a></li><li><a href=/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/ class=active>Feb 5 Fourier Series on S. Euqation Solution</a></li><li><a href=/docs/Physics/Quantum-Mechenics/Homework-5/HW3-Code/>Hw3 Code</a></li></ul></li><li class=book-section-flat><span>Philosophy</span><ul><li><a href=/docs/Philosophy/50-words-Close-Reading/>50 Words Close Reading</a></li><li><a href=/docs/Philosophy/Commentary-on-Foucaults-The-Order-of-Things/>Commentary on Foucault's the Order of Things</a></li><li><a href=/docs/Philosophy/Object-petit-a/>Object Petit A</a></li><li><a href=/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/>福柯视角下的物理学转变以及新范式的可能</a></li></ul></li></ul><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/EriseHe/erisehe.github.io target=_blank rel=noopener>Github</a></li><li><a href=https://themes.gohugo.io/themes/hugo-book/ target=_blank rel=noopener>Hugo Themes</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>Feb 5 Fourier Series on S. Euqation Solution</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li><a href=#0-review>0. Review</a></li><li><a href=#1-infinite-finite-well-particle-on-a-box>1. Infinite Finite Well (particle on a box)</a></li><li><a href=#3-normalization>3. Normalization</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h2 id=0-review>0. Review
+<a class=anchor href=#0-review>#</a></h2><p>$$
+\hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x+V(x)
+$$
+Stationary States
+$$
+\Psi(x,t)=\psi(x)e^{-iEt/\hbar}
+$$
+Eigenvalue equation:
+$$\hat{H}\psi(x) = E\psi(x)$$
+In newtonian mechanics, note
+$$F(x)=-\frac{ \partial V(x) }{ \partial x } $$</p><h2 id=1-infinite-finite-well-particle-on-a-box>1. Infinite Finite Well (particle on a box)
+<a class=anchor href=#1-infinite-finite-well-particle-on-a-box>#</a></h2><p>$$E = \frac{p^{2}}{2m}$$</p><blockquote><p>knowing $E$ results in knowing momentum $p^{2}$</p></blockquote><p>Problem Set-up
+Between $x=0$, and $x=a$,
+$$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$
+Subject to &ldquo;boundary condition&rdquo;: $\Psi(0)=\Psi(a)=0$
+$$
+\begin{align}
+\frac{d^{2}\Psi}{dx} & =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \
+& =-k^{2}\Psi
+\end{align}
+$$
+Recall</p><hr><p>Solution:</p><ol><li>$\Psi(x)=C_{1}e^{ikx}+C_{2}e^{-ikx}$</li><li>$\Psi(x)=C_{1}\cos(kx)+ C_{2}\sin(kx)$ (picked this version)</li></ol><p>The solution is in the form of
+$$\Psi(x)=A\sin(kx)+ B\cos(kx)$$
+Impose the boundary condition:</p><ol><li>$\Psi(x=0)=B\cos(0)=0$
+$$\boxed{B=0}$$</li><li>$\Psi(x=a)=A\sin(ka)=0$
+$$\begin{align}
+\sin(ka) & =0 \
+ka & =+\boldsymbol{\pi},+2\boldsymbol{\pi},+3\boldsymbol{\pi}\dots \
+k_{n} & =\frac{n\boldsymbol{\pi}}{a} \quad {n\in \mathbb{N}} \Rightarrow \boxed{E_{n}=\frac{\hbar^{2}\pi^{2}n^{2}}{2ma^{2}}}
+\end{align}$$</li></ol><blockquote><p>Note: $n \neq 0$, since the eq. would vanish entirely. $n>0$, for positive $k$.</p></blockquote><h2 id=3-normalization>3. Normalization
+<a class=anchor href=#3-normalization>#</a></h2><p>$$\Psi(x)=A\sin(k_{n}x)=A\sin\left( \frac{n\pi x}{a} \right)$$
+We normalize $$
+\begin{align}
+\int^a_{b}|\Psi_{n}(x)|^{2}, dx & =1 \
+A^{2}\int^a_{b}\sin ^{2}\left( \frac{n\pi x}{a} \right), dx & =1 \
+A^{2}\cdot \frac{a}{2} & =1 \Rightarrow A=\sqrt{ \frac{2}{a} }
+\end{align}
+$$
+Final Solution:
+$$\Psi(x)=A\sin(k_{n}x)=\sqrt{ \frac{2}{a} }\sin\left( \frac{n\pi x}{a} \right) \quad {n\in \mathbb{N}}$$
+(A): Why $E_{1}>0$?
+$$\begin{aligned} \Delta x &\sim a \ \Delta p \cdot \Delta x &\sim \hbar \ \Delta p &\sim \frac{\hbar}{a} \quad \Longrightarrow \quad KE\sim \frac{(\Delta p)^2}{2 m} \sim \frac{\hbar^2}{2 m a^2}\end{aligned}$$
+(B) States with higher energy have more nodes
+(C) States are orthonormal:
+$$\int_0^a d x \Psi_n^*(x) \Psi_m(x)=\delta_{n m}$$
+(D) Completeness: $f(x)$ defined on the interval $[0,a]$, with $f(x=0) = f(x=a) = 0$.</p><p>Fourier Series Representation:
+$$
+f(x) = \sum_{n=1}^{\infty} c_n \psi_n(x) = \sqrt{\frac{2}{a}} \sum_{n=1}^{\infty} c_n \sin\left(\frac{n\pi x}{a}\right)
+$$
+$$
+\begin{align}
+\int_0^a dx , \Psi_m^<em>(x) f(x) & = \sum_{n=1}^{\infty} C_n \int_0^a dx , \Psi_m^</em>(x) \Psi_n(x)
+\ & =\sum_{n=1}^{\infty} C_n \delta_{m,n} \
+& =C_m
+\end{align}
+$$$$</p><p>$$
+$$
+\boxed{C_m = \int_0^a dx , \Psi_m^*(x) f(x)}
+$$</p><p>$$
+\delta_{m,n} =
+\begin{cases}
+1, & \text{if } m = n \
+0, & \text{if } m \neq n
+\end{cases}
+$$</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/EriseHe/erisehe.github.io/docs/edit/main/exampleSite/content.en/docs/Physics/Quantum%20Mechenics/Feb%205%20Fourier%20Series%20on%20S.%20Euqation%20Solution.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=submenu><button id=theme-toggle class=theme-toggle-btn>
+<img src=/blackhole2.png alt="Switch Theme">
+</button>
+<button id=toc-toggle class=toc-toggle-btn>
+<img src=/toc-icon.svg alt="Toggle TOC"></button></aside><script>document.addEventListener("DOMContentLoaded",function(){var t,n=!0,e=document.getElementById("book-toc");n?e.classList.remove("hidden"):e.classList.add("hidden"),t=document.getElementById("toc-toggle"),t.addEventListener("click",function(){e.classList.toggle("hidden")})})</script><aside id=book-toc class="book-toc hidden"><div class=book-toc-content><div class=button-prev></div><div class=toc-entries><nav id=TableOfContents><ul><li><ul><li><a href=#0-review>0. Review</a></li><li><a href=#1-infinite-finite-well-particle-on-a-box>1. Infinite Finite Well (particle on a box)</a></li><li><a href=#3-normalization>3. Normalization</a></li></ul></li></ul></nav></div><div class=button-next></div></div></aside></main><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("theme-toggle");if(!e)return;e.onclick=()=>{const s=e.getBoundingClientRect(),o=s.left+s.width/2,i=s.top+s.height/2,l=document.documentElement.getAttribute("data-theme"),r=l||"auto";let n;r==="auto"?n=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":n=r;const a=n==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",a),localStorage.setItem("theme",a);const c=n==="dark"?"#0b031c":"white",t=document.createElement("div");t.style.position="fixed",t.style.top="0",t.style.left="0",t.style.width="100vw",t.style.height="100vh",t.style.zIndex="9999",t.style.pointerEvents="none",t.style.setProperty("--cx",`${o}px`),t.style.setProperty("--cy",`${i}px`),t.style.setProperty("--r","0px"),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${c} calc(var(--r) + 1px))`,document.body.appendChild(t);const u=window.innerWidth,h=window.innerHeight,m=Math.hypot(Math.max(o,u-o),Math.max(i,h-i)),f=600,p=performance.now();function d(e){const o=e-p,s=Math.min(o/f,1),n=s*m;if(t.style.setProperty("--r",`${n}px`),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${n}px, ${c} ${n+1}px)`,s<1)requestAnimationFrame(d);else{t.remove();const e=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",e)}}requestAnimationFrame(d)}})</script><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]]},svg:{fontCache:"global"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js></script></body></html>

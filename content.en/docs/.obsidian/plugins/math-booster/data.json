@@ -32,6 +32,11 @@
       "beginProof": "\\begin{proof}",
       "endProof": "\\end{proof}",
       "insertSpace": true
+    },
+    "MATH 412 Real Analysis II/Homework/Homework 6.md": {
+      "profile": "Solution",
+      "theoremCalloutStyle": "Framed",
+      "theoremCalloutFontInherit": true
     }
   },
   "extraSettings": {
@@ -58,7 +63,7 @@
             "assumption": "Assumption",
             "example": "Example",
             "exercise": "Exercise",
-            "conjecture": "Conjecture",
+            "conjecture": "Solution",
             "hypothesis": "Hypothesis",
             "remark": "Remark"
           },
@@ -98,6 +103,29 @@
             "end": "□",
             "linkedBeginPrefix": "",
             "linkedBeginSuffix": "の証明."
+          }
+        }
+      },
+      "Solution": {
+        "id": "Solution",
+        "meta": {
+          "tags": []
+        },
+        "body": {
+          "theorem": {
+            "axiom": "",
+            "definition": "Solution",
+            "lemma": "",
+            "proposition": "",
+            "theorem": "Solution",
+            "corollary": "",
+            "claim": "Claim",
+            "assumption": "",
+            "example": "",
+            "exercise": "",
+            "conjecture": "",
+            "hypothesis": "",
+            "remark": ""
           }
         }
       }
@@ -151,5 +179,7 @@
     "searchModalRange": "recent",
     "searchModalDvQuery": ""
   },
-  "excludedFiles": []
+  "excludedFiles": [
+    "Philosophy/Commentary on Foucault's The Order of Things.md"
+  ]
 }

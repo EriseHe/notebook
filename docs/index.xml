@@ -13,13 +13,13 @@
  1. Linear Case
  &lt;a class="anchor" href="#1-linear-case">#&lt;/a>
 &lt;/h5>
-&lt;p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.
-$$
+&lt;p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.&lt;/p>
+&lt;p>$$
 x = (x_1, x_2, \dots, x_n)^T
-$$
-Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p></description></item><item><title>7.2 Implicit Function Theorem</title><link>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/7.2-Implicit-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/7.2-Implicit-Function-Theorem/</guid><description>&lt;h1 id="72-implicit-function-theorem-ift">
- 7.2 Implicit Function Theorem (IFT)
- &lt;a class="anchor" href="#72-implicit-function-theorem-ift">#&lt;/a>
+$$&lt;/p>
+&lt;p>Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p></description></item><item><title>7.2 Implicit Function Theorem</title><link>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/7.1-Implicit-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/Real-Analysis-II/7.1-Implicit-Function-Theorem/</guid><description>&lt;h1 id="71-implicit-function-theorem-ift-proof">
+ 7.1* Implicit Function Theorem (IFT) Proof
+ &lt;a class="anchor" href="#71-implicit-function-theorem-ift-proof">#&lt;/a>
 &lt;/h1>
 &lt;h2 id="1-recall-ift">
  1. Recall IFT
@@ -90,7 +90,7 @@ appropriate version for your OS and architecture.&lt;/p>
 &lt;/h2>
 &lt;p>Hugo has its own example site which happens to also be the documentation site
 you are reading right now.&lt;/p>
-&lt;p>Follow the following steps:&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/hidden/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/hidden/</guid><description>&lt;h1 id="this-page-is-hidden-in-menu">
+&lt;p>Follow the following steps:&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/GPT-Conversion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/GPT-Conversion/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/hidden/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/hidden/</guid><description>&lt;h1 id="this-page-is-hidden-in-menu">
  This page is hidden in menu
  &lt;a class="anchor" href="#this-page-is-hidden-in-menu">#&lt;/a>
 &lt;/h1>
@@ -121,7 +121,141 @@ conscia&lt;/a> cuiquam Caeneus quas.&lt;/p>
  &lt;a href="http://www.spectataharundine.org/aquas-relinquit.html">in sustinui
 iussorum&lt;/a> equidem.
 Nymphae operi oris alii fronde parens dumque, in auro ait mox ingenti proxima
-iamdudum maius?&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/PDE/Numerical-Methods/4th-level/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/PDE/Numerical-Methods/4th-level/</guid><description>&lt;h1 id="4th-level-of-menu">
+iamdudum maius?&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-352-PDE-in-Action/Mid-Point-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-352-PDE-in-Action/Mid-Point-Method/</guid><description>&lt;h2 id="formula-derivation">
+ Formula Derivation
+ &lt;a class="anchor" href="#formula-derivation">#&lt;/a>
+&lt;/h2>
+&lt;p>The derivative approximation:&lt;/p>
+&lt;p>$$
+\begin{aligned}
+f(t_i, u_i) &amp;amp;= \frac{dy}{dt} \Big|&lt;em>{t_i} \approx \frac{y(t&lt;/em>{i+1}) - y(t_{i-1})}{2\Delta t} + \mathcal{O}(\Delta t^2)
+\end{aligned}
+$$&lt;/p>
+&lt;p>Update formula:&lt;/p>
+&lt;p>$$
+\begin{aligned}
+u_{i+1} &amp;amp;= u_{i-1} + 2\Delta t f(t_i, u_i)
+\end{aligned}
+$$&lt;/p>
+&lt;hr>
+&lt;h3 id="initial-conditions">
+ Initial Conditions
+ &lt;a class="anchor" href="#initial-conditions">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Initial Condition Calculation&lt;/strong>:
+Given $y_0$
+$$
+\begin{aligned}
+u_2 &amp;amp;= y_0 + 2\Delta t f(t_1, u_1)
+\end{aligned}
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Predictor-Corrector Steps&lt;/strong>:&lt;/p>
+&lt;p>$$
+\begin{aligned}
+u_1^* &amp;amp;= y_0 + \Delta t f(t_0, y_0), \
+u_1 &amp;amp;= y_0 + \frac{\Delta t}{2} (f(t_0, y_0) + f(t_1, u_1^*))
+\end{aligned}
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/</guid><description>&lt;h2 id="1-ok-honestly-i-have-no-idea-where-he-started">
+ 1. Ok Honestly I Have No Idea Where He Started
+ &lt;a class="anchor" href="#1-ok-honestly-i-have-no-idea-where-he-started">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>MATH 212 is useless
+- Alessandro Veneziani&lt;/p>&lt;/blockquote>
+&lt;p>Given the population problem #Implicit:&lt;/p>
+&lt;h2 id="heading">
+ $$
+\dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y
+$$
+ &lt;a class="anchor" href="#heading">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>Numerically&lt;/strong>, the problem is:
+$$
+\frac{u_{i+1} - u_i}{\Delta t} = A \left(1 - \frac{u_{i+1}}{B} \right) u_{i+1}
+$$
+To solve this numerically, we rewrite the equation:
+$$
+\begin{align}
+x - u_i &amp;amp;= A \left(1 - \frac{x}{B} \right) x \
+&amp;amp;= A x - \frac{A}{B} x^2
+\end{align}
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</guid><description>&lt;p>7.2: 1, 2, [3,4]; Chapter 7: [4], 5, [6], 9, [12].&lt;/p>
+&lt;p>&lt;strong>&lt;font color="#c00000">Problem 7.2.3&lt;/font>&lt;/strong> In the system
+$$\begin{array}{r}
+3 x+2 y+z^2+u+v^2=0 \
+4 x+3 y+z+u^2+v+w+2=0 \
+x+z+w+u^2+2=0
+\end{array}
+$$
+discuss the solvability for $u, v, w$ in terms of $x, y, z$ near $x=y=z=0, u=$ $v=0, w=-2$.&lt;/p>
+&lt;blockquote>
+&lt;p>[!theorem|*]
+We first define three functions:
+$$
+\begin{aligned}
+F_1(x,y,z,u,v,w) ;&amp;amp;=; 3x + 2y + z^2 + u + v^2,\
+F_2(x,y,z,u,v,w) ;&amp;amp;=; 4x + 3y + z + u^2 + v + w + 2,\
+F_3(x,y,z,u,v,w) ;&amp;amp;=; x + z + w + u^2 + 2.
+\end{aligned}
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.4-Sufficient-Conditions-for-Differentiability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.4-Sufficient-Conditions-for-Differentiability/</guid><description>&lt;h2 id="1-necessary-condition-for-differentiability">
+ &lt;strong>1. Necessary Condition for Differentiability&lt;/strong>
+ &lt;a class="anchor" href="#1-necessary-condition-for-differentiability">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Recall: A necessary condition for differentiability:
+$$
+\boxed{ f \text{ differentiable} \Rightarrow f \text{ is continuous} }
+$$&lt;/li>
+&lt;li>&lt;strong>Continuity&lt;/strong> is a requirement.&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-sufficient-conditions-for-differentiability">
+ &lt;strong>2. Sufficient Conditions for Differentiability&lt;/strong>
+ &lt;a class="anchor" href="#2-sufficient-conditions-for-differentiability">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>(a) Partial derivatives and differentiability&lt;/strong>
+f differentiable $\Rightarrow$ continuity + partials exists
+conditions + partials exists $\Rightarrow f$ differentiable &lt;strong>(?)&lt;/strong>&lt;/p>
+&lt;hr>
+&lt;h3 id="ex-1">
+ &lt;strong>Ex. 1&lt;/strong>
+ &lt;a class="anchor" href="#ex-1">#&lt;/a>
+&lt;/h3>
+&lt;p>Consider the function defined as:&lt;/p>
+&lt;p>$$
+f(x,y) =
+\begin{cases}
+\frac{xy}{x^2 + y^2}, &amp;amp; (x,y) \neq (0,0) \
+0, &amp;amp; (x,y) = (0,0)
+\end{cases}
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.5-The-Chain-Rule/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.5-The-Chain-Rule/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.6-Product-Rule-and-Gradients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.6-Product-Rule-and-Gradients/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.9-Taylor-Higher-Dimentions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.9-Taylor-Higher-Dimentions/</guid><description>&lt;p>$$
+R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0)
+$$
+And satisfying
+$$
+\frac{R_{r-1}(x_0)}{|x - x_0|^{r-1}} \to 0 \quad \text{as} \quad x \to x_0.
+$$&lt;/p>
+&lt;p>&lt;code>\begin{proof}&lt;/code>
+Consider 1-variable function:
+$$
+g(t) = f(x_0 + t(x - x_0)), \quad (a, b) \to \mathbb{R}
+$$
+for $t\in (a, b)$ with $[0, 1] \subset (a, b)$.&lt;/p>
+&lt;hr>
+&lt;p>Applying Taylor&amp;rsquo;s theorem to $g(t)$:
+$$
+\begin{align}
+g(1) &amp;amp;= g(0) + g&amp;rsquo;(0)(1-0) + \frac{g&amp;rsquo;&amp;rsquo;(0)}{2!} (1-0)^2 + \dots + \frac{g^{(r-1)}(0)}{(r-1)!} (1-0)^{r-1} + R_{r-1}\
+f(x) &amp;amp;= f(x_0) + \sum_{k=1}^{r-1} \frac{g^{(k)}(0)}{k!} + \frac{1}{r!} g^{(r)}(\tilde{c}), \quad \tilde{c} \in [0,1]
+\end{align}
+$$
+By chain rule,
+$$ g&amp;rsquo;(t) = Df(\varphi(t)) \cdot \varphi&amp;rsquo;(t) $$
+$$g&amp;rsquo;(0) = Df(x_0) (x - x_0) $$
+&lt;code>\end{proof}&lt;/code>&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/PDE/Numerical-Methods/4th-level/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/PDE/Numerical-Methods/4th-level/</guid><description>&lt;h1 id="4th-level-of-menu">
  4th Level of Menu
  &lt;a class="anchor" href="#4th-level-of-menu">#&lt;/a>
 &lt;/h1>
@@ -136,7 +270,175 @@ gestanda nitidi, vero? Dum ne pectoraque testantur.&lt;/p>
  &lt;a href="http://www.creveratnon.net/apricaaetheriis">aut
 manes&lt;/a>, Assyrii. Cupiens auctoribus
 pariter rubet, profana magni super nocens. Vos ius sibilat inpar turba visae
-iusto! Sedes ante dum superest &lt;strong>extrema&lt;/strong>.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/buttons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/buttons/</guid><description>&lt;h1 id="buttons">
+iusto! Sedes ante dum superest &lt;strong>extrema&lt;/strong>.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/PDE/Partial-Differential-Equation/Heat-Equation-Solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/PDE/Partial-Differential-Equation/Heat-Equation-Solution/</guid><description>&lt;h2 id="scale-invariance-property">
+ &lt;strong>Scale Invariance Property&lt;/strong>
+ &lt;a class="anchor" href="#scale-invariance-property">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>[!Theorem]
+Since we know that $u_t=ku_{xx}$ , then we know if $u \in U$ for $U \subset \mathbb{R}^n$ solves the equation, so does $u(\lambda x, \lambda^2 t)$ for $\lambda \in \mathbb{R}$ according to the &lt;strong>scale invariance property.&lt;/strong>&lt;/p>&lt;/blockquote>
+&lt;p>Let’s set that $\bar{x}=\lambda x, \bar{t}=\lambda^2 t$, then it is easy to see:&lt;/p>
+&lt;p>$$ \begin{align} u_{\bar{t}}= \frac{\partial u}{\partial \bar{t}}\cdot\frac{\partial \bar{t}}{\partial t} = \frac{\partial u}{\partial t} \cdot (\lambda^2) \ u_{\bar{x}\bar{x}} &amp;amp;=\frac{\partial}{\partial x} \cdot \frac{\partial u}{\partial \bar{x} } = (\frac{\partial}{\partial \bar{x}} \cdot \frac{\partial \bar{x}}{\partial x})(\frac{\partial u}{\partial \bar{x} } \cdot \frac{\partial \bar{x}}{\partial x})\ &amp;amp;= \frac{\partial^2 u}{\partial x^2} \cdot (\lambda^2) \end{align} $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/PDE/Partial-Differential-Equation/Partial-Differential-Equation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/PDE/Partial-Differential-Equation/Partial-Differential-Equation/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/50-words-Close-Reading/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/50-words-Close-Reading/</guid><description>&lt;p>(The Order of Things: An Archaeology of the Human Sciences, Preface, p. xxii)&lt;/p>
+&lt;p>$$
+\begin{align}
+\newline \
+\
+\
+\&lt;/p>
+&lt;p>\newline\newline\newline
+\end{align}&lt;/p>
+&lt;p>$$&lt;/p>
+&lt;h1 id="-epistemological-field-the-episteme-in-which-knowledge-envisaged-apart-from-all">
+ [&amp;hellip;] epistemological field, the episteme in which knowledge, envisaged apart from all
+ &lt;a class="anchor" href="#-epistemological-field-the-episteme-in-which-knowledge-envisaged-apart-from-all">#&lt;/a>
+&lt;/h1>
+&lt;p>$$\begin{align}&lt;/p>
+&lt;p>\end{align}$$&lt;/p>
+&lt;h1 id="criteria-having-reference-to-its-rational-value-or-to-its-objective-forms-grounds-its">
+ criteria having reference to its rational value or to its objective forms, grounds its
+ &lt;a class="anchor" href="#criteria-having-reference-to-its-rational-value-or-to-its-objective-forms-grounds-its">#&lt;/a>
+&lt;/h1>
+&lt;p>$$\begin{align}&lt;/p>
+&lt;p>\end{align}$$&lt;/p>
+&lt;h1 id="positivity-and-thereby-manifests-a-history-which-is-not-that-of-its-growing-perfection">
+ positivity and thereby manifests a history which is not that of its growing perfection,
+ &lt;a class="anchor" href="#positivity-and-thereby-manifests-a-history-which-is-not-that-of-its-growing-perfection">#&lt;/a>
+&lt;/h1>
+&lt;p>$$\begin{align}&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/Commentary-on-Foucaults-The-Order-of-Things/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/Commentary-on-Foucaults-The-Order-of-Things/</guid><description>&lt;h1 id="close-reading-commentary">
+ Close Reading Commentary
+ &lt;a class="anchor" href="#close-reading-commentary">#&lt;/a>
+&lt;/h1>
+&lt;p>The selected quote is from Foucault’s early-stage (1960s) intellectual project of philosophical &amp;ldquo;archaeology&amp;rdquo;, which was his first major methodological phase. He presents a radical historical analysis of knowledge in The Order of Things, intending to eliminate the assumption of unchanging criteria for knowledge.&lt;/p>
+&lt;p>This quote sits at the center of his archaeological method, in which he attempted &amp;ldquo;to bring to light&amp;rdquo; the underlying episteme of knowledge. This recursive long sentence, broken down into three main modifiers, describes the epistemological field, which almost, if not intentionally, resembles the idea of a &amp;ldquo;field&amp;rdquo; in physics - an invisible but structured influence that determines how objects behave within it. The traditional epistemological assumption that he challenged holds that knowledge is grounded by universal standards of rationality and objectivity, and the first modifier sets the stage for this argument. Foucault subverts this unchanging framework by treating it as historically contingent, or specifically, one of the possible conditions &amp;ldquo;having reference&amp;rdquo; to rationality and objectivity.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/Object-petit-a/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/Object-petit-a/</guid><description>&lt;p>What is $\mathbb{objet; petit; a}$?&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/</guid><description>&lt;p>我相信，&lt;/p>
+&lt;p>翻开《词与物》没读完第一章就合上了，然后草率地读了结尾——我实在对这种节奏巨慢的历史学庞杂征引感到索然无味，以至于不得不读两页国内的数学书来综合一下&amp;hellip; 我对物理学的态度，以及对其研究方向的直觉，远远大于我本身可以延展他们的能力（很可惜，否则我必然毫不犹豫的投身其中）。但是幸运的是，对于基础科学来说，这会是人类历史当中，提出正确的问题所能带给我们的效益最大话的时代。我真正需要提出他对知识进行了激进的历史分析，并且构建了和绝大部分的科学家秉持的认识论有悖的历史断裂式“知识论领域”。&lt;/p>
+&lt;p>所谓的知识论领域，原文里说：&lt;/p>
+&lt;p>[&amp;hellip;] &lt;strong>epistemological field&lt;/strong>, the episteme in which knowledge, envisaged apart from all criteria having reference to its rational value or to its objective forms, grounds its positivity and thereby manifests a history which is not that of its growing perfection, but rather that of its conditions of possibility.&lt;/p>
+&lt;p>当我第一时间看到他所说的知识的“field”的时候，想到的不是传统翻译里的“领域”，而是一种十分类似于物理学中的“场”的概念：一种不可见但结构化的影响力，决定了其中对象的行为方式。而这种受“场”所预设的知识的构建轨迹就相比于光在大质量黑洞旁边的行动——似乎光仅仅是依照着它的准则，一种肉眼可见的弯曲道路行进，但是实际上，他们在被引力场所弯曲的预设时空中，走直线（基于理性的客观性的知识发展）便是所见的“弯路”。但是福柯真正所面临的问题在于，如果沿用以上的类比，我们无从以观测者的身份知道以什么是直线，而什么是弯曲。&lt;/p>
+&lt;p>作为其考古学方法的核心，福柯试图“揭示”知识的&lt;strong>基础认识型&lt;/strong>（épistémè），以及其认识论场（epsitomalogical field）的历史性变化。福科挑战了传统认识论，那些所有基于理性与客观性的普遍标准的认知框架，并且将他们都视为了历史偶然（或成为了原文所说的，指向&amp;quot;理性与客观性的&amp;quot;可能条件&amp;quot;之一）。&lt;/p>
+&lt;p>知识“确立其实证性（positivité）并由此展现历史”，呈现了他对认识论最激进的观点之一。知识的实证性在历史先验（a priori historique）建立的空间中被建构，因而通过能被发现为&amp;quot;知识&amp;quot;（savoir）的事物获得有效性。对福柯而言，知识描述现实的有效性与知识本身之间的对应关系被根本性动摇，因为这种关系没有客观保证——由于认识型构建了我们的感知，从而使现实本身具有历史条件性。&lt;/p>
+&lt;p>他明确拒绝知识向&amp;quot;日益完善&amp;quot;（perfection croissante）进步的观念。这或许是他的认知论最激进的观点之一，进步不仅不是线性且连续的，而是进步本身根本不可能存在——因为认识型断裂（rupture épistémologique）会改变何为知识的框架，并使先前的思维方式变得不可想象（impensable）（哪怕是和他类似的托马斯·库恩的断裂式科学观中的连续性，也被完全抛弃）。由于认识型构建了知识史展开的条件，它决定了历史制度与话语将知识&amp;quot;确立&amp;quot;为合法性的框架。&lt;/p>
+&lt;p>这用来支撑了他对疯狂、犯罪与性态话语的考察，例如历史上不断变化的疯狂认识型如何通过禁闭（confinement）逻辑或精神病学权威下的医学化重新定义其内涵。我对这段文本的细读迫使自己跳出正在研究的科学领域，反思所谓&lt;/p>
+&lt;p>如果我们接受认识论进步是某一种历史幻觉，那么重新评估物理学的转变，于是我们便可以说：&lt;/p>
+&lt;p>相对论的诞生并没有超越了牛顿力学，取得了更加正确的结论，而仅仅是知识论领域场从绝对时空转移到了相对时空——这是一种“épistémè”的转移。那么至于相对时空对物理现实的逼进是否优于绝对时空，这个问题是无法以绝对正确的方式被提出的，因为现代物理学的范式 - 实验，证伪性，同行评估 - 已经被塑造成了评估这个问题的核心范式。从历史学的角度上说，爱因斯坦的弯曲几何、薛定谔的波函数，本质上都是权力配置知识生产的历史先验（a priori historique）。物理学史中那些被视为“自然”的真理秩序在福科的认识论范围内被彻底解构。&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-1-The-Wave-Function/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-1-The-Wave-Function/</guid><description>&lt;p>To find a particle&amp;rsquo;s wave function, $\psi(x,t)$, we solve:&lt;/p>
+&lt;blockquote>
+&lt;p>logically analogous to &lt;strong>Newton&amp;rsquo;s Second Law&lt;/strong> $F=ma$&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>[!definition] Schrodinger&amp;rsquo;s Equation
+$$i\hbar \frac{ \partial \Psi}{ \partial t}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2}\Psi}{ \partial x^{2} }+V \Psi$$&lt;/p>&lt;/blockquote>
+&lt;p>where &lt;strong>Planck&amp;rsquo;s constant&lt;/strong> $\hbar=\frac{h}{2\pi}=1.054573 \times 10^{-34}$.&lt;/p>
+&lt;blockquote>
+&lt;p>[!definition] Born&amp;rsquo;s Statistical Interpretation
+$$\int^{a}_{b} |\Psi(x,t)^{2}| , dx $$
+which is the probability finding the particle between $a$ and $b$.&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>It is natural to wonder whether it is a fact of nature, or a defect in theory.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-2-Time-Independent-Schrodinger-Equation-Stationary-States/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-2-Time-Independent-Schrodinger-Equation-Stationary-States/</guid><description>&lt;h2 id="music-harmonics">
+ Music: Harmonics
+ &lt;a class="anchor" href="#music-harmonics">#&lt;/a>
+&lt;/h2>
+&lt;p>$$
+\begin{align}
+C_{1}:f_{1}&amp;amp;=f_{0} \
+C_{2}:f_{1}&amp;amp;=2f_{0} \
+G:f_{1}&amp;amp;=3f_{0} \
+C_{3}:f_{1}&amp;amp;=4f_{0}
+\end{align}
+$$&lt;/p>
+&lt;h2 id="separation-of-variables">
+ Separation of variables
+ &lt;a class="anchor" href="#separation-of-variables">#&lt;/a>
+&lt;/h2>
+&lt;p>$$
+\begin{equation}
+i\hbar \frac{ \partial \Psi}{ \partial t}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2}\Psi}{ \partial x^{2} }+V_{x} \Psi
+\end{equation}
+$$
+where
+$V(x)$: time independent potential
+$\hat{H}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2} }{ \partial x^{2} }+V(x)$.
+$$
+H\Psi=i\hbar \frac{ \partial }{ \partial t } \Psi
+$$
+We begin by= separate the variables, and set
+$$
+\begin{equation}
+\Psi(x,t)=\psi(x) \phi(t)
+\end{equation}&lt;/p>
+&lt;p>$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-3/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</guid><description>&lt;h2 id="0-review">
+ 0. Review
+ &lt;a class="anchor" href="#0-review">#&lt;/a>
+&lt;/h2>
+&lt;p>$$
+\hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x+V(x)
+$$
+Stationary States
+$$
+\Psi(x,t)=\psi(x)e^{-iEt/\hbar}
+$$
+Eigenvalue equation:
+$$\hat{H}\psi(x) = E\psi(x)$$
+In newtonian mechanics, note
+$$F(x)=-\frac{ \partial V(x) }{ \partial x } $$&lt;/p>
+&lt;h2 id="1-infinite-finite-well-particle-on-a-box">
+ 1. Infinite Finite Well (particle on a box)
+ &lt;a class="anchor" href="#1-infinite-finite-well-particle-on-a-box">#&lt;/a>
+&lt;/h2>
+&lt;p>$$E = \frac{p^{2}}{2m}$$&lt;/p>
+&lt;blockquote>
+&lt;p>knowing $E$ results in knowing momentum $p^{2}$&lt;/p>&lt;/blockquote>
+&lt;p>Problem Set-up
+Between $x=0$, and $x=a$,
+$$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$
+Subject to &amp;ldquo;boundary condition&amp;rdquo;: $\Psi(0)=\Psi(a)=0$
+$$
+\begin{align}
+\frac{d^{2}\Psi}{dx} &amp;amp; =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \
+&amp;amp; =-k^{2}\Psi
+\end{align}
+$$
+Recall&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework-5/HW3-Code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework-5/HW3-Code/</guid><description>&lt;p>import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+import matplotlib.pyplot as plt&lt;/p>
+&lt;p>def computation():
+#parameters
+N, V0_tilde, L = 600, 10.0, 1.0
+M, dx = N - 2, L / (N - 1)
+x_vals = np.linspace(-0.5 * L + dx, 0.5 * L - dx, M) # Interior points&lt;/p>
+&lt;pre>&lt;code># KE matrix T (tridiagonal)
+factor = (N**2) / (np.pi**2)
+T = sp.diags([np.full(M - 1, -factor), np.full(M, 2 * factor), np.full(M - 1, -factor)], [-1, 0, 1])
+
+# PE matrix V (diagonal)
+V = sp.diags(np.where(np.abs(x_vals) &amp;lt; (L / 6), V0_tilde, 0))
+
+#Hamiltonian H = T + V
+H = T + V
+
+#solve for lowest two eigenvalues/eigenvectors
+eigvals, eigvecs = spla.eigsh(H, k=2, which='SM')
+eigvals, eigvecs = zip(*sorted(zip(eigvals, eigvecs.T))) # Sort eigenvalues &amp;amp; vectors
+
+print(f&amp;quot;Ground state energy = {eigvals[0]}&amp;quot;)
+print(f&amp;quot;1st excited energy = {eigvals[1]}&amp;quot;)
+
+#include boundary points
+x_full = np.linspace(-0.5 * L, 0.5 * L, N)
+psi_full = [np.concatenate(([0], psi, [0])) for psi in eigvecs]
+
+# Plot wavefunctions
+plt.figure(figsize=(8,6))
+plt.plot(x_full, psi_full[0], color='red',label=&amp;quot;Ground State&amp;quot;)
+plt.plot(x_full, psi_full[1], color='blue', label=&amp;quot;1st Excited State&amp;quot;)
+plt.axvspan(-L/6, L/6, color='gray', alpha=0.1, label='Barrier region')
+plt.title(&amp;quot;Wavefunctions for lowest two states&amp;quot;)
+plt.xlabel(&amp;quot;x (dimensionless)&amp;quot;)
+plt.ylabel(&amp;quot;ψ(x)&amp;quot;)
+plt.legend()
+plt.grid()
+plt.show()
+&lt;/code>&lt;/pre>
+&lt;p>if &lt;strong>name&lt;/strong> == &amp;ldquo;&lt;strong>main&lt;/strong>&amp;rdquo;:
+computation()&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-1/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/section/buttons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/section/buttons/</guid><description>&lt;h1 id="buttons">
  Buttons
  &lt;a class="anchor" href="#buttons">#&lt;/a>
 &lt;/h1>
@@ -150,166 +452,4 @@ iusto! Sedes ante dum superest &lt;strong>extrema&lt;/strong>.&lt;/p></descripti
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://erisehe.github.io/" class="book-btn">Get Home&lt;/a>
 
 &lt;a href="https://github.com/alex-shpak/hugo-book" target="_blank" rel="noopener" class="book-btn">Contribute&lt;/a>
-&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/columns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/columns/</guid><description>&lt;h1 id="columns">
- Columns
- &lt;a class="anchor" href="#columns">#&lt;/a>
-&lt;/h1>
-&lt;p>Columns help organize shorter pieces of content horizontally for readability.&lt;/p>
-&lt;h2 id="example">
- Example
- &lt;a class="anchor" href="#example">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>{{% columns [ratio=&amp;#34;1:1&amp;#34;] [class=&amp;#34;...&amp;#34;] %}} &lt;span style="color:#75715e">&amp;lt;!-- begin columns block --&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># Left Content
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Lorem markdownum insigne...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">---&lt;/span>&amp;gt; &lt;span style="color:#75715e">&amp;lt;!-- magic separator, between columns --&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># Mid Content
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Lorem markdownum insigne...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">---&lt;/span>&amp;gt; &lt;span style="color:#75715e">&amp;lt;!-- magic separator, between columns --&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># Right Content
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Lorem markdownum insigne...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{{% /columns %}}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="book-columns flex flex-wrap">
-&lt;div class="flex-even markdown-inner" style="flex-grow: 1;">
-&lt;h3 id="left-content">
- Left Content
- &lt;a class="anchor" href="#left-content">#&lt;/a>
-&lt;/h3>
-&lt;p>Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat
-stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa
-protulit, sed sed aere valvis inhaesuro Pallas animam: qui &lt;em>quid&lt;/em>, ignes.
-Miseratus fonte Ditis conubia.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/details/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/details/</guid><description>&lt;h1 id="details">
- Details
- &lt;a class="anchor" href="#details">#&lt;/a>
-&lt;/h1>
-&lt;p>Details shortcode is a helper for &lt;code>details&lt;/code> html5 element. It is going to replace &lt;code>expand&lt;/code> shortcode.&lt;/p>
-&lt;h2 id="example">
- Example
- &lt;a class="anchor" href="#example">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tpl" data-lang="tpl">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#a6e22e">details&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Title&amp;#34;&lt;/span> &lt;span style="color:#f92672">[&lt;/span>&lt;span style="color:#a6e22e">open&lt;/span>&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>## Markdown content
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Lorem markdownum insigne...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">details&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tpl" data-lang="tpl">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#a6e22e">details&lt;/span> &lt;span style="color:#a6e22e">title&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Title&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">open&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">true&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>## Markdown content
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Lorem markdownum insigne...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">details&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;details open>&lt;summary>Title&lt;/summary>
- &lt;div class="markdown-inner">
-&lt;h2 id="markdown-content">
- Markdown content
- &lt;a class="anchor" href="#markdown-content">#&lt;/a>
-&lt;/h2>
-&lt;p>Lorem markdownum insigne&amp;hellip;&lt;/p>
- &lt;/div>
-&lt;/details></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/hints/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/hints/</guid><description>&lt;h1 id="hints">
- Hints
- &lt;a class="anchor" href="#hints">#&lt;/a>
-&lt;/h1>
-&lt;p>Hint shortcode can be used as hint/alerts/notification block.&lt;br>
-There are 3 colors to choose: &lt;code>info&lt;/code>, &lt;code>warning&lt;/code> and &lt;code>danger&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tpl" data-lang="tpl">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#a6e22e">hint&lt;/span> &lt;span style="color:#f92672">[&lt;/span>&lt;span style="color:#a6e22e">info&lt;/span>&lt;span style="color:#f92672">|&lt;/span>&lt;span style="color:#a6e22e">warning&lt;/span>&lt;span style="color:#f92672">|&lt;/span>&lt;span style="color:#a6e22e">danger&lt;/span>&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>**Markdown content** 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">hint&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="example">
- Example
- &lt;a class="anchor" href="#example">#&lt;/a>
-&lt;/h2>
-&lt;blockquote class="book-hint info">
-&lt;p>&lt;strong>Markdown content&lt;/strong>&lt;br>
-Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat
-stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa&lt;/p>
-&lt;/blockquote>
-&lt;blockquote class="book-hint warning">
-&lt;p>&lt;strong>Markdown content&lt;/strong>&lt;br>
-Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat
-stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/mermaid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/mermaid/</guid><description>&lt;h1 id="mermaid-chart">
- Mermaid Chart
- &lt;a class="anchor" href="#mermaid-chart">#&lt;/a>
-&lt;/h1>
-&lt;p>
- &lt;a href="https://mermaid-js.github.io/">MermaidJS&lt;/a> is library for generating svg charts and diagrams from text.&lt;/p>
-&lt;blockquote class="book-hint info">
-&lt;p>&lt;strong>Override Mermaid initialization config&lt;/strong>&lt;br>
-To override the 
- &lt;a href="https://mermaid-js.github.io/mermaid/#/Setup">initialization config&lt;/a> for Mermaid,
-create a &lt;code>mermaid.json&lt;/code> file in your &lt;code>assets&lt;/code> folder!&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="example">
- Example
- &lt;a class="anchor" href="#example">#&lt;/a>
-&lt;/h2>
-&lt;div class="book-columns flex flex-wrap">
-&lt;div class="flex-even markdown-inner" style="flex-grow: 1;">
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tpl" data-lang="tpl">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">mermaid&lt;/span> &lt;span style="color:#f92672">[&lt;/span>&lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;...&amp;#34;&lt;/span>&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>stateDiagram-v2
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> State1: The state with a note
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> note right of State1
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Important information! You can write
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> notes.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> end note
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> State1 --&amp;gt; State2
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> note left of State2 : This is the note to the left.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">mermaid&lt;/span> &lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div> &lt;/div>
-&lt;div class="flex-even markdown-inner" style="flex-grow: 1;">
-&lt;script src="https://erisehe.github.io/mermaid.min.js">&lt;/script>
- &lt;script>mermaid.initialize({
- "flowchart": {
- "useMaxWidth":true
- },
- "theme": "default"
-}
-)&lt;/script>
-&lt;pre class="mermaid">
-stateDiagram-v2
- State1: The state with a note
- note right of State1
- Important information! You can write
- notes.
- end note
- State1 --> State2
- note left of State2 : This is the note to the left.
-&lt;/pre>
- &lt;/div>
-&lt;/div></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/section/first-page/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/section/first-page/</guid><description>&lt;h1 id="first-page">
- First page
- &lt;a class="anchor" href="#first-page">#&lt;/a>
-&lt;/h1>
-&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/section/second-page/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/section/second-page/</guid><description>&lt;h1 id="second-page">
- Second Page
- &lt;a class="anchor" href="#second-page">#&lt;/a>
-&lt;/h1>
-&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/tabs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/tabs/</guid><description>&lt;h1 id="tabs">
- Tabs
- &lt;a class="anchor" href="#tabs">#&lt;/a>
-&lt;/h1>
-&lt;p>Tabs let you organize content by context, for example installation instructions for each supported platform.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tpl" data-lang="tpl">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#a6e22e">tabs&lt;/span> &lt;span style="color:#e6db74">&amp;#34;id&amp;#34;&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#a6e22e">tab&lt;/span> &lt;span style="color:#e6db74">&amp;#34;MacOS&amp;#34;&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span> # MacOS Content &lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">tab&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#a6e22e">tab&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Linux&amp;#34;&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span> # Linux Content &lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">tab&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#a6e22e">tab&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Windows&amp;#34;&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span> # Windows Content &lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">tab&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">{{&lt;/span>&lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">tabs&lt;/span> &lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#75715e">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="example">
- Example
- &lt;a class="anchor" href="#example">#&lt;/a>
-&lt;/h2>
-&lt;div class="book-tabs">
-&lt;input type="radio" class="toggle" name="tabs-0" id="tabs-0-0" checked="checked" />
-&lt;label for="tabs-0-0">MacOS&lt;/label>
-&lt;div class="book-tabs-content markdown-inner">&lt;h1 id="macos">
- MacOS
- &lt;a class="anchor" href="#macos">#&lt;/a>
-&lt;/h1>
-&lt;p>This is tab &lt;strong>MacOS&lt;/strong> content.&lt;/p>
-&lt;p>Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat
-stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa
-protulit, sed sed aere valvis inhaesuro Pallas animam: qui &lt;em>quid&lt;/em>, ignes.
-Miseratus fonte Ditis conubia.&lt;/p></description></item></channel></rss>
+&lt;/p></description></item></channel></rss>

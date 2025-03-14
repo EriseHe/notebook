@@ -48,22 +48,28 @@
       <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
-    {{ if default true (default .Site.Params.BookToC .Params.BookToC) }}
-      <!-- The TOC aside -->
-      <aside class="book-toc">
-          <div class="book-toc-content">
+    {{ partial "docs/inject/submenu" . }}
 
-            {{ partial "docs/button-prev.html" . }}
-
+    {{ $bookToC := default true (default .Site.Params.BookToC .Params.BookToC) }}
+    {{ $tocItems := findRE "<li" .TableOfContents }}
+    
+    {{ if $bookToC }}
+      <aside id="book-toc" class="book-toc hidden">
+        <div class="book-toc-content">
+          {{ partial "docs/button-prev.html" . }}
+    
+          {{ if gt (len $tocItems) 0 }}
             <div class="toc-entries">
               {{ template "toc" . }}
             </div>
-
-            {{ partial "docs/button-next.html" . }}
-
-          </div>
+          {{ end }}
+    
+          {{ partial "docs/button-next.html" . }}
+        </div>
       </aside>
     {{ end }}
+
+    
   </main>
   {{ partial "docs/inject/body" . }}
   {{ partial "docs/mathjax.html" . }}
