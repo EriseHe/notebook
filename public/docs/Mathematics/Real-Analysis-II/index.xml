@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Real Analysis II on エリスの講義ノート:3</title>
+    <link>http://localhost:1313/docs/Mathematics/Real-Analysis-II/</link>
+    <description>Recent content in Real Analysis II on エリスの講義ノート:3</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/docs/Mathematics/Real-Analysis-II/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>7.1 Inverse Function Theorem</title>
+      <link>http://localhost:1313/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/</guid>
+      <description>&lt;h1 id=&#34;71-inverse-function-theorem-ift&#34;&gt;&#xA;  7.1 Inverse Function Theorem (IFT)&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#71-inverse-function-theorem-ift&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Two lines of ideas:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: CMP $⇒$ Inverse FT $⇒$ Applications in ODE&lt;br&gt;&#xA;&lt;strong&gt;B&lt;/strong&gt;: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems&lt;/p&gt;&#xA;&lt;h3 id=&#34;i-inverse-function-theorem&#34;&gt;&#xA;  I. Inverse Function Theorem&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#i-inverse-function-theorem&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;h5 id=&#34;1-linear-case&#34;&gt;&#xA;  1. Linear Case&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#1-linear-case&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h5&gt;&#xA;&lt;p&gt;Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;x = (x_1, x_2, \dots, x_n)^T&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>7.2 Implicit Function Theorem</title>
+      <link>http://localhost:1313/docs/Mathematics/Real-Analysis-II/7.1-Implicit-Function-Theorem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/Mathematics/Real-Analysis-II/7.1-Implicit-Function-Theorem/</guid>
+      <description>&lt;h1 id=&#34;71-implicit-function-theorem-ift-proof&#34;&gt;&#xA;  7.1* Implicit Function Theorem (IFT) Proof&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#71-implicit-function-theorem-ift-proof&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;1-recall-ift&#34;&gt;&#xA;  1. Recall IFT&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#1-recall-ift&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Theorem 7.1.1:&lt;/strong&gt; Let $y = f(x): A \subset \mathbb{R}^n \to \mathbb{R}^n$ be of class $C^1$. Suppose $x_0 \in A$ with:&#xA;$$&#xA;J_f(x_0) = \det(Df(x_0)) \ne 0&#xA;$$&#xA;Then there exist neighborhoods $U$ of $x_0$ in $A$ and $W$ of $y_0 = f(x_0)$ such that:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;$f(U) = W$ and $f: U \to W$ has an inverse $f^{-1}: W \to U$.&lt;/li&gt;&#xA;&lt;li&gt;$f^{-1} \in C^1$ (If $f \in C^r$, then $f^{-1} \in C^r$).&lt;/li&gt;&#xA;&lt;li&gt;$Df^{-1}(y) = [Df(x)]^{-1}$ for $x \in U$ and $y = f(x)$.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;2-proof-of-theorem-711&#34;&gt;&#xA;  2. Proof of Theorem 7.1.1&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#2-proof-of-theorem-711&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;step-1-reduction&#34;&gt;&#xA;  Step 1: Reduction&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#step-1-reduction&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;We may assume $Df(x_0) = I$ and $x_0 = 0$, $y_0 = f(x_0)$.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

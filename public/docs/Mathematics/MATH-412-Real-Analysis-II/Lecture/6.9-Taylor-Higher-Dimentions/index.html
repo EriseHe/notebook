@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <script>
+    (function(){
+      
+      
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="$$
+R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0)
+$$
+And satisfying
+$$
+\frac{R_{r-1}(x_0)}{|x - x_0|^{r-1}} \to 0 \quad \text{as} \quad x \to x_0.
+$$
+\begin{proof}
+Consider 1-variable function:
+$$
+g(t) = f(x_0 &#43; t(x - x_0)), \quad (a, b) \to \mathbb{R}
+$$
+for $t\in (a, b)$  with $[0, 1] \subset (a, b)$.
+
+Applying Taylor&rsquo;s theorem to $g(t)$:
+$$
+\begin{align}
+g(1) &amp;= g(0) &#43; g&rsquo;(0)(1-0) &#43; \frac{g&rsquo;&rsquo;(0)}{2!} (1-0)^2 &#43; \dots &#43; \frac{g^{(r-1)}(0)}{(r-1)!} (1-0)^{r-1} &#43; R_{r-1}\
+f(x) &amp;= f(x_0) &#43; \sum_{k=1}^{r-1} \frac{g^{(k)}(0)}{k!} &#43; \frac{1}{r!} g^{(r)}(\tilde{c}), \quad \tilde{c} \in [0,1]
+\end{align}
+$$
+By chain rule,
+$$ g&rsquo;(t) = Df(\varphi(t)) \cdot \varphi&rsquo;(t) $$
+$$g&rsquo;(0) = Df(x_0) (x - x_0) $$
+\end{proof}">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.9-Taylor-Higher-Dimentions/">
+  <meta property="og:site_name" content="エリスの講義ノート:3">
+  <meta property="og:title" content="エリスの講義ノート:3">
+  <meta property="og:description" content="$$ R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0) $$ And satisfying $$ \frac{R_{r-1}(x_0)}{|x - x_0|^{r-1}} \to 0 \quad \text{as} \quad x \to x_0. $$
+\begin{proof} Consider 1-variable function: $$ g(t) = f(x_0 &#43; t(x - x_0)), \quad (a, b) \to \mathbb{R} $$ for $t\in (a, b)$ with $[0, 1] \subset (a, b)$.
+Applying Taylor’s theorem to $g(t)$: $$ \begin{align} g(1) &amp;= g(0) &#43; g’(0)(1-0) &#43; \frac{g’’(0)}{2!} (1-0)^2 &#43; \dots &#43; \frac{g^{(r-1)}(0)}{(r-1)!} (1-0)^{r-1} &#43; R_{r-1}\ f(x) &amp;= f(x_0) &#43; \sum_{k=1}^{r-1} \frac{g^{(k)}(0)}{k!} &#43; \frac{1}{r!} g^{(r)}(\tilde{c}), \quad \tilde{c} \in [0,1] \end{align} $$ By chain rule, $$ g’(t) = Df(\varphi(t)) \cdot \varphi’(t) $$ $$g’(0) = Df(x_0) (x - x_0) $$ \end{proof}">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>
+6.9 Taylor Higher Dimentions | エリスの講義ノート:3</title>
+<link rel="icon" href="/blackhole2.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.9-Taylor-Higher-Dimentions/">
+<link rel="stylesheet" href="/book.min.c8220ea781c4a0d6d5cca83b80c65dd939233b2b34dc25bac0627e4f3173191f.css" integrity="sha256-yCIOp4HEoNbVzKg7gMZd2TkjOys03CW6wGJ&#43;TzFzGR8=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.73516e3a983d0a4eb01b638079e27b9702722b81f51f0f111b73e6b8baed6c67.js" integrity="sha256-c1FuOpg9Ck6wG2OAeeJ7lwJyK4H1Hw8RG3PmuLrtbGc=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body dir="ltr">
+  
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
+  <main class="container flex">
+    
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>エリスの講義ノート:3</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/zh/">
+          中文
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Mathematics</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-35a4841f54f1aa8de50fa9ab69bb4022" class="toggle"  />
+    <label for="section-35a4841f54f1aa8de50fa9ab69bb4022" class="flex justify-between">
+      <a role="button" class="">Real Analysis II</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/" class="">7.1 Inverse Function Theorem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/Real-Analysis-II/7.1-Implicit-Function-Theorem/" class="">7.2 Implicit Function Theorem</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4108e7ffbd87252d17d4df445c81e01d" class="toggle"  />
+    <label for="section-4108e7ffbd87252d17d4df445c81e01d" class="flex justify-between">
+      <a role="button" class="">PDE</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/PDE/Numerical-Methods/" class="">Numerical Methods</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/PDE/Numerical-Methods/4th-level/" class="">4th Level</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/PDE/Partial-Differential-Equation/Heat-Equation-Solution/" class="">Heat Equation Solution</a>
+  
+
+        </li>
+      
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-352-PDE-in-Action/Mid-Point-Method/" class="">Mid Point Method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/" class="">Three Point Backward Differentiation Formula ( Feb 4)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/" class="">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.4-Sufficient-Conditions-for-Differentiability/" class="">6.4 Sufficient Conditions for Differentiability</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.9-Taylor-Higher-Dimentions/" class="active">6.9 Taylor Higher Dimentions</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Quantum Mechenics</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Chapter-1-The-Wave-Function/" class="">Chapter 1 the Wave Function</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Chapter-2-Time-Independent-Schrodinger-Equation-Stationary-States/" class="">Chapter 2 Time Independent Schrodinger Equation Stationary States</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/" class="">Feb 5 Fourier Series on S. Euqation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Homework-5/HW3-Code/" class="">Hw3 Code</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Philosophy</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Philosophy/50-words-Close-Reading/" class="">50 Words Close Reading</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Philosophy/Commentary-on-Foucaults-The-Order-of-Things/" class="">Commentary on Foucault&#39;s the Order of Things</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Philosophy/Object-petit-a/" class="">Object Petit A</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/" class="">福柯视角下的物理学转变以及新范式的可能</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/EriseHe/erisehe.github.io"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/themes/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+    
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>6.9 Taylor Higher Dimentions</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+  
+  
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#example">#Example</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#3-maximum-and-minimum-problem-in-mathbbrn">3 Maximum and Minimum Problem in $\mathbb{R}^n$</a>
+      <ul>
+        <li><a href="#31-introduction">3.1 Introduction</a></li>
+        <li><a href="#32-second-derivative-test-for-a-critical-point">3.2 Second Derivative Test (for a critical point)</a></li>
+        <li><a href="#4-necessary-condition-for-extreme-points-in-mathbbrn">4. Necessary Condition for Extreme Points in $\mathbb{R}^n$</a></li>
+        <li><a href="#remark">Remark</a></li>
+        <li><a href="#example-1">Example</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><p>$$
+R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0)
+$$
+And satisfying
+$$
+\frac{R_{r-1}(x_0)}{|x - x_0|^{r-1}} \to 0 \quad \text{as} \quad x \to x_0.
+$$</p>
+<p><code>\begin{proof}</code>
+Consider 1-variable function:
+$$
+g(t) = f(x_0 + t(x - x_0)), \quad (a, b) \to \mathbb{R}
+$$
+for $t\in (a, b)$  with $[0, 1] \subset (a, b)$.</p>
+<hr>
+<p>Applying Taylor&rsquo;s theorem to $g(t)$:
+$$
+\begin{align}
+g(1) &amp;= g(0) + g&rsquo;(0)(1-0) + \frac{g&rsquo;&rsquo;(0)}{2!} (1-0)^2 + \dots + \frac{g^{(r-1)}(0)}{(r-1)!} (1-0)^{r-1} + R_{r-1}\
+f(x) &amp;= f(x_0) + \sum_{k=1}^{r-1} \frac{g^{(k)}(0)}{k!} + \frac{1}{r!} g^{(r)}(\tilde{c}), \quad \tilde{c} \in [0,1]
+\end{align}
+$$
+By chain rule,
+$$ g&rsquo;(t) = Df(\varphi(t)) \cdot \varphi&rsquo;(t) $$
+$$g&rsquo;(0) = Df(x_0) (x - x_0) $$
+<code>\end{proof}</code></p>
+<h3 id="example">
+  #Example
+  <a class="anchor" href="#example">#</a>
+</h3>
+<p>Determine the $2\text{nd}$ order Taylor formula for $$f(x,y)=e^{(x-1)^{2}}\cos (y)\quad \text{at},(1,0)$$
+<strong>Solution</strong> (compute partials):
+$$
+\begin{align}
+\frac{\partial f}{\partial x} &amp;= e^{(x-1)^2} 2(x-1) \cos y, \quad
+\frac{\partial f}{\partial y} = -e^{(x-1)^2} \sin y, \
+\frac{\partial^2 f}{\partial x^2} &amp;= 2 e^{(x-1)^2} \cos y + 4(x-1)^2 e^{(x-1)^2} \cos y, \
+\frac{\partial^2 f}{\partial x \partial y} &amp;= -2 (x-1) e^{(x-1)^2} \sin y, \qquad
+\frac{\partial^2 f}{\partial y^2} = -e^{(x-1)^2} \cos y.
+\end{align}
+$$</p>
+<p>Taylor&rsquo;s Formula:
+Let $h = x - x_0 = (x,y) - (1,0)$, then we have</p>
+<p>$$
+\boxed{f(x,y) = f(1,0) + \mathbb{D}f(1,0)(h) + \frac{1}{2} \mathbb{D}^2 f(1,0)(h,h) + R_2}
+$$
+$$
+f(1,0) = 1, \quad \mathbb{D}f(1,0) = (0 \quad 0),
+$$
+$$
+\mathbb{D}^2 f(1,0) =
+\begin{bmatrix}
+2 &amp; 0 \
+0 &amp; -1
+\end{bmatrix}
+$$
+Evaluating the second-order term:
+$$
+\begin{align}
+\mathbb{D}^2 f(1,0)(h,h) &amp;=
+\begin{bmatrix}
+x-1 &amp; y
+\end{bmatrix}
+\begin{bmatrix}
+2 &amp; 0 \
+0 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+x-1 \
+y
+\end{bmatrix} \
+&amp;= 2(x-1)^2 - y^2
+\end{align}
+$$</p>
+<p>Thus,
+$$f(x,y) = 1 + \frac{1}{2} (2(x-1)^2 - y^2) + R_2
+$$</p>
+<h1 id="3-maximum-and-minimum-problem-in-mathbbrn">
+  3 Maximum and Minimum Problem in $\mathbb{R}^n$
+  <a class="anchor" href="#3-maximum-and-minimum-problem-in-mathbbrn">#</a>
+</h1>
+<h2 id="31-introduction">
+  3.1 Introduction
+  <a class="anchor" href="#31-introduction">#</a>
+</h2>
+<p>Q: Given $f: A \subset \mathbb{R}^n \to \mathbb{R}$,</p>
+<blockquote>
+<p>how do we find (local) max or min points for $f$ in $A$?</p></blockquote>
+<p>Recall 1-D case: $f: (a,b) \to \mathbb{R}$</p>
+<ul>
+<li>A local max / min point (or extreme point) $x_0$ must be a critical point:
+$$
+\boxed{f&rsquo;(x_0) = 0 \quad \text{or\quad DNE}}<br>
+$$</li>
+</ul>
+<h2 id="32-second-derivative-test-for-a-critical-point">
+  3.2 Second Derivative Test (for a critical point)
+  <a class="anchor" href="#32-second-derivative-test-for-a-critical-point">#</a>
+</h2>
+<p>$$
+\begin{aligned}
+f&rsquo;&rsquo;(x_0) &gt; 0 &amp;\Rightarrow x_0 \text{ is a local minimum} \
+f&rsquo;&rsquo;(x_0) &lt; 0 &amp;\Rightarrow x_0 \text{ is a local maximum}
+\end{aligned}
+$$</p>
+<h2 id="4-necessary-condition-for-extreme-points-in-mathbbrn">
+  4. Necessary Condition for Extreme Points in $\mathbb{R}^n$
+  <a class="anchor" href="#4-necessary-condition-for-extreme-points-in-mathbbrn">#</a>
+</h2>
+<p><strong>Definition:</strong> Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$.</p>
+<p>A point $x_0 \in A$ is a <strong>local minimum</strong> if:
+$$
+\exists \delta &gt; 0 \text{ such that } | x - x_0 | &lt; \delta, x \in A \Rightarrow f(x) \geq f(x_0)
+$$
+A point $x_0 \in A$ is a <strong>local maximum</strong> if:
+$$
+\exists \delta &gt; 0 \text{ such that } | x - x_0 | &lt; \delta, x \in A \Rightarrow f(x) \leq f(x_0)
+$$</p>
+<blockquote>
+<p>[!theorem|6.9.2]
+If $f: A \to \mathbb{R}$ is differentiable at $x_0$, and if
+$x_0 \in A$ is an <strong>extreme point</strong> for $f$, then $x_0$ is a <strong>critical point</strong>, i.e., $$ Df(x_0) = 0. $$</p></blockquote>
+<h2 id="remark">
+  Remark
+  <a class="anchor" href="#remark">#</a>
+</h2>
+<p>The condition $\mathbb{D}f(x_0) = 0$ is <strong>necessary</strong>, but <strong>not sufficient</strong>!</p>
+<h2 id="example-1">
+  Example
+  <a class="anchor" href="#example-1">#</a>
+</h2>
+<p>Let $f(x,y) = x^2 - y^2$, then $\mathbb{D}f(0,0) = 0$, but $(0,0)$ is a <strong>saddle point</strong>.</p>
+<hr>
+<p><code>\begin{proof}</code></p>
+<p>Assume $Df(x_0) \neq 0$.</p>
+<p>Then, there exists $v \in \mathbb{R}^n$ such that $Df(x_0)(v) = c &gt; 0$. By the <strong>definition of differentiability</strong>, choose $\delta &gt; 0$ such that:
+$$
+| f(x_0 + h) - f(x_0) - Df(x_0)(h) | &lt; \frac{c}{2 | v |} | h |
+$$
+for all $| h | &lt; \delta$.</p>
+<p>Now, choose $h = \lambda v$ with $\lambda &gt; 0$ and $| h | &lt; \delta$, then:
+$$
+\begin{cases}
+f(x_0 + \lambda v) - f(x_0) &gt; 0 \
+f(x_0 - \lambda v) - f(x_0) &lt; 0
+\end{cases}
+$$
+This establishes the desired contradiction.
+<code>\end{proof}</code></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/EriseHe/erisehe.github.io/edit/main/exampleSite/content.en/docs/Mathematics/MATH%20412%20Real%20Analysis%20II/Lecture/6.9%20Taylor%20Higher%20Dimentions.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    <aside class="submenu">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <img src="/blackhole2.png" alt="Switch Theme">
+  </button>
+  <button id="toc-toggle" class="toc-toggle-btn">
+    <img src="/toc-icon.svg" alt="Toggle TOC">
+  </button>
+</aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var initialTOCState = true;
+    var tocAside = document.getElementById('book-toc');
+    if (!initialTOCState) {
+      tocAside.classList.add('hidden');
+    } else {
+      tocAside.classList.remove('hidden');
+    }    
+    var toggleBtn = document.getElementById('toc-toggle');
+    toggleBtn.addEventListener('click', function(){
+      tocAside.classList.toggle('hidden');
+    });
+  });
+</script>
+
+
+    
+    
+    
+    
+      <aside id="book-toc" class="book-toc hidden">
+        <div class="book-toc-content">
+          
+<div class="button-prev">
+  
+</div>
+
+
+
+
+    
+          
+            <div class="toc-entries">
+              
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#example">#Example</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#3-maximum-and-minimum-problem-in-mathbbrn">3 Maximum and Minimum Problem in $\mathbb{R}^n$</a>
+      <ul>
+        <li><a href="#31-introduction">3.1 Introduction</a></li>
+        <li><a href="#32-second-derivative-test-for-a-critical-point">3.2 Second Derivative Test (for a critical point)</a></li>
+        <li><a href="#4-necessary-condition-for-extreme-points-in-mathbbrn">4. Necessary Condition for Extreme Points in $\mathbb{R}^n$</a></li>
+        <li><a href="#remark">Remark</a></li>
+        <li><a href="#example-1">Example</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+            </div>
+          
+    
+          
+<div class="button-next">
+  
+</div>
+        </div>
+      </aside>
+    
+
+    
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+    
+      toggle.onclick = () => {
+        
+        const rect = toggle.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        
+        
+        
+        const currentThemeRaw = document.documentElement.getAttribute('data-theme');
+        const currentTheme = currentThemeRaw ? currentThemeRaw : 'auto';
+        
+        
+        
+        let effectiveTheme;
+        if (currentTheme === 'auto') {
+          effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+          effectiveTheme = currentTheme;
+        }
+        
+        
+        const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
+        
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        
+        const oldColor = effectiveTheme === 'dark' ? '#0b031c' : 'white';
+        
+        
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.zIndex = '9999';
+        overlay.style.pointerEvents = 'none';
+        
+        
+        overlay.style.setProperty('--cx', `${cx}px`);
+        overlay.style.setProperty('--cy', `${cy}px`);
+        overlay.style.setProperty('--r', '0px');
+        
+        
+
+        overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${oldColor} calc(var(--r) + 1px))`;
+        
+        document.body.appendChild(overlay);
+        
+        
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const finalRadius = Math.hypot(Math.max(cx, vw - cx), Math.max(cy, vh - cy));
+        
+        
+        const duration = 600; 
+        const startTime = performance.now();
+        
+        function animate(time) {
+          const elapsed = time - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const currentRadius = progress * finalRadius;
+          overlay.style.setProperty('--r', `${currentRadius}px`);
+          
+          
+          overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${currentRadius}px, ${oldColor} ${currentRadius + 1}px)`;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            overlay.remove();
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        }
+        requestAnimationFrame(animate);
+      };
+    });
+  </script>
+  
+  
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
