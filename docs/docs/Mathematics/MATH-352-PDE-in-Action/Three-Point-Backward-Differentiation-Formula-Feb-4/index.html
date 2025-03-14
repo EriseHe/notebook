@@ -1,0 +1,108 @@
+<!doctype html><html lang=en dir=ltr><head><script>(function(){const e=localStorage.getItem("theme");e&&document.documentElement.setAttribute("data-theme",e)})()</script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  1. Ok Honestly I Have No Idea Where He Started
+  #
+
+
+MATH 212 is useless
+- Alessandro Veneziani
+Given the population problem #Implicit:
+
+  $$
+\dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y
+$$
+  #
+
+Numerically, the problem is:
+$$
+\frac{u_{i+1} - u_i}{\Delta t} = A \left(1 - \frac{u_{i+1}}{B} \right) u_{i+1}
+$$
+To solve this numerically, we rewrite the equation:
+$$
+\begin{align}
+x - u_i &= A \left(1 - \frac{x}{B} \right) x \
+&= A x - \frac{A}{B} x^2
+\end{align}
+$$"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://erisehe.github.io/docs/Mathematics/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/"><meta property="og:site_name" content="エリスの講義ノート:3"><meta property="og:title" content="エリスの講義ノート:3"><meta property="og:description" content="1. Ok Honestly I Have No Idea Where He Started # MATH 212 is useless - Alessandro Veneziani
+Given the population problem #Implicit:
+$$ \dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y $$ # Numerically, the problem is: $$ \frac{u_{i+1} - u_i}{\Delta t} = A \left(1 - \frac{u_{i+1}}{B} \right) u_{i+1} $$ To solve this numerically, we rewrite the equation: $$ \begin{align} x - u_i &= A \left(1 - \frac{x}{B} \right) x \ &= A x - \frac{A}{B} x^2 \end{align} $$"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>Three Point Backward Differentiation Formula ( Feb 4) | エリスの講義ノート:3</title>
+<link rel=icon href=/blackhole2.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://erisehe.github.io/docs/Mathematics/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/><link rel=stylesheet href=/book.min.c8220ea781c4a0d6d5cca83b80c65dd939233b2b34dc25bac0627e4f3173191f.css integrity="sha256-yCIOp4HEoNbVzKg7gMZd2TkjOys03CW6wGJ+TzFzGR8=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.73516e3a983d0a4eb01b638079e27b9702722b81f51f0f111b73e6b8baed6c67.js integrity="sha256-c1FuOpg9Ck6wG2OAeeJ7lwJyK4H1Hw8RG3PmuLrtbGc=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>エリスの講義ノート:3</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/svg/translate.svg class=book-icon alt=Languages>
+English</a></label><ul><li><a href=/zh/>中文</a></li></ul></li></ul><ul><li class=book-section-flat><span>Mathematics</span><ul><li><input type=checkbox id=section-35a4841f54f1aa8de50fa9ab69bb4022 class=toggle>
+<label for=section-35a4841f54f1aa8de50fa9ab69bb4022 class="flex justify-between"><a role=button>Real Analysis II</a></label><ul><li><a href=/docs/Mathematics/Real-Analysis-II/7.1-Inverse-Function-Theorem/>7.1 Inverse Function Theorem</a></li><li><a href=/docs/Mathematics/Real-Analysis-II/7.1-Implicit-Function-Theorem/>7.2 Implicit Function Theorem</a></li></ul></li><li><input type=checkbox id=section-4108e7ffbd87252d17d4df445c81e01d class=toggle>
+<label for=section-4108e7ffbd87252d17d4df445c81e01d class="flex justify-between"><a role=button>PDE</a></label><ul><li><a href=/docs/Mathematics/PDE/Numerical-Methods/>Numerical Methods</a><ul><li><a href=/docs/Mathematics/PDE/Numerical-Methods/4th-level/>4th Level</a></li></ul></li><li><a href=/docs/Mathematics/PDE/Partial-Differential-Equation/Heat-Equation-Solution/>Heat Equation Solution</a></li></ul></li><li><a href=/docs/Mathematics/MATH-352-PDE-in-Action/Mid-Point-Method/>Mid Point Method</a></li><li><a href=/docs/Mathematics/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/ class=active>Three Point Backward Differentiation Formula ( Feb 4)</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/>Homework 6</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.4-Sufficient-Conditions-for-Differentiability/>6.4 Sufficient Conditions for Differentiability</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.9-Taylor-Higher-Dimentions/>6.9 Taylor Higher Dimentions</a></li></ul></li><li class=book-section-flat><span>Quantum Mechenics</span><ul><li><a href=/docs/Physics/Quantum-Mechenics/Chapter-1-The-Wave-Function/>Chapter 1 the Wave Function</a></li><li><a href=/docs/Physics/Quantum-Mechenics/Chapter-2-Time-Independent-Schrodinger-Equation-Stationary-States/>Chapter 2 Time Independent Schrodinger Equation Stationary States</a></li><li><a href=/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/>Feb 5 Fourier Series on S. Euqation Solution</a></li><li><a href=/docs/Physics/Quantum-Mechenics/Homework-5/HW3-Code/>Hw3 Code</a></li></ul></li><li class=book-section-flat><span>Philosophy</span><ul><li><a href=/docs/Philosophy/50-words-Close-Reading/>50 Words Close Reading</a></li><li><a href=/docs/Philosophy/Commentary-on-Foucaults-The-Order-of-Things/>Commentary on Foucault's the Order of Things</a></li><li><a href=/docs/Philosophy/Object-petit-a/>Object Petit A</a></li><li><a href=/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/>福柯视角下的物理学转变以及新范式的可能</a></li></ul></li></ul><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/EriseHe/erisehe.github.io target=_blank rel=noopener>Github</a></li><li><a href=https://themes.gohugo.io/themes/hugo-book/ target=_blank rel=noopener>Hugo Themes</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>Three Point Backward Differentiation Formula ( Feb 4)</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li><a href=#1-ok-honestly-i-have-no-idea-where-he-started>1. Ok Honestly I Have No Idea Where He Started</a></li><li><a href=#heading>$$
+\dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y
+$$</a></li><li><a href=#2-approximate-fracd-yd-x-using-a-three-point-backward-differentiation-formula-bdf>2. Approximate $\frac{d y}{d x}$ Using a Three-Point Backward Differentiation Formula (BDF)</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h2 id=1-ok-honestly-i-have-no-idea-where-he-started>1. Ok Honestly I Have No Idea Where He Started
+<a class=anchor href=#1-ok-honestly-i-have-no-idea-where-he-started>#</a></h2><blockquote><p>MATH 212 is useless
+- Alessandro Veneziani</p></blockquote><p>Given the population problem #Implicit:</p><h2 id=heading>$$
+\dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y
+$$
+<a class=anchor href=#heading>#</a></h2><p><strong>Numerically</strong>, the problem is:
+$$
+\frac{u_{i+1} - u_i}{\Delta t} = A \left(1 - \frac{u_{i+1}}{B} \right) u_{i+1}
+$$
+To solve this numerically, we rewrite the equation:
+$$
+\begin{align}
+x - u_i &= A \left(1 - \frac{x}{B} \right) x \
+&= A x - \frac{A}{B} x^2
+\end{align}
+$$</p><p>using $f(x)=0$, and we iterate using Newton&rsquo;s method:</p><blockquote><p>yes he changed notation again</p></blockquote><blockquote><p>[!remark|*] Newton&rsquo;s Method
+$$\underbrace{x^{(u+1)}}<em>{y</em>{\text{new}}}=\underbrace{x^{(u)}}<em>{y</em>{\text{old}}}-\frac{f(x^{(u)})}{f&rsquo;(x^{(u)})}$$
+We have $|y_{\text{new}}-y_{\text{old}}|\leq \text{tol}.$</p></blockquote><p>$$
+\begin{align}
+x - u_i & = \Delta t A \left(1 - \frac{x}{B} \right) x \
+& = \Delta t A x - \Delta t \frac{A}{B} x^2 \</p><p>\Longrightarrow \quad x - u_{i}-\Delta t A x + \Delta t \frac{A}{B} x^{2}&=0
+\end{align}
+$$
+Define a function $g(x)$ from above:
+$$
+\begin{align}
+g(x) & = x - u_i - \Delta t A x + \Delta t \frac{A}{B} x^{2}\
+\end{align}
+$$
+Taking the derivative:
+$$
+\begin{align}
+g&rsquo;(x) &= \frac{d}{dx} \left( x - u_i - \Delta t A x + \Delta t \frac{A}{B} x^2 \right) \
+&= 1 - \Delta t \left(A - \frac{2A}{B} x \right) \
+&= 1 - \Delta t f&rsquo;(x).
+\end{align}
+$$
+For $f^{\prime}(x)=A-\frac{2 A}{B} x$.</p><hr><h2 id=2-approximate-fracd-yd-x-using-a-three-point-backward-differentiation-formula-bdf>2. Approximate $\frac{d y}{d x}$ Using a Three-Point Backward Differentiation Formula (BDF)
+<a class=anchor href=#2-approximate-fracd-yd-x-using-a-three-point-backward-differentiation-formula-bdf>#</a></h2><blockquote><p>tracing back to last lecture on determination of coefficients $A, B, C$</p></blockquote><p>$$
+\begin{aligned}
+f(t_{i},y_{i})=\left. \frac{dy}{dx} \right|<em>{x_i} &\approx \frac{3}{2 \Delta x} y_i - \frac{4}{2 \Delta x} y</em>{i-1} + \frac{1}{2 \Delta x} y_{i-2} \ \
+\text{Taylor Expansion}\Longrightarrow\quad
+&\left{
+\begin{aligned}
+y_{i-1} &= y_i - \left. \frac{dy}{dx} \right|<em>{x_i} \Delta x \dots \
+y</em>{i-2} &= y_i - \left. \frac{dy}{dx} \right|<em>{x_i} 2 \Delta x \dots
+\end{aligned}
+\right.
+\end{aligned}$$
+we yield:
+$$
+\begin{align}
+\frac{3}{2 \Delta x} u_i&-\frac{4}{2 \Delta x} u</em>{i-1}+\frac{1}{2 \Delta x} u_{i-2}=f\left(t_i , u_i\right)\
+\end{align}
+$$</p><p><strong>Implicit formula:</strong>
+$$
+u_i=\frac{4}{3} u_{i-1}-\frac{1}{3} u_{i-2}+\frac{2}{3} \Delta x\left(t_i, u_i\right)
+$$
+we substitute $f(t_{i},u_{i})=\lambda u_{i}$ to derive explicitly:<br>$$\begin{align}
+u_i - \frac{4}{3} u_{i-1} + \frac{1}{3} u_{i-2} - &\frac{2}{3} \Delta x f(t_i, u_i) = 0 \
+u_i - \frac{4}{3} u_{i-1} + \frac{1}{3} u_{i-2} - &\frac{2}{3} \Delta x \lambda u_{i} = 0 \
+\end{align}
+$$
+<strong>Explicit formula:</strong>
+$$</p><p>\boxed{u_i = \frac{1}{1 - \frac{2}{3} \Delta x\lambda} \left( \frac{4}{3} u_{i-1} - \frac{1}{3} u_{i-2} \right) }</p><p>$$</p><blockquote><p>[!definition|*] Generalized p-step BDF Form
+$$\boxed{u_i-\sum_{j=1}^{p} \alpha_j u_{i-j}=\Delta x \beta_{-1} f\left(t_i, u_i\right)} $$
+Generalized Implicit Multistep Method: $$\boxed{u_{i+1}-\sum_{j=1}^p \alpha_j u_{i-j}=\Delta x \sum_{j={-1}}^p \beta_j f\left(t_{i-j}, u_{i+1-j}\right)}$$</p></blockquote></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/EriseHe/erisehe.github.io/docs/edit/main/exampleSite/content.en/docs/Mathematics/MATH%20352%20PDE%20in%20Action/Three-Point%20Backward%20Differentiation%20Formula%20%28Feb%204%29.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=submenu><button id=theme-toggle class=theme-toggle-btn>
+<img src=/blackhole2.png alt="Switch Theme">
+</button>
+<button id=toc-toggle class=toc-toggle-btn>
+<img src=/toc-icon.svg alt="Toggle TOC"></button></aside><script>document.addEventListener("DOMContentLoaded",function(){var t,n=!0,e=document.getElementById("book-toc");n?e.classList.remove("hidden"):e.classList.add("hidden"),t=document.getElementById("toc-toggle"),t.addEventListener("click",function(){e.classList.toggle("hidden")})})</script><aside id=book-toc class="book-toc hidden"><div class=book-toc-content><div class=button-prev></div><div class=toc-entries><nav id=TableOfContents><ul><li><ul><li><a href=#1-ok-honestly-i-have-no-idea-where-he-started>1. Ok Honestly I Have No Idea Where He Started</a></li><li><a href=#heading>$$
+\dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y
+$$</a></li><li><a href=#2-approximate-fracd-yd-x-using-a-three-point-backward-differentiation-formula-bdf>2. Approximate $\frac{d y}{d x}$ Using a Three-Point Backward Differentiation Formula (BDF)</a></li></ul></li></ul></nav></div><div class=button-next></div></div></aside></main><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("theme-toggle");if(!e)return;e.onclick=()=>{const s=e.getBoundingClientRect(),o=s.left+s.width/2,i=s.top+s.height/2,l=document.documentElement.getAttribute("data-theme"),r=l||"auto";let n;r==="auto"?n=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":n=r;const a=n==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",a),localStorage.setItem("theme",a);const c=n==="dark"?"#0b031c":"white",t=document.createElement("div");t.style.position="fixed",t.style.top="0",t.style.left="0",t.style.width="100vw",t.style.height="100vh",t.style.zIndex="9999",t.style.pointerEvents="none",t.style.setProperty("--cx",`${o}px`),t.style.setProperty("--cy",`${i}px`),t.style.setProperty("--r","0px"),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${c} calc(var(--r) + 1px))`,document.body.appendChild(t);const u=window.innerWidth,h=window.innerHeight,m=Math.hypot(Math.max(o,u-o),Math.max(i,h-i)),f=600,p=performance.now();function d(e){const o=e-p,s=Math.min(o/f,1),n=s*m;if(t.style.setProperty("--r",`${n}px`),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${n}px, ${c} ${n+1}px)`,s<1)requestAnimationFrame(d);else{t.remove();const e=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",e)}}requestAnimationFrame(d)}})</script><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]]},svg:{fontCache:"global"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js></script></body></html>

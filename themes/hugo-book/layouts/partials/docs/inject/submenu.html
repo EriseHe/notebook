@@ -1,0 +1,24 @@
+<aside class="submenu">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <img src="{{ .Site.Params.ThemeSwitchIcon | default "blackhole2.png" | relURL }}" alt="Switch Theme">
+  </button>
+  <button id="toc-toggle" class="toc-toggle-btn">
+    <img src="{{ .Site.Params.ThemeSwitchIcon | default "toc-icon.svg" | relURL }}" alt="Toggle TOC">
+  </button>
+</aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var initialTOCState = {{ if or (not (isset .Params "BookToC")) .Params.BookToC }}true{{ else }}false{{ end }};
+    var tocAside = document.getElementById('book-toc');
+    if (!initialTOCState) {
+      tocAside.classList.add('hidden');
+    } else {
+      tocAside.classList.remove('hidden');
+    }    
+    var toggleBtn = document.getElementById('toc-toggle');
+    toggleBtn.addEventListener('click', function(){
+      tocAside.classList.toggle('hidden');
+    });
+  });
+</script>
