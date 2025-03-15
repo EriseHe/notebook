@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mathematics on エリスの講義ノート:3</title>
+    <link>http://localhost:1313/tags/Mathematics/</link>
+    <description>Recent content in Mathematics on エリスの講義ノート:3</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/tags/Mathematics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Real Analysis II</title>
+      <link>http://localhost:1313/docs/Mathematics/Real-Analysis-II/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/Mathematics/Real-Analysis-II/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

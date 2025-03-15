@@ -1,10 +1,15 @@
 ---
 title: Introduction
 type: docs
+BookToc: True
+
 ---
 
-# Welcome to My Mathematical World
+# <div class="book-brand"> Topological Instrumentality Project (T.I.P)</div>
 
+```
+You always know where to go when nobody is nowhere.
+```
 
 Command for generating hugo site in `public`:
 
