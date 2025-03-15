@@ -34,9 +34,10 @@ $hint-colors: (
   --gray-500: #adb0bd;
 
   //link & texts
-  --color-link: #0055bb;
+  --color-link: rgb(0, 22, 187);
   --color-link-hover: #d9d9d9;
   --color-visited-link: #8440f1;
+  --color-h2: rgb(0, 0, 248);
 
   //body
   --body-background: white;
@@ -75,6 +76,7 @@ $hint-colors: (
   --color-link: rgb(196, 191, 124);
   --color-link-hover: #420a1d;
   --color-visited-link: #ff8d8d;
+  --color-h2: rgb(207, 0, 0);
 
   //body
   --body-background: #0b031c;
