@@ -9,7 +9,9 @@
 
 {{ partial "docs/menu-filetree" . }}
 
-{{ partial "docs/menu-hugo" .Site.Menus.after }}
+<div class="after-menu-offset">
+  {{ partial "docs/menu-hugo" .Site.Menus.after }}
+</div>
 {{ partial "docs/inject/menu-after" . }}
 </nav>
 

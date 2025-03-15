@@ -14,13 +14,53 @@
 .book-menu .book-menu-content {
   transform: translateX(-1rem); /* Adjust the value as needed */
 }
-/*-------------body styling--------------*/
+
+.subject-tabs { display: flex; gap: 1rem; margin-bottom: 1rem; }
+.subject-tab { padding: 0.5rem 1rem; background: #eee; cursor: pointer; transition: background 0.3s; }
+.subject-tab.active { background: #ccc; }
+.hidden { display: none; }
+
+
+.book-brand .book-icon {
+  /* Match the icon’s height to the font size of the text */
+  height: 1.3em;
+  width: auto;
+  filter: var(--icon-filter);
+  vertical-align: middle;
+}
+
+
+
+
+/*-------------body & font styling--------------*/
 .markdown {
   font-family: "Computer Modern", serif;
   background-color: var(--md-background) ;
   padding: 20px; /* This expands the background */
   border-radius: 12px; /* Rounded corners */
+  h1 {
+  font-family: "Computer Modern";
+  font-weight: 1000;
+  } 
+  h2 {
+  font-family: "Computer Modern";
+  font-weight: bold;
+  color: blue;
+  }
+  h3 {
+  font-family: "Computer Modern";
+  font-weight: bold;
+  color: var(--color-visited-link);
+  }
+
+  h4,
+  h5,
+  h6{
+
+  }
+
 }
+
 
 /*-------------button styling-------------*/
 .btn-prev,
@@ -42,6 +82,73 @@
   color: none;      
   transform: scale(1.02);
   transition: all 0.3s ease;        
+}
+
+/* ------------------------------------------------------------------------
+   Tabbed Menu for Mathematics & Physics
+------------------------------------------------------------------------ */
+
+.subject-menu {
+  margin: 1rem 0;
+}
+
+/* Tab buttons row */
+.subject-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Individual tab button */
+.subject-tab {
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  color: var( --body-font-color);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Active tab styling */
+.subject-tab.active {
+  background: var(--color-toc-hover);
+  color: var(--color-link);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+
+}
+
+.subject-content {
+  position: relative; // establishes a stacking context
+  padding: 0.6rem; // adjust as needed for your design
+  /* Remove the direct background color here */
+}
+
+
+.subject-content::before {
+  content: "";
+  position: absolute;
+  border-radius: 6px;
+
+  top: -17px;  // extend 20px above the content
+  left: calc(50% - 50vw);
+  width: 100vw;
+  height: calc(100% + 2.1rem);
+  background-color: var(--color-toc-hover);
+  z-index: -1; // keep background behind content
+}
+
+
+.after-menu-offset {
+  margin-top: 3.9rem; // adjust the value as needed
+}
+
+
+/* Hides the panel */
+.hidden {
+  display: none;
 }
 
 /*-----------------SUBMENU styling-----------------*/

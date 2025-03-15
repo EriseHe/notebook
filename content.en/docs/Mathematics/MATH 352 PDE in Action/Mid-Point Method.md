@@ -1,6 +1,6 @@
 ## Formula Derivation
 
-The derivative approximation:
+<center>The derivative approximation:</center>
 
 $$
 \begin{aligned}
