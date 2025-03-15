@@ -38,6 +38,12 @@
   background-color: var(--md-background) ;
   padding: 20px; /* This expands the background */
   border-radius: 12px; /* Rounded corners */
+  text-align: justify;
+  text-justify: inter-word; /* Helps with proper spacing */
+  
+
+
+
   h1 {
   font-family: "Computer Modern";
   font-weight: 1000;
@@ -45,7 +51,7 @@
   h2 {
   font-family: "Computer Modern";
   font-weight: bold;
-  color: blue;
+  color: var(--color-h2);
   }
   h3 {
   font-family: "Computer Modern";
