@@ -16,7 +16,7 @@ $body-font-weight: normal !default;
 $body-min-width: 20rem !default;
 $container-max-width: 80rem !default;
 
-$menu-width: 16rem !default;
+$menu-width: 17rem !default;
 $toc-width: 18rem !default;
 
 $mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
@@ -31,18 +31,35 @@ $hint-colors: (
 @mixin theme-light {
   --gray-100: #f8f9fa;
   --gray-200: #e9ecef;
-  --gray-500: #adb0bd;
+  --gray-500: #b5b6bd;
 
   //link & texts
-  --color-link: rgb(0, 22, 187);
+  --color-link: rgb(0, 62, 187);
   --color-link-hover: #d9d9d9;
   --color-visited-link: #8440f1;
-  --color-h2: rgb(0, 0, 248);
 
+  // Headings
+  --color-h1: #000000;
+  --color-h2: blue;
+  --color-h3: #002FA7;
+  --color-h4: #000000;
+  --color-h5: #e83e3e;
+  --color-h6: #a795c5;;
+
+  
   //body
-  --body-background: white;
+  --body-background: linear-gradient(
+    to right,
+    #f5f5f5 0%,
+    #ffffff 25%,
+    #ffffff 75%,
+    #f5f5f5 100%
+  );
   --md-background: white;
   --body-font-color: black;
+  --post-background: #f8f9fa;
+
+  
 
   //TOC
   --toc-font-color: #0055bb;
@@ -50,7 +67,7 @@ $hint-colors: (
   //buttons
   --color-btn: #f2f2f2dc;
   --color-btn-hover: #e0e0e0;
-  --color-toc-hover: #e9e9ef93;
+  --color-toc-hover:  #ececef;
 
   //images
   --icon-filter: none;
@@ -60,11 +77,9 @@ $hint-colors: (
   --hint-color-warning: #fd6;
   --hint-color-danger: #f66;
 
-
   //variable
   --transition-time: 0.1s ease;
   --transition-color: 0.1s ease;
-
 }
 
 @mixin theme-dark {
@@ -76,12 +91,21 @@ $hint-colors: (
   --color-link: rgb(196, 191, 124);
   --color-link-hover: #420a1d;
   --color-visited-link: #ff8d8d;
-  --color-h2: rgb(207, 0, 0);
+
+  // Headings
+  --color-h1: #ffdd33;
+  --color-h2: #ffcc00;
+  --color-h3: #ff9900;
+  --color-h4: #c7c7d0;
+  --color-h5: #ff3300;
+  --color-h6: #0055bb;
 
   //body
   --body-background: #0b031c;
   --md-background: #1b0b34;
   --body-font-color: #c7c7d0;
+  --post-background: #1b0b34;
+
 
   //TOC
   --toc-font-color: #0055bb;
@@ -99,11 +123,8 @@ $hint-colors: (
   --hint-color-warning: #fd6;
   --hint-color-danger: #f66;
 
-
   //variable
   --transition-time: 0.3s ease;
   --transition-color: 0.3s ease;
-
 }
-
 

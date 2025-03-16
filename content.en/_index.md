@@ -5,7 +5,17 @@ BookToc: True
 
 ---
 
-# <div class="book-brand"> Topological Instrumentality Project (T.I.P)</div>
+# <div class="book-brand" style="display: flex; justify-content: center;">  Topological<br> Instrumentality<br> Project (T.I.P.) </div>
+
+## color 2
+
+### color 3
+
+#### color 4
+
+##### color 5
+
+###### color 6
 
 ```
 You always know where to go when nobody is nowhere.

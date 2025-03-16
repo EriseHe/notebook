@@ -14,8 +14,8 @@
               "type": "markdown",
               "state": {
                 "file": "Mathematics/Real Analysis II/7.1 Inverse Function Theorem.md",
-                "mode": "source",
-                "source": false,
+                "mode": "preview",
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
@@ -184,6 +184,9 @@
   },
   "active": "dbb8e03db6d88630",
   "lastOpenFiles": [
+    "Mathematics/MATH 412 Real Analysis II/Lecture/6.4 Sufficient Conditions for Differentiability.md",
+    "Mathematics/Real Analysis II/7.1 Inverse Function Theorem.md",
+    "Mathematics/Real Analysis II/7.1* Implicit Function Theorem.md",
     "Mathematics/MATH 352 PDE in Action/_index.md",
     "Mathematics/MATH 352 PDE in Action/Mid-Point Method.md",
     "Mathematics/_index.md",
@@ -198,8 +201,6 @@
     "Physics/section/_index.md",
     "Philosophy/_index.md",
     "Philosophy/Commentary on Foucault's The Order of Things.md",
-    "Mathematics/Real Analysis II/7.1 Inverse Function Theorem.md",
-    "Mathematics/Real Analysis II/7.1* Implicit Function Theorem.md",
     "Mathematics/PDE/Partial Differential Equation/Partial Differential Equation.md",
     "Mathematics/PDE/Partial Differential Equation/Heat Equation Solution.md",
     "Physics/section/first-page.md",

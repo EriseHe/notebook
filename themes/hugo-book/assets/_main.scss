@@ -21,14 +21,6 @@ body {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-weight: $body-font-weight;
-}
-
 a {
   transition: transform 0.3s ease;
   text-decoration: none;
@@ -98,7 +90,9 @@ a .book-icon {
   font-family: 'Century Schoolbook';
 
   margin-top: 0;
+  margin-right: 2rem;
   margin-bottom: $padding-16;
+  color: var(--body-font-color);
 
   img {
     height: 1.5em;
@@ -114,7 +108,7 @@ a .book-icon {
   .book-menu-content {
     width: $menu-width;
     padding: $padding-16;
-    background: var(--body-background);
+    background: transparent;
 
     @include fixed;
   }
@@ -240,6 +234,7 @@ body[dir="rtl"] .book-menu {
 .book-search {
   position: relative;
   margin: $padding-16 0;
+  margin-right: 1rem;
   border-bottom: 1px solid transparent;
 
   input {
@@ -249,7 +244,7 @@ body[dir="rtl"] .book-menu {
     border: 0;
     border-radius: $border-radius;
 
-    background: var(--gray-100);
+    background: var(--gray-200);
     color: var(--body-font-color);
 
     &:required + .book-search-spinner {
@@ -309,7 +304,9 @@ body[dir="rtl"] .book-menu {
 }
 
 .book-languages {
-  margin-block-end: $padding-16 * 2;
+  margin-block-end: $padding-16 * 2 ;
+  margin-right: 1rem;
+  
 
   ul {
     padding-inline-start: 1.5em;

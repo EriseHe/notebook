@@ -1,0 +1,19 @@
+// Variables for theorem callout styling
+$border-color: #007acc;
+$background-color: #f0f8ff;
+
+.framed-theorem {
+  border: 2px solid $border-color;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 8px;
+  background: $background-color;
+}
+
+.math-theorem-header {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: 0.3em;
+}
