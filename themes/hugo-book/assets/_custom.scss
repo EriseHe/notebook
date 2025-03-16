@@ -65,7 +65,10 @@
   border-radius: 12px; 
   text-align: justify;
   text-justify: inter-word; /* Helps with proper spacing */
+}
 
+code {
+  font-size: 0.8rem !important;
 }
 
 
@@ -89,6 +92,51 @@
   color: none;      
   transform: scale(1.02);
   transition: all 0.3s ease;        
+}
+
+//copy-code button
+
+.code-block {
+  position: relative;
+  margin: 1em 0;
+  color: var(--gray-100) ;
+}
+
+.code-block img{
+  filter: brightness(0) invert(1);
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 1em;
+  padding-bottom: 0em;
+  overflow: auto;
+  border: 1px solid #6a6a6a;
+  border-radius: 12px;
+  background: rgb(26, 26, 26);
+  line-height: 1.4;       /* tweak if needed */
+
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.5em;        /* adjust as needed */
+  right: 0.5em;      /* adjust as needed */
+  padding: 0.5em;
+  font-size: 0.8em;
+  outline: none;
+  background: none;
+  color: #fff;
+  border: white;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.copy-button:hover {
+  opacity: 1;
+  bottom: fit-content;
 }
 
 /* ------------------------------------------------------------------------
