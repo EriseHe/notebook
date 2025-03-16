@@ -13,16 +13,32 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mathematics/Real Analysis II/7.1 Inverse Function Theorem.md",
+                "file": "Mathematics/MATH 412 Real Analysis II/Lecture/7.17.1 Inverse Function Theorem.md",
                 "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "7.1 Inverse Function Theorem"
+              "title": "7.17.1 Inverse Function Theorem"
+            }
+          },
+          {
+            "id": "66c893678afb0fa7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Mathematics/MATH 412 Real Analysis II/Homework/_index.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "_index"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -54,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": " ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,7 +105,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 243.5
+    "width": 296.5
   },
   "right": {
     "id": "916c7330540abd4e",
@@ -182,34 +198,36 @@
       "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "dbb8e03db6d88630",
+  "active": "66c893678afb0fa7",
   "lastOpenFiles": [
+    "Mathematics/MATH 412 Real Analysis II/_index.md",
     "Mathematics/MATH 412 Real Analysis II/Lecture/6.4 Sufficient Conditions for Differentiability.md",
-    "Mathematics/Real Analysis II/7.1 Inverse Function Theorem.md",
-    "Mathematics/Real Analysis II/7.1* Implicit Function Theorem.md",
-    "Mathematics/MATH 352 PDE in Action/_index.md",
-    "Mathematics/MATH 352 PDE in Action/Mid-Point Method.md",
-    "Mathematics/_index.md",
-    "Mathematics/Real Analysis II/_index.md",
-    "Physics/_index.md",
-    "Physics/Quantum Mechenics/Chapter  1 The Wave Function.md",
-    "Physics/Quantum Mechenics/_index.md",
+    "Mathematics/MATH 412 Real Analysis II/Homework/_index.md",
+    "Mathematics/MATH 351 & 352/Heat Equation/Heat Equation Solution.md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/7.17.1 Inverse Function Theorem.md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/6.5 The Chain Rule.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Mid-Point Method.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Three-Point Backward Differentiation Formula (Feb 4).md",
     "GPT Conversion.md",
-    "Mathematics/PDE/_index.md",
-    "Mathematics/MATH 352 PDE in Action/Three-Point Backward Differentiation Formula (Feb 4).md",
-    "Mathematics/hidden.md",
-    "Physics/section/_index.md",
     "Philosophy/_index.md",
-    "Philosophy/Commentary on Foucault's The Order of Things.md",
-    "Mathematics/PDE/Partial Differential Equation/Partial Differential Equation.md",
-    "Mathematics/PDE/Partial Differential Equation/Heat Equation Solution.md",
-    "Physics/section/first-page.md",
-    "Physics/section/second-page.md",
+    "Mathematics/MATH 351 & 352/_index.md",
+    "Mathematics/MATH 351 & 352/Heat Equation/_index.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/_index.md",
+    "Mathematics/MATH 351 & 352/Heat Equation",
+    "Mathematics/_index.md",
+    "Mathematics/hidden.md",
+    "Mathematics/MATH 351 & 352/Partial Differential Equation/Partial Differential Equation.md",
+    "Mathematics/PDE/Partial Differential Equation/_index.md",
     "Untitled.md",
     "Mathematics/MATH 412 Real Analysis II/Homework/Homework 6.md",
-    "Mathematics/MATH 352 PDE in Action/High Orders Methods.md",
-    "Philosophy/Object petit a.md",
-    "Philosophy/50-words Close Reading.md",
-    "Untitled"
+    "Mathematics/MATH 412 Real Analysis II/Homework",
+    "Untitled",
+    "Mathematics/MATH 412 Real Analysis II/_index/_index.md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/7.2 Implicit Function Theorem.md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/6.6 Product Rule and Gradients.md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/6.9 Taylor Higher Dimentions.md",
+    "Mathematics/PDE/Numerical Methods/_index.md",
+    "Mathematics/PDE/Numerical Methods/4th-level.md",
+    "Physics/_index.md"
   ]
 }

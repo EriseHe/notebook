@@ -50,10 +50,10 @@ $hint-colors: (
   //body
   --body-background: linear-gradient(
     to right,
-    #f5f5f5 0%,
-    #ffffff 25%,
-    #ffffff 75%,
-    #f5f5f5 100%
+    hsl(240, 0%, 98%) 0%,
+    #ffffff 10%,
+    #ffffff 80%,
+    hsl(240, 5%, 90%)  100%
   );
   --md-background: white;
   --body-font-color: black;
@@ -67,7 +67,7 @@ $hint-colors: (
   //buttons
   --color-btn: #f2f2f2dc;
   --color-btn-hover: #e0e0e0;
-  --color-toc-hover:  #ececef;
+  --color-toc-hover:  hsl(240, 5%, 93%);
 
   //images
   --icon-filter: none;
