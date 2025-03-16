@@ -13,6 +13,7 @@
   </script>
   {{ partial "docs/html-head" . }}
   {{ partial "docs/inject/head" . }}
+
 </head>
 
 <body dir="{{ default "ltr" .Site.Language.LanguageDirection }}">
@@ -73,6 +74,7 @@
   </main>
   {{ partial "docs/inject/body" . }}
   {{ partial "docs/mathjax.html" . }}
+  {{ partial "docs/mathcallouts-js.html"}}
   
 </body>
 </html>
@@ -106,8 +108,10 @@
 {{ end }}
 
 {{ define "main" }}
-  <article class="markdown book-article">
-    {{- .Content -}}
+  <article class="book-article">
+    <div class="markdown posts">
+      {{- .Content -}}
+    </div>
   </article>
 {{ end }}
 

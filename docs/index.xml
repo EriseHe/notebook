@@ -5,14 +5,14 @@
 &lt;p>Two lines of ideas:&lt;/p>
 &lt;p>&lt;strong>A&lt;/strong>: CMP $⇒$ Inverse FT $⇒$ Applications in ODE&lt;br>
 &lt;strong>B&lt;/strong>: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems&lt;/p>
-&lt;h3 id="i-inverse-function-theorem">
+&lt;h2 id="i-inverse-function-theorem">
  I. Inverse Function Theorem
  &lt;a class="anchor" href="#i-inverse-function-theorem">#&lt;/a>
-&lt;/h3>
-&lt;h5 id="1-linear-case">
+&lt;/h2>
+&lt;h3 id="1-linear-case">
  1. Linear Case
  &lt;a class="anchor" href="#1-linear-case">#&lt;/a>
-&lt;/h5>
+&lt;/h3>
 &lt;p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.&lt;/p>
 &lt;p>$$
 x = (x_1, x_2, \dots, x_n)^T

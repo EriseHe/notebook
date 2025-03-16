@@ -1,0 +1,52 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Find all blockquotes on the page.
+      var blockquotes = document.querySelectorAll("blockquote");
+      blockquotes.forEach(function(bq) {
+        var triggerText = "";
+        var triggerNode = null;
+    
+        // Try first to find a <p> element as the first child.
+        if (bq.firstElementChild && bq.firstElementChild.tagName.toLowerCase() === "p") {
+          triggerText = bq.firstElementChild.textContent.trim();
+          triggerNode = bq.firstElementChild;
+        } 
+        // Otherwise, if the first child is a text node, use that.
+        else if (bq.firstChild && bq.firstChild.nodeType === Node.TEXT_NODE) {
+          triggerText = bq.firstChild.textContent.trim();
+          triggerNode = bq.firstChild;
+        }
+        
+        // Match pattern like [!theorem|7.1.1] (case-insensitive).
+        var match = triggerText.match(/^\[\!(\w+)\|([\w\.\-]+)\]$/i);
+        if (match) {
+          var type = match[1];  // e.g., theorem, axiom, etc.
+          var number = match[2]; // e.g., 7.1.1
+          
+          // Remove the trigger text from the blockquote.
+          if (triggerNode) {
+            // If triggerNode is an element, remove it entirely.
+            if (triggerNode.nodeType === Node.ELEMENT_NODE) {
+              triggerNode.remove();
+            } else {
+              // If it's a text node, clear its text.
+              triggerNode.textContent = "";
+            }
+          }
+          
+          // Create a header element with the type and number.
+          var header = document.createElement("div");
+          header.className = "math-theorem-header";
+          // Format the type: capitalize first letter.
+          var typeFormatted = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
+          header.textContent = typeFormatted + " " + number;
+          
+          // Insert the header at the top of the blockquote.
+          bq.insertBefore(header, bq.firstChild);
+          // Add a class to the blockquote for framing.
+          bq.classList.add("framed-theorem");
+        }
+      });
+    });
+    </script>
+    

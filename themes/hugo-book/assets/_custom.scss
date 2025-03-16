@@ -3,12 +3,16 @@
 .book-page,
 .book-menu,
 .book-toc,
-.book-page .book-article {
-  background-color: transparent !important;
+.book-page {
+  background: transparent !important;
 }
 
 .book-toc .book-toc-content {
   transform: translateX(2rem); 
+}
+
+.markdown {
+  transform: translateX(0rem); 
 }
 
 .book-menu .book-menu-content {
@@ -17,7 +21,6 @@
 
 .subject-tabs { display: flex; gap: 1rem; margin-bottom: 1rem; }
 .subject-tab { padding: 0.5rem 1rem; background: #eee; cursor: pointer; transition: background 0.3s; }
-.subject-tab.active { background: #ccc; }
 .hidden { display: none; }
 
 
@@ -31,39 +34,37 @@
 
 
 
-
 /*-------------body & font styling--------------*/
+.book-article {
+  position: absolute;
+  
+  //background-color: var(--md-background);
+  top: -1rem;  
+  left: -1rem; 
+  right: -1rem;
+  padding: 0; 
+}
+
 .markdown {
+  background-color: var(--post-background);
   font-family: "Computer Modern", serif;
-  background-color: var(--md-background) ;
-  padding: 20px; /* This expands the background */
-  border-radius: 12px; /* Rounded corners */
+  padding: 2rem;
+  padding-top: 2rem; 
+  border-radius: 12px; 
   text-align: justify;
   text-justify: inter-word; /* Helps with proper spacing */
-  
+}
 
+.posts {
+  background-color: var(--md-background);
 
+  font-family: "Computer Modern", serif;
+  padding: 2rem;
+  padding-top: 4rem; 
 
-  h1 {
-  font-family: "Computer Modern";
-  font-weight: 1000;
-  } 
-  h2 {
-  font-family: "Computer Modern";
-  font-weight: bold;
-  color: var(--color-h2);
-  }
-  h3 {
-  font-family: "Computer Modern";
-  font-weight: bold;
-  color: var(--color-visited-link);
-  }
-
-  h4,
-  h5,
-  h6{
-
-  }
+  border-radius: 12px; 
+  text-align: justify;
+  text-justify: inter-word; /* Helps with proper spacing */
 
 }
 
@@ -94,10 +95,6 @@
    Tabbed Menu for Mathematics & Physics
 ------------------------------------------------------------------------ */
 
-.subject-menu {
-  margin: 1rem 0;
-}
-
 /* Tab buttons row */
 .subject-tabs {
   display: flex;
@@ -113,7 +110,7 @@
   color: var( --body-font-color);
   background: transparent;
   cursor: pointer;
-  transition: background 0.3s ease;
+
 }
 
 /* Active tab styling */
@@ -123,27 +120,28 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 
-
 }
 
 .subject-content {
   position: relative; // establishes a stacking context
   padding: 0.6rem; // adjust as needed for your design
-  /* Remove the direct background color here */
+  padding-right: 1.2rem;
 }
 
 
 .subject-content::before {
   content: "";
   position: absolute;
-  border-radius: 6px;
+  border-radius: 3px;
 
   top: -17px;  // extend 20px above the content
-  left: calc(50% - 50vw);
-  width: 100vw;
+  left: -0.9rem; // align with the right edge of the content
+  right: 0rem;
   height: calc(100% + 2.1rem);
   background-color: var(--color-toc-hover);
   z-index: -1; // keep background behind content
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3); // Soft edge effect
+
 }
 
 
@@ -257,14 +255,12 @@
 .toc-entries {
   background-color: var(--color-toc-hover); /* Light gray background */
   border-radius: 6px;  
-  padding: 1rem;      /* Internal spacing */
+  padding: 1rem;     
 }
 
 .book-toc {
   padding: 0;
 }
-
-
 
 
 
