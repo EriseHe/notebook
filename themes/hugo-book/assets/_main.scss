@@ -109,10 +109,13 @@ a .book-icon {
     width: $menu-width;
     padding: $padding-16;
     background: transparent;
+    overflow: visible;
+    
+    
 
     @include fixed;
   }
-
+  
   a,
   label {
     color: inherit;
@@ -125,6 +128,8 @@ a .book-icon {
     position: relative;
     color: var(--color-link);
     text-decoration: bold;
+    overflow: visible;
+    
   }
   
   a.active::before {
