@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mathematics/MATH 412 Real Analysis II/Lecture/7.17.1 Inverse Function Theorem.md",
+                "file": "Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md",
                 "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "7.17.1 Inverse Function Theorem"
+              "title": "7.1 Inverse Function Theorem"
             }
           },
           {
@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mathematics/MATH 412 Real Analysis II/Homework/_index.md",
-                "mode": "preview",
+                "file": "Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "_index"
+              "title": "7.1 Inverse Function Theorem"
             }
           }
         ],
@@ -200,11 +200,18 @@
   },
   "active": "66c893678afb0fa7",
   "lastOpenFiles": [
+    "Physics/Quantum Mechenics/_index.md",
+    "Physics/_index.md",
+    "Physics/section/_index.md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/7.1.1 Inverse FT (Proof).md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/6.9 Taylor Higher Dimentions.md",
     "Mathematics/MATH 412 Real Analysis II/_index.md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/7.2 Implicit Function Theorem.md",
     "Mathematics/MATH 412 Real Analysis II/Lecture/6.4 Sufficient Conditions for Differentiability.md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/6.6 Product Rule and Gradients.md",
     "Mathematics/MATH 412 Real Analysis II/Homework/_index.md",
     "Mathematics/MATH 351 & 352/Heat Equation/Heat Equation Solution.md",
-    "Mathematics/MATH 412 Real Analysis II/Lecture/7.17.1 Inverse Function Theorem.md",
     "Mathematics/MATH 412 Real Analysis II/Lecture/6.5 The Chain Rule.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Mid-Point Method.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Three-Point Backward Differentiation Formula (Feb 4).md",
@@ -221,13 +228,6 @@
     "Untitled.md",
     "Mathematics/MATH 412 Real Analysis II/Homework/Homework 6.md",
     "Mathematics/MATH 412 Real Analysis II/Homework",
-    "Untitled",
-    "Mathematics/MATH 412 Real Analysis II/_index/_index.md",
-    "Mathematics/MATH 412 Real Analysis II/Lecture/7.2 Implicit Function Theorem.md",
-    "Mathematics/MATH 412 Real Analysis II/Lecture/6.6 Product Rule and Gradients.md",
-    "Mathematics/MATH 412 Real Analysis II/Lecture/6.9 Taylor Higher Dimentions.md",
-    "Mathematics/PDE/Numerical Methods/_index.md",
-    "Mathematics/PDE/Numerical Methods/4th-level.md",
-    "Physics/_index.md"
+    "Untitled"
   ]
 }
