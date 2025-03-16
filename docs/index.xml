@@ -1,23 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Introduction on 位相学補完計画</title><link>https://erisehe.github.io/</link><description>Recent content in Introduction on 位相学補完計画</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>7.1 Inverse Function Theorem</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/7.17.1-Inverse-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/7.17.1-Inverse-Function-Theorem/</guid><description>&lt;h1 id="71-inverse-function-theorem-ift">
- 7.1 Inverse Function Theorem (IFT)
- &lt;a class="anchor" href="#71-inverse-function-theorem-ift">#&lt;/a>
-&lt;/h1>
-&lt;p>Two lines of ideas:&lt;/p>
-&lt;p>&lt;strong>A&lt;/strong>: CMP $⇒$ Inverse FT $⇒$ Applications in ODE&lt;br>
-&lt;strong>B&lt;/strong>: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems&lt;/p>
-&lt;h2 id="i-inverse-function-theorem">
- I. Inverse Function Theorem
- &lt;a class="anchor" href="#i-inverse-function-theorem">#&lt;/a>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Introduction on 位相学補完計画</title><link>https://erisehe.github.io/</link><description>Recent content in Introduction on 位相学補完計画</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.4-Sufficient-Conditions-for-Differentiability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.4-Sufficient-Conditions-for-Differentiability/</guid><description>&lt;h2 id="1-necessary-condition-for-differentiability">
+ &lt;strong>1. Necessary Condition for Differentiability&lt;/strong>
+ &lt;a class="anchor" href="#1-necessary-condition-for-differentiability">#&lt;/a>
 &lt;/h2>
-&lt;h3 id="1-linear-case">
- 1. Linear Case
- &lt;a class="anchor" href="#1-linear-case">#&lt;/a>
+&lt;ul>
+&lt;li>Recall: A necessary condition for differentiability:
+$$
+\boxed{ f \text{ differentiable} \Rightarrow f \text{ is continuous} }
+$$&lt;/li>
+&lt;li>&lt;strong>Continuity&lt;/strong> is a requirement.&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-sufficient-conditions-for-differentiability">
+ &lt;strong>2. Sufficient Conditions for Differentiability&lt;/strong>
+ &lt;a class="anchor" href="#2-sufficient-conditions-for-differentiability">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>(a) Partial derivatives and differentiability&lt;/strong>
+f differentiable $\Rightarrow$ continuity + partials exists
+conditions + partials exists $\Rightarrow f$ differentiable &lt;strong>(?)&lt;/strong>&lt;/p>
+&lt;hr>
+&lt;h3 id="ex-1">
+ &lt;strong>Ex. 1&lt;/strong>
+ &lt;a class="anchor" href="#ex-1">#&lt;/a>
 &lt;/h3>
-&lt;p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.&lt;/p>
+&lt;p>Consider the function defined as:&lt;/p>
 &lt;p>$$
-x = (x_1, x_2, \dots, x_n)^T
-$$&lt;/p>
-&lt;p>Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p></description></item><item><title>7.2 Implicit Function Theorem</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/7.2-Implicit-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/7.2-Implicit-Function-Theorem/</guid><description/></item><item><title>Creating a New Theme</title><link>https://erisehe.github.io/posts/creating-a-new-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/creating-a-new-theme/</guid><description>&lt;h2 id="introduction">
+f(x,y) =
+\begin{cases}
+\frac{xy}{x^2 + y^2}, &amp;amp; (x,y) \neq (0,0) \
+0, &amp;amp; (x,y) = (0,0)
+\end{cases}
+$$&lt;/p></description></item><item><title>Creating a New Theme</title><link>https://erisehe.github.io/posts/creating-a-new-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/creating-a-new-theme/</guid><description>&lt;h2 id="introduction">
  Introduction
  &lt;a class="anchor" href="#introduction">#&lt;/a>
 &lt;/h2>
@@ -187,36 +198,6 @@ F_1(x,y,z,u,v,w) ;&amp;amp;=; 3x + 2y + z^2 + u + v^2,\
 F_2(x,y,z,u,v,w) ;&amp;amp;=; 4x + 3y + z + u^2 + v + w + 2,\
 F_3(x,y,z,u,v,w) ;&amp;amp;=; x + z + w + u^2 + 2.
 \end{aligned}
-$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.4-Sufficient-Conditions-for-Differentiability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.4-Sufficient-Conditions-for-Differentiability/</guid><description>&lt;h2 id="1-necessary-condition-for-differentiability">
- &lt;strong>1. Necessary Condition for Differentiability&lt;/strong>
- &lt;a class="anchor" href="#1-necessary-condition-for-differentiability">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>Recall: A necessary condition for differentiability:
-$$
-\boxed{ f \text{ differentiable} \Rightarrow f \text{ is continuous} }
-$$&lt;/li>
-&lt;li>&lt;strong>Continuity&lt;/strong> is a requirement.&lt;/li>
-&lt;/ul>
-&lt;h2 id="2-sufficient-conditions-for-differentiability">
- &lt;strong>2. Sufficient Conditions for Differentiability&lt;/strong>
- &lt;a class="anchor" href="#2-sufficient-conditions-for-differentiability">#&lt;/a>
-&lt;/h2>
-&lt;p>&lt;strong>(a) Partial derivatives and differentiability&lt;/strong>
-f differentiable $\Rightarrow$ continuity + partials exists
-conditions + partials exists $\Rightarrow f$ differentiable &lt;strong>(?)&lt;/strong>&lt;/p>
-&lt;hr>
-&lt;h3 id="ex-1">
- &lt;strong>Ex. 1&lt;/strong>
- &lt;a class="anchor" href="#ex-1">#&lt;/a>
-&lt;/h3>
-&lt;p>Consider the function defined as:&lt;/p>
-&lt;p>$$
-f(x,y) =
-\begin{cases}
-\frac{xy}{x^2 + y^2}, &amp;amp; (x,y) \neq (0,0) \
-0, &amp;amp; (x,y) = (0,0)
-\end{cases}
 $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.5-The-Chain-Rule/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.5-The-Chain-Rule/</guid><description>&lt;p>111&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.6-Product-Rule-and-Gradients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.6-Product-Rule-and-Gradients/</guid><description>&lt;p>111&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.9-Taylor-Higher-Dimentions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/6.9-Taylor-Higher-Dimentions/</guid><description>&lt;p>$$
 R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0)
 $$
@@ -415,4 +396,49 @@ computation()&lt;/p></description></item><item><title/><link>https://erisehe.git
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://erisehe.github.io/" class="book-btn">Get Home&lt;/a>
 
 &lt;a href="https://github.com/alex-shpak/hugo-book" target="_blank" rel="noopener" class="book-btn">Contribute&lt;/a>
-&lt;/p></description></item></channel></rss>
+&lt;/p></description></item><item><title>7.1 Inverse Function Theorem</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/7.1-Inverse-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/7.1-Inverse-Function-Theorem/</guid><description>&lt;h1 id="71-inverse-function-theorem-ift">
+ 7.1 Inverse Function Theorem (IFT)
+ &lt;a class="anchor" href="#71-inverse-function-theorem-ift">#&lt;/a>
+&lt;/h1>
+&lt;p>Two lines of ideas:&lt;/p>
+&lt;p>&lt;strong>A&lt;/strong>: CMP $⇒$ Inverse FT $⇒$ Applications in ODE&lt;br>
+&lt;strong>B&lt;/strong>: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems&lt;/p>
+&lt;h2 id="i-inverse-function-theorem">
+ I. Inverse Function Theorem
+ &lt;a class="anchor" href="#i-inverse-function-theorem">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="1-linear-case">
+ 1. Linear Case
+ &lt;a class="anchor" href="#1-linear-case">#&lt;/a>
+&lt;/h3>
+&lt;p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.&lt;/p>
+&lt;p>$$
+x = (x_1, x_2, \dots, x_n)^T
+$$&lt;/p>
+&lt;p>Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p></description></item><item><title>7.1.1 Proof</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/7.1.1-Inverse-FT-Proof/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/7.1.1-Inverse-FT-Proof/</guid><description>&lt;h1 id="71-implicit-function-theorem-ift-proof">
+ 7.1* Implicit Function Theorem (IFT) Proof
+ &lt;a class="anchor" href="#71-implicit-function-theorem-ift-proof">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="1-recall-ift">
+ 1. Recall IFT
+ &lt;a class="anchor" href="#1-recall-ift">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>Theorem 7.1.1:&lt;/strong> Let $y = f(x): A \subset \mathbb{R}^n \to \mathbb{R}^n$ be of class $C^1$. Suppose $x_0 \in A$ with:
+$$
+J_f(x_0) = \det(Df(x_0)) \ne 0
+$$
+Then there exist neighborhoods $U$ of $x_0$ in $A$ and $W$ of $y_0 = f(x_0)$ such that:&lt;/p>
+&lt;ol>
+&lt;li>$f(U) = W$ and $f: U \to W$ has an inverse $f^{-1}: W \to U$.&lt;/li>
+&lt;li>$f^{-1} \in C^1$ (If $f \in C^r$, then $f^{-1} \in C^r$).&lt;/li>
+&lt;li>$Df^{-1}(y) = [Df(x)]^{-1}$ for $x \in U$ and $y = f(x)$.&lt;/li>
+&lt;/ol>
+&lt;h2 id="2-proof-of-theorem-711">
+ 2. Proof of Theorem 7.1.1
+ &lt;a class="anchor" href="#2-proof-of-theorem-711">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="step-1-reduction">
+ Step 1: Reduction
+ &lt;a class="anchor" href="#step-1-reduction">#&lt;/a>
+&lt;/h3>
+&lt;p>We may assume $Df(x_0) = I$ and $x_0 = 0$, $y_0 = f(x_0)$.&lt;/p></description></item><item><title>7.2 Implicit Function Theorem</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/7.2-Implicit-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Lecture/7.2-Implicit-Function-Theorem/</guid><description>&lt;p>111&lt;/p></description></item></channel></rss>
