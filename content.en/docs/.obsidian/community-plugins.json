@@ -33,5 +33,6 @@
   "fontsource",
   "transfer-latex-from-gpt",
   "latex-exporter",
-  "ai-latex-generator"
+  "ai-latex-generator",
+  "number-headings-obsidian"
 ]

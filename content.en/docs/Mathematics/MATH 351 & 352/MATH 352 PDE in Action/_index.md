@@ -1,6 +1,7 @@
 ---
-title: Numerical Methods
+title: 数值方法
 bookFlatSection: 
 bookCollapseSection: true
-tags:
+tags: 
+weight: 1
 ---

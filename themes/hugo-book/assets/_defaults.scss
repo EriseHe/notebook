@@ -40,8 +40,8 @@ $hint-colors: (
 
   // Headings
   --color-h1: #000000;
-  --color-h2: blue;
-  --color-h3: #002FA7;
+  --color-h2: rgb(63, 25, 200);
+  --color-h3: #a933d1;
   --color-h4: #000000;
   --color-h5: #e83e3e;
   --color-h6: #a795c5;;
@@ -59,16 +59,28 @@ $hint-colors: (
   --body-font-color: black;
   --post-background: #f8f9fa;
 
-  
+  //code
+  --code-background: rgb(234, 234, 234);
+  --code-border: 1px solid #cccccc;
+  --code-text: rgb(79, 79, 79);
+
 
   //TOC
   --toc-font-color: #0055bb;
+
+  //menu
+  --color-menu: linear-gradient(
+    to top,
+    hsl(240, 0%, 100%) 0%,
+    hsl(240, 5%, 93%) 30%,
+    hsl(240, 5%, 93%)  100%
+  );
 
   //buttons
   --color-btn: #f2f2f2dc;
   --color-btn-hover: #e0e0e0;
   --color-toc-hover:  hsl(240, 5%, 93%);
-
+  
   //images
   --icon-filter: none;
 
@@ -106,9 +118,17 @@ $hint-colors: (
   --body-font-color: #c7c7d0;
   --post-background: #1b0b34;
 
+  //code
+  --code-background: black;
+  --code-border: 1px solid #2d1d4c;
+  --code-text: rgb(219, 219, 219) ;
+
 
   //TOC
   --toc-font-color: #0055bb;
+
+  //menu
+  --color-menu: #140c3c45;
 
   //buttons
   --color-btn: #2f1e7d62;
