@@ -4,41 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "d8f71568d8438c92",
+        "id": "2f9b2f811e2e409c",
         "type": "tabs",
         "children": [
           {
-            "id": "dbb8e03db6d88630",
+            "id": "d4513820e616b532",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md",
-                "mode": "preview",
-                "source": true,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "7.1 Inverse Function Theorem"
-            }
-          },
-          {
-            "id": "66c893678afb0fa7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md",
+                "file": "Mathematics/MATH 412 Real Analysis II/第七章/_index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "7.1 Inverse Function Theorem"
+              "title": "_index"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -121,8 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "MATH 412 Real Analysis II/Homework/Homework 6.md",
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -131,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Homework 6"
+              "title": "Backlinks"
             }
           },
           {
@@ -168,20 +151,21 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Mathematics/MATH 412 Real Analysis II/第七章/_index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of _index"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -198,36 +182,43 @@
       "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "66c893678afb0fa7",
+  "active": "d4513820e616b532",
   "lastOpenFiles": [
+    "Mathematics/MATH 412 Real Analysis II/第六章/_index.md",
+    "Mathematics/MATH 412 Real Analysis II/第七章/_index.md",
+    "Mathematics/MATH 412 Real Analysis II/第七章/7.1 Inverse Function Theorem.md",
+    "Mathematics/MATH 412 Real Analysis II/第七章",
+    "Mathematics/MATH 412 Real Analysis II/第七章/第七章.md",
+    "Mathematics/MATH 412 Real Analysis II/第七章",
+    "Mathematics/MATH 412 Real Analysis II/_index.md",
+    "Mathematics/MATH 412 Real Analysis II/第六章/6.9 Taylor Higher Dimentions.md",
+    "Mathematics/MATH 412 Real Analysis II/第六章/6.6 Product Rule and Gradients.md",
+    "Mathematics/MATH 412 Real Analysis II/第六章/6.5 The Chain Rule.md",
+    "Mathematics/MATH 412 Real Analysis II/第六章/6.4 Sufficient Conditions for Differentiability.md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/6.4 Sufficient Conditions for Differentiability.zh.md",
+    "Mathematics/MATH 412 Real Analysis II/Homework/_index.md",
+    "Mathematics/MATH 351 & 352/Heat Equation/_index.md",
+    "Mathematics/MATH 351 & 352/Wave Equation/_index.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/_index.md",
+    "Mathematics/MATH 351 & 352/Laplace Equation/_index.md",
+    "Mathematics/MATH 412 Real Analysis II/第七章/7.1.1 Inverse FT (Proof).md",
+    "Mathematics/MATH 412 Real Analysis II/第七章/7.2 Implicit Function Theorem.md",
+    "Mathematics/MATH 412 Real Analysis II/Lecture/7.2 Implicit Function Theorem.zh.md",
+    "Mathematics/MATH 351 & 352/Heat Equation/The Fourier Series.md",
+    "Fourier Series.png",
+    "L-space-1.png",
+    "L-space.png",
+    "Mathematics/MATH 351 & 352/Heat Equation/Untitled.canvas",
+    "Mathematics/MATH 351 & 352/Heat Equation/Heat Equation Solution.md",
+    "Mathematics/MATH 351 & 352/Laplace Equation",
+    "GPT Conversion.md",
+    "Untitled",
+    "Mathematics/MATH 351 & 352/Wave Equation",
+    "Mathematics/MATH 351 & 352/_index.md",
     "Physics/Quantum Mechenics/_index.md",
     "Physics/_index.md",
     "Physics/section/_index.md",
-    "Mathematics/MATH 412 Real Analysis II/Lecture/7.1.1 Inverse FT (Proof).md",
-    "Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md",
-    "Mathematics/MATH 412 Real Analysis II/Lecture/6.9 Taylor Higher Dimentions.md",
-    "Mathematics/MATH 412 Real Analysis II/_index.md",
-    "Mathematics/MATH 412 Real Analysis II/Lecture/7.2 Implicit Function Theorem.md",
-    "Mathematics/MATH 412 Real Analysis II/Lecture/6.4 Sufficient Conditions for Differentiability.md",
-    "Mathematics/MATH 412 Real Analysis II/Lecture/6.6 Product Rule and Gradients.md",
-    "Mathematics/MATH 412 Real Analysis II/Homework/_index.md",
-    "Mathematics/MATH 351 & 352/Heat Equation/Heat Equation Solution.md",
-    "Mathematics/MATH 412 Real Analysis II/Lecture/6.5 The Chain Rule.md",
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Mid-Point Method.md",
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Three-Point Backward Differentiation Formula (Feb 4).md",
-    "GPT Conversion.md",
-    "Philosophy/_index.md",
-    "Mathematics/MATH 351 & 352/_index.md",
-    "Mathematics/MATH 351 & 352/Heat Equation/_index.md",
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/_index.md",
     "Mathematics/MATH 351 & 352/Heat Equation",
-    "Mathematics/_index.md",
-    "Mathematics/hidden.md",
-    "Mathematics/MATH 351 & 352/Partial Differential Equation/Partial Differential Equation.md",
-    "Mathematics/PDE/Partial Differential Equation/_index.md",
-    "Untitled.md",
-    "Mathematics/MATH 412 Real Analysis II/Homework/Homework 6.md",
-    "Mathematics/MATH 412 Real Analysis II/Homework",
-    "Untitled"
+    "Mathematics/MATH 412 Real Analysis II/Homework"
   ]
 }

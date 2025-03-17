@@ -1,0 +1,80 @@
+if (!requireNamespace("remotes", quietly = TRUE)) {#
+	install.packages("remotes")#
+}
+remotes::install_github("ropensci/babeldown")
+.libPaths()
+remotes::install_github("ropensci-review-tools/babeldown")
+Sys.setenv(DEEPL_API_KEY = "12065024-5025-4d22-80ac-4a7a33876e92:fx")
+getwd()
+setwd("/Users/erisehe/Documents/GitHub/erisehe.github.io")
+getwd()
+library(babeldown)#
+#
+deepl_translate_hugo("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/7.1.1 Inverse FT (Proof).md", #
+                     target_lang = "ZH")
+Sys.getenv("DEEPL_API_KEY")
+library(httr)#
+#
+res <- GET("https://api-free.deepl.com/v2/translate",#
+           query = list(auth_key = Sys.getenv("DEEPL_API_KEY"),#
+                        text = "Hello world",#
+                        target_lang = "ZH"))#
+#
+content(res, "text")
+library(httr)#
+#
+res <- GET("https://api-free.deepl.com/v2/translate",#
+           query = list(auth_key = Sys.getenv("DEEPL_API_KEY"),#
+                        text = "Hello world",#
+                        target_lang = "ZH"),#
+           encode = "utf-8")#
+#
+content(res, "text")
+deepl_translate_hugo("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/7.1.1 Inverse FT (Proof).md", #
+                     target_lang = "ZH",#
+                     encoding = "UTF-8")
+library(babeldown)#
+#
+deepl_translate_hugo("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/7.1.1 Inverse FT (Proof).md", #
+                     target_lang = "ZH")
+library(babeldown)#
+#
+deepl_translate_hugo("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem", target_lang = "ZH")
+file.exists("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem")
+file.exists("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md")
+list.files("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/")
+> library(babeldown)#
+> #
+> deepl_translate_hugo("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md", target_lang = "ZH")
+library(babeldown)#
+#
+deepl_translate_hugo("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md", target_lang = "ZH")
+Sys.setenv(DEEPL_API_URL = "https://api-free.deepl.com/v2")
+Sys.setenv(DEEPL_API_URL = "https://api-free.deepl.com/v2")
+Sys.setenv(DEEPL_API_URL = "https://api-free.deepl.com/v2")
+Sys.setenv(DEEPL_API_URL = "https://api-free.deepl.com/v2")
+> deepl_translate_hugo("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md", target_lang = "ZH")
+library(babeldown)#
+#
+deepl_translate_hugo("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md", target_lang = "ZH")
+Sys.setenv(DEEPL_API_URL = "https://api-free.deepl.com/v2")
+Sys.setenv(DEEPL_API_URL = "https://api-free.deepl.com/v2")
+file.edit("~/.Renviron")
+file.edit("~/.Renviron")
+Sys.getenv("DEEPL_API_URL")
+library(babeldown)#
+#
+deepl_translate_hugo("content.en/docs/Mathematics/MATH 412 Real Analysis II/Lecture/7.1 Inverse Function Theorem.md", #
+                     target_lang = "ZH")
+library(httr)#
+#
+res <- GET("https://api-free.deepl.com/v2/translate",#
+           query = list(auth_key = Sys.getenv("DEEPL_API_KEY"),#
+                        text = "Hello world",#
+                        target_lang = "ZH"))#
+#
+content(res, "text")
+remotes::install_github("ropensci-review-tools/babeldown")
+library(babeldown)#
+deepl_languages()
+Sys.setenv(DEEPL_API_URL = "https://api-free.deepl.com/v2")

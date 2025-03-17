@@ -1,6 +1,8 @@
 @import "variables";
 
 .markdown {
+
+  
   line-height: 1.6;
 
   // remove padding at the beginning of page
@@ -14,14 +16,31 @@
   h1 {
   font-weight: 1000;
   color: var(--color-h1);
+  font-size: 1.8rem;
+  text-align: center;
   } 
-
   h2 {
-  font-weight: bold; 
-  color: var(--color-h2); 
-  font-size: 1.5em;
-  border-bottom: 2px solid var(--gray-200); 
-  padding-bottom: 5px ;
+    position: relative;                // Establish a positioning context for the pseudo-element
+    font-weight: bold; 
+    color: var(--color-h2); 
+    font-size: 1.5em;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--gray-500); // Underline naturally wraps only the text
+
+    // Remove background-color from here (we use ::after instead)
+  }
+  
+  // Use ::after for the background that only covers the h2 text area
+  h2::after {
+    content: "";
+    position: absolute;
+    top: 0.8rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0px;
+    background-color: var(--gray-200);  // Background color will wrap the text
+    z-index: -1;  // Places the background behind the text and border
   }
 
   h3 {

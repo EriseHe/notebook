@@ -11,9 +11,7 @@
   transform: translateX(2rem); 
 }
 
-.markdown {
-  transform: translateX(0rem); 
-}
+
 
 .book-menu .book-menu-content {
   transform: translateX(-1rem); /* Adjust the value as needed */
@@ -33,21 +31,24 @@
 }
 
 
-
 /*-------------body & font styling--------------*/
 .book-article {
-  position: absolute;
-  
-  //background-color: var(--md-background);
-  top: -1rem;  
-  left: -1rem; 
-  right: -1rem;
+  position: relative; // Change from absolute to relative
+  top: 0;  
+  left: 0; 
+  right: 10rem;
   padding: 0; 
 }
 
-.markdown {
+.markdown { 
   background-color: var(--post-background);
   font-family: "Computer Modern", serif;
+
+  p {
+    font-weight: 500; /* or desired weight */
+  }
+  //normal font weight
+
   padding: 2rem;
   padding-top: 2rem; 
   border-radius: 12px; 
@@ -55,8 +56,9 @@
   text-justify: inter-word; /* Helps with proper spacing */
 }
 
-.posts {
+.posts { 
   background-color: var(--md-background);
+
 
   font-family: "Computer Modern", serif;
   padding: 2rem;
@@ -99,11 +101,11 @@ code {
 .code-block {
   position: relative;
   margin: 1em 0;
-  color: var(--gray-100) ;
+  color: var(--code-text);
 }
 
 .code-block img{
-  filter: brightness(0) invert(1);
+  filter: var(--icon-filter);
 }
 
 .code-block pre {
@@ -111,11 +113,10 @@ code {
   padding: 1em;
   padding-bottom: 0em;
   overflow: auto;
-  border: 1px solid #6a6a6a;
+  border: var(--code-border);
   border-radius: 12px;
-  background: rgb(26, 26, 26);
+  background: var(--code-background);
   line-height: 1.4;       /* tweak if needed */
-
 }
 
 .copy-button {
@@ -130,15 +131,17 @@ code {
   border: white;
   border-radius: 3px;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0;
   transition: opacity 0.2s ease;
 }
 
-.copy-button:hover {
-  opacity: 1;
-  bottom: fit-content;
+.code-block:hover .copy-button {
+  opacity: 0.8;  /* Appear when hovered */
 }
 
+.copy-button:hover {
+  opacity: 0.5;
+}
 /* ------------------------------------------------------------------------
    Tabbed Menu for Mathematics & Physics
 ------------------------------------------------------------------------ */
@@ -158,6 +161,7 @@ code {
   color: var( --body-font-color);
   background: transparent;
   cursor: pointer;
+  
 
 }
 
@@ -174,6 +178,12 @@ code {
   position: relative; // establishes a stacking context
   padding: 0.6rem; // adjust as needed for your design
   padding-right: 1.2rem;
+
+  a:hover {
+    transform: scale(1.02);
+    color: rgb(104, 104, 104);
+    transition: transform 0.1s ease;
+  }
   
 }
 
@@ -182,19 +192,32 @@ code {
   content: "";
   position: absolute;
   border-radius: 3px;
+  background: var(--color-menu);
 
   top: -17px;  // extend 20px above the content
   left: -0.8rem; // align with the right edge of the content
   right: 0rem;
-  height: calc(100% + 2.1rem);
+  height: calc(100% + 12rem);
   background-color: var(--color-toc-hover);
   z-index: -1; // keep background behind content
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px -3px 0.5px rgba(0, 0, 0, 0.201);
+  
 }
 
 
 .after-menu-offset {
-  margin-top: 3.9rem; // adjust the value as needed
+  margin-top: 1rem; // adjust the value as needed
+  color: var(--gray-500);
+
+  a {
+    display: block;
+  }
+
+  a:hover {
+    transform: scale(1.02);
+    color: rgb(104, 104, 104);
+    transition: transform 0.1s ease;
+  }
 }
 
 

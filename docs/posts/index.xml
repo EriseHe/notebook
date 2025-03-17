@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on 位相学補完計画</title><link>https://erisehe.github.io/posts/</link><description>Recent content in Blog on 位相学補完計画</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Creating a New Theme</title><link>https://erisehe.github.io/posts/creating-a-new-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/creating-a-new-theme/</guid><description>&lt;h2 id="introduction">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on 位相学補完計画</title><link>https://erisehe.github.io/posts/</link><description>Recent content in Blog on 位相学補完計画</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 16 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/posts/Integrate-DeepL-Translation-Instruction/</link><pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/Integrate-DeepL-Translation-Instruction/</guid><description>&lt;h3 id="1-install-r-and-babeldown">
+ 1. Install R and Babeldown
+ &lt;a class="anchor" href="#1-install-r-and-babeldown">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="11-install-r">
+ 1.1 Install R
+ &lt;a class="anchor" href="#11-install-r">#&lt;/a>
+&lt;/h4>
+&lt;p>
+ &lt;a href="https://cran.r-project.org/">https://cran.r-project.org/&lt;/a>.&lt;/p>
+&lt;p>(The following task is using R console)&lt;/p>
+&lt;h4 id="12-install-babeldown">
+ 1.2 Install Babeldown
+ &lt;a class="anchor" href="#12-install-babeldown">#&lt;/a>
+&lt;/h4>
+&lt;p>More specific instruction, check here: 
+ &lt;a href="https://docs.ropensci.org/babeldown/">https://docs.ropensci.org/babeldown/&lt;/a>&lt;/p>
+&lt;p>1.2.1 This command install &amp;lsquo;remotes&amp;rsquo; from CRAN if not already installed:&lt;/p>
+&lt;div class="code-block">
+ &lt;pre>
+&lt;code>if (!requireNamespace("remotes", quietly = TRUE)) {
+	install.packages("remotes")
+}&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;p>1.2.2 Uses the ‘remotes’ package to install the ‘babeldown’ package from its GitHub repo:&lt;/p>
+&lt;div class="code-block">
+ &lt;pre>
+&lt;code>install.packages('babeldown', repos = c('https://ropensci.r-universe.dev', 'https://cloud.r-project.org'))&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;h4 id="2--set-up-deepl-api-inside-of-r-console">
+ 2. Set up DeepL API (Inside of R console)
+ &lt;a class="anchor" href="#2--set-up-deepl-api-inside-of-r-console">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Go to DeepL&amp;rsquo;s website and get an API key: 
+ &lt;a href="https://www.deepl.com/en/your-account/keys">https://www.deepl.com/en/your-account/keys&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="3-connect-babeldown-to-deepl-api">
+ 3. Connect Babeldown to DeepL API
+ &lt;a class="anchor" href="#3-connect-babeldown-to-deepl-api">#&lt;/a>
+&lt;/h4>
+&lt;p>Babeldown uses the DeepL &lt;em>free&lt;/em> API URL &lt;strong>by default&lt;/strong> (no need to set up unless &lt;em>pro&lt;/em> API).&lt;/p></description></item><item><title>Creating a New Theme</title><link>https://erisehe.github.io/posts/creating-a-new-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/creating-a-new-theme/</guid><description>&lt;h2 id="introduction">
  Introduction
  &lt;a class="anchor" href="#introduction">#&lt;/a>
 &lt;/h2>
@@ -35,44 +86,4 @@ appropriate version for your OS and architecture.&lt;/p>
 &lt;/h2>
 &lt;p>Hugo has its own example site which happens to also be the documentation site
 you are reading right now.&lt;/p>
-&lt;p>Follow the following steps:&lt;/p></description></item><item><title/><link>https://erisehe.github.io/posts/Integrate-DeepL-Translation-Instruction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/Integrate-DeepL-Translation-Instruction/</guid><description>&lt;h3 id="1-install-r-and-babeldown">
- 1. Install R and Babeldown
- &lt;a class="anchor" href="#1-install-r-and-babeldown">#&lt;/a>
-&lt;/h3>
-&lt;h4 id="11-install-r">
- 1.1 Install R
- &lt;a class="anchor" href="#11-install-r">#&lt;/a>
-&lt;/h4>
-&lt;p>
- &lt;a href="https://cran.r-project.org/">https://cran.r-project.org/&lt;/a>.&lt;/p>
-&lt;h4 id="12-install-babeldown">
- 1.2 Install Babeldown
- &lt;a class="anchor" href="#12-install-babeldown">#&lt;/a>
-&lt;/h4>
-&lt;p>&lt;strong>[In side of R console]&lt;/strong>&lt;/p>
-&lt;p>This command install &amp;lsquo;remotes&amp;rsquo; from CRAN if not already installed:&lt;/p>
-&lt;div class="code-block">
- &lt;pre>
-&lt;code>if (!requireNamespace("remotes", quietly = TRUE)) {
-	install.packages("remotes")
-}&lt;/code>
- &lt;/pre>
- &lt;button class="copy-button">
- &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
- &lt;/button>
-&lt;/div>
-
-&lt;p>Then uses the ‘remotes’ package to install the ‘babeldown’ package from its GitHub repo:&lt;/p>
-&lt;div class="code-block">
- &lt;pre>
-&lt;code>remotes::install_github("ropensci/babeldown")&lt;/code>
- &lt;/pre>
- &lt;button class="copy-button">
- &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
- &lt;/button>
-&lt;/div>
-
-&lt;h3 id="2">
- 2.
- &lt;a class="anchor" href="#2">#&lt;/a>
-&lt;/h3></description></item></channel></rss>
+&lt;p>Follow the following steps:&lt;/p></description></item></channel></rss>
