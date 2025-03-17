@@ -6,6 +6,8 @@ html {
 
 body {
   min-width: $body-min-width;
+  right: 20rem;
+
   color: var(--body-font-color);
   background: var(--body-background);
 
@@ -51,7 +53,7 @@ aside nav ul {
 
   a:hover {
     transform: scale(1.02);
-    opacity: 1;
+    opacity: 0.5;
     transition: transform 0.1s ease;
   }
 

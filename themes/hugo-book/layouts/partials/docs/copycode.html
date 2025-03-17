@@ -1,4 +1,4 @@
 {{ $script := resources.Get "copy-code.js" | resources.Minify }}
 {{ with $script.Content }}
   <script>{{ . | safeJS }}</script>
-{{ end }}
+{{ end }} 

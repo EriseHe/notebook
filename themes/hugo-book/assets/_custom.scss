@@ -11,8 +11,6 @@
   transform: translateX(2rem); 
 }
 
-
-
 .book-menu .book-menu-content {
   transform: translateX(-1rem); /* Adjust the value as needed */
 }
@@ -30,6 +28,15 @@
   vertical-align: middle;
 }
 
+.book-toc {
+  margin-left: -2rem; /* or any value you prefer */
+}
+
+.book-menu{
+  margin-right: -1rem; 
+}
+
+
 
 /*-------------body & font styling--------------*/
 .book-article {
@@ -43,7 +50,6 @@
 .markdown { 
   background-color: var(--post-background);
   font-family: "Computer Modern", serif;
-
   p {
     font-weight: 500; /* or desired weight */
   }
@@ -146,6 +152,8 @@ code {
    Tabbed Menu for Mathematics & Physics
 ------------------------------------------------------------------------ */
 
+
+
 /* Tab buttons row */
 .subject-tabs {
   display: flex;
@@ -215,7 +223,7 @@ code {
 
   a:hover {
     transform: scale(1.02);
-    color: rgb(104, 104, 104);
+    color: rgb(16, 16, 16);
     transition: transform 0.1s ease;
   }
 }
@@ -226,8 +234,8 @@ code {
   display: none;
 }
 
-/*-----------------SUBMENU styling-----------------*/
-.submenu {
+/*-----------------ToolBar styling-----------------*/
+.toolbar {
   position: fixed;
   top: 1.2rem;
   right: 1.2rem;
@@ -315,9 +323,11 @@ code {
 
 /*-------------TOC styling--------------*/
 
+
 .book-toc-content {
   display: flex;
   margin-top: 0.2rem;
+
   flex-direction: column;
   gap: 1rem;  /* Controls vertical space between all children */
     
