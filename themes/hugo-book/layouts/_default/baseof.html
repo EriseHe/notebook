@@ -49,7 +49,7 @@
       <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
-    {{ partial "docs/inject/submenu" . }}
+    {{ partial "docs/inject/toolbar" . }}
 
     {{ $bookToC := default true (default .Site.Params.BookToC .Params.BookToC) }}
     {{ $tocItems := findRE "<li" .TableOfContents }}

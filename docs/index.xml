@@ -399,7 +399,19 @@ plt.grid()
 plt.show()
 &lt;/code>&lt;/pre>
 &lt;p>if &lt;strong>name&lt;/strong> == &amp;ldquo;&lt;strong>main&lt;/strong>&amp;rdquo;:
-computation()&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-1/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/section/buttons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/section/buttons/</guid><description>&lt;h1 id="buttons">
+computation()&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-1/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</guid><description>&lt;h2 id="hilbert-space">
+ Hilbert Space
+ &lt;a class="anchor" href="#hilbert-space">#&lt;/a>
+&lt;/h2>
+&lt;p>Infinite dimensional &lt;strong>vector space&lt;/strong>, denoted as $L^2(a,b)$, of &lt;strong>square-integrable functions&lt;/strong> on an interval $[a,b]$.
+$$\int_a^b |f(x)|^2 , dx &amp;lt; \infty$$
+Inner product defined as:
+$$\langle f | g \rangle = \int_a^b f^&lt;em>(x)g(x) , dx$$
+Note that:
+$$\langle f | g \rangle = \langle g | f \rangle^&lt;/em>$$
+$$\langle f | f \rangle = \int_a^b |f(x)|^2 , dx \geq 0$$
+Also:
+$$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/section/buttons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/section/buttons/</guid><description>&lt;h1 id="buttons">
  Buttons
  &lt;a class="anchor" href="#buttons">#&lt;/a>
 &lt;/h1>
