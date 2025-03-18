@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Short Cut for GIST.md",
+                "file": "Integrate DeepL Translation Instruction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Short Cut for GIST"
+              "title": "Integrate DeepL Translation Instruction"
             }
           }
         ],
@@ -185,11 +185,11 @@
   },
   "active": "fa3c282e7fa5df95",
   "lastOpenFiles": [
-    "Integrate DeepL Translation Instruction.md",
-    "Short Cut for GIST.md",
-    "Untitled",
     "migrate-from-jekyll.md",
-    "_index.md",
-    "creating-a-new-theme.md"
+    "Short Cut for GIST.md",
+    "creating-a-new-theme.md",
+    "Integrate DeepL Translation Instruction.md",
+    "Untitled",
+    "_index.md"
   ]
 }
