@@ -17,7 +17,8 @@
   font-weight: 1000;
   color: var(--color-h1);
   font-size: 1.8rem;
-  text-align: center;
+  display: flex; 
+  justify-content: center;
   } 
   h2 {
     position: relative;                // Establish a positioning context for the pseudo-element
