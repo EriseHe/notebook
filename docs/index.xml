@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Introduction on 位相学補完計画</title><link>https://erisehe.github.io/</link><description>Recent content in Introduction on 位相学補完計画</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 16 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/posts/Integrate-DeepL-Translation-Instruction/</link><pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/Integrate-DeepL-Translation-Instruction/</guid><description>&lt;h3 id="1-install-r-and-babeldown">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Introduction on 位相学補完計画</title><link>https://erisehe.github.io/</link><description>Recent content in Introduction on 位相学補完計画</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 17 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/posts/Integrate-DeepL-Translation-Instruction/</link><pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/Integrate-DeepL-Translation-Instruction/</guid><description>&lt;h3 id="1-install-r-and-babeldown">
  1. Install R and Babeldown
  &lt;a class="anchor" href="#1-install-r-and-babeldown">#&lt;/a>
 &lt;/h3>
@@ -49,7 +49,100 @@
  3. Connect Babeldown to DeepL API
  &lt;a class="anchor" href="#3-connect-babeldown-to-deepl-api">#&lt;/a>
 &lt;/h4>
-&lt;p>Babeldown uses the DeepL &lt;em>free&lt;/em> API URL &lt;strong>by default&lt;/strong> (no need to set up unless &lt;em>pro&lt;/em> API).&lt;/p></description></item><item><title>6.4 可微分性的必要条件</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/</guid><description>&lt;h2 id="1-necessary-condition-for-differentiability">
+&lt;p>Babeldown uses the DeepL &lt;em>free&lt;/em> API URL &lt;strong>by default&lt;/strong> (no need to set up unless &lt;em>pro&lt;/em> API).&lt;/p></description></item><item><title/><link>https://erisehe.github.io/posts/Short-Cut-for-GIST/</link><pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/Short-Cut-for-GIST/</guid><description>&lt;p>Enter&lt;/p>
+&lt;div class="code-block">
+ &lt;pre>
+&lt;code>ssh astrogroup@170.140.162.12&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;p>Password:&lt;/p>
+&lt;div class="code-block">
+ &lt;pre>
+&lt;code>NGC6814&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;h3 id="running">
+ &lt;strong>Running&lt;/strong>
+ &lt;a class="anchor" href="#running">#&lt;/a>
+&lt;/h3>
+&lt;div class="code-block">
+ &lt;pre>
+&lt;code>gistPipeline --config configFiles/MasterConfig --default-dir configFiles/defaultDir&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;h3 id="upload-directly-from-powershell">
+ Upload directly from PowerShell
+ &lt;a class="anchor" href="#upload-directly-from-powershell">#&lt;/a>
+&lt;/h3>
+&lt;div class="code-block">
+ &lt;pre>
+&lt;code>scp "C:\\Users\\19175\\Desktop\\TNG Research\\GIST\\gistTutorial.tar.gz" astrogroup@170.140.162.12:~/Erise/&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;p>scp &amp;ldquo;D:\illustrateTNG Files\SLOAN_MUSE.py” 
+ &lt;a href="mailto:astrogroup@170.140.162.12">astrogroup@170.140.162.12&lt;/a>:~/miniconda3/envs/gist/lib/python3.6/site-packages/gistPipeline/readData&lt;/p>
+&lt;p>scp &amp;ldquo;D:\illustrateTNG Files\SLOAN_LR.py” 
+ &lt;a href="mailto:astrogroup@170.140.162.12">astrogroup@170.140.162.12&lt;/a>:~/miniconda3/envs/gist/lib/python3.6/site-packages/gistPipeline/readData&lt;/p>
+&lt;p>The Directory for Read-File&lt;/p>
+&lt;div class="code-block">
+ &lt;pre>
+&lt;code>~/miniconda3/envs/gist/lib/python3.6/site-packages/gistPipeline/readData&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;p>CD command&lt;/p>
+&lt;ul>
+&lt;li>Go to gistTutorial&lt;/li>
+&lt;/ul>
+&lt;div class="code-block">
+ &lt;pre>
+&lt;code>cd ~/Erise/gistTutorial&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;p>Open LogFile&lt;/p>
+&lt;div class="code-block">
+ &lt;pre>
+&lt;code>nano ~/Erise/gistTutorial/results/Test/LOGFILE&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;p>Open masterConfig&lt;/p>
+&lt;div class="code-block">
+ &lt;pre>
+&lt;code>nano ~/Erise/gistTutorial/configFiles/MasterConfig&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;p>Extract at your folder in Linux server:&lt;/p></description></item><item><title>6.4 可微分性的必要条件</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/</guid><description>&lt;h2 id="1-necessary-condition-for-differentiability">
  &lt;strong>1. Necessary Condition for Differentiability&lt;/strong>
  &lt;a class="anchor" href="#1-necessary-condition-for-differentiability">#&lt;/a>
 &lt;/h2>
