@@ -1,15 +1,14 @@
 ---
 date: 2025-03-17
-weight: 2
+weight: 1
 ---
 Enter
-
 
 ```python
 ssh astrogroup@170.140.162.12
 ```
 
-Password:
+Password: 
 
 ```powershell
 NGC6814
