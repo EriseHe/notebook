@@ -193,23 +193,7 @@ With Jekyll, something that looked like&lt;/p>
  ▾ images/
  logo.png
 &lt;/code>&lt;/pre>
-&lt;p>Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as &lt;code>CNAME&lt;/code>) to be moved to &lt;code>static&lt;/code>.&lt;/p></description></item><item><title>Getting Started with Hugo</title><link>https://erisehe.github.io/posts/hugoisforlovers/</link><pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/hugoisforlovers/</guid><description>&lt;h2 id="step-1-install-hugo">
- Step 1. Install Hugo
- &lt;a class="anchor" href="#step-1-install-hugo">#&lt;/a>
-&lt;/h2>
-&lt;p>Go to 
- &lt;a href="https://github.com/spf13/hugo/releases">Hugo releases&lt;/a> and download the
-appropriate version for your OS and architecture.&lt;/p>
-&lt;p>Save it somewhere specific as we will be using it in the next step.&lt;/p>
-&lt;p>More complete instructions are available at 
- &lt;a href="https://gohugo.io/getting-started/installing/">Install Hugo&lt;/a>&lt;/p>
-&lt;h2 id="step-2-build-the-docs">
- Step 2. Build the Docs
- &lt;a class="anchor" href="#step-2-build-the-docs">#&lt;/a>
-&lt;/h2>
-&lt;p>Hugo has its own example site which happens to also be the documentation site
-you are reading right now.&lt;/p>
-&lt;p>Follow the following steps:&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/GPT-Conversion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/GPT-Conversion/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/hidden/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/hidden/</guid><description>&lt;h1 id="this-page-is-hidden-in-menu">
+&lt;p>Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as &lt;code>CNAME&lt;/code>) to be moved to &lt;code>static&lt;/code>.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/GPT-Conversion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/GPT-Conversion/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/hidden/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/hidden/</guid><description>&lt;h1 id="this-page-is-hidden-in-menu">
  This page is hidden in menu
  &lt;a class="anchor" href="#this-page-is-hidden-in-menu">#&lt;/a>
 &lt;/h1>
@@ -252,7 +236,71 @@ iamdudum maius?&lt;/p></description></item><item><title/><link>https://erisehe.g
 &lt;p>[!Theorem]
 Since we know that $u_t=ku_{xx}$ , then we know if $u \in U$ for $U \subset \mathbb{R}^n$ solves the equation, so does $u(\lambda x, \lambda^2 t)$ for $\lambda \in \mathbb{R}$ according to the &lt;strong>scale invariance property.&lt;/strong>&lt;/p>&lt;/blockquote>
 &lt;p>Let’s set that $\bar{x}=\lambda x, \bar{t}=\lambda^2 t$, then it is easy to see:&lt;/p>
-&lt;p>$$ \begin{align} u_{\bar{t}}= \frac{\partial u}{\partial \bar{t}}\cdot\frac{\partial \bar{t}}{\partial t} = \frac{\partial u}{\partial t} \cdot (\lambda^2) \ u_{\bar{x}\bar{x}} &amp;amp;=\frac{\partial}{\partial x} \cdot \frac{\partial u}{\partial \bar{x} } = (\frac{\partial}{\partial \bar{x}} \cdot \frac{\partial \bar{x}}{\partial x})(\frac{\partial u}{\partial \bar{x} } \cdot \frac{\partial \bar{x}}{\partial x})\ &amp;amp;= \frac{\partial^2 u}{\partial x^2} \cdot (\lambda^2) \end{align} $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</guid><description>&lt;h2 id="formula-derivation">
+&lt;p>$$ \begin{align} u_{\bar{t}}= \frac{\partial u}{\partial \bar{t}}\cdot\frac{\partial \bar{t}}{\partial t} = \frac{\partial u}{\partial t} \cdot (\lambda^2) \ u_{\bar{x}\bar{x}} &amp;amp;=\frac{\partial}{\partial x} \cdot \frac{\partial u}{\partial \bar{x} } = (\frac{\partial}{\partial \bar{x}} \cdot \frac{\partial \bar{x}}{\partial x})(\frac{\partial u}{\partial \bar{x} } \cdot \frac{\partial \bar{x}}{\partial x})\ &amp;amp;= \frac{\partial^2 u}{\partial x^2} \cdot (\lambda^2) \end{align} $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Week-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Week-10/</guid><description>&lt;h1 id="lecture-notes---week-10-03182025">
+ Lecture Notes - Week 10 (03/18/2025)
+ &lt;a class="anchor" href="#lecture-notes---week-10-03182025">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="chapter-9-overview">
+ Chapter 9 Overview
+ &lt;a class="anchor" href="#chapter-9-overview">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="sections-covered">
+ Sections Covered:
+ &lt;a class="anchor" href="#sections-covered">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>9.1&lt;/strong>: Reading&lt;/li>
+&lt;li>&lt;strong>9.2&lt;/strong>: Introduction
+&lt;ul>
+&lt;li>9.2.1&lt;/li>
+&lt;li>9.2.2&lt;/li>
+&lt;li>9.2.4&lt;/li>
+&lt;li>9.2.5 &lt;em>(Only the statement needed)&lt;/em>&lt;/li>
+&lt;li>9.2.6&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="exercises">
+ Exercises:
+ &lt;a class="anchor" href="#exercises">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Exercise &lt;strong>9.3&lt;/strong>&lt;/li>
+&lt;li>Exercise &lt;strong>9.5&lt;/strong> &lt;em>(recommended for coding practice)&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="section-93-wave-equation">
+ Section 9.3: Wave Equation
+ &lt;a class="anchor" href="#section-93-wave-equation">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="pde">
+ PDE:
+ &lt;a class="anchor" href="#pde">#&lt;/a>
+&lt;/h3>
+&lt;p>$$
+\frac{\partial u}{\partial t} + a\frac{\partial u}{\partial x} = 0
+$$&lt;/p>
+&lt;h3 id="domain--initial-conditions">
+ Domain &amp;amp; Initial Conditions:
+ &lt;a class="anchor" href="#domain--initial-conditions">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>$x \in \mathbb{R}, \quad t &amp;gt; 0$&lt;/li>
+&lt;li>Initial condition:&lt;br>
+$$
+u(x, 0) = u_0(x)
+$$&lt;/li>
+&lt;/ul>
+&lt;h3 id="characteristics-method">
+ Characteristics Method:
+ &lt;a class="anchor" href="#characteristics-method">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>Characteristic curves defined by:&lt;br>
+$$
+\frac{dx}{dt} = a,\quad x(0) = x_0 \implies x = at + x_0
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</guid><description>&lt;h2 id="formula-derivation">
  Formula Derivation
  &lt;a class="anchor" href="#formula-derivation">#&lt;/a>
 &lt;/h2>
@@ -332,7 +380,29 @@ F_1(x,y,z,u,v,w) ;&amp;amp;=; 3x + 2y + z^2 + u + v^2,\
 F_2(x,y,z,u,v,w) ;&amp;amp;=; 4x + 3y + z + u^2 + v + w + 2,\
 F_3(x,y,z,u,v,w) ;&amp;amp;=; x + z + w + u^2 + 2.
 \end{aligned}
-$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/50-words-Close-Reading/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/50-words-Close-Reading/</guid><description>&lt;p>(The Order of Things: An Archaeology of the Human Sciences, Preface, p. xxii)&lt;/p>
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Criterion-for-Integrability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Criterion-for-Integrability/</guid><description>&lt;h2 id="criterion-for-integrability">
+ Criterion for Integrability
+ &lt;a class="anchor" href="#criterion-for-integrability">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>Q:&lt;/strong> When is $f$ integrable?&lt;/p>
+&lt;p>&lt;strong>A:&lt;/strong> $f$ is integrable when the set of discontinuity is &lt;em>small&lt;/em>.&lt;/p>
+&lt;h3 id="1-how-to-measure-the-size-of-a">
+ 1. How to measure the size of $A$
+ &lt;a class="anchor" href="#1-how-to-measure-the-size-of-a">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Volume of $A$&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!definition]
+A bounded set $A \subset \mathbb{R}^n$ has &lt;em>volume&lt;/em> (or is Jordan measurable) if its characteristic function:
+$$1_A(x) =
+\begin{cases}
+1, &amp;amp; x \in A \
+0, &amp;amp; x \notin A
+\end{cases} $$
+is integrable:&lt;/p>&lt;/blockquote>
+&lt;p>$$V(A) = \int_A 1_A(x), dx$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Proof/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Proof/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/50-words-Close-Reading/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/50-words-Close-Reading/</guid><description>&lt;p>(The Order of Things: An Archaeology of the Human Sciences, Preface, p. xxii)&lt;/p>
 &lt;p>$$
 \begin{align}
 \newline \
@@ -363,7 +433,27 @@ $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs
  &lt;a class="anchor" href="#close-reading-commentary">#&lt;/a>
 &lt;/h1>
 &lt;p>The selected quote is from Foucault’s early-stage (1960s) intellectual project of philosophical &amp;ldquo;archaeology&amp;rdquo;, which was his first major methodological phase. He presents a radical historical analysis of knowledge in The Order of Things, intending to eliminate the assumption of unchanging criteria for knowledge.&lt;/p>
-&lt;p>This quote sits at the center of his archaeological method, in which he attempted &amp;ldquo;to bring to light&amp;rdquo; the underlying episteme of knowledge. This recursive long sentence, broken down into three main modifiers, describes the epistemological field, which almost, if not intentionally, resembles the idea of a &amp;ldquo;field&amp;rdquo; in physics - an invisible but structured influence that determines how objects behave within it. The traditional epistemological assumption that he challenged holds that knowledge is grounded by universal standards of rationality and objectivity, and the first modifier sets the stage for this argument. Foucault subverts this unchanging framework by treating it as historically contingent, or specifically, one of the possible conditions &amp;ldquo;having reference&amp;rdquo; to rationality and objectivity.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/Object-petit-a/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/Object-petit-a/</guid><description>&lt;p>What is $\mathbb{objet; petit; a}$?&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/</guid><description>&lt;p>我相信，&lt;/p>
+&lt;p>This quote sits at the center of his archaeological method, in which he attempted &amp;ldquo;to bring to light&amp;rdquo; the underlying episteme of knowledge. This recursive long sentence, broken down into three main modifiers, describes the epistemological field, which almost, if not intentionally, resembles the idea of a &amp;ldquo;field&amp;rdquo; in physics - an invisible but structured influence that determines how objects behave within it. The traditional epistemological assumption that he challenged holds that knowledge is grounded by universal standards of rationality and objectivity, and the first modifier sets the stage for this argument. Foucault subverts this unchanging framework by treating it as historically contingent, or specifically, one of the possible conditions &amp;ldquo;having reference&amp;rdquo; to rationality and objectivity.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/Object-petit-a/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/Object-petit-a/</guid><description>&lt;p>What is $\mathbb{objet; petit; a}$?&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/Untitled/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/Untitled/</guid><description>&lt;h3 id="can-you-imagine-sexuality-without-gender">
+ Can you imagine sexuality without gender?
+ &lt;a class="anchor" href="#can-you-imagine-sexuality-without-gender">#&lt;/a>
+&lt;/h3>
+&lt;p>For Foucault&lt;/p>
+&lt;p>Sexual identity i s produced within the grid of sexuality&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>from normal to abnormal&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>changes over time&lt;/p>
+&lt;p>Modern subject is a sexual subject (gendered being)&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>What does freedom look like in this?
+When there is no &lt;em>outside&lt;/em>, what does it mean to have transgression?&lt;/p>
+&lt;p>power-knowledge-pleasure&lt;/p>
+&lt;ul>
+&lt;li>greatest pleasure is the pleasure of the analysis&lt;/li>
+&lt;/ul></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/</guid><description>&lt;p>我相信，&lt;/p>
 &lt;p>翻开《词与物》没读完第一章就合上了，然后草率地读了结尾——我实在对这种节奏巨慢的历史学庞杂征引感到索然无味，以至于不得不读两页国内的数学书来综合一下&amp;hellip; 我对物理学的态度，以及对其研究方向的直觉，远远大于我本身可以延展他们的能力（很可惜，否则我必然毫不犹豫的投身其中）。但是幸运的是，对于基础科学来说，这会是人类历史当中，提出正确的问题所能带给我们的效益最大话的时代。我真正需要提出他对知识进行了激进的历史分析，并且构建了和绝大部分的科学家秉持的认识论有悖的历史断裂式“知识论领域”。&lt;/p>
 &lt;p>所谓的知识论领域，原文里说：&lt;/p>
 &lt;p>[&amp;hellip;] &lt;strong>epistemological field&lt;/strong>, the episteme in which knowledge, envisaged apart from all criteria having reference to its rational value or to its objective forms, grounds its positivity and thereby manifests a history which is not that of its growing perfection, but rather that of its conditions of possibility.&lt;/p>
@@ -526,7 +616,30 @@ $$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]
 &lt;p>&lt;a href="https://erisehe.github.io/" class="book-btn">Get Home&lt;/a>
 
 &lt;a href="https://github.com/alex-shpak/hugo-book" target="_blank" rel="noopener" class="book-btn">Contribute&lt;/a>
-&lt;/p></description></item><item><title>6.5 链式法则</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/</guid><description>&lt;p>[ ]&lt;/p></description></item><item><title>6.6 乘积法则与梯度</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/</guid><description>&lt;p>[ ]&lt;/p></description></item><item><title>6.9 泰勒公式的高维形式</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/</guid><description>&lt;p>$$
+&lt;/p></description></item><item><title/><link>https://erisehe.github.io/posts/2025-Topology-Summer-Research/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/2025-Topology-Summer-Research/</guid><description>&lt;h4 id="summer-application">
+ Summer Application:
+ &lt;a class="anchor" href="#summer-application">#&lt;/a>
+&lt;/h4>
+&lt;p>
+ &lt;a href="https://sgi.mit.edu/about-geometry-processing/">https://sgi.mit.edu/about-geometry-processing/&lt;/a>&lt;/p>
+&lt;h4 id="april">
+ April
+ &lt;a class="anchor" href="#april">#&lt;/a>
+&lt;/h4>
+&lt;p>
+ &lt;a href="https://topologyandgeometry.iu.edu/gstgc25/">https://topologyandgeometry.iu.edu/gstgc25/&lt;/a>&lt;/p>
+&lt;h4 id="may">
+ May
+ &lt;a class="anchor" href="#may">#&lt;/a>
+&lt;/h4>
+&lt;p>
+ &lt;a href="https://topology.franklinresearch.uga.edu/2025GITC">https://topology.franklinresearch.uga.edu/2025GITC&lt;/a>&lt;/p>
+&lt;h4 id="past-year">
+ Past Year
+ &lt;a class="anchor" href="#past-year">#&lt;/a>
+&lt;/h4>
+&lt;p>
+ &lt;a href="https://sites.google.com/view/princetonrtg2023/mini-conferences">https://sites.google.com/view/princetonrtg2023/mini-conferences&lt;/a>&lt;/p></description></item><item><title>6.5 链式法则</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/</guid><description>&lt;p>[ ]&lt;/p></description></item><item><title>6.6 乘积法则与梯度</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/</guid><description>&lt;p>[ ]&lt;/p></description></item><item><title>6.9 泰勒公式的高维形式</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/</guid><description>&lt;p>$$
 R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0)
 $$
 And satisfying
