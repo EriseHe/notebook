@@ -74,7 +74,7 @@ $$
 &amp;amp; =-k^{2}\Psi
 \end{align}
 $$
-Recall&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework-5/HW3-Code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework-5/HW3-Code/</guid><description>&lt;p>import numpy as np
+Recall&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework/Homework-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework/Homework-6/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/</guid><description>&lt;p>import numpy as np
 import scipy.sparse as sp
 import scipy.sparse.linalg as spla
 import matplotlib.pyplot as plt&lt;/p>
