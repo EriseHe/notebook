@@ -26,12 +26,15 @@
             "id": "2cee73d1e6931a7d",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Fourier Series.png"
+                "file": "Physics/Quantum Mechenics/Homework/Homework 6.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-image",
-              "title": "Fourier Series"
+              "icon": "lucide-file",
+              "title": "Homework 6"
             }
           }
         ],
@@ -164,13 +167,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Fourier Series.png",
+                "file": "Physics/Quantum Mechenics/Homework/Homework 6.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Fourier Series"
+              "title": "Outline of Homework 6"
             }
           }
         ],
@@ -197,6 +200,10 @@
   },
   "active": "2cee73d1e6931a7d",
   "lastOpenFiles": [
+    "Physics/Quantum Mechenics/Homework/HW3 Code.md",
+    "Physics/Quantum Mechenics/Homework/Homework 6.md",
+    "Fourier Series.png",
+    "Physics/Quantum Mechenics/Homework",
     "L-space.png",
     "L-space-1.png",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Lecture Notes (Week 10).md",
@@ -227,8 +234,6 @@
     "Mathematics/MATH 351 & 352/Heat Equation/_index.md",
     "Mathematics/MATH 351 & 352/Wave Equation/_index.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/_index.md",
-    "Mathematics/MATH 351 & 352/Laplace Equation/_index.md",
-    "Fourier Series.png",
     "Mathematics/MATH 351 & 352/Heat Equation/Untitled.canvas",
     "Mathematics/MATH 351 & 352/Laplace Equation",
     "Untitled",

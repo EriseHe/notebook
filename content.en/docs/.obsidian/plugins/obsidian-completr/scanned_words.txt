@@ -159,6 +159,10 @@ fn
 fQ
 fM
 fD
+factor
+full
+figure
+figsize
 color
 curve
 can
@@ -381,6 +385,7 @@ PHW
 PC
 PZ
 Pqs
+Plot
 In
 Implicit
 Invertibility
@@ -447,6 +452,7 @@ IC
 Iq
 IF
 IT
+Interior
 the
 terms
 that
@@ -562,6 +568,8 @@ tS
 tP
 tF
 tK
+tilde
+tridiagonal
 system
 solvability
 such
@@ -739,6 +747,12 @@ sg
 sm
 sK
 sf
+scipy
+sparse
+sp
+spla
+sorted
+st
 discuss
 determine
 described
@@ -871,6 +885,10 @@ dK
 dfgwgg
 dm
 dp
+def
+diags
+diagonal
+dimensionless
 in
 inverse
 implicit
@@ -992,6 +1010,8 @@ iKGM
 iB
 iW
 ieJ
+import
+include
 of
 our
 out
@@ -1148,6 +1168,8 @@ nD
 nU
 nQE
 nd
+numpy
+name
 Does
 Determine
 Differentiability
@@ -1303,6 +1325,7 @@ mh
 mS
 mKmn
 mD
+matplotlib
 have
 holds
 has
@@ -1453,6 +1476,11 @@ lzn
 lbA
 lX
 lS
+linalg
+linspace
+lowest
+label
+legend
 Show
 Sufficient
 Substitute
@@ -1542,6 +1570,7 @@ SMBI
 Sj
 SG
 Sn
+Sort
 equations
 equation
 exists
@@ -1673,6 +1702,10 @@ eAsD
 eMj
 eXy
 ehD
+eigvals
+eigvecs
+eigsh
+excited
 whether
 written
 which
@@ -1741,6 +1774,7 @@ wR
 wy
 wo
 wD
+wavefunctions
 by
 be
 bijective
@@ -1828,6 +1862,7 @@ bp
 bf
 bN
 bSX
+blue
 allow
 and
 as
@@ -1955,6 +1990,9 @@ aBh
 aA
 aH
 aix
+abs
+axvspan
+alpha
 you
 yields
 yF
@@ -1999,6 +2037,7 @@ yC
 yLw
 yd
 yre
+ylabel
 Necessary
 Now
 Near
@@ -2219,6 +2258,7 @@ ri
 rU
 rXT
 rJh
+red
 partials
 partial
 point
@@ -2334,6 +2374,12 @@ pQ
 pz
 pw
 pB
+pyplot
+plt
+parameters
+print
+psi
+plot
 Ex
 Evaluate
 Evaluating
@@ -2398,6 +2444,7 @@ EX
 Eb
 EB
 ErGBZRPJ
+Excited
 We
 What
 With
@@ -2448,6 +2495,7 @@ Wfw
 Wot
 Wky
 Wn
+Wavefunctions
 Thus
 Theorem
 These
@@ -2565,6 +2613,7 @@ HHS
 HD
 HT
 HN
+Hamiltonian
 By
 Because
 Below
@@ -2617,6 +2666,7 @@ Bt
 Bs
 Blp
 Bx
+Barrier
 Function
 For
 FT
@@ -2842,6 +2892,8 @@ vFC
 vR
 vW
 vK
+vals
+vectors
 unknowns
 unique
 uniquely
@@ -2981,6 +3033,8 @@ ga
 glT
 gZ
 gxbA
+gray
+grid
 Moreover
 Matrix
 Maximum
@@ -3188,6 +3242,7 @@ zA
 ztYP
 zeWq
 zp
+zip
 Let
 Label
 Local
@@ -3491,6 +3546,7 @@ Gh
 Gp
 GT
 Gj
+Ground
 xF
 xxii
 xmp
@@ -3535,6 +3591,7 @@ xey
 xQH
 xBI
 xO
+xlabel
 Question
 Quondam
 QM
@@ -3650,6 +3707,7 @@ KxYz
 KS
 Kb
 KXg
+KE
 ZH
 ZCjHR
 ZY
