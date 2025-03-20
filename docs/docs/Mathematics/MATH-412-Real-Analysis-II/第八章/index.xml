@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第八章 on 位相学補完計画</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/</link><description>Recent content in 第八章 on 位相学補完計画</description><generator>Hugo</generator><language>en</language><atom:link href="https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Criterion-for-Integrability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Criterion-for-Integrability/</guid><description>&lt;h2 id="criterion-for-integrability">
+ Criterion for Integrability
+ &lt;a class="anchor" href="#criterion-for-integrability">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>Q:&lt;/strong> When is $f$ integrable?&lt;/p>
+&lt;p>&lt;strong>A:&lt;/strong> $f$ is integrable when the set of discontinuity is &lt;em>small&lt;/em>.&lt;/p>
+&lt;h3 id="1-how-to-measure-the-size-of-a">
+ 1. How to measure the size of $A$
+ &lt;a class="anchor" href="#1-how-to-measure-the-size-of-a">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Volume of $A$&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!definition]
+A bounded set $A \subset \mathbb{R}^n$ has &lt;em>volume&lt;/em> (or is Jordan measurable) if its characteristic function:
+$$1_A(x) =
+\begin{cases}
+1, &amp;amp; x \in A \
+0, &amp;amp; x \notin A
+\end{cases} $$
+is integrable:&lt;/p>&lt;/blockquote>
+&lt;p>$$V(A) = \int_A 1_A(x), dx$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Proof-of-Lebesgues-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Proof-of-Lebesgues-Theorem/</guid><description>&lt;blockquote>
+&lt;p>[!theorem|8.?.?]
+Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded set $A$. Then $f$ is integrable on $A$ &lt;strong>if and only if&lt;/strong> the set of discontinuities for the extended $f(x)$ has measure zero.&lt;/p>&lt;/blockquote>
+&lt;h2 id="proof-of-the-theorem">
+ Proof of the Theorem
+ &lt;a class="anchor" href="#proof-of-the-theorem">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="step-1-preparation">
+ Step 1: Preparation
+ &lt;a class="anchor" href="#step-1-preparation">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Diagram: a set $A$ enclosed in set $B$.&lt;/li>
+&lt;/ul>
+&lt;h4 id="a-set-up">
+ (a): Set Up
+ &lt;a class="anchor" href="#a-set-up">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Fix rectangle $B$ with $\overline{A} \subset \text{int}(B)$ and let:
+$$
+g(x) = \begin{cases}&lt;br>
+f(x) &amp;amp; \text{if } x \in A \&lt;br>
+0 &amp;amp; \text{if } x \notin A&lt;br>
+\end{cases}
+$$&lt;/li>
+&lt;li>Define:
+$$
+D = { x \in B \mid g \text{ is not continuous at } x }
+$$&lt;/li>
+&lt;li>Need to show:
+$$
+f \text{ integrable } \Leftrightarrow m(D) = 0
+$$&lt;/li>
+&lt;/ul>
+&lt;h4 id="b-how-to-measure-discontinuity">
+ (b): How to Measure Discontinuity
+ &lt;a class="anchor" href="#b-how-to-measure-discontinuity">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Oscillation of a function $h$ at a point $x_0$:
+$$
+O(h, x_0) = \inf \left{ \sup \left{ h(x) - h(y) : x, y \in U \right} : U \text{ is a neighborhood of } x_0 \right}
+$$&lt;/li>
+&lt;li>&lt;strong>Fact:&lt;/strong> $h$ is continuous at $x_0$ if and only if $O(h, x_0) = 0$.&lt;/li>
+&lt;/ul>
+&lt;h3 id="step-2-assume-md--0-prove-f-integrable">
+ Step 2: Assume $m(D) = 0$. Prove $f$ integrable
+ &lt;a class="anchor" href="#step-2-assume-md--0-prove-f-integrable">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Will show $g$ satisfying Riemann&amp;rsquo;s Condition.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>(a) Setup:&lt;/strong>&lt;/p></description></item></channel></rss>
