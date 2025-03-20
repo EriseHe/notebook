@@ -27,11 +27,8 @@ $$
 #### (b): How to Measure Discontinuity
 
 - Oscillation of a function $h$ at a point $x_0$:
-$$
-O(h, x_0) = \inf \left\{ \sup \left\{ h(x) - h(y) : x, y \in U \right\} : U \text{ is a neighborhood of } x_0 \right\}
-$$
+$$O(h, x_0) = \inf \left\{ \sup \left\{ h(x) - h(y) : x, y \in U \right\} : U \text{ is a neighborhood of } x_0 \right\}$$
 - **Fact:** $h$ is continuous at $x_0$ if and only if $O(h, x_0) = 0$.
-
 ### Step 2: Assume $m(D) = 0$. Prove $f$ integrable
 
 - Will show $g$ satisfying Riemann's Condition.

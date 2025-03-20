@@ -443,9 +443,7 @@ $$&lt;/li>
 &lt;/h4>
 &lt;ul>
 &lt;li>Oscillation of a function $h$ at a point $x_0$:
-$$
-O(h, x_0) = \inf \left{ \sup \left{ h(x) - h(y) : x, y \in U \right} : U \text{ is a neighborhood of } x_0 \right}
-$$&lt;/li>
+$$O(h, x_0) = \inf \left{ \sup \left{ h(x) - h(y) : x, y \in U \right} : U \text{ is a neighborhood of } x_0 \right}$$&lt;/li>
 &lt;li>&lt;strong>Fact:&lt;/strong> $h$ is continuous at $x_0$ if and only if $O(h, x_0) = 0$.&lt;/li>
 &lt;/ul>
 &lt;h3 id="step-2-assume-md--0-prove-f-integrable">
