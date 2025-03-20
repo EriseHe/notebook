@@ -27,27 +27,32 @@
 
 /* -------------------Computer Modern------------------- */
 
-
 @font-face {
   font-family: "Computer Modern";
-  src: url('http://spratt.github.io/Computer-Modern/cmunss.otf');
-}
-@font-face {
-  font-family: "Computer Modern";
-  src: url('http://spratt.github.io/Computer-Modern/cmunsx.otf');
-  font-weight: bold;
+  src: url('https://spratt.github.io/Computer-Modern/cmunss.otf') format('opentype');
+  font-display: fallback;
 }
 
 @font-face {
   font-family: "Computer Modern";
-  src: url('http://spratt.github.io/Computer-Modern/cmunsi.otf');
-  font-style: italic;
+  src: url('https://spratt.github.io/Computer-Modern/cmunsx.otf') format('opentype');
+  font-weight: bold;
+  font-display: fallback;
 }
+
 @font-face {
   font-family: "Computer Modern";
-  src: url('http://spratt.github.io/Computer-Modern/cmunbxo.otf');
+  src: url('https://spratt.github.io/Computer-Modern/cmunsi.otf') format('opentype');
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('https://spratt.github.io/Computer-Modern/cmunbxo.otf') format('opentype');
   font-weight: bold;
   font-style: italic;
+  font-display: fallback;
 }
 
 /* -------------------EVA------------------- */
