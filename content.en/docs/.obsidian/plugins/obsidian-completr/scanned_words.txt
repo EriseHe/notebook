@@ -74,6 +74,7 @@ CR
 Cv
 CE
 ClK
+Construct
 font
 for
 functions
@@ -318,6 +319,7 @@ cWHJ
 cp
 co
 cm
+covers
 Problem
 Partial
 Putting
@@ -386,6 +388,9 @@ PC
 PZ
 Pqs
 Plot
+Preparation
+Partition
+Position
 In
 Implicit
 Invertibility
@@ -889,6 +894,7 @@ def
 diags
 diagonal
 dimensionless
+discontinuities
 in
 inverse
 implicit
@@ -1012,6 +1018,7 @@ iW
 ieJ
 import
 include
+interior
 of
 our
 out
@@ -1216,6 +1223,9 @@ DD
 Dx
 Dp
 DoP
+Diagram
+Discontinuity
+Disjoint
 map
 matrix
 mapping
@@ -1706,6 +1716,8 @@ eigvals
 eigvecs
 eigsh
 excited
+enclosed
+either
 whether
 written
 which
@@ -2145,6 +2157,9 @@ RW
 RH
 RQ
 RL
+Riemann
+Refinement
+Riemman
 requirement
 respect
 rule
@@ -2259,6 +2274,8 @@ rU
 rXT
 rJh
 red
+rectangle
+refinement
 partials
 partial
 point
@@ -2380,6 +2397,7 @@ parameters
 print
 psi
 plot
+partition
 Ex
 Evaluate
 Evaluating
@@ -2496,6 +2514,7 @@ Wot
 Wky
 Wn
 Wavefunctions
+Will
 Thus
 Theorem
 These
@@ -3101,6 +3120,7 @@ MT
 MoY
 Ms
 Mi
+Measure
 Using
 Up
 Ut
@@ -3505,6 +3525,7 @@ OkN
 Oo
 Ox
 OhQ
+Oscillation
 Given
 Get
 Guessing

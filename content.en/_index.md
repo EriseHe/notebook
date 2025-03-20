@@ -30,5 +30,5 @@ hugo --minify
 Into `docs`:
 
 ```
-hugo --minify --destination /docs
+hugo --minify -d docs
 ```
