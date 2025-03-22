@@ -19,7 +19,7 @@ You always know where to go when nobody is nowhere.
 
 
 
-
+### Command
 
 Command for generating hugo site in `public`:
 
