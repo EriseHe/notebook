@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数值方法 on 位相学補完計画</title>
-    <link>http://localhost:54143/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/</link>
+    <link>http://localhost:56785/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/</link>
     <description>Recent content in 数值方法 on 位相学補完計画</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:54143/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:56785/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:54143/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</link>
+      <link>http://localhost:56785/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:54143/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</guid>
+      <guid>http://localhost:56785/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</guid>
       <description>&lt;h2 id=&#34;chapter-9-overview&#34;&gt;&#xA;  Chapter 9 Overview&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#chapter-9-overview&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;sections-covered&#34;&gt;&#xA;  Sections Covered:&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#sections-covered&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;9.1&lt;/strong&gt;: Reading&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;9.2&lt;/strong&gt;: Introduction&#xA;&lt;ul&gt;&#xA;&lt;li&gt;9.2.1&lt;/li&gt;&#xA;&lt;li&gt;9.2.2&lt;/li&gt;&#xA;&lt;li&gt;9.2.4&lt;/li&gt;&#xA;&lt;li&gt;9.2.5 &lt;em&gt;(Only the statement needed)&lt;/em&gt;&lt;/li&gt;&#xA;&lt;li&gt;9.2.6&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;exercises&#34;&gt;&#xA;  Exercises:&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#exercises&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Exercise &lt;strong&gt;9.3&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;Exercise &lt;strong&gt;9.5&lt;/strong&gt; &lt;em&gt;(recommended for coding practice)&lt;/em&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;section-93-wave-equation&#34;&gt;&#xA;  Section 9.3: Wave Equation&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#section-93-wave-equation&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;pde&#34;&gt;&#xA;  PDE:&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#pde&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;$$&#xA;\frac{\partial u}{\partial t} + a\frac{\partial u}{\partial x} = 0&#xA;$$&lt;/p&gt;&#xA;&lt;h3 id=&#34;domain--initial-conditions&#34;&gt;&#xA;  Domain &amp;amp; Initial Conditions:&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#domain--initial-conditions&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$x \in \mathbb{R}, \quad t &amp;gt; 0$&lt;/li&gt;&#xA;&lt;li&gt;Initial condition:&lt;br&gt;&#xA;$$&#xA;u(x, 0) = u_0(x)&#xA;$$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;characteristics-method&#34;&gt;&#xA;  Characteristics Method:&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#characteristics-method&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Characteristic curves defined by:&lt;br&gt;&#xA;$$&#xA;\frac{dx}{dt} = a,\quad x(0) = x_0 \implies x = at + x_0&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:54143/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-20/</link>
+      <link>http://localhost:56785/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-20/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:54143/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-20/</guid>
+      <guid>http://localhost:56785/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-20/</guid>
       <description>&lt;h3 id=&#34;pde-and-schemes&#34;&gt;&#xA;  PDE and Schemes&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#pde-and-schemes&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;$$\frac{\partial u}{\partial t} + a\frac{\partial u}{\partial x} = 0$$&lt;/p&gt;&#xA;&lt;h4 id=&#34;in-red&#34;&gt;&#xA;  In red:&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#in-red&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;p&gt;$$\frac{\partial u}{\partial t} = -a\frac{\partial u}{\partial x} \&#xA;\frac{\partial^2 u}{\partial t^2} = a^2 \frac{\partial^2 u}{\partial x^2}$$&lt;/p&gt;&#xA;&lt;h4 id=&#34;diagram&#34;&gt;&#xA;  Diagram:&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#diagram&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Horizontal axis: spatial dimension (x), initial position $x_0$&lt;/li&gt;&#xA;&lt;li&gt;Vertical axis: variable $u$&lt;/li&gt;&#xA;&lt;li&gt;Curves indicating wave propagation:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$a &amp;gt; 0$, propagation towards positive $x$-direction.&lt;/li&gt;&#xA;&lt;li&gt;$a &amp;lt; 0$, propagation towards negative $x$-direction.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;equations-and-schemes&#34;&gt;&#xA;  Equations and Schemes:&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#equations-and-schemes&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Characteristic equation:&lt;/strong&gt;&#xA;$$\frac{dx}{dt} = a,\quad x(0)=x_0$$&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:54143/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</link>
+      <link>http://localhost:56785/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:54143/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</guid>
+      <guid>http://localhost:56785/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</guid>
       <description>&lt;h2 id=&#34;formula-derivation&#34;&gt;&#xA;  Formula Derivation&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#formula-derivation&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;center&gt;The derivative approximation:&lt;/center&gt;&#xA;&lt;p&gt;$$&#xA;\begin{aligned}&#xA;f(t_i, u_i) &amp;amp;= \frac{dy}{dt} \Big|&lt;em&gt;{t_i} \approx \frac{y(t&lt;/em&gt;{i+1}) - y(t_{i-1})}{2\Delta t} + \mathcal{O}(\Delta t^2)&#xA;\end{aligned}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;Update formula:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\begin{aligned}&#xA;u_{i+1} &amp;amp;= u_{i-1} + 2\Delta t f(t_i, u_i)&#xA;\end{aligned}&#xA;$$&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;initial-conditions&#34;&gt;&#xA;  Initial Conditions&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#initial-conditions&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Initial Condition Calculation&lt;/strong&gt;:&#xA;Given $y_0$&#xA;$$&#xA;\begin{aligned}&#xA;u_2 &amp;amp;= y_0 + 2\Delta t f(t_1, u_1)&#xA;\end{aligned}&#xA;$$&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Predictor-Corrector Steps&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\begin{aligned}&#xA;u_1^* &amp;amp;= y_0 + \Delta t f(t_0, y_0), \&#xA;u_1 &amp;amp;= y_0 + \frac{\Delta t}{2} (f(t_0, y_0) + f(t_1, u_1^*))&#xA;\end{aligned}&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:54143/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/</link>
+      <link>http://localhost:56785/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:54143/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/</guid>
+      <guid>http://localhost:56785/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/</guid>
       <description>&lt;h2 id=&#34;1-ok-honestly-i-have-no-idea-where-he-started&#34;&gt;&#xA;  1. Ok Honestly I Have No Idea Where He Started&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#1-ok-honestly-i-have-no-idea-where-he-started&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;MATH 212 is useless&#xA;- Alessandro Veneziani&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Given the population problem #Implicit:&lt;/p&gt;&#xA;&lt;h2 id=&#34;heading&#34;&gt;&#xA;  $$&#xA;\dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y&#xA;$$&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#heading&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Numerically&lt;/strong&gt;, the problem is:&#xA;$$&#xA;\frac{u_{i+1} - u_i}{\Delta t} = A \left(1 - \frac{u_{i+1}}{B} \right) u_{i+1}&#xA;$$&#xA;To solve this numerically, we rewrite the equation:&#xA;$$&#xA;\begin{align}&#xA;x - u_i &amp;amp;= A \left(1 - \frac{x}{B} \right) x \&#xA;&amp;amp;= A x - \frac{A}{B} x^2&#xA;\end{align}&#xA;$$&lt;/p&gt;</description>
     </item>
   </channel>

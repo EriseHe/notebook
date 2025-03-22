@@ -20,8 +20,6 @@
 
 .book-toc .book-toc-content {
   transform: translateX(2rem); 
-  width: 20rem; /* Increased from the default 16rem */
-  padding-right: 0; /* Remove right padding since background is transparent */
 }
 
 .book-menu .book-menu-content {
@@ -42,8 +40,7 @@
 }
 
 .book-toc {
-  margin-left: 0; /* Changed from -2rem to 0 to avoid cutting off content */
-  flex: 0 0 20rem; /* Increased from default to match content width */
+  margin-left: -2rem; /* or any value you prefer */
 }
 
 .book-menu{
@@ -99,12 +96,12 @@ code {
   white-space: nowrap;           /* Keeps the text on one line */
   text-align: center;            /* Centers text inside the button */
   width: auto;                   /* Ensures the width is determined by content */
-  transition: all 0.3s ease; /* Smooth transition */
+  transition: background-color var(--transition-time), var(--transition-color); /* Smooth transition */
 }
 
 .btn-prev:hover,
 .btn-next:hover {
-  background: linear-gradient(to right, var(--body-gray) 15%, transparent 100%);
+  background-color: var(--color-btn-hover);      /* New background on hover */
   color: none;      
   transform: scale(1.02);
   transition: all 0.3s ease;        
@@ -279,7 +276,7 @@ code {
 }
 
 .toc-entries {
-  background: linear-gradient(to right, var(--body-gray) 50%, transparent 100%);
+  background: linear-gradient(to right, var(--body-gray) 70%, transparent 100%);
   border-radius: 6px;  
   padding: 1rem;
   transition: all 0.3s ease;
