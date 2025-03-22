@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=54143&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56785&amp;path=livereload" data-no-instant defer></script>
   <script>
     (function(){
       
@@ -37,7 +37,7 @@ where ${x,t\in(-\infty,\infty), [0, \infty)}$.
 下面的排序是按照推导热方程解析解的顺序来的。">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:54143/docs/Mathematics/MATH-351-352/Heat-Equation/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:56785/docs/Mathematics/MATH-351-352/Heat-Equation/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="热方程">
   <meta property="og:description" content="The general form of heat equation (diffusion equation) is represented as
@@ -53,16 +53,16 @@ Lecture 10 # 下面的排序是按照推导热方程解析解的顺序来的。"
 热方程 | 位相学補完計画</title>
 <link rel="icon" href="/topo.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:54143/docs/Mathematics/MATH-351-352/Heat-Equation/">
+<link rel="canonical" href="http://localhost:56785/docs/Mathematics/MATH-351-352/Heat-Equation/">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.a670cba059858a86b04e50aed696b8750383d1b76e31e3943911231cdc6b2fe1.css" integrity="sha256-pnDLoFmFioawTlCu1pa4dQOD0bduMeOUOREjHNxrL&#43;E=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.195edd99351f74aba83a64e75113c7061d17089f9f222b18c3261f05cd328473.css" integrity="sha256-GV7dmTUfdKuoOmTnURPHBh0XCJ&#43;fIisYwyYfBc0yhHM=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.016ed24800a463a933d28673b5107f0c8933be9571153e2f45da287a4a7f3e43.js" integrity="sha256-AW7SSACkY6kz0oZztRB/DIkzvpVxFT4vRdooekp/PkM=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="http://localhost:54143/docs/Mathematics/MATH-351-352/Heat-Equation/index.xml" title="位相学補完計画" />
+<link rel="alternate" type="application/rss+xml" href="http://localhost:56785/docs/Mathematics/MATH-351-352/Heat-Equation/index.xml" title="位相学補完計画" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1368,6 +1368,66 @@ $$</p>
   </script>
   
   
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'noerrors', 'color']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      ready: function() {
+        
+        const oldFindTeX = MathJax.startup.findTeX;
+        MathJax.startup.findTeX = function(options) {
+          
+          const results = oldFindTeX.call(this, options);
+          
+          
+          for (const item of results) {
+            if (item.display) {
+              
+              
+              
+              let processedMath = item.math;
+              
+              
+              processedMath = processedMath.replace(/(\\)begin\{([^}]+)\}/g, '\\\\begin{$2}');
+              processedMath = processedMath.replace(/(\\)end\{([^}]+)\}/g, '\\\\end{$2}');
+              
+              
+              processedMath = processedMath.replace(/\\(?!\\)(text|mathbf|mathit|mathrm|left|right|frac|sum|int|prod|lim|infty|in|notin|subset|supset|cup|cap|bigcup|bigcap|mathbb|mathcal|hat|bar|vec|dot|ddot|cdot|ldots|vdots|cdots|partial|nabla|forall|exists|alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|lambda|mu|nu|xi|pi|rho|sigma|tau|upsilon|phi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Upsilon|Phi|Psi|Omega)/g, '\\\\$1');
+              
+              
+              processedMath = processedMath.replace(/\\(?!\\)([\{\}\[\]|<>=:;,\._-])/g, '\\\\$1');
+              
+              
+              
+              processedMath = processedMath.replace(/\\(?!\\)([^a-zA-Z\{])/g, '\\\\$1');
+              
+              item.math = processedMath;
+            }
+          }
+          
+          return results;
+        };
+        
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {
