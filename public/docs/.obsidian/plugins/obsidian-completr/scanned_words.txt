@@ -75,6 +75,10 @@ Cv
 CE
 ClK
 Construct
+Covered
+Characteristics
+Characteristic
+Curves
 font
 for
 functions
@@ -164,6 +168,7 @@ factor
 full
 figure
 figsize
+freedom
 color
 curve
 can
@@ -320,6 +325,10 @@ cp
 co
 cm
 covers
+coding
+curves
+characteristics
+changes
 Problem
 Partial
 Putting
@@ -575,6 +584,7 @@ tF
 tK
 tilde
 tridiagonal
+transgression
 system
 solvability
 such
@@ -758,6 +768,9 @@ sp
 spla
 sorted
 st
+spatial
+subject
+sexual
 discuss
 determine
 described
@@ -895,6 +908,7 @@ diags
 diagonal
 dimensionless
 discontinuities
+direction
 in
 inverse
 implicit
@@ -1019,6 +1033,8 @@ ieJ
 import
 include
 interior
+indicating
+imagine
 of
 our
 out
@@ -1091,6 +1107,8 @@ oj
 oJ
 oR
 ob
+over
+outside
 near
 neighborhood
 necessary
@@ -1177,6 +1195,8 @@ nQE
 nd
 numpy
 name
+negative
+normal
 Does
 Determine
 Differentiability
@@ -1226,6 +1246,9 @@ DoP
 Diagram
 Discontinuity
 Disjoint
+Domain
+Discretized
+Differences
 map
 matrix
 mapping
@@ -1491,6 +1514,7 @@ linspace
 lowest
 label
 legend
+like
 Show
 Sufficient
 Substitute
@@ -1581,6 +1605,9 @@ Sj
 SG
 Sn
 Sort
+Sections
+Schemes
+Sexual
 equations
 equation
 exists
@@ -1787,6 +1814,7 @@ wy
 wo
 wD
 wavefunctions
+without
 by
 be
 bijective
@@ -2005,6 +2033,10 @@ aix
 abs
 axvspan
 alpha
+along
+analytical
+axis
+abnormal
 you
 yields
 yF
@@ -2160,6 +2192,7 @@ RL
 Riemann
 Refinement
 Riemman
+Reading
 requirement
 respect
 rule
@@ -2276,6 +2309,8 @@ rJh
 red
 rectangle
 refinement
+recommended
+remains
 partials
 partial
 point
@@ -2398,6 +2433,9 @@ print
 psi
 plot
 partition
+propagation
+produced
+pleasure
 Ex
 Evaluate
 Evaluating
@@ -2463,6 +2501,8 @@ Eb
 EB
 ErGBZRPJ
 Excited
+Exercises
+Exercise
 We
 What
 With
@@ -2515,6 +2555,9 @@ Wky
 Wn
 Wavefunctions
 Will
+Week
+Wave
+Wendroff
 Thus
 Theorem
 These
@@ -2633,6 +2676,7 @@ HD
 HT
 HN
 Hamiltonian
+Horizontal
 By
 Because
 Below
@@ -2741,6 +2785,8 @@ Ft
 FF
 Fy
 FD
+Formulation
+Focus
 Jacobian
 Jobcobian
 John
@@ -2840,6 +2886,7 @@ Ae
 AJ
 Ar
 Al
+Along
 via
 variables
 view
@@ -3054,6 +3101,9 @@ gZ
 gxbA
 gray
 grid
+gender
+gendered
+greatest
 Moreover
 Matrix
 Maximum
@@ -3121,6 +3171,8 @@ MoY
 Ms
 Mi
 Measure
+Master
+Modern
 Using
 Up
 Ut
@@ -3165,6 +3217,8 @@ Ur
 Uv
 UGs
 UVI
+Upwind
+UPW
 quotient
 question
 quickly
@@ -3325,6 +3379,8 @@ Lf
 LH
 LiL
 Lq
+Lax
+LW
 Value
 Verifying
 Verify
@@ -3378,6 +3434,7 @@ Vp
 VR
 Vic
 VFlX
+Vertical
 Yes
 You
 YX
@@ -3526,6 +3583,8 @@ Oo
 Ox
 OhQ
 Oscillation
+Overview
+Only
 Given
 Get
 Guessing

@@ -1,15 +1,65 @@
 {{- if not (.Page.Scratch.Get "mathjax") -}}
-<!-- Include MathJax only once per page -->
+<!-- Include MathJax with Obsidian-compatible configuration -->
 <script>
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'noerrors', 'color']}
     },
-    svg: { fontCache: 'global' }
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      ready: function() {
+        // Override the default find method to process the content before MathJax acts on it
+        const oldFindTeX = MathJax.startup.findTeX;
+        MathJax.startup.findTeX = function(options) {
+          // First run the original method
+          const results = oldFindTeX.call(this, options);
+          
+          // Process display math content to double backslashes
+          for (const item of results) {
+            if (item.display) {
+              // Double backslashes, but handle special cases
+              
+              // Handle cases environment
+              let processedMath = item.math;
+              
+              // Handle \\begin{...}...\\end{...} environments
+              processedMath = processedMath.replace(/(\\)begin\{([^}]+)\}/g, '\\\\begin{$2}');
+              processedMath = processedMath.replace(/(\\)end\{([^}]+)\}/g, '\\\\end{$2}');
+              
+              // Handle other LaTeX commands that need doubled backslashes
+              processedMath = processedMath.replace(/\\(?!\\)(text|mathbf|mathit|mathrm|left|right|frac|sum|int|prod|lim|infty|in|notin|subset|supset|cup|cap|bigcup|bigcap|mathbb|mathcal|hat|bar|vec|dot|ddot|cdot|ldots|vdots|cdots|partial|nabla|forall|exists|alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|lambda|mu|nu|xi|pi|rho|sigma|tau|upsilon|phi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Upsilon|Phi|Psi|Omega)/g, '\\\\$1');
+              
+              // Handle basic symbols
+              processedMath = processedMath.replace(/\\(?!\\)([\{\}\[\]|<>=:;,\._-])/g, '\\\\$1');
+              
+              // Handle remaining single backslashes not followed by another backslash
+              // But avoid doubling already doubled backslashes
+              processedMath = processedMath.replace(/\\(?!\\)([^a-zA-Z\{])/g, '\\\\$1');
+              
+              item.math = processedMath;
+            }
+          }
+          
+          return results;
+        };
+        
+        MathJax.startup.defaultReady();
+      }
+    }
   };
 </script>
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
 {{- .Page.Scratch.Set "mathjax" true -}}
 {{- end -}}
 
