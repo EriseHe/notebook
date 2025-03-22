@@ -1,10 +1,11 @@
 /*-----------------ToolBar styling-----------------*/
 .toolbar {
   position: fixed;
-  top: 1.2rem;
-  right: 1.2rem;
+  top: 50%; /* Position at middle of page */
+  transform: translateY(-50%); /* Center it vertically */
+  right: -3.5rem; /* Start hidden off-screen */
   width: auto; /* adjust as needed */
-  outline: 2px solid rgba(0, 0, 0, 0.061);
+  outline: none; /* Removed outline */
   background-color: var(--color-btn);
   border-radius: 6px;
   padding: 0.4rem;
@@ -17,8 +18,24 @@
   align-items: center;    /* Center children horizontally, or use flex-end if preferred */
   gap: 0.5rem;  /* Adds a gap between each button */
   
-  /* Remove height transition to prevent extra space */
-  transition: opacity 0.3s ease; 
+  /* Add transition for sliding effect */
+  transition: right 0.3s ease, opacity 0.3s ease;
+  
+  /* When shown via JavaScript */
+  &.visible {
+    right: 1.2rem;
+  }
+}
+
+/* Add a sentinel element that will trigger the toolbar */
+.toolbar-trigger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 150px; /* Width of the trigger area */
+  height: 100vh; /* Full height of the viewport */
+  z-index: 998;
+  background: transparent;
 }
 
 /*theme toggle button styling*/
@@ -160,7 +177,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 2s ease;
+    transition: background 0.3s ease;
     
     &:not(:last-child) {
       border-bottom: 1px solid rgba(0, 0, 0, 0.061);

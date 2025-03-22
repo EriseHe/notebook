@@ -1,3 +1,4 @@
+<div class="toolbar-trigger"></div>
 <aside class="toolbar">
   <button id="theme-toggle" class="theme-toggle-btn">
     <img src="{{ .Site.Params.ThemeSwitchIcon | default "blackhole2.png" | relURL }}" alt="Switch Theme">
@@ -36,3 +37,6 @@
 
 {{ $fontSizeJS := resources.Get "font-size.js" | resources.Minify }}
 <script src="{{ $fontSizeJS.RelPermalink }}"></script>
+
+{{ $toolbarJS := resources.Get "toolbar.js" | resources.Minify }}
+<script src="{{ $toolbarJS.RelPermalink }}"></script>
