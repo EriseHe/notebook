@@ -9,18 +9,19 @@
       
       const text = firstParagraph.innerHTML;
       
-      // Pattern matching for theorem types
-      const patterns = {
-        'lemma': '[!lemma|*]',
-        'theorem': '[!theorem|*]',
-        'assumption': '[!assumption|*]',
-        'claim': '[!claim|*]'
-      };
-      
-      // Check for any matching pattern
-      for (const [type, pattern] of Object.entries(patterns)) {
-        if (text.includes(pattern)) {
-          console.log(`Found theorem type: ${type}`);
+      // More flexible pattern matching for theorem types with optional numbering
+      // Match patterns like [!theorem|*] or [!theorem|7.1.1]
+      for (const type of ['lemma', 'theorem', 'assumption', 'claim']) {
+        // Check for pattern with or without numbering
+        const regex = new RegExp(`\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
+        const match = text.match(regex);
+        
+        if (match) {
+          console.log(`Found ${type} with label: ${match[1]}`);
+          
+          // Determine if we have a number or just a wildcard
+          const hasNumber = match[1] !== '*';
+          const number = hasNumber ? match[1] : '';
           
           // Remove all children temporarily
           const childNodes = Array.from(blockquote.childNodes);
@@ -32,7 +33,11 @@
           // Create and add the header
           const header = document.createElement('div');
           header.className = 'theorem-header';
-          header.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+          
+          // Display the type and number if present
+          const typeText = type.charAt(0).toUpperCase() + type.slice(1);
+          header.textContent = hasNumber ? `${typeText} ${number}` : typeText;
+          
           blockquote.appendChild(header);
           
           // Create content container
@@ -41,7 +46,7 @@
           blockquote.appendChild(content);
           
           // Modify the first paragraph to remove the marker
-          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(pattern, '');
+          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(match[0], '');
           
           // Add all children back to the content div
           childNodes.forEach(function(node) {

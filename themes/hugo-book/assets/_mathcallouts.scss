@@ -1,45 +1,77 @@
-
 .math-theorem {
   margin: 1.5em 0;
   padding: 0;
-  border: 1px solid #ddd;
+  border: none;
   border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  background-color: #f9f9f9;
+  box-shadow: none;
+  background-color: transparent;
   font-family: 'Computer Modern', 'CMU Serif', serif;
+  position: relative;
+  
+  /* Use a pseudo-element for the border to prevent clipping */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #000;
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Remove any default blockquote styling */
+  border-left: none !important;
+  border-inline-start: none !important;
+  &:after {
+    display: none !important;
+  }
+}
+
+/* Override the default blockquote styling from _markdown.scss */
+.markdown blockquote.math-theorem {
+  border-inline-start: none;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .theorem-header {
-  padding: 8px 15px;
+  padding: 15px 30px 5px;
   font-weight: bold;
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #ddd;
+  background-color: transparent;
+  border-bottom: none;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+  color: #cc0000;
+  position: relative;
+  z-index: 2;
 }
 
 .theorem-content {
-  padding: 15px;
+  padding: 5px 30px 20px;
   line-height: 1.5;
+  position: relative;
+  z-index: 2;
 }
 
-/* Special styling for different theorem types */
+/* Special styling for different theorem types - simplified with just different text colors */
 .lemma .theorem-header {
-  background-color: #e6f3ff;
-  border-bottom-color: #b8daff;
+  color: #cc0000;
 }
 
 .theorem .theorem-header {
-  background-color: #e6fff0;
-  border-bottom-color: #b8dac8;
+  color: #cc0000;
 }
 
 .assumption .theorem-header {
-  background-color: #fff3e6;
-  border-bottom-color: #ffdbb8;
+  color: #cc0000;
 }
 
 .claim .theorem-header {
-  background-color: #f5e6ff;
-  border-bottom-color: #d8b8ff;
+  color: #cc0000;
 }
