@@ -109,7 +109,9 @@
 
 {{ define "main" }}
   <article class="book-article">
+    {{ if default true .Params.ShowTitle }}
     <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;">{{ .Title }}</h1>
+    {{ end }}
     <div class="markdown posts">
       {{- .Content -}}
     </div>

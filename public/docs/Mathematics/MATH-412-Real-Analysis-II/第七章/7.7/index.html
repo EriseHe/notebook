@@ -13,47 +13,20 @@
   </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="$$
-R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0)
-$$
-And satisfying
-$$
-\frac{R_{r-1}(x_0)}{|x - x_0|^{r-1}} \to 0 \quad \text{as} \quad x \to x_0.
-$$
-\begin{proof}
-Consider 1-variable function:
-$$
-g(t) = f(x_0 &#43; t(x - x_0)), \quad (a, b) \to \mathbb{R}
-$$
-for $t\in (a, b)$  with $[0, 1] \subset (a, b)$.
-
-Applying Taylor&rsquo;s theorem to $g(t)$:
-$$
-\begin{align}
-g(1) &amp;= g(0) &#43; g&rsquo;(0)(1-0) &#43; \frac{g&rsquo;&rsquo;(0)}{2!} (1-0)^2 &#43; \dots &#43; \frac{g^{(r-1)}(0)}{(r-1)!} (1-0)^{r-1} &#43; R_{r-1}\
-f(x) &amp;= f(x_0) &#43; \sum_{k=1}^{r-1} \frac{g^{(k)}(0)}{k!} &#43; \frac{1}{r!} g^{(r)}(\tilde{c}), \quad \tilde{c} \in [0,1]
-\end{align}
-$$
-By chain rule,
-$$ g&rsquo;(t) = Df(\varphi(t)) \cdot \varphi&rsquo;(t) $$
-$$g&rsquo;(0) = Df(x_0) (x - x_0) $$
-\end{proof}">
+<meta name="description" content="">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/">
   <meta property="og:site_name" content="位相学補完計画">
-  <meta property="og:title" content="6.9 泰勒公式的高维形式">
-  <meta property="og:description" content="$$ R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0) $$ And satisfying $$ \frac{R_{r-1}(x_0)}{|x - x_0|^{r-1}} \to 0 \quad \text{as} \quad x \to x_0. $$
-\begin{proof} Consider 1-variable function: $$ g(t) = f(x_0 &#43; t(x - x_0)), \quad (a, b) \to \mathbb{R} $$ for $t\in (a, b)$ with $[0, 1] \subset (a, b)$.
-Applying Taylor’s theorem to $g(t)$: $$ \begin{align} g(1) &amp;= g(0) &#43; g’(0)(1-0) &#43; \frac{g’’(0)}{2!} (1-0)^2 &#43; \dots &#43; \frac{g^{(r-1)}(0)}{(r-1)!} (1-0)^{r-1} &#43; R_{r-1}\ f(x) &amp;= f(x_0) &#43; \sum_{k=1}^{r-1} \frac{g^{(k)}(0)}{k!} &#43; \frac{1}{r!} g^{(r)}(\tilde{c}), \quad \tilde{c} \in [0,1] \end{align} $$ By chain rule, $$ g’(t) = Df(\varphi(t)) \cdot \varphi’(t) $$ $$g’(0) = Df(x_0) (x - x_0) $$ \end{proof}">
+  <meta property="og:title" content="位相学補完計画">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
 <title>
-6.9 泰勒公式的高维形式 | 位相学補完計画</title>
+7.7 | 位相学補完計画</title>
 <link rel="icon" href="/topo.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/">
+<link rel="canonical" href="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
@@ -156,7 +129,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f32f50e4ab223ab70ee49bfec6b8df2a" class="toggle" checked />
+    <input type="checkbox" id="section-f32f50e4ab223ab70ee49bfec6b8df2a" class="toggle"  />
     <label for="section-f32f50e4ab223ab70ee49bfec6b8df2a" class="flex justify-between">
       <a role="button"
          class="">第六章 可微映射</a>
@@ -225,7 +198,7 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/"
-       class="active">6.9 泰勒公式的高维形式</a>
+       class="">6.9 泰勒公式的高维形式</a>
   
 
         </li>
@@ -245,7 +218,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a2aa4d2f8718297b093bd049ccfd1565" class="toggle"  />
+    <input type="checkbox" id="section-a2aa4d2f8718297b093bd049ccfd1565" class="toggle" checked />
     <label for="section-a2aa4d2f8718297b093bd049ccfd1565" class="flex justify-between">
       <a role="button"
          class="">第七章 逆函数和隐函数定理</a>
@@ -842,7 +815,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>6.9 泰勒公式的高维形式</h3>
+  <h3>7.7</h3>
 
   <label for="toc-control">
     
@@ -857,28 +830,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#example">#Example</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#3-maximum-and-minimum-problem-in-mathbbrn">3 Maximum and Minimum Problem in $\mathbb{R}^n$</a>
-      <ul>
-        <li><a href="#31-introduction">3.1 Introduction</a></li>
-        <li><a href="#32-second-derivative-test-for-a-critical-point">3.2 Second Derivative Test (for a critical point)</a></li>
-        <li><a href="#4-necessary-condition-for-extreme-points-in-mathbbrn">4. Necessary Condition for Extreme Points in $\mathbb{R}^n$</a></li>
-        <li><a href="#remark">Remark</a></li>
-        <li><a href="#example-1">Example</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
 
@@ -891,157 +843,9 @@ https://github.com/alex-shpak/hugo-book
       
   <article class="book-article">
     
-    <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;">6.9 泰勒公式的高维形式</h1>
+    <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;"></h1>
     
-    <div class="markdown posts"><p>$$
-R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0)
-$$
-And satisfying
-$$
-\frac{R_{r-1}(x_0)}{|x - x_0|^{r-1}} \to 0 \quad \text{as} \quad x \to x_0.
-$$</p>
-<p><code>\begin{proof}</code>
-Consider 1-variable function:
-$$
-g(t) = f(x_0 + t(x - x_0)), \quad (a, b) \to \mathbb{R}
-$$
-for $t\in (a, b)$  with $[0, 1] \subset (a, b)$.</p>
-<hr>
-<p>Applying Taylor&rsquo;s theorem to $g(t)$:
-$$
-\begin{align}
-g(1) &amp;= g(0) + g&rsquo;(0)(1-0) + \frac{g&rsquo;&rsquo;(0)}{2!} (1-0)^2 + \dots + \frac{g^{(r-1)}(0)}{(r-1)!} (1-0)^{r-1} + R_{r-1}\
-f(x) &amp;= f(x_0) + \sum_{k=1}^{r-1} \frac{g^{(k)}(0)}{k!} + \frac{1}{r!} g^{(r)}(\tilde{c}), \quad \tilde{c} \in [0,1]
-\end{align}
-$$
-By chain rule,
-$$ g&rsquo;(t) = Df(\varphi(t)) \cdot \varphi&rsquo;(t) $$
-$$g&rsquo;(0) = Df(x_0) (x - x_0) $$
-<code>\end{proof}</code></p>
-<h3 id="example">
-  #Example
-  <a class="anchor" href="#example">#</a>
-</h3>
-<p>Determine the $2\text{nd}$ order Taylor formula for $$f(x,y)=e^{(x-1)^{2}}\cos (y)\quad \text{at},(1,0)$$
-<strong>Solution</strong> (compute partials):
-$$
-\begin{align}
-\frac{\partial f}{\partial x} &amp;= e^{(x-1)^2} 2(x-1) \cos y, \quad
-\frac{\partial f}{\partial y} = -e^{(x-1)^2} \sin y, \
-\frac{\partial^2 f}{\partial x^2} &amp;= 2 e^{(x-1)^2} \cos y + 4(x-1)^2 e^{(x-1)^2} \cos y, \
-\frac{\partial^2 f}{\partial x \partial y} &amp;= -2 (x-1) e^{(x-1)^2} \sin y, \qquad
-\frac{\partial^2 f}{\partial y^2} = -e^{(x-1)^2} \cos y.
-\end{align}
-$$</p>
-<p>Taylor&rsquo;s Formula:
-Let $h = x - x_0 = (x,y) - (1,0)$, then we have</p>
-<p>$$
-\boxed{f(x,y) = f(1,0) + \mathbb{D}f(1,0)(h) + \frac{1}{2} \mathbb{D}^2 f(1,0)(h,h) + R_2}
-$$
-$$
-f(1,0) = 1, \quad \mathbb{D}f(1,0) = (0 \quad 0),
-$$
-$$
-\mathbb{D}^2 f(1,0) =
-\begin{bmatrix}
-2 &amp; 0 \
-0 &amp; -1
-\end{bmatrix}
-$$
-Evaluating the second-order term:
-$$
-\begin{align}
-\mathbb{D}^2 f(1,0)(h,h) &amp;=
-\begin{bmatrix}
-x-1 &amp; y
-\end{bmatrix}
-\begin{bmatrix}
-2 &amp; 0 \
-0 &amp; -1
-\end{bmatrix}
-\begin{bmatrix}
-x-1 \
-y
-\end{bmatrix} \
-&amp;= 2(x-1)^2 - y^2
-\end{align}
-$$</p>
-<p>Thus,
-$$f(x,y) = 1 + \frac{1}{2} (2(x-1)^2 - y^2) + R_2
-$$</p>
-<h1 id="3-maximum-and-minimum-problem-in-mathbbrn">
-  3 Maximum and Minimum Problem in $\mathbb{R}^n$
-  <a class="anchor" href="#3-maximum-and-minimum-problem-in-mathbbrn">#</a>
-</h1>
-<h2 id="31-introduction">
-  3.1 Introduction
-  <a class="anchor" href="#31-introduction">#</a>
-</h2>
-<p>Q: Given $f: A \subset \mathbb{R}^n \to \mathbb{R}$,</p>
-<blockquote>
-<p>how do we find (local) max or min points for $f$ in $A$?</p></blockquote>
-<p>Recall 1-D case: $f: (a,b) \to \mathbb{R}$</p>
-<ul>
-<li>A local max / min point (or extreme point) $x_0$ must be a critical point:
-$$
-\boxed{f&rsquo;(x_0) = 0 \quad \text{or\quad DNE}}<br>
-$$</li>
-</ul>
-<h2 id="32-second-derivative-test-for-a-critical-point">
-  3.2 Second Derivative Test (for a critical point)
-  <a class="anchor" href="#32-second-derivative-test-for-a-critical-point">#</a>
-</h2>
-<p>$$
-\begin{aligned}
-f&rsquo;&rsquo;(x_0) &gt; 0 &amp;\Rightarrow x_0 \text{ is a local minimum} \
-f&rsquo;&rsquo;(x_0) &lt; 0 &amp;\Rightarrow x_0 \text{ is a local maximum}
-\end{aligned}
-$$</p>
-<h2 id="4-necessary-condition-for-extreme-points-in-mathbbrn">
-  4. Necessary Condition for Extreme Points in $\mathbb{R}^n$
-  <a class="anchor" href="#4-necessary-condition-for-extreme-points-in-mathbbrn">#</a>
-</h2>
-<p><strong>Definition:</strong> Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$.</p>
-<p>A point $x_0 \in A$ is a <strong>local minimum</strong> if:
-$$
-\exists \delta &gt; 0 \text{ such that } | x - x_0 | &lt; \delta, x \in A \Rightarrow f(x) \geq f(x_0)
-$$
-A point $x_0 \in A$ is a <strong>local maximum</strong> if:
-$$
-\exists \delta &gt; 0 \text{ such that } | x - x_0 | &lt; \delta, x \in A \Rightarrow f(x) \leq f(x_0)
-$$</p>
-<blockquote>
-<p>[!theorem|6.9.2]
-If $f: A \to \mathbb{R}$ is differentiable at $x_0$, and if
-$x_0 \in A$ is an <strong>extreme point</strong> for $f$, then $x_0$ is a <strong>critical point</strong>, i.e., $$ Df(x_0) = 0. $$</p></blockquote>
-<h2 id="remark">
-  Remark
-  <a class="anchor" href="#remark">#</a>
-</h2>
-<p>The condition $\mathbb{D}f(x_0) = 0$ is <strong>necessary</strong>, but <strong>not sufficient</strong>!</p>
-<h2 id="example-1">
-  Example
-  <a class="anchor" href="#example-1">#</a>
-</h2>
-<p>Let $f(x,y) = x^2 - y^2$, then $\mathbb{D}f(0,0) = 0$, but $(0,0)$ is a <strong>saddle point</strong>.</p>
-<hr>
-<p><code>\begin{proof}</code></p>
-<p>Assume $Df(x_0) \neq 0$.</p>
-<p>Then, there exists $v \in \mathbb{R}^n$ such that $Df(x_0)(v) = c &gt; 0$. By the <strong>definition of differentiability</strong>, choose $\delta &gt; 0$ such that:
-$$
-| f(x_0 + h) - f(x_0) - Df(x_0)(h) | &lt; \frac{c}{2 | v |} | h |
-$$
-for all $| h | &lt; \delta$.</p>
-<p>Now, choose $h = \lambda v$ with $\lambda &gt; 0$ and $| h | &lt; \delta$, then:
-$$
-\begin{cases}
-f(x_0 + \lambda v) - f(x_0) &gt; 0 \
-f(x_0 - \lambda v) - f(x_0) &lt; 0
-\end{cases}
-$$
-This establishes the desired contradiction.
-<code>\end{proof}</code></p>
-</div>
+    <div class="markdown posts"></div>
   </article>
  
       
@@ -1054,7 +858,7 @@ This establishes the desired contradiction.
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/EriseHe/erisehe.github.io/edit/main/exampleSite/content.en/docs/Mathematics/MATH%20412%20Real%20Analysis%20II/%e7%ac%ac%e5%85%ad%e7%ab%a0/6.9%20Taylor%20Higher%20Dimentions.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/EriseHe/erisehe.github.io/edit/main/exampleSite/content.en/docs/Mathematics/MATH%20412%20Real%20Analysis%20II/%e7%ac%ac%e4%b8%83%e7%ab%a0/7.7.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="" />
       <span>Edit this page</span>
     </a>
@@ -1073,11 +877,6 @@ This establishes the desired contradiction.
       </footer>
 
       
-  
-  <div class="book-comments">
-
-</div>
-  
   
  
 
@@ -1119,10 +918,6 @@ This establishes the desired contradiction.
           
 <div class="button-prev">
   
-    <a class="btn-prev" href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/">
-      <strong>Previous:</strong> 6.6 乘积法则与梯度
-    </a>
-  
 </div>
 
 
@@ -1130,43 +925,9 @@ This establishes the desired contradiction.
 
     
           
-            <div class="toc-entries">
-              
-  
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#example">#Example</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#3-maximum-and-minimum-problem-in-mathbbrn">3 Maximum and Minimum Problem in $\mathbb{R}^n$</a>
-      <ul>
-        <li><a href="#31-introduction">3.1 Introduction</a></li>
-        <li><a href="#32-second-derivative-test-for-a-critical-point">3.2 Second Derivative Test (for a critical point)</a></li>
-        <li><a href="#4-necessary-condition-for-extreme-points-in-mathbbrn">4. Necessary Condition for Extreme Points in $\mathbb{R}^n$</a></li>
-        <li><a href="#remark">Remark</a></li>
-        <li><a href="#example-1">Example</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-
-
-            </div>
-          
     
           
 <div class="button-next">
-  
-    <a class="btn-next" href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/">
-      <strong>Next:</strong> 7.1 反函数定理
-    </a>
   
 </div>
         </div>
@@ -1264,6 +1025,66 @@ This establishes the desired contradiction.
   </script>
   
   
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'noerrors', 'color']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      ready: function() {
+        
+        const oldFindTeX = MathJax.startup.findTeX;
+        MathJax.startup.findTeX = function(options) {
+          
+          const results = oldFindTeX.call(this, options);
+          
+          
+          for (const item of results) {
+            if (item.display) {
+              
+              
+              
+              let processedMath = item.math;
+              
+              
+              processedMath = processedMath.replace(/(\\)begin\{([^}]+)\}/g, '\\\\begin{$2}');
+              processedMath = processedMath.replace(/(\\)end\{([^}]+)\}/g, '\\\\end{$2}');
+              
+              
+              processedMath = processedMath.replace(/\\(?!\\)(text|mathbf|mathit|mathrm|left|right|frac|sum|int|prod|lim|infty|in|notin|subset|supset|cup|cap|bigcup|bigcap|mathbb|mathcal|hat|bar|vec|dot|ddot|cdot|ldots|vdots|cdots|partial|nabla|forall|exists|alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|lambda|mu|nu|xi|pi|rho|sigma|tau|upsilon|phi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Upsilon|Phi|Psi|Omega)/g, '\\\\$1');
+              
+              
+              processedMath = processedMath.replace(/\\(?!\\)([\{\}\[\]|<>=:;,\._-])/g, '\\\\$1');
+              
+              
+              
+              processedMath = processedMath.replace(/\\(?!\\)([^a-zA-Z\{])/g, '\\\\$1');
+              
+              item.math = processedMath;
+            }
+          }
+          
+          return results;
+        };
+        
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       

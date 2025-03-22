@@ -9,9 +9,9 @@
     <atom:link href="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/Untitled/</link>
+      <link>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/Untitled/</guid>
+      <guid>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</guid>
       <description></description>
     </item>
     <item>
@@ -36,11 +36,11 @@
       <description>&lt;p&gt;111&lt;/p&gt;</description>
     </item>
     <item>
-      <title>7.6</title>
+      <title>7.6 莫尔斯引理</title>
       <link>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/</guid>
-      <description>&lt;h2 id=&#34;morse-theory-local-behavior-near-a-critical-point&#34;&gt;&#xA;  Morse Theory: Local Behavior Near a Critical Point&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#morse-theory-local-behavior-near-a-critical-point&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;introduction&#34;&gt;&#xA;  Introduction&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#introduction&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ and $x_0$ is a critical point. Then one can use $H(x_0)$ to classify critical points. Morse theory makes this classification more precise.&lt;/p&gt;&#xA;&lt;h3 id=&#34;morse-lemma&#34;&gt;&#xA;  Morse Lemma&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#morse-lemma&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ with critical point $x_0 \in A$. If $H(x_0)$ is non-degenerate, then there exists a neighborhood of $x_0$ and a diffeomorphism $g$ such that the function $f \circ g$ has the form:&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;morse-theory-local-behavior-near-a-critical-point&#34;&gt;&#xA;  Morse Theory: Local Behavior Near a Critical Point&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#morse-theory-local-behavior-near-a-critical-point&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ and $x_0$ is a critical point $\rightarrow$ one can use $H(x_0)$ to classify critical points.&lt;/p&gt;&#xA;&lt;p&gt;Morse theory: makes this classification &lt;strong&gt;more precise.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;morse-lemma&#34;&gt;&#xA;  Morse Lemma&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#morse-lemma&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;[!lemma|*]&#xA;Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ with critical point $x_0 \in A$. If $H(x_0)$ is &lt;strong&gt;non-degenerate&lt;/strong&gt;, then there exists a neighborhood of $x_0$ and a diffeomorphism $g$ such that the function $f \circ g$ has the form:&#xA;$$f \circ g(y) = f(x_0) + \sum_{i=1}^{\lambda} -y_i^2 + \sum_{i=\lambda+1}^n y_i^2$$&#xA;where $\lambda$ is an integer called the &lt;strong&gt;index&lt;/strong&gt; of $f$ at $x_0$.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
