@@ -236,11 +236,7 @@ iamdudum maius?&lt;/p></description></item><item><title/><link>https://erisehe.g
 &lt;p>[!Theorem]
 Since we know that $u_t=ku_{xx}$ , then we know if $u \in U$ for $U \subset \mathbb{R}^n$ solves the equation, so does $u(\lambda x, \lambda^2 t)$ for $\lambda \in \mathbb{R}$ according to the &lt;strong>scale invariance property.&lt;/strong>&lt;/p>&lt;/blockquote>
 &lt;p>Let’s set that $\bar{x}=\lambda x, \bar{t}=\lambda^2 t$, then it is easy to see:&lt;/p>
-&lt;p>$$ \begin{align} u_{\bar{t}}= \frac{\partial u}{\partial \bar{t}}\cdot\frac{\partial \bar{t}}{\partial t} = \frac{\partial u}{\partial t} \cdot (\lambda^2) \ u_{\bar{x}\bar{x}} &amp;amp;=\frac{\partial}{\partial x} \cdot \frac{\partial u}{\partial \bar{x} } = (\frac{\partial}{\partial \bar{x}} \cdot \frac{\partial \bar{x}}{\partial x})(\frac{\partial u}{\partial \bar{x} } \cdot \frac{\partial \bar{x}}{\partial x})\ &amp;amp;= \frac{\partial^2 u}{\partial x^2} \cdot (\lambda^2) \end{align} $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Week-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Week-10/</guid><description>&lt;h1 id="lecture-notes---week-10-03182025">
- Lecture Notes - Week 10 (03/18/2025)
- &lt;a class="anchor" href="#lecture-notes---week-10-03182025">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="chapter-9-overview">
+&lt;p>$$ \begin{align} u_{\bar{t}}= \frac{\partial u}{\partial \bar{t}}\cdot\frac{\partial \bar{t}}{\partial t} = \frac{\partial u}{\partial t} \cdot (\lambda^2) \ u_{\bar{x}\bar{x}} &amp;amp;=\frac{\partial}{\partial x} \cdot \frac{\partial u}{\partial \bar{x} } = (\frac{\partial}{\partial \bar{x}} \cdot \frac{\partial \bar{x}}{\partial x})(\frac{\partial u}{\partial \bar{x} } \cdot \frac{\partial \bar{x}}{\partial x})\ &amp;amp;= \frac{\partial^2 u}{\partial x^2} \cdot (\lambda^2) \end{align} $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</guid><description>&lt;h2 id="chapter-9-overview">
  Chapter 9 Overview
  &lt;a class="anchor" href="#chapter-9-overview">#&lt;/a>
 &lt;/h2>
@@ -300,7 +296,39 @@ $$&lt;/li>
 &lt;p>Characteristic curves defined by:&lt;br>
 $$
 \frac{dx}{dt} = a,\quad x(0) = x_0 \implies x = at + x_0
-$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</guid><description>&lt;h2 id="formula-derivation">
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-20/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-20/</guid><description>&lt;h3 id="pde-and-schemes">
+ PDE and Schemes
+ &lt;a class="anchor" href="#pde-and-schemes">#&lt;/a>
+&lt;/h3>
+&lt;p>$$\frac{\partial u}{\partial t} + a\frac{\partial u}{\partial x} = 0$$&lt;/p>
+&lt;h4 id="in-red">
+ In red:
+ &lt;a class="anchor" href="#in-red">#&lt;/a>
+&lt;/h4>
+&lt;p>$$\frac{\partial u}{\partial t} = -a\frac{\partial u}{\partial x} \
+\frac{\partial^2 u}{\partial t^2} = a^2 \frac{\partial^2 u}{\partial x^2}$$&lt;/p>
+&lt;h4 id="diagram">
+ Diagram:
+ &lt;a class="anchor" href="#diagram">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Horizontal axis: spatial dimension (x), initial position $x_0$&lt;/li>
+&lt;li>Vertical axis: variable $u$&lt;/li>
+&lt;li>Curves indicating wave propagation:
+&lt;ul>
+&lt;li>$a &amp;gt; 0$, propagation towards positive $x$-direction.&lt;/li>
+&lt;li>$a &amp;lt; 0$, propagation towards negative $x$-direction.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="equations-and-schemes">
+ Equations and Schemes:
+ &lt;a class="anchor" href="#equations-and-schemes">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Characteristic equation:&lt;/strong>
+$$\frac{dx}{dt} = a,\quad x(0)=x_0$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/</guid><description>&lt;h2 id="formula-derivation">
  Formula Derivation
  &lt;a class="anchor" href="#formula-derivation">#&lt;/a>
 &lt;/h2>
@@ -380,7 +408,68 @@ F_1(x,y,z,u,v,w) ;&amp;amp;=; 3x + 2y + z^2 + u + v^2,\
 F_2(x,y,z,u,v,w) ;&amp;amp;=; 4x + 3y + z + u^2 + v + w + 2,\
 F_3(x,y,z,u,v,w) ;&amp;amp;=; x + z + w + u^2 + 2.
 \end{aligned}
-$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Criterion-for-Integrability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Criterion-for-Integrability/</guid><description>&lt;h2 id="criterion-for-integrability">
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-7/</guid><description>&lt;p>HW 7:
+7.6: 1, 2, 3, [4,5]; 7.7: 1, 2, 3, [4], 5, [6];
+Chapter 7: [25], 36, [38], 39.&lt;/p>
+&lt;p>&lt;font color="#ff0000">Problem 7.6.4&lt;/font>
+Let $f(x,y) = x^2 + y^2 + 3y^3 + 8x^4 + x^2e^x \sin x + 6$. Show that there exist new coordinates $\xi, \eta$, where
+$$\xi = \xi(x,y), \quad \eta = \eta(x,y),$$
+for which
+$$f(x,y) = \xi^2 + \eta^2 + 6$$
+in a neighborhood of $(0, 0)$.&lt;/p>
+&lt;p>&lt;font color="#ff0000">Problem 7.6.5&lt;/font>
+(a).
+If $f$ has a nondegenerate critical point at $x_0 \in \mathbb{R}^n$, show that there is a neighborhood of $x_0$ containing no other critical points.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Theory-and-Lagrange-Multiplier/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Theory-and-Lagrange-Multiplier/</guid><description>&lt;h2 id="morse-theory-local-behavior-near-a-critical-point">
+ Morse Theory: Local Behavior Near a Critical Point
+ &lt;a class="anchor" href="#morse-theory-local-behavior-near-a-critical-point">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h3>
+&lt;p>Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ and $x_0$ is a critical point. Then one can use $H(x_0)$ to classify critical points. Morse theory makes this classification more precise.&lt;/p>
+&lt;h3 id="morse-lemma">
+ Morse Lemma
+ &lt;a class="anchor" href="#morse-lemma">#&lt;/a>
+&lt;/h3>
+&lt;p>Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ with critical point $x_0 \in A$. If $H(x_0)$ is non-degenerate, then there exists a neighborhood of $x_0$ and a diffeomorphism $g$ such that the function $f \circ g$ has the form:&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/Untitled/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/Untitled/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-Integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-Integration/</guid><description>&lt;h1 id="integration-in-3d">
+ Integration in 3D
+ &lt;a class="anchor" href="#integration-in-3d">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="outline">
+ Outline
+ &lt;a class="anchor" href="#outline">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Definition of integral&lt;/li>
+&lt;li>Criteria for integrability&lt;/li>
+&lt;li>Necessary and sufficient condition&lt;/li>
+&lt;li>Property of integrals &amp;amp; convergence&lt;/li>
+&lt;li>Computing and estimating integrals&lt;/li>
+&lt;/ul>
+&lt;h2 id="definition-of-integral">
+ Definition of Integral
+ &lt;a class="anchor" href="#definition-of-integral">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="1-geometric-motivation">
+ 1. Geometric Motivation
+ &lt;a class="anchor" href="#1-geometric-motivation">#&lt;/a>
+&lt;/h3>
+&lt;p>Computing the area of a region:&lt;/p>
+&lt;ul>
+&lt;li>Form the partition and create approximations&lt;/li>
+&lt;li>Form upper and lower integrals:
+&lt;ul>
+&lt;li>Upper integral: $\overline{\int} f$&lt;/li>
+&lt;li>Lower integral: $\underline{\int} f$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-general-formulation">
+ 2. General Formulation
+ &lt;a class="anchor" href="#2-general-formulation">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;strong>Setup&lt;/strong>: Let $f: A \to \mathbb{R}$ be a bounded function on a bounded set $A$ in $\mathbb{R}^n$.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/</guid><description>&lt;h2 id="criterion-for-integrability">
  Criterion for Integrability
  &lt;a class="anchor" href="#criterion-for-integrability">#&lt;/a>
 &lt;/h2>
@@ -402,7 +491,7 @@ $$1_A(x) =
 0, &amp;amp; x \notin A
 \end{cases} $$
 is integrable:&lt;/p>&lt;/blockquote>
-&lt;p>$$V(A) = \int_A 1_A(x), dx$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Proof-of-Lebesgues-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/Proof-of-Lebesgues-Theorem/</guid><description>&lt;blockquote>
+&lt;p>$$V(A) = \int_A 1_A(x), dx$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</guid><description>&lt;blockquote>
 &lt;p>[!theorem|8.?.?]
 Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded set $A$. Then $f$ is integrable on $A$ &lt;strong>if and only if&lt;/strong> the set of discontinuities for the extended $f(x)$ has measure zero.&lt;/p>&lt;/blockquote>
 &lt;h2 id="proof-of-the-theorem">
