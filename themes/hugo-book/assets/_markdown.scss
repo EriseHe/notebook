@@ -7,7 +7,7 @@
 
   // remove padding at the beginning of page
   > :first-child {
-    margin-top: 0.5em;
+    margin-top: 0.3em;
   }
 
 
@@ -19,6 +19,8 @@
   font-size: 1.8rem;
   display: flex; 
   justify-content: center;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
   } 
   h2 {
     position: relative;                // Establish a positioning context for the pseudo-element
@@ -27,8 +29,8 @@
     font-size: 1.5em;
     padding-bottom: 5px;
     border-bottom: 2px solid var(--gray-500); // Underline naturally wraps only the text
-
-    // Remove background-color from here (we use ::after instead)
+    margin-top: 1em;
+    margin-bottom: 0.5em;
   }
   
   // Use ::after for the background that only covers the h2 text area
@@ -48,12 +50,16 @@
   font-weight: bold;
   font-size: 1.3em;
   color: var(--color-h3);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
   }
 
   h4 {
   font-weight: bold;
   font-size: 1.1em;
   color: var(--color-h4);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
   }
 
   h5 {
@@ -61,11 +67,15 @@
   //font-family: "Computer Modern";
   //font-weight: bold;
   color: var(--color-h5);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
   }
 
   h6 {
   font-weight: bold;
   color: var(--color-h6);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
   }
 
   h1,
@@ -76,8 +86,9 @@
   h6 {
     font-family: "Computer Modern";
     line-height: 1;
-    margin-top: 1.5em;
-    margin-bottom: $padding-16;
+    // Removing these generic margins since we set specific ones above
+    // margin-top: 1.5em;
+    // margin-bottom: $padding-16;
 
     a.anchor {
       opacity: 0;

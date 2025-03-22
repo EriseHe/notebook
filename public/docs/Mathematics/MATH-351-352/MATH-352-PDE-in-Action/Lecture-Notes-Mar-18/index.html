@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=61171&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=63486&amp;path=livereload" data-no-instant defer></script>
   <script>
     (function(){
       
@@ -76,7 +76,7 @@ $$
 $$">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:61171/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:63486/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="位相学補完計画">
   <meta property="og:description" content="Chapter 9 Overview # Sections Covered: # 9.1: Reading 9.2: Introduction 9.2.1 9.2.2 9.2.4 9.2.5 (Only the statement needed) 9.2.6 Exercises: # Exercise 9.3 Exercise 9.5 (recommended for coding practice) Section 9.3: Wave Equation # PDE: # $$ \frac{\partial u}{\partial t} &#43; a\frac{\partial u}{\partial x} = 0 $$
@@ -90,11 +90,11 @@ $$ \frac{dx}{dt} = a,\quad x(0) = x_0 \implies x = at &#43; x_0 $$">
 Lecture Notes ( Mar 18) | 位相学補完計画</title>
 <link rel="icon" href="/topo.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:61171/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/">
+<link rel="canonical" href="http://localhost:63486/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.f6d13b85926fdeda17a763099a63a3aea2e4652bc7f85cb5d7bab5b8d18b19a2.css" integrity="sha256-9tE7hZJv3toXp2MJmmOjrqLkZSvH&#43;Fy117q1uNGLGaI=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.1f2de0dc490a19f559cfc11d390ea7b9a8b84e71245781a9a83a628e4bc4705c.css" integrity="sha256-Hy3g3EkKGfVZz8EdOQ6nuai4TnEkV4GpqDpijkvEcFw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.7e1109f23cb866aff27b303b747222bad4ae267ab43265037d497820c95ba0ef.js" integrity="sha256-fhEJ8jy4Zq/yezA7dHIiutSuJnq0MmUDfUl4IMlboO8=" crossorigin="anonymous"></script>
 
@@ -1348,17 +1348,6 @@ $$</p>
           console.log(`Found ${type} with label: ${match[1]}`);
           
           
-          const wrapper = document.createElement('div');
-          wrapper.className = 'theorem-wrapper';
-          wrapper.style.margin = '1.5em 0';
-          wrapper.style.padding = '2px'; 
-          
-          
-          const parent = blockquote.parentNode;
-          parent.insertBefore(wrapper, blockquote);
-          wrapper.appendChild(blockquote);
-          
-          
           const hasNumber = match[1] !== '*';
           const number = hasNumber ? match[1] : '';
           
@@ -1368,7 +1357,6 @@ $$</p>
           
           
           blockquote.classList.add('math-theorem', type);
-          blockquote.style.margin = '0'; 
           
           
           const header = document.createElement('div');

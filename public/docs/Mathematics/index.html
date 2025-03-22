@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=61171&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=63486&amp;path=livereload" data-no-instant defer></script>
   <script>
     (function(){
       
@@ -16,7 +16,7 @@
 <meta name="description" content="">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:61171/docs/Mathematics/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:63486/docs/Mathematics/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="Mathematics">
   <meta property="og:locale" content="en">
@@ -25,16 +25,16 @@
 Mathematics | 位相学補完計画</title>
 <link rel="icon" href="/topo.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:61171/docs/Mathematics/">
+<link rel="canonical" href="http://localhost:63486/docs/Mathematics/">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.f6d13b85926fdeda17a763099a63a3aea2e4652bc7f85cb5d7bab5b8d18b19a2.css" integrity="sha256-9tE7hZJv3toXp2MJmmOjrqLkZSvH&#43;Fy117q1uNGLGaI=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.1f2de0dc490a19f559cfc11d390ea7b9a8b84e71245781a9a83a628e4bc4705c.css" integrity="sha256-Hy3g3EkKGfVZz8EdOQ6nuai4TnEkV4GpqDpijkvEcFw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.7e1109f23cb866aff27b303b747222bad4ae267ab43265037d497820c95ba0ef.js" integrity="sha256-fhEJ8jy4Zq/yezA7dHIiutSuJnq0MmUDfUl4IMlboO8=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="http://localhost:61171/docs/Mathematics/index.xml" title="位相学補完計画" />
+<link rel="alternate" type="application/rss+xml" href="http://localhost:63486/docs/Mathematics/index.xml" title="位相学補完計画" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1107,17 +1107,6 @@ https://github.com/alex-shpak/hugo-book
           console.log(`Found ${type} with label: ${match[1]}`);
           
           
-          const wrapper = document.createElement('div');
-          wrapper.className = 'theorem-wrapper';
-          wrapper.style.margin = '1.5em 0';
-          wrapper.style.padding = '2px'; 
-          
-          
-          const parent = blockquote.parentNode;
-          parent.insertBefore(wrapper, blockquote);
-          wrapper.appendChild(blockquote);
-          
-          
           const hasNumber = match[1] !== '*';
           const number = hasNumber ? match[1] : '';
           
@@ -1127,7 +1116,6 @@ https://github.com/alex-shpak/hugo-book
           
           
           blockquote.classList.add('math-theorem', type);
-          blockquote.style.margin = '0'; 
           
           
           const header = document.createElement('div');
