@@ -1,52 +1,49 @@
+<!-- Math Callouts Script -->
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Find all blockquotes on the page.
-      var blockquotes = document.querySelectorAll("blockquote");
-      blockquotes.forEach(function(bq) {
-        var triggerText = "";
-        var triggerNode = null;
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, looking for blockquotes');
+  
+  // Find all blockquotes with the special notation
+  const blockquotes = document.querySelectorAll('blockquote');
+  console.log('Found blockquotes:', blockquotes.length);
+  
+  blockquotes.forEach(function(blockquote, index) {
+    console.log(`Examining blockquote ${index}:`, blockquote.innerHTML);
     
-        // Try first to find a <p> element as the first child.
-        if (bq.firstElementChild && bq.firstElementChild.tagName.toLowerCase() === "p") {
-          triggerText = bq.firstElementChild.textContent.trim();
-          triggerNode = bq.firstElementChild;
-        } 
-        // Otherwise, if the first child is a text node, use that.
-        else if (bq.firstChild && bq.firstChild.nodeType === Node.TEXT_NODE) {
-          triggerText = bq.firstChild.textContent.trim();
-          triggerNode = bq.firstChild;
-        }
-        
-        // Match pattern like [!theorem|7.1.1] (case-insensitive).
-        var match = triggerText.match(/^\[\!(\w+)\|([\w\.\-]+)\]$/i);
-        if (match) {
-          var type = match[1];  // e.g., theorem, axiom, etc.
-          var number = match[2]; // e.g., 7.1.1
-          
-          // Remove the trigger text from the blockquote.
-          if (triggerNode) {
-            // If triggerNode is an element, remove it entirely.
-            if (triggerNode.nodeType === Node.ELEMENT_NODE) {
-              triggerNode.remove();
-            } else {
-              // If it's a text node, clear its text.
-              triggerNode.textContent = "";
-            }
-          }
-          
-          // Create a header element with the type and number.
-          var header = document.createElement("div");
-          header.className = "math-theorem-header";
-          // Format the type: capitalize first letter.
-          var typeFormatted = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
-          header.textContent = typeFormatted + " " + number;
-          
-          // Insert the header at the top of the blockquote.
-          bq.insertBefore(header, bq.firstChild);
-          // Add a class to the blockquote for framing.
-          bq.classList.add("framed-theorem");
-        }
-      });
-    });
-    </script>
+    const firstParagraph = blockquote.querySelector('p');
+    if (!firstParagraph) {
+      console.log(`Blockquote ${index} has no paragraph`);
+      return;
+    }
     
+    console.log(`First paragraph text: "${firstParagraph.textContent}"`);
+    const text = firstParagraph.textContent;
+    // More lenient matching that allows whitespace
+    const match = text.trim().match(/^\s*\[!\s*(lemma|theorem|assumption|claim)\s*\|\s*\*\s*\]/i);
+    
+    if (match) {
+      console.log(`Match found! Type: ${match[1]}`);
+      
+      // Get the theorem type
+      const theoremType = match[1].charAt(0).toUpperCase() + match[1].slice(1);
+      
+      // Remove the marker from the first paragraph
+      firstParagraph.textContent = firstParagraph.textContent.replace(match[0], '').trim();
+      console.log(`After replacing marker: "${firstParagraph.textContent}"`);
+      
+      // Add class to the blockquote for styling
+      blockquote.classList.add('math-theorem', match[1].toLowerCase());
+      
+      // Create and insert header
+      const header = document.createElement('div');
+      header.className = 'theorem-header';
+      header.textContent = theoremType;
+      blockquote.insertBefore(header, blockquote.firstChild);
+      
+      console.log(`Blockquote ${index} transformed successfully`);
+    } else {
+      console.log(`No match in blockquote ${index}`);
+    }
+  });
+});
+</script>
