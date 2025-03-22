@@ -2,6 +2,7 @@
 title: Introduction
 type: docs
 BookToc: True
+ShowTitle: false
 
 ---
 
