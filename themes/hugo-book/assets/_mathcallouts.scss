@@ -4,9 +4,10 @@
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  background-color: transparent;
+  background-color: var(--gray-100);
   font-family: 'Computer Modern', 'CMU Serif', serif;
   position: relative;
+  overflow: hidden;
   
   /* Use a pseudo-element for the border to prevent clipping */
   &::before {
@@ -19,7 +20,7 @@
     border: 1px solid #a3a3a3;
     border-radius: 4px;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
   }
   
   /* Remove any default blockquote styling */
@@ -50,16 +51,18 @@
   border-top-right-radius: 4px;
   color: #cc0000;
   position: relative;
-  z-index: -1;
+  z-index: 1;
+  margin-bottom: 0;
 }
 
 .theorem-content {
   padding: 0px 30px 20px;
   background-color: var(--gray-100);
-
   line-height: 1.5;
   position: relative;
-  z-index: -1;  
+  z-index: 1;
+  margin-top: 0;
+  
   /* Make math display better in centered content */
   .katex-display {
     margin: 0.5em 0;
