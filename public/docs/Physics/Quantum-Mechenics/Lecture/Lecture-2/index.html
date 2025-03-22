@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=63674&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=61171&amp;path=livereload" data-no-instant defer></script>
   <script>
     (function(){
       
@@ -16,7 +16,7 @@
 <meta name="description" content="">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:63674/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:61171/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="位相学補完計画">
   <meta property="og:locale" content="en">
@@ -26,10 +26,13 @@
 Lecture 2 | 位相学補完計画</title>
 <link rel="icon" href="/topo.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:63674/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/">
-<link rel="stylesheet" href="/book.min.8ee793d2894e1858fe29327367bb5a4b0716373010c16f35452730f879b880fb.css" integrity="sha256-jueT0olOGFj&#43;KTJzZ7taSwcWNzAQwW81RScw&#43;Hm4gPs=" crossorigin="anonymous">
+<link rel="canonical" href="http://localhost:61171/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
+
+
+<link rel="stylesheet" href="/book.min.f6d13b85926fdeda17a763099a63a3aea2e4652bc7f85cb5d7bab5b8d18b19a2.css" integrity="sha256-9tE7hZJv3toXp2MJmmOjrqLkZSvH&#43;Fy117q1uNGLGaI=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.eabb26e1d46ca5ed95c06e0a723e59e2f4f980e6f6575cb829ab1493c301f37b.js" integrity="sha256-6rsm4dRspe2VwG4Kcj5Z4vT5gOb2V1y4KasUk8MB83s=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.7e1109f23cb866aff27b303b747222bad4ae267ab43265037d497820c95ba0ef.js" integrity="sha256-fhEJ8jy4Zq/yezA7dHIiutSuJnq0MmUDfUl4IMlboO8=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -227,22 +230,6 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     
       
-        <li>
-          
-  
-  
-  
-  
-
-  
-    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Theory-and-Lagrange-Multiplier/"
-       class="">7.6 Morse Theory and Lagrange Multiplier</a>
-  
-
-        </li>
-      
-    
-      
     
       
         <li>
@@ -270,7 +257,7 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/"
-       class="">7.1.1 证明</a>
+       class="">7.1.1 反函数定理（证明）</a>
   
 
         </li>
@@ -287,6 +274,22 @@ https://github.com/alex-shpak/hugo-book
   
     <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/"
        class="">7.2 隐函数定理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/"
+       class="">7.6 莫尔斯引理</a>
   
 
         </li>
@@ -839,6 +842,9 @@ https://github.com/alex-shpak/hugo-book
       
       
   <article class="book-article">
+    
+    <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;"></h1>
+    
     <div class="markdown posts"></div>
   </article>
  
@@ -1079,58 +1085,79 @@ https://github.com/alex-shpak/hugo-book
   };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    document.querySelectorAll('blockquote').forEach(function(blockquote) {
       
-      var blockquotes = document.querySelectorAll("blockquote");
-      blockquotes.forEach(function(bq) {
-        var triggerText = "";
-        var triggerNode = null;
-    
+      const firstParagraph = blockquote.querySelector('p');
+      if (!firstParagraph) return;
+      
+      const text = firstParagraph.innerHTML;
+      
+      
+      
+      for (const type of ['lemma', 'theorem', 'assumption', 'claim']) {
         
-        if (bq.firstElementChild && bq.firstElementChild.tagName.toLowerCase() === "p") {
-          triggerText = bq.firstElementChild.textContent.trim();
-          triggerNode = bq.firstElementChild;
-        } 
+        const regex = new RegExp(`\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
+        const match = text.match(regex);
         
-        else if (bq.firstChild && bq.firstChild.nodeType === Node.TEXT_NODE) {
-          triggerText = bq.firstChild.textContent.trim();
-          triggerNode = bq.firstChild;
-        }
-        
-        
-        var match = triggerText.match(/^\[\!(\w+)\|([\w\.\-]+)\]$/i);
         if (match) {
-          var type = match[1];  
-          var number = match[2]; 
+          console.log(`Found ${type} with label: ${match[1]}`);
           
           
-          if (triggerNode) {
-            
-            if (triggerNode.nodeType === Node.ELEMENT_NODE) {
-              triggerNode.remove();
-            } else {
-              
-              triggerNode.textContent = "";
-            }
-          }
+          const wrapper = document.createElement('div');
+          wrapper.className = 'theorem-wrapper';
+          wrapper.style.margin = '1.5em 0';
+          wrapper.style.padding = '2px'; 
           
           
-          var header = document.createElement("div");
-          header.className = "math-theorem-header";
-          
-          var typeFormatted = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
-          header.textContent = typeFormatted + " " + number;
+          const parent = blockquote.parentNode;
+          parent.insertBefore(wrapper, blockquote);
+          wrapper.appendChild(blockquote);
           
           
-          bq.insertBefore(header, bq.firstChild);
+          const hasNumber = match[1] !== '*';
+          const number = hasNumber ? match[1] : '';
           
-          bq.classList.add("framed-theorem");
+          
+          const childNodes = Array.from(blockquote.childNodes);
+          blockquote.innerHTML = '';
+          
+          
+          blockquote.classList.add('math-theorem', type);
+          blockquote.style.margin = '0'; 
+          
+          
+          const header = document.createElement('div');
+          header.className = 'theorem-header';
+          
+          
+          const typeText = type.charAt(0).toUpperCase() + type.slice(1);
+          header.textContent = hasNumber ? `${typeText} ${number}` : typeText;
+          
+          blockquote.appendChild(header);
+          
+          
+          const content = document.createElement('div');
+          content.className = 'theorem-content';
+          blockquote.appendChild(content);
+          
+          
+          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(match[0], '');
+          
+          
+          childNodes.forEach(function(node) {
+            content.appendChild(node.cloneNode(true));
+          });
+          
+          break; 
         }
-      });
+      }
     });
-    </script>
-    
+  });
+</script> 
   
 
   <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>

@@ -58,7 +58,7 @@ $f(U) = W$ and $f: U \to W$ has an inverse $f^{-1}: W \to U$. $f^{-1} \in C^1$ (
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.7cb0705ab80da56e8defec0abda45c55f5e83c6f098c7eaa1efafd8add86f79b.css" integrity="sha256-fLBwWrgNpW6N7&#43;wKvaRcVfXoPG8JjH6qHvr9it2G95s=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.e4c6475ccb1dd95bc0eaa7b36fdb9471dd2ce082965524c75cb016051ed1298c.css" integrity="sha256-5MZHXMsd2VvA6qezb9uUcd0s4IKWVSTHXLAWBR7RKYw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.dde83a98cd31ddf917d7090368182f2654a268233e2a37652f30f31baa977548.js" integrity="sha256-3eg6mM0x3fkX1wkDaBgvJlSiaCM&#43;KjdlLzDzG6qXdUg=" crossorigin="anonymous"></script>
 
@@ -1272,17 +1272,18 @@ This demonstrates that multiple points in the domain map to the same point in th
       const text = firstParagraph.innerHTML;
       
       
-      const patterns = {
-        'lemma': '[!lemma|*]',
-        'theorem': '[!theorem|*]',
-        'assumption': '[!assumption|*]',
-        'claim': '[!claim|*]'
-      };
       
-      
-      for (const [type, pattern] of Object.entries(patterns)) {
-        if (text.includes(pattern)) {
-          console.log(`Found theorem type: ${type}`);
+      for (const type of ['lemma', 'theorem', 'assumption', 'claim']) {
+        
+        const regex = new RegExp(`\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
+        const match = text.match(regex);
+        
+        if (match) {
+          console.log(`Found ${type} with label: ${match[1]}`);
+          
+          
+          const hasNumber = match[1] !== '*';
+          const number = hasNumber ? match[1] : '';
           
           
           const childNodes = Array.from(blockquote.childNodes);
@@ -1294,7 +1295,11 @@ This demonstrates that multiple points in the domain map to the same point in th
           
           const header = document.createElement('div');
           header.className = 'theorem-header';
-          header.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+          
+          
+          const typeText = type.charAt(0).toUpperCase() + type.slice(1);
+          header.textContent = hasNumber ? `${typeText} ${number}` : typeText;
+          
           blockquote.appendChild(header);
           
           
@@ -1303,7 +1308,7 @@ This demonstrates that multiple points in the domain map to the same point in th
           blockquote.appendChild(content);
           
           
-          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(pattern, '');
+          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(match[0], '');
           
           
           childNodes.forEach(function(node) {

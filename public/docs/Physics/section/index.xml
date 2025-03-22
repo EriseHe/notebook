@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>位相学補完計画</title>
-    <link>http://localhost:63674/docs/Physics/section/</link>
+    <link>http://localhost:61171/docs/Physics/section/</link>
     <description>Recent content on 位相学補完計画</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:63674/docs/Physics/section/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:61171/docs/Physics/section/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:63674/docs/Physics/section/buttons/</link>
+      <link>http://localhost:61171/docs/Physics/section/buttons/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:63674/docs/Physics/section/buttons/</guid>
-      <description>&lt;h1 id=&#34;buttons&#34;&gt;&#xA;  Buttons&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#buttons&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Buttons are styled links that can lead to local page or external link.&lt;/p&gt;&#xA;&lt;h2 id=&#34;example&#34;&gt;&#xA;  Example&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#example&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;div class=&#34;code-block&#34;&gt;&#xA;    &lt;pre&gt;&#xA;&lt;code&gt;{{&lt; button relref=&#34;/&#34; [class=&#34;...&#34;] &gt;}}Get Home{{&lt; /button &gt;}}&#xA;{{&lt; button href=&#34;https://github.com/alex-shpak/hugo-book&#34; &gt;}}Contribute{{&lt; /button &gt;}}&lt;/code&gt;&#xA;    &lt;/pre&gt;&#xA;    &lt;button class=&#34;copy-button&#34;&gt;&#xA;        &lt;img src=&#34;https://systemuicons.com/images/icons/replicate.svg&#34; alt=&#34;copy the code&#34; /&gt;&#xA;    &lt;/button&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;&lt;a  href=&#34;http://localhost:63674/&#34;   class=&#34;book-btn&#34;&gt;Get Home&lt;/a&gt;&#xA;&#xA;&lt;a  href=&#34;https://github.com/alex-shpak/hugo-book&#34;   target=&#34;_blank&#34; rel=&#34;noopener&#34;  class=&#34;book-btn&#34;&gt;Contribute&lt;/a&gt;&#xA;&lt;/p&gt;</description>
+      <guid>http://localhost:61171/docs/Physics/section/buttons/</guid>
+      <description>&lt;h1 id=&#34;buttons&#34;&gt;&#xA;  Buttons&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#buttons&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Buttons are styled links that can lead to local page or external link.&lt;/p&gt;&#xA;&lt;h2 id=&#34;example&#34;&gt;&#xA;  Example&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#example&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;div class=&#34;code-block&#34;&gt;&#xA;    &lt;pre&gt;&#xA;&lt;code&gt;{{&lt; button relref=&#34;/&#34; [class=&#34;...&#34;] &gt;}}Get Home{{&lt; /button &gt;}}&#xA;{{&lt; button href=&#34;https://github.com/alex-shpak/hugo-book&#34; &gt;}}Contribute{{&lt; /button &gt;}}&lt;/code&gt;&#xA;    &lt;/pre&gt;&#xA;    &lt;button class=&#34;copy-button&#34;&gt;&#xA;        &lt;img src=&#34;https://systemuicons.com/images/icons/replicate.svg&#34; alt=&#34;copy the code&#34; /&gt;&#xA;    &lt;/button&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;&lt;a  href=&#34;http://localhost:61171/&#34;   class=&#34;book-btn&#34;&gt;Get Home&lt;/a&gt;&#xA;&#xA;&lt;a  href=&#34;https://github.com/alex-shpak/hugo-book&#34;   target=&#34;_blank&#34; rel=&#34;noopener&#34;  class=&#34;book-btn&#34;&gt;Contribute&lt;/a&gt;&#xA;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
