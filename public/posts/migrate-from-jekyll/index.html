@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=53698&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=54143&amp;path=livereload" data-no-instant defer></script>
   <script>
     (function(){
       
@@ -32,7 +32,7 @@ should become
 Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:53698/posts/migrate-from-jekyll/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:54143/posts/migrate-from-jekyll/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="Migrate to Hugo from Jekyll">
   <meta property="og:description" content="Move static content to static # Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
@@ -47,13 +47,13 @@ Additionally, you&rsquo;ll want any files that should reside at the root (such a
 Migrating from Jekyll | 位相学補完計画</title>
 <link rel="icon" href="/topo.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:53698/posts/migrate-from-jekyll/">
+<link rel="canonical" href="http://localhost:54143/posts/migrate-from-jekyll/">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.92eab216091087ede59d9f30ac1390cc63bb988b15c7f0f0ce73ab54f0de6979.css" integrity="sha256-kuqyFgkQh&#43;3lnZ8wrBOQzGO7mIsVx/DwznOrVPDeaXk=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.04fae1576ece7d229220c6fef4775cdbe82b8c8a5bd5a661d3c7db83fcb84092.css" integrity="sha256-BPrhV27OfSKSIMb&#43;9Hdc2&#43;grjIpb1aZh08fbg/y4QJI=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.b1433436f2a92d99856b12aab47a98503467288083b70e80a319af89294184b1.js" integrity="sha256-sUM0NvKpLZmFaxKqtHqYUDRnKICDtw6AoxmviSlBhLE=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.016ed24800a463a933d28673b5107f0c8933be9571153e2f45da287a4a7f3e43.js" integrity="sha256-AW7SSACkY6kz0oZztRB/DIkzvpVxFT4vRdooekp/PkM=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -333,7 +333,7 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle"  />
     <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
       <a role="button"
-         class="">第八章</a>
+         class="">第八章 积分</a>
     </label>
   
 
@@ -1122,7 +1122,8 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
       <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
-    <aside class="toolbar">
+    <div class="toolbar-trigger"></div>
+<aside class="toolbar">
   <button id="theme-toggle" class="theme-toggle-btn">
     <img src="/blackhole2.png" alt="Switch Theme">
   </button>
@@ -1160,6 +1161,9 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
 
 
 <script src="/font-size.min.js"></script>
+
+
+<script src="/toolbar.min.js"></script>
 
 
     
@@ -1319,66 +1323,6 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
   </script>
   
   
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true,
-      packages: {'[+]': ['ams', 'noerrors', 'color']}
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'tex2jax_process'
-    },
-    svg: {
-      fontCache: 'global'
-    },
-    startup: {
-      ready: function() {
-        
-        const oldFindTeX = MathJax.startup.findTeX;
-        MathJax.startup.findTeX = function(options) {
-          
-          const results = oldFindTeX.call(this, options);
-          
-          
-          for (const item of results) {
-            if (item.display) {
-              
-              
-              
-              let processedMath = item.math;
-              
-              
-              processedMath = processedMath.replace(/(\\)begin\{([^}]+)\}/g, '\\\\begin{$2}');
-              processedMath = processedMath.replace(/(\\)end\{([^}]+)\}/g, '\\\\end{$2}');
-              
-              
-              processedMath = processedMath.replace(/\\(?!\\)(text|mathbf|mathit|mathrm|left|right|frac|sum|int|prod|lim|infty|in|notin|subset|supset|cup|cap|bigcup|bigcap|mathbb|mathcal|hat|bar|vec|dot|ddot|cdot|ldots|vdots|cdots|partial|nabla|forall|exists|alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|lambda|mu|nu|xi|pi|rho|sigma|tau|upsilon|phi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Upsilon|Phi|Psi|Omega)/g, '\\\\$1');
-              
-              
-              processedMath = processedMath.replace(/\\(?!\\)([\{\}\[\]|<>=:;,\._-])/g, '\\\\$1');
-              
-              
-              
-              processedMath = processedMath.replace(/\\(?!\\)([^a-zA-Z\{])/g, '\\\\$1');
-              
-              item.math = processedMath;
-            }
-          }
-          
-          return results;
-        };
-        
-        MathJax.startup.defaultReady();
-      }
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {
