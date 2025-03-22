@@ -48,17 +48,23 @@ $hint-colors: (
 
   
   //body
+  --body-gray: hsl(0, 0%, 90%);
   --body-background: linear-gradient(
     to right,
     hsl(240, 0%, 98%) 0%,
     #ffffff 10%,
     #ffffff 80%,
-    hsl(240, 5%, 90%)  100%
+    var(--body-gray)  95%,
+    var(--body-gray)  100%
   );
   --md-background: white;
   --body-font-color: black;
   --post-background: #f8f9fa;
 
+  //theorem
+  --theorem-background: #f8f9fa;
+  --theorem-border: #a3a3a3;
+  
   //code
   --code-background: rgb(234, 234, 234);
   --code-border: 1px solid #cccccc;
@@ -118,6 +124,10 @@ $hint-colors: (
   --body-font-color: #c7c7d0;
   --post-background: #1b0b34;
 
+  //theorem
+  --theorem-background: #1f1f1f;
+  --theorem-border: black;
+  
   //code
   --code-background: black;
   --code-border: 1px solid #2d1d4c;

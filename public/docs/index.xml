@@ -2,16 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on 位相学補完計画</title>
-    <link>http://localhost:63486/docs/</link>
+    <link>http://localhost:53698/docs/</link>
     <description>Recent content in Docs on 位相学補完計画</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:63486/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:53698/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:63486/docs/GPT-Conversion/</link>
+      <link>http://localhost:53698/docs/2023-09-15/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:63486/docs/GPT-Conversion/</guid>
+      <guid>http://localhost:53698/docs/2023-09-15/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:53698/docs/GPT-Conversion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:53698/docs/GPT-Conversion/</guid>
       <description></description>
     </item>
   </channel>

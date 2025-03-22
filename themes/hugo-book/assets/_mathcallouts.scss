@@ -3,11 +3,16 @@
   padding: 0;
   border: none;
   border-radius: 4px;
-  box-shadow: none;
-  background-color: var(--gray-100);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--theorem-background);
   font-family: 'Computer Modern', 'CMU Serif', serif;
   position: relative;
   overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
   
   /* Use a pseudo-element for the border to prevent clipping */
   &::before {
@@ -17,7 +22,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 1px solid #a3a3a3;
+    border: 1px solid var(--theorem-border);
     border-radius: 4px;
     pointer-events: none;
     z-index: 2;
@@ -28,6 +33,15 @@
   border-inline-start: none !important;
   &:after {
     display: none !important;
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .math-theorem {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  
+  &:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
   }
 }
 
@@ -45,7 +59,7 @@
   padding: 15px 30px 5px;
   font-weight: bold;
   font-size: 1.1em;
-  background-color: var(--gray-100);
+  background-color: var(--theorem-background);
   border-bottom: none;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -57,7 +71,7 @@
 
 .theorem-content {
   padding: 0px 30px 20px;
-  background-color: var(--gray-100);
+  background-color: var(--theorem-background);
   line-height: 1.5;
   position: relative;
   z-index: 1;
