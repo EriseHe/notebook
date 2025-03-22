@@ -23,6 +23,9 @@
   <link rel="alternate" hreflang="{{ default .Site.LanguageCode .Language.Lang }}" href="{{ .Permalink }}" title="{{ partial "docs/title" . }}">
 {{- end -}}
 
+<!-- Computer Modern Font -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
+
 <!-- Theme stylesheet, you can customize scss by creating `assets/custom.scss` in your website -->
 {{- $styles := resources.Get "book.scss" | resources.ExecuteAsTemplate "book.scss" . | css.Sass | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" {{ template "integrity" $styles }}>
