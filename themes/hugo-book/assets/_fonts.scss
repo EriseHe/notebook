@@ -30,6 +30,8 @@
 @font-face {
   font-family: "Computer Modern";
   src: url('https://spratt.github.io/Computer-Modern/cmunss.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
   font-display: fallback;
 }
 
@@ -37,6 +39,7 @@
   font-family: "Computer Modern";
   src: url('https://spratt.github.io/Computer-Modern/cmunsx.otf') format('opentype');
   font-weight: bold;
+  font-style: normal;
   font-display: fallback;
 }
 
@@ -113,12 +116,76 @@
 
 /* -------------------------------------- */
 
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/fonts/sf-pro-text-regular-webfont.woff') format('woff'),
+       url('/fonts/sf-pro-text-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
 
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/fonts/sf-pro-text-semibold-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+}
+
+/* Chinese Font Support - PingFang SC */
+@font-face {
+  font-family: 'PingFang SC';
+  src: url('https://raw.githubusercontent.com/zongren/font/master/PingFang-SC-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+F900-FAFF, U+2F800-2FA1F; /* Chinese characters only */
+}
+
+@font-face {
+  font-family: 'PingFang SC';
+  src: url('https://raw.githubusercontent.com/zongren/font/master/PingFang-SC-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+F900-FAFF, U+2F800-2FA1F; /* Chinese characters only */
+}
+
+@font-face {
+  font-family: 'PingFang SC';
+  src: url('https://raw.githubusercontent.com/zongren/font/master/PingFang-SC-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+F900-FAFF, U+2F800-2FA1F; /* Chinese characters only */
+}
+
+/* Also add Noto Sans SC as a reliable fallback for Chinese text */
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('https://fonts.gstatic.com/s/notosanssc/v36/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.0.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF; /* Chinese characters */
+}
+
+/* ------ */
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'SF Pro', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* body {
+  font-family: 'Roboto', sans-serif;
+} */
 
 code {
   font-family: 'Roboto Mono', monospace;
+}
+
+/* Add a CSS Variable for the font stack so it can be reused consistently */
+:root {
+  --main-font-stack: 'SF Pro', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }

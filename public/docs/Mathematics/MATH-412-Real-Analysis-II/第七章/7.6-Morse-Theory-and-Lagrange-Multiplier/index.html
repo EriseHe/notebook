@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <script>
+    (function(){
+      
+      
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Morse Theory: Local Behavior Near a Critical Point
+  #
+
+
+  Introduction
+  #
+
+Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ and $x_0$ is a critical point. Then one can use $H(x_0)$ to classify critical points. Morse theory makes this classification more precise.
+
+  Morse Lemma
+  #
+
+Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ with critical point $x_0 \in A$. If $H(x_0)$ is non-degenerate, then there exists a neighborhood of $x_0$ and a diffeomorphism $g$ such that the function $f \circ g$ has the form:">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Theory-and-Lagrange-Multiplier/">
+  <meta property="og:site_name" content="位相学補完計画">
+  <meta property="og:title" content="位相学補完計画">
+  <meta property="og:description" content="Morse Theory: Local Behavior Near a Critical Point # Introduction # Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ and $x_0$ is a critical point. Then one can use $H(x_0)$ to classify critical points. Morse theory makes this classification more precise.
+Morse Lemma # Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ with critical point $x_0 \in A$. If $H(x_0)$ is non-degenerate, then there exists a neighborhood of $x_0$ and a diffeomorphism $g$ such that the function $f \circ g$ has the form:">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>
+7.6 Morse Theory and Lagrange Multiplier | 位相学補完計画</title>
+<link rel="icon" href="/topo.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Theory-and-Lagrange-Multiplier/">
+<link rel="stylesheet" href="/book.min.4fd28abc277f649118ceb60f27e6f19f1e1a2956a5a83420eecbd5431fe16996.css" integrity="sha256-T9KKvCd/ZJEYzrYPJ&#43;bxnx4aKValqDQg7svVQx/haZY=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.dde83a98cd31ddf917d7090368182f2654a268233e2a37652f30f31baa977548.js" integrity="sha256-3eg6mM0x3fkX1wkDaBgvJlSiaCM&#43;KjdlLzDzG6qXdUg=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+
+</head>
+
+<body dir="ltr">
+  
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
+  <main class="container flex">
+    
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center justify-center" 
+     href="/">
+    <img src="/topo.png" 
+         alt="Logo" 
+         class="book-icon" />
+    <span>位相学補完計画</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+<nav class="subject-menu">
+  
+  <div class="subject-tabs">
+    <button class="subject-tab active" data-subject="mathematics">Mathematics</button>
+    <button class="subject-tab" data-subject="physics">Physics</button>
+  </div>
+
+  
+  <div class="subject-content">
+    
+    <div class="subject-panel" data-subject="mathematics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-a63a9a9b1255d2452f51b3f981d1d85b" class="toggle" checked />
+    <label for="section-a63a9a9b1255d2452f51b3f981d1d85b" class="flex justify-between">
+      <a role="button"
+         class="">爽分析 II</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-f32f50e4ab223ab70ee49bfec6b8df2a" class="toggle"  />
+    <label for="section-f32f50e4ab223ab70ee49bfec6b8df2a" class="flex justify-between">
+      <a role="button"
+         class="">第六章 可微映射</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/"
+       class="">6.4 可微分性的必要条件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/"
+       class="">6.5 链式法则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/"
+       class="">6.6 乘积法则与梯度</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/"
+       class="">6.9 泰勒公式的高维形式</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-a2aa4d2f8718297b093bd049ccfd1565" class="toggle" checked />
+    <label for="section-a2aa4d2f8718297b093bd049ccfd1565" class="flex justify-between">
+      <a role="button"
+         class="">第七章 逆函数和隐函数定理</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Theory-and-Lagrange-Multiplier/"
+       class="active">7.6 Morse Theory and Lagrange Multiplier</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/"
+       class="">7.1 反函数定理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/"
+       class="">7.1.1 证明</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/"
+       class="">7.2 隐函数定理</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-dddd636e96e3500b5a7922333523656e" class="toggle"  />
+    <label for="section-dddd636e96e3500b5a7922333523656e" class="flex justify-between">
+      <a role="button"
+         class="">第八章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-Integration/"
+       class="">8.1 Integration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/"
+       class="">8.2 Criterion for Integrability</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/"
+       class="">8.3 Proof of Lebesgue&#39;s Theorem</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-57395eca00f85da68ae61bd79974f6fc" class="toggle"  />
+    <label for="section-57395eca00f85da68ae61bd79974f6fc" class="flex justify-between">
+      <a role="button"
+         class="">偏微分方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-133261547be38eee2799ae7840e88725" class="toggle"  />
+    <label for="section-133261547be38eee2799ae7840e88725" class="flex justify-between">
+      <a role="button"
+         class="">数值方法</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/"
+       class="">Lecture Notes ( Mar 18)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-20/"
+       class="">Lecture Notes ( Mar 20)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/"
+       class="">Mid Point Method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/"
+       class="">Three Point Backward Differentiation Formula ( Feb 4)</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-526b0483e488d1203844d923a341c896" class="toggle"  />
+    <label for="section-526b0483e488d1203844d923a341c896" class="flex justify-between">
+      <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
+         class="">热方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/Heat-Equation-Solution/"
+       class="">Heat Equation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/The-Fourier-Series/"
+       class="">傅立叶级数</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-66c2f23a27e7164dff10a86d4f5d8b0d" class="toggle"  />
+    <label for="section-66c2f23a27e7164dff10a86d4f5d8b0d" class="flex justify-between">
+      <a role="button"
+         class="">波方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-8e04eb3bc079e847837a856c3be161c3" class="toggle"  />
+    <label for="section-8e04eb3bc079e847837a856c3be161c3" class="flex justify-between">
+      <a role="button"
+         class="">拉普拉斯方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+
+    
+    <div class="subject-panel hidden" data-subject="physics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-b0ab8542f46fab9cab620f05479c2de5" class="toggle"  />
+    <label for="section-b0ab8542f46fab9cab620f05479c2de5" class="flex justify-between">
+      <a role="button"
+         class="">Quantum Mechenics</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Chapter-1-The-Wave-Function/"
+       class="">Chapter 1 the Wave Function</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Chapter-2-Time-Independent-Schrodinger-Equation-Stationary-States/"
+       class="">Chapter 2 Time Independent Schrodinger Equation Stationary States</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/"
+       class="">Feb 5 Fourier Series on S. Euqation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/"
+       class="">Hw3 Code</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/"
+       class="">Wave Functions Live in Hilbert Space</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+  </div>
+</nav>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.subject-tab');
+    const panels = document.querySelectorAll('.subject-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        panels.forEach(p => p.classList.add('hidden'));
+
+        
+        tab.classList.add('active');
+        
+        const subject = tab.getAttribute('data-subject');
+        const panel = document.querySelector(`.subject-panel[data-subject="${subject}"]`);
+        if (panel) {
+          panel.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+<div class="after-menu-offset">
+  
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/EriseHe/erisehe.github.io"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/themes/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+</div>
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+    
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>7.6 Morse Theory and Lagrange Multiplier</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+  
+  
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#morse-theory-local-behavior-near-a-critical-point">Morse Theory: Local Behavior Near a Critical Point</a>
+          <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#morse-lemma">Morse Lemma</a></li>
+            <li><a href="#applications">Applications</a></li>
+            <li><a href="#idea-diagonalization-of-hessian-matrix">Idea: Diagonalization of Hessian Matrix</a></li>
+          </ul>
+        </li>
+        <li><a href="#constrained-extremal-problem">Constrained Extremal Problem</a>
+          <ul>
+            <li><a href="#lagrange-multiplier-method">Lagrange Multiplier Method</a></li>
+            <li><a href="#procedure-to-solve-extremal-problem">Procedure to Solve Extremal Problem</a></li>
+          </ul>
+        </li>
+        <li><a href="#extremal-problem-with-multiple-constraints">Extremal Problem with Multiple Constraints</a>
+          <ul>
+            <li><a href="#procedure-solve-the-system-of-equations">Procedure: Solve the system of equations</a></li>
+            <li><a href="#analytical-proof-of-the-theorem-lagrange-multiplier">Analytical Proof of the Theorem (Lagrange Multiplier)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="book-article">
+    <div class="markdown posts"><h2 id="morse-theory-local-behavior-near-a-critical-point">
+  Morse Theory: Local Behavior Near a Critical Point
+  <a class="anchor" href="#morse-theory-local-behavior-near-a-critical-point">#</a>
+</h2>
+<h3 id="introduction">
+  Introduction
+  <a class="anchor" href="#introduction">#</a>
+</h3>
+<p>Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ and $x_0$ is a critical point. Then one can use $H(x_0)$ to classify critical points. Morse theory makes this classification more precise.</p>
+<h3 id="morse-lemma">
+  Morse Lemma
+  <a class="anchor" href="#morse-lemma">#</a>
+</h3>
+<p>Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ with critical point $x_0 \in A$. If $H(x_0)$ is non-degenerate, then there exists a neighborhood of $x_0$ and a diffeomorphism $g$ such that the function $f \circ g$ has the form:</p>
+<p>$$f \circ g(y) = f(x_0) + \sum_{i=1}^{\lambda} -y_i^2 + \sum_{i=\lambda+1}^n y_i^2$$</p>
+<p>where $\lambda$ is an integer called the <strong>index</strong> of $f$ at $x_0$.</p>
+<h3 id="applications">
+  Applications
+  <a class="anchor" href="#applications">#</a>
+</h3>
+<ul>
+<li>$\lambda = 0$: $x_0$ is local minimum (paraboloid opens upward)</li>
+<li>$\lambda = n$: $x_0$ is local maximum (paraboloid opens downward)</li>
+<li>$0 &lt; \lambda &lt; n$: $x_0$ is saddle point (hyperboloid)</li>
+</ul>
+<h3 id="idea-diagonalization-of-hessian-matrix">
+  Idea: Diagonalization of Hessian Matrix
+  <a class="anchor" href="#idea-diagonalization-of-hessian-matrix">#</a>
+</h3>
+<p>$H(f) = \begin{pmatrix}
+\frac{\partial^2 f}{\partial x_1^2} &amp; \frac{\partial^2 f}{\partial x_1 \partial x_2} &amp; \cdots \
+\frac{\partial^2 f}{\partial x_2 \partial x_1} &amp; \frac{\partial^2 f}{\partial x_2^2} &amp; \cdots \
+\vdots &amp; \vdots &amp; \ddots
+\end{pmatrix}$</p>
+<p>$\lambda$ = # of negative eigenvalues of $H(f)(x_0)$</p>
+<h4 id="example-determine-the-shape-of-the-surface-z--fxy-near-00">
+  Example: Determine the shape of the surface $z = f(x,y)$ near $(0,0)$
+  <a class="anchor" href="#example-determine-the-shape-of-the-surface-z--fxy-near-00">#</a>
+</h4>
+<p><strong>Solution</strong>:
+At $(0,0)$, $f_x = 0$, $f_y = 0$</p>
+<p>Compute eigenvalues of the Hessian matrix. If there is one negative eigenvalue, $\lambda = 1$, it&rsquo;s a saddle point (hyperboloid).</p>
+<h2 id="constrained-extremal-problem">
+  Constrained Extremal Problem
+  <a class="anchor" href="#constrained-extremal-problem">#</a>
+</h2>
+<p><strong>Goal</strong>: To maximize or minimize a function $f(x): \mathbb{R}^n \to \mathbb{R}$ under the condition $g(x) = c$.</p>
+<h3 id="lagrange-multiplier-method">
+  Lagrange Multiplier Method
+  <a class="anchor" href="#lagrange-multiplier-method">#</a>
+</h3>
+<h4 id="a-necessary-condition">
+  A Necessary Condition
+  <a class="anchor" href="#a-necessary-condition">#</a>
+</h4>
+<p><strong>Theorem</strong>: Let $f, g: U \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^1$. Assume $g(x_0) = c_0$ with $\nabla g(x_0) \neq 0$. If $f$ restricted to the surface $S = {g(x) = c_0}$ has a max or min at $x_0$, then there exists a real number $\lambda$ such that:</p>
+<p>$$\nabla f(x_0) = \lambda \nabla g(x_0)$$</p>
+<h4 id="geometric-meaning">
+  Geometric Meaning
+  <a class="anchor" href="#geometric-meaning">#</a>
+</h4>
+<ol>
+<li>$\nabla f(x_0)$ points in the direction of steepest ascent</li>
+<li>At the extremum, this direction is perpendicular to the surface $S$</li>
+</ol>
+<h4 id="geometric-proof">
+  Geometric Proof
+  <a class="anchor" href="#geometric-proof">#</a>
+</h4>
+<p>Let $c(t)$ be a fixed curve on $S = {g(x) = c_0}$ passing through $x_0$ at $t = t_0$. If $f$ restricted to $S$ has a max at $x_0$, then $f(c(t))$ has max at $t_0$.</p>
+<p>Therefore: $\frac{d}{dt}f(c(t))|_{t=t_0} = 0$</p>
+<p>By chain rule: $\nabla f(c(t_0)) \cdot c&rsquo;(t_0) = 0$</p>
+<p>Since $c&rsquo;(t_0)$ is tangent to $S$ at $x_0$, $\nabla f(x_0)$ must be perpendicular to the tangent space of $S$ at $x_0$. Therefore, it must be parallel to $\nabla g(x_0)$, which is normal to the surface.</p>
+<h3 id="procedure-to-solve-extremal-problem">
+  Procedure to Solve Extremal Problem
+  <a class="anchor" href="#procedure-to-solve-extremal-problem">#</a>
+</h3>
+<p><strong>Step 1</strong>: Solve the system of equations
+$$\nabla f(x) = \lambda \nabla g(x)$$
+$$g(x) = c$$</p>
+<p>This gives $n+1$ equations with $n+1$ variables $(x_1, x_2, &hellip;, x_n, \lambda)$</p>
+<p><strong>Step 2</strong>: Compute values of $f$ at these critical points and determine which are maxima, minima, or saddle points</p>
+<h4 id="example-find-the-extrema-of">
+  Example: Find the extrema of
+  <a class="anchor" href="#example-find-the-extrema-of">#</a>
+</h4>
+<p>$$f(x,y) = x^2 y^2$$ subject to the condition $x^2 + y^2 = 1$</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>
+<p>Applying Lagrange multiplier method:
+$\nabla f = (2xy^2, 2x^2y) = \lambda \nabla g = \lambda(2x, 2y)$</p>
+</li>
+<li>
+<p>This gives us:</p>
+<ul>
+<li>$xy^2 = \lambda x$</li>
+<li>$x^2y = \lambda y$</li>
+</ul>
+</li>
+<li>
+<p>Analyzing by cases:</p>
+<ul>
+<li>Case 1: If $x = 0$, then $y = \pm 1$ (from constraint)</li>
+<li>Case 2: If $y = 0$, then $x = \pm 1$ (from constraint)</li>
+<li>Case 3: If $x \neq 0$ and $y \neq 0$:
+<ul>
+<li>From the first equation: $y^2 = \lambda$ (dividing by $x$)</li>
+<li>From the second equation: $x^2 = \lambda$ (dividing by $y$)</li>
+<li>This gives $x^2 = y^2$</li>
+<li>With the constraint $x^2 + y^2 = 1$, we get $2x^2 = 1$, so $x = \pm\frac{1}{\sqrt{2}}$ and $y = \pm\frac{1}{\sqrt{2}}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Critical points: $(0, \pm 1), (\pm 1, 0), (\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}), (\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}}), (-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}), (-\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}})$</p>
+</li>
+<li>
+<p>Evaluating $f(x,y) = x^2y^2$ at these points:</p>
+<ul>
+<li>$f(0, \pm 1) = 0$</li>
+<li>$f(\pm 1, 0) = 0$</li>
+<li>$f(\pm\frac{1}{\sqrt{2}}, \pm\frac{1}{\sqrt{2}}) = (\frac{1}{2})^2 = \frac{1}{4}$</li>
+</ul>
+</li>
+<li>
+<p>Therefore, the maximum value is $\frac{1}{4}$ at $(\pm\frac{1}{\sqrt{2}}, \pm\frac{1}{\sqrt{2}})$, and the minimum value is $0$ at $(0, \pm 1)$ and $(\pm 1, 0)$.</p>
+</li>
+</ol>
+<h2 id="extremal-problem-with-multiple-constraints">
+  Extremal Problem with Multiple Constraints
+  <a class="anchor" href="#extremal-problem-with-multiple-constraints">#</a>
+</h2>
+<p>Maximize/minimize $f(x)$ with constraints:</p>
+<ul>
+<li>$g_1(x) = c_1$</li>
+<li>$g_2(x) = c_2$</li>
+<li>&hellip;</li>
+<li>$g_m(x) = c_m$</li>
+</ul>
+<h3 id="procedure-solve-the-system-of-equations">
+  Procedure: Solve the system of equations
+  <a class="anchor" href="#procedure-solve-the-system-of-equations">#</a>
+</h3>
+<p>$$\nabla f(x) = \lambda_1 \nabla g_1(x) + \lambda_2 \nabla g_2(x) + &hellip; + \lambda_m \nabla g_m(x)$$
+$$g_1(x) = c_1, g_2(x) = c_2, &hellip;, g_m(x) = c_m$$</p>
+<p>With $m+n$ equations and $m+n$ variables $(x_1,&hellip;,x_n, \lambda_1,&hellip;,\lambda_m)$</p>
+<h3 id="analytical-proof-of-the-theorem-lagrange-multiplier">
+  Analytical Proof of the Theorem (Lagrange Multiplier)
+  <a class="anchor" href="#analytical-proof-of-the-theorem-lagrange-multiplier">#</a>
+</h3>
+<p>We want to substitute the condition $g(x) = c_0$ into the function $f(x)$ to eliminate the constraint.</p>
+<p>Since $\nabla g(x_0) \neq 0$, we may assume without loss of generality that $\frac{\partial g}{\partial x_n} \neq 0$ at $x_0$.</p>
+<p>By the implicit function theorem, the equation $g(x_1, x_2, &hellip;, x_n) = c_0$ can be solved for $x_n$ in a neighborhood of $x_0$:
+$$x_n = h(x_1, x_2, &hellip;, x_{n-1})$$</p>
+<p>Let $k(x_1, x_2, &hellip;, x_{n-1}) = f(x_1, x_2, &hellip;, x_{n-1}, h(x_1, x_2, &hellip;, x_{n-1}))$</p>
+<p>Thus, an extremum of $f$ subject to the constraint corresponds to an extremum of $k$ without constraints.</p>
+<p>At an extremum of $k$, we have:
+$$0 = \frac{\partial k}{\partial x_i} = \frac{\partial f}{\partial x_i} + \frac{\partial f}{\partial x_n}\frac{\partial h}{\partial x_i}, \quad i = 1, 2, &hellip;, n-1$$</p>
+<p>Since $g(x_1, x_2, &hellip;, x_{n-1}, h(x_1, x_2, &hellip;, x_{n-1})) = c_0$ identically, we can differentiate with respect to $x_i$:</p>
+<p>$$\frac{\partial g}{\partial x_i} + \frac{\partial g}{\partial x_n}\frac{\partial h}{\partial x_i} = 0, \quad i = 1, 2, &hellip;, n-1$$</p>
+<p>Solving for $\frac{\partial h}{\partial x_i}$:</p>
+<p>$$\frac{\partial h}{\partial x_i} = -\frac{\frac{\partial g}{\partial x_i}}{\frac{\partial g}{\partial x_n}}, \quad i = 1, 2, &hellip;, n-1$$</p>
+<p>Substituting this into our extremum condition:</p>
+<p>$$\frac{\partial f}{\partial x_i} - \frac{\partial f}{\partial x_n}\frac{\frac{\partial g}{\partial x_i}}{\frac{\partial g}{\partial x_n}} = 0, \quad i = 1, 2, &hellip;, n-1$$</p>
+<p>Rearranging:</p>
+<p>$$\frac{\partial f}{\partial x_i}\frac{\partial g}{\partial x_n} - \frac{\partial f}{\partial x_n}\frac{\partial g}{\partial x_i} = 0, \quad i = 1, 2, &hellip;, n-1$$</p>
+<p>Let $\lambda = \frac{\partial f}{\partial x_n} / \frac{\partial g}{\partial x_n}$, then:</p>
+<p>$$\frac{\partial f}{\partial x_i} = \lambda \frac{\partial g}{\partial x_i}, \quad i = 1, 2, &hellip;, n-1$$</p>
+<p>And by definition of $\lambda$, we also have $\frac{\partial f}{\partial x_n} = \lambda \frac{\partial g}{\partial x_n}$</p>
+<p>Therefore, in vector form: $\nabla f(x_0) = \lambda \nabla g(x_0)$</p>
+</div>
+  </article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/EriseHe/erisehe.github.io/edit/main/exampleSite/content.en/docs/Mathematics/MATH%20412%20Real%20Analysis%20II/%e7%ac%ac%e4%b8%83%e7%ab%a0/7.6%20Morse%20Theory%20and%20Lagrange%20Multiplier.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    <aside class="toolbar">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <img src="/blackhole2.png" alt="Switch Theme">
+  </button>
+  <button id="toc-toggle" class="toc-toggle-btn">
+    <img src="/toc-icon.svg" alt="Toggle TOC">
+  </button>
+</aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var initialTOCState = true;
+    var tocAside = document.getElementById('book-toc');
+    if (!initialTOCState) {
+      tocAside.classList.add('hidden');
+    } else {
+      tocAside.classList.remove('hidden');
+    }    
+    var toggleBtn = document.getElementById('toc-toggle');
+    toggleBtn.addEventListener('click', function(){
+      tocAside.classList.toggle('hidden');
+    });
+  });
+</script>
+
+
+    
+    
+    
+    
+      <aside id="book-toc" class="book-toc hidden">
+        <div class="book-toc-content">
+          
+<div class="button-prev">
+  
+</div>
+
+
+
+
+    
+          
+            <div class="toc-entries">
+              
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#morse-theory-local-behavior-near-a-critical-point">Morse Theory: Local Behavior Near a Critical Point</a>
+          <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#morse-lemma">Morse Lemma</a></li>
+            <li><a href="#applications">Applications</a></li>
+            <li><a href="#idea-diagonalization-of-hessian-matrix">Idea: Diagonalization of Hessian Matrix</a></li>
+          </ul>
+        </li>
+        <li><a href="#constrained-extremal-problem">Constrained Extremal Problem</a>
+          <ul>
+            <li><a href="#lagrange-multiplier-method">Lagrange Multiplier Method</a></li>
+            <li><a href="#procedure-to-solve-extremal-problem">Procedure to Solve Extremal Problem</a></li>
+          </ul>
+        </li>
+        <li><a href="#extremal-problem-with-multiple-constraints">Extremal Problem with Multiple Constraints</a>
+          <ul>
+            <li><a href="#procedure-solve-the-system-of-equations">Procedure: Solve the system of equations</a></li>
+            <li><a href="#analytical-proof-of-the-theorem-lagrange-multiplier">Analytical Proof of the Theorem (Lagrange Multiplier)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+            </div>
+          
+    
+          
+<div class="button-next">
+  
+</div>
+        </div>
+      </aside>
+    
+
+    
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+    
+      toggle.onclick = () => {
+        
+        const rect = toggle.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        
+        
+        
+        const currentThemeRaw = document.documentElement.getAttribute('data-theme');
+        const currentTheme = currentThemeRaw ? currentThemeRaw : 'auto';
+        
+        
+        
+        let effectiveTheme;
+        if (currentTheme === 'auto') {
+          effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+          effectiveTheme = currentTheme;
+        }
+        
+        
+        const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
+        
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        
+        const oldColor = effectiveTheme === 'dark' ? '#0b031c' : 'white';
+        
+        
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.zIndex = '9999';
+        overlay.style.pointerEvents = 'none';
+        
+        
+        overlay.style.setProperty('--cx', `${cx}px`);
+        overlay.style.setProperty('--cy', `${cy}px`);
+        overlay.style.setProperty('--r', '0px');
+        
+        
+
+        overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${oldColor} calc(var(--r) + 1px))`;
+        
+        document.body.appendChild(overlay);
+        
+        
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const finalRadius = Math.hypot(Math.max(cx, vw - cx), Math.max(cy, vh - cy));
+        
+        
+        const duration = 600; 
+        const startTime = performance.now();
+        
+        function animate(time) {
+          const elapsed = time - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const currentRadius = progress * finalRadius;
+          overlay.style.setProperty('--r', `${currentRadius}px`);
+          
+          
+          overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${currentRadius}px, ${oldColor} ${currentRadius + 1}px)`;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            overlay.remove();
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        }
+        requestAnimationFrame(animate);
+      };
+    });
+  </script>
+  
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      
+      var blockquotes = document.querySelectorAll("blockquote");
+      blockquotes.forEach(function(bq) {
+        var triggerText = "";
+        var triggerNode = null;
+    
+        
+        if (bq.firstElementChild && bq.firstElementChild.tagName.toLowerCase() === "p") {
+          triggerText = bq.firstElementChild.textContent.trim();
+          triggerNode = bq.firstElementChild;
+        } 
+        
+        else if (bq.firstChild && bq.firstChild.nodeType === Node.TEXT_NODE) {
+          triggerText = bq.firstChild.textContent.trim();
+          triggerNode = bq.firstChild;
+        }
+        
+        
+        var match = triggerText.match(/^\[\!(\w+)\|([\w\.\-]+)\]$/i);
+        if (match) {
+          var type = match[1];  
+          var number = match[2]; 
+          
+          
+          if (triggerNode) {
+            
+            if (triggerNode.nodeType === Node.ELEMENT_NODE) {
+              triggerNode.remove();
+            } else {
+              
+              triggerNode.textContent = "";
+            }
+          }
+          
+          
+          var header = document.createElement("div");
+          header.className = "math-theorem-header";
+          
+          var typeFormatted = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
+          header.textContent = typeFormatted + " " + number;
+          
+          
+          bq.insertBefore(header, bq.firstChild);
+          
+          bq.classList.add("framed-theorem");
+        }
+      });
+    });
+    </script>
+    
+  
+
+  <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
