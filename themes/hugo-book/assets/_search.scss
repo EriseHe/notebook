@@ -1,0 +1,97 @@
+/*-----------------Search Bar styling-----------------*/
+
+.book-search {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  
+  /* Search input styling */
+  #book-search-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 0.5rem;
+    background-color: var(--body-background);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    
+    /* Hover effect */
+    &:hover {
+      border-color: var(--color-link);
+      box-shadow: 0 0 0 2px rgba(var(--color-link-rgb), 0.1);
+      transform: translateY(-1px) scale(1.01);
+    }
+    
+    /* Focus effect */
+    &:focus {
+      outline: none;
+      border-color: var(--color-link);
+      box-shadow: 0 0 0 3px rgba(var(--color-link-rgb), 0.2);
+      transform: translateY(-1px) scale(1.02);
+    }
+  }
+  
+  /* Search results styling */
+  #book-search-results {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    max-height: 60vh;
+    overflow-y: auto;
+    
+    li {
+      padding: 0.75rem 1rem;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid var(--gray-200);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      &:hover {
+        background-color: var(--gray-100);
+        transform: translateX(5px);
+      }
+      
+      a {
+        display: block;
+        text-decoration: none;
+        color: var(--body-font-color);
+        
+        &:hover {
+          text-decoration: none;
+          color: var(--color-link);
+        }
+        
+        /* Match highlight */
+        mark {
+          background-color: rgba(var(--color-link-rgb), 0.2);
+          color: var(--color-link);
+          padding: 0 0.2rem;
+          border-radius: 0.2rem;
+        }
+      }
+    }
+  }
+  
+  /* Search spinner */
+  .book-search-spinner {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--gray-200);
+    border-top-color: var(--color-link);
+    border-radius: 50%;
+    animation: search-spinner 0.8s linear infinite;
+  }
+}
+
+@keyframes search-spinner {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} 

@@ -1,3 +1,8 @@
 /* You can override SASS variables here. */
 
 // @import "plugins/dark";
+
+// Adding RGB values for color-link for use in rgba() functions
+:root {
+  --color-link-rgb: 0, 62, 187;  // RGB values extracted from the link color in _defaults.scss
+}

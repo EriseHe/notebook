@@ -1,5 +1,6 @@
 html {
-  font-size: $font-size-base;
+  --root-font-size: #{$font-size-base};
+  font-size: var(--root-font-size);
   scroll-behavior: smooth;
   touch-action: manipulation;
 }
