@@ -1,0 +1,56 @@
+<!-- Theorem Blocks -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Process all blockquotes
+    document.querySelectorAll('blockquote').forEach(function(blockquote) {
+      // Get the first paragraph
+      const firstParagraph = blockquote.querySelector('p');
+      if (!firstParagraph) return;
+      
+      const text = firstParagraph.innerHTML;
+      
+      // Pattern matching for theorem types
+      const patterns = {
+        'lemma': '[!lemma|*]',
+        'theorem': '[!theorem|*]',
+        'assumption': '[!assumption|*]',
+        'claim': '[!claim|*]'
+      };
+      
+      // Check for any matching pattern
+      for (const [type, pattern] of Object.entries(patterns)) {
+        if (text.includes(pattern)) {
+          console.log(`Found theorem type: ${type}`);
+          
+          // Remove all children temporarily
+          const childNodes = Array.from(blockquote.childNodes);
+          blockquote.innerHTML = '';
+          
+          // Add class to blockquote
+          blockquote.classList.add('math-theorem', type);
+          
+          // Create and add the header
+          const header = document.createElement('div');
+          header.className = 'theorem-header';
+          header.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+          blockquote.appendChild(header);
+          
+          // Create content container
+          const content = document.createElement('div');
+          content.className = 'theorem-content';
+          blockquote.appendChild(content);
+          
+          // Modify the first paragraph to remove the marker
+          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(pattern, '');
+          
+          // Add all children back to the content div
+          childNodes.forEach(function(node) {
+            content.appendChild(node.cloneNode(true));
+          });
+          
+          break; // Stop after finding the first match
+        }
+      }
+    });
+  });
+</script> 

@@ -1528,58 +1528,55 @@ $$</p>
   </script>
   
   
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
+  
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const blockquotes = document.querySelectorAll('blockquote');
+  
+  blockquotes.forEach(function(blockquote) {
+    const firstParagraph = blockquote.querySelector('p');
+    if (!firstParagraph) return;
+    
+    const text = firstParagraph.innerHTML;
+    const match = text.match(/^\[!(lemma|theorem|assumption|claim)\|\*\](.*)/i);
+    
+    if (match) {
       
-      var blockquotes = document.querySelectorAll("blockquote");
-      blockquotes.forEach(function(bq) {
-        var triggerText = "";
-        var triggerNode = null;
-    
-        
-        if (bq.firstElementChild && bq.firstElementChild.tagName.toLowerCase() === "p") {
-          triggerText = bq.firstElementChild.textContent.trim();
-          triggerNode = bq.firstElementChild;
-        } 
-        
-        else if (bq.firstChild && bq.firstChild.nodeType === Node.TEXT_NODE) {
-          triggerText = bq.firstChild.textContent.trim();
-          triggerNode = bq.firstChild;
-        }
-        
-        
-        var match = triggerText.match(/^\[\!(\w+)\|([\w\.\-]+)\]$/i);
-        if (match) {
-          var type = match[1];  
-          var number = match[2]; 
-          
-          
-          if (triggerNode) {
-            
-            if (triggerNode.nodeType === Node.ELEMENT_NODE) {
-              triggerNode.remove();
-            } else {
-              
-              triggerNode.textContent = "";
-            }
-          }
-          
-          
-          var header = document.createElement("div");
-          header.className = "math-theorem-header";
-          
-          var typeFormatted = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
-          header.textContent = typeFormatted + " " + number;
-          
-          
-          bq.insertBefore(header, bq.firstChild);
-          
-          bq.classList.add("framed-theorem");
-        }
+      const theoremType = match[1].charAt(0).toUpperCase() + match[1].slice(1);
+      const restOfContent = match[2];
+      
+      
+      const theoremBlock = document.createElement('div');
+      theoremBlock.className = 'math-theorem ' + match[1].toLowerCase();
+      
+      
+      const header = document.createElement('div');
+      header.className = 'theorem-header';
+      header.textContent = theoremType;
+      theoremBlock.appendChild(header);
+      
+      
+      const content = document.createElement('div');
+      content.className = 'theorem-content';
+      
+      
+      firstParagraph.innerHTML = restOfContent;
+      
+      
+      Array.from(blockquote.children).forEach(child => {
+        content.appendChild(child.cloneNode(true));
       });
-    });
-    </script>
-    
+      
+      theoremBlock.appendChild(content);
+      
+      
+      blockquote.parentNode.replaceChild(theoremBlock, blockquote);
+    }
+  });
+});
+</script>
+
   
 
   <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>

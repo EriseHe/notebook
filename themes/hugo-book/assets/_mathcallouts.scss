@@ -1,19 +1,45 @@
-// Variables for theorem callout styling
-$border-color: #007acc;
-$background-color: #f0f8ff;
 
-.framed-theorem {
-  border: 2px solid $border-color;
-  padding: 1em;
-  margin: 1em 0;
-  border-radius: 8px;
-  background: $background-color;
+.math-theorem {
+  margin: 1.5em 0;
+  padding: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;
+  font-family: 'Computer Modern', 'CMU Serif', serif;
 }
 
-.math-theorem-header {
-  font-size: 1.2em;
+.theorem-header {
+  padding: 8px 15px;
   font-weight: bold;
-  margin-bottom: 0.5em;
-  border-bottom: 1px solid $border-color;
-  padding-bottom: 0.3em;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.theorem-content {
+  padding: 15px;
+  line-height: 1.5;
+}
+
+/* Special styling for different theorem types */
+.lemma .theorem-header {
+  background-color: #e6f3ff;
+  border-bottom-color: #b8daff;
+}
+
+.theorem .theorem-header {
+  background-color: #e6fff0;
+  border-bottom-color: #b8dac8;
+}
+
+.assumption .theorem-header {
+  background-color: #fff3e6;
+  border-bottom-color: #ffdbb8;
+}
+
+.claim .theorem-header {
+  background-color: #f5e6ff;
+  border-bottom-color: #d8b8ff;
 }
