@@ -16,4 +16,15 @@ F_1(x,y,z,u,v,w) ;&amp;amp;=; 3x + 2y + z^2 + u + v^2,\
 F_2(x,y,z,u,v,w) ;&amp;amp;=; 4x + 3y + z + u^2 + v + w + 2,\
 F_3(x,y,z,u,v,w) ;&amp;amp;=; x + z + w + u^2 + 2.
 \end{aligned}
-$$&lt;/p></description></item></channel></rss>
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-7/</guid><description>&lt;p>HW 7:
+7.6: 1, 2, 3, [4,5]; 7.7: 1, 2, 3, [4], 5, [6];
+Chapter 7: [25], 36, [38], 39.&lt;/p>
+&lt;p>&lt;font color="#ff0000">Problem 7.6.4&lt;/font>
+Let $f(x,y) = x^2 + y^2 + 3y^3 + 8x^4 + x^2e^x \sin x + 6$. Show that there exist new coordinates $\xi, \eta$, where
+$$\xi = \xi(x,y), \quad \eta = \eta(x,y),$$
+for which
+$$f(x,y) = \xi^2 + \eta^2 + 6$$
+in a neighborhood of $(0, 0)$.&lt;/p>
+&lt;p>&lt;font color="#ff0000">Problem 7.6.5&lt;/font>
+(a).
+If $f$ has a nondegenerate critical point at $x_0 \in \mathbb{R}^n$, show that there is a neighborhood of $x_0$ containing no other critical points.&lt;/p></description></item></channel></rss>
