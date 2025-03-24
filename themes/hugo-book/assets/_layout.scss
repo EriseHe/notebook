@@ -4,7 +4,7 @@
 .container {
   max-width: $container-max-width;
   margin: 0 auto;
-  margin-left: 0rem;
+  margin-left: 4rem;
   padding: 0 $padding-8;
 }
 
@@ -76,10 +76,15 @@
   transition: transform 0.3s ease, opacity 0.3s ease, max-width 0.3s ease;
   overflow: hidden;
   max-width: $toc-width;
+  position: fixed;
+  right: 3rem;
+  top: 0;
+  height: 100vh;
+  z-index: 100;
 }
 
 .book-toc.hidden {
-  transform: translateX(100px);
+  transform: translateX(100%);
   opacity: 0;
   max-width: 0;
   display: block; /* Override display:none to allow animation */
@@ -87,12 +92,12 @@
 }
 
 .book-toc-content {
-  position: sticky;
-  top: 0;
+  position: relative;
   padding: $padding-8;
   padding-right: 0;
   max-height: 100vh;
   overflow-y: auto;
+  height: 100%;
 }
 
 /* Article positioning */

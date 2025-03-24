@@ -25,27 +25,16 @@
           // First run the original method
           const results = oldFindTeX.call(this, options);
           
-          // Process display math content to double backslashes
+          // Process display math content to handle line breaks in aligned environments
           for (const item of results) {
             if (item.display) {
-              // Double backslashes, but handle special cases
-              
-              // Handle cases environment
               let processedMath = item.math;
               
-              // Handle \\begin{...}...\\end{...} environments
-              processedMath = processedMath.replace(/(\\)begin\{([^}]+)\}/g, '\\\\begin{$2}');
-              processedMath = processedMath.replace(/(\\)end\{([^}]+)\}/g, '\\\\end{$2}');
-              
-              // Handle other LaTeX commands that need doubled backslashes
-              processedMath = processedMath.replace(/\\(?!\\)(text|mathbf|mathit|mathrm|left|right|frac|sum|int|prod|lim|infty|in|notin|subset|supset|cup|cap|bigcup|bigcap|mathbb|mathcal|hat|bar|vec|dot|ddot|cdot|ldots|vdots|cdots|partial|nabla|forall|exists|alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|lambda|mu|nu|xi|pi|rho|sigma|tau|upsilon|phi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Upsilon|Phi|Psi|Omega)/g, '\\\\$1');
-              
-              // Handle basic symbols
-              processedMath = processedMath.replace(/\\(?!\\)([\{\}\[\]|<>=:;,\._-])/g, '\\\\$1');
-              
-              // Handle remaining single backslashes not followed by another backslash
-              // But avoid doubling already doubled backslashes
-              processedMath = processedMath.replace(/\\(?!\\)([^a-zA-Z\{])/g, '\\\\$1');
+              // Handle line breaks in aligned environments
+              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
+                // Replace single backslashes with double backslashes for line breaks
+                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
+              });
               
               item.math = processedMath;
             }
