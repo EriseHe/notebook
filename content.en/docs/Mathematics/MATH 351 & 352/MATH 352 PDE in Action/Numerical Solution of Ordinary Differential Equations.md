@@ -1,4 +1,8 @@
-# Numerical Solution of Ordinary Differential Equations
+---
+title: 常微分方程的数值解
+weight: "2"
+---
+
 
 ## Introduction
 
