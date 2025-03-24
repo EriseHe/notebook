@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Real Analysis II on 位相学補完計画</title>
-    <link>http://localhost:56785/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/</link>
+    <link>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/</link>
     <description>Recent content in Real Analysis II on 位相学補完計画</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:56785/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:56785/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</link>
+      <link>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56785/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</guid>
+      <guid>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</guid>
       <description>&lt;p&gt;7.2: 1, 2, [3,4]; Chapter 7: [4], 5, [6], 9, [12].&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;font color=&#34;#c00000&#34;&gt;Problem 7.2.3&lt;/font&gt;&lt;/strong&gt; In the system&#xA;$$\begin{array}{r}&#xA;3 x+2 y+z^2+u+v^2=0 \&#xA;4 x+3 y+z+u^2+v+w+2=0 \&#xA;x+z+w+u^2+2=0&#xA;\end{array}&#xA;$$&#xA;discuss the solvability for $u, v, w$ in terms of $x, y, z$ near $x=y=z=0, u=$ $v=0, w=-2$.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;[!theorem|*]&#xA;We first define three functions:&#xA;$$&#xA;\begin{aligned}&#xA;F_1(x,y,z,u,v,w) ;&amp;amp;=; 3x + 2y + z^2 + u + v^2,\&#xA;F_2(x,y,z,u,v,w) ;&amp;amp;=; 4x + 3y + z + u^2 + v + w + 2,\&#xA;F_3(x,y,z,u,v,w) ;&amp;amp;=; x + z + w + u^2 + 2.&#xA;\end{aligned}&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:56785/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-7/</link>
+      <link>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56785/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-7/</guid>
+      <guid>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-7/</guid>
       <description>&lt;p&gt;HW 7:&#xA;7.6: 1, 2, 3, [4,5]; 7.7: 1, 2, 3, [4], 5, [6];&#xA;Chapter 7: [25], 36, [38], 39.&lt;/p&gt;&#xA;&lt;p&gt;&lt;font color=&#34;#ff0000&#34;&gt;Problem 7.6.4&lt;/font&gt;&#xA;Let $f(x,y) = x^2 + y^2 + 3y^3 + 8x^4 + x^2e^x \sin x + 6$. Show that there exist new coordinates $\xi, \eta$, where&#xA;$$\xi = \xi(x,y), \quad \eta = \eta(x,y),$$&#xA;for which&#xA;$$f(x,y) = \xi^2 + \eta^2 + 6$$&#xA;in a neighborhood of $(0, 0)$.&lt;/p&gt;&#xA;&lt;p&gt;&lt;font color=&#34;#ff0000&#34;&gt;Problem 7.6.5&lt;/font&gt;&#xA;(a).&#xA;If $f$ has a nondegenerate critical point at $x_0 \in \mathbb{R}^n$, show that there is a neighborhood of $x_0$ containing no other critical points.&lt;/p&gt;</description>
     </item>
   </channel>

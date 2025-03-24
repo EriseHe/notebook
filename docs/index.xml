@@ -750,7 +750,11 @@ $$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]
  &lt;a class="anchor" href="#past-year">#&lt;/a>
 &lt;/h4>
 &lt;p>
- &lt;a href="https://sites.google.com/view/princetonrtg2023/mini-conferences">https://sites.google.com/view/princetonrtg2023/mini-conferences&lt;/a>&lt;/p></description></item><item><title>6.4 可微分性的必要条件</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/</guid><description>&lt;h2 id="1-necessary-condition-for-differentiability">
+ &lt;a href="https://sites.google.com/view/princetonrtg2023/mini-conferences">https://sites.google.com/view/princetonrtg2023/mini-conferences&lt;/a>&lt;/p></description></item><item><title/><link>https://erisehe.github.io/posts/Image-to-3D-Model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/posts/Image-to-3D-Model/</guid><description>&lt;h1 id="converting-2d-anime-style-clothing-to-3d-tools--workflow">
+ Converting 2D Anime-Style Clothing to 3D: Tools &amp;amp; Workflow
+ &lt;a class="anchor" href="#converting-2d-anime-style-clothing-to-3d-tools--workflow">#&lt;/a>
+&lt;/h1>
+&lt;p>Creating 3D clothing from 2D anime-style references (like Genshin Impact outfits) is now faster with AI-assisted tools, though manual refinement is often needed for the best results. This guide focuses on &lt;strong>clothing conversion&lt;/strong> – taking 2D images of robes, armor, or accessories and turning them into stylized 3D meshes with clean topology. We’ll explore the top AI tools and workflows (as of 2025) and outline a step-by-step process compatible with Blender.&lt;/p></description></item><item><title>6.4 可微分性的必要条件</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/</guid><description>&lt;h2 id="1-necessary-condition-for-differentiability">
  &lt;strong>1. Necessary Condition for Differentiability&lt;/strong>
  &lt;a class="anchor" href="#1-necessary-condition-for-differentiability">#&lt;/a>
 &lt;/h2>

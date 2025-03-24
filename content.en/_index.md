@@ -3,7 +3,6 @@ title: Introduction
 type: docs
 BookToc: True
 ShowTitle: false
-
 ---
 
 # <div class="book-brand" style="display: flex; justify-content: center;">  Topological<br> Instrumentality<br> Project (T.I.P.) </div>

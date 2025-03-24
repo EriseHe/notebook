@@ -1,0 +1,80 @@
+/* ------------------------------------------------------------------------
+   Tabbed Menu for Mathematics & Physics
+------------------------------------------------------------------------ */
+
+/* Subject tabs styling */
+.subject-tabs { 
+  display: flex; 
+  gap: 1rem; 
+  margin-bottom: 1rem; 
+}
+
+/* Individual tab button */
+.subject-tab { 
+  padding: 0.5rem 1rem; 
+  border: none;
+  outline: none;
+  color: var(--body-font-color);
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Active tab styling */
+.subject-tab.active {
+  background: var(--color-toc-hover);
+  color: var(--color-link);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+/* Tab content container */
+.subject-content {
+  position: relative; // establishes a stacking context
+  padding: 0.6rem; // adjust as needed for your design
+  padding-right: 1.2rem;
+
+  a:hover {
+    transform: scale(1.02);
+    color: rgb(104, 104, 104);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Tab content background */
+.subject-content::before {
+  content: "";
+  position: absolute;
+  border-radius: 3px;
+  background: var(--color-menu);
+
+  top: -17px;  // extend 20px above the content
+  left: -0.8rem; // align with the right edge of the content
+  right: 0rem;
+  height: calc(100% + 12rem);
+  background-color: var(--color-toc-hover);
+  z-index: -1; // keep background behind content
+  box-shadow: 0px -3px 0.5px rgba(0, 0, 0, 0.201);
+}
+
+/* Additional menu offset */
+.after-menu-offset {
+  margin-top: 1rem; // adjust the value as needed
+  color: var(--gray-500);
+
+  a {
+    display: block;
+  }
+
+  a:hover {
+    transform: scale(1.02);
+    color: rgb(16, 16, 16);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Book tabs styling (for shortcodes) */
+.book-tabs {
+  margin: 1rem 0;
+  
+  /* Add any additional styling for the tabs shortcode here */
+}
