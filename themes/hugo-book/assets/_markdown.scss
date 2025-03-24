@@ -24,29 +24,37 @@
   margin-top: 0.5em;
   } 
   h2 {
-    position: relative;                // Establish a positioning context for the pseudo-element
-    font-weight: bold; 
-    color: var(--color-h2); 
-    font-size: 1.4em;
-    padding-bottom: 5px;
-    border-bottom: 2px solid var(--gray-500); // Underline naturally wraps only the text
-    margin-top: 1em;
-    margin-bottom: 0.5em;
+    position: relative;
+    font-weight: 600;
+    color: var(--color-h2);
+    font-size: 1.5em;
+    padding: 0em 0em;
+    margin: 1.2em 0 0.8em 0;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: -15px;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to right, var(--gray-200), var(--gray-100));
+      border-radius: 4rem;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0.8em;
+      right: 0.8em;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gray-400), transparent);
+      border-radius: 2px;
+    }
   }
   
-  // Use ::after for the background that only covers the h2 text area
-  h2::after {
-    content: "";
-    position: absolute;
-    top: 0.8rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 0px;
-    background-color: var(--gray-200);  // Background color will wrap the text
-    z-index: -1;  // Places the background behind the text and border
-  }
-
   h3 {
   font-weight: bold;
   font-size: 1.2em;

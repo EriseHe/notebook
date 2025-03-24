@@ -29,9 +29,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.530d4bd5218e6795f925a395d969f70e0b117b7638e64f5e205b2614391773fd.css" integrity="sha256-Uw1L1SGOZ5X5JaOV2Wn3DgsRe3Y45k9eIFsmFDkXc/0=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.839b93e88a799b0403580666e08de0e404e1d28a340c64ad56e9b0efedfc4975.css" integrity="sha256-g5uT6Ip5mwQDWAZm4I3g5ATh0oo0DGStVumw7&#43;38SXU=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.8d7ed1d5e6e843ca64df1955933578fcad7e058a469be93e18857aaa19910dbc.js" integrity="sha256-jX7R1eboQ8pk3xlVkzV4/K1&#43;BYpGm&#43;k&#43;GIV6qhmRDbw=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ed8aa79d9d353b70c8e19c40a0d886d37b035ae06a566b4a3cf14de47bc87dd2.js" integrity="sha256-7YqnnZ01O3DI4ZxAoNiG03sDWuBqVmtKPPFN5HvIfdI=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/docs/Mathematics/MATH-351-352/Wave-Equation/index.xml" title="位相学補完計画" />
@@ -1088,24 +1088,13 @@ https://github.com/alex-shpak/hugo-book
           
           for (const item of results) {
             if (item.display) {
-              
-              
-              
               let processedMath = item.math;
               
               
-              processedMath = processedMath.replace(/(\\)begin\{([^}]+)\}/g, '\\\\begin{$2}');
-              processedMath = processedMath.replace(/(\\)end\{([^}]+)\}/g, '\\\\end{$2}');
-              
-              
-              processedMath = processedMath.replace(/\\(?!\\)(text|mathbf|mathit|mathrm|left|right|frac|sum|int|prod|lim|infty|in|notin|subset|supset|cup|cap|bigcup|bigcap|mathbb|mathcal|hat|bar|vec|dot|ddot|cdot|ldots|vdots|cdots|partial|nabla|forall|exists|alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|lambda|mu|nu|xi|pi|rho|sigma|tau|upsilon|phi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Upsilon|Phi|Psi|Omega)/g, '\\\\$1');
-              
-              
-              processedMath = processedMath.replace(/\\(?!\\)([\{\}\[\]|<>=:;,\._-])/g, '\\\\$1');
-              
-              
-              
-              processedMath = processedMath.replace(/\\(?!\\)([^a-zA-Z\{])/g, '\\\\$1');
+              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
+                
+                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
+              });
               
               item.math = processedMath;
             }
