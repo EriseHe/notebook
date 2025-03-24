@@ -51,9 +51,9 @@ Migrating from Jekyll | 位相学補完計画</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.18a9fe98d418481ff5f9609e5a366b1787a8e92b22a9c593aa840a63f32f39d3.css" integrity="sha256-GKn&#43;mNQYSB/1&#43;WCeWjZrF4eo6SsiqcWTqoQKY/MvOdM=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.11a534e0b26a8e9c5ab916a3e35f1359d26e97a3da4157b8f7e140da7eeb80f8.css" integrity="sha256-EaU04LJqjpxauRaj418TWdJul6PaQVe49&#43;FA2n7rgPg=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.016ed24800a463a933d28673b5107f0c8933be9571153e2f45da287a4a7f3e43.js" integrity="sha256-AW7SSACkY6kz0oZztRB/DIkzvpVxFT4vRdooekp/PkM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.e14b8bd490160a2e2bc4f2d60d393a18379df59f498ab4262734b1f70bb447fc.js" integrity="sha256-4UuL1JAWCi4rxPLWDTk6GDed9Z9JirQmJzSx9wu0R/w=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -69,11 +69,11 @@ https://github.com/alex-shpak/hugo-book
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
   
-  <main class="container flex">
-    
-    <aside class="book-menu">
-      <div class="book-menu-content">
-        
+  <main class="container">
+    <div class="book-layout">
+      <aside class="book-menu">
+        <div class="book-menu-content">
+          
   <nav>
 <h2 class="book-brand">
   <a class="flex align-center justify-center" 
@@ -824,13 +824,12 @@ https://github.com/alex-shpak/hugo-book
 
 
  
-      </div>
-    </aside>
-    
-
-    <div class="book-page">
-      <header class="book-header">
-        
+        </div>
+      </aside>
+      
+      <div class="book-page">
+        <header class="book-header">
+          
   <div class="flex align-center justify-between">
   <label for="menu-control">
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
@@ -882,10 +881,10 @@ https://github.com/alex-shpak/hugo-book
   </aside>
   
  
-      </header>
+        </header>
 
-      
-      
+        
+        
 <article class="markdown book-post">
   <h2>
     Migrating from Jekyll
@@ -1082,10 +1081,10 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
 </div>
 </article>
  
-      
-
-      <footer class="book-footer">
         
+
+        <footer class="book-footer">
+          
   <div class="flex flex-wrap justify-between">
 
 
@@ -1107,10 +1106,10 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
 
 
  
-        
-      </footer>
+          
+        </footer>
 
-      
+        
   
   <div class="book-comments">
 
@@ -1119,9 +1118,76 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
   
  
 
-      <label for="menu-control" class="hidden book-menu-overlay"></label>
-    </div>
+        <label for="menu-control" class="hidden book-menu-overlay"></label>
+      </div>
 
+      
+      
+      
+      
+        <aside id="book-toc" class="book-toc hidden">
+          <div class="book-toc-content">
+            
+<div class="button-prev">
+  
+    <a class="btn-prev" href="/posts/creating-a-new-theme/">
+      <strong>Previous:</strong> Creating a New Theme
+    </a>
+  
+</div>
+
+
+
+
+      
+            
+              <div class="toc-entries">
+                
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#move-static-content-to-static">Move static content to <code>static</code></a></li>
+        <li><a href="#create-your-hugo-configuration-file">Create your Hugo configuration file</a></li>
+        <li><a href="#set-your-configuration-publish-folder-to-_site">Set your configuration publish folder to <code>_site</code></a></li>
+        <li><a href="#convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</a></li>
+        <li><a href="#convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</a>
+          <ul>
+            <li><a href="#implementation">Implementation</a></li>
+            <li><a href="#usage">Usage</a></li>
+          </ul>
+        </li>
+        <li><a href="#finishing-touches">Finishing touches</a>
+          <ul>
+            <li><a href="#fix-content">Fix content</a></li>
+            <li><a href="#clean-up">Clean up</a></li>
+          </ul>
+        </li>
+        <li><a href="#a-practical-example-in-a-diff">A practical example in a diff</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+              </div>
+            
+      
+            
+<div class="button-next">
+  
+    <a class="btn-next" href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/">
+      <strong>Next:</strong> 7.6 莫尔斯引理
+    </a>
+  
+</div>
+          </div>
+        </aside>
+      
+    </div>
+    
     <div class="toolbar-trigger"></div>
 <aside class="toolbar">
   <button id="theme-toggle" class="theme-toggle-btn">
@@ -1166,73 +1232,8 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
 <script src="/toolbar.min.js"></script>
 
 
-    
-    
-    
-    
-      <aside id="book-toc" class="book-toc hidden">
-        <div class="book-toc-content">
-          
-<div class="button-prev">
-  
-    <a class="btn-prev" href="/posts/creating-a-new-theme/">
-      <strong>Previous:</strong> Creating a New Theme
-    </a>
-  
-</div>
+<script src="/toc-animation.min.js"></script>
 
-
-
-
-    
-          
-            <div class="toc-entries">
-              
-  
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#move-static-content-to-static">Move static content to <code>static</code></a></li>
-        <li><a href="#create-your-hugo-configuration-file">Create your Hugo configuration file</a></li>
-        <li><a href="#set-your-configuration-publish-folder-to-_site">Set your configuration publish folder to <code>_site</code></a></li>
-        <li><a href="#convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</a></li>
-        <li><a href="#convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</a>
-          <ul>
-            <li><a href="#implementation">Implementation</a></li>
-            <li><a href="#usage">Usage</a></li>
-          </ul>
-        </li>
-        <li><a href="#finishing-touches">Finishing touches</a>
-          <ul>
-            <li><a href="#fix-content">Fix content</a></li>
-            <li><a href="#clean-up">Clean up</a></li>
-          </ul>
-        </li>
-        <li><a href="#a-practical-example-in-a-diff">A practical example in a diff</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-
-
-            </div>
-          
-    
-          
-<div class="button-next">
-  
-    <a class="btn-next" href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/">
-      <strong>Next:</strong> 7.6 莫尔斯引理
-    </a>
-  
-</div>
-        </div>
-      </aside>
-    
-
-    
   </main>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1323,66 +1324,6 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
   </script>
   
   
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true,
-      packages: {'[+]': ['ams', 'noerrors', 'color']}
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'tex2jax_process'
-    },
-    svg: {
-      fontCache: 'global'
-    },
-    startup: {
-      ready: function() {
-        
-        const oldFindTeX = MathJax.startup.findTeX;
-        MathJax.startup.findTeX = function(options) {
-          
-          const results = oldFindTeX.call(this, options);
-          
-          
-          for (const item of results) {
-            if (item.display) {
-              
-              
-              
-              let processedMath = item.math;
-              
-              
-              processedMath = processedMath.replace(/(\\)begin\{([^}]+)\}/g, '\\\\begin{$2}');
-              processedMath = processedMath.replace(/(\\)end\{([^}]+)\}/g, '\\\\end{$2}');
-              
-              
-              processedMath = processedMath.replace(/\\(?!\\)(text|mathbf|mathit|mathrm|left|right|frac|sum|int|prod|lim|infty|in|notin|subset|supset|cup|cap|bigcup|bigcap|mathbb|mathcal|hat|bar|vec|dot|ddot|cdot|ldots|vdots|cdots|partial|nabla|forall|exists|alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|lambda|mu|nu|xi|pi|rho|sigma|tau|upsilon|phi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Upsilon|Phi|Psi|Omega)/g, '\\\\$1');
-              
-              
-              processedMath = processedMath.replace(/\\(?!\\)([\{\}\[\]|<>=:;,\._-])/g, '\\\\$1');
-              
-              
-              
-              processedMath = processedMath.replace(/\\(?!\\)([^a-zA-Z\{])/g, '\\\\$1');
-              
-              item.math = processedMath;
-            }
-          }
-          
-          return results;
-        };
-        
-        MathJax.startup.defaultReady();
-      }
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -1450,8 +1391,6 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
  
 </body>
 </html>
-
-
 
 
 

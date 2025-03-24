@@ -73,10 +73,7 @@ ul.pagination {
   }
 }
 
-.container {
-  max-width: $container-max-width;
-  margin: 0 auto;
-}
+// Container styling is now in _layout.scss
 
 .book-icon {
   filter: var(--icon-filter);
@@ -276,14 +273,12 @@ body[dir="rtl"] .book-menu {
 }
 
 .book-toc {
-  flex: 0 0 $toc-width;
   font-size: $font-size-12;
 
   .book-toc-content {
     width: $toc-width;
     padding: $padding-16;
-
-    @include fixed;
+    padding-right: 0;
   }
 
   img {
@@ -326,71 +321,7 @@ body[dir="rtl"] .book-menu {
   will-change: transform, margin, opacity;
 }
 
-@media screen and (max-width: $mobile-breakpoint) {
-  #menu-control,
-  #toc-control {
-    display: inline;
-  }
-
-  .book-menu {
-    visibility: hidden;
-    margin-inline-start: -$menu-width;
-    z-index: 1;
-  }
-
-  .book-toc {
-    display: none;
-  }
-
-  .book-header {
-    display: block;
-  }
-
-  #menu-control:focus ~ main label[for="menu-control"] {
-    @include outline;
-  }
-
-  #menu-control:checked ~ main {
-    .book-menu {
-      visibility: initial;
-    }
-
-    .book-menu .book-menu-content {
-      transform: translateX($menu-width);
-      box-shadow: 0 0 $padding-8 rgba(0, 0, 0, 0.1);
-    }
-
-    .book-page {
-      opacity: 0.25;
-    }
-
-    .book-menu-overlay {
-      display: block;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-  }
-
-  #toc-control:focus ~ main label[for="toc-control"] {
-    @include outline;
-  }
-
-  #toc-control:checked ~ main {
-    .book-header aside {
-      display: block;
-    }
-  }
-
-  // for RTL support
-  body[dir="rtl"] #menu-control:checked ~ main {
-    .book-menu .book-menu-content {
-      transform: translateX(-$menu-width);
-    }
-  }
-}
+// Mobile responsiveness is now handled in _layout.scss
 
 // Extra space for big screens
 @media screen and (min-width: $container-max-width) {

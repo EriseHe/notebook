@@ -31,9 +31,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.18a9fe98d418481ff5f9609e5a366b1787a8e92b22a9c593aa840a63f32f39d3.css" integrity="sha256-GKn&#43;mNQYSB/1&#43;WCeWjZrF4eo6SsiqcWTqoQKY/MvOdM=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.58c66b7f68f8587b0621164f62af9ee9e045c594e7a2d991a46135f81e87fcb7.css" integrity="sha256-WMZrf2j4WHsGIRZPYq&#43;e6eBFxZTnotmRpGE1&#43;B6H/Lc=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.016ed24800a463a933d28673b5107f0c8933be9571153e2f45da287a4a7f3e43.js" integrity="sha256-AW7SSACkY6kz0oZztRB/DIkzvpVxFT4vRdooekp/PkM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.e14b8bd490160a2e2bc4f2d60d393a18379df59f498ab4262734b1f70bb447fc.js" integrity="sha256-4UuL1JAWCi4rxPLWDTk6GDed9Z9JirQmJzSx9wu0R/w=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -49,11 +49,11 @@ https://github.com/alex-shpak/hugo-book
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
   
-  <main class="container flex">
-    
-    <aside class="book-menu">
-      <div class="book-menu-content">
-        
+  <main class="container">
+    <div class="book-layout">
+      <aside class="book-menu">
+        <div class="book-menu-content">
+          
   <nav>
 <h2 class="book-brand">
   <a class="flex align-center justify-center" 
@@ -804,13 +804,12 @@ https://github.com/alex-shpak/hugo-book
 
 
  
-      </div>
-    </aside>
-    
-
-    <div class="book-page">
-      <header class="book-header">
-        
+        </div>
+      </aside>
+      
+      <div class="book-page">
+        <header class="book-header">
+          
   <div class="flex align-center justify-between">
   <label for="menu-control">
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
@@ -838,10 +837,10 @@ https://github.com/alex-shpak/hugo-book
   </aside>
   
  
-      </header>
+        </header>
 
-      
-      
+        
+        
   <article class="book-article">
     
     <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;">7.2 隐函数定理</h1>
@@ -850,10 +849,10 @@ https://github.com/alex-shpak/hugo-book
 </div>
   </article>
  
-      
-
-      <footer class="book-footer">
         
+
+        <footer class="book-footer">
+          
   <div class="flex flex-wrap justify-between">
 
 
@@ -875,10 +874,10 @@ https://github.com/alex-shpak/hugo-book
 
 
  
-        
-      </footer>
+          
+        </footer>
 
-      
+        
   
   <div class="book-comments">
 
@@ -887,9 +886,43 @@ https://github.com/alex-shpak/hugo-book
   
  
 
-      <label for="menu-control" class="hidden book-menu-overlay"></label>
-    </div>
+        <label for="menu-control" class="hidden book-menu-overlay"></label>
+      </div>
 
+      
+      
+      
+      
+        <aside id="book-toc" class="book-toc hidden">
+          <div class="book-toc-content">
+            
+<div class="button-prev">
+  
+    <a class="btn-prev" href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/">
+      <strong>Previous:</strong> 7.1.1 反函数定理（证明）
+    </a>
+  
+</div>
+
+
+
+
+      
+            
+      
+            
+<div class="button-next">
+  
+    <a class="btn-next" href="/docs/Mathematics/MATH-351-352/Heat-Equation/The-Fourier-Series/">
+      <strong>Next:</strong> 傅立叶级数
+    </a>
+  
+</div>
+          </div>
+        </aside>
+      
+    </div>
+    
     <div class="toolbar-trigger"></div>
 <aside class="toolbar">
   <button id="theme-toggle" class="theme-toggle-btn">
@@ -934,40 +967,8 @@ https://github.com/alex-shpak/hugo-book
 <script src="/toolbar.min.js"></script>
 
 
-    
-    
-    
-    
-      <aside id="book-toc" class="book-toc hidden">
-        <div class="book-toc-content">
-          
-<div class="button-prev">
-  
-    <a class="btn-prev" href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/">
-      <strong>Previous:</strong> 7.1.1 反函数定理（证明）
-    </a>
-  
-</div>
+<script src="/toc-animation.min.js"></script>
 
-
-
-
-    
-          
-    
-          
-<div class="button-next">
-  
-    <a class="btn-next" href="/docs/Mathematics/MATH-351-352/Heat-Equation/The-Fourier-Series/">
-      <strong>Next:</strong> 傅立叶级数
-    </a>
-  
-</div>
-        </div>
-      </aside>
-    
-
-    
   </main>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1185,8 +1186,6 @@ https://github.com/alex-shpak/hugo-book
  
 </body>
 </html>
-
-
 
 
 

@@ -40,3 +40,6 @@
 
 {{ $toolbarJS := resources.Get "toolbar.js" | resources.Minify }}
 <script src="{{ $toolbarJS.RelPermalink }}"></script>
+
+{{ $tocAnimationJS := resources.Get "toc-animation.js" | resources.Minify }}
+<script src="{{ $tocAnimationJS.RelPermalink }}"></script>
