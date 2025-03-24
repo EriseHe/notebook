@@ -1,10 +1,39 @@
 /*------------Layout styling-------------*/
 
+/* Main layout container */
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  margin-left: 4rem;
+  padding: 0 $padding-8;
+}
+
+/* Book layout structure */
+.book-layout {
+  display: grid;
+  grid-template-columns: $menu-width minmax(0, 1fr) $toc-width;
+  grid-gap: 0.5rem;
+  align-items: start;
+  justify-content: center;
+  min-height: 100vh;
+  transition: grid-template-columns 0.3s ease;
+}
+
+/* When TOC is hidden, adjust the grid to expand the content area */
+.book-layout.toc-hidden {
+  grid-template-columns: $menu-width minmax(0, 1fr) 0;
+}
+
+/* Add a max-width to the book-page when TOC is hidden */
+.book-layout.toc-hidden .book-page {
+  max-width: calc(100% - 2rem);
+  margin-right: 2rem;
+}
+
 /* Ensure containers are transparent so the body background shows through */
 .book-page,
 .book-menu,
-.book-toc,
-.book-page {
+.book-toc {
   background: transparent !important;
 }
 
@@ -16,47 +45,133 @@
   display: none;
 }
 
-
-
-/* TOC positioning and sizing */
-.book-toc .book-toc-content {
-  transform: translateX(2rem); /* Move TOC content to the right */
-}
-
-.book-toc {
-  margin-left: 2rem; /* Positive value to move TOC to the right */
-  flex: 0 0 20rem; /* Increased from default to match content width */
-  padding: 0;
-}
-
-/* Menu positioning */
-.book-menu .book-menu-content {
-  transform: translateX(-1rem); /* Adjust the value as needed */
-}
-
+/* Menu styling */
 .book-menu {
-  margin-right: -1rem; 
+  grid-column: 1;
+  position: relative;
+}
+
+.book-menu-content {
+  position: sticky;
+  top: 0;
+  padding: $padding-8;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Main content area */
+.book-page {
+  grid-column: 2;
+  max-width: 100%;
+  transition: all 0.3s ease;
+  padding: $padding-16 $padding-8;
+  margin: 0 auto;
+  width: 100%; /* Ensure it takes full width */
+  max-width: 60rem; /* Add a max-width to prevent excessive expansion */
+}
+
+/* TOC styling */
+.book-toc {
+  grid-column: 3;
+  transition: transform 0.3s ease, opacity 0.3s ease, max-width 0.3s ease;
+  overflow: hidden;
+  max-width: $toc-width;
+}
+
+.book-toc.hidden {
+  transform: translateX(100px);
+  opacity: 0;
+  max-width: 0;
+  display: block; /* Override display:none to allow animation */
+  overflow: hidden;
+}
+
+.book-toc-content {
+  position: sticky;
+  top: 0;
+  padding: $padding-8;
+  padding-right: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Article positioning */
+.book-article {
+  position: relative;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  max-width: 60rem; /* Match the book-page max-width */
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* Brand icon sizing */
 .book-brand .book-icon {
-  /* Match the icon's height to the font size of the text */
   height: 1.3em;
   width: auto;
   filter: var(--icon-filter);
   vertical-align: middle;
 }
 
-/* Article positioning */
-.book-article {
-  position: relative; // Change from absolute to relative
-  top: 0;  
-  left: 0; 
-  right: 10rem;
-  padding: 0; 
-}
-
 /* Utility class */
 .hidden { 
   display: none; 
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: $mobile-breakpoint) {
+  .book-layout {
+    display: block;
+  }
+  
+  .book-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    background: var(--body-background) !important;
+    padding: $padding-16;
+    box-shadow: 0 0 $padding-8 rgba(0, 0, 0, 0.1);
+  }
+  
+  .book-toc {
+    display: none;
+  }
+  
+  .book-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  #menu-control:checked ~ main .book-menu {
+    display: block;
+  }
+  
+  #menu-control:checked ~ main .book-page {
+    opacity: 0.25;
+  }
+  
+  #menu-control:checked ~ main .book-menu-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+  }
+  
+  #toc-control:checked ~ main .book-header aside {
+    display: block;
+  }
+  
+  // for RTL support
+  body[dir="rtl"] #menu-control:checked ~ main .book-menu {
+    left: auto;
+    right: 0;
+  }
 }

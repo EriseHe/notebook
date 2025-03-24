@@ -1,9 +1,10 @@
 @import "variables";
 
 .markdown {
-
-  
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 
   // remove padding at the beginning of page
   > :first-child {

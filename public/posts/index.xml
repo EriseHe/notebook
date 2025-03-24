@@ -43,5 +43,12 @@
       <guid>http://localhost:1313/posts/2025-Topology-Summer-Research/</guid>
       <description>&lt;h4 id=&#34;summer-application&#34;&gt;&#xA;  Summer Application:&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#summer-application&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;p&gt;&#xA;  &lt;a href=&#34;https://sgi.mit.edu/about-geometry-processing/&#34;&gt;https://sgi.mit.edu/about-geometry-processing/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;april&#34;&gt;&#xA;  April&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#april&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;p&gt;&#xA;  &lt;a href=&#34;https://topologyandgeometry.iu.edu/gstgc25/&#34;&gt;https://topologyandgeometry.iu.edu/gstgc25/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;may&#34;&gt;&#xA;  May&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#may&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;p&gt;&#xA;  &lt;a href=&#34;https://topology.franklinresearch.uga.edu/2025GITC&#34;&gt;https://topology.franklinresearch.uga.edu/2025GITC&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;past-year&#34;&gt;&#xA;  Past Year&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#past-year&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;p&gt;&#xA;  &lt;a href=&#34;https://sites.google.com/view/princetonrtg2023/mini-conferences&#34;&gt;https://sites.google.com/view/princetonrtg2023/mini-conferences&lt;/a&gt;&lt;/p&gt;</description>
     </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/Image-to-3D-Model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/Image-to-3D-Model/</guid>
+      <description>&lt;h1 id=&#34;converting-2d-anime-style-clothing-to-3d-tools--workflow&#34;&gt;&#xA;  Converting 2D Anime-Style Clothing to 3D: Tools &amp;amp; Workflow&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#converting-2d-anime-style-clothing-to-3d-tools--workflow&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Creating 3D clothing from 2D anime-style references (like Genshin Impact outfits) is now faster with AI-assisted tools, though manual refinement is often needed for the best results. This guide focuses on &lt;strong&gt;clothing conversion&lt;/strong&gt; – taking 2D images of robes, armor, or accessories and turning them into stylized 3D meshes with clean topology. We’ll explore the top AI tools and workflows (as of 2025) and outline a step-by-step process compatible with Blender.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

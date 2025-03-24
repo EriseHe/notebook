@@ -9,6 +9,9 @@ for which
 $$f(x,y) = \xi^2 + \eta^2 + 6$$
 in a neighborhood of $(0, 0)$.
 
+
+
+
 <font color="#ff0000">Problem 7.6.5</font>
 (a).
 If $f$ has a nondegenerate critical point at $x_0 \in \mathbb{R}^n$, show that there is a neighborhood of $x_0$ containing no other critical points.

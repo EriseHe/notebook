@@ -1,0 +1,41 @@
+<div class="toolbar-trigger"></div>
+<aside class="toolbar">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <img src="{{ .Site.Params.ThemeSwitchIcon | default "blackhole2.png" | relURL }}" alt="Switch Theme">
+  </button>
+  <button id="toc-toggle" class="toc-toggle-btn">
+    <img src="{{ .Site.Params.ThemeSwitchIcon | default "toc-icon.svg" | relURL }}" alt="Toggle TOC">
+  </button>
+  <div class="font-size-control">
+    <button id="font-toggle" class="font-size-btn">
+      A
+    </button>
+    <div class="font-size-buttons">
+      <button id="font-increase" class="font-control-btn">+</button>
+      <button id="font-reset" class="font-control-btn">A</button>
+      <button id="font-decrease" class="font-control-btn">−</button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var tocAside = document.getElementById('book-toc');
+    var initialTOCState = {{ if or (not (isset .Params "BookToC")) .Params.BookToC }}true{{ else }}false{{ end }};
+    
+    if (!initialTOCState) {
+      tocAside.classList.add('hidden');
+    } else {
+      tocAside.classList.remove('hidden');
+    }
+  });
+</script>
+
+{{ $fontSizeJS := resources.Get "font-size.js" | resources.Minify }}
+<script src="{{ $fontSizeJS.RelPermalink }}"></script>
+
+{{ $toolbarJS := resources.Get "toolbar.js" | resources.Minify }}
+<script src="{{ $toolbarJS.RelPermalink }}"></script>
+
+{{ $tocAnimationJS := resources.Get "toc-animation.js" | resources.Minify }}
+<script src="{{ $tocAnimationJS.RelPermalink }}"></script> 
