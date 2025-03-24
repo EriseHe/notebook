@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Font size control for body content only
-  var defaultFontSize = 17; // Increased from 16 to 17 for larger default text
+  var defaultFontSize = 16; // Increased from 16 to 17 for larger default text
   var currentSize = parseInt(localStorage.getItem('bodyFontSize')) || defaultFontSize;
   
   // Set initial font size from localStorage

@@ -90,6 +90,7 @@
 /* Font size control button styling */
 .font-size-btn {
   background: transparent; 
+  color: var(--color-link);
   outline: none;
   border: none;
   border-radius: 18rem;
@@ -166,6 +167,7 @@
   }
   
   .font-control-btn {
+    color: var(--font-color);
     background: var(--color-btn);
     border: none;
     padding: 0.3rem 0;
