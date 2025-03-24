@@ -1,0 +1,62 @@
+/*------------Layout styling-------------*/
+
+/* Ensure containers are transparent so the body background shows through */
+.book-page,
+.book-menu,
+.book-toc,
+.book-page {
+  background: transparent !important;
+}
+
+/* Remove title attribute tooltips */
+[title] {
+  position: relative;
+}
+[title]:hover:after {
+  display: none;
+}
+
+
+
+/* TOC positioning and sizing */
+.book-toc .book-toc-content {
+  transform: translateX(2rem); /* Move TOC content to the right */
+}
+
+.book-toc {
+  margin-left: 2rem; /* Positive value to move TOC to the right */
+  flex: 0 0 20rem; /* Increased from default to match content width */
+  padding: 0;
+}
+
+/* Menu positioning */
+.book-menu .book-menu-content {
+  transform: translateX(-1rem); /* Adjust the value as needed */
+}
+
+.book-menu {
+  margin-right: -1rem; 
+}
+
+/* Brand icon sizing */
+.book-brand .book-icon {
+  /* Match the icon's height to the font size of the text */
+  height: 1.3em;
+  width: auto;
+  filter: var(--icon-filter);
+  vertical-align: middle;
+}
+
+/* Article positioning */
+.book-article {
+  position: relative; // Change from absolute to relative
+  top: 0;  
+  left: 0; 
+  right: 10rem;
+  padding: 0; 
+}
+
+/* Utility class */
+.hidden { 
+  display: none; 
+}

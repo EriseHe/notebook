@@ -1,6 +1,11 @@
 @import "defaults";
 @import "variables";
-@import "themes/{{ default "light" .Site.Params.BookTheme }}";
+
+// Import theme files
+@import "themes/_light";
+@import "themes/_dark";
+@import "themes/_auto";
+@import "themes/_switch";
 
 @import "normalize";
 @import "utils";
@@ -11,6 +16,21 @@
 @import "markdown";
 @import "shortcodes";
 @import "mathcallouts";
+
+// Layout and structure
+@import "layout";
+
+// Typography
+@import "typography";
+
+// Components
+@import "buttons";
+@import "code";
+@import "tabs";
+@import "toc";
+
+// Animations
+@import "animations";
 
 // Toolbar styles
 @import "toolbar";

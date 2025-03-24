@@ -1,0 +1,52 @@
+/*-------------Code block styling-------------*/
+
+/* Code block container */
+.code-block {
+  position: relative;
+  margin: 1em 0;
+  color: var(--code-text);
+}
+
+/* Code block images (like copy button icon) */
+.code-block img {
+  filter: var(--icon-filter);
+}
+
+/* Code block pre element */
+.code-block pre {
+  margin: 0;
+  padding: 1em;
+  padding-bottom: 0em;
+  overflow: auto;
+  border: var(--code-border);
+  border-radius: 12px;
+  background: var(--code-background);
+  line-height: 1.4;       /* tweak if needed */
+}
+
+/* Copy button styling */
+.copy-button {
+  position: absolute;
+  top: 0.5em;        /* adjust as needed */
+  right: 0.5em;      /* adjust as needed */
+  padding: 0.5em;
+  font-size: 0.8em;
+  outline: none;
+  background: none;
+  color: #fff;
+  border: white;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Show copy button on hover */
+.code-block:hover .copy-button {
+  opacity: 0.8;  /* Appear when hovered */
+}
+
+/* Copy button hover state */
+.copy-button:hover {
+  opacity: 0.5;
+}
