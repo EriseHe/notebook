@@ -45,9 +45,9 @@ Heat Equation Solution | 位相学補完計画</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.32749834d3aabfc34d32e7c4d50c54ae61488163e5bcde5279521e9cf65b17a7.css" integrity="sha256-MnSYNNOqv8NNMufE1QxUrmFIgWPlvN5SeVIenPZbF6c=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.536f4261e3c5b78fcc408c4cbf7f237a5f02e5bc8a161e8ccef32df0843d53bb.css" integrity="sha256-U29CYePFt4/MQIxMv38jel8C5byKFh6MzvMt8IQ9U7s=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.2dbf85a7a3eb77d28e5219025f22a637ce00d7b513fb0ee295815930773370cb.js" integrity="sha256-Lb&#43;Fp6Prd9KOUhkCXyKmN84A17UT&#43;w7ilYFZMHczcMs=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a81f59f1872d62df1201069dc29a9dd4d8fc1d0b56624972222c03d4d1d7306d.js" integrity="sha256-qB9Z8YctYt8SAQadwpqd1Nj8HQtWYklyIiwD1NHXMG0=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -458,11 +458,13 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Chatper-9-Problems/"
-       class="">Chatper 9 Problems</a>
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/"
+       class="">Finite-Difference Solution for Boundary Value Problems</a>
   
 
         </li>
+      
+    
       
     
       
@@ -540,22 +542,6 @@ https://github.com/alex-shpak/hugo-book
   
     <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/"
        class="">9.1 边值问题的近似</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-  
-  
-
-  
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/"
-       class="">9.2 有限差分</a>
   
 
         </li>
@@ -1224,6 +1210,55 @@ $$</p>
   </script>
   
   
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'noerrors', 'color']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      ready: function() {
+        
+        const oldFindTeX = MathJax.startup.findTeX;
+        MathJax.startup.findTeX = function(options) {
+          
+          const results = oldFindTeX.call(this, options);
+          
+          
+          for (const item of results) {
+            if (item.display) {
+              let processedMath = item.math;
+              
+              
+              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
+                
+                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
+              });
+              
+              item.math = processedMath;
+            }
+          }
+          
+          return results;
+        };
+        
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {
