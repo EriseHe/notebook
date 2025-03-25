@@ -29,30 +29,23 @@
     color: var(--color-h2);
     font-size: 1.4em;
     padding: 0em 0em;
-    margin: 1.2em 0 0.8em 0;
-    
+    margin: 2.5em 0 1.5em 0;
+
     &::before {
       content: "";
       position: absolute;
-      top: 10px;
+      top: -6px;
       left: -15px;
       right: 0;
-      bottom: 0;
-      background: linear-gradient(to right, var(--gray-200), var(--gray-100));
-      border-radius: 4rem;
+      bottom: -6px;
+      background: rgb(241, 241, 241);
+      box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 0px;
+      outline: 1px solid rgba(0, 0, 0, 0.05);
+  
       z-index: -1;
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0.8em;
-      right: 0.8em;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--gray-400), transparent);
-      border-radius: 2px;
-    }
   }
   
   h3 {

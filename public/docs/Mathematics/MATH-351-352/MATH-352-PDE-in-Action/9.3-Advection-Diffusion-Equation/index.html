@@ -17,6 +17,7 @@
   3.1 对流-扩散方程
   #
 
+对流-扩散方程是一种描述物质或热量在流体中同时受到对流（也称为平流）和扩散作用影响的偏微分方程。这个方程在流体力学、传热学和物质传输等领域有广泛应用。
 $$
 \begin{align}
 -\mu\frac{\partial^2 u}{\partial x^2} &#43; \beta\frac{\partial u}{\partial x} &amp;= f \
@@ -24,7 +25,7 @@ $$
 \end{align}
 $$
 $$u(0) = u_L, \quad u(1) = u_R$$
-Discretization:
+离散化过程：
 By Taylor&rsquo;s Expansion:
 $$u(x_{j&#43;1}) = u(x_j) &#43; \frac{\partial u}{\partial x}(x_j)\Delta x &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 - \frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 &#43; \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 &#43; \mathcal{O}(||x||^5)$$
 $$\frac{\partial u}{\partial x}(x_j)\Delta x = u(x_{j&#43;1}) - u(x_j) &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2$$">
@@ -33,9 +34,10 @@ $$\frac{\partial u}{\partial x}(x_j)\Delta x = u(x_{j&#43;1}) - u(x_j) &#43; \fr
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="9.3 对流-扩散方程">
-  <meta property="og:description" content="3.1 对流-扩散方程 # $$ \begin{align} -\mu\frac{\partial^2 u}{\partial x^2} &#43; \beta\frac{\partial u}{\partial x} &amp;= f \ \text{diffusion} \quad &amp; \text{advection} \end{align} $$
+  <meta property="og:description" content="3.1 对流-扩散方程 # 对流-扩散方程是一种描述物质或热量在流体中同时受到对流（也称为平流）和扩散作用影响的偏微分方程。这个方程在流体力学、传热学和物质传输等领域有广泛应用。
+$$ \begin{align} -\mu\frac{\partial^2 u}{\partial x^2} &#43; \beta\frac{\partial u}{\partial x} &amp;= f \ \text{diffusion} \quad &amp; \text{advection} \end{align} $$
 $$u(0) = u_L, \quad u(1) = u_R$$
-Discretization:
+离散化过程：
 By Taylor’s Expansion: $$u(x_{j&#43;1}) = u(x_j) &#43; \frac{\partial u}{\partial x}(x_j)\Delta x &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 - \frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 &#43; \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 &#43; \mathcal{O}(||x||^5)$$
 $$\frac{\partial u}{\partial x}(x_j)\Delta x = u(x_{j&#43;1}) - u(x_j) &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2$$">
   <meta property="og:locale" content="en">
@@ -49,9 +51,9 @@ $$\frac{\partial u}{\partial x}(x_j)\Delta x = u(x_{j&#43;1}) - u(x_j) &#43; \fr
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.536f4261e3c5b78fcc408c4cbf7f237a5f02e5bc8a161e8ccef32df0843d53bb.css" integrity="sha256-U29CYePFt4/MQIxMv38jel8C5byKFh6MzvMt8IQ9U7s=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.ce7b9ad41ea272686d0ce8d7cff98a1cbde2736aa8ad8e3bc923eb08691e2cd4.css" integrity="sha256-znua1B6icmhtDOjXz/mKHL3ic2qorY47ySPrCGkeLNQ=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.a81f59f1872d62df1201069dc29a9dd4d8fc1d0b56624972222c03d4d1d7306d.js" integrity="sha256-qB9Z8YctYt8SAQadwpqd1Nj8HQtWYklyIiwD1NHXMG0=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a71f364f6c40f55ade638842307857e61c3d9ac8a77e7968c92f7d1f2c61a794.js" integrity="sha256-px82T2xA9VreY4hCMHhX5hw9msinfnloyS99Hyxhp5Q=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -462,13 +464,11 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/"
-       class="">Finite-Difference Solution for Boundary Value Problems</a>
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Chatper-9-Problems/"
+       class="">习题</a>
   
 
         </li>
-      
-    
       
     
       
@@ -536,6 +536,8 @@ https://github.com/alex-shpak/hugo-book
       
     
       
+    
+      
         <li>
           
   
@@ -546,6 +548,22 @@ https://github.com/alex-shpak/hugo-book
   
     <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/"
        class="">9.1 边值问题的近似</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/"
+       class="">9.2 有限差分法</a>
   
 
         </li>
@@ -964,6 +982,7 @@ https://github.com/alex-shpak/hugo-book
   3.1 对流-扩散方程
   <a class="anchor" href="#31-%e5%af%b9%e6%b5%81-%e6%89%a9%e6%95%a3%e6%96%b9%e7%a8%8b">#</a>
 </h3>
+<p>对流-扩散方程是一种描述物质或热量在流体中同时受到对流（也称为平流）和扩散作用影响的偏微分方程。这个方程在流体力学、传热学和物质传输等领域有广泛应用。</p>
 <p>$$
 \begin{align}
 -\mu\frac{\partial^2 u}{\partial x^2} + \beta\frac{\partial u}{\partial x} &amp;= f \
@@ -971,7 +990,7 @@ https://github.com/alex-shpak/hugo-book
 \end{align}
 $$</p>
 <p>$$u(0) = u_L, \quad u(1) = u_R$$</p>
-<p>Discretization:</p>
+<p>离散化过程：</p>
 <p>By Taylor&rsquo;s Expansion:
 $$u(x_{j+1}) = u(x_j) + \frac{\partial u}{\partial x}(x_j)\Delta x + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 - \frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 + \mathcal{O}(||x||^5)$$</p>
 <p>$$\frac{\partial u}{\partial x}(x_j)\Delta x = u(x_{j+1}) - u(x_j) + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2$$</p>
@@ -1107,8 +1126,8 @@ $$Pe^* = \frac{|\beta|\Delta x}{2\mu^*} = \frac{|\beta|\Delta x}{2\mu(1+Pe)} = \
             
 <div class="button-prev">
   
-    <a class="btn-prev" href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/">
-      <strong>Previous:</strong> 9.1 边值问题的近似
+    <a class="btn-prev" href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/">
+      <strong>Previous:</strong> 9.2 有限差分法
     </a>
   
 </div>

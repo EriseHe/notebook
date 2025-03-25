@@ -14,7 +14,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
-  1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）
+  1.1 准备工作：String with fixed endpoints
   #
 
 我们可以写
@@ -43,7 +43,7 @@ $$">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="9.1 边值问题的近似">
-  <meta property="og:description" content="1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints） # 我们可以写 $$ \begin{align} -\frac{d^2u}{dx^2} &amp;= f(x), \quad x \in (0,1) \ u(0) &amp;= \alpha, \quad \frac{du}{dx}(0) = \beta \end{align} $$
+  <meta property="og:description" content="1.1 准备工作：String with fixed endpoints # 我们可以写 $$ \begin{align} -\frac{d^2u}{dx^2} &amp;= f(x), \quad x \in (0,1) \ u(0) &amp;= \alpha, \quad \frac{du}{dx}(0) = \beta \end{align} $$
 记$w = \frac{du}{dx}$，那么 $\frac{dw}{dx} = f(x)$。因此，我们知道
 $$\frac{d}{dt} = \begin{bmatrix} 0 &amp; 0 \ 1 &amp; 0 \end{bmatrix} \begin{bmatrix} w \ u \end{bmatrix}$$
 定义 # 边值问题（boundary-value problem）的定义为
@@ -59,9 +59,9 @@ $$\frac{d}{dt} = \begin{bmatrix} 0 &amp; 0 \ 1 &amp; 0 \end{bmatrix} \begin{bmat
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.536f4261e3c5b78fcc408c4cbf7f237a5f02e5bc8a161e8ccef32df0843d53bb.css" integrity="sha256-U29CYePFt4/MQIxMv38jel8C5byKFh6MzvMt8IQ9U7s=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.49d401454bd4061cf5793c31482fdafa3de7c308d65a898d3ef28bd55785df58.css" integrity="sha256-SdQBRUvUBhz1eTwxSC/a&#43;j3nwwjWWomNPvKL1VeF31g=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.a81f59f1872d62df1201069dc29a9dd4d8fc1d0b56624972222c03d4d1d7306d.js" integrity="sha256-qB9Z8YctYt8SAQadwpqd1Nj8HQtWYklyIiwD1NHXMG0=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a71f364f6c40f55ade638842307857e61c3d9ac8a77e7968c92f7d1f2c61a794.js" integrity="sha256-px82T2xA9VreY4hCMHhX5hw9msinfnloyS99Hyxhp5Q=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -472,13 +472,11 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/"
-       class="">Finite-Difference Solution for Boundary Value Problems</a>
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Chatper-9-Problems/"
+       class="">习题</a>
   
 
         </li>
-      
-    
       
     
       
@@ -546,6 +544,8 @@ https://github.com/alex-shpak/hugo-book
       
     
       
+    
+      
         <li>
           
   
@@ -556,6 +556,22 @@ https://github.com/alex-shpak/hugo-book
   
     <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/"
        class="active">9.1 边值问题的近似</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/"
+       class="">9.2 有限差分法</a>
   
 
         </li>
@@ -944,7 +960,7 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li>
       <ul>
-        <li><a href="#11-problem-set-up-固定端点的弦string-with-fixed-endpoints">1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）</a>
+        <li><a href="#11-准备工作string-with-fixed-endpoints">1.1 准备工作：String with fixed endpoints</a>
           <ul>
             <li><a href="#定义">定义</a></li>
           </ul>
@@ -974,9 +990,9 @@ https://github.com/alex-shpak/hugo-book
     
     <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;">9.1 边值问题的近似</h1>
     
-    <div class="markdown posts"><h2 id="11-problem-set-up-固定端点的弦string-with-fixed-endpoints">
-  1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）
-  <a class="anchor" href="#11-problem-set-up-%e5%9b%ba%e5%ae%9a%e7%ab%af%e7%82%b9%e7%9a%84%e5%bc%a6string-with-fixed-endpoints">#</a>
+    <div class="markdown posts"><h2 id="11-准备工作string-with-fixed-endpoints">
+  1.1 准备工作：String with fixed endpoints
+  <a class="anchor" href="#11-%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9cstring-with-fixed-endpoints">#</a>
 </h2>
 <p>我们可以写
 $$
@@ -1186,7 +1202,7 @@ $$</p>
   <ul>
     <li>
       <ul>
-        <li><a href="#11-problem-set-up-固定端点的弦string-with-fixed-endpoints">1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）</a>
+        <li><a href="#11-准备工作string-with-fixed-endpoints">1.1 准备工作：String with fixed endpoints</a>
           <ul>
             <li><a href="#定义">定义</a></li>
           </ul>
@@ -1211,8 +1227,8 @@ $$</p>
             
 <div class="button-next">
   
-    <a class="btn-next" href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/">
-      <strong>Next:</strong> 9.3 对流-扩散方程
+    <a class="btn-next" href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/">
+      <strong>Next:</strong> 9.2 有限差分法
     </a>
   
 </div>
@@ -1360,55 +1376,6 @@ $$</p>
   </script>
   
   
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true,
-      packages: {'[+]': ['ams', 'noerrors', 'color']}
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'tex2jax_process'
-    },
-    svg: {
-      fontCache: 'global'
-    },
-    startup: {
-      ready: function() {
-        
-        const oldFindTeX = MathJax.startup.findTeX;
-        MathJax.startup.findTeX = function(options) {
-          
-          const results = oldFindTeX.call(this, options);
-          
-          
-          for (const item of results) {
-            if (item.display) {
-              let processedMath = item.math;
-              
-              
-              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
-                
-                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
-              });
-              
-              item.math = processedMath;
-            }
-          }
-          
-          return results;
-        };
-        
-        MathJax.startup.defaultReady();
-      }
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {
