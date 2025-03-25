@@ -928,10 +928,10 @@ with discrete points: $$0 = x_0 &amp;lt; x_1 &amp;lt; \cdots &amp;lt; x_{N} = 1\
  2.2.1 Poisson 微分方程
  &lt;a class="anchor" href="#221-poisson-%e5%be%ae%e5%88%86%e6%96%b9%e7%a8%8b">#&lt;/a>
 &lt;/h3>
-&lt;p>对与任意一个离散的点$x_{i}$，我们首先在网格点 $x_{i+1} = x_i + \Delta x$ 和 $x_{i-1} = x_i - \Delta x$ 处对函数 $u(x)$ 进行泰勒级数展开：&lt;/p></description></item><item><title>9.3 对流-扩散方程</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/</guid><description>&lt;h3 id="31-对流-扩散方程">
+&lt;p>对与任意一个离散的点$x_{i}$，我们首先在网格点 $x_{i+1} = x_i + \Delta x$ 和 $x_{i-1} = x_i - \Delta x$ 处对函数 $u(x)$ 进行泰勒级数展开：&lt;/p></description></item><item><title>9.3 对流-扩散方程</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/</guid><description>&lt;h2 id="31-对流-扩散方程">
  3.1 对流-扩散方程
  &lt;a class="anchor" href="#31-%e5%af%b9%e6%b5%81-%e6%89%a9%e6%95%a3%e6%96%b9%e7%a8%8b">#&lt;/a>
-&lt;/h3>
+&lt;/h2>
 &lt;p>对流-扩散方程是一种描述物质或热量在流体中同时受到对流（也称为平流）和扩散作用影响的偏微分方程。这个方程在流体力学、传热学和物质传输等领域有广泛应用。&lt;/p>
 &lt;p>$$
 \begin{align}
@@ -940,10 +940,25 @@ with discrete points: $$0 = x_0 &amp;lt; x_1 &amp;lt; \cdots &amp;lt; x_{N} = 1\
 \end{align}
 $$&lt;/p>
 &lt;p>$$u(0) = u_L, \quad u(1) = u_R$$&lt;/p>
-&lt;p>离散化过程：&lt;/p>
-&lt;p>By Taylor&amp;rsquo;s Expansion:
-$$u(x_{j+1}) = u(x_j) + \frac{\partial u}{\partial x}(x_j)\Delta x + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 - \frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 + \mathcal{O}(||x||^5)$$&lt;/p>
-&lt;p>$$\frac{\partial u}{\partial x}(x_j)\Delta x = u(x_{j+1}) - u(x_j) + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2$$&lt;/p></description></item><item><title>9.4 二维问题（2D Problem)</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/</guid><description>&lt;p>$$
+&lt;h3 id="311-离散化过程">
+ 3.1.1 离散化过程：
+ &lt;a class="anchor" href="#311-%e7%a6%bb%e6%95%a3%e5%8c%96%e8%bf%87%e7%a8%8b">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="一阶导数对流项-advection">
+ 一阶导数：对流项 （Advection）
+ &lt;a class="anchor" href="#%e4%b8%80%e9%98%b6%e5%af%bc%e6%95%b0%e5%af%b9%e6%b5%81%e9%a1%b9-advection">#&lt;/a>
+&lt;/h4>
+&lt;h5 id="泰勒展开向前">
+ 泰勒展开（向前）
+ &lt;a class="anchor" href="#%e6%b3%b0%e5%8b%92%e5%b1%95%e5%bc%80%e5%90%91%e5%89%8d">#&lt;/a>
+&lt;/h5>
+&lt;p>$$
+\begin{align}&lt;/p>
+&lt;p>u(x_{j+1}) &amp;amp; = u(x_j) + \frac{\partial u}{\partial x}(x_j)\Delta x + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 \
+&amp;amp;\quad\quad\quad\quad-\frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 + \mathcal{O}(||x||^5)\
+\frac{\partial u}{\partial x}(x_j)\Delta x &amp;amp; = u(x_{j+1}) - u(x_j) + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2\
+\frac{\partial u}{\partial x}(x_j) &amp;amp; = \frac{u_{j+1} - u_j}{\Delta x} + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x
+\end{align}$$&lt;/p></description></item><item><title>9.4 二维问题（2D Problem)</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/</guid><description>&lt;p>$$
 \begin{align}
 -\mu\Delta u + \vec{\beta} \cdot \nabla u &amp;amp;= f \
 u(\partial\Omega) &amp;amp;= \text{data}

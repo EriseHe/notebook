@@ -1527,6 +1527,7 @@ Def
 Density
 Diagonalizable
 Definiteness
+Diminishing
 map
 matrix
 mapping
@@ -1957,6 +1958,7 @@ Spurious
 Summary
 Symmetry
 Significance
+Source
 equations
 equation
 exists
@@ -2467,6 +2469,7 @@ action
 algorithm
 advection
 advective
+artificial
 you
 yields
 yF
@@ -3030,6 +3033,8 @@ Explanation
 EE
 Exact
 Effect
+ENO
+Essentially
 We
 What
 With
@@ -3089,6 +3094,8 @@ Weak
 Ways
 Write
 Wind
+WENO
+Weighted
 Thus
 Theorem
 These
@@ -3157,6 +3164,9 @@ Take
 Turn
 Thm
 Tends
+Term
+TVD
+Total
 Hence
 Here
 Hypotheses
@@ -3348,6 +3358,7 @@ Fixed
 Functional
 Formulate
 Further
+Flow
 Jacobian
 Jobcobian
 John
@@ -4083,6 +4094,7 @@ Vic
 VFlX
 Vertical
 Variational
+Variation
 Yes
 You
 YX
@@ -4243,6 +4255,7 @@ Our
 Original
 Otherwise
 Oscillations
+Oscillatory
 Given
 Get
 Guessing
@@ -4291,6 +4304,7 @@ Global
 GTE
 Gaussian
 Gummel
+Grid
 xF
 xxii
 xmp
@@ -4378,6 +4392,7 @@ Qe
 QUCfh
 QSS
 Quality
+QUICK
 jpeg
 json
 joystick
