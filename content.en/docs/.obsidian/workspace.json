@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Numerical Solution of Ordinary Differential Equations.md",
+                "file": "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.3 Advection-Diffusion Equation.md",
                 "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Numerical Solution of Ordinary Differential Equations"
+              "title": "9.3 Advection-Diffusion Equation"
             }
           }
         ]
@@ -185,12 +185,15 @@
   },
   "active": "d4513820e616b532",
   "lastOpenFiles": [
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Three-Point Backward Differentiation Formula (Feb 4).md",
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Boundary Value Problems - Finite Differences.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.4 2D Problem.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.3 Advection-Diffusion Equation.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.2 Finite Difference.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.1 Boundary Value Problems.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Lecture Notes (Mar 18).md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Three-Point Backward Differentiation Formula (Feb 4).md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Numerical Solution of Ordinary Differential Equations.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Lecture Notes (Mar 20).md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Mid-Point Method.md",
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Numerical Solution of Ordinary Differential Equations.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/_index.md",
     "Mathematics/MATH 351 & 352/Heat Equation/Heat Equation Solution.md",
     "Mathematics/MATH 412 Real Analysis II/Homework/Homework 7.md",
@@ -208,9 +211,6 @@
     "Mathematics/MATH 412 Real Analysis II/Homework/Homework 6.md",
     "Mathematics/MATH 412 Real Analysis II/Homework/_index.md",
     "Mathematics/MATH 412 Real Analysis II/第六章/6.9 Taylor Higher Dimentions.md",
-    "Mathematics/MATH 412 Real Analysis II/第六章/6.5 The Chain Rule.md",
-    "Mathematics/MATH 412 Real Analysis II/第六章/6.6 Product Rule and Gradients.md",
-    "Mathematics/MATH 412 Real Analysis II/第六章/_index.md",
     "Mathematics/MATH 412 Real Analysis II/HW",
     "Fourier Series.png",
     "Physics/Quantum Mechenics/Homework",

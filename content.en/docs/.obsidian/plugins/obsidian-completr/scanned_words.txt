@@ -208,6 +208,7 @@ family
 flow
 fancy
 favor
+functional
 color
 curve
 can
@@ -2426,6 +2427,7 @@ adaptive
 anymore
 asymmetric
 approach
+action
 you
 yields
 yF
@@ -2893,6 +2895,8 @@ previously
 physical
 pts
 pollutant
+poisson
+perturbation
 Ex
 Evaluate
 Evaluating
