@@ -14,10 +14,6 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
-  1. 边值问题的近似
-  #
-
-
   1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）
   #
 
@@ -47,7 +43,7 @@ $$">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="9.1 边值问题的近似">
-  <meta property="og:description" content="1. 边值问题的近似 # 1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints） # 我们可以写 $$ \begin{align} -\frac{d^2u}{dx^2} &amp;= f(x), \quad x \in (0,1) \ u(0) &amp;= \alpha, \quad \frac{du}{dx}(0) = \beta \end{align} $$
+  <meta property="og:description" content="1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints） # 我们可以写 $$ \begin{align} -\frac{d^2u}{dx^2} &amp;= f(x), \quad x \in (0,1) \ u(0) &amp;= \alpha, \quad \frac{du}{dx}(0) = \beta \end{align} $$
 记$w = \frac{du}{dx}$，那么 $\frac{dw}{dx} = f(x)$。因此，我们知道
 $$\frac{d}{dt} = \begin{bmatrix} 0 &amp; 0 \ 1 &amp; 0 \end{bmatrix} \begin{bmatrix} w \ u \end{bmatrix}$$
 定义 # 边值问题（boundary-value problem）的定义为
@@ -63,9 +59,9 @@ $$\frac{d}{dt} = \begin{bmatrix} 0 &amp; 0 \ 1 &amp; 0 \end{bmatrix} \begin{bmat
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.49c6b436d7cb1c5eb627c3000cae7157795ace6e5ebd0b0cae5fd7268d4e179a.css" integrity="sha256-Sca0NtfLHF62J8MADK5xV3lazm5evQsMrl/XJo1OF5o=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.214881e415a2cd22cb61c0d294f1bc6d98671661b7d4a520cce8fef08aacafcb.css" integrity="sha256-IUiB5BWizSLLYcDSlPG8bZhnFmG31KUgzOj&#43;8Iqsr8s=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.a77eaa9bd4a74ae89cef2e5451bf66f6fb9164d71e03e91e747c63fc7d743dda.js" integrity="sha256-p36qm9SnSuic7y5UUb9m9vuRZNceA&#43;kedHxj/H10Pdo=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2dbf85a7a3eb77d28e5219025f22a637ce00d7b513fb0ee295815930773370cb.js" integrity="sha256-Lb&#43;Fp6Prd9KOUhkCXyKmN84A17UT&#43;w7ilYFZMHczcMs=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -462,6 +458,22 @@ https://github.com/alex-shpak/hugo-book
   
     <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Numerical-Solution-of-Ordinary-Differential-Equations/"
        class="">常微分方程的数值解</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Chatper-9-Problems/"
+       class="">Chatper 9 Problems</a>
   
 
         </li>
@@ -946,14 +958,18 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li>
       <ul>
-        <li><a href="#1-边值问题的近似">1. 边值问题的近似</a>
+        <li><a href="#11-problem-set-up-固定端点的弦string-with-fixed-endpoints">1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）</a>
           <ul>
-            <li><a href="#11-problem-set-up-固定端点的弦string-with-fixed-endpoints">1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）</a></li>
-            <li><a href="#12-example-泊松方程poisson-equation">1.2 Example: 泊松方程（Poisson Equation）</a></li>
-            <li><a href="#13-back-to-the-string-example-how-can-we-get-a-bvp">1.3 Back to the String Example: How can we get a BVP?</a></li>
-            <li><a href="#14-两种表述边值问题bvp的方式">1.4 两种表述边值问题（BVP）的方式</a></li>
+            <li><a href="#定义">定义</a></li>
           </ul>
         </li>
+        <li><a href="#12-泊松方程poisson-equation">1.2 泊松方程（Poisson Equation）</a></li>
+        <li><a href="#13-back-to-the-string-example-how-can-we-get-a-bvp">1.3 Back to the String Example: How can we get a BVP?</a>
+          <ul>
+            <li><a href="#变分形式或弱形式variationalweak">变分形式或弱形式（Variational/Weak）:</a></li>
+          </ul>
+        </li>
+        <li><a href="#14-两种表述边值问题bvp的方式">1.4 两种表述边值问题（BVP）的方式</a></li>
       </ul>
     </li>
   </ul>
@@ -972,14 +988,10 @@ https://github.com/alex-shpak/hugo-book
     
     <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;">9.1 边值问题的近似</h1>
     
-    <div class="markdown posts"><h2 id="1-边值问题的近似">
-  1. 边值问题的近似
-  <a class="anchor" href="#1-%e8%be%b9%e5%80%bc%e9%97%ae%e9%a2%98%e7%9a%84%e8%bf%91%e4%bc%bc">#</a>
-</h2>
-<h3 id="11-problem-set-up-固定端点的弦string-with-fixed-endpoints">
+    <div class="markdown posts"><h2 id="11-problem-set-up-固定端点的弦string-with-fixed-endpoints">
   1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）
   <a class="anchor" href="#11-problem-set-up-%e5%9b%ba%e5%ae%9a%e7%ab%af%e7%82%b9%e7%9a%84%e5%bc%a6string-with-fixed-endpoints">#</a>
-</h3>
+</h2>
 <p>我们可以写
 $$
 \begin{align}
@@ -989,10 +1001,10 @@ u(0) &amp;= \alpha, \quad \frac{du}{dx}(0) = \beta
 $$</p>
 <p>记$w = \frac{du}{dx}$，那么 $\frac{dw}{dx} = f(x)$。因此，我们知道</p>
 <p>$$\frac{d}{dt} = \begin{bmatrix} 0 &amp; 0 \ 1 &amp; 0 \end{bmatrix} \begin{bmatrix} w \ u \end{bmatrix}$$</p>
-<h4 id="定义">
+<h3 id="定义">
   定义
   <a class="anchor" href="#%e5%ae%9a%e4%b9%89">#</a>
-</h4>
+</h3>
 <p>边值问题（boundary-value problem）的定义为</p>
 <blockquote>
 <p>[!definition|*]
@@ -1001,10 +1013,10 @@ $$\begin{align}
 u(0) &amp;= \alpha, \quad u(1) = \beta
 \end{align}
 $$</p></blockquote>
-<h3 id="12-example-泊松方程poisson-equation">
-  1.2 Example: 泊松方程（Poisson Equation）
-  <a class="anchor" href="#12-example-%e6%b3%8a%e6%9d%be%e6%96%b9%e7%a8%8bpoisson-equation">#</a>
-</h3>
+<h2 id="12-泊松方程poisson-equation">
+  1.2 泊松方程（Poisson Equation）
+  <a class="anchor" href="#12-%e6%b3%8a%e6%9d%be%e6%96%b9%e7%a8%8bpoisson-equation">#</a>
+</h2>
 <p>此类方程的二维形态为：</p>
 <p>$$\begin{align}
 -\left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) &amp;= f(x,y) \
@@ -1017,16 +1029,10 @@ u|_{\text{boundary of }\Omega} &amp;= 0
 <p>[!definition]
 A general ($n$-dimentional) poisson equation is written as $$\Delta u = f(\mathbf{x})$$
 where $\mathbf{x}=(x_{1},x_{2},x_{3}\dots x_{n})$.</p></blockquote>
-<blockquote>
-<p>[!definition]</p></blockquote>
-<blockquote>
-<p>[!Definition]</p></blockquote>
-<blockquote>
-<p>[!DEFINITION]</p></blockquote>
-<h3 id="13-back-to-the-string-example-how-can-we-get-a-bvp">
+<h2 id="13-back-to-the-string-example-how-can-we-get-a-bvp">
   1.3 Back to the String Example: How can we get a BVP?
   <a class="anchor" href="#13-back-to-the-string-example-how-can-we-get-a-bvp">#</a>
-</h3>
+</h2>
 <p>考虑以下经典力学中很常见的弦的能量<strong>泛函</strong>（energy functional）：</p>
 <p>$$J(u) = \frac{1}{2}\int_0^1 \mu\left(\frac{du}{dx}\right)^2 dx - \int_0^1 f \cdot u , dx \quad \text{(Energy of string)}$$</p>
 <p>Boundary condition: $u(0) = u(1) = 0$.</p>
@@ -1038,42 +1044,40 @@ where $\mathbf{x}=(x_{1},x_{2},x_{3}\dots x_{n})$.</p></blockquote>
 </ol>
 <p>$$u_{\epsilon}(x) = u(x) + \epsilon v(x)$$</p>
 <ol start="2">
-<li>$J(u+εv)$ 进行显式展开：
-$$J(u + \epsilon v) = J(u) + \epsilon \underbrace{\delta J(u; v)}<em>{\text{一阶变分}} + \frac{1}{2} \epsilon^2 \underbrace{\delta^2 J(u; v)}</em>{\text{二阶变分}} + \cdots
-$$</li>
+<li>$J(u+εv)$ 进行显式展开：</li>
 </ol>
+<p>$$J(u + \epsilon v) = J(u) + \epsilon \underbrace{\delta J(u; v)}<em>{\text{一阶变分}} + \frac{1}{2} \epsilon^2 \underbrace{\delta^2 J(u; v)}</em>{\text{二阶变分}} + \cdots$$</p>
 <blockquote>
 <p>在变分法或力学的语言里：通常是指在能量或作用量（action）等泛函意义下的驻点（stationary point）：也就是对任意“小扰动” $εv$，该函数 $u$ 都使得泛函的一阶变化量为 0。</p></blockquote>
 <ol start="2">
 <li>求导，来找$J$的最小值</li>
 </ol>
 <p>$$\lim_{\varepsilon \to 0} \frac{J(u + \varepsilon v) - J(u)}{\varepsilon} = 0, \quad \varepsilon \in \mathbb{R}$$</p>
-<p>显然易见：
-$$
+<p>显然易见：</p>
+<p>$$
 \begin{align}
 &amp;\frac{1}{2}\int_0^1 \mu\left(\frac{du}{dx} + \varepsilon\frac{dv}{dx}\right)^2 dx - \int_0^1 f(u+\varepsilon v) , dx - \frac{1}{2}\int_0^1 \mu\left(\frac{du}{dx}\right)^2 dx - \int_0^1 f \cdot u , dx \
 &amp;= \frac{1}{2}\int_0^1 \mu\left(\frac{du}{dx}\right)^2 dx + \frac{1}{2} \cdot 2\varepsilon \int_0^1 \mu \frac{du}{dx} \cdot \frac{dv}{dx} , dx + \frac{1}{2}\varepsilon^2 \int_0^1 \mu\left(\frac{dv}{dx}\right)^2 dx \
 &amp;\quad - \int_0^1 f \cdot u , dx - \varepsilon\int_0^1 f \cdot v , dx - \frac{1}{2}\int_0^1 \mu\left(\frac{du}{dx}\right)^2 dx - \int_0^1 f \cdot u , dx \
-&amp;= \varepsilon \int_0^1 \mu \frac{du}{dx} \cdot \frac{dv}{dx} , dx + \frac{1}{2}\varepsilon^2 \int_0^1 \mu\left(\frac{dv}{dx}\right)^2 dx - \varepsilon\int_0^1 f \cdot v , dx
-\end{align}
+&amp;= \varepsilon \int_0^1 \mu \frac{du}{dx} \cdot \frac{dv}{dx} , dx + \frac{1}{2}\varepsilon^2 \int_0^1 \mu\left(\frac{dv}{dx}\right)^2 dx - \varepsilon\int_0^1 f \cdot v , dx\end{align}
 $$</p>
 <blockquote>
 <p>这实际上正是欧拉–拉格朗日方程最早的“原始变分法”推导，也正是 E-L 方程的来龙去脉。只不过 E-L 方程把这个过程“公式化”了，让我们不必每次都展开一大堆项、再分部积分去凑出那个通用形式。</p></blockquote>
-<p>然后
-$$\frac{J(u+\varepsilon v) - J(u)}{\varepsilon} = \int_0^1 \mu \frac{du}{dx} \cdot \frac{dv}{dx} , dx + \frac{1}{2} \varepsilon \int_0^1 \mu\left(\frac{dv}{dx}\right)^2 dx - \int_0^1 f \cdot v , dx$$</p>
-<p>极限为：
-$$\lim_{\varepsilon \to 0} \frac{J(u+\varepsilon v) - J(u)}{\varepsilon} = \int_0^1 \mu \frac{du}{dx} \cdot \frac{dv}{dx} , dx - \int_0^1 f \cdot v , dx = 0$$</p>
+<p>然后</p>
+<p>$$\frac{J(u+\varepsilon v) - J(u)}{\varepsilon} = \int_0^1 \mu \frac{du}{dx} \cdot \frac{dv}{dx} , dx + \frac{1}{2} \varepsilon \int_0^1 \mu\left(\frac{dv}{dx}\right)^2 dx - \int_0^1 f \cdot v , dx$$</p>
+<p>极限为：</p>
+<p>$$\lim_{\varepsilon \to 0} \frac{J(u+\varepsilon v) - J(u)}{\varepsilon} = \int_0^1 \mu \frac{du}{dx} \cdot \frac{dv}{dx} , dx - \int_0^1 f \cdot v , dx = 0$$</p>
 <p>一个“平衡解”（equilibrium solution）。</p>
-<h4 id="变分形式或弱形式variationalweak">
+<h3 id="变分形式或弱形式variationalweak">
   变分形式或弱形式（Variational/Weak）:
   <a class="anchor" href="#%e5%8f%98%e5%88%86%e5%bd%a2%e5%bc%8f%e6%88%96%e5%bc%b1%e5%bd%a2%e5%bc%8fvariationalweak">#</a>
-</h4>
+</h3>
 <p>由此我们得到了一个泛函的“变分条件”：</p>
 <blockquote>
 <p>[!claim|*]
 $$\int_0^1 \mu \frac{du}{dx} \cdot \frac{dv}{dx} , dx - \int_0^1 f \cdot v , dx = 0$$</p></blockquote>
-<p>分部积分:
-$$
+<p>分部积分:</p>
+<p>$$
 \begin{align}
 \int_0^1 \mu \frac{du}{dx} \cdot \frac{dv}{dx} , dx &amp;= \mu\left[\frac{du}{dx}v\right]_0^1 - \mu\int_0^1 \frac{d^2u}{dx^2} v , dx \
 &amp;= -\mu\int_0^1 \frac{d^2u}{dx^2} v , dx
@@ -1082,8 +1086,8 @@ $$</p>
 <p>Since $v(0) = v(1) = 0$</p>
 <p>$$\frac{d}{dx}\left(\frac{du}{dx}\right) = \frac{d^2u}{dx^2}$$</p>
 <p>$$\int \frac{dv}{dx} , dx = v$$</p>
-<p>边界项因为BC而消失，所以弱形式$\rightarrow$<strong>强形式</strong>:
-$$-\mu\int_0^1 \frac{d^2u}{dx^2} v , dx - \int_0^1 f \cdot v , dx = 0$$</p>
+<p>边界项因为BC而消失，所以弱形式$\rightarrow$<strong>强形式</strong>:</p>
+<p>$$-\mu\int_0^1 \frac{d^2u}{dx^2} v , dx - \int_0^1 f \cdot v , dx = 0$$</p>
 <p>$$-\int_0^1 \left(\mu\frac{d^2u}{dx^2} + f\right) \cdot v , dx = 0$$</p>
 <p>We want it to be true $\forall v$. So, it must be:
 $$\mu\frac{d^2u}{dx^2} + f = 0$$</p>
@@ -1099,24 +1103,24 @@ u(0) &amp;= u(1) = 0
 $$</p></blockquote>
 <blockquote>
 <p>Assumption: $u$ is at least $C^2$.</p></blockquote>
-<h3 id="14-两种表述边值问题bvp的方式">
+<h2 id="14-两种表述边值问题bvp的方式">
   1.4 两种表述边值问题（BVP）的方式
   <a class="anchor" href="#14-%e4%b8%a4%e7%a7%8d%e8%a1%a8%e8%bf%b0%e8%be%b9%e5%80%bc%e9%97%ae%e9%a2%98bvp%e7%9a%84%e6%96%b9%e5%bc%8f">#</a>
-</h3>
+</h2>
 <ol>
-<li>
-<p>寻找函数 $u$，使得对所有满足 $v(0) = v(1) = 0$ 的 $v$，均有
-$$
+<li>寻找函数 $u$，使得对所有满足 $v(0) = v(1) = 0$ 的 $v$，均有</li>
+</ol>
+<p>$$
 \int_0^1 \mu \frac{du}{dx} \cdot \frac{dv}{dx} , dx ;=; \int_0^1 f \cdot v , dx
 $$</p>
 <ul>
 <li>$\Rightarrow$ $u$ 只需保证“一阶可微”</li>
 <li>$\Rightarrow$ 通常采用 <strong>有限元法</strong> (Finite Element)</li>
 </ul>
-</li>
-<li>
-<p>寻找函数 $u$，使得
-$$
+<ol>
+<li>寻找函数 $u$，使得</li>
+</ol>
+<p>$$
 \begin{aligned}
 -\mu \frac{\partial^2 u}{\partial x^2} &amp;= f, \quad x \in (0,1),\
 u(0) &amp;= 0,\quad u(1) = 0
@@ -1126,8 +1130,6 @@ $$</p>
 <li>$\Rightarrow$ $u$ 需要至少“二阶可微”</li>
 <li>$\Rightarrow$ 通常采用 <strong>有限差分法</strong> (Finite Difference)</li>
 </ul>
-</li>
-</ol>
 </div>
   </article>
  
@@ -1198,14 +1200,18 @@ $$</p>
   <ul>
     <li>
       <ul>
-        <li><a href="#1-边值问题的近似">1. 边值问题的近似</a>
+        <li><a href="#11-problem-set-up-固定端点的弦string-with-fixed-endpoints">1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）</a>
           <ul>
-            <li><a href="#11-problem-set-up-固定端点的弦string-with-fixed-endpoints">1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）</a></li>
-            <li><a href="#12-example-泊松方程poisson-equation">1.2 Example: 泊松方程（Poisson Equation）</a></li>
-            <li><a href="#13-back-to-the-string-example-how-can-we-get-a-bvp">1.3 Back to the String Example: How can we get a BVP?</a></li>
-            <li><a href="#14-两种表述边值问题bvp的方式">1.4 两种表述边值问题（BVP）的方式</a></li>
+            <li><a href="#定义">定义</a></li>
           </ul>
         </li>
+        <li><a href="#12-泊松方程poisson-equation">1.2 泊松方程（Poisson Equation）</a></li>
+        <li><a href="#13-back-to-the-string-example-how-can-we-get-a-bvp">1.3 Back to the String Example: How can we get a BVP?</a>
+          <ul>
+            <li><a href="#变分形式或弱形式variationalweak">变分形式或弱形式（Variational/Weak）:</a></li>
+          </ul>
+        </li>
+        <li><a href="#14-两种表述边值问题bvp的方式">1.4 两种表述边值问题（BVP）的方式</a></li>
       </ul>
     </li>
   </ul>
@@ -1274,6 +1280,9 @@ $$</p>
 
 
 <script src="/toc-animation.min.js"></script>
+
+
+<script src="/menu-autohide.min.js"></script>
 
   </main>
   <script>
@@ -1365,6 +1374,55 @@ $$</p>
   </script>
   
   
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'noerrors', 'color']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      ready: function() {
+        
+        const oldFindTeX = MathJax.startup.findTeX;
+        MathJax.startup.findTeX = function(options) {
+          
+          const results = oldFindTeX.call(this, options);
+          
+          
+          for (const item of results) {
+            if (item.display) {
+              let processedMath = item.math;
+              
+              
+              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
+                
+                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
+              });
+              
+              item.math = processedMath;
+            }
+          }
+          
+          return results;
+        };
+        
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {

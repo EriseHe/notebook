@@ -43,3 +43,6 @@
 
 {{ $tocAnimationJS := resources.Get "toc-animation.js" | resources.Minify }}
 <script src="{{ $tocAnimationJS.RelPermalink }}"></script>
+
+{{ $menuAutoHideJS := resources.Get "menu-autohide.js" | resources.Minify }}
+<script src="{{ $menuAutoHideJS.RelPermalink }}"></script>

@@ -1,0 +1,12 @@
+/* Menu auto-hide styles */
+.book-menu {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  
+  &.auto-hidden {
+    transform: translateX(-30%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+} 
