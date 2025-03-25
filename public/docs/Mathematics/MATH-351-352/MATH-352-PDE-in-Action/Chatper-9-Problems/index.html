@@ -13,34 +13,12 @@
   </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="
-  Problem 1
-  #
-
-Finite‐Difference Solution
-$$-\mu,\frac{d^2u}{dx^2} ;&#43;; \beta,\frac{du}{dx} ;=; f(x),\quad x\in(0,1),\quad u(0)=u(1)=0$$
-We wish to discretize and solve the boundary‐value problem
-$$\begin{cases}
--\mu,u&rsquo;&rsquo;(x) &#43; \beta,u&rsquo;(x) = f(x), &amp; 0&lt;x&lt;1,\[6pt]
-u(0)=0,; u(1)=0.
-\end{cases}$$
-where $\mu&gt;0$ and $\beta$ is a constant (possibly negative), and $f\in C^0(0,1)$.
-
-
-  1. Finite‐Difference Discretization
-  #
-
-Divide $[0,1]$ into $N$ equal subintervals so that $\Delta x = \tfrac{1}{N}$.  Let
-$$x_j ;=; j,\Delta x,\quad j=0,1,2,\dots,N,$$
-so that $x_0=0$ and $x_N=1$.  We approximate $u(x_j)\approx u_j$.  The boundary conditions become $u_0=0$ and $u_N=0$.">
+<meta name="description" content="">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Chatper-9-Problems/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="位相学補完計画">
-  <meta property="og:description" content="Problem 1 # Finite‐Difference Solution $$-\mu,\frac{d^2u}{dx^2} ;&#43;; \beta,\frac{du}{dx} ;=; f(x),\quad x\in(0,1),\quad u(0)=u(1)=0$$
-We wish to discretize and solve the boundary‐value problem $$\begin{cases} -\mu,u’’(x) &#43; \beta,u’(x) = f(x), &amp; 0&lt;x&lt;1,\[6pt] u(0)=0,; u(1)=0. \end{cases}$$ where $\mu&gt;0$ and $\beta$ is a constant (possibly negative), and $f\in C^0(0,1)$.
-1. Finite‐Difference Discretization # Divide $[0,1]$ into $N$ equal subintervals so that $\Delta x = \tfrac{1}{N}$. Let $$x_j ;=; j,\Delta x,\quad j=0,1,2,\dots,N,$$ so that $x_0=0$ and $x_N=1$. We approximate $u(x_j)\approx u_j$. The boundary conditions become $u_0=0$ and $u_N=0$.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -52,9 +30,9 @@ Chatper 9 Problems | 位相学補完計画</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.214881e415a2cd22cb61c0d294f1bc6d98671661b7d4a520cce8fef08aacafcb.css" integrity="sha256-IUiB5BWizSLLYcDSlPG8bZhnFmG31KUgzOj&#43;8Iqsr8s=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.536f4261e3c5b78fcc408c4cbf7f237a5f02e5bc8a161e8ccef32df0843d53bb.css" integrity="sha256-U29CYePFt4/MQIxMv38jel8C5byKFh6MzvMt8IQ9U7s=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.2dbf85a7a3eb77d28e5219025f22a637ce00d7b513fb0ee295815930773370cb.js" integrity="sha256-Lb&#43;Fp6Prd9KOUhkCXyKmN84A17UT&#43;w7ilYFZMHczcMs=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a81f59f1872d62df1201069dc29a9dd4d8fc1d0b56624972222c03d4d1d7306d.js" integrity="sha256-qB9Z8YctYt8SAQadwpqd1Nj8HQtWYklyIiwD1NHXMG0=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -465,11 +443,13 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Chatper-9-Problems/"
-       class="active">Chatper 9 Problems</a>
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/"
+       class="">Finite-Difference Solution for Boundary Value Problems</a>
   
 
         </li>
+      
+    
       
     
       
@@ -547,22 +527,6 @@ https://github.com/alex-shpak/hugo-book
   
     <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/"
        class="">9.1 边值问题的近似</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-  
-  
-
-  
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/"
-       class="">9.2 有限差分</a>
   
 
         </li>
@@ -947,41 +911,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#problem-1">Problem 1</a>
-      <ul>
-        <li><a href="#1-finitedifference-discretization">1. Finite‐Difference Discretization</a>
-          <ul>
-            <li><a href="#11-central-difference-scheme-for-the-interior-points">1.1 Central Difference Scheme (for the interior points)</a></li>
-          </ul>
-        </li>
-        <li><a href="#2-local-truncation-error">2. Local Truncation Error</a></li>
-        <li><a href="#3-matrix-form">3. Matrix Form</a></li>
-      </ul>
-    </li>
-    <li><a href="#endpmatrix">$$\begin{pmatrix}
-2\alpha &amp; -\alpha+\gamma &amp; 0 &amp; \cdots &amp; 0\
--\alpha-\gamma &amp; 2\alpha &amp; -\alpha+\gamma &amp; \cdots &amp; 0\
-0 &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots\
-\vdots &amp; &amp; -\alpha-\gamma &amp; 2\alpha &amp; -\alpha+\gamma\
-0 &amp; \cdots &amp; 0 &amp; -\alpha-\gamma &amp; 2\alpha
-\end{pmatrix}
-\begin{pmatrix}
-u_1\ u_2\ \vdots \ u_{N-2}\ u_{N-1}
-\end{pmatrix}</a>
-      <ul>
-        <li><a href="#4-quality-of-the-solution-vs-betamu">4. Quality of the Solution vs. $\beta/\mu$</a></li>
-        <li><a href="#5-upwind-method-first-order-for-beta0">5. Upwind Method (First Order) for $\beta&lt;0$</a>
-          <ul>
-            <li><a href="#51-no-spurious-oscillations">5.1 No Spurious Oscillations</a></li>
-          </ul>
-        </li>
-        <li><a href="#6-summary">6. Summary</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
 
@@ -996,159 +926,7 @@ u_1\ u_2\ \vdots \ u_{N-2}\ u_{N-1}
     
     <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;"></h1>
     
-    <div class="markdown posts"><h1 id="problem-1">
-  Problem 1
-  <a class="anchor" href="#problem-1">#</a>
-</h1>
-<p>Finite‐Difference Solution
-$$-\mu,\frac{d^2u}{dx^2} ;+; \beta,\frac{du}{dx} ;=; f(x),\quad x\in(0,1),\quad u(0)=u(1)=0$$</p>
-<p>We wish to discretize and solve the boundary‐value problem
-$$\begin{cases}
--\mu,u&rsquo;&rsquo;(x) + \beta,u&rsquo;(x) = f(x), &amp; 0&lt;x&lt;1,\[6pt]
-u(0)=0,; u(1)=0.
-\end{cases}$$
-where $\mu&gt;0$ and $\beta$ is a constant (possibly negative), and $f\in C^0(0,1)$.</p>
-<hr>
-<h2 id="1-finitedifference-discretization">
-  1. Finite‐Difference Discretization
-  <a class="anchor" href="#1-finitedifference-discretization">#</a>
-</h2>
-<p>Divide $[0,1]$ into $N$ equal subintervals so that $\Delta x = \tfrac{1}{N}$.  Let
-$$x_j ;=; j,\Delta x,\quad j=0,1,2,\dots,N,$$
-so that $x_0=0$ and $x_N=1$.  We approximate $u(x_j)\approx u_j$.  The boundary conditions become $u_0=0$ and $u_N=0$.</p>
-<h3 id="11-central-difference-scheme-for-the-interior-points">
-  1.1 Central Difference Scheme (for the interior points)
-  <a class="anchor" href="#11-central-difference-scheme-for-the-interior-points">#</a>
-</h3>
-<p>A standard <strong>centered second‐difference</strong> for $u&rsquo;&rsquo;(x)$ at $x_j$ is:
-$$u&rsquo;&rsquo;(x_j)
-;\approx;
-\frac{u_{j+1} - 2,u_j + u_{j-1}}{(\Delta x)^2}.$$
-A standard <strong>centered first‐difference</strong> for $u&rsquo;(x)$ at $x_j$ is:
-$$u&rsquo;(x_j)
-;\approx;
-\frac{u_{j+1} - u_{j-1}}{2,\Delta x}.$$</p>
-<p>Hence, the PDE
-$-\mu,u&rsquo;&rsquo;(x) + \beta,u&rsquo;(x)=f(x)$
-becomes for $j=1,\dots,N-1$:
-$$-\mu,\frac{u_{j+1} - 2,u_j + u_{j-1}}{(\Delta x)^2}
-;+;
-\beta,\frac{u_{j+1} - u_{j-1}}{2,\Delta x}
-;=;
-f(x_j).$$
-We impose $u_0 = 0$ and $u_N=0$.</p>
-<hr>
-<h2 id="2-local-truncation-error">
-  2. Local Truncation Error
-  <a class="anchor" href="#2-local-truncation-error">#</a>
-</h2>
-<ul>
-<li>The second‐order central difference for $u&rsquo;&rsquo;$ is $O((\Delta x)^2)$ accurate.</li>
-<li>The central difference for $u&rsquo;$ is also $O((\Delta x)^2)$ accurate.</li>
-</ul>
-<p>Hence the <strong>local truncation error</strong> of the combined scheme is
-$$O\bigl((\Delta x)^2\bigr).$$</p>
-<h2 id="3-matrix-form">
-  3. Matrix Form
-  <a class="anchor" href="#3-matrix-form">#</a>
-</h2>
-<p>Collect unknowns $u_1,u_2,\dots,u_{N-1}$ into a vector $\mathbf{u}=(u_1,\dots,u_{N-1})^T$.  The boundary values $u_0=0$ and $u_N=0$ are known.</p>
-<p>Rewrite the finite‐difference equation for an interior index $j$:
-$$-\mu,\frac{u_{j+1} - 2u_j + u_{j-1}}{(\Delta x)^2}
-;+;
-\beta,\frac{u_{j+1} - u_{j-1}}{2,\Delta x}
-;=;
-f(x_j).$$
-We can factor out coefficients:</p>
-<ul>
-<li>Let $\alpha \equiv \frac{\mu}{(\Delta x)^2}$.</li>
-<li>Let $\gamma \equiv \frac{\beta}{2,\Delta x}$.</li>
-</ul>
-<p>Then the coefficient of $u_j$ is $2,\alpha$, the coefficient of $u_{j+1}$ is $-\alpha + \gamma$, and the coefficient of $u_{j-1}$ is $-\alpha - \gamma$.  Thus, in matrix form,</p>
-<h1 id="endpmatrix">
-  $$\begin{pmatrix}
-2\alpha &amp; -\alpha+\gamma &amp; 0 &amp; \cdots &amp; 0\
--\alpha-\gamma &amp; 2\alpha &amp; -\alpha+\gamma &amp; \cdots &amp; 0\
-0 &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots\
-\vdots &amp; &amp; -\alpha-\gamma &amp; 2\alpha &amp; -\alpha+\gamma\
-0 &amp; \cdots &amp; 0 &amp; -\alpha-\gamma &amp; 2\alpha
-\end{pmatrix}
-\begin{pmatrix}
-u_1\ u_2\ \vdots \ u_{N-2}\ u_{N-1}
-\end{pmatrix}
-  <a class="anchor" href="#endpmatrix">#</a>
-</h1>
-<p>\begin{pmatrix}
-f(x_1)\ f(x_2)\ \vdots \ f(x_{N-2})\ f(x_{N-1})
-\end{pmatrix}.$$</p>
-<p>This is a tridiagonal linear system, solvable by standard methods (e.g. Thomas algorithm).</p>
-<h2 id="4-quality-of-the-solution-vs-betamu">
-  4. Quality of the Solution vs. $\beta/\mu$
-  <a class="anchor" href="#4-quality-of-the-solution-vs-betamu">#</a>
-</h2>
-<p>The ratio $\displaystyle \frac{\beta}{\mu}$ often plays the role of a <strong>Péclet‐type number</strong> in advection–diffusion problems.</p>
-<ul>
-<li>If $\frac{\beta}{\mu}$ is small (diffusion‐dominated), the solution is usually smooth and well‐behaved under central differencing.</li>
-<li>If $\frac{\beta}{\mu}$ is large (advection‐dominated), pure central differences may produce <strong>spurious oscillations</strong> unless $\Delta x$ is refined or <strong>upwinding</strong> techniques are used to stabilize the discrete solution.</li>
-</ul>
-<h2 id="5-upwind-method-first-order-for-beta0">
-  5. Upwind Method (First Order) for $\beta&lt;0$
-  <a class="anchor" href="#5-upwind-method-first-order-for-beta0">#</a>
-</h2>
-<p>When $\beta&lt;0$, the “flow” is from right to left, so an <strong>upwind difference</strong> for the first derivative $\beta,u&rsquo;(x)$ uses values on the “right” side at each $j$.  Concretely, for $\beta&lt;0$, we replace</p>
-<p>$$u&rsquo;(x_j)
-;\approx;
-\frac{u_{j+1} - u_j}{\Delta x}
-\quad
-(\text{a “backward” upwind if flow is leftward}).$$</p>
-<p>Hence, the difference equation becomes:</p>
-<p>$$-\mu,\frac{u_{j+1} - 2,u_j + u_{j-1}}{(\Delta x)^2}
-;+;
-\beta,\frac{u_{j+1} - u_j}{\Delta x}
-;=;
-f(x_j),
-\quad j=1,\dots,N-1.$$</p>
-<p>(This replaces the central difference in the advective term by a one‐sided upwind difference.)</p>
-<h3 id="51-no-spurious-oscillations">
-  5.1 No Spurious Oscillations
-  <a class="anchor" href="#51-no-spurious-oscillations">#</a>
-</h3>
-<p>The first‐order upwind scheme for linear advection‐diffusion is known to be <strong>monotone</strong> for any $\Delta x&gt;0$ when $\beta&lt;0$ (or, more generally, for any sign of $\beta$ if we choose the correct upwind direction).  Monotonicity prevents nonphysical oscillations.  In short:</p>
-<ul>
-<li>Central difference can oscillate if $\lvert \beta \rvert$ is large relative to $\mu$.</li>
-<li>Upwind difference sacrifices some accuracy (only first order in $\Delta x$ for the advective term) but <strong>remains stable</strong> and <strong>nonoscillatory</strong> for any step size $\Delta x$.</li>
-</ul>
-<p>Thus, with $\beta&lt;0$, the upwind approach
-$;u&rsquo;(x_j)\approx (u_{j+1}-u_j)/\Delta x$
-ensures a stable, physically plausible solution without oscillations.</p>
-<h2 id="6-summary">
-  6. Summary
-  <a class="anchor" href="#6-summary">#</a>
-</h2>
-<ol>
-<li><strong>Equation &amp; Discretization</strong><br>
-$$-\mu,u&rsquo;&rsquo; + \beta,u&rsquo; = f(x),
-\quad
-u(0)=u(1)=0
-;\longrightarrow;
-\begin{cases}
-\displaystyle
--\mu,\frac{u_{j+1}-2u_j+u_{j-1}}{(\Delta x)^2}
-+;\beta,\frac{u_{j+1}-u_{j-1}}{2,\Delta x} = f(x_j),
-\[6pt]
-u_0=0,;u_N=0.
-\end{cases}$$</li>
-<li><strong>Local Truncation Error</strong> is $O((\Delta x)^2)$ for the centered scheme.</li>
-<li><strong>Matrix Form</strong>: A standard tridiagonal system with bands $-\alpha\mp \gamma$, $2\alpha$, $-\alpha\pm \gamma$.</li>
-<li><strong>Effect of $\beta/\mu$</strong>: If $\lvert \beta\rvert$ is large relative to $\mu$, central differences can produce oscillatory solutions; upwind methods help.</li>
-<li><strong>Upwind Method (for $\beta&lt;0$)</strong>:
-$$-\mu,\frac{u_{j+1}-2u_j+u_{j-1}}{(\Delta x)^2}
-+;
-\beta,\frac{u_{j+1}-u_j}{\Delta x}
-;=; f(x_j)$$
-prevents oscillations for any $\Delta x$.</li>
-</ol>
-</div>
+    <div class="markdown posts"></div>
   </article>
  
         
@@ -1181,11 +959,6 @@ prevents oscillations for any $\Delta x$.</li>
 
         
   
-  <div class="book-comments">
-
-</div>
-  
-  
  
 
         <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -1206,49 +979,6 @@ prevents oscillations for any $\Delta x$.</li>
 
 
       
-            
-              <div class="toc-entries">
-                
-  
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#problem-1">Problem 1</a>
-      <ul>
-        <li><a href="#1-finitedifference-discretization">1. Finite‐Difference Discretization</a>
-          <ul>
-            <li><a href="#11-central-difference-scheme-for-the-interior-points">1.1 Central Difference Scheme (for the interior points)</a></li>
-          </ul>
-        </li>
-        <li><a href="#2-local-truncation-error">2. Local Truncation Error</a></li>
-        <li><a href="#3-matrix-form">3. Matrix Form</a></li>
-      </ul>
-    </li>
-    <li><a href="#endpmatrix">$$\begin{pmatrix}
-2\alpha &amp; -\alpha+\gamma &amp; 0 &amp; \cdots &amp; 0\
--\alpha-\gamma &amp; 2\alpha &amp; -\alpha+\gamma &amp; \cdots &amp; 0\
-0 &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots\
-\vdots &amp; &amp; -\alpha-\gamma &amp; 2\alpha &amp; -\alpha+\gamma\
-0 &amp; \cdots &amp; 0 &amp; -\alpha-\gamma &amp; 2\alpha
-\end{pmatrix}
-\begin{pmatrix}
-u_1\ u_2\ \vdots \ u_{N-2}\ u_{N-1}
-\end{pmatrix}</a>
-      <ul>
-        <li><a href="#4-quality-of-the-solution-vs-betamu">4. Quality of the Solution vs. $\beta/\mu$</a></li>
-        <li><a href="#5-upwind-method-first-order-for-beta0">5. Upwind Method (First Order) for $\beta&lt;0$</a>
-          <ul>
-            <li><a href="#51-no-spurious-oscillations">5.1 No Spurious Oscillations</a></li>
-          </ul>
-        </li>
-        <li><a href="#6-summary">6. Summary</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-
-
-              </div>
             
       
             
