@@ -179,8 +179,8 @@ $$
 u(0) &amp;amp;= \alpha, \quad \frac{du}{dx}(0) = \beta
 \end{align}
 $$&lt;/p>
-&lt;p>记$w = \frac{du}{dx}$，那么 $\frac{dw}{dx} = f(x)$。因此，我们知道
-$$\frac{d}{dt} = \begin{bmatrix} 0 &amp;amp; 0 \ 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} w \ u \end{bmatrix}$$&lt;/p>
+&lt;p>记$w = \frac{du}{dx}$，那么 $\frac{dw}{dx} = f(x)$。因此，我们知道&lt;/p>
+&lt;p>$$\frac{d}{dt} = \begin{bmatrix} 0 &amp;amp; 0 \ 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} w \ u \end{bmatrix}$$&lt;/p>
 &lt;h4 id="定义">
  定义
  &lt;a class="anchor" href="#%e5%ae%9a%e4%b9%89">#&lt;/a>
