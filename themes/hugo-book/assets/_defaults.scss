@@ -119,6 +119,7 @@ $hint-colors: (
   --color-h6: #0055bb;
 
   //body
+  --body-gray: #1b0b34;
   --body-background: #0b031c;
   --md-background: #1b0b34;
   --body-font-color: #c7c7d0;
@@ -135,7 +136,7 @@ $hint-colors: (
 
 
   //TOC
-  --toc-font-color: #0055bb;
+  --toc-font-color: rgb(196, 191, 124);
 
   //menu
   --color-menu: #140c3c45;
