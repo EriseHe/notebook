@@ -4,30 +4,24 @@
 .container {
   max-width: $container-max-width;
   margin: 0 auto;
-  margin-left: 4rem;
   padding: 0 $padding-8;
 }
 
 /* Book layout structure */
 .book-layout {
-  display: grid;
-  grid-template-columns: $menu-width minmax(0, 1fr) $toc-width;
-  grid-gap: 0.5rem;
-  align-items: start;
+  display: flex;
   justify-content: center;
   min-height: 100vh;
-  transition: grid-template-columns 0.3s ease;
+  position: relative;
 }
 
-/* When TOC is hidden, adjust the grid to expand the content area */
+/* When TOC is hidden, adjust the layout */
 .book-layout.toc-hidden {
-  grid-template-columns: $menu-width minmax(0, 1fr) 0;
+  /* No additional styles needed */
 }
 
-/* Add a max-width to the book-page when TOC is hidden */
-.book-layout.toc-hidden .book-page {
-  max-width: calc(100% - 2rem);
-  margin-right: 2rem;
+.book-layout.toc-hidden .book-toc {
+  /* Styles handled by .book-toc.hidden */
 }
 
 /* Ensure containers are transparent so the body background shows through */
@@ -47,8 +41,12 @@
 
 /* Menu styling */
 .book-menu {
-  grid-column: 1;
-  position: relative;
+  position: fixed;
+  left: 4rem;
+  top: 0;
+  width: $menu-width;
+  height: 100vh;
+  z-index: 100;
 }
 
 .book-menu-content {
@@ -61,34 +59,40 @@
 
 /* Main content area */
 .book-page {
-  grid-column: 2;
-  max-width: 100%;
+  max-width: 47rem;
+  padding: 0;
+  margin: 3em auto;
   transition: all 0.3s ease;
-  padding: $padding-16 $padding-8;
-  margin: 0 auto;
-  width: 100%; /* Ensure it takes full width */
-  max-width: 60rem; /* Add a max-width to prevent excessive expansion */
 }
 
 /* TOC styling */
 .book-toc {
-  grid-column: 3;
-  transition: transform 0.3s ease, opacity 0.3s ease, max-width 0.3s ease;
-  overflow: hidden;
-  max-width: $toc-width;
   position: fixed;
-  right: 3rem;
+  right: 4rem;
   top: 0;
+  width: $toc-width;
   height: 100vh;
   z-index: 100;
+  transform: translateX(0);
+  opacity: 1;
+  max-width: $toc-width;
+  transition: transform 0.3s ease, opacity 0.3s ease, max-width 0.3s ease;
+  overflow: hidden;
 }
 
 .book-toc.hidden {
   transform: translateX(100%);
   opacity: 0;
   max-width: 0;
-  display: block; /* Override display:none to allow animation */
+  display: block; /* Never use display:none to ensure animation works */
   overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease, max-width 0.3s ease;
+}
+
+/* We don't need additional style for book-layout.toc-hidden .book-toc because 
+   the .hidden class on .book-toc itself handles the animation */
+.book-layout.toc-hidden .book-toc {
+  /* Styles handled by .book-toc.hidden */
 }
 
 .book-toc-content {
@@ -106,7 +110,6 @@
   padding: 0;
   width: 100%;
   max-width: 100%;
-  max-width: 60rem; /* Match the book-page max-width */
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -134,16 +137,17 @@
     display: none;
     position: fixed;
     top: 0;
-    left: 0;
+    left: 0rem;
+    width: calc(80% - 2rem);
     bottom: 0;
     z-index: 10;
     background: var(--body-background) !important;
-    padding: $padding-16;
     box-shadow: 0 0 $padding-8 rgba(0, 0, 0, 0.1);
   }
   
   .book-toc {
     display: none;
+    right: 2rem;
   }
   
   .book-header {
