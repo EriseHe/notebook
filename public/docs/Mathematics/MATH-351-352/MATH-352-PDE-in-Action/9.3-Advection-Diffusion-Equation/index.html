@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <script>
+    (function(){
+      
+      
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  3.1 对流-扩散方程
+  #
+
+$$
+\begin{align}
+-\mu\frac{\partial^2 u}{\partial x^2} &#43; \beta\frac{\partial u}{\partial x} &amp;= f \
+\text{diffusion} \quad &amp; \text{advection}
+\end{align}
+$$
+$$u(0) = u_L, \quad u(1) = u_R$$
+Discretization:
+By Taylor&rsquo;s Expansion:
+$$u(x_{j&#43;1}) = u(x_j) &#43; \frac{\partial u}{\partial x}(x_j)\Delta x &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 - \frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 &#43; \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 &#43; \mathcal{O}(||x||^5)$$
+$$\frac{\partial u}{\partial x}(x_j)\Delta x = u(x_{j&#43;1}) - u(x_j) &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2$$">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/">
+  <meta property="og:site_name" content="位相学補完計画">
+  <meta property="og:title" content="9.3 对流-扩散方程">
+  <meta property="og:description" content="3.1 对流-扩散方程 # $$ \begin{align} -\mu\frac{\partial^2 u}{\partial x^2} &#43; \beta\frac{\partial u}{\partial x} &amp;= f \ \text{diffusion} \quad &amp; \text{advection} \end{align} $$
+$$u(0) = u_L, \quad u(1) = u_R$$
+Discretization:
+By Taylor’s Expansion: $$u(x_{j&#43;1}) = u(x_j) &#43; \frac{\partial u}{\partial x}(x_j)\Delta x &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 - \frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 &#43; \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 &#43; \mathcal{O}(||x||^5)$$
+$$\frac{\partial u}{\partial x}(x_j)\Delta x = u(x_{j&#43;1}) - u(x_j) &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2$$">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>
+9.3 对流-扩散方程 | 位相学補完計画</title>
+<link rel="icon" href="/topo.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
+
+
+<link rel="stylesheet" href="/book.min.49c6b436d7cb1c5eb627c3000cae7157795ace6e5ebd0b0cae5fd7268d4e179a.css" integrity="sha256-Sca0NtfLHF62J8MADK5xV3lazm5evQsMrl/XJo1OF5o=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.a77eaa9bd4a74ae89cef2e5451bf66f6fb9164d71e03e91e747c63fc7d743dda.js" integrity="sha256-p36qm9SnSuic7y5UUb9m9vuRZNceA&#43;kedHxj/H10Pdo=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+
+</head>
+
+<body dir="ltr">
+  
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
+  <main class="container">
+    <div class="book-layout">
+      <aside class="book-menu">
+        <div class="book-menu-content">
+          
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center justify-center" 
+     href="/">
+    <img src="/topo.png" 
+         alt="Logo" 
+         class="book-icon" />
+    <span>位相学補完計画</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+<nav class="subject-menu">
+  
+  <div class="subject-tabs">
+    <button class="subject-tab active" data-subject="mathematics">Mathematics</button>
+    <button class="subject-tab" data-subject="physics">Physics</button>
+  </div>
+
+  
+  <div class="subject-content">
+    
+    <div class="subject-panel" data-subject="mathematics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="toggle"  />
+    <label for="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="flex justify-between">
+      <a role="button"
+         class="">爽分析 II</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-c3d4873afc217e738d4eac6ed01dcfd0" class="toggle"  />
+    <label for="section-c3d4873afc217e738d4eac6ed01dcfd0" class="flex justify-between">
+      <a role="button"
+         class="">第六章 可微映射</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/"
+       class="">6.4 可微分性的必要条件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/"
+       class="">6.5 链式法则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/"
+       class="">6.6 乘积法则与梯度</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/"
+       class="">6.9 泰勒公式的高维形式</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-fe97be846a74527e019600047479e8ff" class="toggle"  />
+    <label for="section-fe97be846a74527e019600047479e8ff" class="flex justify-between">
+      <a role="button"
+         class="">第七章 逆函数和隐函数定理</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/"
+       class="">7.6 莫尔斯引理</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/"
+       class="">7.1 反函数定理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/"
+       class="">7.1.1 反函数定理（证明）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/"
+       class="">7.2 隐函数定理</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle"  />
+    <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
+      <a role="button"
+         class="">第八章 积分</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-Integration/"
+       class="">8.1 Integration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/"
+       class="">8.2 Criterion for Integrability</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/"
+       class="">8.3 Proof of Lebesgue&#39;s Theorem</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-03018ad84f65943f3692f81c9f43c501" class="toggle" checked />
+    <label for="section-03018ad84f65943f3692f81c9f43c501" class="flex justify-between">
+      <a role="button"
+         class="">偏微分方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-3c138d22d500a5fca83e33c724f72850" class="toggle" checked />
+    <label for="section-3c138d22d500a5fca83e33c724f72850" class="flex justify-between">
+      <a role="button"
+         class="">数值方法</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Numerical-Solution-of-Ordinary-Differential-Equations/"
+       class="">常微分方程的数值解</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/"
+       class="">Lecture Notes ( Mar 18)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-20/"
+       class="">Lecture Notes ( Mar 20)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/"
+       class="">Mid Point Method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/"
+       class="">Three Point Backward Differentiation Formula ( Feb 4)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/"
+       class="">9.1 边值问题的近似</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/"
+       class="">9.2 有限差分</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/"
+       class="active">9.3 对流-扩散方程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/"
+       class="">9.4 二维问题（2D Problem)</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-5c4905e8cb6611c7476262cb2b181a7d" class="toggle"  />
+    <label for="section-5c4905e8cb6611c7476262cb2b181a7d" class="flex justify-between">
+      <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
+         class="">热方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/Heat-Equation-Solution/"
+       class="">Heat Equation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/The-Fourier-Series/"
+       class="">傅立叶级数</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="toggle"  />
+    <label for="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="flex justify-between">
+      <a role="button"
+         class="">波方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="toggle"  />
+    <label for="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="flex justify-between">
+      <a role="button"
+         class="">拉普拉斯方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+
+    
+    <div class="subject-panel hidden" data-subject="physics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-20bb3063de72cc9c8e7b928b77587c05" class="toggle"  />
+    <label for="section-20bb3063de72cc9c8e7b928b77587c05" class="flex justify-between">
+      <a role="button"
+         class="">Quantum Mechenics</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Chapter-1-The-Wave-Function/"
+       class="">Chapter 1 the Wave Function</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Chapter-2-Time-Independent-Schrodinger-Equation-Stationary-States/"
+       class="">Chapter 2 Time Independent Schrodinger Equation Stationary States</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/"
+       class="">Feb 5 Fourier Series on S. Euqation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/"
+       class="">Hw3 Code</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/"
+       class="">Wave Functions Live in Hilbert Space</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+  </div>
+</nav>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.subject-tab');
+    const panels = document.querySelectorAll('.subject-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        panels.forEach(p => p.classList.add('hidden'));
+
+        
+        tab.classList.add('active');
+        
+        const subject = tab.getAttribute('data-subject');
+        const panel = document.querySelector(`.subject-panel[data-subject="${subject}"]`);
+        if (panel) {
+          panel.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+<div class="after-menu-offset">
+  
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/EriseHe/erisehe.github.io"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/themes/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+</div>
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+        </div>
+      </aside>
+      
+      <div class="book-page">
+        <header class="book-header">
+          
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>9.3 对流-扩散方程</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+  
+  
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#31-对流-扩散方程">3.1 对流-扩散方程</a></li>
+            <li><a href="#32-例子">3.2 例子</a></li>
+            <li><a href="#33-another-method-upwind-method">3.3 Another Method: Upwind Method</a></li>
+            <li><a href="#34-design-a-better-method">3.4 Design a Better Method</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+        </header>
+
+        
+        
+  <article class="book-article">
+    
+    <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;">9.3 对流-扩散方程</h1>
+    
+    <div class="markdown posts"><h3 id="31-对流-扩散方程">
+  3.1 对流-扩散方程
+  <a class="anchor" href="#31-%e5%af%b9%e6%b5%81-%e6%89%a9%e6%95%a3%e6%96%b9%e7%a8%8b">#</a>
+</h3>
+<p>$$
+\begin{align}
+-\mu\frac{\partial^2 u}{\partial x^2} + \beta\frac{\partial u}{\partial x} &amp;= f \
+\text{diffusion} \quad &amp; \text{advection}
+\end{align}
+$$</p>
+<p>$$u(0) = u_L, \quad u(1) = u_R$$</p>
+<p>Discretization:</p>
+<p>By Taylor&rsquo;s Expansion:
+$$u(x_{j+1}) = u(x_j) + \frac{\partial u}{\partial x}(x_j)\Delta x + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 - \frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 + \mathcal{O}(||x||^5)$$</p>
+<p>$$\frac{\partial u}{\partial x}(x_j)\Delta x = u(x_{j+1}) - u(x_j) + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2$$</p>
+<p>$$\frac{\partial u}{\partial x}(x_j) = \frac{u_{j+1} - u_j}{\Delta x} + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x$$</p>
+<p>Can we do better?</p>
+<p>$$u(x_{j-1}) = u(x_j) - \frac{\partial u}{\partial x}(x_j)\Delta x + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 - \frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 + \mathcal{O}(||x||^5)$$</p>
+<p>(1) - (2):
+$$u(x_{j+1}) - u(x_{j-1}) = 2\frac{\partial u}{\partial x}(x_j)\Delta x + \frac{1}{3}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \mathcal{O}(||\Delta x||^5)$$</p>
+<p>Then,
+$$\frac{\partial u}{\partial x}(x_j) = \frac{u(x_{j+1}) - u(x_{j-1})}{2\Delta x} - \frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^2 + \mathcal{O}\left(\frac{||\Delta x||^4}{2}\right)$$</p>
+<p>Final numerical solution:
+$$-\mu\frac{u_{i+1} - 2u_i + u_{i-1}}{\Delta x^2} + \beta\frac{u_{i+1} - u_{i-1}}{2\Delta x} = f_j$$</p>
+<p>$$\sim \mathcal{O}(\Delta x^2)$$</p>
+<h3 id="32-例子">
+  3.2 例子
+  <a class="anchor" href="#32-%e4%be%8b%e5%ad%90">#</a>
+</h3>
+<p>$$
+\begin{align}
+-\mu\frac{\partial^2 u}{\partial x^2} + \beta\frac{\partial u}{\partial x} &amp;= 0 \
+u(0) &amp;= 0 \
+u(a) &amp;= 1
+\end{align}
+$$</p>
+<p>$$u_{ex} = \frac{e^{\frac{\beta}{\mu}x} - 1}{e^{\frac{\beta}{\mu}} - 1}$$</p>
+<p>$$\frac{|\beta|}{\mu} &raquo; 1 : \text{convection dominated problem}$$</p>
+<p>Numerical experiment shows that when $|\beta|$ is large, the numerical solution will not be consistent anymore. What&rsquo;s wrong?</p>
+<h4 id="mathematical-explanation">
+  Mathematical Explanation:
+  <a class="anchor" href="#mathematical-explanation">#</a>
+</h4>
+<p>$$-\mu\frac{u_{i+1} - 2u_i + u_{i-1}}{\Delta x^2} + \beta\frac{u_{i+1} - u_{i-1}}{2\Delta x} = 0$$</p>
+<p>$$\left(-\frac{\mu}{\Delta x^2} + \frac{\beta}{2\Delta x}\right)u_{i+1} + \left(\frac{2\mu}{\Delta x^2}\right)u_i - \left(\frac{\mu}{\Delta x^2} + \frac{\beta}{2\Delta x}\right)u_{i-1} = 0$$</p>
+<p>Difference equation: guess solution: $u_j = C\rho^j$.</p>
+<p>Then,
+$$\left(-\frac{\mu}{\Delta x^2} + \frac{\beta}{2\Delta x}\right)C\rho^{j+1} + \left(\frac{2\mu}{\Delta x^2}\right)C\rho^j - \left(\frac{\mu}{\Delta x^2} + \frac{\beta}{2\Delta x}\right)C\rho^{j-1} = 0$$</p>
+<p>$$\left(-\frac{\mu}{\Delta x^2} + \frac{\beta}{\Delta x}\right)\rho^2 + \left(\frac{2\mu}{\Delta x^2}\right)\rho - \left(\frac{\mu}{\Delta x^2} + \frac{\beta}{2\Delta x}\right) = 0$$</p>
+<p>We can find $\rho_1$ and $\rho_2$ from this equation. Then,
+$$u_j = C_1\rho_1 + C_2\rho_2 \quad \text{linear combination}$$</p>
+<p>Note $\rho_1, \rho_2$ are solutions.</p>
+<p>$$\rho_1\rho_2 = \frac{-\left(\frac{\mu}{\Delta x^2} + \frac{\beta}{2\Delta x}\right)}{\left(-\frac{\mu}{\Delta x^2} + \frac{\beta}{2\Delta x}\right)} = \frac{1 + \frac{\beta\Delta x}{2\mu}}{1 - \frac{\beta\Delta x}{2\mu}}$$</p>
+<p>Péclet, Pe:</p>
+<p>If $\frac{|\beta|\Delta x}{2\mu} &gt; 1$, $\rho_1\rho_2 &lt; 0$, and then we have oscillating solutions.</p>
+<h3 id="33-another-method-upwind-method">
+  3.3 Another Method: Upwind Method
+  <a class="anchor" href="#33-another-method-upwind-method">#</a>
+</h3>
+<p>Information flow</p>
+<p>Our previous computation relies on symmetry. However, there is a clear physical information flow. So, this problem is asymmetric in reality. We don&rsquo;t want as fancy as $\sim \mathcal{O}(\Delta x^2)$ solutions, but we can use a $\sim \mathcal{O}(\Delta x)$ method.</p>
+<p>$$\beta\frac{\partial u}{\partial x} \approx \beta\frac{u_i - u_{i-1}}{\Delta x} \quad (\beta &gt; 0) \quad \text{(upwind)}$$</p>
+<p>Now, let&rsquo;s show (upwind) is stable.</p>
+<p>$$\beta\frac{u_i - u_{i-1}}{\Delta x} = \beta\frac{u_{i+1} - u_{i-1}}{2\Delta x} - \beta\frac{u_{i+1}}{2\Delta x} - \beta\frac{2u_i}{2\Delta x} + \beta\frac{u_{i-1}}{2\Delta x}$$</p>
+<p>$$= \beta\frac{u_{i+1} - u_{i-1}}{2\Delta x} - \frac{\beta\Delta x}{2} \cdot \frac{u_{i+1} - 2u_i + u_{i-1}}{\Delta x^2}$$</p>
+<p>Central mean $\quad$ Approx. of 2nd derivative</p>
+<p>So, we can consider the equation:
+$$-\left(\mu + \frac{|\beta|\Delta x}{2}\right)\frac{\partial^2 u}{\partial x^2} + \beta\frac{\partial u}{\partial x} = 0$$</p>
+<p>Apply a central approximation:
+$$-\mu\frac{u_{i+1} - 2u_i + u_{i-1}}{\Delta x^2} + \beta\frac{u_{i+1} - u_{i-1}}{2\Delta x} = 0$$</p>
+<p>Upwind solution of the original problem.</p>
+<p>Central (Perturbed) = Upwind (Original).</p>
+<p>Recall Péclet: $Pe = \frac{|\beta|\Delta x}{2\mu}$. Then, $\mu^* = \mu(1 + Pe)$.</p>
+<p>Péclet of this perturbed system:
+$$Pe^* = \frac{|\beta|\Delta x}{2\mu^*} = \frac{|\beta|\Delta x}{2\mu(1+Pe)} = \frac{Pe}{1+Pe} &lt; 1 \quad \forall |\beta| \text{ and } \Delta x$$</p>
+<p>So, this upwind method is always stable.</p>
+<p>Consistency: when $\Delta x \to 0$, $\mu^* \to \mu$.</p>
+<p>For the perturbed system, we have a 2nd order approach, but with the original problem, it is only a 1st order method.</p>
+<h3 id="34-design-a-better-method">
+  3.4 Design a Better Method
+  <a class="anchor" href="#34-design-a-better-method">#</a>
+</h3>
+<p>$$\mu^{smart} = \mu(1 + \Phi(Pe))$$</p>
+<p>s.t.</p>
+<ol>
+<li>$\Phi(Pe) \to 0 \quad \text{as} \quad \Delta x \to 0$</li>
+<li>$Pe^{smart} = \frac{|\beta|\Delta x}{2\mu^{smart}} &lt; 1$</li>
+</ol>
+<p>Our upwind method takes $\Phi(Pe) = Pe \sim \mathcal{O}(\Delta x)$. But can we take some $\Phi(Pe) \sim \mathcal{O}(\Delta x^2)$?</p>
+<p>$\Rightarrow$ Scharfetter-Gummel Method: $\Phi(Pe) = Pe - 1 + \frac{2Pe}{e^{2Pe} - 1}$</p>
+<p>$\Phi(Pe) \uparrow$</p>
+<p>$\Phi(Pe) = Pe$</p>
+<p>$\Phi(Pe) \sim \mathcal{O}(\Delta x)$</p>
+<p>The worst case order of Scharfetter-Gummel is $\sim \mathcal{O}(\Delta x^2)$.</p>
+<p>Scharfetter-Gummel is also a special $\Phi(Pe)$ that produces exact solutions.</p>
+</div>
+  </article>
+ 
+        
+
+        <footer class="book-footer">
+          
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/EriseHe/erisehe.github.io/edit/main/exampleSite/content.en/docs/Mathematics/MATH%20351%20&amp;amp;%20352/MATH%20352%20PDE%20in%20Action/9.3%20Advection-Diffusion%20Equation.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+          
+        </footer>
+
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+  
+ 
+
+        <label for="menu-control" class="hidden book-menu-overlay"></label>
+      </div>
+
+      
+      
+      
+      
+        <aside id="book-toc" class="book-toc hidden">
+          <div class="book-toc-content">
+            
+<div class="button-prev">
+  
+    <a class="btn-prev" href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/">
+      <strong>Previous:</strong> 9.2 有限差分
+    </a>
+  
+</div>
+
+
+
+
+      
+            
+              <div class="toc-entries">
+                
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#31-对流-扩散方程">3.1 对流-扩散方程</a></li>
+            <li><a href="#32-例子">3.2 例子</a></li>
+            <li><a href="#33-another-method-upwind-method">3.3 Another Method: Upwind Method</a></li>
+            <li><a href="#34-design-a-better-method">3.4 Design a Better Method</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+              </div>
+            
+      
+            
+<div class="button-next">
+  
+    <a class="btn-next" href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/">
+      <strong>Next:</strong> 9.4 二维问题（2D Problem)
+    </a>
+  
+</div>
+          </div>
+        </aside>
+      
+    </div>
+    
+    <div class="toolbar-trigger"></div>
+<aside class="toolbar">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <img src="/blackhole2.png" alt="Switch Theme">
+  </button>
+  <button id="toc-toggle" class="toc-toggle-btn">
+    <img src="/toc-icon.svg" alt="Toggle TOC">
+  </button>
+  <div class="font-size-control">
+    <button id="font-toggle" class="font-size-btn">
+      A
+    </button>
+    <div class="font-size-buttons">
+      <button id="font-increase" class="font-control-btn">+</button>
+      <button id="font-reset" class="font-control-btn">A</button>
+      <button id="font-decrease" class="font-control-btn">−</button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var tocAside = document.getElementById('book-toc');
+    var initialTOCState = true;
+    
+    if (!initialTOCState) {
+      tocAside.classList.add('hidden');
+    } else {
+      tocAside.classList.remove('hidden');
+    }
+    
+    document.getElementById('toc-toggle').addEventListener('click', function() {
+      tocAside.classList.toggle('hidden');
+    });
+  });
+</script>
+
+
+<script src="/font-size.min.js"></script>
+
+
+<script src="/toolbar.min.js"></script>
+
+
+<script src="/toc-animation.min.js"></script>
+
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+    
+      toggle.onclick = () => {
+        
+        const rect = toggle.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        
+        
+        
+        const currentThemeRaw = document.documentElement.getAttribute('data-theme');
+        const currentTheme = currentThemeRaw ? currentThemeRaw : 'auto';
+        
+        
+        
+        let effectiveTheme;
+        if (currentTheme === 'auto') {
+          effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+          effectiveTheme = currentTheme;
+        }
+        
+        
+        const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
+        
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        
+        const oldColor = effectiveTheme === 'dark' ? '#0b031c' : 'white';
+        
+        
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.zIndex = '9999';
+        overlay.style.pointerEvents = 'none';
+        
+        
+        overlay.style.setProperty('--cx', `${cx}px`);
+        overlay.style.setProperty('--cy', `${cy}px`);
+        overlay.style.setProperty('--r', '0px');
+        
+        
+
+        overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${oldColor} calc(var(--r) + 1px))`;
+        
+        document.body.appendChild(overlay);
+        
+        
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const finalRadius = Math.hypot(Math.max(cx, vw - cx), Math.max(cy, vh - cy));
+        
+        
+        const duration = 600; 
+        const startTime = performance.now();
+        
+        function animate(time) {
+          const elapsed = time - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const currentRadius = progress * finalRadius;
+          overlay.style.setProperty('--r', `${currentRadius}px`);
+          
+          
+          overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${currentRadius}px, ${oldColor} ${currentRadius + 1}px)`;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            overlay.remove();
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        }
+        requestAnimationFrame(animate);
+      };
+    });
+  </script>
+  
+  
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'noerrors', 'color']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      ready: function() {
+        
+        const oldFindTeX = MathJax.startup.findTeX;
+        MathJax.startup.findTeX = function(options) {
+          
+          const results = oldFindTeX.call(this, options);
+          
+          
+          for (const item of results) {
+            if (item.display) {
+              let processedMath = item.math;
+              
+              
+              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
+                
+                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
+              });
+              
+              item.math = processedMath;
+            }
+          }
+          
+          return results;
+        };
+        
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    document.querySelectorAll('blockquote').forEach(function(blockquote) {
+      
+      const firstParagraph = blockquote.querySelector('p');
+      if (!firstParagraph) return;
+      
+      const text = firstParagraph.innerHTML;
+      
+      
+      
+      for (const type of ['lemma', 'theorem', 'assumption', 'claim']) {
+        
+        const regex = new RegExp(`\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
+        const match = text.match(regex);
+        
+        if (match) {
+          console.log(`Found ${type} with label: ${match[1]}`);
+          
+          
+          const hasNumber = match[1] !== '*';
+          const number = hasNumber ? match[1] : '';
+          
+          
+          const childNodes = Array.from(blockquote.childNodes);
+          blockquote.innerHTML = '';
+          
+          
+          blockquote.classList.add('math-theorem', type);
+          
+          
+          const header = document.createElement('div');
+          header.className = 'theorem-header';
+          
+          
+          const typeText = type.charAt(0).toUpperCase() + type.slice(1);
+          header.textContent = hasNumber ? `${typeText} ${number}` : typeText;
+          
+          blockquote.appendChild(header);
+          
+          
+          const content = document.createElement('div');
+          content.className = 'theorem-content';
+          blockquote.appendChild(content);
+          
+          
+          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(match[0], '');
+          
+          
+          childNodes.forEach(function(node) {
+            content.appendChild(node.cloneNode(true));
+          });
+          
+          break; 
+        }
+      }
+    });
+  });
+</script> 
+  
+
+  <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

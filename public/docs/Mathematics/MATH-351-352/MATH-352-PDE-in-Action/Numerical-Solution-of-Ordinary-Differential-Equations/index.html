@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <script>
+    (function(){
+      
+      
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Introduction
+  #
+
+The subject of this Chapter is the numerical approximation of the Cauchy problem:
+$$(1) \quad \frac{dy}{dt} = f(t,y) \quad \text{in } t &gt; 0 \quad (I.C.)$$
+with
+$$y(0) = y_0 \text{ given}.$$
+or, more in general, a system:
+$$(2) \quad \frac{d\mathbf{y}}{dt} = \mathbf{f}(t,\mathbf{y}) \quad \text{in } t &gt; 0$$
+with
+$$\mathbf{y}(0) = \mathbf{y}_0.$$
+Let&rsquo;s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &gt; 0$ s.t.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Numerical-Solution-of-Ordinary-Differential-Equations/">
+  <meta property="og:site_name" content="位相学補完計画">
+  <meta property="og:title" content="常微分方程的数值解">
+  <meta property="og:description" content="Introduction # The subject of this Chapter is the numerical approximation of the Cauchy problem:
+$$(1) \quad \frac{dy}{dt} = f(t,y) \quad \text{in } t &gt; 0 \quad (I.C.)$$
+with $$y(0) = y_0 \text{ given}.$$
+or, more in general, a system:
+$$(2) \quad \frac{d\mathbf{y}}{dt} = \mathbf{f}(t,\mathbf{y}) \quad \text{in } t &gt; 0$$
+with $$\mathbf{y}(0) = \mathbf{y}_0.$$
+Let’s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &gt; 0$ s.t.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>
+常微分方程的数值解 | 位相学補完計画</title>
+<link rel="icon" href="/topo.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Numerical-Solution-of-Ordinary-Differential-Equations/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
+
+
+<link rel="stylesheet" href="/book.min.49c6b436d7cb1c5eb627c3000cae7157795ace6e5ebd0b0cae5fd7268d4e179a.css" integrity="sha256-Sca0NtfLHF62J8MADK5xV3lazm5evQsMrl/XJo1OF5o=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.a77eaa9bd4a74ae89cef2e5451bf66f6fb9164d71e03e91e747c63fc7d743dda.js" integrity="sha256-p36qm9SnSuic7y5UUb9m9vuRZNceA&#43;kedHxj/H10Pdo=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+
+</head>
+
+<body dir="ltr">
+  
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
+  <main class="container">
+    <div class="book-layout">
+      <aside class="book-menu">
+        <div class="book-menu-content">
+          
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center justify-center" 
+     href="/">
+    <img src="/topo.png" 
+         alt="Logo" 
+         class="book-icon" />
+    <span>位相学補完計画</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+<nav class="subject-menu">
+  
+  <div class="subject-tabs">
+    <button class="subject-tab active" data-subject="mathematics">Mathematics</button>
+    <button class="subject-tab" data-subject="physics">Physics</button>
+  </div>
+
+  
+  <div class="subject-content">
+    
+    <div class="subject-panel" data-subject="mathematics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="toggle"  />
+    <label for="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="flex justify-between">
+      <a role="button"
+         class="">爽分析 II</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-c3d4873afc217e738d4eac6ed01dcfd0" class="toggle"  />
+    <label for="section-c3d4873afc217e738d4eac6ed01dcfd0" class="flex justify-between">
+      <a role="button"
+         class="">第六章 可微映射</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/"
+       class="">6.4 可微分性的必要条件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/"
+       class="">6.5 链式法则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/"
+       class="">6.6 乘积法则与梯度</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/"
+       class="">6.9 泰勒公式的高维形式</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-fe97be846a74527e019600047479e8ff" class="toggle"  />
+    <label for="section-fe97be846a74527e019600047479e8ff" class="flex justify-between">
+      <a role="button"
+         class="">第七章 逆函数和隐函数定理</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/"
+       class="">7.6 莫尔斯引理</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/"
+       class="">7.1 反函数定理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/"
+       class="">7.1.1 反函数定理（证明）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/"
+       class="">7.2 隐函数定理</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle"  />
+    <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
+      <a role="button"
+         class="">第八章 积分</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-Integration/"
+       class="">8.1 Integration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/"
+       class="">8.2 Criterion for Integrability</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/"
+       class="">8.3 Proof of Lebesgue&#39;s Theorem</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-03018ad84f65943f3692f81c9f43c501" class="toggle" checked />
+    <label for="section-03018ad84f65943f3692f81c9f43c501" class="flex justify-between">
+      <a role="button"
+         class="">偏微分方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-3c138d22d500a5fca83e33c724f72850" class="toggle" checked />
+    <label for="section-3c138d22d500a5fca83e33c724f72850" class="flex justify-between">
+      <a role="button"
+         class="">数值方法</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Numerical-Solution-of-Ordinary-Differential-Equations/"
+       class="active">常微分方程的数值解</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/"
+       class="">Lecture Notes ( Mar 18)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-20/"
+       class="">Lecture Notes ( Mar 20)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/"
+       class="">Mid Point Method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/"
+       class="">Three Point Backward Differentiation Formula ( Feb 4)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/"
+       class="">9.1 边值问题的近似</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/"
+       class="">9.2 有限差分</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/"
+       class="">9.3 对流-扩散方程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/"
+       class="">9.4 二维问题（2D Problem)</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-5c4905e8cb6611c7476262cb2b181a7d" class="toggle"  />
+    <label for="section-5c4905e8cb6611c7476262cb2b181a7d" class="flex justify-between">
+      <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
+         class="">热方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/Heat-Equation-Solution/"
+       class="">Heat Equation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/The-Fourier-Series/"
+       class="">傅立叶级数</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="toggle"  />
+    <label for="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="flex justify-between">
+      <a role="button"
+         class="">波方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="toggle"  />
+    <label for="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="flex justify-between">
+      <a role="button"
+         class="">拉普拉斯方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+
+    
+    <div class="subject-panel hidden" data-subject="physics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-20bb3063de72cc9c8e7b928b77587c05" class="toggle"  />
+    <label for="section-20bb3063de72cc9c8e7b928b77587c05" class="flex justify-between">
+      <a role="button"
+         class="">Quantum Mechenics</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Chapter-1-The-Wave-Function/"
+       class="">Chapter 1 the Wave Function</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Chapter-2-Time-Independent-Schrodinger-Equation-Stationary-States/"
+       class="">Chapter 2 Time Independent Schrodinger Equation Stationary States</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/"
+       class="">Feb 5 Fourier Series on S. Euqation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/"
+       class="">Hw3 Code</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/"
+       class="">Wave Functions Live in Hilbert Space</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+  </div>
+</nav>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.subject-tab');
+    const panels = document.querySelectorAll('.subject-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        panels.forEach(p => p.classList.add('hidden'));
+
+        
+        tab.classList.add('active');
+        
+        const subject = tab.getAttribute('data-subject');
+        const panel = document.querySelector(`.subject-panel[data-subject="${subject}"]`);
+        if (panel) {
+          panel.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+<div class="after-menu-offset">
+  
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/EriseHe/erisehe.github.io"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/themes/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+</div>
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+        </div>
+      </aside>
+      
+      <div class="book-page">
+        <header class="book-header">
+          
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>常微分方程的数值解</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+  
+  
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#introduction">Introduction</a>
+          <ul>
+            <li><a href="#local-theorem">Local Theorem</a></li>
+            <li><a href="#global-theorem">Global Theorem</a></li>
+          </ul>
+        </li>
+        <li><a href="#stability-definitions">Stability Definitions</a></li>
+        <li><a href="#remark">Remark</a></li>
+        <li><a href="#some-simple-examples">Some Simple Examples</a></li>
+        <li><a href="#analysis-of-forward-euler">Analysis of Forward Euler</a></li>
+        <li><a href="#convergence-of-forward-euler">Convergence of Forward Euler</a></li>
+      </ul>
+    </li>
+    <li><a href="#other-one-step-methods">Other One-Step Methods</a>
+      <ul>
+        <li><a href="#crank-nicolson">Crank-Nicolson</a></li>
+        <li><a href="#heun">Heun</a></li>
+        <li><a href="#the-concept-of-zero-stability">The Concept of Zero-Stability</a></li>
+        <li><a href="#the-concept-of-absolute-stability">The Concept of Absolute Stability</a>
+          <ul>
+            <li><a href="#remark-1">Remark</a></li>
+          </ul>
+        </li>
+        <li><a href="#definition">DEFINITION</a></li>
+        <li><a href="#another-example-heun">Another Example: Heun</a></li>
+        <li><a href="#remark-we-found-that-the-explicit-methods-are-conditionally-stable-while-the-implicit-ones-are-unconditionally-stable">REMARK: We found that the explicit methods are conditionally stable, while the implicit ones are unconditionally stable.</a></li>
+      </ul>
+    </li>
+    <li><a href="#multistep-methods">Multistep Methods</a>
+      <ul>
+        <li><a href="#example">Example:</a></li>
+        <li><a href="#bdf-backward-difference-formulas">BDF (Backward Difference Formulas)</a></li>
+        <li><a href="#adams">Adams</a></li>
+        <li><a href="#a-rapid-recall-of-difference-equations-theory">A Rapid Recall of Difference Equations Theory</a></li>
+        <li><a href="#zero-stability-definition">Zero-Stability Definition</a></li>
+        <li><a href="#analysis-of-multistep-methods">Analysis of Multistep Methods</a></li>
+        <li><a href="#a-clarification-on-stability-concepts">A Clarification on Stability Concepts</a></li>
+        <li><a href="#example-extreme">Example (Extreme)</a></li>
+        <li><a href="#predictor-corrector-methods">Predictor-Corrector Methods</a></li>
+        <li><a href="#examples">Examples:</a></li>
+        <li><a href="#runge-kutta-methods">Runge-Kutta Methods</a></li>
+        <li><a href="#derivation-of-an-explicit-rk-method">Derivation of an Explicit RK Method</a></li>
+        <li><a href="#analysis-of-rk">Analysis of RK</a></li>
+        <li><a href="#absolute-stability">ABSOLUTE STABILITY</a></li>
+        <li><a href="#why-are-rk-so-popular">Why are RK so popular?</a></li>
+        <li><a href="#a-final-note-on-stiff-problems">A Final Note on Stiff problems</a></li>
+        <li><a href="#exercise-on-lmm">EXERCISE on LMM</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+        </header>
+
+        
+        
+  <article class="book-article">
+    
+    <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;">常微分方程的数值解</h1>
+    
+    <div class="markdown posts"><h2 id="introduction">
+  Introduction
+  <a class="anchor" href="#introduction">#</a>
+</h2>
+<p>The subject of this Chapter is the numerical approximation of the Cauchy problem:</p>
+<p>$$(1) \quad \frac{dy}{dt} = f(t,y) \quad \text{in } t &gt; 0 \quad (I.C.)$$</p>
+<p>with
+$$y(0) = y_0 \text{ given}.$$</p>
+<p>or, more in general, a system:</p>
+<p>$$(2) \quad \frac{d\mathbf{y}}{dt} = \mathbf{f}(t,\mathbf{y}) \quad \text{in } t &gt; 0$$</p>
+<p>with
+$$\mathbf{y}(0) = \mathbf{y}_0.$$</p>
+<p>Let&rsquo;s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &gt; 0$ s.t.</p>
+<p>$$|f(t,y_1) - f(t,y_2)| &lt; L |y_1 - y_2|.$$</p>
+<p>Clearly, if $f$ is differentiable with continuity in $I$, it is also Lipschitz continuous with $L \leq \max_I \left|\frac{\partial f}{\partial y}\right|$.</p>
+<h3 id="local-theorem">
+  Local Theorem
+  <a class="anchor" href="#local-theorem">#</a>
+</h3>
+<p>If $f$ is Lipschitz continuous in a range $t \in I_1$ and $y \in I \subseteq \mathbb{R}$, then $\exists$ an interval $\hat{I} \subseteq I$ where the solution to $(1)$ exists and is unique.</p>
+<h3 id="global-theorem">
+  Global Theorem
+  <a class="anchor" href="#global-theorem">#</a>
+</h3>
+<p>If the $f$ is Lipschitz continuous $\forall t \in I$ and $y \in \mathbb{R}$, then the solution $\exists$ uniquely in $I$.</p>
+<h2 id="stability-definitions">
+  Stability Definitions
+  <a class="anchor" href="#stability-definitions">#</a>
+</h2>
+<p>From the practical point of view, it is important to consider also the perturbed case:</p>
+<p>$$(1_\epsilon): \quad \frac{dy_\epsilon}{dt} = f(t, y_\epsilon) + \delta(t) \quad t \geq 0$$</p>
+<p>$$y^\epsilon(0) = y_0 + \epsilon$$</p>
+<p>with $|\delta(t)| \leq \epsilon \quad \forall t \geq 0$</p>
+<p>If there exists a finite constant $C$ such that</p>
+<p>$$|y - y_\epsilon| &lt; C\epsilon \quad (*)$$</p>
+<p>then we say that the solution is Lyapunov stable.</p>
+<p>In general, $C$ may depend on $t$, so that $(*)$ may hold on finite intervals (and not over the entire $[0,\infty)$ axis).</p>
+<p>To have a stronger concept, we advocate the ASYMPTOTIC STABILITY:</p>
+<p>$$\lim_{t \to \infty} |y(t) - y_\epsilon(t)| = 0.$$</p>
+<p>From the engineering point of view, this is a central concept, as the theory of control (Automatical Control, Feedback control) relies on this definition.</p>
+<h2 id="remark">
+  Remark
+  <a class="anchor" href="#remark">#</a>
+</h2>
+<p>The Cauchy problem has a formal (quite useless) solution:</p>
+<p>$$y(t) = y_0 + \int_0^t f(\tau, y(\tau))d\tau$$</p>
+<p>connecting the solution in $t$ with its past.</p>
+<p>This is basically an alternative formulation of the problem and, in fact, will be used to formulate possible numerical approximation alternative to the ones based on $(1)$.</p>
+<h2 id="some-simple-examples">
+  Some Simple Examples
+  <a class="anchor" href="#some-simple-examples">#</a>
+</h2>
+<p>To begin with, we can split the time interval in subintervals, for instance with a uniform reticulation with step $\Delta t$.</p>
+<p>![Time discretization with points at 0, Δt, 2Δt, 3Δt&hellip;]</p>
+<p>Then, we can use the formula:</p>
+<p>$$\frac{dy}{dt}(t_i) \simeq \frac{y(t_{i+1}) - y(t_i)}{\Delta t}$$</p>
+<p>that we know is accurate with an error scaling with $\Delta t$. In this way, we have:</p>
+<p>[From now on, the approximation of the solution $y(t)$ in $t_i$ will be denoted with $u_i$]</p>
+<p>$$\frac{u_{i+1} - u_i}{\Delta t} = f(t_i, u_i)$$</p>
+<p>In practice, starting at $t = 0$:
+$$\begin{align}
+u_1 &amp;= u_0 + \Delta t , f(t_0, u_0) \quad \rightsquigarrow \quad (u_0 = y_0) \
+u_2 &amp;= u_1 + \Delta t , f(t_1, u_1)
+\end{align}$$</p>
+<p>We can easily compute the approximation $u_i$ of $y(t_i)$.</p>
+<p>On the other hand, we could do:</p>
+<p>$$\frac{u_i - u_{i-1}}{\Delta t} = f(t_i, u_i)$$</p>
+<p>leading to:</p>
+<p>$$u_1 = u_0 + \Delta t , f(t_1, u_1) \quad (u_0 = y_0)$$</p>
+<p>This is not as easy as before: it&rsquo;s a NONLINEAR (ALGEBRAIC) EQUATION; we know how to solve it (first Chapter), but it is a computational additional cost. Then, similarly, we have:</p>
+<p>$$u_2 = u_1 + \Delta t , f(t_2, u_2)$$</p>
+<p>We have also another option:</p>
+<p>$$\frac{dy}{dt}(t_i) \simeq \frac{u_{i+1} - u_{i-1}}{2\Delta t}$$</p>
+<p>In this case, the error scales with $O(\Delta t^2)$. So, in practice we have:</p>
+<p>$$u_{i+1} = 2\Delta t , f(t_i, u_i) + u_{i-1}$$</p>
+<p>or specifically: $u_2 = 2\Delta t , f(t_1, u_1) + u_0 \quad (u_0 = y_0)$</p>
+<p>I need to know $u_1$, not just $u_0$, then we can use the method.</p>
+<p>With these three examples, we have already found many possible types of methods:</p>
+<p><strong>Implicit vs Explicit</strong></p>
+<ul>
+<li><strong>Implicit</strong>: Solve a non-linear equation</li>
+<li><strong>Explicit</strong>: No need of solving equations</li>
+</ul>
+<p><strong>One Step vs Multistep</strong></p>
+<ul>
+<li><strong>One Step</strong>: $u_{i+1} = g(\Delta t, u_i)$</li>
+<li><strong>Multistep</strong>: $u_{i+1} = g(\Delta t, u_i, u_{i-1}, u_{i-2}&hellip;)$</li>
+</ul>
+<p>At the top of this, we have the problem of the accuracy and - even most importantly- of the CONVERGENCE.</p>
+<p>In fact, the basic requirement we need is that the method is convergent:</p>
+<p>$$\lim_{\Delta t \to 0} |y(t_i) - u_i| = 0$$</p>
+<p>Then, if we find that $|y(t_i) - u_i| \sim O(\Delta t^p)$ then the accuracy or the order of the method is $p$.</p>
+<p>Nature (implicit/explicit), Number of steps and most important CONVERGENCE and accuracy (order) are the categories for analyzing and ranking different methods.</p>
+<p>Before we embark ourselves in a general analysis, however, let&rsquo;s focus on a specific case, where important concepts will be highlighted.</p>
+<h2 id="analysis-of-forward-euler">
+  Analysis of Forward Euler
+  <a class="anchor" href="#analysis-of-forward-euler">#</a>
+</h2>
+<p>The method:</p>
+<p>$$\frac{u_{i+1} - u_i}{\Delta t} = f(t_i, u_i)$$</p>
+<p>is called Forward Euler.</p>
+<p>Let&rsquo;s consider it in detail.</p>
+<p>To start with, let&rsquo;s introduce the distinction of &ldquo;consistency&rdquo; and truncation error.</p>
+<p>If we have the exact solution $y_{ex}(t)$ it is easily realized that</p>
+<p>$$\frac{y_{ex}(t_{i+1}) - y_{ex}(t_i)}{\Delta t} \neq f(t_i, y_{ex}(t_i))$$</p>
+<p>For instance,</p>
+<p>$$\frac{dy}{dt} = \lambda y \quad y(0) = 1 \implies y_{ex} = e^{\lambda t}$$</p>
+<p>then</p>
+<p>$$\frac{e^{\lambda(t_i+\Delta t)} - e^{\lambda t_i}}{\Delta t} = e^{\lambda t_i} \frac{e^{\lambda \Delta t} - 1}{\Delta t} \neq \lambda e^{\lambda t_i} \quad (\lambda y(t_i))$$</p>
+<p>We can be more specific:</p>
+<p>$$y_{ex}(t_{i+1}) = y_{ex}(t_i) + \frac{dy_{ex}}{dt}(t_i)\Delta t + \frac{1}{2}\frac{d^2y_{ex}}{dt^2}(t_i)\Delta t^2 + &hellip;$$</p>
+<p>Now:</p>
+<p>$$\frac{y_{ex}(t_{i+1}) - y_{ex}(t_i)}{\Delta t} = \frac{dy_{ex}(t_i)}{dt} + \frac{1}{2}\frac{d^2y_{ex}(t_i)}{dt^2}\Delta t + &hellip;$$</p>
+<p>This gives us:</p>
+<p>$$\frac{y_{ex}(t_{i+1}) - y_{ex}(t_i)}{\Delta t} = f(t_i, y_{ex}(t_i)) + \left[\frac{\Delta t}{2}\frac{d^2y_{ex}}{dt^2}\right]$$</p>
+<p>Forward Euler $\quad \quad \quad$ Local Truncation Error (LTE)</p>
+<p>In some sense, the truncation error is the residual we get when we pretend the exact solution to solve the numerical scheme.</p>
+<p>Now, to investigate how the error of Forward Euler works, let&rsquo;s consider the following picture:</p>
+<p>![Error propagation diagram showing exact solution trajectory and numerical approximation]</p>
+<p>From the picture it is evident that the error:</p>
+<p>$$e_{i+1} = y_{ex}(t_{i+1}) - u_{i+1}$$</p>
+<p>is the result of two contributions:</p>
+<p>$$e_{i+1} = \underbrace{y_{ex}(t_{i+1}) - u^<em><em>{i+1}}</em>{\text{generated at the local step}} + \underbrace{u^</em><em>{i+1} - u</em>{i+1}}_{\text{propagated from previous steps}}$$</p>
+<p>From the previous definition:</p>
+<p>$$y_{ex}(t_{i+1}) = y_{ex}(t_i) + \Delta t , f(t_i, y_{ex}(t_i)) + \Delta t , \tau_{i+1}$$</p>
+<p>where $\tau_{i+1} = \frac{\Delta t}{2}\frac{d^2y_{ex}(t_i)}{dt^2}$ is the local TE.</p>
+<p>$$u^*<em>{i+1} = y</em>{ex}(t_i) + \Delta t , f(t_i, y_{ex}(t_i))$$</p>
+<p>$$y_{ex}(t_{i+1}) - u^*_{i+1} = \Delta t , \tau_i$$</p>
+<p>Now, let&rsquo;s focus on the other part.</p>
+<p>This second component $u^*<em>{i+1} - u</em>{i+1}$ is inherited from the previous errors.</p>
+<p>$$u^*<em>{i+1} = y</em>{ex}(t_i) + \Delta t , f(t_i, y_{ex}(t_i))$$
+$$u_{i+1} = u_i + \Delta t , f(t_i, u_i)$$</p>
+<p>Using the Lipschitz assumption $|f(t,y) - f(t,u)| \leq L |y-u|$ we have:</p>
+<p>$$|u^*<em>{i+1} - u</em>{i+1}| \leq |e_i| + \Delta t , L |e_i| = (1 + \Delta t , L)|e_i|$$</p>
+<p>where $e_i = y_{ex}(t_i) - u_i$</p>
+<p>All together, we have:</p>
+<p>$$|e_{i+1}| \leq \Delta t |\tau_i| + (1 + \Delta t , L)|e_i|$$</p>
+<p>Now, take $|\tau^*| = \max_i |\tau_i| = \text{GLOBAL TRUNCATION ERROR}$.</p>
+<p>Then:</p>
+<p>$$|e_{i+1}| \leq \underbrace{\Delta t |\tau^*|}<em>{\text{local}} + \underbrace{(1 + \Delta t , L)}</em>{\text{propagated}}|e_i|$$</p>
+<p>Assume that $e_0 = 0$ (no errors on the initial conditions). Then we have:</p>
+<p>$$|e_1| \leq \Delta t |\tau^<em>|$$
+$$|e_2| \leq \Delta t |\tau^</em>| + (1 + \Delta t , L)|e_1| \leq \Delta t |\tau^<em>|(1 + (1+\Delta t , L))$$
+$$|e_3| \leq \Delta t |\tau^</em>| + (1+\Delta t , L)|e_2| \leq \Delta t |\tau^*|(1 + (1+\Delta t , L) + (1+\Delta t , L)^2)$$</p>
+<p>We infer:</p>
+<p>$$|e_K| \leq \Delta t |\tau^<em>| \sum_{j=0}^{K-1}(1+\Delta t , L)^j = \Delta t |\tau^</em>|\frac{(1+\Delta t , L)^K - 1}{1 - 1 - \Delta t , L} = \frac{|\tau^*|}{L}((1+\Delta t , L)^K - 1)$$</p>
+<p>Notice that:</p>
+<p>$$(1 + x)^K \leq \exp(xK)$$</p>
+<p>So:</p>
+<p>$$|e_K| \leq \frac{|\tau^<em>|}{L}(\exp(LKh) - 1) = \frac{|\tau^</em>|}{L}(\exp(Lt_K) - 1)$$</p>
+<p>where $K\Delta t = t_K$</p>
+<p>Now, if we want to have a bound on the error in the interval $[0,T]$, we have:</p>
+<p>$$|e| \leq \frac{|\tau^*|}{L}(\exp(LT) - 1)$$</p>
+<p>We have proved the following Theorem:</p>
+<h2 id="convergence-of-forward-euler">
+  Convergence of Forward Euler
+  <a class="anchor" href="#convergence-of-forward-euler">#</a>
+</h2>
+<p>If the initial data are exact, and $f$ is Lipschitz continuous with respect to the $y$-argument, with a solution $\in C^2(0,T)$, then FE converges.</p>
+<p>In fact:</p>
+<p>$$|\tau^*| = \frac{1}{2}\Delta t \max_i |y^{&rsquo;&rsquo;}| \xrightarrow{\Delta t \to 0} 0$$</p>
+<p>and $|e| \leq |\tau^*|\frac{\exp(LT) - 1}{L} \xrightarrow{\Delta t \to 0} 0$ is bounded.</p>
+<p><strong>FE is convergent with order 1.</strong></p>
+<p>Beyond the Theorem per se (we will generalize it to other methods), it is important to notice that the convergence is the consequences of two peculiarities:</p>
+<p><strong>(1)</strong> $\tau^* \xrightarrow{\Delta t \to 0} 0$ the LTE/GTE vanishes as $\Delta t \to 0$, so locally the error is under control.</p>
+<p>This property is called <strong>CONSISTENCY</strong>.</p>
+<p><strong>(2)</strong> The factor $\frac{\exp(LT) - 1}{L}$ is independent of $\Delta t$ (or, in general, doesn&rsquo;t blow up for $\Delta t \to 0$). This is related to the way the error propagates so it is a &ldquo;global&rdquo; property through the constant $L$.</p>
+<p>The control of the error in time is called <strong>STABILITY</strong>.</p>
+<p>In some sense, we can say that:</p>
+<p><strong>CONVERGENCE = CONSISTENCY + STABILITY</strong></p>
+<p>In spite of the intuitive arguments we used here, we will see that this is a good representation of general results (Lax-Richtmyer equivalence Theorem) holding for method using linear combinations of the function $f$ evaluated in the points $(t_i, u_i)$.</p>
+<h1 id="other-one-step-methods">
+  Other One-Step Methods
+  <a class="anchor" href="#other-one-step-methods">#</a>
+</h1>
+<p>So far, we have two one-step methods (forward and backward Euler). Let&rsquo;s see other two. It is instructive to see how they are devised.</p>
+<h2 id="crank-nicolson">
+  Crank-Nicolson
+  <a class="anchor" href="#crank-nicolson">#</a>
+</h2>
+<p>From $y(t) = y_0 + \int_0^t f(\tau, y(\tau))d\tau$ we can organize the following method:</p>
+<p>![Timeline showing points $t_0, t_1, t_2, t_3, t_4, t_5, t_6, t_7$]</p>
+<p>Localize: $y(t_{n+1}) = y(t_n) + \int_{t_n}^{t_{n+1}} f(\tau, y(\tau)) d\tau$</p>
+<p>Discretize: approximate the integral with the trapezoidal rule:</p>
+<p>$$u_{n+1} = u_n + \frac{f(t_{n+1}, u_{n+1}) + f(t_n, u_n)}{2} \Delta t$$</p>
+<p>This is a Second Order (EXERCISE) one-step implicit method.</p>
+<h2 id="heun">
+  Heun
+  <a class="anchor" href="#heun">#</a>
+</h2>
+<p>Let&rsquo;s start from Crank-Nicolson and make it &ldquo;explicit&rdquo;.</p>
+<p>On the right hand side of CN we set:</p>
+<p>$$u_{n+1} \simeq u_n + \Delta t , f(t_n, u_n) \quad \text{(Explicit Euler)}$$</p>
+<p>We obtain the scheme:</p>
+<p>$$u_{n+1} = u_n + \Delta t \frac{f(t_{n+1}, u_n+\Delta t f(t_n, u_n)) + f(t_n, u_n)}{2}$$</p>
+<p>This is called Heun. It is One-step, still 2nd order (EXERCISE).</p>
+<h2 id="the-concept-of-zero-stability">
+  The Concept of Zero-Stability
+  <a class="anchor" href="#the-concept-of-zero-stability">#</a>
+</h2>
+<p>Let&rsquo;s start applying the concept to one-step methods in the form:</p>
+<p>$$u_{n+1} = u_n + \Delta t , \Phi(u_n, t_n, f_n; \Delta t)$$</p>
+<p>Let&rsquo;s consider the perturbed scheme:</p>
+<p>$$\begin{cases}
+w_{n+1} = w_n + \Delta t (\Phi(z_n, t_n, f(t_n, z_n); \Delta t) + \delta_n) \
+w_0 = y_0 + \delta_0 &amp; \text{with } |\delta_i| \leq \varepsilon
+\end{cases}$$</p>
+<p>We say that the method is zero-stable if for $\Delta t &lt; \Delta t_0$, there exists a constant $C &gt; 0$ such that</p>
+<p>$$|u_n - z_n| \leq C\varepsilon$$</p>
+<p>for $\varepsilon &gt; 0$ sufficiently small.
+($C$ and $\Delta t_0$ depend on problem data, $T_{fin}$, $f$).</p>
+<p>It is possible to prove the following theorem:</p>
+<p><strong>Theorem:</strong> If $\Phi$ is Lipschitz continuous with respect to the dependence on $u_n$ ($\exists \Delta &gt; 0$: $|\Phi(u_n) - \Phi(z_n)| \leq \Delta |u_n - z_n|$), then the One-step method is zero-stable.</p>
+<p>Lipschitz continuity in this case is enough for zero-stability (and it is generally a consequence of Lipschitz continuity of $f$).</p>
+<p>Then, we have another theorem. It generalizes the theorem for the explicit Euler.</p>
+<p><strong>Theorem:</strong> If $\Phi$ is like in the previous theorem, then:</p>
+<p>$$|y(t_n) - u_n| \leq \left(|y_0 - u_0| + t_n , \tau(\Delta t)\right) e^{L t_n}.$$</p>
+<p>Therefore, if:</p>
+<ul>
+<li>$\tau(\Delta t) \to 0$ with $\Delta t$</li>
+<li>$y_0 - u_0 \to 0$ with $\Delta t$</li>
+</ul>
+<p>the method is convergent</p>
+<p>(and the order is $\Delta t^p$, with $p = \min(p_1, p_2)$ where:</p>
+<ul>
+<li>$\tau(\Delta t) \sim O(\Delta t^{p_1})$</li>
+<li>$y_0 - u_0 \sim O(\Delta t^{p_2})$ (generally $p = p_1$).</li>
+</ul>
+<p>In other terms:</p>
+<p>For one-step method (not true for multi-step):</p>
+<p>$$\Phi \text{ Lipschitz continuous } \Rightarrow \text{ Method zero-stable} + \text{Consistency} \Rightarrow \text{CONVERGENCE}$$</p>
+<p>$\Rightarrow$ If $\Phi$ is Lipschitz continuous, consistency $\Rightarrow$ convergence.</p>
+<h2 id="the-concept-of-absolute-stability">
+  The Concept of Absolute Stability
+  <a class="anchor" href="#the-concept-of-absolute-stability">#</a>
+</h2>
+<p>The zero-stability is a property of the numerical scheme, required by the presence of roundoff errors and other possible perturbations.</p>
+<p>However, there is another (maybe more engineering) concept of stability related to the nature of the problem to solve.</p>
+<p>In simple words, we want that, if a problem is asymptotically stable, the numerical approximation is asymptotically stable too.</p>
+<p>Is this happening? Let&rsquo;s consider the prototype of asymptotically stable problem (Model Problem).</p>
+<p>Let&rsquo;s consider the Cauchy problem:</p>
+<p>$$\begin{cases}
+\frac{dy}{dt} = \lambda y &amp; t &gt; 0 \
+y(0) = y_0
+\end{cases}$$</p>
+<p>We know that the solution is asymptotically stable for $\lambda &lt; 0$ $(y_{ex} = y_0 e^{\lambda t} \xrightarrow{t \to \infty} 0 \text{ for } \lambda &lt; 0)$</p>
+<p>In fact: $\frac{dz}{dt} = \lambda z$ with $z(0) = y_0 + \varepsilon \Rightarrow z - y = \varepsilon e^{\lambda t} \xrightarrow{t\to\infty} 0$ for $\lambda &lt; 0$.</p>
+<h3 id="remark-1">
+  Remark
+  <a class="anchor" href="#remark-1">#</a>
+</h3>
+<p>For a system: $\begin{cases} \frac{d\mathbf{y}}{dt} = A\mathbf{y} &amp; \mathbf{y} \in \mathbb{R}^n \ \mathbf{y}(0) = \mathbf{y}_0 &amp; A \in \mathbb{R}^{n \times n} \end{cases}$</p>
+<p>the asymptotic stability is guaranteed if THE REAL PART OF ALL THE EIGENVALUES is negative.</p>
+<p>To be general, from now on we will consider $\lambda \in \mathbb{C}$ also for the scalar case. In particular, the left-plane $\text{Real}(\lambda) &lt; 0$ is the region of the complex plane where the original problem is asymptotically stable.</p>
+<h4 id="question-is-the-solution-of-the-model-problem-with-explicit-euler-asymptotically-vanishing-as-the-exact-solution">
+  Question: is the solution of the model problem with Explicit Euler asymptotically vanishing as the exact solution?
+  <a class="anchor" href="#question-is-the-solution-of-the-model-problem-with-explicit-euler-asymptotically-vanishing-as-the-exact-solution">#</a>
+</h4>
+<p>Notice that the question is not related to the behavior of the solution for $\Delta t \to 0$, but for $\Delta t$ given and $t \to +\infty$.</p>
+<p>Let&rsquo;s see:
+$$\frac{dy}{dt} = \lambda y \quad \text{EE}: \frac{u_{i+1} - u_i}{\Delta t} = \lambda u_i$$</p>
+<p>$$u_{i+1} = (1 + \lambda \Delta t) u_i \quad (\text{Re}(\lambda) &lt; 0)$$</p>
+<p>$$|u_{i+1}| = |1 + \lambda \Delta t| |u_i| \Rightarrow |u_{i+1}| = |1 + \lambda \Delta t|^{i+1} |u_0|$$</p>
+<p>The solution asymptotically vanishes if $|1 + \lambda \Delta t| &lt; 1$</p>
+<p>Intuitively, if $\lambda$ is Real and negative:</p>
+<p>$$|1 + \lambda \Delta t| &lt; 1$$
+$$\Downarrow$$
+$$-1 &lt; 1 + \lambda \Delta t &lt; 1$$
+$$\Downarrow$$
+$$-2 &lt; \lambda \Delta t &lt; 0$$
+$$\Downarrow$$
+$$\Delta t &lt; \frac{2}{|\lambda|}$$</p>
+<p>So, if $\Delta t &gt; \frac{2}{|\lambda|}$ the numerical solution is not stable.</p>
+<p>For $\lambda$ complex, we can draw the region of the plane $\lambda \Delta t$ where the solution is stable.</p>
+<p>![Complex plane diagram showing unit circle with center at (-1,0)]</p>
+<p>Unit circle with center in $(-1, 0)$</p>
+<p>(In magenta the region of stability of the problem).</p>
+<p>So, the method is reproducing the asymptotic behavior of the exact solution ONLY UNDER THE CONDITION THAT:</p>
+<p>$$\lambda \Delta t \in \text{Unit Circle centered in } (-1, 0).$$</p>
+<h4 id="what-happens-with-implicit-euler">
+  What happens with Implicit Euler?
+  <a class="anchor" href="#what-happens-with-implicit-euler">#</a>
+</h4>
+<p>$$\frac{1}{|1 - \lambda \Delta t|} &lt; 1 \quad \forall \Delta t,$$</p>
+<p>so $u^{n+1} \xrightarrow{n \to \infty} 0 \quad \forall \Delta t$</p>
+<p>There is a big difference between the two Eulers: one is stable under some conditions, the other is unconditionally stable.</p>
+<h4 id="what-about-crank-nicolson">
+  What about Crank-Nicolson?
+  <a class="anchor" href="#what-about-crank-nicolson">#</a>
+</h4>
+<p>$$u^{n+1} = u^n + \Delta t \frac{\lambda u^{n+1} + \lambda u^n}{2} \Rightarrow u^{n+1} = \frac{1 + \frac{\Delta t}{2}\lambda}{1 - \frac{\Delta t}{2}\lambda} u^n$$</p>
+<p>Again, for $\lambda \in \mathbb{C}$ we have:</p>
+<p>$$\left|\frac{1 + \frac{\Delta t}{2}\lambda}{1 - \frac{\Delta t}{2}\lambda}\right| &lt; 1 \quad \forall \Delta t$$</p>
+<p>so also CN is stable with no condition.</p>
+<h2 id="definition">
+  DEFINITION
+  <a class="anchor" href="#definition">#</a>
+</h2>
+<p>A method is said to be ABSOLUTELY STABLE if the solution of the model problem $\frac{dy}{dt} = \lambda y$ vanishes asymptotically when $t \to +\infty$.</p>
+<p>We say that the method is UNCONDITIONALLY ABSOLUTELY STABLE if this happens $\forall \Delta t &gt; 0$. On the contrary, it is said to be CONDITIONALLY STABLE if we have limitations on $\Delta t$.</p>
+<h2 id="another-example-heun">
+  Another Example: Heun
+  <a class="anchor" href="#another-example-heun">#</a>
+</h2>
+<p>$$u^{n+1} = u^n + \frac{\Delta t}{2}(\lambda(u^n + \Delta t \lambda u^n) + \lambda u^n) = \left(1 + \Delta t \lambda + \frac{\Delta t^2 \lambda^2}{2}\right) u^n$$</p>
+<p>Now, consider the curve $\frac{\Delta t^2 \lambda^2}{2} + \Delta t \lambda + 1$ for $\lambda &lt; 0$</p>
+<p>We see that we need:</p>
+<p>$$0 &lt; \Delta t &lt; \frac{2}{|\lambda|}$$</p>
+<p>(as for Explicit Euler).</p>
+<p>In the complex plane, the region is slightly larger than for Explicit Euler.</p>
+<h2 id="remark-we-found-that-the-explicit-methods-are-conditionally-stable-while-the-implicit-ones-are-unconditionally-stable">
+  REMARK: We found that the explicit methods are conditionally stable, while the implicit ones are unconditionally stable.
+  <a class="anchor" href="#remark-we-found-that-the-explicit-methods-are-conditionally-stable-while-the-implicit-ones-are-unconditionally-stable">#</a>
+</h2>
+<p>In general, we do not have unconditionally stable explicit methods, but we do have implicit methods that are only conditionally stable.</p>
+<p>The region of absolute stability is the portion of $\mathbb{C}^-$ for $\lambda \Delta t$ to belong to such that the method is absolutely stable. Unconditional absolute stability (a.k.a A-stability) is when this region is the entire left plane $\mathbb{C}^-$.</p>
+<p>The concept of absolute stability somehow clarifies what are the criteria to select a method for a problem.</p>
+<p>In fact, let&rsquo;s first consider the general case(s):</p>
+<ol>
+<li>
+<p>$\frac{dy}{dt} = f(t,y) \simeq f(t,y_0) + \frac{\partial f}{\partial t}(t-t_0) + \frac{\partial f}{\partial y}(t,y_0)(y-y_0)$</p>
+<p>so we can locally take $\lambda \simeq \frac{\partial f}{\partial y}(t,y_0)$</p>
+</li>
+<li>
+<p>For a system: $\frac{d\mathbf{y}}{dt} = A \mathbf{y} \Rightarrow \lambda = eig(A)$</p>
+</li>
+<li>
+<p>$\frac{d\mathbf{y}}{dt} = \mathbf{F}(t,\mathbf{y})$ (nonlinear system)</p>
+<p>$\Rightarrow \lambda = eig\left(\frac{\partial \mathbf{F}}{\partial \mathbf{y}}(t_0, y_0) \right)$ - Jacobian</p>
+</li>
+</ol>
+<p>Now, for a general problem, we have:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>Nature</th>
+          <th>Accuracy</th>
+          <th>Limitations on $\Delta t$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>FE</td>
+          <td>Explicit</td>
+          <td>1</td>
+          <td>$\Delta t &lt; \frac{2}{</td>
+      </tr>
+      <tr>
+          <td>BE</td>
+          <td>Implicit</td>
+          <td>1</td>
+          <td>NO</td>
+      </tr>
+      <tr>
+          <td>CN</td>
+          <td>Implicit</td>
+          <td>2</td>
+          <td>NO</td>
+      </tr>
+      <tr>
+          <td>H</td>
+          <td>Explicit</td>
+          <td>2</td>
+          <td>$\Delta t &lt; \frac{2}{</td>
+      </tr>
+  </tbody>
+</table>
+<p>Implicit Methods are more computationally expensive.</p>
+<p>In an extreme synthesis:</p>
+<p>![Comparison of FE and BE with timeline]</p>
+<p>With FE each step is low-cost (Explicit) but we may need to do many for the conditional stability.</p>
+<p>With BE each step is more expensive, but we need to do (generally) fewer steps.</p>
+<p>$\Rightarrow$ The optimal choice is largely problem dependent.</p>
+<h1 id="multistep-methods">
+  Multistep Methods
+  <a class="anchor" href="#multistep-methods">#</a>
+</h1>
+<p>The mid-point method is just an example of multi-step methods:</p>
+<p>$$u_{n+1} = u_{n-1} + 2\Delta t , f(t_n, u_n)$$</p>
+<p>In general, a multistep method with $p$ steps take the form:</p>
+<p>$$u_{n+1} - \sum_0^p a_j u_{n-j} = \Delta t \sum_{j=-1}^p b_j f(t_{n-j}, u_{n-j})$$</p>
+<p>The method is IMPLICIT when $b_{-1} \neq 0$.</p>
+<h2 id="example">
+  Example:
+  <a class="anchor" href="#example">#</a>
+</h2>
+<p>$$y(t_{n+1}) = y(t_{n-1}) + \int_{t_{n-1}}^{t_{n+1}} f(\tau, y(\tau)) d\tau$$</p>
+<p>$$\Downarrow \text{ SIMPSON}$$</p>
+<p>$$u_{n+1} = u_{n-1} + 2\Delta t \frac{f(t_{n+1}, u_{n+1}) + 4f(t_n, u_n) + f(t_{n-1}, u_{n-1})}{6} =$$</p>
+<p>$$= u_{n-1} + \frac{\Delta t}{3}(f(t_{n+1}, u_{n+1}) + 4f(t_n, u_n) + f(t_{n-1}, u_{n-1}))$$</p>
+<p>$$\mathbf{a} = \begin{bmatrix} 0 \ 1 \end{bmatrix} a_0, a_1 \quad \mathbf{b} = \begin{bmatrix} \frac{1}{3} \ \frac{4}{3} \ \frac{1}{3} \end{bmatrix} b_{-1}, b_0, b_1$$</p>
+<p>In general, we have two approaches for deriving a Multi-step methods:</p>
+<h2 id="bdf-backward-difference-formulas">
+  BDF (Backward Difference Formulas)
+  <a class="anchor" href="#bdf-backward-difference-formulas">#</a>
+</h2>
+<p>$$\frac{dy}{dt}(t_{n+1}) = f(t_{n+1}, u_{n+1})$$
+$$\downarrow$$
+approximate this with a backward finite difference, e.g.,</p>
+<p>$$\frac{dy}{dt}(t_{n+1}) \simeq \frac{\frac{3}{2}u_{n+1} - 2u_n + \frac{1}{2}u_{n-1}}{\Delta t}$$</p>
+<p>$$\Rightarrow u_{n+1} = \frac{4}{3}u_n - \frac{1}{3}u_{n-1} + \Delta t f(t_{n+1}, u_{n+1})$$</p>
+<p>They are all in the form:</p>
+<p>$$\mathbf{b} = \begin{bmatrix} 1 \ 0 \ \vdots \ 0 \end{bmatrix}$$</p>
+<h2 id="adams">
+  Adams
+  <a class="anchor" href="#adams">#</a>
+</h2>
+<p>In this case, we start from:</p>
+<p>$$y(t_{n+1}) = y(t_n) + \int_{t_n}^{t_{n+1}} f(\tau, y(\tau)) d\tau$$</p>
+<p>Now, we replace $f$ with an interpolation:</p>
+<ol>
+<li>We interpolate $f$ over the nodes: $n-p, n-p+1, &hellip; n$ so to have an explicit method (Adams-Bashforth)</li>
+<li>We interpolate $f$ over the nodes: $n-p, n-p+1, &hellip; n, n+1$</li>
+</ol>
+<p>Adams methods have always:</p>
+<p>$$\mathbf{a} = \begin{bmatrix} 1 \ 0 \ \vdots \ 0 \end{bmatrix}$$</p>
+<h2 id="a-rapid-recall-of-difference-equations-theory">
+  A Rapid Recall of Difference Equations Theory
+  <a class="anchor" href="#a-rapid-recall-of-difference-equations-theory">#</a>
+</h2>
+<p>A linear difference equation is an equation in the form:</p>
+<p>$$u_{n+p} + a_{n+p-1}u_{n+p-1} + a_{n+p-2}u_{n+p-2} + \ldots + a_0u_n = \varphi_{n+p}$$</p>
+<p>where the solution is the set ${u_j}$ and initial conditions $u_0, u_1, \ldots u_{p-1}$ are given.</p>
+<p>The theory on difference equations has several similarities with the theory on differential equations. In particular, the general solution of a linear difference equation is the linear combination of a particular solution of the equation and the general solution of the homogeneous one.</p>
+<p>The general solution of the homogeneous takes the form:</p>
+<p>$$u_n = \sum_{j=0}^{N}\left(\sum_{s=0}^{m_j-1} V_{js}n^s \right)r_j^n$$</p>
+<p>where $r_j$ are the roots of:</p>
+<p>$$r^p + a_{p-1}r^{p-1} + a_{p-2}r^{p-2} + \ldots + a_0 = 0$$</p>
+<p>and</p>
+<ul>
+<li>$N$ is the number of distinct roots</li>
+<li>$m_j$ is the multiplicity of $r_j$</li>
+</ul>
+<p>We will see a strong connection between this theory and the analysis of the linear multi-step methods.</p>
+<p>In fact, a LMM reads like:</p>
+<p>$$u_{n+1} - \sum_{j=0}^p a_j u_{n-j} = \Delta t \sum_{j=-1}^p b_j f_{n-j}$$</p>
+<p>If we consider the model problem, we are lead to the linear difference equation:</p>
+<p>$$u_{n+1} - \sum_{j=0}^p a_j u_{n-j} - \Delta t \lambda \sum_{j=-1}^p b_j u_{n-j} = 0$$</p>
+<p>so we need to solve exactly a linear difference equation.</p>
+<p>More precisely, we still define the LTE as the residual of the exact solution in the numerical scheme:</p>
+<p>$$\Delta t , \tau_{n+1} = y_{ex}(t_{n+1}) - \sum_{j=0}^p a_j y_{ex}(t_{n-j}) - \Delta t \sum_{j=-1}^p b_j \frac{dy_{ex}}{dt}(t_{n-j})$$</p>
+<p>The method is CONSISTENT when $\tau_{n+1} \xrightarrow{\Delta t \to 0} 0 \quad \forall n$</p>
+<h2 id="zero-stability-definition">
+  Zero-Stability Definition
+  <a class="anchor" href="#zero-stability-definition">#</a>
+</h2>
+<p>The definition of zero-stability is similar to the one for One-step Methods.</p>
+<p>Also, we define:</p>
+<p>First characteristic polynomial:</p>
+<p>$$\rho(z) = z^{p+1} - \sum_{j=0}^p a_j z^{p-j}$$</p>
+<p>Second characteristic polynomial:</p>
+<p>$$\sigma(z) = b_{-1}z^{p+1} - \sum_{j=0}^p b_j z^{p-j}$$</p>
+<p>and the polynomial: $\Pi(z) = \rho(z) - \Delta t \lambda \sigma(z)$
+(this is the polynomial found for the model problem)</p>
+<p>Based on this we define:</p>
+<p><strong>Root Condition</strong>: Call $r_i$ the roots of $\rho(z)$. The polynomial (or the associated LMM) fulfills the root condition when:</p>
+<p>(1) $|r_i| \leq 1 \quad \forall i$
+(2) The roots with $|r| = 1$ have multiplicity 1.</p>
+<p><strong>Strong Root Condition</strong>:
+In addition to the R.C., only $r_0$ is s.t. $|r_0| = 1$, all the other roots $|r_j| &lt; 1$ $(j &gt; 1, \ldots, p)$.</p>
+<p><strong>Absolute R.C.</strong>: $\exists \Delta t \leq \overline{\Delta t}$ s.t. all the roots $r_j(\Delta t)$ of $\Pi_{\Delta t}(z)$ are s.t. $|r_j(\Delta t)| &lt; 1$, $j = 0, \ldots, p$, $\Delta t \leq \overline{\Delta t}$.</p>
+<h2 id="analysis-of-multistep-methods">
+  Analysis of Multistep Methods
+  <a class="anchor" href="#analysis-of-multistep-methods">#</a>
+</h2>
+<p>We have a sequence of theorems (no proofs):</p>
+<ol>
+<li>
+<p>A LMM is consistent if and only if:</p>
+<p>$$\sum_{j=0}^p a_j = 1 \quad -\sum_{j=0}^p j a_j + \sum_{j=-1}^p b_j = 1$$</p>
+<p>Also, the method is at least of order $p$ if the solution is $\in C^{p+1}(I)$ and</p>
+<p>$$(*)\ \sum_{j=0}^p (j)^k a_j + k \sum_{j=-1}^p (j)^{k-1} b_j = 1 \quad k = 1, 2, \ldots q$$</p>
+<p><strong>Remark</strong>: The condition $\sum_{j=0}^p a_j = 1$ means that the first characteristic polynomial $\rho(z)$ has at least one root in 1.</p>
+</li>
+<li>
+<p>A consistent method is zero-stable if and only if it fulfills the root condition.</p>
+</li>
+</ol>
+<p>With Theorems (1) + (2) we have the convergence and order analysis.</p>
+<p>(1) + (2): If the LMM method falls into (1) and (2) with condition (*) (not true for q+1) and the initial conditions ($u_i \to y_{ex}(t_i)$ $i = 0, \ldots, p$) converge to the exact ones with order $q$, the resulting method is convergent with order $q$.</p>
+<p><strong>Remark (First Dahlquist Barrier)</strong>: There is no zero-stable $p$-LMM with order</p>
+<ul>
+<li>$&gt; p+1$ for $p$ odd</li>
+<li>$&gt; p+2$ for $p$ even</li>
+</ul>
+<p>Let&rsquo;s turn now to the Absolute stability.</p>
+<ol start="3">
+<li>The absolute root condition is necessary and sufficient for the absolute stability. In fact, if $\overline{\Delta t} = +\infty$, the absolute stability is unconditional.</li>
+</ol>
+<p>The analysis of a LMM is completed by analyzing the coefficients of the method and the roots of the two polynomials $\rho$ and $\Pi$.</p>
+<p>The roots of $\Pi$ can be analyzed numerically (and are tabulated for most of the methods) by Matlab/Python subroutines.</p>
+<p>SEE EXAMPLES
+(NODEPY library in Python, QSS in Matlab)</p>
+<p><strong>Remark (Second Dahlquist Barrier)</strong>: There are no explicit LMM absolutely unconditionally stable. There are no LMM absolutely unconditionally stable with order $q &gt; 2$.</p>
+<h2 id="a-clarification-on-stability-concepts">
+  A Clarification on Stability Concepts
+  <a class="anchor" href="#a-clarification-on-stability-concepts">#</a>
+</h2>
+<p>To clarify the different stability concepts:</p>
+<ol>
+<li>
+<p>Zero-stability:</p>
+<p>$$|u_j| \leq C_{T_{fin}} (|u_0| + \ldots |u_p|)$$</p>
+<p>where the $C$ may depend on $T_{fin}$</p>
+</li>
+<li>
+<p>Absolute stability:</p>
+<p>$$C_{T_{fin}} \xrightarrow{T_{fin} \to \infty} 0$$</p>
+</li>
+<li>
+<p>$C$ is bounded independently of $T_{fin}$</p>
+<p>We call this &ldquo;relative stability&rdquo;</p>
+</li>
+</ol>
+<p>$$\text{for a consistent scheme} \quad \text{R.C.} \Leftarrow \text{Strong R.C.} \Leftarrow\text{A.R.C.}$$
+$$\text{CONVERGENCE} \Leftarrow \text{Zero-Stability} \Leftarrow \text{Relative Stability} \Leftarrow \text{Absolute Stability}$$</p>
+<h2 id="example-extreme">
+  Example (Extreme)
+  <a class="anchor" href="#example-extreme">#</a>
+</h2>
+<p>Mid-point:</p>
+<p>$$u_{n+1} = u_{n-1} + 2\Delta t , f(t_n, u_n)$$</p>
+<p>$$a_0 = 0 \quad a_1 = 1 \quad \Rightarrow \rho(z) = z^2 - 1 = 0 \quad \Rightarrow \rho = \pm 1$$</p>
+<p>R.C.: OK</p>
+<p>$$\Pi_{\Delta t}(z) = z^2 - 2\lambda z - 1$$</p>
+<p>The product of the two roots is always -1, if one root is &lt; 1 in magnitude, the other is &gt; 1.</p>
+<p>Unconditionally Absolutely UNSTABLE</p>
+<h2 id="predictor-corrector-methods">
+  Predictor-Corrector Methods
+  <a class="anchor" href="#predictor-corrector-methods">#</a>
+</h2>
+<p>A clear message from the previous examples is that, in general, explicit methods are less absolutely stable, they are never unconditionally stable and have smaller regions of stability.</p>
+<p>However, let&rsquo;s reconsider implicit methods too.</p>
+<p>For instance, let&rsquo;s consider a generic LMM:</p>
+<p>$$u_{n+1} - \sum_{j=0}^p a_j u_{n-j} = b_{-1} \Delta t , f(t_{n+1}, u_{n+1}) + \Delta t \sum_{j=0}^p b_j f(t_{n-j}, u_{n-j})$$</p>
+<p>To solve this nonlinear equation, we could use a Newton method but also a fixed-point method and a natural candidate is the following:</p>
+<p>$$u_{n+1}^{(m)} = \sum_{j=0}^p a_j u_{n-j} + \Delta t \sum_{j=0}^p b_j f_{n-j} + \Delta t b_{-1} f(t_{n+1}, u_{n+1}^{(m-1)})$$</p>
+<p>Notice that this method converges if:</p>
+<p>$$\left|\Delta t , b_{-1} , f&rsquo;(t_{n+1}, u_{n+1}) \right| &lt; 1$$</p>
+<p>So we have the condition:</p>
+<p>$$\Delta t &lt; \frac{1}{|b_{-1}||f&rsquo;|}$$</p>
+<p>Even if the method is unconditionally stable, we may have a condition on $\Delta t$ for the convergence of the fixed-point.</p>
+<p>In any case, a good initial condition is required, because with a good $u^{(0)}$ the number of iterations can be reduced: an explicit method can be used to this.</p>
+<p>These considerations lead to the design of a new class of methods, Heun being one of the possible examples.</p>
+<p>Predictor [P] is an explicit method of order $q_P$</p>
+<p>Corrector [C] is an implicit method of order $q_C$</p>
+<p>Predictor Corrector method:</p>
+<p>P: do one step of P $\Rightarrow u_{n+1}^{(0)}$</p>
+<p>E: evaluate $f(t_{n+1}, u_{n+1}^{(0)})$</p>
+<p>C: compute $m$ fixed-point iterations of C</p>
+<p>Optional: E: compute $f_{n+1} = f(t_{n+1}, u_{n+1}^{(m)})$</p>
+<p>These methods go under the name of $\text{PEC}^m$ or $\text{PEC}^m\text{E}$ if the last step is taken.</p>
+<h2 id="examples">
+  Examples:
+  <a class="anchor" href="#examples">#</a>
+</h2>
+<p>P = Adams-Bashforth of order 2
+C = Adams-Moulton of order 3
+$m = 1$</p>
+<p>PEC:
+$$\begin{cases}
+u_{n+1}^{(0)} = u_n^{(1)} + \frac{\Delta t}{2}(3f_n^{(0)} - f_{n-1}^{(0)}) \
+f_{n+1}^{(0)} = f(t_{n+1}, u_{n+1}^{(0)}) \
+u_{n+1}^{(1)} = u_n^{(1)} + \frac{\Delta t}{12}(5f_{n+1}^{(0)} + 8f_n^{(0)} - f_{n-1}^{(0)})
+\end{cases}$$</p>
+<p>PECE:
+$$\begin{cases}
+u_{n+1}^{(0)} = u_n^{(1)} + \frac{\Delta t}{2}(3f_n^{(1)} - f_{n-1}^{(1)}) \
+f_{n+1}^{(0)} = f(t_{n+1}, u_{n+1}^{(0)}) \
+u_{n+1}^{(1)} = u_n^{(1)} + \frac{\Delta t}{12}(5f_{n+1}^{(0)} + 8f_n^{(1)} - f_{n-1}^{(1)}) \
+f_{n+1}^{(1)} = f(t_{n+1}, u_{n+1}^{(1)})
+\end{cases}$$</p>
+<p>A natural question is: what is the accuracy of $\text{PEC}^m$ or $\text{PECE}^m$? What is the region of absolute stability?</p>
+<p><strong>Theorem (Accuracy)</strong>: $\text{PECE}$ methods have (under regularity assumptions on the solution) order of accuracy:</p>
+<p>$$q_{PC} = min(q_P + m, q_C)$$</p>
+<p>For the region of absolute stability, in general:</p>
+<p>$$\text{Region}(P) \subseteq \text{Region}(\text{PECE}) \subseteq \text{Region}(C)$$</p>
+<p>and $\text{Region}(\text{PECE}) \xrightarrow{m \to +\infty} \text{Region}(C)$</p>
+<h2 id="runge-kutta-methods">
+  Runge-Kutta Methods
+  <a class="anchor" href="#runge-kutta-methods">#</a>
+</h2>
+<p>Heun is also an RK method:</p>
+<p>$$u_{n+1} = u_n + \Delta t\left(f_n + f(t_{n+1}, u_n + \Delta t f_n)\right)$$</p>
+<p>This is a 2nd order method but the accuracy is not obtained using more steps, but giving up the linearity of the method.</p>
+<p>In general, RK are in the form:</p>
+<p>$$u_{n+1} = u_n + \Delta t , \mathbf{K} \cdot \mathbf{b}$$</p>
+<p>where $\mathbf{K}, \mathbf{b} \in \mathbb{R}^s$</p>
+<p>and $[\mathbf{K}]_i = f(t_n + c_i \Delta t, u_n + \Delta t[A\mathbf{K}]_i)$</p>
+<p>where $[\mathbf{A}\mathbf{K}]_i$ is the $i^{th}$ entry of the vector $\mathbf{A}\mathbf{K}$</p>
+<p>The method is characterized by:
+$s$ (stages), $\mathbf{b}$, $\mathbf{c}$ and $\mathbf{A} \in \mathbb{R}^{s \times s}$</p>
+<p>In particular, the three &ldquo;ingredients&rdquo; are generally written as:</p>
+<p>$$\frac{\mathbf{c} | \mathbf{A}}{\mathbf{b}^T} \quad \text{(Butcher array)}$$</p>
+<p>It is assumed that $c_i = \sum_{j=1}^s a_{ij} \quad \forall i = 1, \ldots s$</p>
+<p>If $\mathbf{A}$ is such that $a_{ij} = 0 \quad \forall j \geq i$ then:</p>
+<p>$$K_i = [\mathbf{K}]<em>i = f(t_n + \Delta t c_i, u_n + \Delta t \sum</em>{j &lt; i} a_{ij} K_j)$$</p>
+<p>so the computation of $K_i$ is immediate. We call this case an explicit RK scheme.</p>
+<p>If $a_{ij} = 0 \quad \forall j &gt; i$, then:</p>
+<p>$$K_i = [\mathbf{K}]<em>i = f(t_n + \Delta t c_i, u_n + \Delta t \sum</em>{j &lt; i} a_{ij} K_j + \Delta t a_{ii} K_i)$$</p>
+<p>so we need to solve a non-linear equation to obtain $K_i$. We call this a semi-implicit method.</p>
+<p>In general, computing $\mathbf{K}$ requires the solution of a non-linear system (implicit method).</p>
+<p>Clearly, the computational cost increases in the three cases.</p>
+<h2 id="derivation-of-an-explicit-rk-method">
+  Derivation of an Explicit RK Method
+  <a class="anchor" href="#derivation-of-an-explicit-rk-method">#</a>
+</h2>
+<p>A possible strategy to devise an explicit method is to maximize the order of the LTE with Taylor expansion analysis.</p>
+<p>For instance, for $s = 2$:</p>
+<p>$$\begin{pmatrix} 0 &amp; 0 &amp; 0 \ c_2 &amp; a_{21} &amp; 0 \ \hline &amp; b_1 &amp; b_2 \end{pmatrix}$$</p>
+<p>We have three parameters, but we set $a_{21} = c_2$.</p>
+<p>$$u_{n+1} = u_n + \Delta t(b_1 f(t_n, u_n) + b_2 f(t_n + c_2 \Delta t, u_n + \Delta t c_2 f(t_n, u_n)))$$</p>
+<p>$$y_{ex}(t_n) = y_{ex}(t_n) + \Delta t \frac{dy_{ex}}{dt}(t_n) + \frac{\Delta t^2}{2}\frac{d^2y_{ex}}{dt^2}(t_n) + \frac{\Delta t^3}{3!}\frac{d^3y_{ex}}{dt^3}(t_n) + H.O.T.$$</p>
+<p>$$f(t_n + c_2 \Delta t, u_n + \Delta t c_2 f(t_n, u_n)) =$$</p>
+<p>$$= f(t_n, u_n) + \frac{\partial f}{\partial t}(t_n, y_n)c_2 \Delta t + \frac{\partial f}{\partial y}(t_n, y_n)c_2 \Delta t f(t_n, u_n) =$$</p>
+<p>Notice that:
+$$\frac{d^2y}{dt^2} = \frac{df}{dt} = \frac{\partial f}{\partial t} + \frac{\partial f}{dy}\frac{dy}{dt} = \frac{\partial f}{\partial t} + \frac{\partial f}{\partial y}f$$</p>
+<p>$$\Rightarrow f(t_n, u_n) + c_2 \Delta t \frac{d^2y}{dt^2}(t_n)$$</p>
+<p>The Taylor expansion applied to the scheme reads:</p>
+<p>$$u_{n+1} = u_n + \Delta t(b_1 + b_2)f + c_2 b_2 \Delta t^2 \frac{d^2y}{dt^2}$$</p>
+<p>We match therefore the first terms of the Taylor expansion for:</p>
+<p>$$\begin{align}
+b_1 + b_2 &amp;= 1 \
+b_2 c_2 &amp;= \frac{1}{2}
+\end{align}$$</p>
+<p>For $b_2 = \frac{1}{2}$ we obtain the Heun method.</p>
+<p>The L.T.E is $\Delta t , \tau \sim O(\Delta t^3)$</p>
+<p>so the method is 2nd order.</p>
+<p>Implicit methods can be devised from Gaussian quadratures.</p>
+<h2 id="analysis-of-rk">
+  Analysis of RK
+  <a class="anchor" href="#analysis-of-rk">#</a>
+</h2>
+<p><strong>CONSISTENCY</strong>: As the previous example shows, we need $\sum b_i = 1$. This is necessary and sufficient for the consistency.</p>
+<p><strong>ZERO-STABILITY</strong>: RK are One-Step methods, if $f$ is Lipschitz-Continuous, they are zero-stable.</p>
+<p><strong>ORDER</strong>: In general, the order we can obtain depends on the number of stages in a (non-trivial) way:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Explicit RK:</th>
+          <th>ORDER</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$s_{min}$</td>
+          <td></td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>6</td>
+          <td>7</td>
+          <td>9</td>
+          <td>11</td>
+      </tr>
+  </tbody>
+</table>
+<p>$s_{min}$ = minimum number of stages to obtain the corresponding order.</p>
+<h2 id="absolute-stability">
+  ABSOLUTE STABILITY
+  <a class="anchor" href="#absolute-stability">#</a>
+</h2>
+<p>If we write the method for the model problem, we can write:</p>
+<p>$$u_{n+1} = \mathcal{R}(\Delta t \lambda) u_n$$</p>
+<p>The region of absolute stability is, in general, the non-trivial region where $|\mathcal{R}(\Delta t \lambda)| &lt; 1$ (in $\mathbb{C}$).</p>
+<h2 id="why-are-rk-so-popular">
+  Why are RK so popular?
+  <a class="anchor" href="#why-are-rk-so-popular">#</a>
+</h2>
+<p>RK are extremely popular, because they can be high order with &ldquo;only&rdquo; one-step.</p>
+<p>One-step means that:</p>
+<ul>
+<li>we do not need high-order approximation of the initial data needed by LMM (the initial condition is enough)</li>
+<li>we can easily perform the time-step ADAPTIVITY (much more difficult with LMM).</li>
+</ul>
+<p>For the adaptivity, there are smart combinations of RK that obtain the adaptivity (i.e. an error estimate to adapt the step) in an efficient way.</p>
+<p>One of the most popular is:
+RK45 Fehlberg: smart combination of an explicit method of order 4 and an explicit of order 5 to adapt the step.</p>
+<h2 id="a-final-note-on-stiff-problems">
+  A Final Note on Stiff problems
+  <a class="anchor" href="#a-final-note-on-stiff-problems">#</a>
+</h2>
+<p>Many of the concepts used here can be extended to systems of ODEs:</p>
+<p>$$\begin{cases}
+\frac{d\mathbf{y}}{dt} = \mathbf{F}(t, \mathbf{y}) \
+\mathbf{y}(0) = \mathbf{y}_0
+\end{cases}$$</p>
+<p>In the case of a linear ODE system:</p>
+<p>$$\mathbf{F} = A , \mathbf{y} \quad \downarrow \quad \text{matrix}$$</p>
+<p>There is, however, an important concept to clarify.</p>
+<p>Consider a simple 2×2 problem:</p>
+<p>$$\frac{d\mathbf{y}}{dt} = A\mathbf{y}$$</p>
+<p>where $A$ has the two eigenvalues: $\begin{cases} \lambda_1 = -10^6 \ \lambda_2 = -1 \end{cases}$</p>
+<p>If we use Explicit Euler:</p>
+<p>$$\mathbf{y}^{n+1} = \mathbf{y}^n + \Delta t , A \mathbf{y}^n$$</p>
+<p>the region of absolute stability is:</p>
+<p>$$\Delta t \leq \min\left(\frac{2}{10^6}, \frac{2}{1}\right) = 2 \cdot 10^{-6}$$</p>
+<p>The solution, on the other hand, is the linear combination of the two functions:</p>
+<p>$$e^{-10^6 t}, e^{-t}$$</p>
+<p>[Graph showing rapid decay of $e^{-10^6 t}$ vs slower decay of $e^{-t}$]</p>
+<p>To capture the fast dynamics ($\lambda = 10^{-6}$), that fades away immediately, we need to take $\Delta t \sim 10^{-6}$!!!</p>
+<p>An explicit method is certainly not a good choice here.</p>
+<p>In general, we say that a problem is &ldquo;stiff&rdquo; when it may require very stringent time-step in a non-efficient way. The name &ldquo;stiff&rdquo; originates from the coupling of springs with different stiffness:</p>
+<p>[Simple diagram of a mass connected to two springs with different spring constants]</p>
+<p>to study the dynamics of the two real balls, one can write an ODE system.</p>
+<p>If $K_1 &laquo; K_2$ this is a stiff problem.</p>
+<h2 id="exercise-on-lmm">
+  EXERCISE on LMM
+  <a class="anchor" href="#exercise-on-lmm">#</a>
+</h2>
+<p>Consider the following family of methods (LMM):</p>
+<p>$$u_{n+1} = \alpha u_n + (1-\alpha)u_{n-1} + \Delta t , \gamma f_{n+1}$$</p>
+<ol>
+<li>Investigate the convergence properties of the method as function of $\alpha$ and $\gamma$.</li>
+</ol>
+<p><strong>Sol</strong>: For $\alpha \neq 1$, the method is 2-step.
+For $\gamma \neq 0$, the method is implicit.</p>
+<p>It&rsquo;s a LMM with: $\mathbf{a} = \begin{bmatrix} \alpha \ 1-\alpha \ 0 \end{bmatrix} \begin{bmatrix} 0 \ 1 \ 0 \end{bmatrix}$, $\mathbf{b} = \begin{bmatrix} \gamma \ 0 \ 0 \end{bmatrix} \begin{bmatrix} -1 \ 0 \ 1 \end{bmatrix}$</p>
+<p>Consistency:
+$\sum a_j = 1$: $\alpha + (1-\alpha) = 1$ ✓OK
+$-\sum j a_j + \sum b_j = 1$: $0 \cdot \alpha - 1 \cdot (1-\alpha) + \gamma = 1$
+$\Rightarrow \gamma = 2 - \alpha$</p>
+<p>The methods:
+$u_{n+1} = \alpha u_n + (1-\alpha)u_{n-1} + \Delta t (2-\alpha)f_{n+1}$
+are consistent.</p>
+<p>Order: $\sum (j)^2 a_j + 2\sum (-j)^1 b_j = 1$ ?
+$\Rightarrow (1-\alpha) + 2(2-\alpha) = 1 \Rightarrow \alpha = \frac{4}{3}, \gamma = \frac{2}{3}$</p>
+<ol start="2">
+<li>Investigate the absolute stability of the method with order 2.</li>
+</ol>
+<p>The method:
+$u_{n+1} = \frac{4}{3}u_n - \frac{1}{3}u_{n-1} + \Delta t \frac{2}{3}f_{n+1}$</p>
+<p>is of order 2 (it is, in fact, a BDF of order 2).</p>
+<p>$\rho(z) = z^2 - \frac{4}{3}z + \frac{1}{3} = 0 \quad r_{1,2} = \frac{\frac{4}{3} \pm \sqrt{\frac{16}{9} - \frac{4}{3}}}{2} = \frac{4 \pm 2}{6} = \frac{2 \pm 1}{3}$</p>
+<p>R.C. ✓</p>
+<p>$\Pi_{\Delta t}(z) = z^2 - \frac{4}{3}z + \frac{1}{3} - \Delta t \lambda \frac{2}{3}z^2 = 0$</p>
+<p>Let&rsquo;s consider $\lambda \in \mathbb{R}^-$:</p>
+<p>$(3 - \Delta t \lambda 2)z^2 - 4z + 1 = 0$</p>
+<p>$z^2 - \frac{4z}{3 + 2\Delta t|\lambda|} + \frac{1}{3 + 2\Delta t|\lambda|} = 0$</p>
+<p>$r_1 \cdot r_2 = \frac{1}{3 + 2\Delta t|\lambda|}$</p>
+<p>$r_1 = \frac{2 + \sqrt{1 - 2\Delta t|\lambda|}}{3 + 2\Delta t|\lambda|} \xrightarrow{\Delta t \to 0} 1$</p>
+<p>$|r_1(\Delta t)| &lt; 1 \quad \forall \Delta t &gt; 0$</p>
+<p>$r_2 = \frac{2 - \sqrt{1 - 2\Delta t|\lambda|}}{3 + 2\Delta t|\lambda|} \xrightarrow{\Delta t \to 0} \frac{1}{3}$</p>
+<p>$|r_2(\Delta t)| &lt; \frac{1}{3}$</p>
+<p>Method unconditionally stable (Verify with Python/Matlab).</p>
+<ol start="3">
+<li>Solve
+$$\begin{cases}
+\frac{dy}{dt} = -(1 + t_g(t))y &amp; t \in [0, 1] \
+y(0) = 1
+\end{cases}$$</li>
+</ol>
+<p>with the BDF2 method found and verify your results, knowing that the exact solution is $y_{ex} = e^{-x}\cos(x)$.</p>
+<p>Using MATLAB, the problem is easily solved with the QSS subroutines:</p>
+<p>qssstab.m    (draws the region of absolute stability)
+qssmulti.m   (solves with a generic LMM)</p>
+<p>With Python there are many libraries: <code>SciPy</code>, <code>odeint</code> that uses RK, ode, and allows the selection of BDF methods, but generally with adaptive time step.</p>
+<p><code>NODEPY</code>  is potentially an excellent library but buggy.</p>
+<p>It&rsquo;s excellent for drawing the stability region (see hmm.py on Canvas)</p>
+<p>I have written a simple LMM solver with fixed-point iterations for implicit methods.</p>
+<p>Using my-hmm.py you can verify that our method is 2nd order:</p>
+<table>
+  <thead>
+      <tr>
+          <th>max error</th>
+          <th>$3 \cdot 10^{-4}$</th>
+          <th>$8 \cdot 10^{-5}$</th>
+          <th>$2 \cdot 10^{-5}$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\Delta t$</td>
+          <td>0.05</td>
+          <td>0.025</td>
+          <td>0.0125</td>
+      </tr>
+  </tbody>
+</table>
+<p>[Graph showing exact vs numerical solution]</p>
+<p>[Stability region diagram showing a circle in the complex plane]
+Red = Region of Stability</p>
+</div>
+  </article>
+ 
+        
+
+        <footer class="book-footer">
+          
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/EriseHe/erisehe.github.io/edit/main/exampleSite/content.en/docs/Mathematics/MATH%20351%20&amp;amp;%20352/MATH%20352%20PDE%20in%20Action/Numerical%20Solution%20of%20Ordinary%20Differential%20Equations.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+          
+        </footer>
+
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+  
+ 
+
+        <label for="menu-control" class="hidden book-menu-overlay"></label>
+      </div>
+
+      
+      
+      
+      
+        <aside id="book-toc" class="book-toc hidden">
+          <div class="book-toc-content">
+            
+<div class="button-prev">
+  
+</div>
+
+
+
+
+      
+            
+              <div class="toc-entries">
+                
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#introduction">Introduction</a>
+          <ul>
+            <li><a href="#local-theorem">Local Theorem</a></li>
+            <li><a href="#global-theorem">Global Theorem</a></li>
+          </ul>
+        </li>
+        <li><a href="#stability-definitions">Stability Definitions</a></li>
+        <li><a href="#remark">Remark</a></li>
+        <li><a href="#some-simple-examples">Some Simple Examples</a></li>
+        <li><a href="#analysis-of-forward-euler">Analysis of Forward Euler</a></li>
+        <li><a href="#convergence-of-forward-euler">Convergence of Forward Euler</a></li>
+      </ul>
+    </li>
+    <li><a href="#other-one-step-methods">Other One-Step Methods</a>
+      <ul>
+        <li><a href="#crank-nicolson">Crank-Nicolson</a></li>
+        <li><a href="#heun">Heun</a></li>
+        <li><a href="#the-concept-of-zero-stability">The Concept of Zero-Stability</a></li>
+        <li><a href="#the-concept-of-absolute-stability">The Concept of Absolute Stability</a>
+          <ul>
+            <li><a href="#remark-1">Remark</a></li>
+          </ul>
+        </li>
+        <li><a href="#definition">DEFINITION</a></li>
+        <li><a href="#another-example-heun">Another Example: Heun</a></li>
+        <li><a href="#remark-we-found-that-the-explicit-methods-are-conditionally-stable-while-the-implicit-ones-are-unconditionally-stable">REMARK: We found that the explicit methods are conditionally stable, while the implicit ones are unconditionally stable.</a></li>
+      </ul>
+    </li>
+    <li><a href="#multistep-methods">Multistep Methods</a>
+      <ul>
+        <li><a href="#example">Example:</a></li>
+        <li><a href="#bdf-backward-difference-formulas">BDF (Backward Difference Formulas)</a></li>
+        <li><a href="#adams">Adams</a></li>
+        <li><a href="#a-rapid-recall-of-difference-equations-theory">A Rapid Recall of Difference Equations Theory</a></li>
+        <li><a href="#zero-stability-definition">Zero-Stability Definition</a></li>
+        <li><a href="#analysis-of-multistep-methods">Analysis of Multistep Methods</a></li>
+        <li><a href="#a-clarification-on-stability-concepts">A Clarification on Stability Concepts</a></li>
+        <li><a href="#example-extreme">Example (Extreme)</a></li>
+        <li><a href="#predictor-corrector-methods">Predictor-Corrector Methods</a></li>
+        <li><a href="#examples">Examples:</a></li>
+        <li><a href="#runge-kutta-methods">Runge-Kutta Methods</a></li>
+        <li><a href="#derivation-of-an-explicit-rk-method">Derivation of an Explicit RK Method</a></li>
+        <li><a href="#analysis-of-rk">Analysis of RK</a></li>
+        <li><a href="#absolute-stability">ABSOLUTE STABILITY</a></li>
+        <li><a href="#why-are-rk-so-popular">Why are RK so popular?</a></li>
+        <li><a href="#a-final-note-on-stiff-problems">A Final Note on Stiff problems</a></li>
+        <li><a href="#exercise-on-lmm">EXERCISE on LMM</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+              </div>
+            
+      
+            
+<div class="button-next">
+  
+    <a class="btn-next" href="/posts/creating-a-new-theme/">
+      <strong>Next:</strong> Creating a New Theme
+    </a>
+  
+</div>
+          </div>
+        </aside>
+      
+    </div>
+    
+    <div class="toolbar-trigger"></div>
+<aside class="toolbar">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <img src="/blackhole2.png" alt="Switch Theme">
+  </button>
+  <button id="toc-toggle" class="toc-toggle-btn">
+    <img src="/toc-icon.svg" alt="Toggle TOC">
+  </button>
+  <div class="font-size-control">
+    <button id="font-toggle" class="font-size-btn">
+      A
+    </button>
+    <div class="font-size-buttons">
+      <button id="font-increase" class="font-control-btn">+</button>
+      <button id="font-reset" class="font-control-btn">A</button>
+      <button id="font-decrease" class="font-control-btn">−</button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var tocAside = document.getElementById('book-toc');
+    var initialTOCState = true;
+    
+    if (!initialTOCState) {
+      tocAside.classList.add('hidden');
+    } else {
+      tocAside.classList.remove('hidden');
+    }
+    
+    document.getElementById('toc-toggle').addEventListener('click', function() {
+      tocAside.classList.toggle('hidden');
+    });
+  });
+</script>
+
+
+<script src="/font-size.min.js"></script>
+
+
+<script src="/toolbar.min.js"></script>
+
+
+<script src="/toc-animation.min.js"></script>
+
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+    
+      toggle.onclick = () => {
+        
+        const rect = toggle.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        
+        
+        
+        const currentThemeRaw = document.documentElement.getAttribute('data-theme');
+        const currentTheme = currentThemeRaw ? currentThemeRaw : 'auto';
+        
+        
+        
+        let effectiveTheme;
+        if (currentTheme === 'auto') {
+          effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+          effectiveTheme = currentTheme;
+        }
+        
+        
+        const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
+        
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        
+        const oldColor = effectiveTheme === 'dark' ? '#0b031c' : 'white';
+        
+        
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.zIndex = '9999';
+        overlay.style.pointerEvents = 'none';
+        
+        
+        overlay.style.setProperty('--cx', `${cx}px`);
+        overlay.style.setProperty('--cy', `${cy}px`);
+        overlay.style.setProperty('--r', '0px');
+        
+        
+
+        overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${oldColor} calc(var(--r) + 1px))`;
+        
+        document.body.appendChild(overlay);
+        
+        
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const finalRadius = Math.hypot(Math.max(cx, vw - cx), Math.max(cy, vh - cy));
+        
+        
+        const duration = 600; 
+        const startTime = performance.now();
+        
+        function animate(time) {
+          const elapsed = time - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const currentRadius = progress * finalRadius;
+          overlay.style.setProperty('--r', `${currentRadius}px`);
+          
+          
+          overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${currentRadius}px, ${oldColor} ${currentRadius + 1}px)`;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            overlay.remove();
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        }
+        requestAnimationFrame(animate);
+      };
+    });
+  </script>
+  
+  
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'noerrors', 'color']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      ready: function() {
+        
+        const oldFindTeX = MathJax.startup.findTeX;
+        MathJax.startup.findTeX = function(options) {
+          
+          const results = oldFindTeX.call(this, options);
+          
+          
+          for (const item of results) {
+            if (item.display) {
+              let processedMath = item.math;
+              
+              
+              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
+                
+                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
+              });
+              
+              item.math = processedMath;
+            }
+          }
+          
+          return results;
+        };
+        
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    document.querySelectorAll('blockquote').forEach(function(blockquote) {
+      
+      const firstParagraph = blockquote.querySelector('p');
+      if (!firstParagraph) return;
+      
+      const text = firstParagraph.innerHTML;
+      
+      
+      
+      for (const type of ['lemma', 'theorem', 'assumption', 'claim']) {
+        
+        const regex = new RegExp(`\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
+        const match = text.match(regex);
+        
+        if (match) {
+          console.log(`Found ${type} with label: ${match[1]}`);
+          
+          
+          const hasNumber = match[1] !== '*';
+          const number = hasNumber ? match[1] : '';
+          
+          
+          const childNodes = Array.from(blockquote.childNodes);
+          blockquote.innerHTML = '';
+          
+          
+          blockquote.classList.add('math-theorem', type);
+          
+          
+          const header = document.createElement('div');
+          header.className = 'theorem-header';
+          
+          
+          const typeText = type.charAt(0).toUpperCase() + type.slice(1);
+          header.textContent = hasNumber ? `${typeText} ${number}` : typeText;
+          
+          blockquote.appendChild(header);
+          
+          
+          const content = document.createElement('div');
+          content.className = 'theorem-content';
+          blockquote.appendChild(content);
+          
+          
+          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(match[0], '');
+          
+          
+          childNodes.forEach(function(node) {
+            content.appendChild(node.cloneNode(true));
+          });
+          
+          break; 
+        }
+      }
+    });
+  });
+</script> 
+  
+
+  <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
