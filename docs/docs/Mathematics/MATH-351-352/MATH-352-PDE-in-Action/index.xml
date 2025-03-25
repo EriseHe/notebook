@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数值方法 on 位相学補完計画</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/</link><description>Recent content in 数值方法 on 位相学補完計画</description><generator>Hugo</generator><language>en</language><atom:link href="https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/index.xml" rel="self" type="application/rss+xml"/><item><title>常微分方程的数值解</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Numerical-Solution-of-Ordinary-Differential-Equations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Numerical-Solution-of-Ordinary-Differential-Equations/</guid><description>&lt;h2 id="introduction">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数值方法 on 位相学補完計画</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/</link><description>Recent content in 数值方法 on 位相学補完計画</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 24 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/index.xml" rel="self" type="application/rss+xml"/><item><title>常微分方程的数值解</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Numerical-Solution-of-Ordinary-Differential-Equations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Numerical-Solution-of-Ordinary-Differential-Equations/</guid><description>&lt;h2 id="introduction">
  Introduction
  &lt;a class="anchor" href="#introduction">#&lt;/a>
 &lt;/h2>
@@ -10,26 +10,24 @@ $$y(0) = y_0 \text{ given}.$$&lt;/p>
 &lt;p>$$(2) \quad \frac{d\mathbf{y}}{dt} = \mathbf{f}(t,\mathbf{y}) \quad \text{in } t &amp;gt; 0$$&lt;/p>
 &lt;p>with
 $$\mathbf{y}(0) = \mathbf{y}_0.$$&lt;/p>
-&lt;p>Let&amp;rsquo;s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &amp;gt; 0$ s.t.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Chatper-9-Problems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Chatper-9-Problems/</guid><description>&lt;h1 id="problem-1">
- Problem 1
- &lt;a class="anchor" href="#problem-1">#&lt;/a>
+&lt;p>Let&amp;rsquo;s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &amp;gt; 0$ s.t.&lt;/p></description></item><item><title>Finite-Difference Solution for Boundary Value Problems</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/</link><pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/</guid><description>&lt;h1 id="problem-1-finite-difference-solution">
+ Problem 1: Finite-Difference Solution
+ &lt;a class="anchor" href="#problem-1-finite-difference-solution">#&lt;/a>
 &lt;/h1>
-&lt;p>Finite‐Difference Solution
-$$-\mu,\frac{d^2u}{dx^2} ;+; \beta,\frac{du}{dx} ;=; f(x),\quad x\in(0,1),\quad u(0)=u(1)=0$$&lt;/p>
-&lt;p>We wish to discretize and solve the boundary‐value problem
-$$\begin{cases}
--\mu,u&amp;rsquo;&amp;rsquo;(x) + \beta,u&amp;rsquo;(x) = f(x), &amp;amp; 0&amp;lt;x&amp;lt;1,\[6pt]
+&lt;p>We wish to discretize and solve the boundary-value problem&lt;/p>
+&lt;p>$$-\mu\frac{d^2u}{dx^2} + \beta\frac{du}{dx} = f(x),\quad x\in(0,1),\quad u(0)=u(1)=0$$&lt;/p>
+&lt;p>Or equivalently:&lt;/p>
+&lt;p>$$\begin{cases}
+-\mu u&amp;rsquo;&amp;rsquo;(x) + \beta u&amp;rsquo;(x) = f(x), &amp;amp; 0&amp;lt;x&amp;lt;1,\
 u(0)=0,; u(1)=0.
-\end{cases}$$
-where $\mu&amp;gt;0$ and $\beta$ is a constant (possibly negative), and $f\in C^0(0,1)$.&lt;/p>
-&lt;hr>
-&lt;h2 id="1-finitedifference-discretization">
- 1. Finite‐Difference Discretization
- &lt;a class="anchor" href="#1-finitedifference-discretization">#&lt;/a>
+\end{cases}$$&lt;/p>
+&lt;p>Where $\mu&amp;gt;0$ and $\beta$ is a constant (possibly negative), and $f\in C^0(0,1)$.&lt;/p>
+&lt;h2 id="1-finite-difference-discretization">
+ 1. Finite-Difference Discretization
+ &lt;a class="anchor" href="#1-finite-difference-discretization">#&lt;/a>
 &lt;/h2>
-&lt;p>Divide $[0,1]$ into $N$ equal subintervals so that $\Delta x = \tfrac{1}{N}$. Let
-$$x_j ;=; j,\Delta x,\quad j=0,1,2,\dots,N,$$
-so that $x_0=0$ and $x_N=1$. We approximate $u(x_j)\approx u_j$. The boundary conditions become $u_0=0$ and $u_N=0$.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</guid><description>&lt;h2 id="chapter-9-overview">
+&lt;p>Divide $[0,1]$ into $N$ equal subintervals so that $\Delta x = \frac{1}{N}$. Let&lt;/p>
+&lt;p>$$x_j = j\Delta x,\quad j=0,1,2,\dots,N,$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Chatper-9-Problems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Chatper-9-Problems/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</guid><description>&lt;h2 id="chapter-9-overview">
  Chapter 9 Overview
  &lt;a class="anchor" href="#chapter-9-overview">#&lt;/a>
 &lt;/h2>
@@ -206,28 +204,6 @@ $$&lt;/p>
 $$\begin{align}
 -\mu\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x\in (0,1), \quad \mu &amp;gt; 0 \
 u(0) &amp;amp;= \alpha, \quad u(1) = \beta
-\end{align}
-$$&lt;/p></description></item><item><title>9.2 有限差分</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/</guid><description>&lt;h2 id="2-有限差分finite-difference">
- 2. 有限差分（Finite Difference）
- &lt;a class="anchor" href="#2-%e6%9c%89%e9%99%90%e5%b7%ae%e5%88%86finite-difference">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="21-the-bvp">
- 2.1 The BVP:
- &lt;a class="anchor" href="#21-the-bvp">#&lt;/a>
-&lt;/h3>
-&lt;p>$$
-\begin{align}
--\mu\frac{d^2u}{dx^2} &amp;amp;= f, \quad x \in (0,1) \
-u(0) &amp;amp;= u(1) = 0
-\end{align}
-$$&lt;/p>
-&lt;p>$$0 = x_0 &amp;lt; x_1 &amp;lt; x_2 &amp;lt; x_3 &amp;lt; \cdots &amp;lt; x_N = 1$$&lt;/p>
-&lt;p>$$-\mu\frac{d^2u}{dx^2}(x_i) = f(x_i)$$&lt;/p>
-&lt;p>Use Taylor&amp;rsquo;s formula:
-$$
-\begin{align}
-u(x_{i+1}) &amp;amp;= u(x_i) + \frac{du}{dx}(x_i)\Delta x + \frac{1}{2}\frac{d^2u}{dx^2}(x_i)\Delta x^2 + \cdots \
-u(x_{i-1}) &amp;amp;= u(x_i) - \frac{du}{dx}(x_i)\Delta x + \frac{1}{2}\frac{d^2u}{dx^2}(x_i)\Delta x^2 + \cdots
 \end{align}
 $$&lt;/p></description></item><item><title>9.3 对流-扩散方程</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/</guid><description>&lt;h3 id="31-对流-扩散方程">
  3.1 对流-扩散方程
