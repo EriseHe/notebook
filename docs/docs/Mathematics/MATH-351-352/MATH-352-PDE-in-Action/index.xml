@@ -10,34 +10,7 @@ $$y(0) = y_0 \text{ given}.$$&lt;/p>
 &lt;p>$$(2) \quad \frac{d\mathbf{y}}{dt} = \mathbf{f}(t,\mathbf{y}) \quad \text{in } t &amp;gt; 0$$&lt;/p>
 &lt;p>with
 $$\mathbf{y}(0) = \mathbf{y}_0.$$&lt;/p>
-&lt;p>Let&amp;rsquo;s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &amp;gt; 0$ s.t.&lt;/p></description></item><item><title>边值问题的有限差分</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Boundary-Value-Problems-Finite-Differences/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Boundary-Value-Problems-Finite-Differences/</guid><description>&lt;h2 id="1-approximation-of-boundary-value-problem">
- 1. Approximation of Boundary Value Problem
- &lt;a class="anchor" href="#1-approximation-of-boundary-value-problem">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="11-problem-set-up-string-with-fixed-endpoints">
- 1.1 Problem Set-up: String with Fixed Endpoints
- &lt;a class="anchor" href="#11-problem-set-up-string-with-fixed-endpoints">#&lt;/a>
-&lt;/h3>
-&lt;p>One can write:
-$$
-\begin{align}
--\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x \in (0,1) \
-u(0) &amp;amp;= \alpha, \quad \frac{du}{dx}(0) = \beta
-\end{align}
-$$&lt;/p>
-&lt;p>From Math 212: Denote $w = \frac{du}{dx}$. Then, $\frac{dw}{dx} = f(x)$&lt;/p>
-&lt;p>So, $\frac{d}{dt} = \begin{bmatrix} 0 &amp;amp; 0 \ 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} w \ u \end{bmatrix}$&lt;/p>
-&lt;h4 id="definition-bvp">
- Definition (BVP)
- &lt;a class="anchor" href="#definition-bvp">#&lt;/a>
-&lt;/h4>
-&lt;p>A boundary-value problem (BVP):
-$$
-\begin{align}
--\mu\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x\in (0,1), \quad \mu &amp;gt; 0 \
-u(0) &amp;amp;= \alpha, \quad u(1) = \beta
-\end{align}
-$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</guid><description>&lt;h2 id="chapter-9-overview">
+&lt;p>Let&amp;rsquo;s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &amp;gt; 0$ s.t.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/</guid><description>&lt;h2 id="chapter-9-overview">
  Chapter 9 Overview
  &lt;a class="anchor" href="#chapter-9-overview">#&lt;/a>
 &lt;/h2>
@@ -190,5 +163,93 @@ $$
 \begin{align}
 x - u_i &amp;amp;= A \left(1 - \frac{x}{B} \right) x \
 &amp;amp;= A x - \frac{A}{B} x^2
+\end{align}
+$$&lt;/p></description></item><item><title>9.1 边值问题的近似</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/</guid><description>&lt;h2 id="1-边值问题的近似">
+ 1. 边值问题的近似
+ &lt;a class="anchor" href="#1-%e8%be%b9%e5%80%bc%e9%97%ae%e9%a2%98%e7%9a%84%e8%bf%91%e4%bc%bc">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="11-problem-set-up-固定端点的弦string-with-fixed-endpoints">
+ 1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）
+ &lt;a class="anchor" href="#11-problem-set-up-%e5%9b%ba%e5%ae%9a%e7%ab%af%e7%82%b9%e7%9a%84%e5%bc%a6string-with-fixed-endpoints">#&lt;/a>
+&lt;/h3>
+&lt;p>我们可以写
+$$
+\begin{align}
+-\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x \in (0,1) \
+u(0) &amp;amp;= \alpha, \quad \frac{du}{dx}(0) = \beta
+\end{align}
+$$&lt;/p>
+&lt;p>记$w = \frac{du}{dx}$，那么 $\frac{dw}{dx} = f(x)$。因此，我们知道
+$$\frac{d}{dt} = \begin{bmatrix} 0 &amp;amp; 0 \ 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} w \ u \end{bmatrix}$$&lt;/p>
+&lt;h4 id="定义">
+ 定义
+ &lt;a class="anchor" href="#%e5%ae%9a%e4%b9%89">#&lt;/a>
+&lt;/h4>
+&lt;p>边值问题（boundary-value problem）的定义为&lt;/p>
+&lt;blockquote>
+&lt;p>[!definition|*]
+$$\begin{align}
+-\mu\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x\in (0,1), \quad \mu &amp;gt; 0 \
+u(0) &amp;amp;= \alpha, \quad u(1) = \beta
+\end{align}
+$$&lt;/p></description></item><item><title>二维问题（2D Problem)</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/</guid><description>&lt;p>$$
+\begin{align}
+-\mu\Delta u + \vec{\beta} \cdot \nabla u &amp;amp;= f \
+u(\partial\Omega) &amp;amp;= \text{data}
+\end{align}
+$$&lt;/p>
+&lt;p>Write it out:
+$$
+\begin{align}
+-\mu\left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) + \beta_x\frac{\partial u}{\partial x} + \beta_y\frac{\partial u}{\partial y} &amp;amp;= f(x,y) \
+u(\partial\Omega) &amp;amp;= d
+\end{align}
+$$&lt;/p>
+&lt;h3 id="41-only-consider-diffusion-turn-off-wind">
+ 4.1 Only Consider Diffusion. Turn off Wind:
+ &lt;a class="anchor" href="#41-only-consider-diffusion-turn-off-wind">#&lt;/a>
+&lt;/h3>
+&lt;p>To form a system: $(i,j) \to k$.&lt;/p>
+&lt;p>$Au = b$.&lt;/p>
+&lt;p>$A$ is symmetric, SPD.&lt;/p>
+&lt;h3 id="42-turn-on-the-wind-upwind">
+ 4.2 Turn on the Wind. Upwind
+ &lt;a class="anchor" href="#42-turn-on-the-wind-upwind">#&lt;/a>
+&lt;/h3>
+&lt;p>With upwind, the pts are not good.&lt;/p></description></item><item><title>对流-扩散方程</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/</guid><description>&lt;h3 id="31-对流-扩散方程">
+ 3.1 对流-扩散方程
+ &lt;a class="anchor" href="#31-%e5%af%b9%e6%b5%81-%e6%89%a9%e6%95%a3%e6%96%b9%e7%a8%8b">#&lt;/a>
+&lt;/h3>
+&lt;p>$$
+\begin{align}
+-\mu\frac{\partial^2 u}{\partial x^2} + \beta\frac{\partial u}{\partial x} &amp;amp;= f \
+\text{diffusion} \quad &amp;amp; \text{advection}
+\end{align}
+$$&lt;/p>
+&lt;p>$$u(0) = u_L, \quad u(1) = u_R$$&lt;/p>
+&lt;p>Discretization:&lt;/p>
+&lt;p>By Taylor&amp;rsquo;s Expansion:
+$$u(x_{j+1}) = u(x_j) + \frac{\partial u}{\partial x}(x_j)\Delta x + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 - \frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 + \mathcal{O}(||x||^5)$$&lt;/p>
+&lt;p>$$\frac{\partial u}{\partial x}(x_j)\Delta x = u(x_{j+1}) - u(x_j) + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2$$&lt;/p></description></item><item><title>有限差分</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/</guid><description>&lt;h2 id="2-有限差分finite-difference">
+ 2. 有限差分（Finite Difference）
+ &lt;a class="anchor" href="#2-%e6%9c%89%e9%99%90%e5%b7%ae%e5%88%86finite-difference">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="21-the-bvp">
+ 2.1 The BVP:
+ &lt;a class="anchor" href="#21-the-bvp">#&lt;/a>
+&lt;/h3>
+&lt;p>$$
+\begin{align}
+-\mu\frac{d^2u}{dx^2} &amp;amp;= f, \quad x \in (0,1) \
+u(0) &amp;amp;= u(1) = 0
+\end{align}
+$$&lt;/p>
+&lt;p>$$0 = x_0 &amp;lt; x_1 &amp;lt; x_2 &amp;lt; x_3 &amp;lt; \cdots &amp;lt; x_N = 1$$&lt;/p>
+&lt;p>$$-\mu\frac{d^2u}{dx^2}(x_i) = f(x_i)$$&lt;/p>
+&lt;p>Use Taylor&amp;rsquo;s formula:
+$$
+\begin{align}
+u(x_{i+1}) &amp;amp;= u(x_i) + \frac{du}{dx}(x_i)\Delta x + \frac{1}{2}\frac{d^2u}{dx^2}(x_i)\Delta x^2 + \cdots \
+u(x_{i-1}) &amp;amp;= u(x_i) - \frac{du}{dx}(x_i)\Delta x + \frac{1}{2}\frac{d^2u}{dx^2}(x_i)\Delta x^2 + \cdots
 \end{align}
 $$&lt;/p></description></item></channel></rss>
