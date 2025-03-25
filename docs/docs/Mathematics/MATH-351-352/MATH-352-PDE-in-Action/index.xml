@@ -257,28 +257,38 @@ $$&lt;/p>
 &amp;amp;\quad\quad\quad\quad-\frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 + \mathcal{O}(||x||^5)\
 \frac{\partial u}{\partial x}(x_j)\Delta x &amp;amp; = u(x_{j+1}) - u(x_j) + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2\
 \frac{\partial u}{\partial x}(x_j) &amp;amp; = \frac{u_{j+1} - u_j}{\Delta x} + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x
-\end{align}$$&lt;/p></description></item><item><title>9.4 二维问题（2D Problem)</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/</guid><description>&lt;p>$$
-\begin{align}
--\mu\Delta u + \vec{\beta} \cdot \nabla u &amp;amp;= f \
-u(\partial\Omega) &amp;amp;= \text{data}
-\end{align}
-$$&lt;/p>
-&lt;p>Write it out:
-$$
-\begin{align}
--\mu\left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) + \beta_x\frac{\partial u}{\partial x} + \beta_y\frac{\partial u}{\partial y} &amp;amp;= f(x,y) \
-u(\partial\Omega) &amp;amp;= d
-\end{align}
-$$&lt;/p>
-&lt;h3 id="41-only-consider-diffusion-turn-off-wind">
- 4.1 Only Consider Diffusion. Turn off Wind:
- &lt;a class="anchor" href="#41-only-consider-diffusion-turn-off-wind">#&lt;/a>
+\end{align}$$&lt;/p></description></item><item><title>9.4 4.1 二维（2D）偏微分方程问题</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/</guid><description>&lt;p>当然！我们一步一步详细解释一下这些笔记中涉及的内容。&lt;/p>
+&lt;hr>
+&lt;h2 id="椭圆型">
+ 椭圆型
+ &lt;a class="anchor" href="#%e6%a4%ad%e5%9c%86%e5%9e%8b">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="411-问题设定">
+ 4.1.1 问题设定
+ &lt;a class="anchor" href="#411-%e9%97%ae%e9%a2%98%e8%ae%be%e5%ae%9a">#&lt;/a>
 &lt;/h3>
-&lt;p>To form a system: $(i,j) \to k$.&lt;/p>
-&lt;p>$Au = b$.&lt;/p>
-&lt;p>$A$ is symmetric, SPD.&lt;/p>
-&lt;h3 id="42-turn-on-the-wind-upwind">
- 4.2 Turn on the Wind. Upwind
- &lt;a class="anchor" href="#42-turn-on-the-wind-upwind">#&lt;/a>
+&lt;p>我们考虑一个二维空间的问题，记为区域 $\Omega$。边界记为 $\partial\Omega$。&lt;/p>
+&lt;p>方程一般形式如下：
+$$-\mu \Delta u + \beta \cdot \nabla u = f,\quad \text{在}\ \Omega 内$$&lt;/p>
+&lt;p>边界条件为：
+$$u(\partial \Omega) = d \quad (\text{给定的数据})$$&lt;/p>
+&lt;ul>
+&lt;li>这里的符号解释（见上一章）：
+&lt;ul>
+&lt;li>$\beta$：表示&amp;quot;风&amp;quot;或者对流的方向和强度&lt;/li>
+&lt;li>$\mu$：扩散系数&lt;/li>
+&lt;li>$f$：外力或源项&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>因此，上面的方程可以展开写成：&lt;/p>
+&lt;p>$$-\mu \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right)&lt;/p>
+&lt;ul>
+&lt;li>\beta_x \frac{\partial u}{\partial x} + \beta_y \frac{\partial u}{\partial y} = f(x,y)$$&lt;/li>
+&lt;/ul>
+&lt;h3 id="412-简化情形只有扩散没有风">
+ 4.1.2 简化情形（只有扩散，没有风）
+ &lt;a class="anchor" href="#412-%e7%ae%80%e5%8c%96%e6%83%85%e5%bd%a2%e5%8f%aa%e6%9c%89%e6%89%a9%e6%95%a3%e6%b2%a1%e6%9c%89%e9%a3%8e">#&lt;/a>
 &lt;/h3>
-&lt;p>With upwind, the pts are not good.&lt;/p></description></item></channel></rss>
+&lt;p>首先考虑更简单的情况，忽略对流（即“关掉风”），变成纯扩散问题：&lt;/p>
+&lt;p>$$-\mu\left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) = f(x,y)$$&lt;/p></description></item></channel></rss>
