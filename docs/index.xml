@@ -911,10 +911,9 @@ $$&lt;/p></description></item><item><title>9.2 有限差分法</title><link>http
  &lt;a class="anchor" href="#21-%e8%be%b9%e5%80%bc%e9%97%ae%e9%a2%98bvp%e7%9a%84%e6%9c%89%e9%99%90%e5%b7%ae%e5%88%86">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>[!claim]
-Consider the Boundary-Value Problem:&lt;/p>&lt;/blockquote>
-&lt;blockquote>
-&lt;p>$$
+&lt;p>[!claim|*]
+Consider the Boundary-Value Problem:
+$$
 \begin{align}
 -\mu\frac{d^2u}{dx^2} &amp;amp;= f, \quad x \in (0,1) \
 u(0) &amp;amp;= u(1) = 0
