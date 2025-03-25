@@ -865,14 +865,10 @@ Then there exist neighborhoods $U$ of $x_0$ in $A$ and $W$ of $y_0 = f(x_0)$ suc
  Step 1: Reduction
  &lt;a class="anchor" href="#step-1-reduction">#&lt;/a>
 &lt;/h3>
-&lt;p>We may assume $Df(x_0) = I$ and $x_0 = 0$, $y_0 = f(x_0)$.&lt;/p></description></item><item><title>7.2 隐函数定理</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/</guid><description>&lt;p>111&lt;/p></description></item><item><title>9.1 边值问题的近似</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/</guid><description>&lt;h2 id="1-边值问题的近似">
- 1. 边值问题的近似
- &lt;a class="anchor" href="#1-%e8%be%b9%e5%80%bc%e9%97%ae%e9%a2%98%e7%9a%84%e8%bf%91%e4%bc%bc">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="11-problem-set-up-固定端点的弦string-with-fixed-endpoints">
+&lt;p>We may assume $Df(x_0) = I$ and $x_0 = 0$, $y_0 = f(x_0)$.&lt;/p></description></item><item><title>7.2 隐函数定理</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/</guid><description>&lt;p>111&lt;/p></description></item><item><title>9.1 边值问题的近似</title><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/</guid><description>&lt;h2 id="11-problem-set-up-固定端点的弦string-with-fixed-endpoints">
  1.1 Problem Set-up: 固定端点的弦（String with Fixed Endpoints）
  &lt;a class="anchor" href="#11-problem-set-up-%e5%9b%ba%e5%ae%9a%e7%ab%af%e7%82%b9%e7%9a%84%e5%bc%a6string-with-fixed-endpoints">#&lt;/a>
-&lt;/h3>
+&lt;/h2>
 &lt;p>我们可以写
 $$
 \begin{align}
@@ -882,10 +878,10 @@ u(0) &amp;amp;= \alpha, \quad \frac{du}{dx}(0) = \beta
 $$&lt;/p>
 &lt;p>记$w = \frac{du}{dx}$，那么 $\frac{dw}{dx} = f(x)$。因此，我们知道&lt;/p>
 &lt;p>$$\frac{d}{dt} = \begin{bmatrix} 0 &amp;amp; 0 \ 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} w \ u \end{bmatrix}$$&lt;/p>
-&lt;h4 id="定义">
+&lt;h3 id="定义">
  定义
  &lt;a class="anchor" href="#%e5%ae%9a%e4%b9%89">#&lt;/a>
-&lt;/h4>
+&lt;/h3>
 &lt;p>边值问题（boundary-value problem）的定义为&lt;/p>
 &lt;blockquote>
 &lt;p>[!definition|*]
