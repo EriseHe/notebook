@@ -210,6 +210,7 @@ flow
 fancy
 favor
 functional
+flows
 color
 curve
 can
@@ -1959,6 +1960,8 @@ Summary
 Symmetry
 Significance
 Source
+Seidel
+SOR
 equations
 equation
 exists
@@ -2122,6 +2125,7 @@ excellent
 equilibrium
 essentially
 equal
+endpoints
 whether
 written
 which
@@ -3398,6 +3402,7 @@ Jiq
 Jz
 Ju
 Jro
+Jacobi
 At
 And
 Again
@@ -4305,6 +4310,7 @@ GTE
 Gaussian
 Gummel
 Grid
+Gauss
 xF
 xxii
 xmp
