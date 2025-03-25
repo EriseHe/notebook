@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log(`First paragraph text: "${firstParagraph.textContent}"`);
     const text = firstParagraph.textContent;
-    // More lenient matching that allows whitespace
-    const match = text.trim().match(/^\s*\[!\s*(lemma|theorem|assumption|claim|definition)\s*\|\s*\*\s*\]/i);
+    // More lenient matching that allows whitespace and optional asterisk
+    const match = text.trim().match(/^\s*\[!\s*(lemma|theorem|assumption|claim|definition)\s*(?:\|\s*\*\s*)?\]/i);
     
     if (match) {
       console.log(`Match found! Type: ${match[1]}`);
