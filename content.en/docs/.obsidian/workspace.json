@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.2 Finite Difference.md",
+                "file": "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Chatper 9 Problems.md",
                 "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "9.2 Finite Difference"
+              "title": "Chatper 9 Problems"
             }
           }
         ]
@@ -151,13 +151,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.2 Finite Difference.md",
+                "file": "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Chatper 9 Problems.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 9.2 Finite Difference"
+              "title": "Outline of Chatper 9 Problems"
             }
           }
         ],
@@ -185,13 +185,13 @@
   },
   "active": "d4513820e616b532",
   "lastOpenFiles": [
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Lecture Notes (Mar 18).md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Chatper 9 Problems.md",
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.1 Boundary Value Problems.md",
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/_index.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.2 Finite Difference.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.3 Advection-Diffusion Equation.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.4 2D Problem.md",
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.2 Finite Difference.md",
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Lecture Notes (Mar 18).md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.1 Boundary Value Problems.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/_index.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Three-Point Backward Differentiation Formula (Feb 4).md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Numerical Solution of Ordinary Differential Equations.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Lecture Notes (Mar 20).md",

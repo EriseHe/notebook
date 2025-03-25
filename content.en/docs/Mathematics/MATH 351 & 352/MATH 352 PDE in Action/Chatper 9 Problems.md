@@ -1,0 +1,127 @@
+---
+weight: 9.999
+title: 习题
+---
+
+# Problem 1: Finite-Difference Solution
+
+We wish to discretize and solve the boundary-value problem
+
+$$-\mu\frac{d^2u}{dx^2} + \beta\frac{du}{dx} = f(x),\quad x\in(0,1),\quad u(0)=u(1)=0$$
+
+Or equivalently:
+
+$$\begin{cases}
+-\mu u''(x) + \beta u'(x) = f(x), & 0<x<1,\\
+u(0)=0,\; u(1)=0.
+\end{cases}$$
+
+Where $\mu>0$ and $\beta$ is a constant (possibly negative), and $f\in C^0(0,1)$.
+
+## 1. Finite-Difference Discretization
+
+Divide $[0,1]$ into $N$ equal subintervals so that $\Delta x = \frac{1}{N}$. Let
+
+$$x_j = j\Delta x,\quad j=0,1,2,\dots,N,$$
+
+so that $x_0=0$ and $x_N=1$. We approximate $u(x_j)\approx u_j$. The boundary conditions become $u_0=0$ and $u_N=0$.
+
+### 1.1 Central Difference Scheme (for the interior points)
+
+A standard **centered second-difference** for $u''(x)$ at $x_j$ is:
+
+$$u''(x_j) \approx \frac{u_{j+1} - 2u_j + u_{j-1}}{(\Delta x)^2}.$$
+
+A standard **centered first-difference** for $u'(x)$ at $x_j$ is:
+
+$$u'(x_j) \approx \frac{u_{j+1} - u_{j-1}}{2\Delta x}.$$
+
+Hence, the PDE $-\mu u''(x) + \beta u'(x)=f(x)$ becomes for $j=1,\dots,N-1$:
+
+$$-\mu\frac{u_{j+1} - 2u_j + u_{j-1}}{(\Delta x)^2} + \beta\frac{u_{j+1} - u_{j-1}}{2\Delta x} = f(x_j).$$
+
+We impose $u_0 = 0$ and $u_N=0$.
+
+## 2. Local Truncation Error
+
+- The second-order central difference for $u''$ is $O((\Delta x)^2)$ accurate.
+- The central difference for $u'$ is also $O((\Delta x)^2)$ accurate.
+
+Hence the **local truncation error** of the combined scheme is $O((\Delta x)^2)$.
+
+## 3. Matrix Form
+
+Collect unknowns $u_1,u_2,\dots,u_{N-1}$ into a vector $\mathbf{u}=(u_1,\dots,u_{N-1})^T$. The boundary values $u_0=0$ and $u_N=0$ are known.
+
+Rewrite the finite-difference equation for an interior index $j$:
+
+$$-\mu\frac{u_{j+1} - 2u_j + u_{j-1}}{(\Delta x)^2} + \beta\frac{u_{j+1} - u_{j-1}}{2\Delta x} = f(x_j).$$
+
+We can factor out coefficients:
+- Let $\alpha \equiv \frac{\mu}{(\Delta x)^2}$.
+- Let $\gamma \equiv \frac{\beta}{2\Delta x}$.
+
+Then the coefficient of $u_j$ is $2\alpha$, the coefficient of $u_{j+1}$ is $-\alpha + \gamma$, and the coefficient of $u_{j-1}$ is $-\alpha - \gamma$. Thus, in matrix form:
+
+$$\begin{pmatrix}
+2\alpha & -\alpha+\gamma & 0 & \cdots & 0\\
+-\alpha-\gamma & 2\alpha & -\alpha+\gamma & \cdots & 0\\
+0 & \ddots & \ddots & \ddots & \vdots\\
+\vdots & & -\alpha-\gamma & 2\alpha & -\alpha+\gamma\\
+0 & \cdots & 0 & -\alpha-\gamma & 2\alpha
+\end{pmatrix}
+\begin{pmatrix}
+u_1\\ u_2\\ \vdots \\ u_{N-2}\\ u_{N-1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+f(x_1)\\ f(x_2)\\ \vdots \\ f(x_{N-2})\\ f(x_{N-1})
+\end{pmatrix}.$$
+
+This is a tridiagonal linear system, solvable by standard methods (e.g., Thomas algorithm).
+
+## 4. Quality of the Solution vs. $\beta/\mu$
+
+The ratio $\frac{\beta}{\mu}$ often plays the role of a **Péclet-type number** in advection-diffusion problems.
+
+- If $\frac{\beta}{\mu}$ is small (diffusion-dominated), the solution is usually smooth and well-behaved under central differencing.
+- If $\frac{\beta}{\mu}$ is large (advection-dominated), pure central differences may produce **spurious oscillations** unless $\Delta x$ is refined or **upwinding** techniques are used to stabilize the discrete solution.
+
+## 5. Upwind Method (First Order) for $\beta<0$
+
+When $\beta<0$, the "flow" is from right to left, so an **upwind difference** for the first derivative $\beta u'(x)$ uses values on the "right" side at each $j$. Concretely, for $\beta<0$, we replace:
+
+$$u'(x_j) \approx \frac{u_{j+1} - u_j}{\Delta x} \quad \text{(a "backward" upwind if flow is leftward)}.$$
+
+Hence, the difference equation becomes:
+
+$$-\mu\frac{u_{j+1} - 2u_j + u_{j-1}}{(\Delta x)^2} + \beta\frac{u_{j+1} - u_j}{\Delta x} = f(x_j), \quad j=1,\dots,N-1.$$
+
+(This replaces the central difference in the advective term by a one-sided upwind difference.)
+
+### 5.1 No Spurious Oscillations
+
+The first-order upwind scheme for linear advection-diffusion is known to be **monotone** for any $\Delta x>0$ when $\beta<0$ (or, more generally, for any sign of $\beta$ if we choose the correct upwind direction). Monotonicity prevents nonphysical oscillations. In short:
+
+- Central difference can oscillate if $|\beta|$ is large relative to $\mu$.
+- Upwind difference sacrifices some accuracy (only first order in $\Delta x$ for the advective term) but **remains stable** and **nonoscillatory** for any step size $\Delta x$.
+
+Thus, with $\beta<0$, the upwind approach $u'(x_j)\approx (u_{j+1}-u_j)/\Delta x$ ensures a stable, physically plausible solution without oscillations.
+
+## 6. Summary
+
+1. **Equation & Discretization**  
+   $$-\mu u'' + \beta u' = f(x), \quad u(0)=u(1)=0 \longrightarrow \begin{cases}
+   -\mu\frac{u_{j+1}-2u_j+u_{j-1}}{(\Delta x)^2} +\beta\frac{u_{j+1}-u_{j-1}}{2\Delta x} = f(x_j),\\
+   u_0=0,\;u_N=0.
+   \end{cases}$$
+
+2. **Local Truncation Error** is $O((\Delta x)^2)$ for the centered scheme.
+
+3. **Matrix Form**: A standard tridiagonal system with bands $-\alpha\mp \gamma$, $2\alpha$, $-\alpha\pm \gamma$.
+
+4. **Effect of $\beta/\mu$**: If $|\beta|$ is large relative to $\mu$, central differences can produce oscillatory solutions; upwind methods help.
+
+5. **Upwind Method** (for $\beta<0$):
+   $$-\mu\frac{u_{j+1}-2u_j+u_{j-1}}{(\Delta x)^2} + \beta\frac{u_{j+1}-u_j}{\Delta x} = f(x_j)$$
+   prevents oscillations for any $\Delta x$.

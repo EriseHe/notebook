@@ -103,6 +103,7 @@ Consistency
 Canvas
 Central
 Conservation
+Collect
 font
 for
 functions
@@ -415,6 +416,9 @@ capture
 certainly
 coupling
 clet
+centered
+combined
+correct
 Problem
 Partial
 Putting
@@ -702,6 +706,8 @@ things
 tend
 twice
 traffic
+type
+techniques
 system
 solvability
 such
@@ -939,6 +945,11 @@ symmetry
 store
 sensitive
 smoothness
+spurious
+stabilize
+sided
+sign
+sacrifices
 discuss
 determine
 described
@@ -1106,6 +1117,11 @@ dominant
 determined
 displacement
 density
+discretize
+dominated
+differencing
+differences
+discrete
 in
 inverse
 implicit
@@ -1255,6 +1271,7 @@ increases
 immediately
 iterative
 iteration
+impose
 of
 our
 out
@@ -1341,6 +1358,10 @@ ode
 once
 oscillating
 off
+often
+oscillations
+oscillate
+oscillatory
 near
 neighborhood
 necessary
@@ -1437,6 +1458,8 @@ now
 never
 needs
 noted
+nonphysical
+nonoscillatory
 Does
 Determine
 Differentiability
@@ -1630,6 +1653,8 @@ match
 much
 my
 modified
+math
+monotone
 have
 holds
 has
@@ -1924,6 +1949,8 @@ Specific
 Scharfetter
 SPD
 Similar
+Spurious
+Summary
 equations
 equation
 exists
@@ -2086,6 +2113,7 @@ efficient
 excellent
 equilibrium
 essentially
+equal
 whether
 written
 which
@@ -2263,6 +2291,8 @@ balls
 buggy
 better
 boat
+behaved
+bands
 allow
 and
 as
@@ -2428,6 +2458,9 @@ anymore
 asymmetric
 approach
 action
+algorithm
+advection
+advective
 you
 yields
 yF
@@ -2599,6 +2632,7 @@ Root
 Runge
 Red
 Region
+Rewrite
 requirement
 respect
 rule
@@ -2738,6 +2772,9 @@ reconsider
 reduced
 regularity
 reuse
+role
+refined
+replaces
 partials
 partial
 point
@@ -2897,6 +2934,12 @@ pts
 pollutant
 poisson
 perturbation
+possibly
+plays
+pure
+prevents
+physically
+plausible
 Ex
 Evaluate
 Evaluating
@@ -2978,6 +3021,7 @@ Element
 Explanation
 EE
 Exact
+Effect
 We
 What
 With
@@ -3575,6 +3619,9 @@ unconditional
 uses
 upwind
 unstable
+usually
+unless
+upwinding
 guarantees
 gives
 give
@@ -3742,6 +3789,7 @@ Mathematical
 Meanwhile
 Modeling
 Models
+Monotonicity
 Using
 Up
 Ut
@@ -4184,6 +4232,7 @@ ODEs
 Our
 Original
 Otherwise
+Oscillations
 Given
 Get
 Guessing
@@ -4318,6 +4367,7 @@ QC
 Qe
 QUCfh
 QSS
+Quality
 jpeg
 json
 joystick
