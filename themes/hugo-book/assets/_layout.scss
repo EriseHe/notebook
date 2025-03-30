@@ -36,7 +36,7 @@
 /* Menu styling */
 .book-menu {
   position: fixed;
-  left: 4rem;
+  left: 4.5rem;
   top: 1rem;
   width: $menu-width;
   height: 100vh;
@@ -65,6 +65,7 @@
   max-width: 47rem;
   padding: 0;
   margin: 3em auto;
+  transform: translateX(1rem);
   transition: all 0.3s ease;
 }
 

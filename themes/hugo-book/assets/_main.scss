@@ -138,13 +138,13 @@ a .book-icon {
     opacity: 0;
     overflow: hidden;
     visibility: hidden;
-    transition: max-height 0.3s ease-in-out, 
-                opacity 0.3s ease-in-out,
-                visibility 0.3s;
+    transition: max-height 0.5s ease-in-out, 
+                opacity 0.5s ease-in-out,
+                visibility 0.5s;
 }
 
 input.toggle:checked + label + ul {
-    max-height: 500px; // Expanded state with enough space for content
+    max-height: 1000px; // Expanded state with enough space for content
     opacity: 1;
     visibility: visible;
 }
@@ -187,11 +187,12 @@ body[dir="rtl"] .book-menu {
     left: -$padding-8;
     right: -$padding-8;
     bottom: -$padding-8;
-    background-color: var(--gray-200);
+    background-color: var(--gray-200); 
     opacity: 0.5;
     border-radius: 12px;
     z-index: -1;
-    transition: box-shadow 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    outline: 1px solid transparent;
+    transition: box-shadow 0.5s ease, opacity 0.5s ease, outline 0.5s ease;
   }
   
   > a,
@@ -209,8 +210,9 @@ body[dir="rtl"] .book-menu {
 input.toggle:checked ~ .book-section-flat::before,
 input.toggle:checked + label + ul .book-section-flat::before,
 .book-section-flat:has(input.toggle:checked)::before {
-  box-shadow: 0 0px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0px 6px rgba(0, 0, 0, 0.2);
   opacity: 1;
+  outline: 1px solid var(--gray-300);
 }
 
 .book-page {

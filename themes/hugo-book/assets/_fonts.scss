@@ -174,7 +174,7 @@
 /* ------ */
 
 body {
-  font-family: 'SF Pro', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: 'Computer Modern', sans-serif;
 }
 
 /* body {
@@ -187,5 +187,5 @@ code {
 
 /* Add a CSS Variable for the font stack so it can be reused consistently */
 :root {
-  --main-font-stack: 'SF Pro', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --main-font-stack: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
 }
