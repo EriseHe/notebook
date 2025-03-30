@@ -3,10 +3,41 @@
   transform: translateX(0);
   opacity: 1;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 10;
+  
+  /* When menu is active/focused, ensure it stays visible */
+  &:hover,
+  &:active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+  }
+  
+  /* Any link being clicked should keep menu visible */
+  a:active,
+  a:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
   
   &.auto-hidden {
     transform: translateX(-30%);
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none; /* Prevents mouse events when hidden */
+    
+    /* Add a wider trigger area on the left side that remains sensitive */
+    &::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px; /* Much wider detection area */
+      height: 100%;
+      z-index: 5;
+      pointer-events: auto; /* Keep this area clickable */
+      cursor: pointer; /* Show pointer cursor to indicate interactivity */
+    }
   }
 } 
