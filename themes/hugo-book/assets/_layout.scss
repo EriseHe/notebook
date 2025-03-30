@@ -24,12 +24,6 @@
   /* Styles handled by .book-toc.hidden */
 }
 
-/* Ensure containers are transparent so the body background shows through */
-.book-page,
-.book-menu,
-.book-toc {
-  background: transparent !important;
-}
 
 /* Remove title attribute tooltips */
 [title] {
@@ -55,6 +49,15 @@
   padding: $padding-8;
   max-height: 100vh;
   overflow-y: auto;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Main content area */

@@ -14,14 +14,14 @@
   padding: 0.5rem 1rem; 
   border: none;
   outline: none;
-  color: var(--body-font-color);
+  color: var(--gray-500);
   background: transparent;
   cursor: pointer;
 }
 
 /* Active tab styling */
 .subject-tab.active {
-  background: var(--color-toc-hover);
+  background: var(--body-gray);
   color: var(--color-link);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -45,15 +45,13 @@
   content: "";
   position: absolute;
   border-radius: 3px;
-  background: var(--color-menu);
 
   top: -17px;  // extend 20px above the content
   left: -0.8rem; // align with the right edge of the content
   right: 0rem;
-  height: calc(100% + 12rem);
-  background-color: var(--color-toc-hover);
+  background-color: transparent;
   z-index: -1; // keep background behind content
-  box-shadow: 0px -3px 0.5px rgba(0, 0, 0, 0.201);
+  outline: 1px solid var(--gray-500);
 }
 
 /* Additional menu offset */

@@ -13,56 +13,68 @@
   </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="$$
-\begin{align}
--\mu\Delta u &#43; \vec{\beta} \cdot \nabla u &amp;= f \
-u(\partial\Omega) &amp;= \text{data}
-\end{align}
-$$
-Write it out:
-$$
-\begin{align}
--\mu\left(\frac{\partial^2 u}{\partial x^2} &#43; \frac{\partial^2 u}{\partial y^2}\right) &#43; \beta_x\frac{\partial u}{\partial x} &#43; \beta_y\frac{\partial u}{\partial y} &amp;= f(x,y) \
-u(\partial\Omega) &amp;= d
-\end{align}
-$$
+<meta name="description" content="当然！我们一步一步详细解释一下这些笔记中涉及的内容。
 
-  4.1 Only Consider Diffusion. Turn off Wind:
+
+  椭圆型
   #
 
-To form a system: $(i,j) \to k$.
-$Au = b$.
-$A$ is symmetric, SPD.
 
-  4.2 Turn on the Wind. Upwind
+  4.1.1 问题设定
   #
 
-With upwind, the pts are not good.">
+我们考虑一个二维空间的问题，记为区域 $\Omega$。边界记为 $\partial\Omega$。
+方程一般形式如下：
+$$-\mu \Delta u &#43; \beta \cdot \nabla u = f,\quad \text{在}\ \Omega 内$$
+边界条件为：
+$$u(\partial \Omega) = d \quad (\text{给定的数据})$$
+
+这里的符号解释（见上一章）：
+
+$\beta$：表示&quot;风&quot;或者对流的方向和强度
+$\mu$：扩散系数
+$f$：外力或源项
+
+
+
+因此，上面的方程可以展开写成：
+$$-\mu \left(\frac{\partial^2 u}{\partial x^2} &#43; \frac{\partial^2 u}{\partial y^2}\right)
+
+\beta_x \frac{\partial u}{\partial x} &#43; \beta_y \frac{\partial u}{\partial y} = f(x,y)$$
+
+
+  4.1.2 简化情形（只有扩散，没有风）
+  #
+
+首先考虑更简单的情况，忽略对流（即“关掉风”），变成纯扩散问题：
+$$-\mu\left(\frac{\partial^2 u}{\partial x^2} &#43; \frac{\partial^2 u}{\partial y^2}\right) = f(x,y)$$">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/">
   <meta property="og:site_name" content="位相学補完計画">
-  <meta property="og:title" content="9.4 二维问题（2D Problem)">
-  <meta property="og:description" content="$$ \begin{align} -\mu\Delta u &#43; \vec{\beta} \cdot \nabla u &amp;= f \ u(\partial\Omega) &amp;= \text{data} \end{align} $$
-Write it out: $$ \begin{align} -\mu\left(\frac{\partial^2 u}{\partial x^2} &#43; \frac{\partial^2 u}{\partial y^2}\right) &#43; \beta_x\frac{\partial u}{\partial x} &#43; \beta_y\frac{\partial u}{\partial y} &amp;= f(x,y) \ u(\partial\Omega) &amp;= d \end{align} $$
-4.1 Only Consider Diffusion. Turn off Wind: # To form a system: $(i,j) \to k$.
-$Au = b$.
-$A$ is symmetric, SPD.
-4.2 Turn on the Wind. Upwind # With upwind, the pts are not good.">
+  <meta property="og:title" content="9.4 4.1 二维（2D）偏微分方程问题">
+  <meta property="og:description" content="当然！我们一步一步详细解释一下这些笔记中涉及的内容。
+椭圆型 # 4.1.1 问题设定 # 我们考虑一个二维空间的问题，记为区域 $\Omega$。边界记为 $\partial\Omega$。
+方程一般形式如下： $$-\mu \Delta u &#43; \beta \cdot \nabla u = f,\quad \text{在}\ \Omega 内$$
+边界条件为： $$u(\partial \Omega) = d \quad (\text{给定的数据})$$
+这里的符号解释（见上一章）： $\beta$：表示&#34;风&#34;或者对流的方向和强度 $\mu$：扩散系数 $f$：外力或源项 因此，上面的方程可以展开写成：
+$$-\mu \left(\frac{\partial^2 u}{\partial x^2} &#43; \frac{\partial^2 u}{\partial y^2}\right)
+\beta_x \frac{\partial u}{\partial x} &#43; \beta_y \frac{\partial u}{\partial y} = f(x,y)$$ 4.1.2 简化情形（只有扩散，没有风） # 首先考虑更简单的情况，忽略对流（即“关掉风”），变成纯扩散问题：
+$$-\mu\left(\frac{\partial^2 u}{\partial x^2} &#43; \frac{\partial^2 u}{\partial y^2}\right) = f(x,y)$$">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
 <title>
-9.4 二维问题（2D Problem) | 位相学補完計画</title>
+9.4 4.1 二维（2D）偏微分方程问题 | 位相学補完計画</title>
 <link rel="icon" href="/topo.png" >
 <link rel="manifest" href="/manifest.json">
 <link rel="canonical" href="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.ce7b9ad41ea272686d0ce8d7cff98a1cbde2736aa8ad8e3bc923eb08691e2cd4.css" integrity="sha256-znua1B6icmhtDOjXz/mKHL3ic2qorY47ySPrCGkeLNQ=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.7305473e9f859bf688bf039ec6c5b14c38f38e3c39e2c10326937d30f363aa3c.css" integrity="sha256-cwVHPp&#43;Fm/aIvwOexsWxTDjzjjw54sEDJpN9MPNjqjw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.a71f364f6c40f55ade638842307857e61c3d9ac8a77e7968c92f7d1f2c61a794.js" integrity="sha256-px82T2xA9VreY4hCMHhX5hw9msinfnloyS99Hyxhp5Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1392458b5b0bf840b62cd5100f9286c578a5f459845b8f5152d5439d9b20acb4.js" integrity="sha256-E5JFi1sL&#43;EC2LNUQD5KGxXil9FmEW49RUtVDnZsgrLQ=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -341,8 +353,8 @@ https://github.com/alex-shpak/hugo-book
   
     <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle"  />
     <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
-      <a role="button"
-         class="">第八章 积分</a>
+      <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/"
+         class="">第八章 度量理论</a>
     </label>
   
 
@@ -359,8 +371,24 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-Integration/"
-       class="">8.1 Integration</a>
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Lebesgue-Convergence-Theorem/"
+       class="">8.5 Lebesgue Convergence Theorem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/"
+       class="">8.1 度量理论</a>
   
 
         </li>
@@ -604,7 +632,7 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/"
-       class="active">9.4 二维问题（2D Problem)</a>
+       class="active">9.4 4.1 二维（2D）偏微分方程问题</a>
   
 
         </li>
@@ -942,7 +970,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>9.4 二维问题（2D Problem)</h3>
+  <h3>9.4 4.1 二维（2D）偏微分方程问题</h3>
 
   <label for="toc-control">
     
@@ -961,13 +989,28 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li>
       <ul>
-        <li>
+        <li><a href="#椭圆型">椭圆型</a>
+          <ul>
+            <li><a href="#411-问题设定">4.1.1 问题设定</a></li>
+            <li><a href="#412-简化情形只有扩散没有风">4.1.2 简化情形（只有扩散，没有风）</a></li>
+            <li><a href="#413-离散化方法有限差分法">4.1.3 离散化方法（有限差分法）</a></li>
+            <li><a href="#414-形成线性代数方程组">4.1.4 形成线性代数方程组</a></li>
+          </ul>
+        </li>
+        <li><a href="#42-时间相关问题抛物型parabolic">4.2 时间相关问题：抛物型（Parabolic）</a>
+          <ul>
+            <li><a href="#半离散化方法空间离散时间连续">半离散化方法（空间离散，时间连续）</a></li>
+            <li><a href="#时间离散化ode方法">时间离散化（ODE方法）</a></li>
+            <li><a href="#关于矩阵性质的总结">关于矩阵性质的总结：</a></li>
+          </ul>
+        </li>
+        <li><a href="#总结一下">总结一下：</a>
           <ul>
             <li><a href="#41-only-consider-diffusion-turn-off-wind">4.1 Only Consider Diffusion. Turn off Wind:</a></li>
             <li><a href="#42-turn-on-the-wind-upwind">4.2 Turn on the Wind. Upwind</a></li>
           </ul>
         </li>
-        <li><a href="#5-parabolic-problems">5. Parabolic Problems</a>
+        <li><a href="#5-抛物型parabolic问题时间相关问题">5. 抛物型（Parabolic）问题（时间相关问题）</a>
           <ul>
             <li><a href="#51-thm-stability-and-order-of-theta-methods">5.1 Thm (Stability and Order of $\theta$ Methods)</a></li>
           </ul>
@@ -995,9 +1038,141 @@ https://github.com/alex-shpak/hugo-book
         
   <article class="book-article">
     
-    <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;">9.4 二维问题（2D Problem)</h1>
+    <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;">9.4 4.1 二维（2D）偏微分方程问题</h1>
     
-    <div class="markdown posts"><p>$$
+    <div class="markdown posts"><p>当然！我们一步一步详细解释一下这些笔记中涉及的内容。</p>
+<hr>
+<h2 id="椭圆型">
+  椭圆型
+  <a class="anchor" href="#%e6%a4%ad%e5%9c%86%e5%9e%8b">#</a>
+</h2>
+<h3 id="411-问题设定">
+  4.1.1 问题设定
+  <a class="anchor" href="#411-%e9%97%ae%e9%a2%98%e8%ae%be%e5%ae%9a">#</a>
+</h3>
+<p>我们考虑一个二维空间的问题，记为区域 $\Omega$。边界记为 $\partial\Omega$。</p>
+<p>方程一般形式如下：
+$$-\mu \Delta u + \beta \cdot \nabla u = f,\quad \text{在}\ \Omega 内$$</p>
+<p>边界条件为：
+$$u(\partial \Omega) = d \quad (\text{给定的数据})$$</p>
+<ul>
+<li>这里的符号解释（见上一章）：
+<ul>
+<li>$\beta$：表示&quot;风&quot;或者对流的方向和强度</li>
+<li>$\mu$：扩散系数</li>
+<li>$f$：外力或源项</li>
+</ul>
+</li>
+</ul>
+<p>因此，上面的方程可以展开写成：</p>
+<p>$$-\mu \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right)</p>
+<ul>
+<li>\beta_x \frac{\partial u}{\partial x} + \beta_y \frac{\partial u}{\partial y} = f(x,y)$$</li>
+</ul>
+<h3 id="412-简化情形只有扩散没有风">
+  4.1.2 简化情形（只有扩散，没有风）
+  <a class="anchor" href="#412-%e7%ae%80%e5%8c%96%e6%83%85%e5%bd%a2%e5%8f%aa%e6%9c%89%e6%89%a9%e6%95%a3%e6%b2%a1%e6%9c%89%e9%a3%8e">#</a>
+</h3>
+<p>首先考虑更简单的情况，忽略对流（即“关掉风”），变成纯扩散问题：</p>
+<p>$$-\mu\left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) = f(x,y)$$</p>
+<h3 id="413-离散化方法有限差分法">
+  4.1.3 离散化方法（有限差分法）
+  <a class="anchor" href="#413-%e7%a6%bb%e6%95%a3%e5%8c%96%e6%96%b9%e6%b3%95%e6%9c%89%e9%99%90%e5%b7%ae%e5%88%86%e6%b3%95">#</a>
+</h3>
+<p>用有限差分法来数值求解：</p>
+<p>假设空间被划分为一个网格，每个网格点用坐标 $(i,j)$ 来表示位置：</p>
+<ul>
+<li>在$x$方向的间距为 $\Delta x$</li>
+<li>在$y$方向的间距为 $\Delta y$</li>
+</ul>
+<p>则对于二维的拉普拉斯算子，常用的中心差分格式为：</p>
+<p>$$\frac{\partial^2 u}{\partial x^2}\approx \frac{u_{i+1,j}-2u_{i,j}+u_{i-1,j}}{\Delta x^2}$$</p>
+<p>$$\frac{\partial^2 u}{\partial y^2}\approx \frac{u_{i,j+1}-2u_{i,j}+u_{i,j-1}}{\Delta y^2}$$</p>
+<p>代入扩散方程得到：</p>
+<p>$$-\mu\frac{u_{i+1,j}-2u_{i,j}+u_{i-1,j}}{\Delta x^2}
+-\mu\frac{u_{i,j+1}-2u_{i,j}+u_{i,j-1}}{\Delta y^2}
+= f(x_i,y_j)$$</p>
+<h3 id="414-形成线性代数方程组">
+  4.1.4 形成线性代数方程组
+  <a class="anchor" href="#414-%e5%bd%a2%e6%88%90%e7%ba%bf%e6%80%a7%e4%bb%a3%e6%95%b0%e6%96%b9%e7%a8%8b%e7%bb%84">#</a>
+</h3>
+<p>所有网格点的未知数$u_{i,j}$放到一个向量中（向量记为$u$），这样就可以把离散后的方程写成一个矩阵方程：</p>
+<p>$$A u = b$$</p>
+<p>这里：</p>
+<ul>
+<li>$A$ 是系数矩阵（稀疏、对称、正定，简称SPD）</li>
+<li>$u$ 是未知量向量（所有网格点的解）</li>
+<li>$b$ 是已知项的向量（源项$f$和边界条件的组合）</li>
+</ul>
+<hr>
+<h2 id="42-时间相关问题抛物型parabolic">
+  4.2 时间相关问题：抛物型（Parabolic）
+  <a class="anchor" href="#42-%e6%97%b6%e9%97%b4%e7%9b%b8%e5%85%b3%e9%97%ae%e9%a2%98%e6%8a%9b%e7%89%a9%e5%9e%8bparabolic">#</a>
+</h2>
+<p>考虑的问题形式：</p>
+<p>$$\frac{\partial u}{\partial t}-\mu\frac{\partial^2 u}{\partial x^2}=f,\quad x\in(0,1),\quad 0&lt;t&lt;T$$</p>
+<p>初值与边界条件为：</p>
+<ul>
+<li>初值：$u(x,t=0)=u_0(x)$</li>
+<li>边界条件：$u(0,t)=u_L(t),\quad u(1,t)=u_R(t)$</li>
+</ul>
+<h3 id="半离散化方法空间离散时间连续">
+  半离散化方法（空间离散，时间连续）
+  <a class="anchor" href="#%e5%8d%8a%e7%a6%bb%e6%95%a3%e5%8c%96%e6%96%b9%e6%b3%95%e7%a9%ba%e9%97%b4%e7%a6%bb%e6%95%a3%e6%97%b6%e9%97%b4%e8%bf%9e%e7%bb%ad">#</a>
+</h3>
+<p>我们首先只对空间（$x$）做离散化，得到：</p>
+<p>$$\frac{d u_j(t)}{d t}-\mu\frac{u_{j+1}(t)-2u_j(t)+u_{j-1}(t)}{\Delta x^2}=f_j(t)$$</p>
+<p>记：</p>
+<ul>
+<li>向量形式：$u(t)=[u_1(t),u_2(t),&hellip;,u_n(t)]^T$</li>
+<li>源项向量：$f(t)=[f_1(t),f_2(t),&hellip;,f_n(t)]^T$</li>
+<li>系数矩阵：$A=\frac{\mu}{\Delta x^2}\text{tridiag}(-1,2,-1)$</li>
+</ul>
+<p>于是问题变成常微分方程（ODE）的系统形式：</p>
+<p>$$\frac{d u}{d t}-A u=f$$</p>
+<h3 id="时间离散化ode方法">
+  时间离散化（ODE方法）
+  <a class="anchor" href="#%e6%97%b6%e9%97%b4%e7%a6%bb%e6%95%a3%e5%8c%96ode%e6%96%b9%e6%b3%95">#</a>
+</h3>
+<p>接下来我们对时间进行离散化，采用两种方法：</p>
+<h4 id="方法1显式欧拉explicit-euler-fe">
+  方法1：显式欧拉（Explicit Euler, FE）
+  <a class="anchor" href="#%e6%96%b9%e6%b3%951%e6%98%be%e5%bc%8f%e6%ac%a7%e6%8b%89explicit-euler-fe">#</a>
+</h4>
+<p>将时间导数在时间点$t_n$近似为：</p>
+<p>$$\frac{u^{n+1}-u^n}{\Delta t}=f^n+A u^n$$</p>
+<p>解得：</p>
+<p>$$u^{n+1} = (I+\Delta t A)u^n+\Delta t f^n$$</p>
+<p>显式方法容易计算，但稳定性有限，时间步长不能太大。</p>
+<h4 id="方法2隐式欧拉implicit-euler-iebe">
+  方法2：隐式欧拉（Implicit Euler, IE/BE）
+  <a class="anchor" href="#%e6%96%b9%e6%b3%952%e9%9a%90%e5%bc%8f%e6%ac%a7%e6%8b%89implicit-euler-iebe">#</a>
+</h4>
+<p>另一种方法是在时间点$t_{n+1}$处求导：</p>
+<p>$$\frac{u^{n+1}-u^n}{\Delta t}=f^{n+1}+A u^{n+1}$$</p>
+<p>解出隐式方程：</p>
+<p>$$(I-\Delta t A)u^{n+1}=u^n+\Delta t f^{n+1}$$</p>
+<p>这个方法更稳定，但需要在每个时间步解一个线性系统。</p>
+<h3 id="关于矩阵性质的总结">
+  关于矩阵性质的总结：
+  <a class="anchor" href="#%e5%85%b3%e4%ba%8e%e7%9f%a9%e9%98%b5%e6%80%a7%e8%b4%a8%e7%9a%84%e6%80%bb%e7%bb%93">#</a>
+</h3>
+<ul>
+<li>$A$ 为SPD矩阵（对称正定）</li>
+<li>当 $A$ 和 $b$ 是与时间无关时，通常我们更喜欢隐式方法，因为可以分解矩阵一次（如LU分解）并反复使用，加快计算速度。</li>
+</ul>
+<hr>
+<h2 id="总结一下">
+  总结一下：
+  <a class="anchor" href="#%e6%80%bb%e7%bb%93%e4%b8%80%e4%b8%8b">#</a>
+</h2>
+<p>以上涉及了两类偏微分方程问题：</p>
+<ul>
+<li><strong>椭圆型（空间二维）问题</strong>，通过空间离散化直接得到线性方程组；</li>
+<li><strong>抛物型（空间一维+时间）问题</strong>，先对空间离散变为ODE，再对时间离散使用ODE数值方法（显式/隐式欧拉方法）进行求解。</li>
+</ul>
+<p>以上步骤逐步解释了问题如何从连续形式变成数值可求解的离散形式。</p>
+<p>$$
 \begin{align}
 -\mu\Delta u + \vec{\beta} \cdot \nabla u &amp;= f \
 u(\partial\Omega) &amp;= \text{data}
@@ -1022,9 +1197,9 @@ $$</p>
   <a class="anchor" href="#42-turn-on-the-wind-upwind">#</a>
 </h3>
 <p>With upwind, the pts are not good.</p>
-<h2 id="5-parabolic-problems">
-  5. Parabolic Problems
-  <a class="anchor" href="#5-parabolic-problems">#</a>
+<h2 id="5-抛物型parabolic问题时间相关问题">
+  5. 抛物型（Parabolic）问题（时间相关问题）
+  <a class="anchor" href="#5-%e6%8a%9b%e7%89%a9%e5%9e%8bparabolic%e9%97%ae%e9%a2%98%e6%97%b6%e9%97%b4%e7%9b%b8%e5%85%b3%e9%97%ae%e9%a2%98">#</a>
 </h2>
 <p>$$
 \begin{align}
@@ -1257,13 +1432,28 @@ $u_j^{n+1} = u_j^n - \alpha\left(\frac{u_{j+1}^n - u_{j-1}^n}{2\Delta x}\right)\
   <ul>
     <li>
       <ul>
-        <li>
+        <li><a href="#椭圆型">椭圆型</a>
+          <ul>
+            <li><a href="#411-问题设定">4.1.1 问题设定</a></li>
+            <li><a href="#412-简化情形只有扩散没有风">4.1.2 简化情形（只有扩散，没有风）</a></li>
+            <li><a href="#413-离散化方法有限差分法">4.1.3 离散化方法（有限差分法）</a></li>
+            <li><a href="#414-形成线性代数方程组">4.1.4 形成线性代数方程组</a></li>
+          </ul>
+        </li>
+        <li><a href="#42-时间相关问题抛物型parabolic">4.2 时间相关问题：抛物型（Parabolic）</a>
+          <ul>
+            <li><a href="#半离散化方法空间离散时间连续">半离散化方法（空间离散，时间连续）</a></li>
+            <li><a href="#时间离散化ode方法">时间离散化（ODE方法）</a></li>
+            <li><a href="#关于矩阵性质的总结">关于矩阵性质的总结：</a></li>
+          </ul>
+        </li>
+        <li><a href="#总结一下">总结一下：</a>
           <ul>
             <li><a href="#41-only-consider-diffusion-turn-off-wind">4.1 Only Consider Diffusion. Turn off Wind:</a></li>
             <li><a href="#42-turn-on-the-wind-upwind">4.2 Turn on the Wind. Upwind</a></li>
           </ul>
         </li>
-        <li><a href="#5-parabolic-problems">5. Parabolic Problems</a>
+        <li><a href="#5-抛物型parabolic问题时间相关问题">5. 抛物型（Parabolic）问题（时间相关问题）</a>
           <ul>
             <li><a href="#51-thm-stability-and-order-of-theta-methods">5.1 Thm (Stability and Order of $\theta$ Methods)</a></li>
           </ul>
