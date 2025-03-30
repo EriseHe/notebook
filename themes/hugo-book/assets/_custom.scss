@@ -14,3 +14,51 @@ Most styles have been moved to their respective files:
 */
 
 /* Any additional custom styles can be added here */
+
+// @import "plugins/numbered";
+// @import "plugins/scrollbars";
+
+// KaTeX math styles
+.katex-display > .katex {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+// Loading indicator styles
+body.loading {
+  .book-page::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .book-page::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+    border: 4px solid #ccc;
+    border-top-color: #0055b8;
+    border-radius: 50%;
+    z-index: 1000;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

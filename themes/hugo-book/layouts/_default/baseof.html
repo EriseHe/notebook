@@ -74,6 +74,9 @@
   {{ partial "docs/mathjax.html" . }}
   {{ partial "docs/theorem-blocks.html" . }}
   {{ partial "docs/copycode.html"}}
+  
+  {{- $partialLoadJS := resources.Get "partial-load.js" | resources.Minify | resources.Fingerprint }}
+  <script defer src="{{ $partialLoadJS.RelPermalink }}" {{ if (urls.Parse $partialLoadJS.Permalink).Host }}integrity="{{ $partialLoadJS.Data.Integrity }}" crossorigin="anonymous"{{ end }}></script>
 </body>
 </html>
 
