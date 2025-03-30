@@ -7,6 +7,7 @@
   display: flex; 
   gap: 1rem; 
   margin-bottom: 1rem; 
+  
 }
 
 /* Individual tab button */
@@ -21,8 +22,9 @@
 
 /* Active tab styling */
 .subject-tab.active {
-  background: var(--body-gray);
+  background: transparent;
   color: var(--color-link);
+  outline: 1px solid var(--gray-200);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -30,14 +32,12 @@
 /* Tab content container */
 .subject-content {
   position: relative; // establishes a stacking context
-  padding: 0.6rem; // adjust as needed for your design
+  margin-top: 2.5rem; // adjust as needed for your design
   padding-right: 1.2rem;
+  padding-left: 0.5rem;
+  margin-bottom: 2.3rem; // adjust as needed for your design
 
-  a:hover {
-    transform: scale(1.02);
-    color: rgb(104, 104, 104);
-    transition: transform 0.1s ease;
-  }
+
 }
 
 /* Tab content background */
@@ -46,29 +46,14 @@
   position: absolute;
   border-radius: 3px;
 
-  top: -17px;  // extend 20px above the content
+  top: -40px; 
   left: -0.8rem; // align with the right edge of the content
   right: 0rem;
   background-color: transparent;
   z-index: -1; // keep background behind content
-  outline: 1px solid var(--gray-500);
+  outline: 1px solid var(--gray-200);
 }
 
-/* Additional menu offset */
-.after-menu-offset {
-  margin-top: 1rem; // adjust the value as needed
-  color: var(--gray-500);
-
-  a {
-    display: block;
-  }
-
-  a:hover {
-    transform: scale(1.02);
-    color: rgb(16, 16, 16);
-    transition: transform 0.1s ease;
-  }
-}
 
 /* Book tabs styling (for shortcodes) */
 .book-tabs {

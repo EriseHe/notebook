@@ -1,4 +1,3 @@
-
 {{ $thisPage := . }} <!-- The current Hugo context/page -->
 
 <nav class="subject-menu">
@@ -35,21 +34,40 @@
     const tabs = document.querySelectorAll('.subject-tab');
     const panels = document.querySelectorAll('.subject-panel');
 
+    // Function to activate a specific tab
+    function activateTab(subject) {
+      // Remove 'active' from all tabs
+      tabs.forEach(t => t.classList.remove('active'));
+      // Hide all panels
+      panels.forEach(p => p.classList.add('hidden'));
+
+      // Mark the selected tab as active
+      const selectedTab = document.querySelector(`.subject-tab[data-subject="${subject}"]`);
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
+      
+      // Show the corresponding panel
+      const panel = document.querySelector(`.subject-panel[data-subject="${subject}"]`);
+      if (panel) {
+        panel.classList.remove('hidden');
+      }
+      
+      // Save the active tab to localStorage
+      localStorage.setItem('activeSubjectTab', subject);
+    }
+
+    // Check if there's a saved tab in localStorage
+    const savedTab = localStorage.getItem('activeSubjectTab');
+    if (savedTab) {
+      activateTab(savedTab);
+    }
+
+    // Add click event listeners to tabs
     tabs.forEach(tab => {
       tab.addEventListener('click', function() {
-        // Remove 'active' from all tabs
-        tabs.forEach(t => t.classList.remove('active'));
-        // Hide all panels
-        panels.forEach(p => p.classList.add('hidden'));
-
-        // Mark the clicked tab as active
-        tab.classList.add('active');
-        // Show the corresponding panel
         const subject = tab.getAttribute('data-subject');
-        const panel = document.querySelector(`.subject-panel[data-subject="${subject}"]`);
-        if (panel) {
-          panel.classList.remove('hidden');
-        }
+        activateTab(subject);
       });
     });
   });

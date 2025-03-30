@@ -35,7 +35,7 @@ Image to 3 D Model | 位相学補完計画</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.7305473e9f859bf688bf039ec6c5b14c38f38e3c39e2c10326937d30f363aa3c.css" integrity="sha256-cwVHPp&#43;Fm/aIvwOexsWxTDjzjjw54sEDJpN9MPNjqjw=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.45f1f0bda3e3afbbdd81a866abe5d43129cb0fda8fc3f4ff902f231558bce1d3.css" integrity="sha256-RfHwvaPjr7vdgahmq&#43;XUMSnLD9qPw/T/kC8jFVi84dM=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.1392458b5b0bf840b62cd5100f9286c578a5f459845b8f5152d5439d9b20acb4.js" integrity="sha256-E5JFi1sL&#43;EC2LNUQD5KGxXil9FmEW49RUtVDnZsgrLQ=" crossorigin="anonymous"></script>
 
@@ -76,7 +76,6 @@ https://github.com/alex-shpak/hugo-book
   <ul id="book-search-results"></ul>
 </div>
 <script>document.querySelector(".book-search").classList.remove("hidden")</script>
-
 
 
 
@@ -854,21 +853,40 @@ https://github.com/alex-shpak/hugo-book
     const tabs = document.querySelectorAll('.subject-tab');
     const panels = document.querySelectorAll('.subject-panel');
 
+    
+    function activateTab(subject) {
+      
+      tabs.forEach(t => t.classList.remove('active'));
+      
+      panels.forEach(p => p.classList.add('hidden'));
+
+      
+      const selectedTab = document.querySelector(`.subject-tab[data-subject="${subject}"]`);
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
+      
+      
+      const panel = document.querySelector(`.subject-panel[data-subject="${subject}"]`);
+      if (panel) {
+        panel.classList.remove('hidden');
+      }
+      
+      
+      localStorage.setItem('activeSubjectTab', subject);
+    }
+
+    
+    const savedTab = localStorage.getItem('activeSubjectTab');
+    if (savedTab) {
+      activateTab(savedTab);
+    }
+
+    
     tabs.forEach(tab => {
       tab.addEventListener('click', function() {
-        
-        tabs.forEach(t => t.classList.remove('active'));
-        
-        panels.forEach(p => p.classList.add('hidden'));
-
-        
-        tab.classList.add('active');
-        
         const subject = tab.getAttribute('data-subject');
-        const panel = document.querySelector(`.subject-panel[data-subject="${subject}"]`);
-        if (panel) {
-          panel.classList.remove('hidden');
-        }
+        activateTab(subject);
       });
     });
   });
