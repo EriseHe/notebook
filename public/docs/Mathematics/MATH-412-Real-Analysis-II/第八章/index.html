@@ -13,21 +13,12 @@
   </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质
-
-积分的定义
-可积性的标准
-必要且充分条件
-积分的性质与收敛性
-计算和估计积分
-">
+<meta name="description" content="">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="第八章 度量理论">
-  <meta property="og:description" content="第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质
-积分的定义 可积性的标准 必要且充分条件 积分的性质与收敛性 计算和估计积分">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 <title>
@@ -38,7 +29,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.f8f26ae8e4b168c40e76cf5e8fe98fcdc2db7ae1183c22f6d66f18350f710db9.css" integrity="sha256-&#43;PJq6OSxaMQOds9ej&#43;mPzcLbeuEYPCL21m8YNQ9xDbk=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.e3f60bbf813b538879f11e6e6b118f9f1aa6214bcd9c33f104b1d38cb9098e77.css" integrity="sha256-4/YLv4E7U4h58R5uaxGPnxqmIUvNnDPxBLHTjLkJjnc=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.1392458b5b0bf840b62cd5100f9286c578a5f459845b8f5152d5439d9b20acb4.js" integrity="sha256-E5JFi1sL&#43;EC2LNUQD5KGxXil9FmEW49RUtVDnZsgrLQ=" crossorigin="anonymous"></script>
 
@@ -319,7 +310,7 @@ https://github.com/alex-shpak/hugo-book
   
     <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle" checked />
     <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
-      <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/"
+      <a role="button"
          class="active">第八章 度量理论</a>
     </label>
   
@@ -985,15 +976,7 @@ https://github.com/alex-shpak/hugo-book
     
     <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;">第八章 度量理论</h1>
     
-    <div class="markdown posts"><p>第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质</p>
-<ol>
-<li>积分的定义</li>
-<li>可积性的标准</li>
-<li>必要且充分条件</li>
-<li>积分的性质与收敛性</li>
-<li>计算和估计积分</li>
-</ol>
-</div>
+    <div class="markdown posts"></div>
   </article>
  
         
@@ -1025,11 +1008,6 @@ https://github.com/alex-shpak/hugo-book
         </footer>
 
         
-  
-  <div class="book-comments">
-
-</div>
-  
   
  
 
@@ -1201,55 +1179,6 @@ https://github.com/alex-shpak/hugo-book
   </script>
   
   
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true,
-      packages: {'[+]': ['ams', 'noerrors', 'color']}
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'tex2jax_process'
-    },
-    svg: {
-      fontCache: 'global'
-    },
-    startup: {
-      ready: function() {
-        
-        const oldFindTeX = MathJax.startup.findTeX;
-        MathJax.startup.findTeX = function(options) {
-          
-          const results = oldFindTeX.call(this, options);
-          
-          
-          for (const item of results) {
-            if (item.display) {
-              let processedMath = item.math;
-              
-              
-              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
-                
-                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
-              });
-              
-              item.math = processedMath;
-            }
-          }
-          
-          return results;
-        };
-        
-        MathJax.startup.defaultReady();
-      }
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {
