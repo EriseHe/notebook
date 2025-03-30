@@ -1,0 +1,229 @@
+{
+  "main": {
+    "id": "8db60707eeb5398d",
+    "type": "split",
+    "children": [
+      {
+        "id": "2f9b2f811e2e409c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d4513820e616b532",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Mathematics/MATH 412 Real Analysis II/第八章/8.1 Integration.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "8.1 Integration"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9437cab314f0014f",
+    "type": "split",
+    "children": [
+      {
+        "id": "47a33772439dd96b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "829f54a31a6b8d4d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "55558a46ff7d1d2e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "88b9eea347bf041e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "52ddb06e2195998b",
+            "type": "leaf",
+            "state": {
+              "type": "vertical-tabs",
+              "state": {},
+              "icon": "vertical-tabs",
+              "title": "Vertical tabs"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 296.5
+  },
+  "right": {
+    "id": "916c7330540abd4e",
+    "type": "split",
+    "children": [
+      {
+        "id": "d576b05694bad597",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f1b3cc4ccc7c24dc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "1443e6aae25400d1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "5f6dd4526537ce11",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "fc879500c458425c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.2 Finite Difference.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 9.2 Finite Difference"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false,
+      "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
+      "webpage-html-export:Export Vault to HTML": false,
+      "obsidian-matrix:Obsidian Matrix": false,
+      "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
+    }
+  },
+  "active": "829f54a31a6b8d4d",
+  "lastOpenFiles": [
+    "Mathematics/MATH 412 Real Analysis II/第八章/8.1 Integration.md",
+    "Mathematics/MATH 412 Real Analysis II/第八章/8.5 Lebesgue Convergence Theorem.md",
+    "Mathematics/MATH 412 Real Analysis II/第八章/8.3 Proof of Lebesgue's Theorem.md",
+    "Mathematics/MATH 412 Real Analysis II/第七章/7.1 Inverse Function Theorem.md",
+    "Mathematics/MATH 412 Real Analysis II/第六章/6.6 Product Rule and Gradients.md",
+    "Mathematics/MATH 412 Real Analysis II/第六章/6.4 Sufficient Conditions for Differentiability.md",
+    "GPT Conversion.md",
+    "L-space.png",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.4 2D Problem.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Chatper 9 Problems.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.2 Finite Difference.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.1 Boundary Value Problems.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.3 Advection-Diffusion Equation.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Untitled.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Numerical Solution of Ordinary Differential Equations.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Three-Point Backward Differentiation Formula (Feb 4).md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/_index.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Lecture Notes (Mar 18).md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Lecture Notes (Mar 20).md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Mid-Point Method.md",
+    "Mathematics/MATH 351 & 352/Heat Equation/Heat Equation Solution.md",
+    "Mathematics/MATH 412 Real Analysis II/Homework/Homework 7.md",
+    "Mathematics/MATH 412 Real Analysis II/第七章/7.6 Morse Lemma.md",
+    "Mathematics/MATH 412 Real Analysis II/第七章/7.7.md",
+    "Mathematics/MATH 412 Real Analysis II/第七章/7.2 Implicit Function Theorem.md",
+    "Mathematics/MATH 412 Real Analysis II/第七章/7.1.1 Inverse FT (Proof).md",
+    "Mathematics/MATH 412 Real Analysis II/第八章/8.2 Criterion for Integrability.md",
+    "Mathematics/MATH 412 Real Analysis II/HW",
+    "Fourier Series.png",
+    "Physics/Quantum Mechenics/Homework",
+    "L-space-1.png",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Untitled",
+    "Mathematics/MATH 412 Real Analysis II/第八章",
+    "Mathematics/MATH 412 Real Analysis II/第七章",
+    "Mathematics/MATH 412 Real Analysis II/第七章",
+    "Mathematics/MATH 351 & 352/Heat Equation/Untitled.canvas",
+    "Mathematics/MATH 351 & 352/Laplace Equation",
+    "Untitled",
+    "Mathematics/MATH 351 & 352/Wave Equation",
+    "Mathematics/MATH 351 & 352/Heat Equation"
+  ]
+}
