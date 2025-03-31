@@ -211,6 +211,7 @@ fancy
 favor
 functional
 flows
+forces
 color
 curve
 can
@@ -420,6 +421,9 @@ clet
 centered
 combined
 correct
+contains
+contribute
+choices
 Problem
 Partial
 Putting
@@ -954,6 +958,11 @@ sided
 sign
 sacrifices
 spacing
+subinterval
+sample
+straddle
+suppose
+straddles
 discuss
 determine
 described
@@ -1126,6 +1135,8 @@ dominated
 differencing
 differences
 discrete
+depending
+demonstration
 in
 inverse
 implicit
@@ -1751,6 +1762,7 @@ happens
 homogeneous
 high
 hmm
+half
 local
 limit
 lim
@@ -1962,6 +1974,7 @@ Significance
 Source
 Seidel
 SOR
+Squeeze
 equations
 equation
 exists
@@ -2201,6 +2214,7 @@ works
 while
 wrong
 worst
+whenever
 by
 be
 bijective
@@ -2305,6 +2319,8 @@ better
 boat
 behaved
 bands
+begins
+bounds
 allow
 and
 as
@@ -2790,6 +2806,8 @@ role
 refined
 replaces
 rate
+remaining
+roughly
 partials
 partial
 point
@@ -2955,6 +2973,7 @@ pure
 prevents
 physically
 plausible
+pick
 Ex
 Evaluate
 Evaluating
@@ -3100,6 +3119,7 @@ Write
 Wind
 WENO
 Weighted
+Within
 Thus
 Theorem
 These
@@ -3296,6 +3316,7 @@ BVP
 Back
 Better
 Boundedness
+Bound
 Function
 For
 FT
