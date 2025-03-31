@@ -85,6 +85,11 @@ a .book-icon {
   margin-inline-end: .5em;
 }
 
+/* Override any animations or effects for the brand */
+h2.book-brand a {
+  background-color: transparent !important;
+}
+
 .book-brand {
   font-family: 'Century Schoolbook';
 
@@ -114,14 +119,14 @@ a .book-icon {
     word-wrap: break-word;
   }
 
-  a.active {
+  a.active:not(.book-brand a) {
     display: block;
     position: relative;
     color: var(--color-link);
     text-decoration: bold;
   }
   
-  a.active::before {
+  a.active:not(.book-brand a)::before {
     content: "";
     position: absolute;
     top: -0.3rem;

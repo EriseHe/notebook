@@ -1,5 +1,7 @@
 /*------------Layout styling-------------*/
 
+
+
 /* Main layout container */
 .container {
   max-width: $container-max-width;
@@ -41,6 +43,7 @@
   width: $menu-width;
   height: 100vh;
   z-index: 100;
+  background-color: transparent !important;
 }
 
 .book-menu-content {
@@ -65,7 +68,6 @@
   max-width: 47rem;
   padding: 0;
   margin: 3em auto;
-  transform: translateX(1rem);
   transition: all 0.3s ease;
   background-color: transparent !important;
 }
