@@ -21,5 +21,12 @@
       <guid>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-7/</guid>
       <description>&lt;p&gt;HW 7:&#xA;7.6: 1, 2, 3, [4,5]; 7.7: 1, 2, 3, [4], 5, [6];&#xA;Chapter 7: [25], 36, [38], 39.&lt;/p&gt;&#xA;&lt;p&gt;&lt;font color=&#34;#ff0000&#34;&gt;Problem 7.6.4&lt;/font&gt;&#xA;Let $f(x,y) = x^2 + y^2 + 3y^3 + 8x^4 + x^2e^x \sin x + 6$. Show that there exist new coordinates $\xi, \eta$, where&#xA;$$\xi = \xi(x,y), \quad \eta = \eta(x,y),$$&#xA;for which&#xA;$$f(x,y) = \xi^2 + \eta^2 + 6$$&#xA;in a neighborhood of $(0, 0)$.&lt;/p&gt;&#xA;&lt;p&gt;&lt;font color=&#34;#ff0000&#34;&gt;Problem 7.6.5&lt;/font&gt;&#xA;(a).&#xA;If $f$ has a nondegenerate critical point at $x_0 \in \mathbb{R}^n$, show that there is a neighborhood of $x_0$ containing no other critical points.&lt;/p&gt;</description>
     </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-8/</guid>
+      <description>&lt;p&gt;8.1: 1, [2, 6]; 8.2: [2], 3, 4, 5, [6]; 8.3: [2], 5, 6;&#xA;Chapter 8: [12].&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Problem 8.1.2&lt;/strong&gt; Let $f:[0,2] \rightarrow \mathbb{R}$ be defined by $f(x)=0$ for $0 \leq x \leq 1$, and by $f(x)=1$ for $1&amp;lt;x \leq 2$. Compute, using the definition, $\int_0^2 f(x) d x$.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;[!conjecture|*]&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;According to Riemann sum definition, we&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Problem 8.1.6&lt;/strong&gt; Let $f:[a, b] \rightarrow \mathbb{R}$ be continuous. Use Riemann&amp;rsquo;s condition and uniform continuity of $f$ to prove that $f$ is integrable.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -143,6 +143,13 @@
     </item>
     <item>
       <title></title>
+      <link>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-8/</guid>
+      <description>&lt;p&gt;8.1: 1, [2, 6]; 8.2: [2], 3, 4, 5, [6]; 8.3: [2], 5, 6;&#xA;Chapter 8: [12].&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Problem 8.1.2&lt;/strong&gt; Let $f:[0,2] \rightarrow \mathbb{R}$ be defined by $f(x)=0$ for $0 \leq x \leq 1$, and by $f(x)=1$ for $1&amp;lt;x \leq 2$. Compute, using the definition, $\int_0^2 f(x) d x$.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;[!conjecture|*]&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;According to Riemann sum definition, we&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Problem 8.1.6&lt;/strong&gt; Let $f:[a, b] \rightarrow \mathbb{R}$ be continuous. Use Riemann&amp;rsquo;s condition and uniform continuity of $f$ to prove that $f$ is integrable.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
       <link>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</guid>

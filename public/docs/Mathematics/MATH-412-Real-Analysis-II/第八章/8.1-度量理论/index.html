@@ -77,9 +77,9 @@ Lebesgue积分定义的逻辑步骤如下：
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.ec96fe98c57b17ca5cdb64825b2af607db8db21d46f135fea1401dc09deb6de5.css" integrity="sha256-7Jb&#43;mMV7F8pc22SCWyr2B9uNsh1G8TX&#43;oUAdwJ3rbeU=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.bffa2bd83b800d4cc8d2f006c5fa63729bb5947f23c57865edc935fe39243c3d.css" integrity="sha256-v/or2DuADUzI0vAGxfpjcpu1lH8jxXhl7ck1/jkkPD0=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.27b00b4f8d8aba84388ae89fbe80e42baad726b2c8bde90f54625e5d82439713.js" integrity="sha256-J7ALT42KuoQ4iuifvoDkK6rXJrLIvekPVGJeXYJDlxM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.b569afb92f50ef9cfe8aaf5ffcd3db4bea40f547a47a3fd08acc8f701074433c.js" integrity="sha256-tWmvuS9Q75z&#43;iq9f/NPbS&#43;pA9Uekej/QisyPcBB0Qzw=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1018,11 +1018,13 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#112-一般表述">1.1.2 一般表述</a></li>
           </ul>
         </li>
-        <li><a href="#定义">定义</a></li>
-        <li><a href="#其他记号">其他记号：</a></li>
-        <li><a href="#一般设定">一般设定：</a></li>
-        <li><a href="#黎曼条件">黎曼条件</a></li>
-        <li><a href="#达布条件">达布条件</a></li>
+        <li><a href="#12-函数的可积性及其积分">1.2 函数的可积性及其积分</a>
+          <ul>
+            <li><a href="#121-一般设定">1.2.1 一般设定：</a></li>
+            <li><a href="#122-黎曼条件riemanns-condition">1.2.2 黎曼条件（Riemann&rsquo;s Condition）</a></li>
+            <li><a href="#123-达布条件darbouxs-condition">1.2.3 达布条件（Darboux&rsquo;s Condition）</a></li>
+          </ul>
+        </li>
         <li><a href="#备注">备注</a></li>
         <li><a href="#定理">定理</a></li>
         <li><a href="#定理证明">定理证明</a>
@@ -1141,75 +1143,49 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e9%87%8d%e8%a6%81%e8%a7%82%e5%af%9f">#</a>
 </h4>
 <p>很明显，我们有 $L(f, P) \leq$ “真实体积” $\leq U(f, P)$。下积分和上积分分别是真实体积的下界和上界：</p>
-<p>$$\underline{\int_{A}}f \leq\text{“real volume” }\leq \overline{\int_A} f\Longrightarrow \underline{\int_A} f \leq \overline{\int_A} f$$</p>
-<h2 id="定义">
-  定义
-  <a class="anchor" href="#%e5%ae%9a%e4%b9%89">#</a>
+<p>$$\underline{\int_{A}}f \leq\text{“real volume” }\leq \overline{\int_A} f$$</p>
+<h2 id="12-函数的可积性及其积分">
+  1.2 函数的可积性及其积分
+  <a class="anchor" href="#12-%e5%87%bd%e6%95%b0%e7%9a%84%e5%8f%af%e7%a7%af%e6%80%a7%e5%8f%8a%e5%85%b6%e7%a7%af%e5%88%86">#</a>
 </h2>
-<p><strong>解释</strong>: 现在我们可以正式定义函数的可积性及其积分。</p>
-<p>我们称函数 $f$ 是（黎曼）可积的，当且仅当：
-$\overline{\int_A} f = \underline{\int_A} f$</p>
-<ul>
-<li><strong>解释</strong>: 当上积分等于下积分时，我们说函数是可积的。这意味着随着分割变得越来越细，上和和下和的差会趋于零，收敛于同一个值。</li>
-</ul>
-<p>函数 $f$ 在 $A$ 上的积分定义为：
-$\int_A f(x)dx = \overline{\int_A} f = \underline{\int_A} f$</p>
-<ul>
-<li><strong>解释</strong>: 积分值就是上积分和下积分的共同值。</li>
-</ul>
-<h2 id="其他记号">
-  其他记号：
-  <a class="anchor" href="#%e5%85%b6%e4%bb%96%e8%ae%b0%e5%8f%b7">#</a>
-</h2>
-<p>$\int_A f = \int_A f dx = \int_A f(x) dx$</p>
-<ul>
-<li><strong>解释</strong>: 这些都是等价的积分记号。</li>
-</ul>
-<h2 id="一般设定">
-  一般设定：
-  <a class="anchor" href="#%e4%b8%80%e8%88%ac%e8%ae%be%e5%ae%9a">#</a>
-</h2>
-<ul>
-<li>
-<p>$f: A \subset \mathbb{R}^n \to \mathbb{R}$ 有界</p>
-<ul>
-<li><strong>解释</strong>: $f$ 是从 $\mathbb{R}^n$ 中的子集 $A$ 到实数的有界函数。</li>
-</ul>
-</li>
-<li>
-<p>$A \subset B$ 是有界的</p>
-<ul>
-<li><strong>解释</strong>: 集合 $A$ 包含在矩形 $B$ 中，且是有界的（不会无限延伸）。</li>
-</ul>
-</li>
-<li>
-<p>$B$ 是 $\mathbb{R}^n$ 中的矩形</p>
-<ul>
-<li><strong>解释</strong>: $B$ 是 $n$ 维空间中的矩形区域。</li>
-</ul>
-</li>
-<li>
-<p>当 $x \notin A$ 时，$f(x) = 0$</p>
-<ul>
-<li><strong>解释</strong>: 函数在 $A$ 外部被定义为零。</li>
-</ul>
-</li>
-</ul>
-<h2 id="黎曼条件">
-  黎曼条件
-  <a class="anchor" href="#%e9%bb%8e%e6%9b%bc%e6%9d%a1%e4%bb%b6">#</a>
-</h2>
-<p><strong>解释</strong>: 黎曼条件是判断函数可积性的一个重要条件。</p>
-<p>函数 $f$ 可积的条件是：$\forall \varepsilon &gt; 0$，$\exists$ 分割 $P_\varepsilon$（对 $B$ 的分割）使得
-$0 \leq U(f, P_\varepsilon) - L(f, P_\varepsilon) &lt; \varepsilon$</p>
-<ul>
-<li><strong>解释</strong>: 这意味着我们可以找到一个足够细的分割，使得上和与下和的差小于任意给定的正数 $\varepsilon$。换句话说，随着分割变得越来越细，上和和下和会无限接近。</li>
-</ul>
-<h2 id="达布条件">
-  达布条件
-  <a class="anchor" href="#%e8%be%be%e5%b8%83%e6%9d%a1%e4%bb%b6">#</a>
-</h2>
-<p><strong>解释</strong>: 达布条件是黎曼可积性的另一个等价表述。</p>
+<p>现在我们可以正式定义函数的可积性及其积分。</p>
+<blockquote>
+<p>[!theorem|*]
+我们称函数 $f$ 是**黎曼可积（Riemann integrable）**的，当且仅当：
+$$\overline{\int_A} f = \underline{\int_A} f$$
+函数 $f$ 在 $A$ 上的积分定义为：$\int_A f(x)dx = \overline{\int_A} f = \underline{\int_A} f$。</p></blockquote>
+<h3 id="121-一般设定">
+  1.2.1 一般设定：
+  <a class="anchor" href="#121-%e4%b8%80%e8%88%ac%e8%ae%be%e5%ae%9a">#</a>
+</h3>
+<p>在我们讨论积分时，通常默认以下条件成立：</p>
+<ol>
+<li>函数有界：$f: A \subset \mathbb{R}^n \to \mathbb{R}$ bounded；</li>
+<li>定义域有界： $A \subset B$ is bounded；</li>
+<li>矩形区域： $B$ is a rectangle in $\mathbb{R}^n$；</li>
+<li>零延拓：函数 f 在集合 A 外部定义为 0，即：
+$$f(x) = 0, \quad \forall x \notin A$$</li>
+</ol>
+<h3 id="122-黎曼条件riemanns-condition">
+  1.2.2 黎曼条件（Riemann&rsquo;s Condition）
+  <a class="anchor" href="#122-%e9%bb%8e%e6%9b%bc%e6%9d%a1%e4%bb%b6riemanns-condition">#</a>
+</h3>
+<p>这意味着我们可以找到一个足够细的分割，使得上和与下和的差小于任意给定的正数 $\varepsilon$。换句话说，随着分割变得越来越细，上和和下和会无限接近。</p>
+<blockquote>
+<p>[!theorem|*]
+For $f$ to be (Riemann) integrable, $\forall \varepsilon &gt; 0$, $\exists$ partition $P_\varepsilon$ (of $B$) s.t. $$0 \leq U(f, P_\varepsilon) - L(f, P_\varepsilon) &lt; \varepsilon$$</p></blockquote>
+<h3 id="123-达布条件darbouxs-condition">
+  1.2.3 达布条件（Darboux&rsquo;s Condition）
+  <a class="anchor" href="#123-%e8%be%be%e5%b8%83%e6%9d%a1%e4%bb%b6darbouxs-condition">#</a>
+</h3>
+<p>达布条件是黎曼可积性的另一个等价表述。</p>
+<blockquote>
+<p>[!theorem|*]
+$\forall \varepsilon &gt; 0$, $\exists P_\delta$ s.t. if:</p>
+<ol>
+<li>$P$ is any partition of $B$ into rectangles $B_1, B_2, &hellip;, B_N$ with side length $&lt; \delta$</li>
+<li>$x \in B_1, x \in B_2, &hellip;, x \in B_N$, then we have: $\left|\sum_{i=1}^N f(x_i)V(B_i) - I\right| &lt; \varepsilon$ where the number $I$ is the value of the integral.</li>
+</ol></blockquote>
 <p>$\forall \varepsilon &gt; 0$，$\exists P_0$ 使得如果：</p>
 <ol>
 <li>$P$ 是将 $B$ 分割成矩形 $B_1, B_2, &hellip;, B_N$ 的任意分割，且这些矩形的边长 $&lt; \delta$</li>
@@ -1433,11 +1409,13 @@ $U(f, P_\varepsilon) - L(f, P_\varepsilon) \leq U(f, P_1) - L(f, P_2)$</p>
             <li><a href="#112-一般表述">1.1.2 一般表述</a></li>
           </ul>
         </li>
-        <li><a href="#定义">定义</a></li>
-        <li><a href="#其他记号">其他记号：</a></li>
-        <li><a href="#一般设定">一般设定：</a></li>
-        <li><a href="#黎曼条件">黎曼条件</a></li>
-        <li><a href="#达布条件">达布条件</a></li>
+        <li><a href="#12-函数的可积性及其积分">1.2 函数的可积性及其积分</a>
+          <ul>
+            <li><a href="#121-一般设定">1.2.1 一般设定：</a></li>
+            <li><a href="#122-黎曼条件riemanns-condition">1.2.2 黎曼条件（Riemann&rsquo;s Condition）</a></li>
+            <li><a href="#123-达布条件darbouxs-condition">1.2.3 达布条件（Darboux&rsquo;s Condition）</a></li>
+          </ul>
+        </li>
         <li><a href="#备注">备注</a></li>
         <li><a href="#定理">定理</a></li>
         <li><a href="#定理证明">定理证明</a>
