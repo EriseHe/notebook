@@ -471,7 +471,76 @@ $$f(x,y) = \xi^2 + \eta^2 + 6$$
 in a neighborhood of $(0, 0)$.&lt;/p>
 &lt;p>&lt;font color="#ff0000">Problem 7.6.5&lt;/font>
 (a).
-If $f$ has a nondegenerate critical point at $x_0 \in \mathbb{R}^n$, show that there is a neighborhood of $x_0$ containing no other critical points.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</guid><description>&lt;p>第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质。&lt;/p>
+If $f$ has a nondegenerate critical point at $x_0 \in \mathbb{R}^n$, show that there is a neighborhood of $x_0$ containing no other critical points.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-8/</guid><description>&lt;p>8.1: 1, [2, 6]; 8.2: [2], 3, 4, 5, [6]; 8.3: [2], 5, 6;
+Chapter 8: [12].&lt;/p>
+&lt;p>&lt;strong>Problem 8.1.2&lt;/strong> Let $f:[0,2] \rightarrow \mathbb{R}$ be defined by $f(x)=0$ for $0 \leq x \leq 1$, and by $f(x)=1$ for $1&amp;lt;x \leq 2$. Compute, using the definition, $\int_0^2 f(x) d x$.&lt;/p>
+&lt;blockquote>
+&lt;p>[!definition]
+We first define a partition $P_{n}$ on $[0,2]$ into $n$ equal subintervals $\Delta x=\frac{2}{n}$, s.t.
+$$\left[ 0, \frac{2}{n} \right], \left[ \frac{2}{n} , \frac{4}{n} \right],\dots,\left[ \frac{2(n-1)}{n},2 \right]$$
+Then, each subinterval, we have $[x_{i-1},x_{i}]=\left[ \frac{2(i-1)}{n}, \frac{2i}{n} \right]$. Consider Riemman sum $S_n$ for this partition with any choice of sample points $k_{i} \in [x_{i-1},x_i]$:
+$$
+S_n ;=;\sum_{k=1}^{n} f(k_{i}),\Delta x
+;=;\sum_{k=1}^{n} f(k_{i}) \cdot \frac{2}{n}.
+$$
+For $[x_{i-1},,x_i]\subset [0,1]$, then $f(x)=0$ by definition. Hence $f(k_{i}) = 0$; for $[x_{i-1},,x_i]\subset (1,2]$, then $f(x)=1$. Hence $f(k_{i}) = 1$. Then, notice one subinterval, say $[x_{j-1},,x_j]$, must include $x=1$, and $f$ = 0 or 1 depending on $k_{j}\le 1$ or $k_{j}&amp;gt;1$. Hence, we have:
+$$
+\inf {f(x): x\in [x_{j-1},x_j]} ;=; 0,
+\quad
+\sup {f(x): x\in [x_{j-1},x_j]} ;=; 1.
+$$
+Next, we find a lower bound and an upper bound for $S_n$. For lower bound, suppose subinterval $[x_{j-1},x_j]$ contains 1, and we pick $j$ so that $f(k_j)=0$. Let $m$ be the number of intervals inside fully in $(1,2]$. Then for those $m$ intervals, we have
+$$
+\begin{align}
+S_n ;\ge; L(P) = &amp;amp; (1)m\cdot\Delta x +(0)(n-m)\cdot\Delta x
+; \
+= &amp;amp; ; m \cdot \frac{2}{n}
+\end{align}
+$$
+Since $[x_{j},x_{j+1}]$ begins once $x &amp;gt; 1$, notice that $m\approx \frac{n}{2}$ for large $n$. More precisely, we have $m \ge \frac{n}{2}-1$. Hence:
+$$
+m ;\ge; \frac{n}{2} -1
+\quad\Longrightarrow\quad
+S_n
+;\ge; \Bigl(\frac{n}{2}-1\Bigr),\frac{2}{n}
+;=;
+1 - \frac{2}{n}.
+$$
+Similarly, for upper bound, we pick $k_j$ such that $f(k_{j})=1$. The the number of intervals $m$ entirely in $(1,2]$ each contribute 1, so we in total have $m+1$ subintervals to contribute $\Delta x$. Thus
+$$
+\begin{align}
+S_n
+; &amp;amp; \le; U(P)= (1)(m+1)\cdot \Delta x \
+; &amp;amp; =; (m+1),\frac{2}{n}.
+\end{align}
+$$
+But $m \le \frac{n}{2}$ for this case. Hence,
+$$
+m+1 ;\le; \frac{n}{2} + 1
+\quad\Longrightarrow\quad
+S_n
+;\le; \Bigl(\frac{n}{2}+1\Bigr),\frac{2}{n}
+;=;
+1 + \frac{2}{n}.
+$$
+Therefore, for every Riemann sum $S_n$:
+$$
+1 - \frac{2}{n}
+;;\le;;
+S_n
+;;\le;;
+1 + \frac{2}{n}.
+$$
+As $n$ grows, the Squeeze Theorem forces each Riemann sum $S_n$ to converge to 1. More precisely, for any $\varepsilon&amp;gt;0$, choose $N$ large enough s.t. $\forall n \ge N$,
+$$
+-\frac{2}{n} &amp;gt; -\varepsilon
+\quad\text{and}\quad
+\frac{2}{n} &amp;lt; \varepsilon,
+$$
+which gives $\bigl|S_n - 1\bigr| &amp;lt; \varepsilon$. This shows that $\lim_{n\to\infty} S_n = 1$, so by definition of the Riemann integral, we have
+$$
+\int_{0}^{2} f(x),dx = 1.
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</guid><description>&lt;p>第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质。&lt;/p>
 &lt;p>我们主要看以下这几个方面：&lt;/p>
 &lt;ol>
 &lt;li>积分的定义&lt;/li>
