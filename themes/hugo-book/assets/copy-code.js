@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // Use the Clipboard API to write the text content
       navigator.clipboard.writeText(codeBlock.innerText)
         .then(() => {
-          // Temporarily replace the button’s contents with a “Copied!” message
+          // Temporarily replace the button's contents with a "Copied!" message
           button.textContent = "Copied";
           setTimeout(() => {
             // Revert to the original icon HTML
