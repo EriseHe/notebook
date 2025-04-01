@@ -97,4 +97,39 @@ U(f, P)-L(f, P) & =\sum_{i=1}^n(M_i\Delta x_i)-\sum_{i=1}^n(m_i\Delta x_i)  \\
 
 **Problem 8.2.2** Show that the $x y$ plane in $\mathbb{R}^3$ has 3-dimensional measure 0.
 
+> [!definition]
+> We let 
+> $$P=\{x,y,z\in \mathbb{R}^{3}\,|\,z =0\}$$
+> to be the $xy$ plane in $\mathbb{R}^3$, with $z=0$.  We construct a countable union of rectangular boxes to cover it by defining the box:
+> $$S_{n}=[-n,n]\times[-n,n]\times [-\delta_{n},\delta_{n}]$$
+> with $\delta_{n}>0$ to be determined. By such construction, every point $(x,y,0)\in P$ lies in some $S_{n}$ since $x\in [-n,n]$ and $y\in [-n,n]$. If $n\geq \max(|x|,|y|)$, we get $(x,y,0)\in S_{n}$, such that
+> $$P\subseteq\bigcup^{\infty}_{n=1}S_{n}$$ Then, the volume of $S_{n}$ is given by
+> $$V(S_{n})=(2n)(2n)(2\delta_{n})=8n^2\delta_{n}$$
+> we want to choose $\delta$ s.t. the sum of the volumes is less than $\epsilon$. Notice that $\sum_{n=1}^{\infty} \frac{\varepsilon}{2^n}=\varepsilon \sum_{n=1}^{\infty} \frac{1}{2^n}=\varepsilon$, so a motivated choice is:
+> $$\begin{align}
+ 8 n^2 \delta_n  & \leq \frac{\varepsilon}{2^n} \\
+ \delta_n& \leq\frac{\varepsilon}{2^{n+3} n^2}
+\end{align}
+>$$
+>Therefore, we define $\delta=\cfrac{\varepsilon}{2^{n+3} n^2}$, then
+>$$V\left(S_n\right)=8 n^2 \cdot \frac{\varepsilon}{2^{n+3} n^2}=\frac{8 \varepsilon}{2^{n+3}}=\frac{\varepsilon}{2^n}$$
+>and the total volume of the covering is
+>$$\sum_{n=1}^{\infty} V\left(S_n\right)=\sum_{n=1}^{\infty} \frac{\varepsilon}{2^n}=\varepsilon \sum_{n=1}^{\infty} \frac{1}{2^n}=\varepsilon \cdot 1=\varepsilon$$
+>Hence, we have constructed a countable cover $\{S_{n}\}^\infty_{n=1}$ of $P$ whose total volume is precisely $\varepsilon$. Because $\varepsilon>0$ was arbitrary. So by Definition 8.2.2 of the textbook, the xy-plane has 3-dimensional measure zero in $ℝ³$.
+
 **Problem 8.2.6** Must the boundary of a set of measure zero have measure zero?
+
+This statement is false. Here is a counterexample: consider the set $Q \cap [0,1]$. From Example 8.2.5 in the textbook, we know that the set of rational numbers in $[0,1]$ has measure zero. 
+
+However, the boundary of a set $A$, denoted by $\partial A$, consists of all points $x$ such that every neighborhood of $x$ contains at least one point in $A$ and at least one point not in $A$.
+
+$$
+\bar{A}=[0,1] \quad \text { and } \overline{([0,1] \backslash A)}=[0,1]
+$$
+
+For any point $x \in [0,1]$, every neighborhood of $x$ contains both rational and irrational numbers. This is due to the density of both rational and irrational numbers in $\mathbb{R}$. Therefore:
+
+$$\partial(Q \cap [0,1]) = [0,1]$$
+
+Lebesgue measure of $[0,1]$ is 1, which is positive.
+

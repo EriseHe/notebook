@@ -104,6 +104,8 @@ Canvas
 Central
 Conservation
 Collect
+Cannot
+Cantor
 font
 for
 functions
@@ -424,6 +426,10 @@ correct
 contains
 contribute
 choices
+confirms
+cut
+converging
+chosen
 Problem
 Partial
 Putting
@@ -507,6 +513,7 @@ Problems
 Pollutant
 Positive
 Practical
+Part
 In
 Implicit
 Invertibility
@@ -963,6 +970,7 @@ sample
 straddle
 suppose
 straddles
+strictly
 discuss
 determine
 described
@@ -1137,6 +1145,10 @@ differences
 discrete
 depending
 demonstration
+decreasing
+disjoint
+denotes
+demonstrating
 in
 inverse
 implicit
@@ -1287,6 +1299,7 @@ immediately
 iterative
 iteration
 impose
+infty
 of
 our
 out
@@ -1859,6 +1872,10 @@ libraries
 large
 lack
 law
+length
+lemma
+leads
+lambda
 Show
 Sufficient
 Substitute
@@ -2139,6 +2156,10 @@ equilibrium
 essentially
 equal
 endpoints
+essential
+establishing
+ell
+emptyset
 whether
 written
 which
@@ -2321,6 +2342,7 @@ behaved
 bands
 begins
 bounds
+bigcap
 allow
 and
 as
@@ -2490,6 +2512,8 @@ algorithm
 advection
 advective
 artificial
+assertion
+awalys
 you
 yields
 yF
@@ -2663,6 +2687,9 @@ Runge
 Red
 Region
 Rewrite
+Result
+Removed
+Rightarrow
 requirement
 respect
 rule
@@ -3254,6 +3281,7 @@ Horizontal
 Hessian
 Heun
 Hyperbolic
+Heine
 By
 Because
 Below
@@ -3503,6 +3531,7 @@ Assumption
 Advection
 Approx
 Although
+Application
 via
 variables
 view
@@ -3582,6 +3611,7 @@ vanishing
 very
 variational
 vulnerable
+validates
 unknowns
 unique
 uniquely
@@ -3669,6 +3699,9 @@ unstable
 usually
 unless
 upwinding
+union
+uniformly
+unform
 guarantees
 gives
 give
@@ -3749,6 +3782,7 @@ go
 giving
 gradient
 guess
+geq
 Moreover
 Matrix
 Maximum
@@ -3837,6 +3871,8 @@ Meanwhile
 Modeling
 Models
 Monotonicity
+Monotone
+Must
 Using
 Up
 Ut
@@ -4065,6 +4101,7 @@ Localize
 Limitations
 LMM
 Laplace
+LMCT
 Value
 Verifying
 Verify
