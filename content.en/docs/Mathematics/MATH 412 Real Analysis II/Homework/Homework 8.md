@@ -97,7 +97,7 @@ U(f, P)-L(f, P) & =\sum_{i=1}^n(M_i\Delta x_i)-\sum_{i=1}^n(m_i\Delta x_i)  \\
 
 **Problem 8.2.2** Show that the $x y$ plane in $\mathbb{R}^3$ has 3-dimensional measure 0.
 
-> [!definition]
+> [!definition|*]
 > We let 
 > $$P=\{x,y,z\in \mathbb{R}^{3}\,|\,z =0\}$$
 > to be the $xy$ plane in $\mathbb{R}^3$, with $z=0$.  We construct a countable union of rectangular boxes to cover it by defining the box:
@@ -119,17 +119,15 @@ U(f, P)-L(f, P) & =\sum_{i=1}^n(M_i\Delta x_i)-\sum_{i=1}^n(m_i\Delta x_i)  \\
 
 **Problem 8.2.6** Must the boundary of a set of measure zero have measure zero?
 
-This statement is false. Here is a counterexample: consider the set $Q \cap [0,1]$. From Example 8.2.5 in the textbook, we know that the set of rational numbers in $[0,1]$ has measure zero. 
+> [!definition|*]
+> This statement is false. Here is a counterexample: consider the set $Q \cap [0,1]$. From Example 8.2.5 in the textbook, we know that the set of rational numbers in $[0,1]$ has measure zero. 
+> However, the boundary of a set $A$ consists of all points $x$ s.t. every neighborhood of $x$ contains at least one point in $A$ and at least one point not in $A$. 
+> 
+> For any point $x \in [0,1]$, every neighborhood of $x$ contains both rational and irrational numbers. This is due to the density of both rational and irrational numbers in $\mathbb{R}$. Therefore:
+> $$\partial(Q \cap [0,1]) = [0,1]$$
+> Lebesgue measure of $[0,1]$ is 1, which is positive.
 
-However, the boundary of a set $A$, denoted by $\partial A$, consists of all points $x$ such that every neighborhood of $x$ contains at least one point in $A$ and at least one point not in $A$.
+**Problem 8.3.2** Let $f(x, y)=1$ if $x \neq 0$ and $f(0, y)=0$. Prove that $f$ is integrable on $A=[0,1] \times[0,1] \subset \mathbb{R}^2$.
 
-$$
-\bar{A}=[0,1] \quad \text { and } \overline{([0,1] \backslash A)}=[0,1]
-$$
-
-For any point $x \in [0,1]$, every neighborhood of $x$ contains both rational and irrational numbers. This is due to the density of both rational and irrational numbers in $\mathbb{R}$. Therefore:
-
-$$\partial(Q \cap [0,1]) = [0,1]$$
-
-Lebesgue measure of $[0,1]$ is 1, which is positive.
+**Chapter Exercise 8.12** Prove that $A$ has measure zero iff for every $\varepsilon>0$ there is a covering of $A$ by sets $V_1, V_2, \ldots$ with volume such that $\sum_{i=1}^{\infty} v\left(V_i\right)<\varepsilon$.
 
