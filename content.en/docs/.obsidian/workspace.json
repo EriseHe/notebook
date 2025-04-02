@@ -14,15 +14,31 @@
               "type": "markdown",
               "state": {
                 "file": "Mathematics/MATH 412 Real Analysis II/Homework/Homework 8.md",
-                "mode": "preview",
-                "source": true,
+                "mode": "source",
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
               "title": "Homework 8"
             }
+          },
+          {
+            "id": "69a0a9bd3930df95",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Philosophy/Collage Outside of the Language.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Collage Outside of the Language"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -89,7 +105,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.5
+    "width": 200
   },
   "right": {
     "id": "916c7330540abd4e",
@@ -151,13 +167,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.2 Finite Difference.md",
+                "file": "Philosophy/Collage Outside of the Language.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 9.2 Finite Difference"
+              "title": "Outline of Collage Outside of the Language"
             }
           }
         ],
@@ -165,7 +181,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
@@ -183,17 +199,19 @@
       "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "d4513820e616b532",
+  "active": "69a0a9bd3930df95",
   "lastOpenFiles": [
-    "Mathematics/MATH 412 Real Analysis II/Homework/Homework 7.md",
     "Mathematics/MATH 412 Real Analysis II/Homework/Homework 8.md",
+    "Philosophy/Collage Outside of the Language.md",
+    "Philosophy/50-words Close Reading.md",
+    "Mathematics/MATH 412 Real Analysis II/Homework/Homework 7.md",
     "Mathematics/MATH 412 Real Analysis II/第八章/8.1 度量理论.md",
+    "Mathematics/MATH 412 Real Analysis II/第八章/8.5 Lebesgue Convergence Theorem.md",
     "Mathematics/MATH 412 Real Analysis II/第八章/_index.md",
     "Mathematics/MATH 412 Real Analysis II/第八章/8.2 Criterion for Integrability.md",
     "Mathematics/MATH 412 Real Analysis II/第七章/7.7.md",
     "Mathematics/MATH 412 Real Analysis II/第七章/7.2 Implicit Function Theorem.md",
     "Mathematics/MATH 412 Real Analysis II/第七章/7.6 Morse Lemma.md",
-    "Mathematics/MATH 412 Real Analysis II/第八章/8.5 Lebesgue Convergence Theorem.md",
     "Mathematics/MATH 412 Real Analysis II/第八章/8.3 Proof of Lebesgue's Theorem.md",
     "Mathematics/MATH 412 Real Analysis II/第七章/7.1 Inverse Function Theorem.md",
     "Mathematics/MATH 412 Real Analysis II/第六章/6.6 Product Rule and Gradients.md",
@@ -210,8 +228,6 @@
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Three-Point Backward Differentiation Formula (Feb 4).md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/_index.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Lecture Notes (Mar 18).md",
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Lecture Notes (Mar 20).md",
-    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Mid-Point Method.md",
     "Mathematics/MATH 412 Real Analysis II/HW",
     "Fourier Series.png",
     "Physics/Quantum Mechenics/Homework",
