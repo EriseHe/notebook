@@ -164,114 +164,23 @@ U(f,P)  & = (1)\cdot A_1 + (1)\cdot A_2  \\
 
 **Chapter Exercise 8.12** Prove that $A$ has measure zero iff for every $\varepsilon>0$ there is a covering of $A$ by sets $V_1, V_2, \ldots$ with volume such that $\sum_{i=1}^{\infty} v\left(V_i\right)<\varepsilon$.
 
-We want to show that $m(A)=0$ is equivalent to this condition so we need to show both direction:
+> [!definition|*]
+> ( $\implies$ ) 
+> Suppose $m(A)=0$, by definition 8.2.2, we know $\forall \varepsilon>0, \exists$ countable cover of $A$ by rectangles $\left\{S_i\right\} \text { s.t. }\sum_{i=1}^{\infty} v\left(S_i\right)<\varepsilon$. We choose volume $V_{i}=S_{i}$, such that:
+> $$A\subset \sum_{i=1}^{\infty} S_{i}=\sum_{i=1}^{\infty} V_{i}$$
+> and
+> $$\sum_{i=1}^{\infty} v(S_{i})=\sum_{i=1}^{\infty} v(V_{i}) <\varepsilon $$
+> Therefore, $m(A)=0 \implies$ $\forall \varepsilon>0, \exists$ $\{V_{i}\}^{\infty}_{1}$ as a covering of $A$ with total volume $\sum_{i=1}^{\infty} v(V_{i})<\epsilon$.
+> 
+> ( $\Longleftarrow$ )
+> Suppose $\forall \varepsilon>0, \exists$ $\{V_{i}\}^\infty_{1}$ a cover of $A$ with total volume $\sum_{i=1}^{\infty} v(V_{i})<\epsilon$. Note that every set in $\mathbb{R}^n$ can be covered by a union of open rectangles that is countable. Specifically, for each $i$, we can cover $V_i$ by a countable number of rectangles $\{S_{i,1}, S_{i,2}, \dots\}$ such that
+> $$V_i \;\subset\; \bigcup_{k=1}^{\infty} S_{i,k}$$
+> We make sure the total volume of these rectangles is within arbitrarily small $\delta_i$ of $v(V_i)$, so
+> $$\sum_{k=1}^{\infty} v(S_{i,k}) \;<\; v(V_i) \;+\; \delta_i.$$
+> Then, we choose each $\delta_i$ s.t. the sum of volumes is less than $\varepsilon$. Let $$\delta_i \;=\;\frac{\varepsilon}{2}\,2^{-i} \;=\;\frac{\varepsilon}{2^{\,i+1}}.$$Then $\forall i$, we have: $$\sum_{k=1}^{\infty} v\bigl(S_{i,k}\bigr)\;<\; v(V_i) \;+\; \frac{\varepsilon}{2^{\,i+1}}.$$
+> Hence, summing over all $i$:
+>$$\sum_{i=1}^{\infty} \sum_{k=1}^{\infty} v(S_{i,k})\;\le\; \sum_{i=1}^{\infty} \Bigl( v(V_i)\;+\;\tfrac{\varepsilon}{2^{\,i+1}} \Bigr)\;=\;\sum_{i=1}^{\infty} v(V_i)\;+\;\frac{\varepsilon}{2}\;<\; \varepsilon \;+\; \frac{\varepsilon}{2} \;=\; \tfrac{3\varepsilon}{2}
+>$$
+>Because $\varepsilon$ was arbitrary, we can make $\delta_i$ smaller such that the total can be strictly less than $\varepsilon$. Therefore, $$A \;\subset\;\bigcup_{i=1}^\infty \bigcup_{k=1}^{\infty} S_{i,k},\quad\text{and}\quad\sum_{i,k} v\bigl(S_{i,k}\bigr) \;<\;\varepsilon.$$
+>This demonstrates that $A$ is covered by rectangles $\{S_{i,k}\}$ whose total volume is < $\varepsilon$, which is by definition, $m(A)=0$. 
 
- **( $\implies$ )** If $m(A)=0$, then by definition, for every $\varepsilon>0$ it can be covered by sets of arbitrarily small total volume
-
-1. **Assumption**: $\mu^*(A)=0$. By definition of outer measure, for every $\varepsilon > 0$:
-   $$0 \;\le\; \mu^*(A)
-   \;\le\;
-   \inf\Bigl\{\sum_{k=1}^{\infty}\mathrm{vol}(R_k)
-              \;:\;
-              A\subseteq \bigcup_{k=1}^\infty R_k
-       \Bigr\}.$$
-   Because the outer measure is zero, it means that this infimum is zero, so in particular we can make the sum of the volumes of some covering *strictly less* than $\varepsilon$.
-
-2. **Exhibiting a covering with total volume < $\varepsilon$**:  
-   Since it is an infimum, for each $\varepsilon > 0$ there **exists** a specific countable cover $\{R_k\}$ of $A$ such that
-   $$\sum_{k=1}^{\infty}\mathrm{vol}(R_k) < \varepsilon.$$
-   In many presentations, each $R_k$ is taken to be a box (a product of intervals), but more generally they can be measurable sets of any shape.
-
-3. **Conclusion**:  
-   Hence, given any $\varepsilon>0$, we do indeed have a covering $\{R_k\}$ of $A$ satisfying
-   $\sum_{k=1}^{\infty}\mathrm{vol}(R_k) < \varepsilon.$
-   This is *exactly* the statement required.
-
-Thus, **if** $A$ has measure zero, **then** for every $\varepsilon>0$ there is a (countable) cover of $A$ whose total volume is < $\varepsilon$.
-
----
-
-### ( $\Longleftarrow$ ) If for every $\varepsilon>0$ there is a cover of $A$ by sets of total volume < $\varepsilon$, then $A$ has measure zero
-
-1. **Assumption**: For every $\varepsilon>0$, there is **some** (countable) cover $\{V_i\}$ of $A$ with 
-   $$\sum_{i=1}^\infty \mathrm{vol}(V_i) \;<\;\varepsilon.$$
-2. **Definition of $\mu^*(A)$**:  
-   Recall
-   $$\mu^*(A)
-   \;=\;
-   \inf
-   \Bigl\{
-        \sum_{i=1}^\infty \mathrm{vol}(R_i)
-        \;:\;
-        A \subseteq \bigcup_{i=1}^\infty R_i
-   \Bigr\}.$$
-   But from our assumption, for each $\varepsilon>0$, we can find *some* cover $\{V_i\}$ with total volume $<\varepsilon$. Thus the infimum of all such sums is at most $\varepsilon$.
-
-3. **Infimum and Arbitrary $\varepsilon$**:  
-   Because $\varepsilon$ is arbitrary, we deduce
-   $$\mu^*(A)\;\le\;\sum_{i=1}^\infty \mathrm{vol}(V_i)\;<\;\varepsilon
-   \quad
-   \text{for all } \varepsilon>0.$$
-   This forces $\mu^*(A) = 0$.
-
-4. **Conclusion**:  
-   Since the outer measure of $A$ is zero, and (in the usual development of Lebesgue theory) a set covered this way is Lebesgue measurable, it follows that the actual measure of $A$ is zero.
-
-Therefore, **if** for every $\varepsilon>0$ we can cover $A$ by sets whose total volume is $<\varepsilon$, **then** $A$ has measure zero.
-
----
-
-## **Final Synthesis**
-
-Putting the two directions together:
-
-- **($\implies$)** Measure‐zero $\longrightarrow$ “for every $\varepsilon$, a covering of small total volume”  
-- **($\Longleftarrow$)** “for every $\varepsilon$, a covering of small total volume” $\longrightarrow$ measure‐zero  
-
-Hence we have the equivalence:
-
-$$\boxed{
-A \text{ has measure zero }
-\;\Longleftrightarrow\;
-\forall \varepsilon>0,\, \exists \{V_i\}_{i=1}^\infty:
-A \subseteq \bigcup_i V_i
-\text{ and }
-\sum_i \mathrm{vol}(V_i)<\varepsilon.
-}$$
-
-This completes the proof.
-
-
-
-
-
-
-## (⇒) Suppose $A$ has measure zero.
-
-By definition, the $n$-dimensional outer measure of $A$ is
-$$m^*(A) = \inf \left\{ \sum_{i=1}^{\infty} v(R_i) : A \subset \bigcup_{i=1}^{\infty} R_i,\; R_i \text{ are rectangles} \right\}.$$
-If $A$ has measure zero, then
-$$m^*(A) = 0.$$
-Thus, for every $\varepsilon > 0$ there exists a countable collection of rectangles $\{R_i\}_{i=1}^\infty$ such that
-$$A \subset \bigcup_{i=1}^{\infty} R_i \quad \text{and} \quad \sum_{i=1}^{\infty} v(R_i) < \varepsilon.$$
-Taking $V_i = R_i$ for each $i$ (or, more generally, choosing $V_i$ to be the sets from the cover), we obtain a covering of $A$ with total volume less than $\varepsilon$.
-
-## (⇐) Conversely, suppose that for every $\varepsilon > 0$ there exists a countable collection of sets $\{V_i\}_{i=1}^\infty$ covering $A$ such that
-$$\sum_{i=1}^{\infty} v(V_i) < \varepsilon.$$
-Then, by the definition of outer measure,
-$$m^*(A) \le \sum_{i=1}^{\infty} v(V_i) < \varepsilon.$$
-Since this inequality holds for every $\varepsilon > 0$, we must have
-$$m^*(A) = 0.$$
-Hence, $A$ has measure zero.
-
----
-
-# Conclusion
-
-We have shown that:
-- If $A$ has measure zero, then for every $\varepsilon > 0$ there exists a covering $\{V_i\}$ of $A$ with $\sum_{i=1}^{\infty} v(V_i) < \varepsilon$.
-- Conversely, if such coverings exist for every $\varepsilon > 0$, then $m^*(A) = 0$ and $A$ has measure zero.
-
-Thus, the set $A$ has measure zero if and only if for every $\varepsilon>0$ there is a covering of $A$ by sets $V_1, V_2, \ldots$ with
-$$\sum_{i=1}^{\infty} v(V_i) < \varepsilon.$$
-$\quad \blacksquare$
