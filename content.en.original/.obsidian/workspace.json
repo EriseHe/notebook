@@ -11,14 +11,10 @@
             "id": "a53aeff2dd658b2e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/Mathematics/MATH 412 Real Analysis II/第八章/8.2 Criterion for Integrability.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "8.2 Criterion for Integrability"
+              "title": "New tab"
             }
           }
         ]
@@ -170,6 +166,12 @@
   },
   "active": "a53aeff2dd658b2e",
   "lastOpenFiles": [
+    "docs/Mathematics/Computational Topology/_index.md",
+    "docs/Mathematics/AI/_index.md",
+    "docs/Mathematics/AI/Untitled.md",
+    "docs/Mathematics/MATH 412 Real Analysis II/第八章/8.2 Criterion for Integrability.md",
+    "docs/Mathematics/AI",
+    "docs/Mathematics/Computational Topology",
     "docs/Mathematics/MATH 412 Real Analysis II/第八章/8.1 Integration.md"
   ]
 }
