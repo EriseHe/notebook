@@ -2,6 +2,7 @@
 weight: "999"
 bookCollapseSection: true
 title: AI
+bookHidden: true
 ---
 
 # **Evolution of AI: Foundational Papers and Milestones (Chronological)**
