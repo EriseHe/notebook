@@ -77,6 +77,9 @@
   
   {{- $partialLoadJS := resources.Get "partial-load.js" | resources.Minify | resources.Fingerprint }}
   <script defer src="{{ $partialLoadJS.RelPermalink }}" {{ if (urls.Parse $partialLoadJS.Permalink).Host }}integrity="{{ $partialLoadJS.Data.Integrity }}" crossorigin="anonymous"{{ end }}></script>
+  
+  {{- $menuRecursiveCloseJS := resources.Get "menu-recursive-close.js" | resources.Minify | resources.Fingerprint }}
+  <script defer src="{{ $menuRecursiveCloseJS.RelPermalink }}" {{ if (urls.Parse $menuRecursiveCloseJS.Permalink).Host }}integrity="{{ $menuRecursiveCloseJS.Data.Integrity }}" crossorigin="anonymous"{{ end }}></script>
 </body>
 </html>
 

@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <script>
+    (function(){
+      
+      
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Formula Derivation#The derivative approximation:$$ \begin{aligned} f(t_i, u_i) &amp;= \frac{dy}{dt} \Big|{t_i} \approx \frac{y(t{i&#43;1}) - y(t_{i-1})}{2\Delta t} &#43; \mathcal{O}(\Delta t^2) \end{aligned} $$
+Update formula:
+$$ \begin{aligned} u_{i&#43;1} &amp;= u_{i-1} &#43; 2\Delta t f(t_i, u_i) \end{aligned} $$
+Initial Conditions#Initial Condition Calculation: Given $y_0$ $$ \begin{aligned} u_2 &amp;= y_0 &#43; 2\Delta t f(t_1, u_1) \end{aligned} $$
+Predictor-Corrector Steps:
+$$ \begin{aligned} u_1^* &amp;= y_0 &#43; \Delta t f(t_0, y_0), \ u_1 &amp;= y_0 &#43; \frac{\Delta t}{2} (f(t_0, y_0) &#43; f(t_1, u_1^*)) \end{aligned} $$">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/">
+  <meta property="og:site_name" content="位相学補完計画">
+  <meta property="og:title" content="位相学補完計画">
+  <meta property="og:description" content="Formula Derivation#The derivative approximation:$$ \begin{aligned} f(t_i, u_i) &amp;= \frac{dy}{dt} \Big|{t_i} \approx \frac{y(t{i&#43;1}) - y(t_{i-1})}{2\Delta t} &#43; \mathcal{O}(\Delta t^2) \end{aligned} $$
+Update formula:
+$$ \begin{aligned} u_{i&#43;1} &amp;= u_{i-1} &#43; 2\Delta t f(t_i, u_i) \end{aligned} $$
+Initial Conditions#Initial Condition Calculation: Given $y_0$ $$ \begin{aligned} u_2 &amp;= y_0 &#43; 2\Delta t f(t_1, u_1) \end{aligned} $$
+Predictor-Corrector Steps:
+$$ \begin{aligned} u_1^* &amp;= y_0 &#43; \Delta t f(t_0, y_0), \ u_1 &amp;= y_0 &#43; \frac{\Delta t}{2} (f(t_0, y_0) &#43; f(t_1, u_1^*)) \end{aligned} $$">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>
+01 Mid Point Method | 位相学補完計画</title>
+<link rel="icon" href="/topo.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
+
+
+<link rel="stylesheet" href="/book.min.581d7cf1f5991b3860c5e5cd854c3300ecfa23047aaa128ee1486bddaa8e9828.css" integrity="sha256-WB188fWZGzhgxeXNhUwzAOz6IwR6qhKO4Uhr3aqOmCg=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.ee6a408c56d4bb48df7e5710a26b5d442f5cc5b3959a59d5a43f2a134ad6ca88.js" integrity="sha256-7mpAjFbUu0jfflcQomtdRC9cxbOVmlnVpD8qE0rWyog=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+
+  
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+
+</head>
+
+<body dir="ltr">
+  
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
+  <main class="container">
+    <div class="book-layout">
+      <aside class="book-menu">
+        <div class="book-menu-content">
+          
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center justify-center" 
+     href="http://localhost:1313/">
+    <img src="/topo.png" 
+         alt="Logo" 
+         class="book-icon" />
+    <span>位相学補完計画</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+ 
+
+<nav class="subject-menu">
+  
+  <div class="subject-tabs">
+    <button class="subject-tab active" data-subject="mathematics">Mathematics</button>
+    <button class="subject-tab" data-subject="physics">Physics</button>
+  </div>
+
+  
+  <div class="subject-content">
+    
+    <div class="subject-panel" data-subject="mathematics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-3dc5ba62250cd8b173945805306d582d" class="toggle"  />
+    <label for="section-3dc5ba62250cd8b173945805306d582d" class="flex justify-between">
+      <a role="button"
+         class="">爽分析 II</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-18dfa49db2b03993a1bd3315710acd5e" class="toggle"  />
+    <label for="section-18dfa49db2b03993a1bd3315710acd5e" class="flex justify-between">
+      <a role="button"
+         class="">第六章 可微映射</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/"
+       class="">6.4 可微分性的必要条件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/"
+       class="">6.5 链式法则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/"
+       class="">6.6 乘积法则与梯度</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/"
+       class="">6.9 泰勒公式的高维形式</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-8d1199ea5dee264155db6be39165caab" class="toggle"  />
+    <label for="section-8d1199ea5dee264155db6be39165caab" class="flex justify-between">
+      <a role="button"
+         class="">第七章 逆函数和隐函数定理</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/"
+       class="">7.6 莫尔斯引理</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/"
+       class="">7.1 反函数定理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/"
+       class="">7.1.1 反函数定理（证明）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/"
+       class="">7.2 隐函数定理</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-a5127f215d0185f57c753ced3289b7fd" class="toggle"  />
+    <label for="section-a5127f215d0185f57c753ced3289b7fd" class="flex justify-between">
+      <a role="button"
+         class="">第八章 度量理论</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Lebesgue-Convergence-Theorem/"
+       class="">8.5 Lebesgue Convergence Theorem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/"
+       class="">8.1 度量理论</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/"
+       class="">8.2 Criterion for Integrability</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/"
+       class="">8.3 Proof of Lebesgue&#39;s Theorem</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第九章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1/"
+       class="">9.1</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-7e4e495d58202114a97ea7292812ced6" class="toggle" checked />
+    <label for="section-7e4e495d58202114a97ea7292812ced6" class="flex justify-between">
+      <a role="button"
+         class="">偏微分方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-f66c16f1f26d5439b500ac53a6090814" class="toggle" checked />
+    <label for="section-f66c16f1f26d5439b500ac53a6090814" class="flex justify-between">
+      <a role="button"
+         class="">数值方法</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/"
+       class="active">01 Mid Point Method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/"
+       class="">02 Three Point Backward Differentiation Formula</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/"
+       class="">常微分方程的数值解</a>
+  
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="toggle"  />
+    <label for="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="flex justify-between">
+      <a role="button"
+         class="">第四章 有限元分析</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-cd82823df15274abb4c628a304ce2823" class="toggle"  />
+    <label for="section-cd82823df15274abb4c628a304ce2823" class="flex justify-between">
+      <a role="button"
+         class="">第九章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/"
+       class="">习题</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/"
+       class="">9.1 边值问题的近似</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/"
+       class="">9.2 有限差分法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/"
+       class="">9.3 对流-扩散方程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/"
+       class="">9.4 4.1 二维（2D）偏微分方程问题</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-5285c61e0107d925df6ad67c62c6699b" class="toggle"  />
+    <label for="section-5285c61e0107d925df6ad67c62c6699b" class="flex justify-between">
+      <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
+         class="">热方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/Heat-Equation-Solution/"
+       class="">Heat Equation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/The-Fourier-Series/"
+       class="">傅立叶级数</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-a135ba9e4c93e772904209601ada4b30" class="toggle"  />
+    <label for="section-a135ba9e4c93e772904209601ada4b30" class="flex justify-between">
+      <a role="button"
+         class="">波方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-1a86e133d83dac38a57580bd5f897d4e" class="toggle"  />
+    <label for="section-1a86e133d83dac38a57580bd5f897d4e" class="flex justify-between">
+      <a role="button"
+         class="">拉普拉斯方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+
+    
+    <div class="subject-panel hidden" data-subject="physics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="toggle"  />
+    <label for="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="flex justify-between">
+      <a role="button"
+         class="">Quantum Mechenics</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第一章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/1.1-The-Wave-Function/"
+       class="">1.1 the Wave Function</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第二章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.1-Time-Independent-Schrodinger-Equation-Stationary-States/"
+       class="">2.1 Time Independent Schrodinger Equation Stationary States</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第三章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第四章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/"
+       class="">第四章</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/"
+       class="">Feb 5 Fourier Series on S. Euqation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/"
+       class="">Hw3 Code</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/"
+       class="">Wave Functions Live in Hilbert Space</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+  </div>
+</nav>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.subject-tab');
+    const panels = document.querySelectorAll('.subject-panel');
+
+    
+    function activateTab(subject) {
+      
+      tabs.forEach(t => t.classList.remove('active'));
+      
+      panels.forEach(p => p.classList.add('hidden'));
+
+      
+      const selectedTab = document.querySelector(`.subject-tab[data-subject="${subject}"]`);
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
+      
+      
+      const panel = document.querySelector(`.subject-panel[data-subject="${subject}"]`);
+      if (panel) {
+        panel.classList.remove('hidden');
+      }
+      
+      
+      localStorage.setItem('activeSubjectTab', subject);
+    }
+
+    
+    const savedTab = localStorage.getItem('activeSubjectTab');
+    if (savedTab) {
+      activateTab(savedTab);
+    }
+
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const subject = tab.getAttribute('data-subject');
+        activateTab(subject);
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+<div class="after-menu-offset">
+  
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/EriseHe/erisehe.github.io"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/themes/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+</div>
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+        </div>
+      </aside>
+      
+      <div class="book-page">
+        <header class="book-header">
+          
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>01 Mid Point Method</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+  
+  
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#formula-derivation">Formula Derivation</a>
+          <ul>
+            <li><a href="#initial-conditions">Initial Conditions</a></li>
+            <li><a href="#two-step-method">Two-Step Method</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#absolute-stability">Absolute Stability</a>
+      <ul>
+        <li><a href="#discretization">Discretization</a>
+          <ul>
+            <li><a href="#iterative-computation">Iterative Computation</a></li>
+          </ul>
+        </li>
+        <li><a href="#stability-analysis-of-the-numerical-scheme">Stability Analysis of the Numerical Scheme</a>
+          <ul>
+            <li><a href="#substituting-into-the-recurrence-relation">Substituting into the Recurrence Relation</a></li>
+            <li><a href="#general-solution">General Solution</a></li>
+          </ul>
+        </li>
+        <li><a href="#stability-condition">Stability Condition</a></li>
+      </ul>
+    </li>
+    <li><a href="#finite-difference-approximation-and-stability-analysis">Finite Difference Approximation and Stability Analysis</a>
+      <ul>
+        <li><a href="#finite-difference-approximation">Finite Difference Approximation</a></li>
+        <li><a href="#time-discretization">Time Discretization</a></li>
+        <li><a href="#stability-analysis">Stability Analysis</a>
+          <ul>
+            <li><a href="#taylor-expansions">Taylor Expansions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+        </header>
+
+        
+        
+  <article class="book-article">
+    
+    <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;"></h1>
+    
+    <div class="markdown posts"><h2 id="formula-derivation">
+  Formula Derivation
+  <a class="anchor" href="#formula-derivation">#</a>
+</h2>
+<center>The derivative approximation:</center>
+<p>$$
+\begin{aligned}
+f(t_i, u_i) &amp;= \frac{dy}{dt} \Big|<em>{t_i} \approx \frac{y(t</em>{i+1}) - y(t_{i-1})}{2\Delta t} + \mathcal{O}(\Delta t^2)
+\end{aligned}
+$$</p>
+<p>Update formula:</p>
+<p>$$
+\begin{aligned}
+u_{i+1} &amp;= u_{i-1} + 2\Delta t f(t_i, u_i)
+\end{aligned}
+$$</p>
+<hr>
+<h3 id="initial-conditions">
+  Initial Conditions
+  <a class="anchor" href="#initial-conditions">#</a>
+</h3>
+<ol>
+<li>
+<p><strong>Initial Condition Calculation</strong>:
+Given $y_0$
+$$
+\begin{aligned}
+u_2 &amp;= y_0 + 2\Delta t f(t_1, u_1)
+\end{aligned}
+$$</p>
+</li>
+<li>
+<p><strong>Predictor-Corrector Steps</strong>:</p>
+<p>$$
+\begin{aligned}
+u_1^* &amp;= y_0 + \Delta t f(t_0, y_0), \
+u_1 &amp;= y_0 + \frac{\Delta t}{2} (f(t_0, y_0) + f(t_1, u_1^*))
+\end{aligned}
+$$</p>
+</li>
+</ol>
+<hr>
+<h3 id="two-step-method">
+  Two-Step Method
+  <a class="anchor" href="#two-step-method">#</a>
+</h3>
+<ul>
+<li><strong>Higher-order method</strong> that improves accuracy using information from two previous time steps.</li>
+<li>The method achieves <strong>second-order accuracy</strong> due to the central difference approximation.</li>
+</ul>
+<hr>
+<h1 id="absolute-stability">
+  Absolute Stability
+  <a class="anchor" href="#absolute-stability">#</a>
+</h1>
+<p>We consider the test equation:</p>
+<p>$$
+\begin{aligned}
+\frac{dy}{dt} &amp;= -\lambda y, \quad y(0) = y_0
+\end{aligned}
+$$</p>
+<p>where $\lambda &gt; 0$.</p>
+<h2 id="discretization">
+  Discretization
+  <a class="anchor" href="#discretization">#</a>
+</h2>
+<p>The numerical update formula is:</p>
+<p>$$
+\begin{aligned}
+u_{n+1} &amp;= u_{n-1} - 2\Delta t \lambda u_n
+\end{aligned}
+$$</p>
+<p>Rearranging:</p>
+<p>$$
+\begin{aligned}
+u_{n+1} + 2\Delta t \lambda u_n - u_{n-1} &amp;= 0
+\end{aligned}
+$$</p>
+<h3 id="iterative-computation">
+  Iterative Computation
+  <a class="anchor" href="#iterative-computation">#</a>
+</h3>
+<p>Starting with initial conditions ($y_0$, $y_1$):</p>
+<p>$$
+\begin{aligned}
+u_2 &amp;= y_0 - 2\Delta t \lambda y_1, \
+u_3 &amp;= y_1 - 2\Delta t \lambda u_2, \
+u_4 &amp;= u_2 - 2\Delta t \lambda u_3, \
+u_5 &amp;= u_3 - 2\Delta t \lambda u_4
+\end{aligned}
+$$</p>
+<p>This formulation helps analyze the stability of the numerical scheme by checking whether the sequence $u_n$ grows or decays as $n \to \infty$.</p>
+<hr>
+<h2 id="stability-analysis-of-the-numerical-scheme">
+  Stability Analysis of the Numerical Scheme
+  <a class="anchor" href="#stability-analysis-of-the-numerical-scheme">#</a>
+</h2>
+<p>We assume a solution of the form:</p>
+<p>$$
+\begin{aligned}
+u_i &amp;= C \beta^i
+\end{aligned}
+$$</p>
+<h3 id="substituting-into-the-recurrence-relation">
+  Substituting into the Recurrence Relation
+  <a class="anchor" href="#substituting-into-the-recurrence-relation">#</a>
+</h3>
+<p>$$
+\begin{aligned}</p>
+<p>\end{aligned}
+$$
+$$
+\begin{aligned}
+C \beta^{i+1} + C 2\Delta t \lambda \beta^i - C \beta^{i-1} &amp;= 0\
+\beta^2 + 2\Delta t \lambda \beta - 1 &amp;= 0 \quad \text{devided by $C \beta^{i-1}$.}
+\end{aligned}
+$$
+This is a <strong>characteristic equation</strong> for the recurrence relation. And solving for $\beta$,</p>
+<p>$$
+\begin{aligned}
+\beta &amp;= \frac{-2\Delta t \lambda \pm \sqrt{(2\Delta t \lambda)^2 + 4}}{2}
+\end{aligned}
+$$
+To ensure stability, we require:</p>
+<p>$$
+\begin{aligned}
+|\beta_0|, |\beta_1| &amp;\leq 1.
+\end{aligned}
+$$</p>
+<hr>
+<h3 id="general-solution">
+  General Solution
+  <a class="anchor" href="#general-solution">#</a>
+</h3>
+<p>Since the recurrence relation is second-order, the general solution is:
+$$
+\begin{aligned}
+u_i &amp;= C_0 \beta_0^i + C_1 \beta_1^i.
+\end{aligned}
+$$
+From the initial conditions:</p>
+<p>$$
+\begin{aligned}
+u_0 &amp;= C_0 + C_1 = y_0, \</p>
+<p>\nu_1 &amp;= C_0 \beta_0 + C_1 \beta_1 = y_1
+\end{aligned}
+$$
+which can be solved for $C_0$ and $C_1$.</p>
+<hr>
+<h2 id="stability-condition">
+  Stability Condition
+  <a class="anchor" href="#stability-condition">#</a>
+</h2>
+<p>For stability, the roots $\beta_0, \beta_1$ must satisfy:</p>
+<p>$$
+\begin{aligned}|\beta_0 \beta_1| &amp;= 1.\end{aligned}
+$$</p>
+<p>From the characteristic equation:</p>
+<p>$$
+\begin{aligned}\beta_0 \beta_1 &amp;= -\frac{1}{\beta_1}.
+\end{aligned}
+$$</p>
+<p>Ensuring $|\beta| \leq 1$ determines the absolute stability region.</p>
+<hr>
+<h1 id="finite-difference-approximation-and-stability-analysis">
+  Finite Difference Approximation and Stability Analysis
+  <a class="anchor" href="#finite-difference-approximation-and-stability-analysis">#</a>
+</h1>
+<h2 id="finite-difference-approximation">
+  Finite Difference Approximation
+  <a class="anchor" href="#finite-difference-approximation">#</a>
+</h2>
+<p>$$
+\begin{aligned}
+\alpha u_{i+1} + \beta u_i + \sigma u_{i-1} + \delta u_{i-2} &amp;= (\alpha + \beta + \sigma + \delta) u_i + \mathcal{O}(\Delta t^5)
+\end{aligned}
+$$</p>
+<h2 id="time-discretization">
+  Time Discretization
+  <a class="anchor" href="#time-discretization">#</a>
+</h2>
+<p>$$
+\begin{aligned}
+\frac{du}{dt} \Big|<em>{t_i} &amp;= \frac{u_i - u</em>{i-1}}{\Delta t} + \mathcal{O}(\Delta t^2)
+\end{aligned}
+$$</p>
+<h2 id="stability-analysis">
+  Stability Analysis
+  <a class="anchor" href="#stability-analysis">#</a>
+</h2>
+<p>$$
+\begin{aligned}
+\alpha + 4\beta &amp;= 0, \
+\alpha &amp;= -4\beta, \
+4\beta - 2\beta &amp;= 1 \Rightarrow \beta = \frac{1}{2}, \quad \alpha = -2.
+\end{aligned}
+$$</p>
+<p>These constraints ensure numerical stability and proper convergence of the finite difference scheme.</p>
+<h3 id="taylor-expansions">
+  Taylor Expansions
+  <a class="anchor" href="#taylor-expansions">#</a>
+</h3>
+<p>Applying Taylor expansions to express the function values at different time steps:
+$$
+\begin{aligned}
+&amp; \alpha\left[u_{i+1}=u_i-\left.\frac{d u}{d t}\right|<em>{t_i} \Delta t+\ldots\right] \
+&amp; \beta\left[u</em>{i+2}=u_i-\left.\frac{d u}{d t}\right|<em>{t_i} 2 \Delta t+\ldots\right] \
+&amp; \gamma\left[u</em>{i+3}=u_i-\left.\frac{d u}{d t}\right|<em>{t_i} 3 \Delta t+\ldots\right] \
+&amp; \delta\left[u</em>{i+4}=u_i-\left.\frac{d u}{d t}\right|_{t_i} 4 \Delta t+\ldots\right]
+\end{aligned}
+$$
+Summing these expansions, we obtain the system of equations,</p>
+<p>$$
+\left{\begin{aligned}
+-\alpha-2 \beta-3 \gamma-4 \delta &amp; =1 \
+\alpha+4 \beta+8 \gamma+16 \delta &amp; =0
+\end{aligned}\right.
+$$</p>
+</div>
+  </article>
+ 
+        
+
+        <footer class="book-footer">
+          
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/EriseHe/erisehe.github.io/edit/main/exampleSite/content.en/docs/Mathematics/MATH%20351%20&amp;amp;%20352/MATH%20352%20PDE%20in%20Action/01%20Mid-Point%20Method.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+          
+        </footer>
+
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+  
+ 
+
+        <label for="menu-control" class="hidden book-menu-overlay"></label>
+      </div>
+
+      
+      
+      
+      
+        <aside id="book-toc" class="book-toc hidden">
+          <div class="book-toc-content">
+            
+<div class="button-prev">
+  
+</div>
+
+
+
+
+      
+            
+              <div class="toc-entries">
+                
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#formula-derivation">Formula Derivation</a>
+          <ul>
+            <li><a href="#initial-conditions">Initial Conditions</a></li>
+            <li><a href="#two-step-method">Two-Step Method</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#absolute-stability">Absolute Stability</a>
+      <ul>
+        <li><a href="#discretization">Discretization</a>
+          <ul>
+            <li><a href="#iterative-computation">Iterative Computation</a></li>
+          </ul>
+        </li>
+        <li><a href="#stability-analysis-of-the-numerical-scheme">Stability Analysis of the Numerical Scheme</a>
+          <ul>
+            <li><a href="#substituting-into-the-recurrence-relation">Substituting into the Recurrence Relation</a></li>
+            <li><a href="#general-solution">General Solution</a></li>
+          </ul>
+        </li>
+        <li><a href="#stability-condition">Stability Condition</a></li>
+      </ul>
+    </li>
+    <li><a href="#finite-difference-approximation-and-stability-analysis">Finite Difference Approximation and Stability Analysis</a>
+      <ul>
+        <li><a href="#finite-difference-approximation">Finite Difference Approximation</a></li>
+        <li><a href="#time-discretization">Time Discretization</a></li>
+        <li><a href="#stability-analysis">Stability Analysis</a>
+          <ul>
+            <li><a href="#taylor-expansions">Taylor Expansions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+              </div>
+            
+      
+            
+<div class="button-next">
+  
+</div>
+          </div>
+        </aside>
+      
+    </div>
+    
+    <div class="toolbar-trigger"></div>
+<aside class="toolbar">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <img src="/blackhole2.png" alt="Switch Theme">
+  </button>
+  <button id="toc-toggle" class="toc-toggle-btn">
+    <img src="/toc-icon.svg" alt="Toggle TOC">
+  </button>
+  <div class="font-size-control">
+    <button id="font-toggle" class="font-size-btn">
+      A
+    </button>
+    <div class="font-size-buttons">
+      <button id="font-increase" class="font-control-btn">+</button>
+      <button id="font-reset" class="font-control-btn">A</button>
+      <button id="font-decrease" class="font-control-btn">−</button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var tocAside = document.getElementById('book-toc');
+    var initialTOCState = true;
+    
+    if (!initialTOCState) {
+      tocAside.classList.add('hidden');
+    } else {
+      tocAside.classList.remove('hidden');
+    }
+    
+    document.getElementById('toc-toggle').addEventListener('click', function() {
+      tocAside.classList.toggle('hidden');
+    });
+  });
+</script>
+
+
+<script src="/font-size.min.js"></script>
+
+
+<script src="/toolbar.min.js"></script>
+
+
+<script src="/toc-animation.min.js"></script>
+
+
+<script src="/menu-autohide.min.js"></script>
+
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+    
+      toggle.onclick = () => {
+        
+        const rect = toggle.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        
+        
+        
+        const currentThemeRaw = document.documentElement.getAttribute('data-theme');
+        const currentTheme = currentThemeRaw ? currentThemeRaw : 'auto';
+        
+        
+        
+        let effectiveTheme;
+        if (currentTheme === 'auto') {
+          effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+          effectiveTheme = currentTheme;
+        }
+        
+        
+        const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
+        
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        
+        const oldColor = effectiveTheme === 'dark' ? '#0b031c' : 'white';
+        
+        
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.zIndex = '9999';
+        overlay.style.pointerEvents = 'none';
+        
+        
+        overlay.style.setProperty('--cx', `${cx}px`);
+        overlay.style.setProperty('--cy', `${cy}px`);
+        overlay.style.setProperty('--r', '0px');
+        
+        
+
+        overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${oldColor} calc(var(--r) + 1px))`;
+        
+        document.body.appendChild(overlay);
+        
+        
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const finalRadius = Math.hypot(Math.max(cx, vw - cx), Math.max(cy, vh - cy));
+        
+        
+        const duration = 600; 
+        const startTime = performance.now();
+        
+        function animate(time) {
+          const elapsed = time - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const currentRadius = progress * finalRadius;
+          overlay.style.setProperty('--r', `${currentRadius}px`);
+          
+          
+          overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${currentRadius}px, ${oldColor} ${currentRadius + 1}px)`;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            overlay.remove();
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        }
+        requestAnimationFrame(animate);
+      };
+    });
+  </script>
+  
+  
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'noerrors', 'color']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      ready: function() {
+        
+        const oldFindTeX = MathJax.startup.findTeX;
+        MathJax.startup.findTeX = function(options) {
+          
+          const results = oldFindTeX.call(this, options);
+          
+          
+          for (const item of results) {
+            if (item.display) {
+              let processedMath = item.math;
+              
+              
+              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
+                
+                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
+              });
+              
+              item.math = processedMath;
+            }
+          }
+          
+          return results;
+        };
+        
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    document.querySelectorAll('blockquote').forEach(function(blockquote) {
+      
+      const firstParagraph = blockquote.querySelector('p');
+      if (!firstParagraph) return;
+      
+      const text = firstParagraph.innerHTML;
+      
+      
+      
+      for (const type of ['lemma', 'theorem', 'assumption', 'claim']) {
+        
+        const regex = new RegExp(`\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
+        const match = text.match(regex);
+        
+        if (match) {
+          console.log(`Found ${type} with label: ${match[1]}`);
+          
+          
+          const hasNumber = match[1] !== '*';
+          const number = hasNumber ? match[1] : '';
+          
+          
+          const childNodes = Array.from(blockquote.childNodes);
+          blockquote.innerHTML = '';
+          
+          
+          blockquote.classList.add('math-theorem', type);
+          
+          
+          const header = document.createElement('div');
+          header.className = 'theorem-header';
+          
+          
+          const typeText = type.charAt(0).toUpperCase() + type.slice(1);
+          header.textContent = hasNumber ? `${typeText} ${number}` : typeText;
+          
+          blockquote.appendChild(header);
+          
+          
+          const content = document.createElement('div');
+          content.className = 'theorem-content';
+          blockquote.appendChild(content);
+          
+          
+          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(match[0], '');
+          
+          
+          childNodes.forEach(function(node) {
+            content.appendChild(node.cloneNode(true));
+          });
+          
+          break; 
+        }
+      }
+    });
+  });
+</script> 
+  
+
+  <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
+ 
+  <script defer src="/partial-load.min.1d4ed5d4ac20533fe341c211fd2c6b93ddb539b801d838d21437b218507d941b.js" integrity="sha256-HU7V1KwgUz/jQcIR/Sxrk921ObgB2DjSFDeyGFB9lBs=" crossorigin="anonymous"></script>
+  <script defer src="/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js" integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>位相学補完計画</title>
+    <link>http://localhost:1313/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/</link>
+    <description>Recent content on 位相学補完計画</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/1.1-The-Wave-Function/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/1.1-The-Wave-Function/</guid>
+      <description>To find a particle&amp;rsquo;s wave function, $\psi(x,t)$, we solve:&#xA;logically analogous to Newton&amp;rsquo;s Second Law $F=ma$&#xA;[!definition] Schrodinger&amp;rsquo;s Equation $$i\hbar \frac{ \partial \Psi}{ \partial t}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2}\Psi}{ \partial x^{2} }+V \Psi$$&#xA;where Planck&amp;rsquo;s constant $\hbar=\frac{h}{2\pi}=1.054573 \times 10^{-34}$.&#xA;[!definition] Born&amp;rsquo;s Statistical Interpretation $$\int^{a}_{b} |\Psi(x,t)^{2}| , dx $$ which is the probability finding the particle between $a$ and $b$.&#xA;It is natural to wonder whether it is a fact of nature, or a defect in theory.</description>
+    </item>
+  </channel>
+</rss>

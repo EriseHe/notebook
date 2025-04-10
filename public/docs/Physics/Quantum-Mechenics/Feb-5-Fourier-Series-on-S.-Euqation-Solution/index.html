@@ -13,46 +13,17 @@
   </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="
-  0. Review
-  #
-
-$$
-\hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x&#43;V(x)
-$$
-Stationary States
-$$
-\Psi(x,t)=\psi(x)e^{-iEt/\hbar}
-$$
-Eigenvalue equation:
-$$\hat{H}\psi(x) = E\psi(x)$$
-In newtonian mechanics, note
-$$F(x)=-\frac{ \partial V(x) }{ \partial x } $$
-
-  1. Infinite Finite Well (particle on a box)
-  #
-
-$$E = \frac{p^{2}}{2m}$$
-
+<meta name="description" content="0. Review#$$ \hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x&#43;V(x) $$ Stationary States $$ \Psi(x,t)=\psi(x)e^{-iEt/\hbar} $$ Eigenvalue equation: $$\hat{H}\psi(x) = E\psi(x)$$ In newtonian mechanics, note $$F(x)=-\frac{ \partial V(x) }{ \partial x } $$
+1. Infinite Finite Well (particle on a box)#$$E = \frac{p^{2}}{2m}$$
 knowing $E$ results in knowing momentum $p^{2}$
-Problem Set-up
-Between $x=0$, and $x=a$,
-$$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$
-Subject to &ldquo;boundary condition&rdquo;: $\Psi(0)=\Psi(a)=0$
-$$
-\begin{align}
-\frac{d^{2}\Psi}{dx} &amp; =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \
-&amp; =-k^{2}\Psi
-\end{align}
-$$
-Recall">
+Problem Set-up Between $x=0$, and $x=a$, $$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$ Subject to &ldquo;boundary condition&rdquo;: $\Psi(0)=\Psi(a)=0$ $$ \begin{align} \frac{d^{2}\Psi}{dx} &amp; =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \ &amp; =-k^{2}\Psi \end{align} $$ Recall">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="位相学補完計画">
-  <meta property="og:description" content="0. Review # $$ \hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x&#43;V(x) $$ Stationary States $$ \Psi(x,t)=\psi(x)e^{-iEt/\hbar} $$ Eigenvalue equation: $$\hat{H}\psi(x) = E\psi(x)$$ In newtonian mechanics, note $$F(x)=-\frac{ \partial V(x) }{ \partial x } $$
-1. Infinite Finite Well (particle on a box) # $$E = \frac{p^{2}}{2m}$$
+  <meta property="og:description" content="0. Review#$$ \hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x&#43;V(x) $$ Stationary States $$ \Psi(x,t)=\psi(x)e^{-iEt/\hbar} $$ Eigenvalue equation: $$\hat{H}\psi(x) = E\psi(x)$$ In newtonian mechanics, note $$F(x)=-\frac{ \partial V(x) }{ \partial x } $$
+1. Infinite Finite Well (particle on a box)#$$E = \frac{p^{2}}{2m}$$
 knowing $E$ results in knowing momentum $p^{2}$
 Problem Set-up Between $x=0$, and $x=a$, $$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$ Subject to “boundary condition”: $\Psi(0)=\Psi(a)=0$ $$ \begin{align} \frac{d^{2}\Psi}{dx} &amp; =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \ &amp; =-k^{2}\Psi \end{align} $$ Recall">
   <meta property="og:locale" content="en">
@@ -66,11 +37,14 @@ Feb 5 Fourier Series on S. Euqation Solution | 位相学補完計画</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.bffa2bd83b800d4cc8d2f006c5fa63729bb5947f23c57865edc935fe39243c3d.css" integrity="sha256-v/or2DuADUzI0vAGxfpjcpu1lH8jxXhl7ck1/jkkPD0=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.581d7cf1f5991b3860c5e5cd854c3300ecfa23047aaa128ee1486bddaa8e9828.css" integrity="sha256-WB188fWZGzhgxeXNhUwzAOz6IwR6qhKO4Uhr3aqOmCg=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.b569afb92f50ef9cfe8aaf5ffcd3db4bea40f547a47a3fd08acc8f701074433c.js" integrity="sha256-tWmvuS9Q75z&#43;iq9f/NPbS&#43;pA9Uekej/QisyPcBB0Qzw=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ee6a408c56d4bb48df7e5710a26b5d442f5cc5b3959a59d5a43f2a134ad6ca88.js" integrity="sha256-7mpAjFbUu0jfflcQomtdRC9cxbOVmlnVpD8qE0rWyog=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+
+  
+
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -92,7 +66,7 @@ https://github.com/alex-shpak/hugo-book
   <nav>
 <h2 class="book-brand">
   <a class="flex align-center justify-center" 
-     href="/">
+     href="http://localhost:1313/">
     <img src="/topo.png" 
          alt="Logo" 
          class="book-icon" />
@@ -144,8 +118,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="toggle"  />
-    <label for="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="flex justify-between">
+    <input type="checkbox" id="section-3dc5ba62250cd8b173945805306d582d" class="toggle"  />
+    <label for="section-3dc5ba62250cd8b173945805306d582d" class="flex justify-between">
       <a role="button"
          class="">爽分析 II</a>
     </label>
@@ -164,8 +138,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-c3d4873afc217e738d4eac6ed01dcfd0" class="toggle"  />
-    <label for="section-c3d4873afc217e738d4eac6ed01dcfd0" class="flex justify-between">
+    <input type="checkbox" id="section-18dfa49db2b03993a1bd3315710acd5e" class="toggle"  />
+    <label for="section-18dfa49db2b03993a1bd3315710acd5e" class="flex justify-between">
       <a role="button"
          class="">第六章 可微映射</a>
     </label>
@@ -253,8 +227,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-fe97be846a74527e019600047479e8ff" class="toggle"  />
-    <label for="section-fe97be846a74527e019600047479e8ff" class="flex justify-between">
+    <input type="checkbox" id="section-8d1199ea5dee264155db6be39165caab" class="toggle"  />
+    <label for="section-8d1199ea5dee264155db6be39165caab" class="flex justify-between">
       <a role="button"
          class="">第七章 逆函数和隐函数定理</a>
     </label>
@@ -344,8 +318,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle"  />
-    <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
+    <input type="checkbox" id="section-a5127f215d0185f57c753ced3289b7fd" class="toggle"  />
+    <label for="section-a5127f215d0185f57c753ced3289b7fd" class="flex justify-between">
       <a role="button"
          class="">第八章 度量理论</a>
     </label>
@@ -424,6 +398,43 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第九章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1/"
+       class="">9.1</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -438,8 +449,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-03018ad84f65943f3692f81c9f43c501" class="toggle"  />
-    <label for="section-03018ad84f65943f3692f81c9f43c501" class="flex justify-between">
+    <input type="checkbox" id="section-7e4e495d58202114a97ea7292812ced6" class="toggle"  />
+    <label for="section-7e4e495d58202114a97ea7292812ced6" class="flex justify-between">
       <a role="button"
          class="">偏微分方程</a>
     </label>
@@ -458,8 +469,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-3c138d22d500a5fca83e33c724f72850" class="toggle"  />
-    <label for="section-3c138d22d500a5fca83e33c724f72850" class="flex justify-between">
+    <input type="checkbox" id="section-f66c16f1f26d5439b500ac53a6090814" class="toggle"  />
+    <label for="section-f66c16f1f26d5439b500ac53a6090814" class="flex justify-between">
       <a role="button"
          class="">数值方法</a>
     </label>
@@ -478,8 +489,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Numerical-Solution-of-Ordinary-Differential-Equations/"
-       class="">常微分方程的数值解</a>
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/"
+       class="">01 Mid Point Method</a>
   
 
         </li>
@@ -494,7 +505,86 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Chatper-9-Problems/"
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/"
+       class="">02 Three Point Backward Differentiation Formula</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/"
+       class="">常微分方程的数值解</a>
+  
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="toggle"  />
+    <label for="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="flex justify-between">
+      <a role="button"
+         class="">第四章 有限元分析</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-cd82823df15274abb4c628a304ce2823" class="toggle"  />
+    <label for="section-cd82823df15274abb4c628a304ce2823" class="flex justify-between">
+      <a role="button"
+         class="">第九章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/"
        class="">习题</a>
   
 
@@ -510,73 +600,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-18/"
-       class="">Lecture Notes ( Mar 18)</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-  
-  
-
-  
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Lecture-Notes-Mar-20/"
-       class="">Lecture Notes ( Mar 20)</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-  
-  
-
-  
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Mid-Point-Method/"
-       class="">Mid Point Method</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-  
-  
-
-  
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/Three-Point-Backward-Differentiation-Formula-Feb-4/"
-       class="">Three Point Backward Differentiation Formula ( Feb 4)</a>
-  
-
-        </li>
-      
-    
-      
-    
-      
-        <li>
-          
-  
-  
-  
-  
-
-  
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.1-Boundary-Value-Problems/"
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/"
        class="">9.1 边值问题的近似</a>
   
 
@@ -592,7 +616,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.2-Finite-Difference/"
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/"
        class="">9.2 有限差分法</a>
   
 
@@ -608,7 +632,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.3-Advection-Diffusion-Equation/"
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/"
        class="">9.3 对流-扩散方程</a>
   
 
@@ -624,9 +648,14 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/9.4-2D-Problem/"
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/"
        class="">9.4 4.1 二维（2D）偏微分方程问题</a>
   
+
+        </li>
+      
+    
+  </ul>
 
         </li>
       
@@ -645,8 +674,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-5c4905e8cb6611c7476262cb2b181a7d" class="toggle"  />
-    <label for="section-5c4905e8cb6611c7476262cb2b181a7d" class="flex justify-between">
+    <input type="checkbox" id="section-5285c61e0107d925df6ad67c62c6699b" class="toggle"  />
+    <label for="section-5285c61e0107d925df6ad67c62c6699b" class="flex justify-between">
       <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
          class="">热方程</a>
     </label>
@@ -702,8 +731,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="toggle"  />
-    <label for="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="flex justify-between">
+    <input type="checkbox" id="section-a135ba9e4c93e772904209601ada4b30" class="toggle"  />
+    <label for="section-a135ba9e4c93e772904209601ada4b30" class="flex justify-between">
       <a role="button"
          class="">波方程</a>
     </label>
@@ -727,8 +756,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="toggle"  />
-    <label for="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="flex justify-between">
+    <input type="checkbox" id="section-1a86e133d83dac38a57580bd5f897d4e" class="toggle"  />
+    <label for="section-1a86e133d83dac38a57580bd5f897d4e" class="flex justify-between">
       <a role="button"
          class="">拉普拉斯方程</a>
     </label>
@@ -769,11 +798,27 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-20bb3063de72cc9c8e7b928b77587c05" class="toggle" checked />
-    <label for="section-20bb3063de72cc9c8e7b928b77587c05" class="flex justify-between">
+    <input type="checkbox" id="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="toggle" checked />
+    <label for="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="flex justify-between">
       <a role="button"
          class="">Quantum Mechenics</a>
     </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第一章</span>
   
 
           
@@ -789,12 +834,33 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Physics/Quantum-Mechenics/Chapter-1-The-Wave-Function/"
-       class="">Chapter 1 the Wave Function</a>
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/1.1-The-Wave-Function/"
+       class="">1.1 the Wave Function</a>
   
 
         </li>
       
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第二章</span>
+  
+
+          
+  
+  <ul>
     
       
         <li>
@@ -805,13 +871,76 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Physics/Quantum-Mechenics/Chapter-2-Time-Independent-Schrodinger-Equation-Stationary-States/"
-       class="">Chapter 2 Time Independent Schrodinger Equation Stationary States</a>
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.1-Time-Independent-Schrodinger-Equation-Stationary-States/"
+       class="">2.1 Time Independent Schrodinger Equation Stationary States</a>
   
 
         </li>
       
     
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第三章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第四章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/"
+       class="">第四章</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
       
     
       
@@ -844,10 +973,6 @@ https://github.com/alex-shpak/hugo-book
   
 
         </li>
-      
-    
-      
-    
       
     
       
@@ -1043,7 +1168,8 @@ $$F(x)=-\frac{ \partial V(x) }{ \partial x } $$</p>
 </h2>
 <p>$$E = \frac{p^{2}}{2m}$$</p>
 <blockquote>
-<p>knowing $E$ results in knowing momentum $p^{2}$</p></blockquote>
+<p>knowing $E$ results in knowing momentum $p^{2}$</p>
+</blockquote>
 <p>Problem Set-up
 Between $x=0$, and $x=a$,
 $$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$
@@ -1075,7 +1201,8 @@ k_{n} &amp; =\frac{n\boldsymbol{\pi}}{a} \quad {n\in \mathbb{N}} \Rightarrow \bo
 \end{align}$$</li>
 </ol>
 <blockquote>
-<p>Note: $n \neq 0$, since the eq. would vanish entirely. $n&gt;0$, for positive $k$.</p></blockquote>
+<p>Note: $n \neq 0$, since the eq. would vanish entirely. $n&gt;0$, for positive $k$.</p>
+</blockquote>
 <h2 id="3-normalization">
   3. Normalization
   <a class="anchor" href="#3-normalization">#</a>
@@ -1460,6 +1587,7 @@ $$</p>
   <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
  
   <script defer src="/partial-load.min.1d4ed5d4ac20533fe341c211fd2c6b93ddb539b801d838d21437b218507d941b.js" integrity="sha256-HU7V1KwgUz/jQcIR/Sxrk921ObgB2DjSFDeyGFB9lBs=" crossorigin="anonymous"></script>
+  <script defer src="/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js" integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin="anonymous"></script>
 </body>
 </html>
 
