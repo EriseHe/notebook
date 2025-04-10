@@ -127,6 +127,8 @@ Carlo
 CASP
 ChatGPT
 Common
+CFL
+Courant
 font
 for
 functions
@@ -292,6 +294,7 @@ faced
 fairly
 feats
 fair
+faithfully
 color
 curve
 can
@@ -627,6 +630,8 @@ core
 chapter
 collectively
 chart
+captured
+cells
 Problem
 Partial
 Putting
@@ -1032,6 +1037,7 @@ trust
 treat
 technical
 triumphs
+travel
 system
 solvability
 such
@@ -1397,6 +1403,12 @@ safe
 summaries
 secondary
 sources
+succinct
+speed
+simultaneously
+solely
+smoothing
+smoothed
 discuss
 determine
 described
@@ -1652,6 +1664,8 @@ driven
 dialogue
 descriptions
 discussions
+detailed
+defines
 in
 inverse
 implicit
@@ -1871,6 +1885,8 @@ intent
 involves
 innovation
 intelligently
+infinitely
+instability
 of
 our
 out
@@ -1987,6 +2003,7 @@ objectives
 outcome
 ongoing
 opened
+options
 near
 neighborhood
 necessary
@@ -2182,6 +2199,9 @@ Described
 Directions
 Despite
 Developing
+Derive
+Discretizing
+Discontinuous
 map
 matrix
 mapping
@@ -2488,6 +2508,7 @@ hallucination
 harder
 harmful
 hallucinations
+hyperbolic
 local
 limit
 lim
@@ -3521,6 +3542,8 @@ addressed
 analyses
 accounts
 ahead
+among
+amplification
 you
 yields
 yF
@@ -3635,6 +3658,7 @@ Nets
 Network
 Nearly
 NLP
+Neumann
 Recall
 Rigorous
 Respect
@@ -3947,6 +3971,8 @@ reader
 remember
 references
 road
+respecting
+restriction
 partials
 partial
 point
@@ -4217,6 +4243,7 @@ pushed
 paramount
 preventing
 perceive
+plus
 Ex
 Evaluate
 Evaluating
@@ -4610,6 +4637,7 @@ Bidirectional
 Brown
 Bias
 Building
+BONUS
 Function
 For
 FT
@@ -4925,6 +4953,7 @@ various
 versatility
 virtually
 vocabulary
+von
 unknowns
 unique
 uniquely
@@ -5046,6 +5075,8 @@ unstated
 unintended
 underpinnings
 understandable
+unlike
+unboundedly
 guarantees
 gives
 give
@@ -5159,6 +5190,8 @@ grand
 gave
 goals
 governance
+grow
+gradients
 Moreover
 Matrix
 Maximum
@@ -5576,6 +5609,7 @@ Values
 Vapnik
 Vector
 Vaswani
+Von
 Yes
 You
 YX
@@ -5753,6 +5787,7 @@ Once
 OpenAI
 Ouyang
 Open
+Overall
 Given
 Get
 Guessing
@@ -5937,6 +5972,7 @@ journey
 jump
 judged
 job
+jumps
 Kuhn
 Km
 KP

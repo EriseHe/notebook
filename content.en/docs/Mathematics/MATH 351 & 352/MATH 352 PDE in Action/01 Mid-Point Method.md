@@ -1,3 +1,7 @@
+---
+weight: "01"
+---
+
 ## Formula Derivation
 
 <center>The derivative approximation:</center>

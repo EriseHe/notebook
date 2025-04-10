@@ -1,3 +1,7 @@
+---
+weight: "02"
+---
+
 ## 1. Ok Honestly I Have No Idea Where He Started
 > MATH 212 is useless 
 > 					              - Alessandro Veneziani
