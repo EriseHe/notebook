@@ -1,48 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>位相学補完計画</title><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/</link><description>Recent content on 位相学補完計画</description><generator>Hugo</generator><language>en</language><atom:link href="https://erisehe.github.io/docs/Physics/Quantum-Mechenics/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-1-The-Wave-Function/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-1-The-Wave-Function/</guid><description>&lt;p>To find a particle&amp;rsquo;s wave function, $\psi(x,t)$, we solve:&lt;/p>
-&lt;blockquote>
-&lt;p>logically analogous to &lt;strong>Newton&amp;rsquo;s Second Law&lt;/strong> $F=ma$&lt;/p>&lt;/blockquote>
-&lt;blockquote>
-&lt;p>[!definition] Schrodinger&amp;rsquo;s Equation
-$$i\hbar \frac{ \partial \Psi}{ \partial t}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2}\Psi}{ \partial x^{2} }+V \Psi$$&lt;/p>&lt;/blockquote>
-&lt;p>where &lt;strong>Planck&amp;rsquo;s constant&lt;/strong> $\hbar=\frac{h}{2\pi}=1.054573 \times 10^{-34}$.&lt;/p>
-&lt;blockquote>
-&lt;p>[!definition] Born&amp;rsquo;s Statistical Interpretation
-$$\int^{a}_{b} |\Psi(x,t)^{2}| , dx $$
-which is the probability finding the particle between $a$ and $b$.&lt;/p>&lt;/blockquote>
-&lt;blockquote>
-&lt;p>It is natural to wonder whether it is a fact of nature, or a defect in theory.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-2-Time-Independent-Schrodinger-Equation-Stationary-States/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-2-Time-Independent-Schrodinger-Equation-Stationary-States/</guid><description>&lt;h2 id="music-harmonics">
- Music: Harmonics
- &lt;a class="anchor" href="#music-harmonics">#&lt;/a>
-&lt;/h2>
-&lt;p>$$
-\begin{align}
-C_{1}:f_{1}&amp;amp;=f_{0} \
-C_{2}:f_{1}&amp;amp;=2f_{0} \
-G:f_{1}&amp;amp;=3f_{0} \
-C_{3}:f_{1}&amp;amp;=4f_{0}
-\end{align}
-$$&lt;/p>
-&lt;h2 id="separation-of-variables">
- Separation of variables
- &lt;a class="anchor" href="#separation-of-variables">#&lt;/a>
-&lt;/h2>
-&lt;p>$$
-\begin{equation}
-i\hbar \frac{ \partial \Psi}{ \partial t}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2}\Psi}{ \partial x^{2} }+V_{x} \Psi
-\end{equation}
-$$
-where
-$V(x)$: time independent potential
-$\hat{H}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2} }{ \partial x^{2} }+V(x)$.
-$$
-H\Psi=i\hbar \frac{ \partial }{ \partial t } \Psi
-$$
-We begin by= separate the variables, and set
-$$
-\begin{equation}
-\Psi(x,t)=\psi(x) \phi(t)
-\end{equation}&lt;/p>
-&lt;p>$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Chapter-3/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</guid><description>&lt;h2 id="0-review">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>位相学補完計画</title><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/</link><description>Recent content on 位相学補完計画</description><generator>Hugo</generator><language>en</language><atom:link href="https://erisehe.github.io/docs/Physics/Quantum-Mechenics/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</guid><description>&lt;h2 id="0-review">
  0. Review
  &lt;a class="anchor" href="#0-review">#&lt;/a>
 &lt;/h2>
@@ -117,7 +73,7 @@ plt.grid()
 plt.show()
 &lt;/code>&lt;/pre>
 &lt;p>if &lt;strong>name&lt;/strong> == &amp;ldquo;&lt;strong>main&lt;/strong>&amp;rdquo;:
-computation()&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-1/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/Lecture-2/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</guid><description>&lt;h2 id="hilbert-space">
+computation()&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</guid><description>&lt;h2 id="hilbert-space">
  Hilbert Space
  &lt;a class="anchor" href="#hilbert-space">#&lt;/a>
 &lt;/h2>

@@ -96,4 +96,6 @@ $$
 which gives $\bigl|S_n - 1\bigr| &amp;lt; \varepsilon$. This shows that $\lim_{n\to\infty} S_n = 1$, so by definition of the Riemann integral, we have
 $$
 \int_{0}^{2} f(x),dx = 1.
-$$&lt;/p></description></item></channel></rss>
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-9/</guid><description>&lt;p>8.5: 1, [2, 3], 4, [5]; Chapter 8: [21, 22].&lt;/p>
+&lt;p>&lt;strong>Problem 8.5.2&lt;/strong> Establish formula $\mathbf{c}$ of Example 8.5.7 as follows. Prove that $e^{-x} x^{p+2} \rightarrow 0$ as $x \rightarrow \infty$, and then compare the integral with $\int_1^{\infty}\left(1 / x^2\right) d x$.&lt;/p>
+&lt;p>&lt;strong>Problem 8.5.3&lt;/strong> Let $f:[a, \infty[\rightarrow \mathbb{R}$ be Riemann integrable on bounded intervals. Show that $\int_a^{\infty} f$ (conditional convergence) exists iff for every $\varepsilon&amp;gt;0$, there is a $T$ such that $t_1, t_2 \geq T$ implies&lt;/p></description></item></channel></rss>
