@@ -1668,6 +1668,7 @@ Density
 Diagonalizable
 Definiteness
 Diminishing
+Dimentional
 map
 matrix
 mapping
