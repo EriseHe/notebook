@@ -62,3 +62,41 @@ body.loading {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* Custom SCSS */
+
+// Remove any backgrounds from list items in menu
+.book-menu nav ul li,
+.book-menu nav ul li a,
+.subject-panel ul li,
+.subject-panel ul li a {
+  background-color: transparent !important;
+}
+
+// Ensure no backgrounds on active menu items, only the left border indicator
+.book-menu a.active:not(.book-brand a),
+.subject-panel a.active {
+  background-color: transparent !important;
+}
+
+// Target specifically the "01 Mid Point Method" item and similar items
+.subject-panel [data-subject="mathematics"] ul li,
+.subject-panel [data-subject="physics"] ul li {
+  background-color: transparent !important;
+}
+
+// Also ensure list items with hover states don't have backgrounds
+.book-menu nav ul li:hover,
+.book-menu nav ul li a:hover,
+.subject-panel ul li:hover,
+.subject-panel ul li a:hover {
+  background-color: transparent !important;
+}
+
+// Override any potential theme-specific background styles
+.book-menu li,
+.book-menu a,
+.subject-panel li,
+.subject-panel a {
+  background: transparent !important;
+}

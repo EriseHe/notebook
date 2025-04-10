@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".book-menu input.toggle");e.forEach(e=>{e.addEventListener("change",function(){if(!this.checked){const e=this.nextElementSibling.nextElementSibling;if(e){const t=e.querySelectorAll("input.toggle:checked");t.forEach(e=>{e.checked=!1})}}})})})
