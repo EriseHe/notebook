@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Philosophy/Sex & Sexuality.md",
+                "file": "Physics/Quantum Mechenics/Lecture/第四章/第四章.md",
                 "mode": "source",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Sex & Sexuality"
+              "title": "第四章"
             }
           }
         ]
@@ -151,13 +151,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Philosophy/Sex & Sexuality.md",
+                "file": "Physics/Quantum Mechenics/Lecture/第四章/第四章.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Sex & Sexuality"
+              "title": "Outline of 第四章"
             }
           }
         ],
@@ -185,6 +185,30 @@
   },
   "active": "d4513820e616b532",
   "lastOpenFiles": [
+    "Physics/Quantum Mechenics/Lecture/第二章/2.1 Time-Independent Schrodinger Equation - Stationary States.md",
+    "Physics/Quantum Mechenics/Lecture/第四章/第四章.md",
+    "Physics/Quantum Mechenics/Lecture/第四章/_index.md",
+    "Physics/Quantum Mechenics/Lecture/第二章/_index.md",
+    "Physics/Quantum Mechenics/Lecture/第三章/_index.md",
+    "Physics/Quantum Mechenics/Lecture/第一章/_index.md",
+    "Physics/Quantum Mechenics/_index.md",
+    "Physics/Quantum Mechenics/Wave Functions live in Hilbert Space.md",
+    "Physics/Quantum Mechenics/Feb 5 Fourier Series on S. Euqation Solution.md",
+    "Physics/Quantum Mechenics/Lecture/Lecture 1.md",
+    "Physics/Quantum Mechenics/Lecture/Lecture 2.md",
+    "Physics/Quantum Mechenics/Lecture/第三章/Chapter 3.md",
+    "Physics/Quantum Mechenics/Lecture/第一章/1.1 The Wave Function.md",
+    "Physics/Quantum Mechenics/Lecture/第三章",
+    "Physics/Quantum Mechenics/Lecture/第二章",
+    "Physics/Quantum Mechenics/Lecture/Untitled.md",
+    "Physics/Quantum Mechenics/Lecture/第一章",
+    "Physics/Quantum Mechenics/Lecture/第四章",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.3 Advection-Diffusion Equation.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/4.3.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.4 2D Problem.md",
+    "Untitled.md",
+    "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/9.1 Boundary Value Problems.md",
+    "Philosophy/Sex & Sexuality.md",
     "Mathematics/MATH 412 Real Analysis II/第九章/9.1.md",
     "Mathematics/MATH 412 Real Analysis II/第九章/_index.md",
     "Mathematics/MATH 412 Real Analysis II/Homework/Homework 9.md",
@@ -192,27 +216,7 @@
     "Mathematics/MATH 412 Real Analysis II/Homework/Homework 8.md",
     "Mathematics/MATH 412 Real Analysis II/Homework/Homework 6.md",
     "Mathematics/MATH 412 Real Analysis II/第八章/8.2 Criterion for Integrability.md",
-    "Mathematics/MATH 412 Real Analysis II/第八章/8.5 Lebesgue Convergence Theorem.md",
-    "Mathematics/MATH 412 Real Analysis II/第八章/8.1 度量理论.md",
-    "Philosophy/Lacanian AI.md",
-    "DataFest/MATH MODEL.md",
     "DataFest",
-    "Mathematics/Untitled.md",
-    "Philosophy/Commentary on the Collage.md",
-    "Mathematics/hidden.md",
-    "Philosophy/_index.md",
-    "Philosophy/50-words Close Reading.md",
-    "Philosophy/Commentary on Foucault's The Order of Things.md",
-    "Philosophy/Object petit a.md",
-    "Philosophy/Sex & Sexuality.md",
-    "Philosophy/福柯视角下的物理学转变以及新范式的可能.md",
-    "Mathematics/MATH 412 Real Analysis II/Homework/Homework 7.md",
-    "Mathematics/MATH 412 Real Analysis II/第八章/_index.md",
-    "Mathematics/MATH 412 Real Analysis II/第七章/7.7.md",
-    "Mathematics/MATH 412 Real Analysis II/第七章/7.2 Implicit Function Theorem.md",
-    "Mathematics/MATH 412 Real Analysis II/第七章/7.6 Morse Lemma.md",
-    "Mathematics/MATH 412 Real Analysis II/第八章/8.3 Proof of Lebesgue's Theorem.md",
-    "Mathematics/MATH 412 Real Analysis II/第七章/7.1 Inverse Function Theorem.md",
     "L-space.png",
     "Mathematics/MATH 412 Real Analysis II/HW",
     "Fourier Series.png",
@@ -220,10 +224,6 @@
     "L-space-1.png",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/Untitled",
     "Mathematics/MATH 412 Real Analysis II/第八章",
-    "Mathematics/MATH 412 Real Analysis II/第七章",
-    "Mathematics/MATH 412 Real Analysis II/第七章",
-    "Mathematics/MATH 351 & 352/Heat Equation/Untitled.canvas",
-    "Mathematics/MATH 351 & 352/Laplace Equation",
-    "Mathematics/MATH 351 & 352/Wave Equation"
+    "Mathematics/MATH 351 & 352/Heat Equation/Untitled.canvas"
   ]
 }
