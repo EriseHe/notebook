@@ -2,6 +2,8 @@
 
 **Problem 8.5.2** Establish formula $\mathbf{c}$ of Example 8.5.7 as follows. Prove that $e^{-x} x^{p+2} \rightarrow 0$ as $x \rightarrow \infty$, and then compare the integral with $\int_1^{\infty}\left(1 / x^2\right) d x$.
 
+
+
 **Problem 8.5.3** Let $f:[a, \infty[\rightarrow \mathbb{R}$ be Riemann integrable on bounded intervals. Show that $\int_a^{\infty} f$ (conditional convergence) exists iff for every $\varepsilon>0$, there is a $T$ such that $t_1, t_2 \geq T$ implies
 
 $$

@@ -13,15 +13,68 @@
   </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="[!theorem|8.?.?] Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded set $A$. Then $f$ is integrable on $A$ if and only if the set of discontinuities for the extended $f(x)$ has measure zero.
-Proof of the Theorem#Step 1: Preparation#Diagram: a set $A$ enclosed in set $B$. (a): Set Up#Fix rectangle $B$ with $\overline{A} \subset \text{int}(B)$ and let: $$ g(x) = \begin{cases}">
+<meta name="description" content="
+[!theorem|8.?.?]
+Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded set $A$. Then $f$ is integrable on $A$ if and only if the set of discontinuities for the extended $f(x)$ has measure zero.
+
+  Proof of the Theorem
+  #
+
+
+  Step 1: Preparation
+  #
+
+
+Diagram: a set $A$ enclosed in set $B$.
+
+
+  (a): Set Up
+  #
+
+
+Fix rectangle $B$ with $\overline{A} \subset \text{int}(B)$ and let:
+$$
+g(x) = \begin{cases}
+f(x) &amp; \text{if } x \in A \
+0 &amp; \text{if } x \notin A
+\end{cases}
+$$
+Define:
+$$
+D = { x \in B \mid g \text{ is not continuous at } x }
+$$
+Need to show:
+$$
+f \text{ integrable } \Leftrightarrow m(D) = 0
+$$
+
+
+  (b): How to Measure Discontinuity
+  #
+
+
+Oscillation of a function $h$ at a point $x_0$:
+$$O(h, x_0) = \inf  { \sup \left{ h(x) - h(y) : x, y \in U } : U \text{ is a neighborhood of } x_0 \right}$$
+Fact: $h$ is continuous at $x_0$ if and only if $O(h, x_0) = 0$.
+
+
+  Step 2: Assume $m(D) = 0$. Prove $f$ integrable
+  #
+
+
+Will show $g$ satisfying Riemann&rsquo;s Condition.
+
+(a) Setup:">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="位相学補完計画">
   <meta property="og:description" content="[!theorem|8.?.?] Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded set $A$. Then $f$ is integrable on $A$ if and only if the set of discontinuities for the extended $f(x)$ has measure zero.
-Proof of the Theorem#Step 1: Preparation#Diagram: a set $A$ enclosed in set $B$. (a): Set Up#Fix rectangle $B$ with $\overline{A} \subset \text{int}(B)$ and let: $$ g(x) = \begin{cases}">
+Proof of the Theorem # Step 1: Preparation # Diagram: a set $A$ enclosed in set $B$. (a): Set Up # Fix rectangle $B$ with $\overline{A} \subset \text{int}(B)$ and let: $$ g(x) = \begin{cases}
+f(x) &amp; \text{if } x \in A \
+0 &amp; \text{if } x \notin A
+\end{cases} $$ Define: $$ D = { x \in B \mid g \text{ is not continuous at } x } $$ Need to show: $$ f \text{ integrable } \Leftrightarrow m(D) = 0 $$ (b): How to Measure Discontinuity # Oscillation of a function $h$ at a point $x_0$: $$O(h, x_0) = \inf { \sup \left{ h(x) - h(y) : x, y \in U } : U \text{ is a neighborhood of } x_0 \right}$$ Fact: $h$ is continuous at $x_0$ if and only if $O(h, x_0) = 0$. Step 2: Assume $m(D) = 0$. Prove $f$ integrable # Will show $g$ satisfying Riemann’s Condition. (a) Setup:">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -33,14 +86,11 @@ Proof of the Theorem#Step 1: Preparation#Diagram: a set $A$ enclosed in set 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.3ff1300cfe9ed355408ad75074d3ff4d3919879b68cee6e36c474816f2fb8cdd.css" integrity="sha256-P/EwDP6e01VAitdQdNP/TTkZh5tozubjbEdIFvL7jN0=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.2d7c41402e14539fe83d37688057b7e2670d48bbcb530d82bcf09925c94a99e7.css" integrity="sha256-LXxBQC4UU5/oPTdogFe34mcNSLvLUw2CvPCZJclKmec=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.ee6a408c56d4bb48df7e5710a26b5d442f5cc5b3959a59d5a43f2a134ad6ca88.js" integrity="sha256-7mpAjFbUu0jfflcQomtdRC9cxbOVmlnVpD8qE0rWyog=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.510d5eb6f1e57108271c2d4c3476ce8980e0cceb3fecca22e963a7f88dc28795.js" integrity="sha256-UQ1etvHlcQgnHC1MNHbOiYDgzOs/7Moi6WOn&#43;I3Ch5U=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-
-  
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -62,7 +112,7 @@ https://github.com/alex-shpak/hugo-book
   <nav>
 <h2 class="book-brand">
   <a class="flex align-center justify-center" 
-     href="/">
+     href="http://localhost:1313/">
     <img src="/topo.png" 
          alt="Logo" 
          class="book-icon" />
@@ -114,8 +164,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-3dc5ba62250cd8b173945805306d582d" class="toggle" checked />
-    <label for="section-3dc5ba62250cd8b173945805306d582d" class="flex justify-between">
+    <input type="checkbox" id="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="toggle" checked />
+    <label for="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="flex justify-between">
       <a role="button"
          class="">爽分析 II</a>
     </label>
@@ -134,8 +184,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-18dfa49db2b03993a1bd3315710acd5e" class="toggle"  />
-    <label for="section-18dfa49db2b03993a1bd3315710acd5e" class="flex justify-between">
+    <input type="checkbox" id="section-c3d4873afc217e738d4eac6ed01dcfd0" class="toggle"  />
+    <label for="section-c3d4873afc217e738d4eac6ed01dcfd0" class="flex justify-between">
       <a role="button"
          class="">第六章 可微映射</a>
     </label>
@@ -223,8 +273,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-8d1199ea5dee264155db6be39165caab" class="toggle"  />
-    <label for="section-8d1199ea5dee264155db6be39165caab" class="flex justify-between">
+    <input type="checkbox" id="section-fe97be846a74527e019600047479e8ff" class="toggle"  />
+    <label for="section-fe97be846a74527e019600047479e8ff" class="flex justify-between">
       <a role="button"
          class="">第七章 逆函数和隐函数定理</a>
     </label>
@@ -314,8 +364,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a5127f215d0185f57c753ced3289b7fd" class="toggle" checked />
-    <label for="section-a5127f215d0185f57c753ced3289b7fd" class="flex justify-between">
+    <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle" checked />
+    <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
       <a role="button"
          class="">第八章 度量理论</a>
     </label>
@@ -334,8 +384,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Lebesgue-Convergence-Theorem/"
-       class="">8.5 Lebesgue Convergence Theorem</a>
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/"
+       class="">8.6 勒贝格收敛定理</a>
   
 
         </li>
@@ -384,6 +434,22 @@ https://github.com/alex-shpak/hugo-book
   
     <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/"
        class="active">8.3 Proof of Lebesgue&#39;s Theorem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/"
+       class="">8.5 不定积分</a>
   
 
         </li>
@@ -445,8 +511,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7e4e495d58202114a97ea7292812ced6" class="toggle"  />
-    <label for="section-7e4e495d58202114a97ea7292812ced6" class="flex justify-between">
+    <input type="checkbox" id="section-03018ad84f65943f3692f81c9f43c501" class="toggle"  />
+    <label for="section-03018ad84f65943f3692f81c9f43c501" class="flex justify-between">
       <a role="button"
          class="">偏微分方程</a>
     </label>
@@ -465,8 +531,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f66c16f1f26d5439b500ac53a6090814" class="toggle"  />
-    <label for="section-f66c16f1f26d5439b500ac53a6090814" class="flex justify-between">
+    <input type="checkbox" id="section-3c138d22d500a5fca83e33c724f72850" class="toggle"  />
+    <label for="section-3c138d22d500a5fca83e33c724f72850" class="flex justify-between">
       <a role="button"
          class="">数值方法</a>
     </label>
@@ -533,8 +599,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="toggle"  />
-    <label for="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="flex justify-between">
+    <input type="checkbox" id="section-d39d8ec7b87141eab4913ff95921d882" class="toggle"  />
+    <label for="section-d39d8ec7b87141eab4913ff95921d882" class="flex justify-between">
       <a role="button"
          class="">第四章 有限元分析</a>
     </label>
@@ -560,8 +626,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-cd82823df15274abb4c628a304ce2823" class="toggle"  />
-    <label for="section-cd82823df15274abb4c628a304ce2823" class="flex justify-between">
+    <input type="checkbox" id="section-c992180c62af21b3acb7babbad4a6edf" class="toggle"  />
+    <label for="section-c992180c62af21b3acb7babbad4a6edf" class="flex justify-between">
       <a role="button"
          class="">第九章</a>
     </label>
@@ -670,8 +736,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-5285c61e0107d925df6ad67c62c6699b" class="toggle"  />
-    <label for="section-5285c61e0107d925df6ad67c62c6699b" class="flex justify-between">
+    <input type="checkbox" id="section-5c4905e8cb6611c7476262cb2b181a7d" class="toggle"  />
+    <label for="section-5c4905e8cb6611c7476262cb2b181a7d" class="flex justify-between">
       <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
          class="">热方程</a>
     </label>
@@ -727,8 +793,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a135ba9e4c93e772904209601ada4b30" class="toggle"  />
-    <label for="section-a135ba9e4c93e772904209601ada4b30" class="flex justify-between">
+    <input type="checkbox" id="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="toggle"  />
+    <label for="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="flex justify-between">
       <a role="button"
          class="">波方程</a>
     </label>
@@ -752,8 +818,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-1a86e133d83dac38a57580bd5f897d4e" class="toggle"  />
-    <label for="section-1a86e133d83dac38a57580bd5f897d4e" class="flex justify-between">
+    <input type="checkbox" id="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="toggle"  />
+    <label for="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="flex justify-between">
       <a role="button"
          class="">拉普拉斯方程</a>
     </label>
@@ -794,8 +860,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="toggle"  />
-    <label for="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="flex justify-between">
+    <input type="checkbox" id="section-20bb3063de72cc9c8e7b928b77587c05" class="toggle"  />
+    <label for="section-20bb3063de72cc9c8e7b928b77587c05" class="flex justify-between">
       <a role="button"
          class="">Quantum Mechenics</a>
     </label>
@@ -1150,8 +1216,7 @@ https://github.com/alex-shpak/hugo-book
     
     <div class="markdown posts"><blockquote>
 <p>[!theorem|8.?.?]
-Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded set $A$. Then $f$ is integrable on $A$ <strong>if and only if</strong> the set of discontinuities for the extended $f(x)$ has measure zero.</p>
-</blockquote>
+Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded set $A$. Then $f$ is integrable on $A$ <strong>if and only if</strong> the set of discontinuities for the extended $f(x)$ has measure zero.</p></blockquote>
 <h2 id="proof-of-the-theorem">
   Proof of the Theorem
   <a class="anchor" href="#proof-of-the-theorem">#</a>
@@ -1504,55 +1569,6 @@ $$\sup_{U_x} g - \inf_{U_x} g &lt; O(g, x) + 2\delta = \epsilon$$</li>
   </script>
   
   
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true,
-      packages: {'[+]': ['ams', 'noerrors', 'color']}
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'tex2jax_process'
-    },
-    svg: {
-      fontCache: 'global'
-    },
-    startup: {
-      ready: function() {
-        
-        const oldFindTeX = MathJax.startup.findTeX;
-        MathJax.startup.findTeX = function(options) {
-          
-          const results = oldFindTeX.call(this, options);
-          
-          
-          for (const item of results) {
-            if (item.display) {
-              let processedMath = item.math;
-              
-              
-              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
-                
-                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
-              });
-              
-              item.math = processedMath;
-            }
-          }
-          
-          return results;
-        };
-        
-        MathJax.startup.defaultReady();
-      }
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -1619,6 +1635,7 @@ $$\sup_{U_x} g - \inf_{U_x} g &lt; O(g, x) + 2\delta = \epsilon$$</li>
   <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
  
   <script defer src="/partial-load.min.1d4ed5d4ac20533fe341c211fd2c6b93ddb539b801d838d21437b218507d941b.js" integrity="sha256-HU7V1KwgUz/jQcIR/Sxrk921ObgB2DjSFDeyGFB9lBs=" crossorigin="anonymous"></script>
+  <script defer src="/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js" integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin="anonymous"></script>
 </body>
 </html>
 

@@ -13,17 +13,36 @@
   </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="2.1 边值问题（BVP）的有限差分:#[!claim|*] Consider the Boundary-Value Problem: $$ \begin{align} -\mu\frac{d^2u}{dx^2} &amp;= f, \quad x \in (0,1) \ u(0) &amp;= u(1) = 0 \end{align} $$ with discrete points: $$0 = x_0 &lt; x_1 &lt; \cdots &lt; x_{N} = 1\quad\Longrightarrow \quad-\mu\frac{d^2u}{dx^2}(x_i) = f(x_i)$$
-2.2 推导二阶中心差分近似法#2.2.1 Poisson 微分方程#对与任意一个离散的点$x_{i}$，我们首先在网格点 $x_{i&#43;1} = x_i &#43; \Delta x$ 和 $x_{i-1} = x_i - \Delta x$ 处对函数 $u(x)$ 进行泰勒级数展开：
-$$ \begin{align} u(x_{i&#43;1}) &amp;= u(x_i) &#43; \frac{du}{dx}(x_i)\Delta x &#43; \frac{1}{2}\frac{d^2u}{dx^2}(x_i)\Delta x^2 &#43; \cdots \ u(x_{i-1}) &amp;= u(x_i) - \frac{du}{dx}(x_i)\Delta x &#43; \frac{1}{2}\frac{d^2u}{dx^2}(x_i)\Delta x^2 &#43; \cdots \end{align} $$">
+<meta name="description" content="
+  2.1 边值问题（BVP）的有限差分:
+  #
+
+
+[!claim|*]
+Consider the Boundary-Value Problem:
+$$
+\begin{align}
+-\mu\frac{d^2u}{dx^2} &amp;= f, \quad x \in (0,1) \
+u(0) &amp;= u(1) = 0
+\end{align}
+$$
+with discrete points: $$0 = x_0 &lt; x_1 &lt;  \cdots &lt; x_{N} = 1\quad\Longrightarrow \quad-\mu\frac{d^2u}{dx^2}(x_i) = f(x_i)$$
+
+  2.2 推导二阶中心差分近似法
+  #
+
+
+  2.2.1 Poisson 微分方程
+  #
+
+对与任意一个离散的点$x_{i}$，我们首先在网格点 $x_{i&#43;1} = x_i &#43; \Delta x$ 和 $x_{i-1} = x_i - \Delta x$ 处对函数 $u(x)$ 进行泰勒级数展开：">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="9.2 有限差分法">
-  <meta property="og:description" content="2.1 边值问题（BVP）的有限差分:#[!claim|*] Consider the Boundary-Value Problem: $$ \begin{align} -\mu\frac{d^2u}{dx^2} &amp;= f, \quad x \in (0,1) \ u(0) &amp;= u(1) = 0 \end{align} $$ with discrete points: $$0 = x_0 &lt; x_1 &lt; \cdots &lt; x_{N} = 1\quad\Longrightarrow \quad-\mu\frac{d^2u}{dx^2}(x_i) = f(x_i)$$
-2.2 推导二阶中心差分近似法#2.2.1 Poisson 微分方程#对与任意一个离散的点$x_{i}$，我们首先在网格点 $x_{i&#43;1} = x_i &#43; \Delta x$ 和 $x_{i-1} = x_i - \Delta x$ 处对函数 $u(x)$ 进行泰勒级数展开：
-$$ \begin{align} u(x_{i&#43;1}) &amp;= u(x_i) &#43; \frac{du}{dx}(x_i)\Delta x &#43; \frac{1}{2}\frac{d^2u}{dx^2}(x_i)\Delta x^2 &#43; \cdots \ u(x_{i-1}) &amp;= u(x_i) - \frac{du}{dx}(x_i)\Delta x &#43; \frac{1}{2}\frac{d^2u}{dx^2}(x_i)\Delta x^2 &#43; \cdots \end{align} $$">
+  <meta property="og:description" content="2.1 边值问题（BVP）的有限差分: # [!claim|*] Consider the Boundary-Value Problem: $$ \begin{align} -\mu\frac{d^2u}{dx^2} &amp;= f, \quad x \in (0,1) \ u(0) &amp;= u(1) = 0 \end{align} $$ with discrete points: $$0 = x_0 &lt; x_1 &lt; \cdots &lt; x_{N} = 1\quad\Longrightarrow \quad-\mu\frac{d^2u}{dx^2}(x_i) = f(x_i)$$
+2.2 推导二阶中心差分近似法 # 2.2.1 Poisson 微分方程 # 对与任意一个离散的点$x_{i}$，我们首先在网格点 $x_{i&#43;1} = x_i &#43; \Delta x$ 和 $x_{i-1} = x_i - \Delta x$ 处对函数 $u(x)$ 进行泰勒级数展开：">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -35,14 +54,11 @@ $$ \begin{align} u(x_{i&#43;1}) &amp;= u(x_i) &#43; \frac{du}{dx}(x_i)\Delta x &
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.3ff1300cfe9ed355408ad75074d3ff4d3919879b68cee6e36c474816f2fb8cdd.css" integrity="sha256-P/EwDP6e01VAitdQdNP/TTkZh5tozubjbEdIFvL7jN0=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.2d7c41402e14539fe83d37688057b7e2670d48bbcb530d82bcf09925c94a99e7.css" integrity="sha256-LXxBQC4UU5/oPTdogFe34mcNSLvLUw2CvPCZJclKmec=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.ee6a408c56d4bb48df7e5710a26b5d442f5cc5b3959a59d5a43f2a134ad6ca88.js" integrity="sha256-7mpAjFbUu0jfflcQomtdRC9cxbOVmlnVpD8qE0rWyog=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.510d5eb6f1e57108271c2d4c3476ce8980e0cceb3fecca22e963a7f88dc28795.js" integrity="sha256-UQ1etvHlcQgnHC1MNHbOiYDgzOs/7Moi6WOn&#43;I3Ch5U=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-
-  
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -64,7 +80,7 @@ https://github.com/alex-shpak/hugo-book
   <nav>
 <h2 class="book-brand">
   <a class="flex align-center justify-center" 
-     href="/">
+     href="http://localhost:1313/">
     <img src="/topo.png" 
          alt="Logo" 
          class="book-icon" />
@@ -116,8 +132,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-3dc5ba62250cd8b173945805306d582d" class="toggle"  />
-    <label for="section-3dc5ba62250cd8b173945805306d582d" class="flex justify-between">
+    <input type="checkbox" id="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="toggle"  />
+    <label for="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="flex justify-between">
       <a role="button"
          class="">爽分析 II</a>
     </label>
@@ -136,8 +152,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-18dfa49db2b03993a1bd3315710acd5e" class="toggle"  />
-    <label for="section-18dfa49db2b03993a1bd3315710acd5e" class="flex justify-between">
+    <input type="checkbox" id="section-c3d4873afc217e738d4eac6ed01dcfd0" class="toggle"  />
+    <label for="section-c3d4873afc217e738d4eac6ed01dcfd0" class="flex justify-between">
       <a role="button"
          class="">第六章 可微映射</a>
     </label>
@@ -225,8 +241,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-8d1199ea5dee264155db6be39165caab" class="toggle"  />
-    <label for="section-8d1199ea5dee264155db6be39165caab" class="flex justify-between">
+    <input type="checkbox" id="section-fe97be846a74527e019600047479e8ff" class="toggle"  />
+    <label for="section-fe97be846a74527e019600047479e8ff" class="flex justify-between">
       <a role="button"
          class="">第七章 逆函数和隐函数定理</a>
     </label>
@@ -316,8 +332,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a5127f215d0185f57c753ced3289b7fd" class="toggle"  />
-    <label for="section-a5127f215d0185f57c753ced3289b7fd" class="flex justify-between">
+    <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle"  />
+    <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
       <a role="button"
          class="">第八章 度量理论</a>
     </label>
@@ -447,8 +463,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7e4e495d58202114a97ea7292812ced6" class="toggle" checked />
-    <label for="section-7e4e495d58202114a97ea7292812ced6" class="flex justify-between">
+    <input type="checkbox" id="section-03018ad84f65943f3692f81c9f43c501" class="toggle" checked />
+    <label for="section-03018ad84f65943f3692f81c9f43c501" class="flex justify-between">
       <a role="button"
          class="">偏微分方程</a>
     </label>
@@ -467,8 +483,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f66c16f1f26d5439b500ac53a6090814" class="toggle" checked />
-    <label for="section-f66c16f1f26d5439b500ac53a6090814" class="flex justify-between">
+    <input type="checkbox" id="section-3c138d22d500a5fca83e33c724f72850" class="toggle" checked />
+    <label for="section-3c138d22d500a5fca83e33c724f72850" class="flex justify-between">
       <a role="button"
          class="">数值方法</a>
     </label>
@@ -535,8 +551,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="toggle"  />
-    <label for="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="flex justify-between">
+    <input type="checkbox" id="section-d39d8ec7b87141eab4913ff95921d882" class="toggle"  />
+    <label for="section-d39d8ec7b87141eab4913ff95921d882" class="flex justify-between">
       <a role="button"
          class="">第四章 有限元分析</a>
     </label>
@@ -562,8 +578,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-cd82823df15274abb4c628a304ce2823" class="toggle" checked />
-    <label for="section-cd82823df15274abb4c628a304ce2823" class="flex justify-between">
+    <input type="checkbox" id="section-c992180c62af21b3acb7babbad4a6edf" class="toggle" checked />
+    <label for="section-c992180c62af21b3acb7babbad4a6edf" class="flex justify-between">
       <a role="button"
          class="">第九章</a>
     </label>
@@ -672,8 +688,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-5285c61e0107d925df6ad67c62c6699b" class="toggle"  />
-    <label for="section-5285c61e0107d925df6ad67c62c6699b" class="flex justify-between">
+    <input type="checkbox" id="section-5c4905e8cb6611c7476262cb2b181a7d" class="toggle"  />
+    <label for="section-5c4905e8cb6611c7476262cb2b181a7d" class="flex justify-between">
       <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
          class="">热方程</a>
     </label>
@@ -729,8 +745,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a135ba9e4c93e772904209601ada4b30" class="toggle"  />
-    <label for="section-a135ba9e4c93e772904209601ada4b30" class="flex justify-between">
+    <input type="checkbox" id="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="toggle"  />
+    <label for="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="flex justify-between">
       <a role="button"
          class="">波方程</a>
     </label>
@@ -754,8 +770,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-1a86e133d83dac38a57580bd5f897d4e" class="toggle"  />
-    <label for="section-1a86e133d83dac38a57580bd5f897d4e" class="flex justify-between">
+    <input type="checkbox" id="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="toggle"  />
+    <label for="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="flex justify-between">
       <a role="button"
          class="">拉普拉斯方程</a>
     </label>
@@ -796,8 +812,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="toggle"  />
-    <label for="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="flex justify-between">
+    <input type="checkbox" id="section-20bb3063de72cc9c8e7b928b77587c05" class="toggle"  />
+    <label for="section-20bb3063de72cc9c8e7b928b77587c05" class="flex justify-between">
       <a role="button"
          class="">Quantum Mechenics</a>
     </label>
@@ -1171,8 +1187,7 @@ $$
 u(0) &amp;= u(1) = 0
 \end{align}
 $$
-with discrete points: $$0 = x_0 &lt; x_1 &lt;  \cdots &lt; x_{N} = 1\quad\Longrightarrow \quad-\mu\frac{d^2u}{dx^2}(x_i) = f(x_i)$$</p>
-</blockquote>
+with discrete points: $$0 = x_0 &lt; x_1 &lt;  \cdots &lt; x_{N} = 1\quad\Longrightarrow \quad-\mu\frac{d^2u}{dx^2}(x_i) = f(x_i)$$</p></blockquote>
 <h2 id="22-推导二阶中心差分近似法">
   2.2 推导二阶中心差分近似法
   <a class="anchor" href="#22-%e6%8e%a8%e5%af%bc%e4%ba%8c%e9%98%b6%e4%b8%ad%e5%bf%83%e5%b7%ae%e5%88%86%e8%bf%91%e4%bc%bc%e6%b3%95">#</a>
@@ -1205,14 +1220,12 @@ $$</p>
 <p>记 $u_i = u(x_i)$ 与 $f_i = f(x_i)$. 因此我们得到微分方程</p>
 <blockquote>
 <p>[!claim|*]
-$$-\mu\frac{d^2u}{dx^2}(x_i) = -\mu\frac{u_{i+1} + u_{i-1} - 2u_i}{\Delta x^2} = f_i$$</p>
-</blockquote>
+$$-\mu\frac{d^2u}{dx^2}(x_i) = -\mu\frac{u_{i+1} + u_{i-1} - 2u_i}{\Delta x^2} = f_i$$</p></blockquote>
 <blockquote>
 <ol>
 <li>截断误差（Truncation Error）为 $\mathcal{O}(\Delta x^2)$</li>
 <li>这证实了该近似是二阶精度 （second-order accuracy）</li>
-</ol>
-</blockquote>
+</ol></blockquote>
 <h3 id="222-构建线性系统">
   2.2.2 构建线性系统
   <a class="anchor" href="#222-%e6%9e%84%e5%bb%ba%e7%ba%bf%e6%80%a7%e7%b3%bb%e7%bb%9f">#</a>
@@ -1253,8 +1266,7 @@ $$</p>
 <blockquote>
 <p>[!claim|*]
 $$Au_{ex} = f + T$$
-where $T_i = C(x_i)\Delta x^2$ is truncation error</p>
-</blockquote>
+where $T_i = C(x_i)\Delta x^2$ is truncation error</p></blockquote>
 <p>其中$C(x_i)$与四阶导数相关：$$C(x_i) = C\frac{d^4u}{dx^4}(x_i)$$</p>
 <h3 id="误差方程-error-equation">
   误差方程 (Error Equation)
@@ -1273,8 +1285,7 @@ $$Ae = T$$</p>
 <blockquote>
 <p>[!lemma|*]
 Conditions to show convergence:
-$$||A^{-1}|| &lt; \infty \quad \text{and} \quad ||T|| \to 0 \quad \text{as} \quad \Delta x \to 0$$</p>
-</blockquote>
+$$||A^{-1}|| &lt; \infty \quad \text{and} \quad ||T|| \to 0 \quad \text{as} \quad \Delta x \to 0$$</p></blockquote>
 <h4 id="关于-a-1-的有界性">
   关于 $|A^{-1}|$ 的有界性
   <a class="anchor" href="#%e5%85%b3%e4%ba%8e-a-1-%e7%9a%84%e6%9c%89%e7%95%8c%e6%80%a7">#</a>
@@ -1299,8 +1310,7 @@ $$||A^{-1}|| &lt; \infty \quad \text{and} \quad ||T|| \to 0 \quad \text{as} \qua
 <li>因此，该有限差分方法是收敛的 (convergent)</li>
 </ul>
 <blockquote>
-<p>虽然$\kappa$随 $\Delta x$ 变化，但 $|A^{-1}|$ 的增长被 $|T|$ 的更快减小所抵消。</p>
-</blockquote>
+<p>虽然$\kappa$随 $\Delta x$ 变化，但 $|A^{-1}|$ 的增长被 $|T|$ 的更快减小所抵消。</p></blockquote>
 <h3 id="实际意义">
   实际意义？
   <a class="anchor" href="#%e5%ae%9e%e9%99%85%e6%84%8f%e4%b9%89">#</a>
@@ -1675,6 +1685,7 @@ $$||A^{-1}|| &lt; \infty \quad \text{and} \quad ||T|| \to 0 \quad \text{as} \qua
   <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
  
   <script defer src="/partial-load.min.1d4ed5d4ac20533fe341c211fd2c6b93ddb539b801d838d21437b218507d941b.js" integrity="sha256-HU7V1KwgUz/jQcIR/Sxrk921ObgB2DjSFDeyGFB9lBs=" crossorigin="anonymous"></script>
+  <script defer src="/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js" integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin="anonymous"></script>
 </body>
 </html>
 

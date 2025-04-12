@@ -13,9 +13,50 @@
   </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="import numpy as np import scipy.sparse as sp import scipy.sparse.linalg as spla import matplotlib.pyplot as plt
-def computation(): #parameters N, V0_tilde, L = 600, 10.0, 1.0 M, dx = N - 2, L / (N - 1) x_vals = np.linspace(-0.5 * L &#43; dx, 0.5 * L - dx, M) # Interior points
-# KE matrix T (tridiagonal)factor = (N**2) / (np.pi**2)T = sp.diags([np.full(M - 1, -factor), np.full(M, 2 * factor), np.">
+<meta name="description" content="import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+import matplotlib.pyplot as plt
+def computation():
+#parameters
+N, V0_tilde, L = 600, 10.0, 1.0
+M, dx = N - 2, L / (N - 1)
+x_vals = np.linspace(-0.5 * L &#43; dx, 0.5 * L - dx, M)  # Interior points
+# KE matrix T (tridiagonal)
+factor = (N**2) / (np.pi**2)
+T = sp.diags([np.full(M - 1, -factor), np.full(M, 2 * factor), np.full(M - 1, -factor)], [-1, 0, 1])
+
+# PE matrix V (diagonal)
+V = sp.diags(np.where(np.abs(x_vals) &lt; (L / 6), V0_tilde, 0))
+
+#Hamiltonian H = T &#43; V
+H = T &#43; V
+
+#solve for lowest two eigenvalues/eigenvectors
+eigvals, eigvecs = spla.eigsh(H, k=2, which=&#39;SM&#39;)
+eigvals, eigvecs = zip(*sorted(zip(eigvals, eigvecs.T)))  # Sort eigenvalues &amp; vectors
+
+print(f&quot;Ground state energy = {eigvals[0]}&quot;)
+print(f&quot;1st excited energy = {eigvals[1]}&quot;)
+
+#include boundary points
+x_full = np.linspace(-0.5 * L, 0.5 * L, N)
+psi_full = [np.concatenate(([0], psi, [0])) for psi in eigvecs]
+
+# Plot wavefunctions
+plt.figure(figsize=(8,6))
+plt.plot(x_full, psi_full[0], color=&#39;red&#39;,label=&quot;Ground State&quot;)
+plt.plot(x_full, psi_full[1], color=&#39;blue&#39;, label=&quot;1st Excited State&quot;)
+plt.axvspan(-L/6, L/6, color=&#39;gray&#39;, alpha=0.1, label=&#39;Barrier region&#39;)
+plt.title(&quot;Wavefunctions for lowest two states&quot;)
+plt.xlabel(&quot;x (dimensionless)&quot;)
+plt.ylabel(&quot;ψ(x)&quot;)
+plt.legend()
+plt.grid()
+plt.show()
+
+if name == &ldquo;main&rdquo;:
+computation()">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/">
@@ -23,7 +64,7 @@ def computation(): #parameters N, V0_tilde, L = 600, 10.0, 1.0 M, dx = N - 2, L 
   <meta property="og:title" content="位相学補完計画">
   <meta property="og:description" content="import numpy as np import scipy.sparse as sp import scipy.sparse.linalg as spla import matplotlib.pyplot as plt
 def computation(): #parameters N, V0_tilde, L = 600, 10.0, 1.0 M, dx = N - 2, L / (N - 1) x_vals = np.linspace(-0.5 * L &#43; dx, 0.5 * L - dx, M) # Interior points
-# KE matrix T (tridiagonal)factor = (N**2) / (np.pi**2)T = sp.diags([np.full(M - 1, -factor), np.full(M, 2 * factor), np.">
+# KE matrix T (tridiagonal) factor = (N**2) / (np.pi**2) T = sp.diags([np.full(M - 1, -factor), np.full(M, 2 * factor), np.full(M - 1, -factor)], [-1, 0, 1]) # PE matrix V (diagonal) V = sp.diags(np.where(np.abs(x_vals) &lt; (L / 6), V0_tilde, 0)) #Hamiltonian H = T &#43; V H = T &#43; V #solve for lowest two eigenvalues/eigenvectors eigvals, eigvecs = spla.eigsh(H, k=2, which=&#39;SM&#39;) eigvals, eigvecs = zip(*sorted(zip(eigvals, eigvecs.T))) # Sort eigenvalues &amp; vectors print(f&#34;Ground state energy = {eigvals[0]}&#34;) print(f&#34;1st excited energy = {eigvals[1]}&#34;) #include boundary points x_full = np.linspace(-0.5 * L, 0.5 * L, N) psi_full = [np.concatenate(([0], psi, [0])) for psi in eigvecs] # Plot wavefunctions plt.figure(figsize=(8,6)) plt.plot(x_full, psi_full[0], color=&#39;red&#39;,label=&#34;Ground State&#34;) plt.plot(x_full, psi_full[1], color=&#39;blue&#39;, label=&#34;1st Excited State&#34;) plt.axvspan(-L/6, L/6, color=&#39;gray&#39;, alpha=0.1, label=&#39;Barrier region&#39;) plt.title(&#34;Wavefunctions for lowest two states&#34;) plt.xlabel(&#34;x (dimensionless)&#34;) plt.ylabel(&#34;ψ(x)&#34;) plt.legend() plt.grid() plt.show() if name == “main”: computation()">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -35,14 +76,11 @@ Hw3 Code | 位相学補完計画</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.581d7cf1f5991b3860c5e5cd854c3300ecfa23047aaa128ee1486bddaa8e9828.css" integrity="sha256-WB188fWZGzhgxeXNhUwzAOz6IwR6qhKO4Uhr3aqOmCg=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.2d7c41402e14539fe83d37688057b7e2670d48bbcb530d82bcf09925c94a99e7.css" integrity="sha256-LXxBQC4UU5/oPTdogFe34mcNSLvLUw2CvPCZJclKmec=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.ee6a408c56d4bb48df7e5710a26b5d442f5cc5b3959a59d5a43f2a134ad6ca88.js" integrity="sha256-7mpAjFbUu0jfflcQomtdRC9cxbOVmlnVpD8qE0rWyog=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.510d5eb6f1e57108271c2d4c3476ce8980e0cceb3fecca22e963a7f88dc28795.js" integrity="sha256-UQ1etvHlcQgnHC1MNHbOiYDgzOs/7Moi6WOn&#43;I3Ch5U=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-
-  
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -116,8 +154,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-3dc5ba62250cd8b173945805306d582d" class="toggle"  />
-    <label for="section-3dc5ba62250cd8b173945805306d582d" class="flex justify-between">
+    <input type="checkbox" id="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="toggle"  />
+    <label for="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="flex justify-between">
       <a role="button"
          class="">爽分析 II</a>
     </label>
@@ -136,8 +174,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-18dfa49db2b03993a1bd3315710acd5e" class="toggle"  />
-    <label for="section-18dfa49db2b03993a1bd3315710acd5e" class="flex justify-between">
+    <input type="checkbox" id="section-c3d4873afc217e738d4eac6ed01dcfd0" class="toggle"  />
+    <label for="section-c3d4873afc217e738d4eac6ed01dcfd0" class="flex justify-between">
       <a role="button"
          class="">第六章 可微映射</a>
     </label>
@@ -225,8 +263,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-8d1199ea5dee264155db6be39165caab" class="toggle"  />
-    <label for="section-8d1199ea5dee264155db6be39165caab" class="flex justify-between">
+    <input type="checkbox" id="section-fe97be846a74527e019600047479e8ff" class="toggle"  />
+    <label for="section-fe97be846a74527e019600047479e8ff" class="flex justify-between">
       <a role="button"
          class="">第七章 逆函数和隐函数定理</a>
     </label>
@@ -316,8 +354,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a5127f215d0185f57c753ced3289b7fd" class="toggle"  />
-    <label for="section-a5127f215d0185f57c753ced3289b7fd" class="flex justify-between">
+    <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle"  />
+    <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
       <a role="button"
          class="">第八章 度量理论</a>
     </label>
@@ -447,8 +485,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7e4e495d58202114a97ea7292812ced6" class="toggle"  />
-    <label for="section-7e4e495d58202114a97ea7292812ced6" class="flex justify-between">
+    <input type="checkbox" id="section-03018ad84f65943f3692f81c9f43c501" class="toggle"  />
+    <label for="section-03018ad84f65943f3692f81c9f43c501" class="flex justify-between">
       <a role="button"
          class="">偏微分方程</a>
     </label>
@@ -467,8 +505,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f66c16f1f26d5439b500ac53a6090814" class="toggle"  />
-    <label for="section-f66c16f1f26d5439b500ac53a6090814" class="flex justify-between">
+    <input type="checkbox" id="section-3c138d22d500a5fca83e33c724f72850" class="toggle"  />
+    <label for="section-3c138d22d500a5fca83e33c724f72850" class="flex justify-between">
       <a role="button"
          class="">数值方法</a>
     </label>
@@ -535,8 +573,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="toggle"  />
-    <label for="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="flex justify-between">
+    <input type="checkbox" id="section-d39d8ec7b87141eab4913ff95921d882" class="toggle"  />
+    <label for="section-d39d8ec7b87141eab4913ff95921d882" class="flex justify-between">
       <a role="button"
          class="">第四章 有限元分析</a>
     </label>
@@ -562,8 +600,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-cd82823df15274abb4c628a304ce2823" class="toggle"  />
-    <label for="section-cd82823df15274abb4c628a304ce2823" class="flex justify-between">
+    <input type="checkbox" id="section-c992180c62af21b3acb7babbad4a6edf" class="toggle"  />
+    <label for="section-c992180c62af21b3acb7babbad4a6edf" class="flex justify-between">
       <a role="button"
          class="">第九章</a>
     </label>
@@ -672,8 +710,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-5285c61e0107d925df6ad67c62c6699b" class="toggle"  />
-    <label for="section-5285c61e0107d925df6ad67c62c6699b" class="flex justify-between">
+    <input type="checkbox" id="section-5c4905e8cb6611c7476262cb2b181a7d" class="toggle"  />
+    <label for="section-5c4905e8cb6611c7476262cb2b181a7d" class="flex justify-between">
       <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
          class="">热方程</a>
     </label>
@@ -729,8 +767,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a135ba9e4c93e772904209601ada4b30" class="toggle"  />
-    <label for="section-a135ba9e4c93e772904209601ada4b30" class="flex justify-between">
+    <input type="checkbox" id="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="toggle"  />
+    <label for="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="flex justify-between">
       <a role="button"
          class="">波方程</a>
     </label>
@@ -754,8 +792,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-1a86e133d83dac38a57580bd5f897d4e" class="toggle"  />
-    <label for="section-1a86e133d83dac38a57580bd5f897d4e" class="flex justify-between">
+    <input type="checkbox" id="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="toggle"  />
+    <label for="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="flex justify-between">
       <a role="button"
          class="">拉普拉斯方程</a>
     </label>
@@ -796,8 +834,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="toggle" checked />
-    <label for="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="flex justify-between">
+    <input type="checkbox" id="section-20bb3063de72cc9c8e7b928b77587c05" class="toggle" checked />
+    <label for="section-20bb3063de72cc9c8e7b928b77587c05" class="flex justify-between">
       <a role="button"
          class="">Quantum Mechenics</a>
     </label>
