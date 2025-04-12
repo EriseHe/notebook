@@ -1044,6 +1044,8 @@ treat
 technical
 triumphs
 travel
+tail
+triangle
 system
 solvability
 such
@@ -1415,6 +1417,7 @@ simultaneously
 solely
 smoothing
 smoothed
+speaking
 discuss
 determine
 described
@@ -2126,6 +2129,7 @@ novel
 notably
 nuanced
 neither
+net
 Does
 Determine
 Differentiability
@@ -2520,6 +2524,7 @@ harder
 harmful
 hallucinations
 hyperbolic
+hypothesis
 local
 limit
 lim
@@ -2670,6 +2675,7 @@ legal
 limitation
 leverage
 live
+loosely
 Show
 Sufficient
 Substitute
@@ -3042,6 +3048,7 @@ exams
 explain
 evolution
 empirical
+exponentials
 whether
 written
 which
@@ -4422,6 +4429,8 @@ Williams
 Watkins
 Wikipedia
 While
+WTS
+Without
 Thus
 Theorem
 These
@@ -4728,6 +4737,7 @@ French
 Follow
 Future
 Fairness
+Finally
 Jacobian
 Jobcobian
 John
