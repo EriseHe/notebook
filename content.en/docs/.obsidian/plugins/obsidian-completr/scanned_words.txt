@@ -129,6 +129,9 @@ ChatGPT
 Common
 CFL
 Courant
+Comparison
+Converges
+Conditional
 font
 for
 functions
@@ -632,6 +635,7 @@ collectively
 chart
 captured
 cells
+comparison
 Problem
 Partial
 Putting
@@ -827,6 +831,8 @@ Invaders
 Improving
 Instructions
 InstructGPT
+Improper
+Integrals
 the
 terms
 that
@@ -1666,6 +1672,8 @@ descriptions
 discussions
 detailed
 defines
+diverges
+divergent
 in
 inverse
 implicit
@@ -1887,6 +1895,7 @@ innovation
 intelligently
 infinitely
 instability
+increasing
 of
 our
 out
@@ -2116,6 +2125,7 @@ navigate
 novel
 notably
 nuanced
+neither
 Does
 Determine
 Differentiability
@@ -2202,6 +2212,7 @@ Developing
 Derive
 Discretizing
 Discontinuous
+Divergence
 map
 matrix
 mapping
@@ -2802,6 +2813,7 @@ Solved
 Sense
 Safety
 Sources
+Study
 equations
 equation
 exists
@@ -3973,6 +3985,7 @@ references
 road
 respecting
 restriction
+removed
 partials
 partial
 point
@@ -4493,6 +4506,7 @@ Trained
 Technical
 Tasks
 Techniques
+Types
 Hence
 Here
 Hypotheses
@@ -5077,6 +5091,7 @@ underpinnings
 understandable
 unlike
 unboundedly
+unbounded
 guarantees
 gives
 give
@@ -5610,6 +5625,7 @@ Vapnik
 Vector
 Vaswani
 Von
+Variable
 Yes
 You
 YX
@@ -5788,6 +5804,7 @@ OpenAI
 Ouyang
 Open
 Overall
+Observe
 Given
 Get
 Guessing

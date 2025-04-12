@@ -14,12 +14,27 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="The general form of heat equation (diffusion equation) is represented as
-$$ u_t-k\Delta u=0 $$
+$$
+u_t-k\Delta u=0
+$$
 where $x\in U$ for $U \in \R^n$ (n-dimentional) s.t we have $u:\bar{U} \times [0,\infty) \to \R$.
-$k$ is the thermal diffusivity of the material. prototype of parabolic PDEs normalized heat equation where $k=1$ is specified for theoretical studies (focusing on mathematical analysis) For 1-dimentional special case:
-$$ u_t-ku_{xx}=0 $$
+
+$k$ is the thermal diffusivity of the material.
+prototype of parabolic PDEs
+normalized heat equation where $k=1$ is specified for theoretical studies (focusing on mathematical analysis)
+
+For  1-dimentional special case:
+$$
+u_t-ku_{xx}=0
+$$
 where ${x,t\in(-\infty,\infty), [0, \infty)}$.
-Lecture 10#下面的排序是按照推导热方程解析解的顺序来的。">
+
+
+  Lecture 10
+  #
+
+
+下面的排序是按照推导热方程解析解的顺序来的。">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/Heat-Equation/">
@@ -31,7 +46,7 @@ where $x\in U$ for $U \in \R^n$ (n-dimentional) s.t we have $u:\bar{U} \times [0
 $k$ is the thermal diffusivity of the material. prototype of parabolic PDEs normalized heat equation where $k=1$ is specified for theoretical studies (focusing on mathematical analysis) For 1-dimentional special case:
 $$ u_t-ku_{xx}=0 $$
 where ${x,t\in(-\infty,\infty), [0, \infty)}$.
-Lecture 10#下面的排序是按照推导热方程解析解的顺序来的。">
+Lecture 10 # 下面的排序是按照推导热方程解析解的顺序来的。">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 <title>
@@ -42,14 +57,11 @@ Lecture 10#下面的排序是按照推导热方程解析解的顺序来的。"
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.581d7cf1f5991b3860c5e5cd854c3300ecfa23047aaa128ee1486bddaa8e9828.css" integrity="sha256-WB188fWZGzhgxeXNhUwzAOz6IwR6qhKO4Uhr3aqOmCg=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.2d7c41402e14539fe83d37688057b7e2670d48bbcb530d82bcf09925c94a99e7.css" integrity="sha256-LXxBQC4UU5/oPTdogFe34mcNSLvLUw2CvPCZJclKmec=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.ee6a408c56d4bb48df7e5710a26b5d442f5cc5b3959a59d5a43f2a134ad6ca88.js" integrity="sha256-7mpAjFbUu0jfflcQomtdRC9cxbOVmlnVpD8qE0rWyog=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.510d5eb6f1e57108271c2d4c3476ce8980e0cceb3fecca22e963a7f88dc28795.js" integrity="sha256-UQ1etvHlcQgnHC1MNHbOiYDgzOs/7Moi6WOn&#43;I3Ch5U=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-
-  
-
 <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/docs/Mathematics/MATH-351-352/Heat-Equation/index.xml" title="位相学補完計画" />
 <!--
 Made with Book Theme
@@ -124,8 +136,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-3dc5ba62250cd8b173945805306d582d" class="toggle"  />
-    <label for="section-3dc5ba62250cd8b173945805306d582d" class="flex justify-between">
+    <input type="checkbox" id="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="toggle"  />
+    <label for="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="flex justify-between">
       <a role="button"
          class="">爽分析 II</a>
     </label>
@@ -144,8 +156,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-18dfa49db2b03993a1bd3315710acd5e" class="toggle"  />
-    <label for="section-18dfa49db2b03993a1bd3315710acd5e" class="flex justify-between">
+    <input type="checkbox" id="section-c3d4873afc217e738d4eac6ed01dcfd0" class="toggle"  />
+    <label for="section-c3d4873afc217e738d4eac6ed01dcfd0" class="flex justify-between">
       <a role="button"
          class="">第六章 可微映射</a>
     </label>
@@ -233,8 +245,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-8d1199ea5dee264155db6be39165caab" class="toggle"  />
-    <label for="section-8d1199ea5dee264155db6be39165caab" class="flex justify-between">
+    <input type="checkbox" id="section-fe97be846a74527e019600047479e8ff" class="toggle"  />
+    <label for="section-fe97be846a74527e019600047479e8ff" class="flex justify-between">
       <a role="button"
          class="">第七章 逆函数和隐函数定理</a>
     </label>
@@ -324,8 +336,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a5127f215d0185f57c753ced3289b7fd" class="toggle"  />
-    <label for="section-a5127f215d0185f57c753ced3289b7fd" class="flex justify-between">
+    <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle"  />
+    <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
       <a role="button"
          class="">第八章 度量理论</a>
     </label>
@@ -344,8 +356,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Lebesgue-Convergence-Theorem/"
-       class="">8.5 Lebesgue Convergence Theorem</a>
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/"
+       class="">8.6 勒贝格收敛定理</a>
   
 
         </li>
@@ -394,6 +406,22 @@ https://github.com/alex-shpak/hugo-book
   
     <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/"
        class="">8.3 Proof of Lebesgue&#39;s Theorem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/"
+       class="">8.5 不定积分</a>
   
 
         </li>
@@ -455,8 +483,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7e4e495d58202114a97ea7292812ced6" class="toggle" checked />
-    <label for="section-7e4e495d58202114a97ea7292812ced6" class="flex justify-between">
+    <input type="checkbox" id="section-03018ad84f65943f3692f81c9f43c501" class="toggle" checked />
+    <label for="section-03018ad84f65943f3692f81c9f43c501" class="flex justify-between">
       <a role="button"
          class="">偏微分方程</a>
     </label>
@@ -475,8 +503,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f66c16f1f26d5439b500ac53a6090814" class="toggle"  />
-    <label for="section-f66c16f1f26d5439b500ac53a6090814" class="flex justify-between">
+    <input type="checkbox" id="section-3c138d22d500a5fca83e33c724f72850" class="toggle"  />
+    <label for="section-3c138d22d500a5fca83e33c724f72850" class="flex justify-between">
       <a role="button"
          class="">数值方法</a>
     </label>
@@ -543,8 +571,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="toggle"  />
-    <label for="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="flex justify-between">
+    <input type="checkbox" id="section-d39d8ec7b87141eab4913ff95921d882" class="toggle"  />
+    <label for="section-d39d8ec7b87141eab4913ff95921d882" class="flex justify-between">
       <a role="button"
          class="">第四章 有限元分析</a>
     </label>
@@ -570,8 +598,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-cd82823df15274abb4c628a304ce2823" class="toggle"  />
-    <label for="section-cd82823df15274abb4c628a304ce2823" class="flex justify-between">
+    <input type="checkbox" id="section-c992180c62af21b3acb7babbad4a6edf" class="toggle"  />
+    <label for="section-c992180c62af21b3acb7babbad4a6edf" class="flex justify-between">
       <a role="button"
          class="">第九章</a>
     </label>
@@ -680,8 +708,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-5285c61e0107d925df6ad67c62c6699b" class="toggle" checked />
-    <label for="section-5285c61e0107d925df6ad67c62c6699b" class="flex justify-between">
+    <input type="checkbox" id="section-5c4905e8cb6611c7476262cb2b181a7d" class="toggle" checked />
+    <label for="section-5c4905e8cb6611c7476262cb2b181a7d" class="flex justify-between">
       <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
          class="active">热方程</a>
     </label>
@@ -737,8 +765,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a135ba9e4c93e772904209601ada4b30" class="toggle"  />
-    <label for="section-a135ba9e4c93e772904209601ada4b30" class="flex justify-between">
+    <input type="checkbox" id="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="toggle"  />
+    <label for="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="flex justify-between">
       <a role="button"
          class="">波方程</a>
     </label>
@@ -762,8 +790,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-1a86e133d83dac38a57580bd5f897d4e" class="toggle"  />
-    <label for="section-1a86e133d83dac38a57580bd5f897d4e" class="flex justify-between">
+    <input type="checkbox" id="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="toggle"  />
+    <label for="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="flex justify-between">
       <a role="button"
          class="">拉普拉斯方程</a>
     </label>
@@ -804,8 +832,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="toggle"  />
-    <label for="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="flex justify-between">
+    <input type="checkbox" id="section-20bb3063de72cc9c8e7b928b77587c05" class="toggle"  />
+    <label for="section-20bb3063de72cc9c8e7b928b77587c05" class="flex justify-between">
       <a role="button"
          class="">Quantum Mechenics</a>
     </label>
@@ -1235,8 +1263,7 @@ $$</p>
   <a class="anchor" href="#lecture-10">#</a>
 </h1>
 <blockquote>
-<p>下面的排序是按照推导热方程解析解的顺序来的。</p>
-</blockquote>
+<p>下面的排序是按照推导热方程解析解的顺序来的。</p></blockquote>
 <p>基本思路：</p>
 <p>我们先通过
   <a href="https://wiki.swarma.org/index.php/%E6%A0%87%E5%BA%A6%E4%B8%8D%E5%8F%98%E6%80%A7">标度不变性</a>（scale invariance）找到一个所有解通用的形式，并且嵌入原方程进行运算。</p>
@@ -1644,55 +1671,6 @@ $$</p>
   </script>
   
   
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true,
-      packages: {'[+]': ['ams', 'noerrors', 'color']}
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'tex2jax_process'
-    },
-    svg: {
-      fontCache: 'global'
-    },
-    startup: {
-      ready: function() {
-        
-        const oldFindTeX = MathJax.startup.findTeX;
-        MathJax.startup.findTeX = function(options) {
-          
-          const results = oldFindTeX.call(this, options);
-          
-          
-          for (const item of results) {
-            if (item.display) {
-              let processedMath = item.math;
-              
-              
-              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
-                
-                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
-              });
-              
-              item.math = processedMath;
-            }
-          }
-          
-          return results;
-        };
-        
-        MathJax.startup.defaultReady();
-      }
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {

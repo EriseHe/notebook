@@ -13,20 +13,46 @@
   </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="3.1 对流-扩散方程#对流-扩散方程是一种描述物质或热量在流体中同时受到对流（也称为平流）和扩散作用影响的偏微分方程。这个方程在流体力学、传热学和物质传输等领域有广泛应用。
-$$ \begin{align} -\mu\frac{\partial^2 u}{\partial x^2} &#43; \beta\frac{\partial u}{\partial x} &amp;= f \ \text{diffusion} \quad &amp; \text{advection} \end{align} $$
+<meta name="description" content="
+  3.1 对流-扩散方程
+  #
+
+对流-扩散方程是一种描述物质或热量在流体中同时受到对流（也称为平流）和扩散作用影响的偏微分方程。这个方程在流体力学、传热学和物质传输等领域有广泛应用。
+$$
+\begin{align}
+-\mu\frac{\partial^2 u}{\partial x^2} &#43; \beta\frac{\partial u}{\partial x} &amp;= f \
+\text{diffusion} \quad &amp; \text{advection}
+\end{align}
+$$
 $$u(0) = u_L, \quad u(1) = u_R$$
-3.1.1 离散化过程：#一阶导数：对流项 （Advection）#泰勒展开（向前）#$$ \begin{align}
-u(x_{j&#43;1}) &amp; = u(x_j) &#43; \frac{\partial u}{\partial x}(x_j)\Delta x &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 \ &amp;\quad\quad\quad\quad-\frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 &#43; \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 &#43; \mathcal{O}(||x||^5)\ \frac{\partial u}{\partial x}(x_j)\Delta x &amp; = u(x_{j&#43;1}) - u(x_j) &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2\ \frac{\partial u}{\partial x}(x_j) &amp; = \frac{u_{j&#43;1} - u_j}{\Delta x} &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x \end{align}$$">
+
+  3.1.1 离散化过程：
+  #
+
+
+  一阶导数：对流项 （Advection）
+  #
+
+
+  泰勒展开（向前）
+  #
+
+$$
+\begin{align}
+u(x_{j&#43;1})  &amp; = u(x_j) &#43; \frac{\partial u}{\partial x}(x_j)\Delta x &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2  \
+&amp;\quad\quad\quad\quad-\frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 &#43; \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 &#43; \mathcal{O}(||x||^5)\
+\frac{\partial u}{\partial x}(x_j)\Delta x  &amp; = u(x_{j&#43;1}) - u(x_j) &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2\
+\frac{\partial u}{\partial x}(x_j)  &amp; = \frac{u_{j&#43;1} - u_j}{\Delta x} &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x
+\end{align}$$">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="9.3 对流-扩散方程">
-  <meta property="og:description" content="3.1 对流-扩散方程#对流-扩散方程是一种描述物质或热量在流体中同时受到对流（也称为平流）和扩散作用影响的偏微分方程。这个方程在流体力学、传热学和物质传输等领域有广泛应用。
+  <meta property="og:description" content="3.1 对流-扩散方程 # 对流-扩散方程是一种描述物质或热量在流体中同时受到对流（也称为平流）和扩散作用影响的偏微分方程。这个方程在流体力学、传热学和物质传输等领域有广泛应用。
 $$ \begin{align} -\mu\frac{\partial^2 u}{\partial x^2} &#43; \beta\frac{\partial u}{\partial x} &amp;= f \ \text{diffusion} \quad &amp; \text{advection} \end{align} $$
 $$u(0) = u_L, \quad u(1) = u_R$$
-3.1.1 离散化过程：#一阶导数：对流项 （Advection）#泰勒展开（向前）#$$ \begin{align}
+3.1.1 离散化过程： # 一阶导数：对流项 （Advection） # 泰勒展开（向前） # $$ \begin{align}
 u(x_{j&#43;1}) &amp; = u(x_j) &#43; \frac{\partial u}{\partial x}(x_j)\Delta x &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 \ &amp;\quad\quad\quad\quad-\frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 &#43; \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 &#43; \mathcal{O}(||x||^5)\ \frac{\partial u}{\partial x}(x_j)\Delta x &amp; = u(x_{j&#43;1}) - u(x_j) &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2\ \frac{\partial u}{\partial x}(x_j) &amp; = \frac{u_{j&#43;1} - u_j}{\Delta x} &#43; \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x \end{align}$$">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -39,14 +65,11 @@ u(x_{j&#43;1}) &amp; = u(x_j) &#43; \frac{\partial u}{\partial x}(x_j)\Delta x &
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.3ff1300cfe9ed355408ad75074d3ff4d3919879b68cee6e36c474816f2fb8cdd.css" integrity="sha256-P/EwDP6e01VAitdQdNP/TTkZh5tozubjbEdIFvL7jN0=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.2d7c41402e14539fe83d37688057b7e2670d48bbcb530d82bcf09925c94a99e7.css" integrity="sha256-LXxBQC4UU5/oPTdogFe34mcNSLvLUw2CvPCZJclKmec=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.ee6a408c56d4bb48df7e5710a26b5d442f5cc5b3959a59d5a43f2a134ad6ca88.js" integrity="sha256-7mpAjFbUu0jfflcQomtdRC9cxbOVmlnVpD8qE0rWyog=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.510d5eb6f1e57108271c2d4c3476ce8980e0cceb3fecca22e963a7f88dc28795.js" integrity="sha256-UQ1etvHlcQgnHC1MNHbOiYDgzOs/7Moi6WOn&#43;I3Ch5U=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-
-  
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -68,7 +91,7 @@ https://github.com/alex-shpak/hugo-book
   <nav>
 <h2 class="book-brand">
   <a class="flex align-center justify-center" 
-     href="/">
+     href="http://localhost:1313/">
     <img src="/topo.png" 
          alt="Logo" 
          class="book-icon" />
@@ -120,8 +143,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-3dc5ba62250cd8b173945805306d582d" class="toggle"  />
-    <label for="section-3dc5ba62250cd8b173945805306d582d" class="flex justify-between">
+    <input type="checkbox" id="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="toggle"  />
+    <label for="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="flex justify-between">
       <a role="button"
          class="">爽分析 II</a>
     </label>
@@ -140,8 +163,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-18dfa49db2b03993a1bd3315710acd5e" class="toggle"  />
-    <label for="section-18dfa49db2b03993a1bd3315710acd5e" class="flex justify-between">
+    <input type="checkbox" id="section-c3d4873afc217e738d4eac6ed01dcfd0" class="toggle"  />
+    <label for="section-c3d4873afc217e738d4eac6ed01dcfd0" class="flex justify-between">
       <a role="button"
          class="">第六章 可微映射</a>
     </label>
@@ -229,8 +252,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-8d1199ea5dee264155db6be39165caab" class="toggle"  />
-    <label for="section-8d1199ea5dee264155db6be39165caab" class="flex justify-between">
+    <input type="checkbox" id="section-fe97be846a74527e019600047479e8ff" class="toggle"  />
+    <label for="section-fe97be846a74527e019600047479e8ff" class="flex justify-between">
       <a role="button"
          class="">第七章 逆函数和隐函数定理</a>
     </label>
@@ -320,8 +343,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a5127f215d0185f57c753ced3289b7fd" class="toggle"  />
-    <label for="section-a5127f215d0185f57c753ced3289b7fd" class="flex justify-between">
+    <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle"  />
+    <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
       <a role="button"
          class="">第八章 度量理论</a>
     </label>
@@ -451,8 +474,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7e4e495d58202114a97ea7292812ced6" class="toggle" checked />
-    <label for="section-7e4e495d58202114a97ea7292812ced6" class="flex justify-between">
+    <input type="checkbox" id="section-03018ad84f65943f3692f81c9f43c501" class="toggle" checked />
+    <label for="section-03018ad84f65943f3692f81c9f43c501" class="flex justify-between">
       <a role="button"
          class="">偏微分方程</a>
     </label>
@@ -471,8 +494,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f66c16f1f26d5439b500ac53a6090814" class="toggle" checked />
-    <label for="section-f66c16f1f26d5439b500ac53a6090814" class="flex justify-between">
+    <input type="checkbox" id="section-3c138d22d500a5fca83e33c724f72850" class="toggle" checked />
+    <label for="section-3c138d22d500a5fca83e33c724f72850" class="flex justify-between">
       <a role="button"
          class="">数值方法</a>
     </label>
@@ -539,8 +562,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="toggle"  />
-    <label for="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="flex justify-between">
+    <input type="checkbox" id="section-d39d8ec7b87141eab4913ff95921d882" class="toggle"  />
+    <label for="section-d39d8ec7b87141eab4913ff95921d882" class="flex justify-between">
       <a role="button"
          class="">第四章 有限元分析</a>
     </label>
@@ -566,8 +589,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-cd82823df15274abb4c628a304ce2823" class="toggle" checked />
-    <label for="section-cd82823df15274abb4c628a304ce2823" class="flex justify-between">
+    <input type="checkbox" id="section-c992180c62af21b3acb7babbad4a6edf" class="toggle" checked />
+    <label for="section-c992180c62af21b3acb7babbad4a6edf" class="flex justify-between">
       <a role="button"
          class="">第九章</a>
     </label>
@@ -676,8 +699,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-5285c61e0107d925df6ad67c62c6699b" class="toggle"  />
-    <label for="section-5285c61e0107d925df6ad67c62c6699b" class="flex justify-between">
+    <input type="checkbox" id="section-5c4905e8cb6611c7476262cb2b181a7d" class="toggle"  />
+    <label for="section-5c4905e8cb6611c7476262cb2b181a7d" class="flex justify-between">
       <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
          class="">热方程</a>
     </label>
@@ -733,8 +756,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a135ba9e4c93e772904209601ada4b30" class="toggle"  />
-    <label for="section-a135ba9e4c93e772904209601ada4b30" class="flex justify-between">
+    <input type="checkbox" id="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="toggle"  />
+    <label for="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="flex justify-between">
       <a role="button"
          class="">波方程</a>
     </label>
@@ -758,8 +781,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-1a86e133d83dac38a57580bd5f897d4e" class="toggle"  />
-    <label for="section-1a86e133d83dac38a57580bd5f897d4e" class="flex justify-between">
+    <input type="checkbox" id="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="toggle"  />
+    <label for="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="flex justify-between">
       <a role="button"
          class="">拉普拉斯方程</a>
     </label>
@@ -800,8 +823,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="toggle"  />
-    <label for="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="flex justify-between">
+    <input type="checkbox" id="section-20bb3063de72cc9c8e7b928b77587c05" class="toggle"  />
+    <label for="section-20bb3063de72cc9c8e7b928b77587c05" class="flex justify-between">
       <a role="button"
          class="">Quantum Mechenics</a>
     </label>
@@ -1225,8 +1248,7 @@ $$</p>
 <p>[!claim|*]
 Final numerical solution:
 $$-\mu\frac{u_{i+1} - 2u_i + u_{i-1}}{\Delta x^2} + \beta\frac{u_{i+1} - u_{i-1}}{2\Delta x} = f_j$$
-with second-order accuracy: $$\sim \mathcal{O}(\Delta x^2)$$</p>
-</blockquote>
+with second-order accuracy: $$\sim \mathcal{O}(\Delta x^2)$$</p></blockquote>
 <h2 id="32-例子精确解与数值解在对流主导问题中的差异">
   3.2 例子：精确解与数值解在对流主导问题中的差异
   <a class="anchor" href="#32-%e4%be%8b%e5%ad%90%e7%b2%be%e7%a1%ae%e8%a7%a3%e4%b8%8e%e6%95%b0%e5%80%bc%e8%a7%a3%e5%9c%a8%e5%af%b9%e6%b5%81%e4%b8%bb%e5%af%bc%e9%97%ae%e9%a2%98%e4%b8%ad%e7%9a%84%e5%b7%ae%e5%bc%82">#</a>
@@ -1317,13 +1339,11 @@ $$\frac{\partial u}{\partial x}(x_j) \approx \frac{u_j - u_{j-1}}{\Delta x}$$</p
 <p>对于对流项（advection），当流动方向已知时</p>
 <blockquote>
 <p>[!assumption|*]
-$\beta &gt; 0$，meaning that the information flows from left to right.</p>
-</blockquote>
+$\beta &gt; 0$，meaning that the information flows from left to right.</p></blockquote>
 <p>我们可以使用式子：</p>
 <blockquote>
 <p>[!claim|*]
-$$\beta\frac{\partial u}{\partial x} \approx \beta\frac{u_i - u_{i-1}}{\Delta x} \quad (\beta &gt; 0) \quad \text{(upwind)}$$</p>
-</blockquote>
+$$\beta\frac{\partial u}{\partial x} \approx \beta\frac{u_i - u_{i-1}}{\Delta x} \quad (\beta &gt; 0) \quad \text{(upwind)}$$</p></blockquote>
 <p>这种差分格式考虑了信息流动的方向，使用&quot;上游&quot;的节点来计算导数，而不是像中心差分那样平等对待上下游节点（注意这个只有<em>一阶精度</em>）。</p>
 <h3 id="332-迎风法的稳定性分析-stability-analysis">
   3.3.2 迎风法的稳定性分析 (Stability Analysis)
@@ -1353,8 +1373,7 @@ $$\beta\frac{\partial u}{\partial x} \approx \beta\frac{u_i - u_{i-1}}{\Delta x}
 </ul>
 <blockquote>
 <p>[!claim|*]
-$$\text{Central (Perturbed) }= \text{Upwind (Original)}$$</p>
-</blockquote>
+$$\text{Central (Perturbed) }= \text{Upwind (Original)}$$</p></blockquote>
 <p>这个等价关系揭示了迎风法的本质：它隐含地向原始方程中添加了一个<strong>数值扩散项</strong>。这个额外的扩散项是迎风法能够抑制数值振荡的关键原因。</p>
 <h3 id="佩克莱数分析-péclet-number-analysis">
   佩克莱数分析 (Péclet Number Analysis)
@@ -1787,6 +1806,7 @@ $$Pe^* = \frac{|\beta|\Delta x}{2\mu^*} = \frac{|\beta|\Delta x}{2\mu(1+Pe)} = \
   <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
  
   <script defer src="/partial-load.min.1d4ed5d4ac20533fe341c211fd2c6b93ddb539b801d838d21437b218507d941b.js" integrity="sha256-HU7V1KwgUz/jQcIR/Sxrk921ObgB2DjSFDeyGFB9lBs=" crossorigin="anonymous"></script>
+  <script defer src="/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js" integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin="anonymous"></script>
 </body>
 </html>
 

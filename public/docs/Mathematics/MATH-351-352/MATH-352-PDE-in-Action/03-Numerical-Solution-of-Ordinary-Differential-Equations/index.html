@@ -13,25 +13,31 @@
   </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Introduction#The subject of this Chapter is the numerical approximation of the Cauchy problem:
+<meta name="description" content="
+  Introduction
+  #
+
+The subject of this Chapter is the numerical approximation of the Cauchy problem:
 $$(1) \quad \frac{dy}{dt} = f(t,y) \quad \text{in } t &gt; 0 \quad (I.C.)$$
-with $$y(0) = y_0 \text{ given}.$$
+with
+$$y(0) = y_0 \text{ given}.$$
 or, more in general, a system:
 $$(2) \quad \frac{d\mathbf{y}}{dt} = \mathbf{f}(t,\mathbf{y}) \quad \text{in } t &gt; 0$$
-with $$\mathbf{y}(0) = \mathbf{y}_0.$$
-Let&rsquo;s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &gt; 0$ s.">
+with
+$$\mathbf{y}(0) = \mathbf{y}_0.$$
+Let&rsquo;s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &gt; 0$ s.t.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/">
   <meta property="og:site_name" content="位相学補完計画">
   <meta property="og:title" content="常微分方程的数值解">
-  <meta property="og:description" content="Introduction#The subject of this Chapter is the numerical approximation of the Cauchy problem:
+  <meta property="og:description" content="Introduction # The subject of this Chapter is the numerical approximation of the Cauchy problem:
 $$(1) \quad \frac{dy}{dt} = f(t,y) \quad \text{in } t &gt; 0 \quad (I.C.)$$
 with $$y(0) = y_0 \text{ given}.$$
 or, more in general, a system:
 $$(2) \quad \frac{d\mathbf{y}}{dt} = \mathbf{f}(t,\mathbf{y}) \quad \text{in } t &gt; 0$$
 with $$\mathbf{y}(0) = \mathbf{y}_0.$$
-Let’s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &gt; 0$ s.">
+Let’s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &gt; 0$ s.t.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -43,14 +49,11 @@ Let’s recall some basic results on the function $f$. It is said to be Lipschit
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.581d7cf1f5991b3860c5e5cd854c3300ecfa23047aaa128ee1486bddaa8e9828.css" integrity="sha256-WB188fWZGzhgxeXNhUwzAOz6IwR6qhKO4Uhr3aqOmCg=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.2d7c41402e14539fe83d37688057b7e2670d48bbcb530d82bcf09925c94a99e7.css" integrity="sha256-LXxBQC4UU5/oPTdogFe34mcNSLvLUw2CvPCZJclKmec=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.ee6a408c56d4bb48df7e5710a26b5d442f5cc5b3959a59d5a43f2a134ad6ca88.js" integrity="sha256-7mpAjFbUu0jfflcQomtdRC9cxbOVmlnVpD8qE0rWyog=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.510d5eb6f1e57108271c2d4c3476ce8980e0cceb3fecca22e963a7f88dc28795.js" integrity="sha256-UQ1etvHlcQgnHC1MNHbOiYDgzOs/7Moi6WOn&#43;I3Ch5U=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-
-  
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -124,8 +127,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-3dc5ba62250cd8b173945805306d582d" class="toggle"  />
-    <label for="section-3dc5ba62250cd8b173945805306d582d" class="flex justify-between">
+    <input type="checkbox" id="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="toggle"  />
+    <label for="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="flex justify-between">
       <a role="button"
          class="">爽分析 II</a>
     </label>
@@ -144,8 +147,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-18dfa49db2b03993a1bd3315710acd5e" class="toggle"  />
-    <label for="section-18dfa49db2b03993a1bd3315710acd5e" class="flex justify-between">
+    <input type="checkbox" id="section-c3d4873afc217e738d4eac6ed01dcfd0" class="toggle"  />
+    <label for="section-c3d4873afc217e738d4eac6ed01dcfd0" class="flex justify-between">
       <a role="button"
          class="">第六章 可微映射</a>
     </label>
@@ -233,8 +236,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-8d1199ea5dee264155db6be39165caab" class="toggle"  />
-    <label for="section-8d1199ea5dee264155db6be39165caab" class="flex justify-between">
+    <input type="checkbox" id="section-fe97be846a74527e019600047479e8ff" class="toggle"  />
+    <label for="section-fe97be846a74527e019600047479e8ff" class="flex justify-between">
       <a role="button"
          class="">第七章 逆函数和隐函数定理</a>
     </label>
@@ -324,8 +327,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a5127f215d0185f57c753ced3289b7fd" class="toggle"  />
-    <label for="section-a5127f215d0185f57c753ced3289b7fd" class="flex justify-between">
+    <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle"  />
+    <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
       <a role="button"
          class="">第八章 度量理论</a>
     </label>
@@ -455,8 +458,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7e4e495d58202114a97ea7292812ced6" class="toggle" checked />
-    <label for="section-7e4e495d58202114a97ea7292812ced6" class="flex justify-between">
+    <input type="checkbox" id="section-03018ad84f65943f3692f81c9f43c501" class="toggle" checked />
+    <label for="section-03018ad84f65943f3692f81c9f43c501" class="flex justify-between">
       <a role="button"
          class="">偏微分方程</a>
     </label>
@@ -475,8 +478,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f66c16f1f26d5439b500ac53a6090814" class="toggle" checked />
-    <label for="section-f66c16f1f26d5439b500ac53a6090814" class="flex justify-between">
+    <input type="checkbox" id="section-3c138d22d500a5fca83e33c724f72850" class="toggle" checked />
+    <label for="section-3c138d22d500a5fca83e33c724f72850" class="flex justify-between">
       <a role="button"
          class="">数值方法</a>
     </label>
@@ -543,8 +546,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="toggle"  />
-    <label for="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="flex justify-between">
+    <input type="checkbox" id="section-d39d8ec7b87141eab4913ff95921d882" class="toggle"  />
+    <label for="section-d39d8ec7b87141eab4913ff95921d882" class="flex justify-between">
       <a role="button"
          class="">第四章 有限元分析</a>
     </label>
@@ -570,8 +573,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-cd82823df15274abb4c628a304ce2823" class="toggle"  />
-    <label for="section-cd82823df15274abb4c628a304ce2823" class="flex justify-between">
+    <input type="checkbox" id="section-c992180c62af21b3acb7babbad4a6edf" class="toggle"  />
+    <label for="section-c992180c62af21b3acb7babbad4a6edf" class="flex justify-between">
       <a role="button"
          class="">第九章</a>
     </label>
@@ -680,8 +683,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-5285c61e0107d925df6ad67c62c6699b" class="toggle"  />
-    <label for="section-5285c61e0107d925df6ad67c62c6699b" class="flex justify-between">
+    <input type="checkbox" id="section-5c4905e8cb6611c7476262cb2b181a7d" class="toggle"  />
+    <label for="section-5c4905e8cb6611c7476262cb2b181a7d" class="flex justify-between">
       <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
          class="">热方程</a>
     </label>
@@ -737,8 +740,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a135ba9e4c93e772904209601ada4b30" class="toggle"  />
-    <label for="section-a135ba9e4c93e772904209601ada4b30" class="flex justify-between">
+    <input type="checkbox" id="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="toggle"  />
+    <label for="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="flex justify-between">
       <a role="button"
          class="">波方程</a>
     </label>
@@ -762,8 +765,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-1a86e133d83dac38a57580bd5f897d4e" class="toggle"  />
-    <label for="section-1a86e133d83dac38a57580bd5f897d4e" class="flex justify-between">
+    <input type="checkbox" id="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="toggle"  />
+    <label for="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="flex justify-between">
       <a role="button"
          class="">拉普拉斯方程</a>
     </label>
@@ -804,8 +807,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="toggle"  />
-    <label for="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="flex justify-between">
+    <input type="checkbox" id="section-20bb3063de72cc9c8e7b928b77587c05" class="toggle"  />
+    <label for="section-20bb3063de72cc9c8e7b928b77587c05" class="flex justify-between">
       <a role="button"
          class="">Quantum Mechenics</a>
     </label>
@@ -1530,40 +1533,40 @@ $$\Delta t &lt; \frac{2}{|\lambda|}$$</p>
 </ol>
 <p>Now, for a general problem, we have:</p>
 <table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Nature</th>
-<th>Accuracy</th>
-<th>Limitations on $\Delta t$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>FE</td>
-<td>Explicit</td>
-<td>1</td>
-<td>$\Delta t &lt; \frac{2}{</td>
-</tr>
-<tr>
-<td>BE</td>
-<td>Implicit</td>
-<td>1</td>
-<td>NO</td>
-</tr>
-<tr>
-<td>CN</td>
-<td>Implicit</td>
-<td>2</td>
-<td>NO</td>
-</tr>
-<tr>
-<td>H</td>
-<td>Explicit</td>
-<td>2</td>
-<td>$\Delta t &lt; \frac{2}{</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>Nature</th>
+          <th>Accuracy</th>
+          <th>Limitations on $\Delta t$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>FE</td>
+          <td>Explicit</td>
+          <td>1</td>
+          <td>$\Delta t &lt; \frac{2}{</td>
+      </tr>
+      <tr>
+          <td>BE</td>
+          <td>Implicit</td>
+          <td>1</td>
+          <td>NO</td>
+      </tr>
+      <tr>
+          <td>CN</td>
+          <td>Implicit</td>
+          <td>2</td>
+          <td>NO</td>
+      </tr>
+      <tr>
+          <td>H</td>
+          <td>Explicit</td>
+          <td>2</td>
+          <td>$\Delta t &lt; \frac{2}{</td>
+      </tr>
+  </tbody>
 </table>
 <p>Implicit Methods are more computationally expensive.</p>
 <p>In an extreme synthesis:</p>
@@ -1835,34 +1838,34 @@ b_2 c_2 &amp;= \frac{1}{2}
 <p><strong>ZERO-STABILITY</strong>: RK are One-Step methods, if $f$ is Lipschitz-Continuous, they are zero-stable.</p>
 <p><strong>ORDER</strong>: In general, the order we can obtain depends on the number of stages in a (non-trivial) way:</p>
 <table>
-<thead>
-<tr>
-<th>Explicit RK:</th>
-<th>ORDER</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$s_{min}$</td>
-<td></td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td>6</td>
-<td>7</td>
-<td>9</td>
-<td>11</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Explicit RK:</th>
+          <th>ORDER</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$s_{min}$</td>
+          <td></td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>6</td>
+          <td>7</td>
+          <td>9</td>
+          <td>11</td>
+      </tr>
+  </tbody>
 </table>
 <p>$s_{min}$ = minimum number of stages to obtain the corresponding order.</p>
 <h2 id="absolute-stability">
@@ -1969,22 +1972,22 @@ qssmulti.m   (solves with a generic LMM)</p>
 <p>I have written a simple LMM solver with fixed-point iterations for implicit methods.</p>
 <p>Using my-hmm.py you can verify that our method is 2nd order:</p>
 <table>
-<thead>
-<tr>
-<th>max error</th>
-<th>$3 \cdot 10^{-4}$</th>
-<th>$8 \cdot 10^{-5}$</th>
-<th>$2 \cdot 10^{-5}$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\Delta t$</td>
-<td>0.05</td>
-<td>0.025</td>
-<td>0.0125</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>max error</th>
+          <th>$3 \cdot 10^{-4}$</th>
+          <th>$8 \cdot 10^{-5}$</th>
+          <th>$2 \cdot 10^{-5}$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\Delta t$</td>
+          <td>0.05</td>
+          <td>0.025</td>
+          <td>0.0125</td>
+      </tr>
+  </tbody>
 </table>
 <p>[Graph showing exact vs numerical solution]</p>
 <p>[Stability region diagram showing a circle in the complex plane]

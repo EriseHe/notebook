@@ -15,13 +15,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质。
 我们主要看以下这几个方面：
-积分的定义 可积性的判据（必要条件和充分条件） 性质与收敛性 计算和估计积分 1.1 积分的定义#1.1.1 几何动机#积分本质上是计算函数下方区域的「体积（volume）」。如何定义这种「体积」会直接改变到积分的性质。我们的目的是为了计算任意曲线 $y = f(x)$ 从 $a$ 到 $b$ 下方区域的面积
+
+积分的定义
+可积性的判据（必要条件和充分条件）
+性质与收敛性
+计算和估计积分
+
+
+  1.1 积分的定义
+  #
+
+
+  1.1.1 几何动机
+  #
+
+积分本质上是计算函数下方区域的「体积（volume）」。如何定义这种「体积」会直接改变到积分的性质。我们的目的是为了计算任意曲线 $y = f(x)$ 从 $a$ 到 $b$ 下方区域的面积
 Lebesgue积分定义的逻辑步骤如下：
+
+
 定义：任意有界函数$f$于在高维空间中的有界区域 $A$ （bounded）上。
+
+
 简化问题：由于曲线下方区域通常不是规则形状，我们需要用近似方法来计算。我们可以将区间 $[a,b]$ 分成若干小区间，然后用矩形来近似。将区域 $A$ 嵌入到一个矩形区域 $B$ 中，并将函数 $f$ 扩展为函数 $f̃$，使其在 $A$ 之外的 $B$ 上取值为零
+
+
 分割：划分矩形 $B$ 为更小的矩形，来创建一个分割结构（partition）。
+
+
 构造上下近似：对每个小矩形，通过这种方式，我们可以获得两种近似：一种是偏大的（上和），一种是偏小的（下和）。
-上和: $U(f, P) = \sum_{i=1}^{n} (\sup f(x)) \cdot \ell(I_i)$ 对每个小区间 $I_i$，我们找出函数在该区间上的最大值 $\sup f(x)$，然后乘以区间长度 $\ell(I_i)$。这样形成的矩形面积之和总是大于或等于真实面积。 下和: $L(f, P) = \sum_{i=1}^{n} (\inf f(x)) \cdot \ell(I_i)$ 对每个小区间 $I_i$，我们找出函数在该区间上的最小值 $\inf f(x)$，然后乘以区间长度 $\ell(I_i)$。这样形成的矩形面积之和总是小于或等于真实面积。 当我们让分割变得越来越细时，上和会减小，下和会增大。它们的极限值就定义了上积分和下积分。当这两个极限值相等时，我们就说这个函数是可积的（integrable）。">
+
+上和: $U(f, P) = \sum_{i=1}^{n} (\sup f(x)) \cdot \ell(I_i)$
+对每个小区间 $I_i$，我们找出函数在该区间上的最大值 $\sup f(x)$，然后乘以区间长度 $\ell(I_i)$。这样形成的矩形面积之和总是大于或等于真实面积。
+下和: $L(f, P) = \sum_{i=1}^{n} (\inf f(x)) \cdot \ell(I_i)$
+对每个小区间 $I_i$，我们找出函数在该区间上的最小值 $\inf f(x)$，然后乘以区间长度 $\ell(I_i)$。这样形成的矩形面积之和总是小于或等于真实面积。
+
+
+
+当我们让分割变得越来越细时，上和会减小，下和会增大。它们的极限值就定义了上积分和下积分。当这两个极限值相等时，我们就说这个函数是可积的（integrable）。">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/">
@@ -29,7 +59,7 @@ Lebesgue积分定义的逻辑步骤如下：
   <meta property="og:title" content="位相学補完計画">
   <meta property="og:description" content="第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质。
 我们主要看以下这几个方面：
-积分的定义 可积性的判据（必要条件和充分条件） 性质与收敛性 计算和估计积分 1.1 积分的定义#1.1.1 几何动机#积分本质上是计算函数下方区域的「体积（volume）」。如何定义这种「体积」会直接改变到积分的性质。我们的目的是为了计算任意曲线 $y = f(x)$ 从 $a$ 到 $b$ 下方区域的面积
+积分的定义 可积性的判据（必要条件和充分条件） 性质与收敛性 计算和估计积分 1.1 积分的定义 # 1.1.1 几何动机 # 积分本质上是计算函数下方区域的「体积（volume）」。如何定义这种「体积」会直接改变到积分的性质。我们的目的是为了计算任意曲线 $y = f(x)$ 从 $a$ 到 $b$ 下方区域的面积
 Lebesgue积分定义的逻辑步骤如下：
 定义：任意有界函数$f$于在高维空间中的有界区域 $A$ （bounded）上。
 简化问题：由于曲线下方区域通常不是规则形状，我们需要用近似方法来计算。我们可以将区间 $[a,b]$ 分成若干小区间，然后用矩形来近似。将区域 $A$ 嵌入到一个矩形区域 $B$ 中，并将函数 $f$ 扩展为函数 $f̃$，使其在 $A$ 之外的 $B$ 上取值为零
@@ -47,14 +77,11 @@ Lebesgue积分定义的逻辑步骤如下：
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
 
 
-<link rel="stylesheet" href="/book.min.3ff1300cfe9ed355408ad75074d3ff4d3919879b68cee6e36c474816f2fb8cdd.css" integrity="sha256-P/EwDP6e01VAitdQdNP/TTkZh5tozubjbEdIFvL7jN0=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.2d7c41402e14539fe83d37688057b7e2670d48bbcb530d82bcf09925c94a99e7.css" integrity="sha256-LXxBQC4UU5/oPTdogFe34mcNSLvLUw2CvPCZJclKmec=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.ee6a408c56d4bb48df7e5710a26b5d442f5cc5b3959a59d5a43f2a134ad6ca88.js" integrity="sha256-7mpAjFbUu0jfflcQomtdRC9cxbOVmlnVpD8qE0rWyog=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.510d5eb6f1e57108271c2d4c3476ce8980e0cceb3fecca22e963a7f88dc28795.js" integrity="sha256-UQ1etvHlcQgnHC1MNHbOiYDgzOs/7Moi6WOn&#43;I3Ch5U=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-
-  
-
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -76,7 +103,7 @@ https://github.com/alex-shpak/hugo-book
   <nav>
 <h2 class="book-brand">
   <a class="flex align-center justify-center" 
-     href="/">
+     href="http://localhost:1313/">
     <img src="/topo.png" 
          alt="Logo" 
          class="book-icon" />
@@ -128,8 +155,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-3dc5ba62250cd8b173945805306d582d" class="toggle" checked />
-    <label for="section-3dc5ba62250cd8b173945805306d582d" class="flex justify-between">
+    <input type="checkbox" id="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="toggle" checked />
+    <label for="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="flex justify-between">
       <a role="button"
          class="">爽分析 II</a>
     </label>
@@ -148,8 +175,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-18dfa49db2b03993a1bd3315710acd5e" class="toggle"  />
-    <label for="section-18dfa49db2b03993a1bd3315710acd5e" class="flex justify-between">
+    <input type="checkbox" id="section-c3d4873afc217e738d4eac6ed01dcfd0" class="toggle"  />
+    <label for="section-c3d4873afc217e738d4eac6ed01dcfd0" class="flex justify-between">
       <a role="button"
          class="">第六章 可微映射</a>
     </label>
@@ -237,8 +264,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-8d1199ea5dee264155db6be39165caab" class="toggle"  />
-    <label for="section-8d1199ea5dee264155db6be39165caab" class="flex justify-between">
+    <input type="checkbox" id="section-fe97be846a74527e019600047479e8ff" class="toggle"  />
+    <label for="section-fe97be846a74527e019600047479e8ff" class="flex justify-between">
       <a role="button"
          class="">第七章 逆函数和隐函数定理</a>
     </label>
@@ -328,8 +355,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a5127f215d0185f57c753ced3289b7fd" class="toggle" checked />
-    <label for="section-a5127f215d0185f57c753ced3289b7fd" class="flex justify-between">
+    <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle" checked />
+    <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
       <a role="button"
          class="">第八章 度量理论</a>
     </label>
@@ -348,8 +375,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Lebesgue-Convergence-Theorem/"
-       class="">8.5 Lebesgue Convergence Theorem</a>
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/"
+       class="">8.6 勒贝格收敛定理</a>
   
 
         </li>
@@ -398,6 +425,22 @@ https://github.com/alex-shpak/hugo-book
   
     <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/"
        class="">8.3 Proof of Lebesgue&#39;s Theorem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/"
+       class="">8.5 不定积分</a>
   
 
         </li>
@@ -459,8 +502,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7e4e495d58202114a97ea7292812ced6" class="toggle"  />
-    <label for="section-7e4e495d58202114a97ea7292812ced6" class="flex justify-between">
+    <input type="checkbox" id="section-03018ad84f65943f3692f81c9f43c501" class="toggle"  />
+    <label for="section-03018ad84f65943f3692f81c9f43c501" class="flex justify-between">
       <a role="button"
          class="">偏微分方程</a>
     </label>
@@ -479,8 +522,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f66c16f1f26d5439b500ac53a6090814" class="toggle"  />
-    <label for="section-f66c16f1f26d5439b500ac53a6090814" class="flex justify-between">
+    <input type="checkbox" id="section-3c138d22d500a5fca83e33c724f72850" class="toggle"  />
+    <label for="section-3c138d22d500a5fca83e33c724f72850" class="flex justify-between">
       <a role="button"
          class="">数值方法</a>
     </label>
@@ -547,8 +590,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="toggle"  />
-    <label for="section-7bd6b2a9bdc8dfca2e47808952f7dc46" class="flex justify-between">
+    <input type="checkbox" id="section-d39d8ec7b87141eab4913ff95921d882" class="toggle"  />
+    <label for="section-d39d8ec7b87141eab4913ff95921d882" class="flex justify-between">
       <a role="button"
          class="">第四章 有限元分析</a>
     </label>
@@ -574,8 +617,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-cd82823df15274abb4c628a304ce2823" class="toggle"  />
-    <label for="section-cd82823df15274abb4c628a304ce2823" class="flex justify-between">
+    <input type="checkbox" id="section-c992180c62af21b3acb7babbad4a6edf" class="toggle"  />
+    <label for="section-c992180c62af21b3acb7babbad4a6edf" class="flex justify-between">
       <a role="button"
          class="">第九章</a>
     </label>
@@ -684,8 +727,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-5285c61e0107d925df6ad67c62c6699b" class="toggle"  />
-    <label for="section-5285c61e0107d925df6ad67c62c6699b" class="flex justify-between">
+    <input type="checkbox" id="section-5c4905e8cb6611c7476262cb2b181a7d" class="toggle"  />
+    <label for="section-5c4905e8cb6611c7476262cb2b181a7d" class="flex justify-between">
       <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
          class="">热方程</a>
     </label>
@@ -741,8 +784,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a135ba9e4c93e772904209601ada4b30" class="toggle"  />
-    <label for="section-a135ba9e4c93e772904209601ada4b30" class="flex justify-between">
+    <input type="checkbox" id="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="toggle"  />
+    <label for="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="flex justify-between">
       <a role="button"
          class="">波方程</a>
     </label>
@@ -766,8 +809,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-1a86e133d83dac38a57580bd5f897d4e" class="toggle"  />
-    <label for="section-1a86e133d83dac38a57580bd5f897d4e" class="flex justify-between">
+    <input type="checkbox" id="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="toggle"  />
+    <label for="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="flex justify-between">
       <a role="button"
          class="">拉普拉斯方程</a>
     </label>
@@ -808,8 +851,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="toggle"  />
-    <label for="section-c0fbe08be8ad6f071e5fe9534db2a53c" class="flex justify-between">
+    <input type="checkbox" id="section-20bb3063de72cc9c8e7b928b77587c05" class="toggle"  />
+    <label for="section-20bb3063de72cc9c8e7b928b77587c05" class="flex justify-between">
       <a role="button"
          class="">Quantum Mechenics</a>
     </label>
@@ -1277,8 +1320,7 @@ https://github.com/alex-shpak/hugo-book
 <p>[!theorem|*]
 我们称函数 $f$ 是**黎曼可积（Riemann integrable）**的，当且仅当：
 $$\overline{\int_A} f = \underline{\int_A} f$$
-函数 $f$ 在 $A$ 上的积分定义为：$\int_A f(x)dx = \overline{\int_A} f = \underline{\int_A} f$。</p>
-</blockquote>
+函数 $f$ 在 $A$ 上的积分定义为：$\int_A f(x)dx = \overline{\int_A} f = \underline{\int_A} f$。</p></blockquote>
 <h3 id="121-一般设定">
   1.2.1 一般设定：
   <a class="anchor" href="#121-%e4%b8%80%e8%88%ac%e8%ae%be%e5%ae%9a">#</a>
@@ -1298,8 +1340,7 @@ $$f(x) = 0, \quad \forall x \notin A$$</li>
 <p>这意味着我们可以找到一个足够细的分割，使得上和与下和的差小于任意给定的正数 $\varepsilon$。换句话说，随着分割变得越来越细，上和和下和会无限接近。</p>
 <blockquote>
 <p>[!theorem|*]
-For $f$ to be (Riemann) integrable, $\forall \varepsilon &gt; 0$, $\exists$ partition $P_\varepsilon$ (of $B$) s.t. $$0 \leq U(f, P_\varepsilon) - L(f, P_\varepsilon) &lt; \varepsilon$$</p>
-</blockquote>
+For $f$ to be (Riemann) integrable, $\forall \varepsilon &gt; 0$, $\exists$ partition $P_\varepsilon$ (of $B$) s.t. $$0 \leq U(f, P_\varepsilon) - L(f, P_\varepsilon) &lt; \varepsilon$$</p></blockquote>
 <h3 id="123-达布条件darbouxs-condition">
   1.2.3 达布条件（Darboux&rsquo;s Condition）
   <a class="anchor" href="#123-%e8%be%be%e5%b8%83%e6%9d%a1%e4%bb%b6darbouxs-condition">#</a>
@@ -1311,8 +1352,7 @@ $\forall \varepsilon &gt; 0$, $\exists P_\delta$ s.t. if:</p>
 <ol>
 <li>$P$ is any partition of $B$ into rectangles $B_1, B_2, &hellip;, B_N$ with side length $&lt; \delta$</li>
 <li>$x \in B_1, x \in B_2, &hellip;, x \in B_N$, then we have: $\left|\sum_{i=1}^N f(x_i)V(B_i) - I\right| &lt; \varepsilon$ where the number $I$ is the value of the integral.</li>
-</ol>
-</blockquote>
+</ol></blockquote>
 <p>$\forall \varepsilon &gt; 0$，$\exists P_0$ 使得如果：</p>
 <ol>
 <li>$P$ 是将 $B$ 分割成矩形 $B_1, B_2, &hellip;, B_N$ 的任意分割，且这些矩形的边长 $&lt; \delta$</li>
@@ -1710,55 +1750,6 @@ $U(f, P_\varepsilon) - L(f, P_\varepsilon) \leq U(f, P_1) - L(f, P_2)$</p>
   </script>
   
   
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true,
-      packages: {'[+]': ['ams', 'noerrors', 'color']}
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'tex2jax_process'
-    },
-    svg: {
-      fontCache: 'global'
-    },
-    startup: {
-      ready: function() {
-        
-        const oldFindTeX = MathJax.startup.findTeX;
-        MathJax.startup.findTeX = function(options) {
-          
-          const results = oldFindTeX.call(this, options);
-          
-          
-          for (const item of results) {
-            if (item.display) {
-              let processedMath = item.math;
-              
-              
-              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
-                
-                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
-              });
-              
-              item.math = processedMath;
-            }
-          }
-          
-          return results;
-        };
-        
-        MathJax.startup.defaultReady();
-      }
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -1825,6 +1816,7 @@ $U(f, P_\varepsilon) - L(f, P_\varepsilon) \leq U(f, P_1) - L(f, P_2)$</p>
   <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
  
   <script defer src="/partial-load.min.1d4ed5d4ac20533fe341c211fd2c6b93ddb539b801d838d21437b218507d941b.js" integrity="sha256-HU7V1KwgUz/jQcIR/Sxrk921ObgB2DjSFDeyGFB9lBs=" crossorigin="anonymous"></script>
+  <script defer src="/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js" integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin="anonymous"></script>
 </body>
 </html>
 
