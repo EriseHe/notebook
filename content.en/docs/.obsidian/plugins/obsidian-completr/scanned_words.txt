@@ -132,7 +132,6 @@ Courant
 Comparison
 Converges
 Conditional
-Conclude
 Consequently
 font
 for
@@ -300,6 +299,8 @@ fairly
 feats
 fair
 faithfully
+fix
+fulfill
 color
 curve
 can
@@ -639,8 +640,12 @@ captured
 cells
 comparison
 convenience
-confined
 consequently
+ch
+considering
+corollary
+counter
+contradicts
 Problem
 Partial
 Putting
@@ -1424,6 +1429,8 @@ smoothing
 smoothed
 speaking
 separately
+sake
+subsequence
 discuss
 determine
 described
@@ -1685,7 +1692,6 @@ diverges
 divergent
 definitions
 definitely
-dominates
 in
 inverse
 implicit
@@ -1911,6 +1917,7 @@ increasing
 inequalities
 integrand
 issue
+imply
 of
 our
 out
@@ -2028,7 +2035,6 @@ outcome
 ongoing
 opened
 options
-observe
 near
 neighborhood
 necessary
@@ -2143,6 +2149,8 @@ notably
 nuanced
 neither
 net
+nonnegative
+nonincreasing
 Does
 Determine
 Differentiability
@@ -2423,7 +2431,8 @@ medicine
 milestones
 misinterpretations
 messy
-matter
+monotonically
+monotonicity
 have
 holds
 has
@@ -2836,7 +2845,7 @@ Sense
 Safety
 Sources
 Study
-Select
+Sum
 equations
 equation
 exists
@@ -3067,9 +3076,7 @@ evolution
 empirical
 exponentials
 examine
-exponential
 exponent
-employ
 whether
 written
 which
@@ -3178,6 +3185,7 @@ widespread
 why
 wrestling
 writing
+wisely
 by
 be
 bijective
@@ -3332,6 +3340,7 @@ background
 building
 beneficially
 belief
+below
 allow
 and
 as
@@ -3585,6 +3594,7 @@ accounts
 ahead
 among
 amplification
+attains
 you
 yields
 yF
@@ -4015,7 +4025,6 @@ road
 respecting
 restriction
 removed
-rigorously
 partials
 partial
 point
@@ -4287,6 +4296,7 @@ paramount
 preventing
 perceive
 plus
+pointwise
 Ex
 Evaluate
 Evaluating
@@ -4452,6 +4462,7 @@ Williams
 Watkins
 Wikipedia
 While
+WTS
 Without
 Thus
 Theorem
@@ -4902,6 +4913,7 @@ Attention
 AlphaFold
 Achieving
 Alignment
+Attainment
 via
 variables
 view
@@ -5239,7 +5251,6 @@ goals
 governance
 grow
 gradients
-goes
 Moreover
 Matrix
 Maximum
@@ -5347,7 +5358,6 @@ Mnih
 Man
 Mastering
 Monte
-Multiplying
 Using
 Up
 Ut
@@ -5406,6 +5416,7 @@ USE
 Unlike
 Unsupervised
 Understanding
+Uniform
 quotient
 question
 quickly
@@ -5462,7 +5473,6 @@ qEM
 quadratures
 qssstab
 qssmulti
-quantitative
 zero
 zoom
 zG
@@ -5901,6 +5911,7 @@ GAN
 Go
 GPT
 Generalization
+Give
 xF
 xxii
 xmp
@@ -6025,7 +6036,6 @@ jump
 judged
 job
 jumps
-justify
 Kuhn
 Km
 KP
