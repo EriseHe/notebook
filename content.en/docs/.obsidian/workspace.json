@@ -13,32 +13,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mathematics/MATH 412 Real Analysis II/第八章/8.5 Improper Integral.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "8.5 Improper Integral"
-            }
-          },
-          {
-            "id": "d3dc898cde3a56c2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "Mathematics/MATH 412 Real Analysis II/Homework/Homework 9.md",
-                "mode": "source",
-                "source": false,
+                "mode": "preview",
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
               "title": "Homework 9"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -199,13 +183,13 @@
       "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "d3dc898cde3a56c2",
+  "active": "d4513820e616b532",
   "lastOpenFiles": [
     "Mathematics/MATH 412 Real Analysis II/Homework/Homework 8.md",
     "Mathematics/MATH 412 Real Analysis II/Homework/Homework 9.md",
-    "image-1.png",
-    "image.png",
     "Mathematics/MATH 412 Real Analysis II/第八章/8.5 Improper Integral.md",
+    "image.png",
+    "image-1.png",
     "Mathematics/MATH 412 Real Analysis II/第八章/8.6 Lebesgue Convergence Theorem.md",
     "Mathematics/MATH 412 Real Analysis II/第七章/7.6 Morse Lemma.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/第九章/Exercise.md",
