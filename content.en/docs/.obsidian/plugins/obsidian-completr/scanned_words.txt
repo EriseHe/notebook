@@ -132,6 +132,8 @@ Courant
 Comparison
 Converges
 Conditional
+Conclude
+Consequently
 font
 for
 functions
@@ -636,6 +638,9 @@ chart
 captured
 cells
 comparison
+convenience
+confined
+consequently
 Problem
 Partial
 Putting
@@ -1418,6 +1423,7 @@ solely
 smoothing
 smoothed
 speaking
+separately
 discuss
 determine
 described
@@ -1677,6 +1683,9 @@ detailed
 defines
 diverges
 divergent
+definitions
+definitely
+dominates
 in
 inverse
 implicit
@@ -1899,6 +1908,9 @@ intelligently
 infinitely
 instability
 increasing
+inequalities
+integrand
+issue
 of
 our
 out
@@ -2016,6 +2028,7 @@ outcome
 ongoing
 opened
 options
+observe
 near
 neighborhood
 necessary
@@ -2410,6 +2423,7 @@ medicine
 milestones
 misinterpretations
 messy
+matter
 have
 holds
 has
@@ -2676,6 +2690,8 @@ limitation
 leverage
 live
 loosely
+limits
+lie
 Show
 Sufficient
 Substitute
@@ -2820,6 +2836,7 @@ Sense
 Safety
 Sources
 Study
+Select
 equations
 equation
 exists
@@ -3049,6 +3066,10 @@ explain
 evolution
 empirical
 exponentials
+examine
+exponential
+exponent
+employ
 whether
 written
 which
@@ -3156,6 +3177,7 @@ worked
 widespread
 why
 wrestling
+writing
 by
 be
 bijective
@@ -3993,6 +4015,7 @@ road
 respecting
 restriction
 removed
+rigorously
 partials
 partial
 point
@@ -4429,7 +4452,6 @@ Williams
 Watkins
 Wikipedia
 While
-WTS
 Without
 Thus
 Theorem
@@ -5217,6 +5239,7 @@ goals
 governance
 grow
 gradients
+goes
 Moreover
 Matrix
 Maximum
@@ -5324,6 +5347,7 @@ Mnih
 Man
 Mastering
 Monte
+Multiplying
 Using
 Up
 Ut
@@ -5438,6 +5462,7 @@ qEM
 quadratures
 qssstab
 qssmulti
+quantitative
 zero
 zoom
 zG
@@ -6000,6 +6025,7 @@ jump
 judged
 job
 jumps
+justify
 Kuhn
 Km
 KP
