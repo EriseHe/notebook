@@ -2,6 +2,10 @@
 date: 2025-03-17
 weight: 1
 ---
+
+In terminal, we enter the following prompt:
+
+
 Enter
 
 ```python

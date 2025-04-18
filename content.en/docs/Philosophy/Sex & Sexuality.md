@@ -13,6 +13,7 @@ When there is no *outside*, what does it mean to have transgression?
 
 power-knowledge-pleasure
  - greatest pleasure is the pleasure of the analysis
+
 ---
 p.154
 
@@ -27,3 +28,44 @@ p.156
 p.156
 
 (we have arrived at the point where we expect our intelligibility to come from what was for many centuries thought of as madness; the plenitude of our body from what was long considered its stigma and likened to a wound)
+
+
+---
+HOS Vol.1:
+**p.144**
+
+
+Sovereign Power
+**"law"**
+law always referes to the sword - always taking lifes
+
+Regulatory (bio-power)
+- the rule fucntions as **"norms"**
+- the displayment 
+- it looks like it is more humane, but it may not be so:
+- it becomes continuous, corrective
+- distribution of the living
+- continious apparatucy  
+
+
+	foucault is like boxer, punching at whenever, and whatever is needed
+
+**Reistance?**
+for Sovereign Power: revolution
+for Regulatory Power: breaking the continuity, some sort of rupture of such continuity.
+
+
+
+as long as we are trapped in illusion of choice, and agency, there is no way of resistance! Free thoughts of what is silencely thought, and hence free outself.
+
+Foucault: rejects S-O
+
+The relation to others, and relation to the time:
+	freedom is the practice of the self in relation to others.
+
+Thoughts if a form of action, is the result of problemitization. 
+
+Why is sexuality conduct an object of moral solicitude?
+- we governed ourselves through sexuality
+- there is a sexual hierarchy (e.g. there is good sexuality and bad sexuality)
+- 
