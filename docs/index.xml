@@ -341,7 +341,65 @@ iamdudum maius?&lt;/p></description></item><item><title/><link>https://erisehe.g
 &lt;p>[!Theorem]
 Since we know that $u_t=ku_{xx}$ , then we know if $u \in U$ for $U \subset \mathbb{R}^n$ solves the equation, so does $u(\lambda x, \lambda^2 t)$ for $\lambda \in \mathbb{R}$ according to the &lt;strong>scale invariance property.&lt;/strong>&lt;/p>&lt;/blockquote>
 &lt;p>Let’s set that $\bar{x}=\lambda x, \bar{t}=\lambda^2 t$, then it is easy to see:&lt;/p>
-&lt;p>$$ \begin{align} u_{\bar{t}}= \frac{\partial u}{\partial \bar{t}}\cdot\frac{\partial \bar{t}}{\partial t} = \frac{\partial u}{\partial t} \cdot (\lambda^2) \ u_{\bar{x}\bar{x}} &amp;amp;=\frac{\partial}{\partial x} \cdot \frac{\partial u}{\partial \bar{x} } = (\frac{\partial}{\partial \bar{x}} \cdot \frac{\partial \bar{x}}{\partial x})(\frac{\partial u}{\partial \bar{x} } \cdot \frac{\partial \bar{x}}{\partial x})\ &amp;amp;= \frac{\partial^2 u}{\partial x^2} \cdot (\lambda^2) \end{align} $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-10/</guid><description>&lt;p>8.6: [1, 3]; Chapter 8: [24, 36, 39]&lt;/p>
+&lt;p>$$ \begin{align} u_{\bar{t}}= \frac{\partial u}{\partial \bar{t}}\cdot\frac{\partial \bar{t}}{\partial t} = \frac{\partial u}{\partial t} \cdot (\lambda^2) \ u_{\bar{x}\bar{x}} &amp;amp;=\frac{\partial}{\partial x} \cdot \frac{\partial u}{\partial \bar{x} } = (\frac{\partial}{\partial \bar{x}} \cdot \frac{\partial \bar{x}}{\partial x})(\frac{\partial u}{\partial \bar{x} } \cdot \frac{\partial \bar{x}}{\partial x})\ &amp;amp;= \frac{\partial^2 u}{\partial x^2} \cdot (\lambda^2) \end{align} $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Finite-Element-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Finite-Element-Method/</guid><description>&lt;h2 id="order-of-convergence-in-finite-elements">
+ Order of Convergence in Finite Elements
+ &lt;a class="anchor" href="#order-of-convergence-in-finite-elements">#&lt;/a>
+&lt;/h2>
+&lt;p>The order of convergence of finite element:&lt;/p>
+&lt;ul>
+&lt;li>Denote $p$ as the number of points we use to do Lagrange interpolation&lt;/li>
+&lt;li>Denote $s$ as the order of space we search for solution: $u \in H^s(\Omega)$&lt;/li>
+&lt;/ul>
+&lt;p>The relation is denoted as follows:&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>$q$ \ $s$&lt;/th>
+ &lt;th>1&lt;/th>
+ &lt;th>2&lt;/th>
+ &lt;th>3&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>1&lt;/td>
+ &lt;td>1&lt;/td>
+ &lt;td>1&lt;/td>
+ &lt;td>1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>2&lt;/td>
+ &lt;td>1&lt;/td>
+ &lt;td>2&lt;/td>
+ &lt;td>2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>3&lt;/td>
+ &lt;td>1&lt;/td>
+ &lt;td>2&lt;/td>
+ &lt;td>3&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>&lt;em>optimal&lt;/em>&lt;/p>
+&lt;h2 id="error-estimation">
+ Error Estimation
+ &lt;a class="anchor" href="#error-estimation">#&lt;/a>
+&lt;/h2>
+&lt;p>We have:&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Quiz-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Quiz-4/</guid><description>&lt;h1 id="solutions-for-quiz-4">
+ Solutions for Quiz 4
+ &lt;a class="anchor" href="#solutions-for-quiz-4">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="question-1">
+ Question 1
+ &lt;a class="anchor" href="#question-1">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>For a given problem, we know that the solution belongs to $H^2(\Omega)$. We use finite elements of order 2. What is the expected order of convergence in the norm of $H^1(\Omega)$. Is this an &amp;ldquo;optimal&amp;rdquo; choice? Motivate your answer.&lt;/strong>&lt;/p>
+&lt;h3 id="solution">
+ Solution:
+ &lt;a class="anchor" href="#solution">#&lt;/a>
+&lt;/h3>
+&lt;p>Based on approximation theory for finite elements, we can analyze this using the relationship between the solution regularity, the polynomial order, and the expected convergence rate.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-10/</guid><description>&lt;p>8.6: [1, 3]; Chapter 8: [24, 36, 39]&lt;/p>
 &lt;p>&lt;strong>Problem 8.6.1&lt;/strong> Show that Theorem 8.6.1 can be proved using the methods of Chapter 5 if the $g_n$ are continuous.&lt;/p>
 &lt;p>Theorem 8.6.1 (Lebesgue&amp;rsquo;s Monotone Convergence Theorem) Let $g_n : [0, 1] \to \mathbb{R}$ be a sequence of nonnegative functions such that each improper integral $\int_0^1 g_n(x) dx$ exists and is finite. Suppose that $0 \leq g_{n+1}(x) \leq g_n(x)$
 and that $g_n(x) \to 0$ for each $x \in [0, 1]$. Then $$\lim_{n\to\infty} \int_0^1 g_n(x) dx = 0.$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-11/</guid><description>&lt;p>HW 11: 9.2: 1, [2], 3, 4; 9.3: [5]; 9.4: 1, [2], 3; 9.5: 1, [2], 3, 4, [5]; Chapter 9: 1, 3, 5(a,b,c, [d]), 7, 10.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/Homework/Homework-6/</guid><description>&lt;p>7.2: 1, 2, [3,4]; Chapter 7: [4], 5, [6], 9, [12].&lt;/p>
@@ -816,7 +874,66 @@ $$
 \begin{equation}
 \Psi(x,t)=\psi(x) \phi(t)
 \end{equation}&lt;/p>
-&lt;p>$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid><description>&lt;h2 id="41-三维空间的薛定谔方程">
+&lt;p>$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E7%BB%8F%E5%85%B8%E6%B0%A2%E5%8E%9F%E5%AD%90/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E7%BB%8F%E5%85%B8%E6%B0%A2%E5%8E%9F%E5%AD%90/</guid><description>&lt;h2 id="411-经典氢原子-classical-hydrogen-atom">
+ 4.1.1 经典氢原子 (Classical Hydrogen Atom)
+ &lt;a class="anchor" href="#411-%e7%bb%8f%e5%85%b8%e6%b0%a2%e5%8e%9f%e5%ad%90-classical-hydrogen-atom">#&lt;/a>
+&lt;/h2>
+&lt;p>In the classical model of the hydrogen atom, we have an electron orbiting around a proton. The electrostatic potential energy is:
+$$E = -\frac{1}{2}\frac{e^2}{4\pi\varepsilon_0 r}$$
+According to classical electrodynamics, an accelerated charged particle radiates energy. The power radiated by an accelerated particle is given by the Larmor formula:
+$$P = \frac{dE}{dt} = -\frac{e^2}{6\pi\varepsilon_0 c^3}a^2$$
+This would cause the electron to spiral into the proton in approximately $10^{-11}$ seconds!&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.2-%E6%B0%A2%E5%8E%9F%E5%AD%90-Hydrogen-Atom/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.2-%E6%B0%A2%E5%8E%9F%E5%AD%90-Hydrogen-Atom/</guid><description>&lt;h2 id="421-经典图像-classical-picture">
+ 4.2.1 经典图像 (Classical Picture)
+ &lt;a class="anchor" href="#421-%e7%bb%8f%e5%85%b8%e5%9b%be%e5%83%8f-classical-picture">#&lt;/a>
+&lt;/h2>
+&lt;p>The hydrogen atom in classical physics consists of an electron orbiting around a proton. Let&amp;rsquo;s examine the key parameters:&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Particle&lt;/th>
+ &lt;th>Property&lt;/th>
+ &lt;th>Symbol&lt;/th>
+ &lt;th>Charge&lt;/th>
+ &lt;th>Value&lt;/th>
+ &lt;th>Unit&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Electron&lt;/td>
+ &lt;td>Mass&lt;/td>
+ &lt;td>$m_e$&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>$9.1 \times 10^{-31}$&lt;/td>
+ &lt;td>kg&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Electron&lt;/td>
+ &lt;td>Charge&lt;/td>
+ &lt;td>$q_{electron}$&lt;/td>
+ &lt;td>$-e$&lt;/td>
+ &lt;td>$-1.6 \times 10^{-19}$&lt;/td>
+ &lt;td>C&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Proton&lt;/td>
+ &lt;td>Mass&lt;/td>
+ &lt;td>$M$&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>$1.6 \times 10^{-27}$&lt;/td>
+ &lt;td>kg&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Proton&lt;/td>
+ &lt;td>Charge&lt;/td>
+ &lt;td>$q_{proton}$&lt;/td>
+ &lt;td>$+e$&lt;/td>
+ &lt;td>$+1.6 \times 10^{-19}$&lt;/td>
+ &lt;td>C&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>The mass ratio $\frac{M}{m_e} \simeq 1800$, which means we can effectively treat the proton as motionless.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.4/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid><description>&lt;h2 id="41-三维空间的薛定谔方程">
  4.1 三维空间的薛定谔方程
  &lt;a class="anchor" href="#41-%e4%b8%89%e7%bb%b4%e7%a9%ba%e9%97%b4%e7%9a%84%e8%96%9b%e5%ae%9a%e8%b0%94%e6%96%b9%e7%a8%8b">#&lt;/a>
 &lt;/h2>

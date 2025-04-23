@@ -1,29 +1,1300 @@
-<!doctype html><html lang=en dir=ltr><head><script>(function(){const e=localStorage.getItem("theme");e&&document.documentElement.setAttribute("data-theme",e)})()</script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <script>
+    (function(){
+      
+      
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
   Introduction
   #
 
 This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.
-We&rsquo;ll start with creating a new site with a very basic template. Then we&rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://erisehe.github.io/posts/creating-a-new-theme/"><meta property="og:site_name" content="位相学補完計画"><meta property="og:title" content="Creating a New Theme"><meta property="og:description" content="Introduction # This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I’ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won’t cover using CSS to style your theme.
-We’ll start with creating a new site with a very basic template. Then we’ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2014-09-28T00:00:00+00:00"><meta property="article:modified_time" content="2014-09-28T00:00:00+00:00"><title>Creating a New Theme | 位相学補完計画</title>
-<link rel=icon href=/topo.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://erisehe.github.io/posts/creating-a-new-theme/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css><link rel=stylesheet href=/book.min.2d7c41402e14539fe83d37688057b7e2670d48bbcb530d82bcf09925c94a99e7.css integrity="sha256-LXxBQC4UU5/oPTdogFe34mcNSLvLUw2CvPCZJclKmec=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.d534f7e845e884e0719c8398d62b1634fb7b2ea3ab802685436fbe0d4112cf1d.js integrity="sha256-1TT36EXohOBxnIOY1isWNPt7LqOrgCaFQ2++DUESzx0=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class=container><div class=book-layout><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center justify-center" href=https://erisehe.github.io/><img src=/topo.png alt=Logo class=book-icon>
-<span>位相学補完計画</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><nav class=subject-menu><div class=subject-tabs><button class="subject-tab active" data-subject=mathematics>Mathematics</button>
-<button class=subject-tab data-subject=physics>Physics</button></div><div class=subject-content><div class=subject-panel data-subject=mathematics><ul><li class=book-section-flat><input type=checkbox id=section-52fb2f2790b4ee4636ae2dcf0d5d0acf class=toggle>
-<label for=section-52fb2f2790b4ee4636ae2dcf0d5d0acf class="flex justify-between"><a role=button>爽分析 II</a></label><ul><li><input type=checkbox id=section-c3d4873afc217e738d4eac6ed01dcfd0 class=toggle>
-<label for=section-c3d4873afc217e738d4eac6ed01dcfd0 class="flex justify-between"><a role=button>第六章 可微映射</a></label><ul><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/>6.4 可微分性的必要条件</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/>6.5 链式法则</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/>6.6 乘积法则与梯度</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/>6.9 泰勒公式的高维形式</a></li></ul></li><li><input type=checkbox id=section-fe97be846a74527e019600047479e8ff class=toggle>
-<label for=section-fe97be846a74527e019600047479e8ff class="flex justify-between"><a role=button>第七章 逆函数和隐函数定理</a></label><ul><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/>7.6 莫尔斯引理</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/>7.1 反函数定理</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/>7.1.1 反函数定理（证明）</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/>7.2 隐函数定理</a></li></ul></li><li><input type=checkbox id=section-aae367975d1c446b710dc8fa0d2f98a7 class=toggle>
-<label for=section-aae367975d1c446b710dc8fa0d2f98a7 class="flex justify-between"><a role=button>第八章 度量理论</a></label><ul><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/>8.6 勒贝格收敛定理</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/>8.1 度量理论</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/>8.2 Criterion for Integrability</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/>8.3 Proof of Lebesgue's Theorem</a></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/>8.5 不定积分</a></li></ul></li><li><span>第九章</span><ul><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1/>9.1</a></li></ul></li><li><a href=/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%8D%81%E7%AB%A0/10.1-Fourier-Analysis/>10.1 Fourier Analysis</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-03018ad84f65943f3692f81c9f43c501 class=toggle>
-<label for=section-03018ad84f65943f3692f81c9f43c501 class="flex justify-between"><a role=button>偏微分方程</a></label><ul><li><input type=checkbox id=section-3c138d22d500a5fca83e33c724f72850 class=toggle>
-<label for=section-3c138d22d500a5fca83e33c724f72850 class="flex justify-between"><a role=button>数值方法</a></label><ul><li><a href=/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/>01 Mid Point Method</a></li><li><a href=/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/>02 Three Point Backward Differentiation Formula</a></li><li><a href=/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/>常微分方程的数值解</a></li><li><input type=checkbox id=section-d39d8ec7b87141eab4913ff95921d882 class=toggle>
-<label for=section-d39d8ec7b87141eab4913ff95921d882 class="flex justify-between"><a role=button>第四章 有限元分析</a></label><ul></ul></li><li><input type=checkbox id=section-c992180c62af21b3acb7babbad4a6edf class=toggle>
-<label for=section-c992180c62af21b3acb7babbad4a6edf class="flex justify-between"><a role=button>第九章</a></label><ul><li><a href=/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/>习题</a></li><li><a href=/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/>9.1 边值问题的近似</a></li><li><a href=/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/>9.2 有限差分法</a></li><li><a href=/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/>9.3 对流-扩散方程</a></li><li><a href=/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/>9.4 4.1 二维（2D）偏微分方程问题</a></li></ul></li></ul></li><li><input type=checkbox id=section-5c4905e8cb6611c7476262cb2b181a7d class=toggle>
-<label for=section-5c4905e8cb6611c7476262cb2b181a7d class="flex justify-between"><a href=/docs/Mathematics/MATH-351-352/Heat-Equation/>热方程</a></label><ul><li><a href=/docs/Mathematics/MATH-351-352/Heat-Equation/Heat-Equation-Solution/>Heat Equation Solution</a></li><li><a href=/docs/Mathematics/MATH-351-352/Heat-Equation/The-Fourier-Series/>傅立叶级数</a></li></ul></li><li><input type=checkbox id=section-aab81bdedf53e6df6dbaa7ed014acfa3 class=toggle>
-<label for=section-aab81bdedf53e6df6dbaa7ed014acfa3 class="flex justify-between"><a role=button>波方程</a></label><ul></ul></li><li><input type=checkbox id=section-3f3c0ce29b183404c0dfbf7e620f1b12 class=toggle>
-<label for=section-3f3c0ce29b183404c0dfbf7e620f1b12 class="flex justify-between"><a role=button>拉普拉斯方程</a></label><ul></ul></li></ul></li><li><input type=checkbox id=section-987f4ce83ab646aec6b3d935c95db89a class=toggle>
-<label for=section-987f4ce83ab646aec6b3d935c95db89a class="flex justify-between"><a href=/docs/Mathematics/AI/>AI</a></label><ul><li><a href=/docs/Mathematics/AI/Towards-a-Artificial-Lacanian-Subject-Subjector-0/>Towards a Artificial Lacanian Subject Subjector 0</a></li></ul></li></ul></div><div class="subject-panel hidden" data-subject=physics><ul><li class=book-section-flat><input type=checkbox id=section-20bb3063de72cc9c8e7b928b77587c05 class=toggle>
-<label for=section-20bb3063de72cc9c8e7b928b77587c05 class="flex justify-between"><a role=button>Quantum Mechenics</a></label><ul><li><span>第一章</span><ul><li><a href=/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/1.1-The-Wave-Function/>1.1 the Wave Function</a></li></ul></li><li><span>第二章</span><ul><li><a href=/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.1-Time-Independent-Schrodinger-Equation-Stationary-States/>2.1 Time Independent Schrodinger Equation Stationary States</a></li></ul></li><li><span>第三章</span><ul></ul></li><li><span>第四章</span><ul><li><a href=/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/>第四章</a></li></ul></li><li><a href=/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/>Feb 5 Fourier Series on S. Euqation Solution</a></li><li><a href=/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/>Hw3 Code</a></li><li><a href=/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/>Wave Functions Live in Hilbert Space</a></li></ul></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".subject-tab"),s=document.querySelectorAll(".subject-panel");function t(t){e.forEach(e=>e.classList.remove("active")),s.forEach(e=>e.classList.add("hidden"));const n=document.querySelector(`.subject-tab[data-subject="${t}"]`);n&&n.classList.add("active");const o=document.querySelector(`.subject-panel[data-subject="${t}"]`);o&&o.classList.remove("hidden"),localStorage.setItem("activeSubjectTab",t)}const n=localStorage.getItem("activeSubjectTab");n&&t(n),e.forEach(e=>{e.addEventListener("click",function(){const n=e.getAttribute("data-subject");t(n)})})})</script><div class=after-menu-offset><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/EriseHe/erisehe.github.io target=_blank rel=noopener>Github</a></li><li><a href=https://themes.gohugo.io/themes/hugo-book/ target=_blank rel=noopener>Hugo Themes</a></li></ul></div></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>Creating a New Theme</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li><a href=#introduction>Introduction</a></li><li><a href=#some-definitions>Some Definitions</a><ul><li><a href=#skins>Skins</a></li><li><a href=#the-home-page>The Home Page</a></li><li><a href=#site-configuration-file>Site Configuration File</a></li><li><a href=#content>Content</a></li><li><a href=#template-files>Template Files</a></li></ul></li><li><a href=#create-a-new-site>Create a New Site</a><ul><li><a href=#generate-the-html-for-the-new-site>Generate the HTML For the New Site</a></li><li><a href=#test-the-new-site>Test the New Site</a></li></ul></li><li><a href=#create-a-new-theme>Create a New Theme</a><ul><li><a href=#create-a-skeleton>Create a Skeleton</a></li><li><a href=#update-the-configuration-file-to-use-the-theme>Update the Configuration File to Use the Theme</a></li><li><a href=#generate-the-site>Generate the Site</a></li></ul></li><li><a href=#the-theme-development-cycle>The Theme Development Cycle</a><ul><li><a href=#purge-the-public-directory>Purge the public/ Directory</a></li><li><a href=#hugos-watch-option>Hugo&rsquo;s Watch Option</a></li><li><a href=#live-reload>Live Reload</a></li><li><a href=#development-commands>Development Commands</a></li></ul></li><li><a href=#update-the-home-page-template>Update the Home Page Template</a><ul><li><a href=#make-a-static-home-page>Make a Static Home Page</a></li><li><a href=#build-a-dynamic-home-page>Build a &ldquo;Dynamic&rdquo; Home Page</a></li><li><a href=#list-and-single-templates>List and Single Templates</a></li><li><a href=#add-content-to-the-homepage>Add Content to the Homepage</a></li><li><a href=#add-content-to-the-posts>Add Content to the Posts</a></li><li><a href=#linking-to-content>Linking to Content</a></li><li><a href=#create-a-post-listing>Create a Post Listing</a></li></ul></li><li><a href=#creating-top-level-pages>Creating Top Level Pages</a></li><li><a href=#sharing-templates>Sharing Templates</a><ul><li><a href=#create-the-header-and-footer-partials>Create the Header and Footer Partials</a></li><li><a href=#update-the-home-page-template-to-use-the-partials>Update the Home Page Template to Use the Partials</a></li><li><a href=#update-the-default-single-template-to-use-the-partials>Update the Default Single Template to Use the Partials</a></li></ul></li><li><a href=#add-date-published-to-posts>Add “Date Published” to Posts</a><ul><li><a href=#add-date-published-to-the-template>Add “Date Published” to the Template</a></li><li><a href=#dont-repeat-yourself>Don&rsquo;t Repeat Yourself</a></li></ul></li></ul></li></ul></nav></aside></header><article class="markdown book-post"><h2>Creating a New Theme</h2><div class="flex align-center text-small book-post-date"><img src=/svg/calendar.svg class=book-icon alt>
-<span>September 28, 2014</span></div><div class=book-post-content><h2 id=introduction>Introduction
-<a class=anchor href=#introduction>#</a></h2><p>This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.</p><p>We&rsquo;ll start with creating a new site with a very basic template. Then we&rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.</p><p>In this tutorial, commands that you enter will start with the &ldquo;$&rdquo; prompt. The output will follow. Lines that start with &ldquo;#&rdquo; are comments that I&rsquo;ve added to explain a point. When I show updates to a file, the &ldquo;:wq&rdquo; on the last line means to save the file.</p><p>Here&rsquo;s an example:</p><div class=code-block><pre>
+We&rsquo;ll start with creating a new site with a very basic template. Then we&rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/posts/creating-a-new-theme/">
+  <meta property="og:site_name" content="位相学補完計画">
+  <meta property="og:title" content="Creating a New Theme">
+  <meta property="og:description" content="Introduction # This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I’ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won’t cover using CSS to style your theme.
+We’ll start with creating a new site with a very basic template. Then we’ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2014-09-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2014-09-28T00:00:00+00:00">
+<title>
+Creating a New Theme | 位相学補完計画</title>
+<link rel="icon" href="/topo.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/posts/creating-a-new-theme/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
+
+
+<link rel="stylesheet" href="/book.min.2d7c41402e14539fe83d37688057b7e2670d48bbcb530d82bcf09925c94a99e7.css" integrity="sha256-LXxBQC4UU5/oPTdogFe34mcNSLvLUw2CvPCZJclKmec=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.d534f7e845e884e0719c8398d62b1634fb7b2ea3ab802685436fbe0d4112cf1d.js" integrity="sha256-1TT36EXohOBxnIOY1isWNPt7LqOrgCaFQ2&#43;&#43;DUESzx0=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+
+</head>
+
+<body dir="ltr">
+  
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
+  <main class="container">
+    <div class="book-layout">
+      <aside class="book-menu">
+        <div class="book-menu-content">
+          
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center justify-center" 
+     href="http://localhost:1313/">
+    <img src="/topo.png" 
+         alt="Logo" 
+         class="book-icon" />
+    <span>位相学補完計画</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+ 
+
+<nav class="subject-menu">
+  
+  <div class="subject-tabs">
+    <button class="subject-tab active" data-subject="mathematics">Mathematics</button>
+    <button class="subject-tab" data-subject="physics">Physics</button>
+  </div>
+
+  
+  <div class="subject-content">
+    
+    <div class="subject-panel" data-subject="mathematics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="toggle"  />
+    <label for="section-52fb2f2790b4ee4636ae2dcf0d5d0acf" class="flex justify-between">
+      <a role="button"
+         class="">爽分析 II</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-c3d4873afc217e738d4eac6ed01dcfd0" class="toggle"  />
+    <label for="section-c3d4873afc217e738d4eac6ed01dcfd0" class="flex justify-between">
+      <a role="button"
+         class="">第六章 可微映射</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/"
+       class="">6.4 可微分性的必要条件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/"
+       class="">6.5 链式法则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/"
+       class="">6.6 乘积法则与梯度</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/"
+       class="">6.9 泰勒公式的高维形式</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-fe97be846a74527e019600047479e8ff" class="toggle"  />
+    <label for="section-fe97be846a74527e019600047479e8ff" class="flex justify-between">
+      <a role="button"
+         class="">第七章 逆函数和隐函数定理</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/"
+       class="">7.6 莫尔斯引理</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/"
+       class="">7.1 反函数定理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/"
+       class="">7.1.1 反函数定理（证明）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/"
+       class="">7.2 隐函数定理</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-aae367975d1c446b710dc8fa0d2f98a7" class="toggle"  />
+    <label for="section-aae367975d1c446b710dc8fa0d2f98a7" class="flex justify-between">
+      <a role="button"
+         class="">第八章 度量理论</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/"
+       class="">8.6 勒贝格收敛定理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/"
+       class="">8.1 度量理论</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/"
+       class="">8.2 Criterion for Integrability</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/"
+       class="">8.3 Proof of Lebesgue&#39;s Theorem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/"
+       class="">8.5 不定积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第九章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1/"
+       class="">9.1</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%8D%81%E7%AB%A0/10.1-Fourier-Analysis/"
+       class="">10.1 Fourier Analysis</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-03018ad84f65943f3692f81c9f43c501" class="toggle"  />
+    <label for="section-03018ad84f65943f3692f81c9f43c501" class="flex justify-between">
+      <a role="button"
+         class="">偏微分方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-3c138d22d500a5fca83e33c724f72850" class="toggle"  />
+    <label for="section-3c138d22d500a5fca83e33c724f72850" class="flex justify-between">
+      <a role="button"
+         class="">数值方法</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/"
+       class="">01 Mid Point Method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/"
+       class="">02 Three Point Backward Differentiation Formula</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/"
+       class="">常微分方程的数值解</a>
+  
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d39d8ec7b87141eab4913ff95921d882" class="toggle"  />
+    <label for="section-d39d8ec7b87141eab4913ff95921d882" class="flex justify-between">
+      <a role="button"
+         class="">第四章 有限元分析</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-c992180c62af21b3acb7babbad4a6edf" class="toggle"  />
+    <label for="section-c992180c62af21b3acb7babbad4a6edf" class="flex justify-between">
+      <a role="button"
+         class="">第九章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/"
+       class="">习题</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/"
+       class="">9.1 边值问题的近似</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/"
+       class="">9.2 有限差分法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/"
+       class="">9.3 对流-扩散方程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/"
+       class="">9.4 4.1 二维（2D）偏微分方程问题</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-5c4905e8cb6611c7476262cb2b181a7d" class="toggle"  />
+    <label for="section-5c4905e8cb6611c7476262cb2b181a7d" class="flex justify-between">
+      <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
+         class="">热方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/Heat-Equation-Solution/"
+       class="">Heat Equation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/The-Fourier-Series/"
+       class="">傅立叶级数</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="toggle"  />
+    <label for="section-aab81bdedf53e6df6dbaa7ed014acfa3" class="flex justify-between">
+      <a role="button"
+         class="">波方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="toggle"  />
+    <label for="section-3f3c0ce29b183404c0dfbf7e620f1b12" class="flex justify-between">
+      <a role="button"
+         class="">拉普拉斯方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-987f4ce83ab646aec6b3d935c95db89a" class="toggle"  />
+    <label for="section-987f4ce83ab646aec6b3d935c95db89a" class="flex justify-between">
+      <a href="/docs/Mathematics/AI/"
+         class="">AI</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/AI/Towards-a-Artificial-Lacanian-Subject-Subjector-0/"
+       class="">Towards a Artificial Lacanian Subject Subjector 0</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+
+    
+    <div class="subject-panel hidden" data-subject="physics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-20bb3063de72cc9c8e7b928b77587c05" class="toggle"  />
+    <label for="section-20bb3063de72cc9c8e7b928b77587c05" class="flex justify-between">
+      <a role="button"
+         class="">Quantum Mechenics</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第一章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/1.1-The-Wave-Function/"
+       class="">1.1 the Wave Function</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第二章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.1-Time-Independent-Schrodinger-Equation-Stationary-States/"
+       class="">2.1 Time Independent Schrodinger Equation Stationary States</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第三章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <span>第四章</span>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/"
+       class="">第四章</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/"
+       class="">Feb 5 Fourier Series on S. Euqation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/"
+       class="">Hw3 Code</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/"
+       class="">Wave Functions Live in Hilbert Space</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+  </div>
+</nav>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.subject-tab');
+    const panels = document.querySelectorAll('.subject-panel');
+
+    
+    function activateTab(subject) {
+      
+      tabs.forEach(t => t.classList.remove('active'));
+      
+      panels.forEach(p => p.classList.add('hidden'));
+
+      
+      const selectedTab = document.querySelector(`.subject-tab[data-subject="${subject}"]`);
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
+      
+      
+      const panel = document.querySelector(`.subject-panel[data-subject="${subject}"]`);
+      if (panel) {
+        panel.classList.remove('hidden');
+      }
+      
+      
+      localStorage.setItem('activeSubjectTab', subject);
+    }
+
+    
+    const savedTab = localStorage.getItem('activeSubjectTab');
+    if (savedTab) {
+      activateTab(savedTab);
+    }
+
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const subject = tab.getAttribute('data-subject');
+        activateTab(subject);
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+<div class="after-menu-offset">
+  
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/EriseHe/erisehe.github.io"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/themes/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+</div>
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+        </div>
+      </aside>
+      
+      <div class="book-page">
+        <header class="book-header">
+          
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Creating a New Theme</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+  
+  
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#some-definitions">Some Definitions</a>
+          <ul>
+            <li><a href="#skins">Skins</a></li>
+            <li><a href="#the-home-page">The Home Page</a></li>
+            <li><a href="#site-configuration-file">Site Configuration File</a></li>
+            <li><a href="#content">Content</a></li>
+            <li><a href="#template-files">Template Files</a></li>
+          </ul>
+        </li>
+        <li><a href="#create-a-new-site">Create a New Site</a>
+          <ul>
+            <li><a href="#generate-the-html-for-the-new-site">Generate the HTML For the New Site</a></li>
+            <li><a href="#test-the-new-site">Test the New Site</a></li>
+          </ul>
+        </li>
+        <li><a href="#create-a-new-theme">Create a New Theme</a>
+          <ul>
+            <li><a href="#create-a-skeleton">Create a Skeleton</a></li>
+            <li><a href="#update-the-configuration-file-to-use-the-theme">Update the Configuration File to Use the Theme</a></li>
+            <li><a href="#generate-the-site">Generate the Site</a></li>
+          </ul>
+        </li>
+        <li><a href="#the-theme-development-cycle">The Theme Development Cycle</a>
+          <ul>
+            <li><a href="#purge-the-public-directory">Purge the public/ Directory</a></li>
+            <li><a href="#hugos-watch-option">Hugo&rsquo;s Watch Option</a></li>
+            <li><a href="#live-reload">Live Reload</a></li>
+            <li><a href="#development-commands">Development Commands</a></li>
+          </ul>
+        </li>
+        <li><a href="#update-the-home-page-template">Update the Home Page Template</a>
+          <ul>
+            <li><a href="#make-a-static-home-page">Make a Static Home Page</a></li>
+            <li><a href="#build-a-dynamic-home-page">Build a &ldquo;Dynamic&rdquo; Home Page</a></li>
+            <li><a href="#list-and-single-templates">List and Single Templates</a></li>
+            <li><a href="#add-content-to-the-homepage">Add Content to the Homepage</a></li>
+            <li><a href="#add-content-to-the-posts">Add Content to the Posts</a></li>
+            <li><a href="#linking-to-content">Linking to Content</a></li>
+            <li><a href="#create-a-post-listing">Create a Post Listing</a></li>
+          </ul>
+        </li>
+        <li><a href="#creating-top-level-pages">Creating Top Level Pages</a></li>
+        <li><a href="#sharing-templates">Sharing Templates</a>
+          <ul>
+            <li><a href="#create-the-header-and-footer-partials">Create the Header and Footer Partials</a></li>
+            <li><a href="#update-the-home-page-template-to-use-the-partials">Update the Home Page Template to Use the Partials</a></li>
+            <li><a href="#update-the-default-single-template-to-use-the-partials">Update the Default Single Template to Use the Partials</a></li>
+          </ul>
+        </li>
+        <li><a href="#add-date-published-to-posts">Add “Date Published” to Posts</a>
+          <ul>
+            <li><a href="#add-date-published-to-the-template">Add “Date Published” to the Template</a></li>
+            <li><a href="#dont-repeat-yourself">Don&rsquo;t Repeat Yourself</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+        </header>
+
+        
+        
+<article class="markdown book-post">
+  <h2>
+    Creating a New Theme
+  </h2>
+  
+  <div class="flex align-center text-small book-post-date">
+    <img src="/svg/calendar.svg" class="book-icon " alt="" />
+    <span>September 28, 2014</span>
+  </div>
+
+
+
+  
+
+  
+
+
+  <div class="book-post-content"><h2 id="introduction">
+  Introduction
+  <a class="anchor" href="#introduction">#</a>
+</h2>
+<p>This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.</p>
+<p>We&rsquo;ll start with creating a new site with a very basic template. Then we&rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.</p>
+<p>In this tutorial, commands that you enter will start with the &ldquo;$&rdquo; prompt. The output will follow. Lines that start with &ldquo;#&rdquo; are comments that I&rsquo;ve added to explain a point. When I show updates to a file, the &ldquo;:wq&rdquo; on the last line means to save the file.</p>
+<p>Here&rsquo;s an example:</p>
+<div class="code-block">
+    <pre>
 <code>## this is a comment
 $ echo this is a command
 this is a command
@@ -47,20 +1318,86 @@ title = "creating a new theme"
 
 bah and humbug
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><h2 id=some-definitions>Some Definitions
-<a class=anchor href=#some-definitions>#</a></h2><p>There are a few concepts that you need to understand before creating a theme.</p><h3 id=skins>Skins
-<a class=anchor href=#skins>#</a></h3><p>Skins are the files responsible for the look and feel of your site. It’s the CSS that controls colors and fonts, it’s the Javascript that determines actions and reactions. It’s also the rules that Hugo uses to transform your content into the HTML that the site will serve to visitors.</p><p>You have two ways to create a skin. The simplest way is to create it in the <code>layouts/</code> directory. If you do, then you don’t have to worry about configuring Hugo to recognize it. The first place that Hugo will look for rules and files is in the <code>layouts/</code> directory so it will always find the skin.</p><p>Your second choice is to create it in a sub-directory of the <code>themes/</code> directory. If you do, then you must always tell Hugo where to search for the skin. It’s extra work, though, so why bother with it?</p><p>The difference between creating a skin in <code>layouts/</code> and creating it in <code>themes/</code> is very subtle. A skin in <code>layouts/</code> can’t be customized without updating the templates and static files that it is built from. A skin created in <code>themes/</code>, on the other hand, can be and that makes it easier for other people to use it.</p><p>The rest of this tutorial will call a skin created in the <code>themes/</code> directory a theme.</p><p>Note that you can use this tutorial to create a skin in the <code>layouts/</code> directory if you wish to. The main difference will be that you won’t need to update the site’s configuration file to use a theme.</p><h3 id=the-home-page>The Home Page
-<a class=anchor href=#the-home-page>#</a></h3><p>The home page, or landing page, is the first page that many visitors to a site see. It is the index.html file in the root directory of the web site. Since Hugo writes files to the public/ directory, our home page is public/index.html.</p><h3 id=site-configuration-file>Site Configuration File
-<a class=anchor href=#site-configuration-file>#</a></h3><p>When Hugo runs, it looks for a configuration file that contains settings that override default values for the entire site. The file can use TOML, YAML, or JSON. I prefer to use TOML for my configuration files. If you prefer to use JSON or YAML, you’ll need to translate my examples. You’ll also need to change the name of the file since Hugo uses the extension to determine how to process it.</p><p>Hugo translates Markdown files into HTML. By default, Hugo expects to find Markdown files in your <code>content/</code> directory and template files in your <code>themes/</code> directory. It will create HTML files in your <code>public/</code> directory. You can change this by specifying alternate locations in the configuration file.</p><h3 id=content>Content
-<a class=anchor href=#content>#</a></h3><p>Content is stored in text files that contain two sections. The first section is the “front matter,” which is the meta-information on the content. The second section contains Markdown that will be converted to HTML.</p><h4 id=front-matter>Front Matter
-<a class=anchor href=#front-matter>#</a></h4><p>The front matter is information about the content. Like the configuration file, it can be written in TOML, YAML, or JSON. Unlike the configuration file, Hugo doesn’t use the file’s extension to know the format. It looks for markers to signal the type. TOML is surrounded by “<code>+++</code>”, YAML by “<code>---</code>”, and JSON is enclosed in curly braces. I prefer to use TOML, so you’ll need to translate my examples if you prefer YAML or JSON.</p><p>The information in the front matter is passed into the template before the content is rendered into HTML.</p><h4 id=markdown>Markdown
-<a class=anchor href=#markdown>#</a></h4><p>Content is written in Markdown which makes it easier to create the content. Hugo runs the content through a Markdown engine to create the HTML which will be written to the output file.</p><h3 id=template-files>Template Files
-<a class=anchor href=#template-files>#</a></h3><p>Hugo uses template files to render content into HTML. Template files are a bridge between the content and presentation. Rules in the template define what content is published, where it&rsquo;s published to, and how it will rendered to the HTML file. The template guides the presentation by specifying the style to use.</p><p>There are three types of templates: single, list, and partial. Each type takes a bit of content as input and transforms it based on the commands in the template.</p><p>Hugo uses its knowledge of the content to find the template file used to render the content. If it can’t find a template that is an exact match for the content, it will shift up a level and search from there. It will continue to do so until it finds a matching template or runs out of templates to try. If it can’t find a template, it will use the default template for the site.</p><p>Please note that you can use the front matter to influence Hugo’s choice of templates.</p><h4 id=single-template>Single Template
-<a class=anchor href=#single-template>#</a></h4><p>A single template is used to render a single piece of content. For example, an article or post would be a single piece of content and use a single template.</p><h4 id=list-template>List Template
-<a class=anchor href=#list-template>#</a></h4><p>A list template renders a group of related content. That could be a summary of recent postings or all articles in a category. List templates can contain multiple groups.</p><p>The homepage template is a special type of list template. Hugo assumes that the home page of your site will act as the portal for the rest of the content in the site.</p><h4 id=partial-template>Partial Template
-<a class=anchor href=#partial-template>#</a></h4><p>A partial template is a template that can be included in other templates. Partial templates must be called using the “partial” template command. They are very handy for rolling up common behavior. For example, your site may have a banner that all pages use. Instead of copying the text of the banner into every single and list template, you could create a partial with the banner in it. That way if you decide to change the banner, you only have to change the partial template.</p><h2 id=create-a-new-site>Create a New Site
-<a class=anchor href=#create-a-new-site>#</a></h2><p>Let&rsquo;s use Hugo to create a new web site. I&rsquo;m a Mac user, so I&rsquo;ll create mine in my home directory, in the Sites folder. If you&rsquo;re using Linux, you might have to create the folder first.</p><p>The &ldquo;new site&rdquo; command will create a skeleton of a site. It will give you the basic directory structure and a useable configuration file.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<h2 id="some-definitions">
+  Some Definitions
+  <a class="anchor" href="#some-definitions">#</a>
+</h2>
+<p>There are a few concepts that you need to understand before creating a theme.</p>
+<h3 id="skins">
+  Skins
+  <a class="anchor" href="#skins">#</a>
+</h3>
+<p>Skins are the files responsible for the look and feel of your site. It’s the CSS that controls colors and fonts, it’s the Javascript that determines actions and reactions. It’s also the rules that Hugo uses to transform your content into the HTML that the site will serve to visitors.</p>
+<p>You have two ways to create a skin. The simplest way is to create it in the <code>layouts/</code> directory. If you do, then you don’t have to worry about configuring Hugo to recognize it. The first place that Hugo will look for rules and files is in the <code>layouts/</code> directory so it will always find the skin.</p>
+<p>Your second choice is to create it in a sub-directory of the <code>themes/</code> directory. If you do, then you must always tell Hugo where to search for the skin. It’s extra work, though, so why bother with it?</p>
+<p>The difference between creating a skin in <code>layouts/</code> and creating it in <code>themes/</code> is very subtle. A skin in <code>layouts/</code> can’t be customized without updating the templates and static files that it is built from. A skin created in <code>themes/</code>, on the other hand, can be and that makes it easier for other people to use it.</p>
+<p>The rest of this tutorial will call a skin created in the <code>themes/</code> directory a theme.</p>
+<p>Note that you can use this tutorial to create a skin in the <code>layouts/</code> directory if you wish to. The main difference will be that you won’t need to update the site’s configuration file to use a theme.</p>
+<h3 id="the-home-page">
+  The Home Page
+  <a class="anchor" href="#the-home-page">#</a>
+</h3>
+<p>The home page, or landing page, is the first page that many visitors to a site see. It is the index.html file in the root directory of the web site. Since Hugo writes files to the public/ directory, our home page is public/index.html.</p>
+<h3 id="site-configuration-file">
+  Site Configuration File
+  <a class="anchor" href="#site-configuration-file">#</a>
+</h3>
+<p>When Hugo runs, it looks for a configuration file that contains settings that override default values for the entire site. The file can use TOML, YAML, or JSON. I prefer to use TOML for my configuration files. If you prefer to use JSON or YAML, you’ll need to translate my examples. You’ll also need to change the name of the file since Hugo uses the extension to determine how to process it.</p>
+<p>Hugo translates Markdown files into HTML. By default, Hugo expects to find Markdown files in your <code>content/</code> directory and template files in your <code>themes/</code> directory. It will create HTML files in your <code>public/</code> directory. You can change this by specifying alternate locations in the configuration file.</p>
+<h3 id="content">
+  Content
+  <a class="anchor" href="#content">#</a>
+</h3>
+<p>Content is stored in text files that contain two sections. The first section is the “front matter,” which is the meta-information on the content. The second section contains Markdown that will be converted to HTML.</p>
+<h4 id="front-matter">
+  Front Matter
+  <a class="anchor" href="#front-matter">#</a>
+</h4>
+<p>The front matter is information about the content. Like the configuration file, it can be written in TOML, YAML, or JSON. Unlike the configuration file, Hugo doesn’t use the file’s extension to know the format. It looks for markers to signal the type. TOML is surrounded by “<code>+++</code>”, YAML by “<code>---</code>”, and JSON is enclosed in curly braces. I prefer to use TOML, so you’ll need to translate my examples if you prefer YAML or JSON.</p>
+<p>The information in the front matter is passed into the template before the content is rendered into HTML.</p>
+<h4 id="markdown">
+  Markdown
+  <a class="anchor" href="#markdown">#</a>
+</h4>
+<p>Content is written in Markdown which makes it easier to create the content. Hugo runs the content through a Markdown engine to create the HTML which will be written to the output file.</p>
+<h3 id="template-files">
+  Template Files
+  <a class="anchor" href="#template-files">#</a>
+</h3>
+<p>Hugo uses template files to render content into HTML. Template files are a bridge between the content and presentation. Rules in the template define what content is published, where it&rsquo;s published to, and how it will rendered to the HTML file. The template guides the presentation by specifying the style to use.</p>
+<p>There are three types of templates: single, list, and partial. Each type takes a bit of content as input and transforms it based on the commands in the template.</p>
+<p>Hugo uses its knowledge of the content to find the template file used to render the content. If it can’t find a template that is an exact match for the content, it will shift up a level and search from there. It will continue to do so until it finds a matching template or runs out of templates to try. If it can’t find a template, it will use the default template for the site.</p>
+<p>Please note that you can use the front matter to influence Hugo’s choice of templates.</p>
+<h4 id="single-template">
+  Single Template
+  <a class="anchor" href="#single-template">#</a>
+</h4>
+<p>A single template is used to render a single piece of content. For example, an article or post would be a single piece of content and use a single template.</p>
+<h4 id="list-template">
+  List Template
+  <a class="anchor" href="#list-template">#</a>
+</h4>
+<p>A list template renders a group of related content. That could be a summary of recent postings or all articles in a category. List templates can contain multiple groups.</p>
+<p>The homepage template is a special type of list template. Hugo assumes that the home page of your site will act as the portal for the rest of the content in the site.</p>
+<h4 id="partial-template">
+  Partial Template
+  <a class="anchor" href="#partial-template">#</a>
+</h4>
+<p>A partial template is a template that can be included in other templates. Partial templates must be called using the “partial” template command. They are very handy for rolling up common behavior. For example, your site may have a banner that all pages use. Instead of copying the text of the banner into every single and list template, you could create a partial with the banner in it. That way if you decide to change the banner, you only have to change the partial template.</p>
+<h2 id="create-a-new-site">
+  Create a New Site
+  <a class="anchor" href="#create-a-new-site">#</a>
+</h2>
+<p>Let&rsquo;s use Hugo to create a new web site. I&rsquo;m a Mac user, so I&rsquo;ll create mine in my home directory, in the Sites folder. If you&rsquo;re using Linux, you might have to create the folder first.</p>
+<p>The &ldquo;new site&rdquo; command will create a skeleton of a site. It will give you the basic directory structure and a useable configuration file.</p>
+<div class="code-block">
+    <pre>
 <code>$ hugo new site ~/Sites/zafta
 $ cd ~/Sites/zafta
 $ ls -l
@@ -73,9 +1410,21 @@ drwxr-xr-x  2 quoha  staff   68 Sep 29 16:49 content
 drwxr-xr-x  2 quoha  staff   68 Sep 29 16:49 layouts
 drwxr-xr-x  2 quoha  staff   68 Sep 29 16:49 static
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Take a look in the content/ directory to confirm that it is empty.</p><p>The other directories (archetypes/, layouts/, and static/) are used when customizing a theme. That&rsquo;s a topic for a different tutorial, so please ignore them for now.</p><h3 id=generate-the-html-for-the-new-site>Generate the HTML For the New Site
-<a class=anchor href=#generate-the-html-for-the-new-site>#</a></h3><p>Running the <code>hugo</code> command with no options will read all the available content and generate the HTML files. It will also copy all static files (that&rsquo;s everything that&rsquo;s not content). Since we have an empty site, it won&rsquo;t do much, but it will do it very quickly.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Take a look in the content/ directory to confirm that it is empty.</p>
+<p>The other directories (archetypes/, layouts/, and static/) are used when customizing a theme. That&rsquo;s a topic for a different tutorial, so please ignore them for now.</p>
+<h3 id="generate-the-html-for-the-new-site">
+  Generate the HTML For the New Site
+  <a class="anchor" href="#generate-the-html-for-the-new-site">#</a>
+</h3>
+<p>Running the <code>hugo</code> command with no options will read all the available content and generate the HTML files. It will also copy all static files (that&rsquo;s everything that&rsquo;s not content). Since we have an empty site, it won&rsquo;t do much, but it will do it very quickly.</p>
+<div class="code-block">
+    <pre>
 <code>$ hugo --verbose
 INFO: 2014/09/29 Using config file: config.toml
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/static/ to /Users/quoha/Sites/zafta/public/
@@ -88,8 +1437,16 @@ WARN: 2014/09/29 Unable to locate layout: [404.html]
 0 categories created
 in 2 ms
 $ </code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>The &ldquo;<code>--verbose</code>&rdquo; flag gives extra information that will be helpful when we build the template. Every line of the output that starts with &ldquo;INFO:&rdquo; or &ldquo;WARN:&rdquo; is present because we used that flag. The lines that start with &ldquo;WARN:&rdquo; are warning messages. We&rsquo;ll go over them later.</p><p>We can verify that the command worked by looking at the directory again.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>The &ldquo;<code>--verbose</code>&rdquo; flag gives extra information that will be helpful when we build the template. Every line of the output that starts with &ldquo;INFO:&rdquo; or &ldquo;WARN:&rdquo; is present because we used that flag. The lines that start with &ldquo;WARN:&rdquo; are warning messages. We&rsquo;ll go over them later.</p>
+<p>We can verify that the command worked by looking at the directory again.</p>
+<div class="code-block">
+    <pre>
 <code>$ ls -l
 total 8
 drwxr-xr-x  2 quoha  staff   68 Sep 29 16:49 archetypes
@@ -99,16 +1456,34 @@ drwxr-xr-x  2 quoha  staff   68 Sep 29 16:49 layouts
 drwxr-xr-x  4 quoha  staff  136 Sep 29 17:02 public
 drwxr-xr-x  2 quoha  staff   68 Sep 29 16:49 static
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>See that new public/ directory? Hugo placed all generated content there. When you&rsquo;re ready to publish your web site, that&rsquo;s the place to start. For now, though, let&rsquo;s just confirm that we have what we&rsquo;d expect from a site with no content.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>See that new public/ directory? Hugo placed all generated content there. When you&rsquo;re ready to publish your web site, that&rsquo;s the place to start. For now, though, let&rsquo;s just confirm that we have what we&rsquo;d expect from a site with no content.</p>
+<div class="code-block">
+    <pre>
 <code>$ ls -l public
 total 16
 -rw-r--r--  1 quoha  staff  416 Sep 29 17:02 index.xml
 -rw-r--r--  1 quoha  staff  262 Sep 29 17:02 sitemap.xml
 $ </code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Hugo created two XML files, which is standard, but there are no HTML files.</p><h3 id=test-the-new-site>Test the New Site
-<a class=anchor href=#test-the-new-site>#</a></h3><p>Verify that you can run the built-in web server. It will dramatically shorten your development cycle if you do. Start it by running the &ldquo;server&rdquo; command. If it is successful, you will see output similar to the following:</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Hugo created two XML files, which is standard, but there are no HTML files.</p>
+<h3 id="test-the-new-site">
+  Test the New Site
+  <a class="anchor" href="#test-the-new-site">#</a>
+</h3>
+<p>Verify that you can run the built-in web server. It will dramatically shorten your development cycle if you do. Start it by running the &ldquo;server&rdquo; command. If it is successful, you will see output similar to the following:</p>
+<div class="code-block">
+    <pre>
 <code>$ hugo server --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/static/ to /Users/quoha/Sites/zafta/public/
@@ -123,18 +1498,53 @@ in 2 ms
 Serving pages from /Users/quoha/Sites/zafta/public
 Web Server is available at http://localhost:1313
 Press Ctrl+C to stop</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Connect to the listed URL (it&rsquo;s on the line that starts with &ldquo;Web Server&rdquo;). If everything is working correctly, you should get a page that shows the following:</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Connect to the listed URL (it&rsquo;s on the line that starts with &ldquo;Web Server&rdquo;). If everything is working correctly, you should get a page that shows the following:</p>
+<div class="code-block">
+    <pre>
 <code>index.xml
 sitemap.xml</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>That&rsquo;s a listing of your public/ directory. Hugo didn&rsquo;t create a home page because our site has no content. When there&rsquo;s no index.html file in a directory, the server lists the files in the directory, which is what you should see in your browser.</p><p>Let’s go back and look at those warnings again.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>That&rsquo;s a listing of your public/ directory. Hugo didn&rsquo;t create a home page because our site has no content. When there&rsquo;s no index.html file in a directory, the server lists the files in the directory, which is what you should see in your browser.</p>
+<p>Let’s go back and look at those warnings again.</p>
+<div class="code-block">
+    <pre>
 <code>WARN: 2014/09/29 Unable to locate layout: [index.html _default/list.html _default/single.html]
 WARN: 2014/09/29 Unable to locate layout: [404.html]</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>That second warning is easier to explain. We haven’t created a template to be used to generate “page not found errors.” The 404 message is a topic for a separate tutorial.</p><p>Now for the first warning. It is for the home page. You can tell because the first layout that it looked for was “index.html.” That’s only used by the home page.</p><p>I like that the verbose flag causes Hugo to list the files that it&rsquo;s searching for. For the home page, they are index.html, _default/list.html, and _default/single.html. There are some rules that we&rsquo;ll cover later that explain the names and paths. For now, just remember that Hugo couldn&rsquo;t find a template for the home page and it told you so.</p><p>At this point, you&rsquo;ve got a working installation and site that we can build upon. All that’s left is to add some content and a theme to display it.</p><h2 id=create-a-new-theme>Create a New Theme
-<a class=anchor href=#create-a-new-theme>#</a></h2><p>Hugo doesn&rsquo;t ship with a default theme. There are a few available (I counted a dozen when I first installed Hugo) and Hugo comes with a command to create new themes.</p><p>We&rsquo;re going to create a new theme called &ldquo;zafta.&rdquo; Since the goal of this tutorial is to show you how to fill out the files to pull in your content, the theme will not contain any CSS. In other words, ugly but functional.</p><p>All themes have opinions on content and layout. For example, Zafta uses &ldquo;post&rdquo; over &ldquo;blog&rdquo;. Strong opinions make for simpler templates but differing opinions make it tougher to use themes. When you build a theme, consider using the terms that other themes do.</p><h3 id=create-a-skeleton>Create a Skeleton
-<a class=anchor href=#create-a-skeleton>#</a></h3><p>Use the hugo &ldquo;new&rdquo; command to create the skeleton of a theme. This creates the directory structure and places empty files for you to fill out.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>That second warning is easier to explain. We haven’t created a template to be used to generate “page not found errors.” The 404 message is a topic for a separate tutorial.</p>
+<p>Now for the first warning. It is for the home page. You can tell because the first layout that it looked for was “index.html.” That’s only used by the home page.</p>
+<p>I like that the verbose flag causes Hugo to list the files that it&rsquo;s searching for. For the home page, they are index.html, _default/list.html, and _default/single.html. There are some rules that we&rsquo;ll cover later that explain the names and paths. For now, just remember that Hugo couldn&rsquo;t find a template for the home page and it told you so.</p>
+<p>At this point, you&rsquo;ve got a working installation and site that we can build upon. All that’s left is to add some content and a theme to display it.</p>
+<h2 id="create-a-new-theme">
+  Create a New Theme
+  <a class="anchor" href="#create-a-new-theme">#</a>
+</h2>
+<p>Hugo doesn&rsquo;t ship with a default theme. There are a few available (I counted a dozen when I first installed Hugo) and Hugo comes with a command to create new themes.</p>
+<p>We&rsquo;re going to create a new theme called &ldquo;zafta.&rdquo; Since the goal of this tutorial is to show you how to fill out the files to pull in your content, the theme will not contain any CSS. In other words, ugly but functional.</p>
+<p>All themes have opinions on content and layout. For example, Zafta uses &ldquo;post&rdquo; over &ldquo;blog&rdquo;. Strong opinions make for simpler templates but differing opinions make it tougher to use themes. When you build a theme, consider using the terms that other themes do.</p>
+<h3 id="create-a-skeleton">
+  Create a Skeleton
+  <a class="anchor" href="#create-a-skeleton">#</a>
+</h3>
+<p>Use the hugo &ldquo;new&rdquo; command to create the skeleton of a theme. This creates the directory structure and places empty files for you to fill out.</p>
+<div class="code-block">
+    <pre>
 <code>$ hugo new theme zafta
 
 $ ls -l
@@ -157,8 +1567,16 @@ $ find themes -type f | xargs ls -l
 -rw-r--r--  1 quoha  staff     0 Sep 29 17:31 themes/zafta/layouts/partials/header.html
 -rw-r--r--  1 quoha  staff    93 Sep 29 17:31 themes/zafta/theme.toml
 $ </code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>The skeleton includes templates (the files ending in .html), license file, a description of your theme (the theme.toml file), and an empty archetype.</p><p>Please take a minute to fill out the theme.toml and LICENSE.md files. They&rsquo;re optional, but if you&rsquo;re going to be distributing your theme, it tells the world who to praise (or blame). It&rsquo;s also nice to declare the license so that people will know how they can use the theme.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>The skeleton includes templates (the files ending in .html), license file, a description of your theme (the theme.toml file), and an empty archetype.</p>
+<p>Please take a minute to fill out the theme.toml and LICENSE.md files. They&rsquo;re optional, but if you&rsquo;re going to be distributing your theme, it tells the world who to praise (or blame). It&rsquo;s also nice to declare the license so that people will know how they can use the theme.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/theme.toml
 author = "michael d henderson"
 description = "a minimal working template"
@@ -170,8 +1588,15 @@ tags = ["tags", "categories"]
 
 ## also edit themes/zafta/LICENSE.md and change
 ## the bit that says "YOUR_NAME_HERE"</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Note that the the skeleton&rsquo;s template files are empty. Don&rsquo;t worry, we&rsquo;ll be changing that shortly.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Note that the the skeleton&rsquo;s template files are empty. Don&rsquo;t worry, we&rsquo;ll be changing that shortly.</p>
+<div class="code-block">
+    <pre>
 <code>$ find themes/zafta -name '*.html' | xargs ls -l
 -rw-r--r--  1 quoha  staff  0 Sep 29 17:31 themes/zafta/layouts/_default/list.html
 -rw-r--r--  1 quoha  staff  0 Sep 29 17:31 themes/zafta/layouts/_default/single.html
@@ -179,9 +1604,20 @@ tags = ["tags", "categories"]
 -rw-r--r--  1 quoha  staff  0 Sep 29 17:31 themes/zafta/layouts/partials/footer.html
 -rw-r--r--  1 quoha  staff  0 Sep 29 17:31 themes/zafta/layouts/partials/header.html
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><h3 id=update-the-configuration-file-to-use-the-theme>Update the Configuration File to Use the Theme
-<a class=anchor href=#update-the-configuration-file-to-use-the-theme>#</a></h3><p>Now that we&rsquo;ve got a theme to work with, it&rsquo;s a good idea to add the theme name to the configuration file. This is optional, because you can always add &ldquo;-t zafta&rdquo; on all your commands. I like to put it the configuration file because I like shorter command lines. If you don&rsquo;t put it in the configuration file or specify it on the command line, you won&rsquo;t use the template that you&rsquo;re expecting to.</p><p>Edit the file to add the theme, add a title for the site, and specify that all of our content will use the TOML format.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<h3 id="update-the-configuration-file-to-use-the-theme">
+  Update the Configuration File to Use the Theme
+  <a class="anchor" href="#update-the-configuration-file-to-use-the-theme">#</a>
+</h3>
+<p>Now that we&rsquo;ve got a theme to work with, it&rsquo;s a good idea to add the theme name to the configuration file. This is optional, because you can always add &ldquo;-t zafta&rdquo; on all your commands. I like to put it the configuration file because I like shorter command lines. If you don&rsquo;t put it in the configuration file or specify it on the command line, you won&rsquo;t use the template that you&rsquo;re expecting to.</p>
+<p>Edit the file to add the theme, add a title for the site, and specify that all of our content will use the TOML format.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi config.toml
 theme = "zafta"
 baseurl = ""
@@ -191,9 +1627,19 @@ MetaDataFormat = "toml"
 :wq
 
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><h3 id=generate-the-site>Generate the Site
-<a class=anchor href=#generate-the-site>#</a></h3><p>Now that we have an empty theme, let&rsquo;s generate the site again.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<h3 id="generate-the-site">
+  Generate the Site
+  <a class="anchor" href="#generate-the-site">#</a>
+</h3>
+<p>Now that we have an empty theme, let&rsquo;s generate the site again.</p>
+<div class="code-block">
+    <pre>
 <code>$ hugo --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/themes/zafta/static/ to /Users/quoha/Sites/zafta/public/
@@ -206,8 +1652,16 @@ WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 categories created
 in 2 ms
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Did you notice that the output is different? The warning message for the home page has disappeared and we have an additional information line saying that Hugo is syncing from the theme&rsquo;s directory.</p><p>Let&rsquo;s check the public/ directory to see what Hugo&rsquo;s created.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Did you notice that the output is different? The warning message for the home page has disappeared and we have an additional information line saying that Hugo is syncing from the theme&rsquo;s directory.</p>
+<p>Let&rsquo;s check the public/ directory to see what Hugo&rsquo;s created.</p>
+<div class="code-block">
+    <pre>
 <code>$ ls -l public
 total 16
 drwxr-xr-x  2 quoha  staff   68 Sep 29 17:56 css
@@ -216,19 +1670,55 @@ drwxr-xr-x  2 quoha  staff   68 Sep 29 17:56 css
 drwxr-xr-x  2 quoha  staff   68 Sep 29 17:56 js
 -rw-r--r--  1 quoha  staff  243 Sep 29 17:56 sitemap.xml
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Notice four things:</p><ol><li>Hugo created a home page. This is the file public/index.html.</li><li>Hugo created a css/ directory.</li><li>Hugo created a js/ directory.</li><li>Hugo claimed that it created 0 pages. It created a file and copied over static files, but didn&rsquo;t create any pages. That&rsquo;s because it considers a &ldquo;page&rdquo; to be a file created directly from a content file. It doesn&rsquo;t count things like the index.html files that it creates automatically.</li></ol><h4 id=the-home-page-1>The Home Page
-<a class=anchor href=#the-home-page-1>#</a></h4><p>Hugo supports many different types of templates. The home page is special because it gets its own type of template and its own template file. The file, layouts/index.html, is used to generate the HTML for the home page. The Hugo documentation says that this is the only required template, but that depends. Hugo&rsquo;s warning message shows that it looks for three different templates:</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Notice four things:</p>
+<ol>
+<li>Hugo created a home page. This is the file public/index.html.</li>
+<li>Hugo created a css/ directory.</li>
+<li>Hugo created a js/ directory.</li>
+<li>Hugo claimed that it created 0 pages. It created a file and copied over static files, but didn&rsquo;t create any pages. That&rsquo;s because it considers a &ldquo;page&rdquo; to be a file created directly from a content file. It doesn&rsquo;t count things like the index.html files that it creates automatically.</li>
+</ol>
+<h4 id="the-home-page-1">
+  The Home Page
+  <a class="anchor" href="#the-home-page-1">#</a>
+</h4>
+<p>Hugo supports many different types of templates. The home page is special because it gets its own type of template and its own template file. The file, layouts/index.html, is used to generate the HTML for the home page. The Hugo documentation says that this is the only required template, but that depends. Hugo&rsquo;s warning message shows that it looks for three different templates:</p>
+<div class="code-block">
+    <pre>
 <code>WARN: 2014/09/29 Unable to locate layout: [index.html _default/list.html _default/single.html]</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>If it can&rsquo;t find any of these, it completely skips creating the home page. We noticed that when we built the site without having a theme installed.</p><p>When Hugo created our theme, it created an empty home page template. Now, when we build the site, Hugo finds the template and uses it to generate the HTML for the home page. Since the template file is empty, the HTML file is empty, too. If the template had any rules in it, then Hugo would have used them to generate the home page.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>If it can&rsquo;t find any of these, it completely skips creating the home page. We noticed that when we built the site without having a theme installed.</p>
+<p>When Hugo created our theme, it created an empty home page template. Now, when we build the site, Hugo finds the template and uses it to generate the HTML for the home page. Since the template file is empty, the HTML file is empty, too. If the template had any rules in it, then Hugo would have used them to generate the home page.</p>
+<div class="code-block">
+    <pre>
 <code>$ find . -name index.html | xargs ls -l
 -rw-r--r--  1 quoha  staff  0 Sep 29 20:21 ./public/index.html
 -rw-r--r--  1 quoha  staff  0 Sep 29 17:31 ./themes/zafta/layouts/index.html
 $ </code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><h4 id=the-magic-of-static>The Magic of Static
-<a class=anchor href=#the-magic-of-static>#</a></h4><p>Hugo does two things when generating the site. It uses templates to transform content into HTML and it copies static files into the site. Unlike content, static files are not transformed. They are copied exactly as they are.</p><p>Hugo assumes that your site will use both CSS and JavaScript, so it creates directories in your theme to hold them. Remember opinions? Well, Hugo&rsquo;s opinion is that you&rsquo;ll store your CSS in a directory named css/ and your JavaScript in a directory named js/. If you don&rsquo;t like that, you can change the directory names in your theme directory or even delete them completely. Hugo&rsquo;s nice enough to offer its opinion, then behave nicely if you disagree.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<h4 id="the-magic-of-static">
+  The Magic of Static
+  <a class="anchor" href="#the-magic-of-static">#</a>
+</h4>
+<p>Hugo does two things when generating the site. It uses templates to transform content into HTML and it copies static files into the site. Unlike content, static files are not transformed. They are copied exactly as they are.</p>
+<p>Hugo assumes that your site will use both CSS and JavaScript, so it creates directories in your theme to hold them. Remember opinions? Well, Hugo&rsquo;s opinion is that you&rsquo;ll store your CSS in a directory named css/ and your JavaScript in a directory named js/. If you don&rsquo;t like that, you can change the directory names in your theme directory or even delete them completely. Hugo&rsquo;s nice enough to offer its opinion, then behave nicely if you disagree.</p>
+<div class="code-block">
+    <pre>
 <code>$ find themes/zafta -type d | xargs ls -ld
 drwxr-xr-x  7 quoha  staff  238 Sep 29 17:38 themes/zafta
 drwxr-xr-x  3 quoha  staff  102 Sep 29 17:31 themes/zafta/archetypes
@@ -239,13 +1729,50 @@ drwxr-xr-x  4 quoha  staff  136 Sep 29 17:31 themes/zafta/static
 drwxr-xr-x  2 quoha  staff   68 Sep 29 17:31 themes/zafta/static/css
 drwxr-xr-x  2 quoha  staff   68 Sep 29 17:31 themes/zafta/static/js
 $ </code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><h2 id=the-theme-development-cycle>The Theme Development Cycle
-<a class=anchor href=#the-theme-development-cycle>#</a></h2><p>When you&rsquo;re working on a theme, you will make changes in the theme&rsquo;s directory, rebuild the site, and check your changes in the browser. Hugo makes this very easy:</p><ol><li>Purge the public/ directory.</li><li>Run the built in web server in watch mode.</li><li>Open your site in a browser.</li><li>Update the theme.</li><li>Glance at your browser window to see changes.</li><li>Return to step 4.</li></ol><p>I’ll throw in one more opinion: never work on a theme on a live site. Always work on a copy of your site. Make changes to your theme, test them, then copy them up to your site. For added safety, use a tool like Git to keep a revision history of your content and your theme. Believe me when I say that it is too easy to lose both your mind and your changes.</p><p>Check the main Hugo site for information on using Git with Hugo.</p><h3 id=purge-the-public-directory>Purge the public/ Directory
-<a class=anchor href=#purge-the-public-directory>#</a></h3><p>When generating the site, Hugo will create new files and update existing ones in the <code>public/</code> directory. It will not delete files that are no longer used. For example, files that were created in the wrong directory or with the wrong title will remain. If you leave them, you might get confused by them later. I recommend cleaning out your site prior to generating it.</p><p>Note: If you&rsquo;re building on an SSD, you should ignore this. Churning on a SSD can be costly.</p><h3 id=hugos-watch-option>Hugo&rsquo;s Watch Option
-<a class=anchor href=#hugos-watch-option>#</a></h3><p>Hugo&rsquo;s &ldquo;<code>--watch</code>&rdquo; option will monitor the content/ and your theme directories for changes and rebuild the site automatically.</p><h3 id=live-reload>Live Reload
-<a class=anchor href=#live-reload>#</a></h3><p>Hugo&rsquo;s built in web server supports live reload. As pages are saved on the server, the browser is told to refresh the page. Usually, this happens faster than you can say, &ldquo;Wow, that&rsquo;s totally amazing.&rdquo;</p><h3 id=development-commands>Development Commands
-<a class=anchor href=#development-commands>#</a></h3><p>Use the following commands as the basis for your workflow.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<h2 id="the-theme-development-cycle">
+  The Theme Development Cycle
+  <a class="anchor" href="#the-theme-development-cycle">#</a>
+</h2>
+<p>When you&rsquo;re working on a theme, you will make changes in the theme&rsquo;s directory, rebuild the site, and check your changes in the browser. Hugo makes this very easy:</p>
+<ol>
+<li>Purge the public/ directory.</li>
+<li>Run the built in web server in watch mode.</li>
+<li>Open your site in a browser.</li>
+<li>Update the theme.</li>
+<li>Glance at your browser window to see changes.</li>
+<li>Return to step 4.</li>
+</ol>
+<p>I’ll throw in one more opinion: never work on a theme on a live site. Always work on a copy of your site. Make changes to your theme, test them, then copy them up to your site. For added safety, use a tool like Git to keep a revision history of your content and your theme. Believe me when I say that it is too easy to lose both your mind and your changes.</p>
+<p>Check the main Hugo site for information on using Git with Hugo.</p>
+<h3 id="purge-the-public-directory">
+  Purge the public/ Directory
+  <a class="anchor" href="#purge-the-public-directory">#</a>
+</h3>
+<p>When generating the site, Hugo will create new files and update existing ones in the <code>public/</code> directory. It will not delete files that are no longer used. For example, files that were created in the wrong directory or with the wrong title will remain. If you leave them, you might get confused by them later. I recommend cleaning out your site prior to generating it.</p>
+<p>Note: If you&rsquo;re building on an SSD, you should ignore this. Churning on a SSD can be costly.</p>
+<h3 id="hugos-watch-option">
+  Hugo&rsquo;s Watch Option
+  <a class="anchor" href="#hugos-watch-option">#</a>
+</h3>
+<p>Hugo&rsquo;s &ldquo;<code>--watch</code>&rdquo; option will monitor the content/ and your theme directories for changes and rebuild the site automatically.</p>
+<h3 id="live-reload">
+  Live Reload
+  <a class="anchor" href="#live-reload">#</a>
+</h3>
+<p>Hugo&rsquo;s built in web server supports live reload. As pages are saved on the server, the browser is told to refresh the page. Usually, this happens faster than you can say, &ldquo;Wow, that&rsquo;s totally amazing.&rdquo;</p>
+<h3 id="development-commands">
+  Development Commands
+  <a class="anchor" href="#development-commands">#</a>
+</h3>
+<p>Use the following commands as the basis for your workflow.</p>
+<div class="code-block">
+    <pre>
 <code>## purge old files. hugo will recreate the public directory.
 ##
 $ rm -rf public
@@ -253,8 +1780,15 @@ $ rm -rf public
 ## run hugo in watch mode
 ##
 $ hugo server --watch --verbose</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Here&rsquo;s sample output showing Hugo detecting a change to the template for the home page. Once generated, the web browser automatically reloaded the page. I&rsquo;ve said this before, it&rsquo;s amazing.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Here&rsquo;s sample output showing Hugo detecting a change to the template for the home page. Once generated, the web browser automatically reloaded the page. I&rsquo;ve said this before, it&rsquo;s amazing.</p>
+<div class="code-block">
+    <pre>
 <code>$ rm -rf public
 $ hugo server --watch --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
@@ -281,12 +1815,32 @@ WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 tags created
 0 categories created
 in 1 ms</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><h2 id=update-the-home-page-template>Update the Home Page Template
-<a class=anchor href=#update-the-home-page-template>#</a></h2><p>The home page is one of a few special pages that Hugo creates automatically. As mentioned earlier, it looks for one of three files in the theme&rsquo;s layout/ directory:</p><ol><li>index.html</li><li>_default/list.html</li><li>_default/single.html</li></ol><p>We could update one of the default templates, but a good design decision is to update the most specific template available. That&rsquo;s not a hard and fast rule (in fact, we&rsquo;ll break it a few times in this tutorial), but it is a good generalization.</p><h3 id=make-a-static-home-page>Make a Static Home Page
-<a class=anchor href=#make-a-static-home-page>#</a></h3><p>Right now, that page is empty because we don&rsquo;t have any content and we don&rsquo;t have any logic in the template. Let&rsquo;s change that by adding some text to the template.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<h2 id="update-the-home-page-template">
+  Update the Home Page Template
+  <a class="anchor" href="#update-the-home-page-template">#</a>
+</h2>
+<p>The home page is one of a few special pages that Hugo creates automatically. As mentioned earlier, it looks for one of three files in the theme&rsquo;s layout/ directory:</p>
+<ol>
+<li>index.html</li>
+<li>_default/list.html</li>
+<li>_default/single.html</li>
+</ol>
+<p>We could update one of the default templates, but a good design decision is to update the most specific template available. That&rsquo;s not a hard and fast rule (in fact, we&rsquo;ll break it a few times in this tutorial), but it is a good generalization.</p>
+<h3 id="make-a-static-home-page">
+  Make a Static Home Page
+  <a class="anchor" href="#make-a-static-home-page">#</a>
+</h3>
+<p>Right now, that page is empty because we don&rsquo;t have any content and we don&rsquo;t have any logic in the template. Let&rsquo;s change that by adding some text to the template.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/layouts/index.html
-<!doctype html> 
+<!DOCTYPE html> 
 <html> 
 <body> 
   <p>hugo says hello!</p> 
@@ -295,8 +1849,15 @@ in 1 ms</code>
 :wq
 
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Build the web site and then verify the results.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Build the web site and then verify the results.</p>
+<div class="code-block">
+    <pre>
 <code>$ hugo --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/themes/zafta/static/ to /Users/quoha/Sites/zafta/public/
@@ -313,25 +1874,54 @@ $ find public -type f -name '*.html' | xargs ls -l
 -rw-r--r--  1 quoha  staff  78 Sep 29 21:26 public/index.html
 
 $ cat public/index.html 
-<!doctype html> 
+<!DOCTYPE html> 
 <html> 
 <body> 
   <p>hugo says hello!</p> 
 </html></code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><h4 id=live-reload-1>Live Reload
-<a class=anchor href=#live-reload-1>#</a></h4><p>Note: If you&rsquo;re running the server with the <code>--watch</code> option, you&rsquo;ll see different content in the file:</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<h4 id="live-reload-1">
+  Live Reload
+  <a class="anchor" href="#live-reload-1">#</a>
+</h4>
+<p>Note: If you&rsquo;re running the server with the <code>--watch</code> option, you&rsquo;ll see different content in the file:</p>
+<div class="code-block">
+    <pre>
 <code>$ cat public/index.html 
-<!doctype html> 
+<!DOCTYPE html> 
 <html> 
 <body> 
   <p>hugo says hello!</p> 
-<script>document.write('<script src="http://'+(location.host||"localhost").split(":")[0]+':1313/livereload.js?mindelay=10"><\/script>')</script></body> 
+<script>document.write('<script src="http://' 
+        + (location.host || 'localhost').split(':')[0] 
+    + ':1313/livereload.js?mindelay=10"></' 
+        + 'script>')</script></body> 
 </html></code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>When you use <code>--watch</code>, the Live Reload script is added by Hugo. Look for live reload in the documentation to see what it does and how to disable it.</p><h3 id=build-a-dynamic-home-page>Build a &ldquo;Dynamic&rdquo; Home Page
-<a class=anchor href=#build-a-dynamic-home-page>#</a></h3><p>&ldquo;Dynamic home page?&rdquo; Hugo&rsquo;s a static web site generator, so this seems an odd thing to say. I mean let&rsquo;s have the home page automatically reflect the content in the site every time Hugo builds it. We&rsquo;ll use iteration in the template to do that.</p><h4 id=create-new-posts>Create New Posts
-<a class=anchor href=#create-new-posts>#</a></h4><p>Now that we have the home page generating static content, let&rsquo;s add some content to the site. We&rsquo;ll display these posts as a list on the home page and on their own page, too.</p><p>Hugo has a command to generate a skeleton post, just like it does for sites and themes.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>When you use <code>--watch</code>, the Live Reload script is added by Hugo. Look for live reload in the documentation to see what it does and how to disable it.</p>
+<h3 id="build-a-dynamic-home-page">
+  Build a &ldquo;Dynamic&rdquo; Home Page
+  <a class="anchor" href="#build-a-dynamic-home-page">#</a>
+</h3>
+<p>&ldquo;Dynamic home page?&rdquo; Hugo&rsquo;s a static web site generator, so this seems an odd thing to say. I mean let&rsquo;s have the home page automatically reflect the content in the site every time Hugo builds it. We&rsquo;ll use iteration in the template to do that.</p>
+<h4 id="create-new-posts">
+  Create New Posts
+  <a class="anchor" href="#create-new-posts">#</a>
+</h4>
+<p>Now that we have the home page generating static content, let&rsquo;s add some content to the site. We&rsquo;ll display these posts as a list on the home page and on their own page, too.</p>
+<p>Hugo has a command to generate a skeleton post, just like it does for sites and themes.</p>
+<div class="code-block">
+    <pre>
 <code>$ hugo --verbose new post/first.md
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
 INFO: 2014/09/29 attempting to create  post/first.md of post
@@ -339,8 +1929,16 @@ INFO: 2014/09/29 curpath: /Users/quoha/Sites/zafta/themes/zafta/archetypes/defau
 ERROR: 2014/09/29 Unable to Cast <nil> to map[string]interface{}
 
 $ </code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>That wasn&rsquo;t very nice, was it?</p><p>The &ldquo;new&rdquo; command uses an archetype to create the post file. Hugo created an empty default archetype file, but that causes an error when there&rsquo;s a theme. For me, the workaround was to create an archetypes file specifically for the post type.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>That wasn&rsquo;t very nice, was it?</p>
+<p>The &ldquo;new&rdquo; command uses an archetype to create the post file. Hugo created an empty default archetype file, but that causes an error when there&rsquo;s a theme. For me, the workaround was to create an archetypes file specifically for the post type.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/archetypes/post.md
 +++
 Description = ""
@@ -395,8 +1993,15 @@ title = "second"
 my second post
 
 $ </code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Build the web site and then verify the results.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Build the web site and then verify the results.</p>
+<div class="code-block">
+    <pre>
 <code>$ rm -rf public
 $ hugo --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
@@ -411,20 +2016,44 @@ WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 categories created
 in 4 ms
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>The output says that it created 2 pages. Those are our new posts:</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>The output says that it created 2 pages. Those are our new posts:</p>
+<div class="code-block">
+    <pre>
 <code>$ find public -type f -name '*.html' | xargs ls -l
 -rw-r--r--  1 quoha  staff  78 Sep 29 22:13 public/index.html
 -rw-r--r--  1 quoha  staff   0 Sep 29 22:13 public/post/first/index.html
 -rw-r--r--  1 quoha  staff   0 Sep 29 22:13 public/post/index.html
 -rw-r--r--  1 quoha  staff   0 Sep 29 22:13 public/post/second/index.html
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>The new files are empty because because the templates used to generate the content are empty. The homepage doesn&rsquo;t show the new content, either. We have to update the templates to add the posts.</p><h3 id=list-and-single-templates>List and Single Templates
-<a class=anchor href=#list-and-single-templates>#</a></h3><p>In Hugo, we have three major kinds of templates. There&rsquo;s the home page template that we updated previously. It is used only by the home page. We also have &ldquo;single&rdquo; templates which are used to generate output for a single content file. We also have &ldquo;list&rdquo; templates that are used to group multiple pieces of content before generating output.</p><p>Generally speaking, list templates are named &ldquo;list.html&rdquo; and single templates are named &ldquo;single.html.&rdquo;</p><p>There are three other types of templates: partials, content views, and terms. We will not go into much detail on these.</p><h3 id=add-content-to-the-homepage>Add Content to the Homepage
-<a class=anchor href=#add-content-to-the-homepage>#</a></h3><p>The home page will contain a list of posts. Let&rsquo;s update its template to add the posts that we just created. The logic in the template will run every time we build the site.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>The new files are empty because because the templates used to generate the content are empty. The homepage doesn&rsquo;t show the new content, either. We have to update the templates to add the posts.</p>
+<h3 id="list-and-single-templates">
+  List and Single Templates
+  <a class="anchor" href="#list-and-single-templates">#</a>
+</h3>
+<p>In Hugo, we have three major kinds of templates. There&rsquo;s the home page template that we updated previously. It is used only by the home page. We also have &ldquo;single&rdquo; templates which are used to generate output for a single content file. We also have &ldquo;list&rdquo; templates that are used to group multiple pieces of content before generating output.</p>
+<p>Generally speaking, list templates are named &ldquo;list.html&rdquo; and single templates are named &ldquo;single.html.&rdquo;</p>
+<p>There are three other types of templates: partials, content views, and terms. We will not go into much detail on these.</p>
+<h3 id="add-content-to-the-homepage">
+  Add Content to the Homepage
+  <a class="anchor" href="#add-content-to-the-homepage">#</a>
+</h3>
+<p>The home page will contain a list of posts. Let&rsquo;s update its template to add the posts that we just created. The logic in the template will run every time we build the site.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/layouts/index.html 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <body>
   {{ range first 10 .Data.Pages }}
@@ -435,8 +2064,25 @@ $</code>
 :wq
 
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Hugo uses the Go template engine. That engine scans the template files for commands which are enclosed between &ldquo;{{&rdquo; and &ldquo;}}&rdquo;. In our template, the commands are:</p><ol><li>range</li><li>.Title</li><li>end</li></ol><p>The &ldquo;range&rdquo; command is an iterator. We&rsquo;re going to use it to go through the first ten pages. Every HTML file that Hugo creates is treated as a page, so looping through the list of pages will look at every file that will be created.</p><p>The &ldquo;.Title&rdquo; command prints the value of the &ldquo;title&rdquo; variable. Hugo pulls it from the front matter in the Markdown file.</p><p>The &ldquo;end&rdquo; command signals the end of the range iterator. The engine loops back to the top of the iteration when it finds &ldquo;end.&rdquo; Everything between the &ldquo;range&rdquo; and &ldquo;end&rdquo; is evaluated every time the engine goes through the iteration. In this file, that would cause the title from the first ten pages to be output as heading level one.</p><p>It&rsquo;s helpful to remember that some variables, like .Data, are created before any output files. Hugo loads every content file into the variable and then gives the template a chance to process before creating the HTML files.</p><p>Build the web site and then verify the results.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Hugo uses the Go template engine. That engine scans the template files for commands which are enclosed between &ldquo;{{&rdquo; and &ldquo;}}&rdquo;. In our template, the commands are:</p>
+<ol>
+<li>range</li>
+<li>.Title</li>
+<li>end</li>
+</ol>
+<p>The &ldquo;range&rdquo; command is an iterator. We&rsquo;re going to use it to go through the first ten pages. Every HTML file that Hugo creates is treated as a page, so looping through the list of pages will look at every file that will be created.</p>
+<p>The &ldquo;.Title&rdquo; command prints the value of the &ldquo;title&rdquo; variable. Hugo pulls it from the front matter in the Markdown file.</p>
+<p>The &ldquo;end&rdquo; command signals the end of the range iterator. The engine loops back to the top of the iteration when it finds &ldquo;end.&rdquo; Everything between the &ldquo;range&rdquo; and &ldquo;end&rdquo; is evaluated every time the engine goes through the iteration. In this file, that would cause the title from the first ten pages to be output as heading level one.</p>
+<p>It&rsquo;s helpful to remember that some variables, like .Data, are created before any output files. Hugo loads every content file into the variable and then gives the template a chance to process before creating the HTML files.</p>
+<p>Build the web site and then verify the results.</p>
+<div class="code-block">
+    <pre>
 <code>$ rm -rf public
 $ hugo --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
@@ -456,7 +2102,7 @@ $ find public -type f -name '*.html' | xargs ls -l
 -rw-r--r--  1 quoha  staff   0 Sep 29 22:23 public/post/index.html
 -rw-r--r--  1 quoha  staff   0 Sep 29 22:23 public/post/second/index.html
 $ cat public/index.html 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <body>
   
@@ -467,16 +2113,42 @@ $ cat public/index.html
 </body>
 </html>
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Congratulations, the home page shows the title of the two posts. The posts themselves are still empty, but let&rsquo;s take a moment to appreciate what we&rsquo;ve done. Your template now generates output dynamically. Believe it or not, by inserting the range command inside of those curly braces, you&rsquo;ve learned everything you need to know to build a theme. All that&rsquo;s really left is understanding which template will be used to generate each content file and becoming familiar with the commands for the template engine.</p><p>And, if that were entirely true, this tutorial would be much shorter. There are a few things to know that will make creating a new template much easier. Don&rsquo;t worry, though, that&rsquo;s all to come.</p><h3 id=add-content-to-the-posts>Add Content to the Posts
-<a class=anchor href=#add-content-to-the-posts>#</a></h3><p>We&rsquo;re working with posts, which are in the content/post/ directory. That means that their section is &ldquo;post&rdquo; (and if we don&rsquo;t do something weird, their type is also &ldquo;post&rdquo;).</p><p>Hugo uses the section and type to find the template file for every piece of content. Hugo will first look for a template file that matches the section or type name. If it can&rsquo;t find one, then it will look in the _default/ directory. There are some twists that we&rsquo;ll cover when we get to categories and tags, but for now we can assume that Hugo will try post/single.html, then _default/single.html.</p><p>Now that we know the search rule, let&rsquo;s see what we actually have available:</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Congratulations, the home page shows the title of the two posts. The posts themselves are still empty, but let&rsquo;s take a moment to appreciate what we&rsquo;ve done. Your template now generates output dynamically. Believe it or not, by inserting the range command inside of those curly braces, you&rsquo;ve learned everything you need to know to build a theme. All that&rsquo;s really left is understanding which template will be used to generate each content file and becoming familiar with the commands for the template engine.</p>
+<p>And, if that were entirely true, this tutorial would be much shorter. There are a few things to know that will make creating a new template much easier. Don&rsquo;t worry, though, that&rsquo;s all to come.</p>
+<h3 id="add-content-to-the-posts">
+  Add Content to the Posts
+  <a class="anchor" href="#add-content-to-the-posts">#</a>
+</h3>
+<p>We&rsquo;re working with posts, which are in the content/post/ directory. That means that their section is &ldquo;post&rdquo; (and if we don&rsquo;t do something weird, their type is also &ldquo;post&rdquo;).</p>
+<p>Hugo uses the section and type to find the template file for every piece of content. Hugo will first look for a template file that matches the section or type name. If it can&rsquo;t find one, then it will look in the _default/ directory. There are some twists that we&rsquo;ll cover when we get to categories and tags, but for now we can assume that Hugo will try post/single.html, then _default/single.html.</p>
+<p>Now that we know the search rule, let&rsquo;s see what we actually have available:</p>
+<div class="code-block">
+    <pre>
 <code>$ find themes/zafta -name single.html | xargs ls -l
 -rw-r--r--  1 quoha  staff  132 Sep 29 17:31 themes/zafta/layouts/_default/single.html</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>We could create a new template, post/single.html, or change the default. Since we don&rsquo;t know of any other content types, let&rsquo;s start with updating the default.</p><p>Remember, any content that we haven&rsquo;t created a template for will end up using this template. That can be good or bad. Bad because I know that we&rsquo;re going to be adding different types of content and we&rsquo;re going to end up undoing some of the changes we&rsquo;ve made. It&rsquo;s good because we&rsquo;ll be able to see immediate results. It&rsquo;s also good to start here because we can start to build the basic layout for the site. As we add more content types, we&rsquo;ll refactor this file and move logic around. Hugo makes that fairly painless, so we&rsquo;ll accept the cost and proceed.</p><p>Please see the Hugo documentation on template rendering for all the details on determining which template to use. And, as the docs mention, if you&rsquo;re building a single page application (SPA) web site, you can delete all of the other templates and work with just the default single page. That&rsquo;s a refreshing amount of joy right there.</p><h4 id=update-the-template-file>Update the Template File
-<a class=anchor href=#update-the-template-file>#</a></h4><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>We could create a new template, post/single.html, or change the default. Since we don&rsquo;t know of any other content types, let&rsquo;s start with updating the default.</p>
+<p>Remember, any content that we haven&rsquo;t created a template for will end up using this template. That can be good or bad. Bad because I know that we&rsquo;re going to be adding different types of content and we&rsquo;re going to end up undoing some of the changes we&rsquo;ve made. It&rsquo;s good because we&rsquo;ll be able to see immediate results. It&rsquo;s also good to start here because we can start to build the basic layout for the site. As we add more content types, we&rsquo;ll refactor this file and move logic around. Hugo makes that fairly painless, so we&rsquo;ll accept the cost and proceed.</p>
+<p>Please see the Hugo documentation on template rendering for all the details on determining which template to use. And, as the docs mention, if you&rsquo;re building a single page application (SPA) web site, you can delete all of the other templates and work with just the default single page. That&rsquo;s a refreshing amount of joy right there.</p>
+<h4 id="update-the-template-file">
+  Update the Template File
+  <a class="anchor" href="#update-the-template-file">#</a>
+</h4>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/layouts/_default/single.html 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>{{ .Title }}</title>
@@ -489,8 +2161,15 @@ $</code>
 :wq
 
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Build the web site and verify the results.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Build the web site and verify the results.</p>
+<div class="code-block">
+    <pre>
 <code>$ rm -rf public
 $ hugo --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
@@ -512,7 +2191,7 @@ $ find public -type f -name '*.html' | xargs ls -l
 -rw-r--r--  1 quoha  staff  128 Sep 29 22:40 public/post/second/index.html
 
 $ cat public/post/first/index.html 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>first</title>
@@ -525,7 +2204,7 @@ $ cat public/post/first/index.html
 </html>
 
 $ cat public/post/second/index.html 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>second</title>
@@ -537,11 +2216,22 @@ $ cat public/post/second/index.html
 </body>
 </html>
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Notice that the posts now have content. You can go to localhost:1313/post/first to verify.</p><h3 id=linking-to-content>Linking to Content
-<a class=anchor href=#linking-to-content>#</a></h3><p>The posts are on the home page. Let&rsquo;s add a link from there to the post. Since this is the home page, we&rsquo;ll update its template.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Notice that the posts now have content. You can go to localhost:1313/post/first to verify.</p>
+<h3 id="linking-to-content">
+  Linking to Content
+  <a class="anchor" href="#linking-to-content">#</a>
+</h3>
+<p>The posts are on the home page. Let&rsquo;s add a link from there to the post. Since this is the home page, we&rsquo;ll update its template.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/layouts/index.html
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <body>
   {{ range first 10 .Data.Pages }}
@@ -549,8 +2239,15 @@ $</code>
   {{ end }}
 </body>
 </html></code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Build the web site and verify the results.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Build the web site and verify the results.</p>
+<div class="code-block">
+    <pre>
 <code>$ rm -rf public
 $ hugo --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
@@ -572,26 +2269,49 @@ $ find public -type f -name '*.html' | xargs ls -l
 -rw-r--r--  1 quoha  staff  128 Sep 29 22:44 public/post/second/index.html
 
 $ cat public/index.html 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <body>
   
-    <h1><a href=/post/second/>second</a></h1>
+    <h1><a href="/post/second/">second</a></h1>
   
-    <h1><a href=/post/first/>first</a></h1>
+    <h1><a href="/post/first/">first</a></h1>
   
 </body>
 </html>
 
 $</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><h3 id=create-a-post-listing>Create a Post Listing
-<a class=anchor href=#create-a-post-listing>#</a></h3><p>We have the posts displaying on the home page and on their own page. We also have a file public/post/index.html that is empty. Let&rsquo;s make it show a list of all posts (not just the first ten).</p><p>We need to decide which template to update. This will be a listing, so it should be a list template. Let&rsquo;s take a quick look and see which list templates are available.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<h3 id="create-a-post-listing">
+  Create a Post Listing
+  <a class="anchor" href="#create-a-post-listing">#</a>
+</h3>
+<p>We have the posts displaying on the home page and on their own page. We also have a file public/post/index.html that is empty. Let&rsquo;s make it show a list of all posts (not just the first ten).</p>
+<p>We need to decide which template to update. This will be a listing, so it should be a list template. Let&rsquo;s take a quick look and see which list templates are available.</p>
+<div class="code-block">
+    <pre>
 <code>$ find themes/zafta -name list.html | xargs ls -l
 -rw-r--r--  1 quoha  staff  0 Sep 29 17:31 themes/zafta/layouts/_default/list.html</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>As with the single post, we have to decide to update _default/list.html or create post/list.html. We still don&rsquo;t have multiple content types, so let&rsquo;s stay consistent and update the default list template.</p><h2 id=creating-top-level-pages>Creating Top Level Pages
-<a class=anchor href=#creating-top-level-pages>#</a></h2><p>Let&rsquo;s add an &ldquo;about&rdquo; page and display it at the top level (as opposed to a sub-level like we did with posts).</p><p>The default in Hugo is to use the directory structure of the content/ directory to guide the location of the generated html in the public/ directory. Let&rsquo;s verify that by creating an &ldquo;about&rdquo; page at the top level:</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>As with the single post, we have to decide to update _default/list.html or create post/list.html. We still don&rsquo;t have multiple content types, so let&rsquo;s stay consistent and update the default list template.</p>
+<h2 id="creating-top-level-pages">
+  Creating Top Level Pages
+  <a class="anchor" href="#creating-top-level-pages">#</a>
+</h2>
+<p>Let&rsquo;s add an &ldquo;about&rdquo; page and display it at the top level (as opposed to a sub-level like we did with posts).</p>
+<p>The default in Hugo is to use the directory structure of the content/ directory to guide the location of the generated html in the public/ directory. Let&rsquo;s verify that by creating an &ldquo;about&rdquo; page at the top level:</p>
+<div class="code-block">
+    <pre>
 <code>$ vi content/about.md 
 +++
 title = "about"
@@ -604,30 +2324,55 @@ slug = "about time"
 
 i'm speechless
 :wq</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Generate the web site and verify the results.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Generate the web site and verify the results.</p>
+<div class="code-block">
+    <pre>
 <code>$ find public -name '*.html' | xargs ls -l
 -rw-rw-r--  1 mdhender  staff   334 Sep 27 15:08 public/about-time/index.html
 -rw-rw-r--  1 mdhender  staff   527 Sep 27 15:08 public/index.html
 -rw-rw-r--  1 mdhender  staff   358 Sep 27 15:08 public/post/first-post/index.html
 -rw-rw-r--  1 mdhender  staff     0 Sep 27 15:08 public/post/index.html
 -rw-rw-r--  1 mdhender  staff   342 Sep 27 15:08 public/post/second-post/index.html</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Notice that the page wasn&rsquo;t created at the top level. It was created in a sub-directory named &lsquo;about-time/&rsquo;. That name came from our slug. Hugo will use the slug to name the generated content. It&rsquo;s a reasonable default, by the way, but we can learn a few things by fighting it for this file.</p><p>One other thing. Take a look at the home page.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Notice that the page wasn&rsquo;t created at the top level. It was created in a sub-directory named &lsquo;about-time/&rsquo;. That name came from our slug. Hugo will use the slug to name the generated content. It&rsquo;s a reasonable default, by the way, but we can learn a few things by fighting it for this file.</p>
+<p>One other thing. Take a look at the home page.</p>
+<div class="code-block">
+    <pre>
 <code>$ cat public/index.html
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <body>
-    <h1><a href=http://localhost:1313/post/theme/>creating a new theme</a></h1>
-    <h1><a href=http://localhost:1313/about-time/>about</a></h1>
-    <h1><a href=http://localhost:1313/post/second-post/>second</a></h1>
-    <h1><a href=http://localhost:1313/post/first-post/>first</a></h1>
-<script>document.write('<script src="http://'+(location.host||"localhost").split(":")[0]+':1313/livereload.js?mindelay=10"><\/script>')</script></body>
+    <h1><a href="http://localhost:1313/post/theme/">creating a new theme</a></h1>
+    <h1><a href="http://localhost:1313/about-time/">about</a></h1>
+    <h1><a href="http://localhost:1313/post/second-post/">second</a></h1>
+    <h1><a href="http://localhost:1313/post/first-post/">first</a></h1>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html></code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Notice that the &ldquo;about&rdquo; link is listed with the posts? That&rsquo;s not desirable, so let&rsquo;s change that first.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Notice that the &ldquo;about&rdquo; link is listed with the posts? That&rsquo;s not desirable, so let&rsquo;s change that first.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/layouts/index.html
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <body>
   <h1>posts</h1>
@@ -646,26 +2391,57 @@ i'm speechless
 </body>
 </html>
 :wq</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Generate the web site and verify the results. The home page has two sections, posts and pages, and each section has the right set of headings and links in it.</p><p>But, that about page still renders to about-time/index.html.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Generate the web site and verify the results. The home page has two sections, posts and pages, and each section has the right set of headings and links in it.</p>
+<p>But, that about page still renders to about-time/index.html.</p>
+<div class="code-block">
+    <pre>
 <code>$ find public -name '*.html' | xargs ls -l
 -rw-rw-r--  1 mdhender  staff    334 Sep 27 15:33 public/about-time/index.html
 -rw-rw-r--  1 mdhender  staff    645 Sep 27 15:33 public/index.html
 -rw-rw-r--  1 mdhender  staff    358 Sep 27 15:33 public/post/first-post/index.html
 -rw-rw-r--  1 mdhender  staff      0 Sep 27 15:33 public/post/index.html
 -rw-rw-r--  1 mdhender  staff    342 Sep 27 15:33 public/post/second-post/index.html</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Knowing that hugo is using the slug to generate the file name, the simplest solution is to change the slug. Let&rsquo;s do it the hard way and change the permalink in the configuration file.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Knowing that hugo is using the slug to generate the file name, the simplest solution is to change the slug. Let&rsquo;s do it the hard way and change the permalink in the configuration file.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi config.toml
 [permalinks]
 	page = "/:title/"
 	about = "/:filename/"</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Generate the web site and verify that this didn&rsquo;t work. Hugo lets &ldquo;slug&rdquo; or &ldquo;URL&rdquo; override the permalinks setting in the configuration file. Go ahead and comment out the slug in content/about.md, then generate the web site to get it to be created in the right place.</p><h2 id=sharing-templates>Sharing Templates
-<a class=anchor href=#sharing-templates>#</a></h2><p>If you&rsquo;ve been following along, you probably noticed that posts have titles in the browser and the home page doesn&rsquo;t. That&rsquo;s because we didn&rsquo;t put the title in the home page&rsquo;s template (layouts/index.html). That&rsquo;s an easy thing to do, but let&rsquo;s look at a different option.</p><p>We can put the common bits into a shared template that&rsquo;s stored in the themes/zafta/layouts/partials/ directory.</p><h3 id=create-the-header-and-footer-partials>Create the Header and Footer Partials
-<a class=anchor href=#create-the-header-and-footer-partials>#</a></h3><p>In Hugo, a partial is a sugar-coated template. Normally a template reference has a path specified. Partials are different. Hugo searches for them along a TODO defined search path. This makes it easier for end-users to override the theme&rsquo;s presentation.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Generate the web site and verify that this didn&rsquo;t work. Hugo lets &ldquo;slug&rdquo; or &ldquo;URL&rdquo; override the permalinks setting in the configuration file. Go ahead and comment out the slug in content/about.md, then generate the web site to get it to be created in the right place.</p>
+<h2 id="sharing-templates">
+  Sharing Templates
+  <a class="anchor" href="#sharing-templates">#</a>
+</h2>
+<p>If you&rsquo;ve been following along, you probably noticed that posts have titles in the browser and the home page doesn&rsquo;t. That&rsquo;s because we didn&rsquo;t put the title in the home page&rsquo;s template (layouts/index.html). That&rsquo;s an easy thing to do, but let&rsquo;s look at a different option.</p>
+<p>We can put the common bits into a shared template that&rsquo;s stored in the themes/zafta/layouts/partials/ directory.</p>
+<h3 id="create-the-header-and-footer-partials">
+  Create the Header and Footer Partials
+  <a class="anchor" href="#create-the-header-and-footer-partials">#</a>
+</h3>
+<p>In Hugo, a partial is a sugar-coated template. Normally a template reference has a path specified. Partials are different. Hugo searches for them along a TODO defined search path. This makes it easier for end-users to override the theme&rsquo;s presentation.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/layouts/partials/header.html
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>{{ .Title }}</title>
@@ -677,15 +2453,40 @@ $ vi themes/zafta/layouts/partials/footer.html
 </body>
 </html>
 :wq</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><h3 id=update-the-home-page-template-to-use-the-partials>Update the Home Page Template to Use the Partials
-<a class=anchor href=#update-the-home-page-template-to-use-the-partials>#</a></h3><p>The most noticeable difference between a template call and a partials call is the lack of path:</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<h3 id="update-the-home-page-template-to-use-the-partials">
+  Update the Home Page Template to Use the Partials
+  <a class="anchor" href="#update-the-home-page-template-to-use-the-partials">#</a>
+</h3>
+<p>The most noticeable difference between a template call and a partials call is the lack of path:</p>
+<div class="code-block">
+    <pre>
 <code>{{ template "theme/partials/header.html" . }}</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>versus</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>versus</p>
+<div class="code-block">
+    <pre>
 <code>{{ partial "header.html" . }}</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Both pass in the context.</p><p>Let&rsquo;s change the home page template to use these new partials.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Both pass in the context.</p>
+<p>Let&rsquo;s change the home page template to use these new partials.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/layouts/index.html
 {{ partial "header.html" . }}
 
@@ -705,9 +2506,19 @@ $ vi themes/zafta/layouts/partials/footer.html
 
 {{ partial "footer.html" . }}
 :wq</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Generate the web site and verify the results. The title on the home page is now &ldquo;your title here&rdquo;, which comes from the &ldquo;title&rdquo; variable in the config.toml file.</p><h3 id=update-the-default-single-template-to-use-the-partials>Update the Default Single Template to Use the Partials
-<a class=anchor href=#update-the-default-single-template-to-use-the-partials>#</a></h3><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Generate the web site and verify the results. The title on the home page is now &ldquo;your title here&rdquo;, which comes from the &ldquo;title&rdquo; variable in the config.toml file.</p>
+<h3 id="update-the-default-single-template-to-use-the-partials">
+  Update the Default Single Template to Use the Partials
+  <a class="anchor" href="#update-the-default-single-template-to-use-the-partials">#</a>
+</h3>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/layouts/_default/single.html
 {{ partial "header.html" . }}
 
@@ -716,13 +2527,35 @@ $ vi themes/zafta/layouts/partials/footer.html
 
 {{ partial "footer.html" . }}
 :wq</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Generate the web site and verify the results. The title on the posts and the about page should both reflect the value in the markdown file.</p><h2 id=add-date-published-to-posts>Add “Date Published” to Posts
-<a class=anchor href=#add-date-published-to-posts>#</a></h2><p>It&rsquo;s common to have posts display the date that they were written or published, so let&rsquo;s add that. The front matter of our posts has a variable named &ldquo;date.&rdquo; It&rsquo;s usually the date the content was created, but let&rsquo;s pretend that&rsquo;s the value we want to display.</p><h3 id=add-date-published-to-the-template>Add “Date Published” to the Template
-<a class=anchor href=#add-date-published-to-the-template>#</a></h3><p>We&rsquo;ll start by updating the template used to render the posts. The template code will look like:</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Generate the web site and verify the results. The title on the posts and the about page should both reflect the value in the markdown file.</p>
+<h2 id="add-date-published-to-posts">
+  Add “Date Published” to Posts
+  <a class="anchor" href="#add-date-published-to-posts">#</a>
+</h2>
+<p>It&rsquo;s common to have posts display the date that they were written or published, so let&rsquo;s add that. The front matter of our posts has a variable named &ldquo;date.&rdquo; It&rsquo;s usually the date the content was created, but let&rsquo;s pretend that&rsquo;s the value we want to display.</p>
+<h3 id="add-date-published-to-the-template">
+  Add “Date Published” to the Template
+  <a class="anchor" href="#add-date-published-to-the-template">#</a>
+</h3>
+<p>We&rsquo;ll start by updating the template used to render the posts. The template code will look like:</p>
+<div class="code-block">
+    <pre>
 <code>{{ .Date.Format "Mon, Jan 2, 2006" }}</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Posts use the default single template, so we&rsquo;ll change that file.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Posts use the default single template, so we&rsquo;ll change that file.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/layouts/_default/single.html
 {{ partial "header.html" . }}
 
@@ -732,8 +2565,19 @@ $ vi themes/zafta/layouts/partials/footer.html
 
 {{ partial "footer.html" . }}
 :wq</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Generate the web site and verify the results. The posts now have the date displayed in them. There&rsquo;s a problem, though. The &ldquo;about&rdquo; page also has the date displayed.</p><p>As usual, there are a couple of ways to make the date display only on posts. We could do an &ldquo;if&rdquo; statement like we did on the home page. Another way would be to create a separate template for posts.</p><p>The &ldquo;if&rdquo; solution works for sites that have just a couple of content types. It aligns with the principle of &ldquo;code for today,&rdquo; too.</p><p>Let&rsquo;s assume, though, that we&rsquo;ve made our site so complex that we feel we have to create a new template type. In Hugo-speak, we&rsquo;re going to create a section template.</p><p>Let&rsquo;s restore the default single template before we forget.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Generate the web site and verify the results. The posts now have the date displayed in them. There&rsquo;s a problem, though. The &ldquo;about&rdquo; page also has the date displayed.</p>
+<p>As usual, there are a couple of ways to make the date display only on posts. We could do an &ldquo;if&rdquo; statement like we did on the home page. Another way would be to create a separate template for posts.</p>
+<p>The &ldquo;if&rdquo; solution works for sites that have just a couple of content types. It aligns with the principle of &ldquo;code for today,&rdquo; too.</p>
+<p>Let&rsquo;s assume, though, that we&rsquo;ve made our site so complex that we feel we have to create a new template type. In Hugo-speak, we&rsquo;re going to create a section template.</p>
+<p>Let&rsquo;s restore the default single template before we forget.</p>
+<div class="code-block">
+    <pre>
 <code>$ mkdir themes/zafta/layouts/post
 $ vi themes/zafta/layouts/_default/single.html
 {{ partial "header.html" . }}
@@ -743,8 +2587,15 @@ $ vi themes/zafta/layouts/_default/single.html
 
 {{ partial "footer.html" . }}
 :wq</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Now we&rsquo;ll update the post&rsquo;s version of the single template. If you remember Hugo&rsquo;s rules, the template engine will use this version over the default.</p><div class=code-block><pre>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Now we&rsquo;ll update the post&rsquo;s version of the single template. If you remember Hugo&rsquo;s rules, the template engine will use this version over the default.</p>
+<div class="code-block">
+    <pre>
 <code>$ vi themes/zafta/layouts/post/single.html
 {{ partial "header.html" . }}
 
@@ -754,14 +2605,433 @@ $ vi themes/zafta/layouts/_default/single.html
 
 {{ partial "footer.html" . }}
 :wq</code>
-    </pre><button class=copy-button>
-<img src=https://systemuicons.com/images/icons/replicate.svg alt="copy the code"></button></div><p>Note that we removed the date logic from the default template and put it in the post template. Generate the web site and verify the results. Posts have dates and the about page doesn&rsquo;t.</p><h3 id=dont-repeat-yourself>Don&rsquo;t Repeat Yourself
-<a class=anchor href=#dont-repeat-yourself>#</a></h3><p>DRY is a good design goal and Hugo does a great job supporting it. Part of the art of a good template is knowing when to add a new template and when to update an existing one. While you&rsquo;re figuring that out, accept that you&rsquo;ll be doing some refactoring. Hugo makes that easy and fast, so it&rsquo;s okay to delay splitting up a template.</p></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/EriseHe/erisehe.github.io/edit/main/exampleSite/content.en/posts/creating-a-new-theme.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
-<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside id=book-toc class="book-toc hidden"><div class=book-toc-content><div class=button-prev><a class=btn-prev href=/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/><strong>Previous:</strong> 习题</a></div><div class=toc-entries><nav id=TableOfContents><ul><li><ul><li><a href=#introduction>Introduction</a></li><li><a href=#some-definitions>Some Definitions</a><ul><li><a href=#skins>Skins</a></li><li><a href=#the-home-page>The Home Page</a></li><li><a href=#site-configuration-file>Site Configuration File</a></li><li><a href=#content>Content</a></li><li><a href=#template-files>Template Files</a></li></ul></li><li><a href=#create-a-new-site>Create a New Site</a><ul><li><a href=#generate-the-html-for-the-new-site>Generate the HTML For the New Site</a></li><li><a href=#test-the-new-site>Test the New Site</a></li></ul></li><li><a href=#create-a-new-theme>Create a New Theme</a><ul><li><a href=#create-a-skeleton>Create a Skeleton</a></li><li><a href=#update-the-configuration-file-to-use-the-theme>Update the Configuration File to Use the Theme</a></li><li><a href=#generate-the-site>Generate the Site</a></li></ul></li><li><a href=#the-theme-development-cycle>The Theme Development Cycle</a><ul><li><a href=#purge-the-public-directory>Purge the public/ Directory</a></li><li><a href=#hugos-watch-option>Hugo&rsquo;s Watch Option</a></li><li><a href=#live-reload>Live Reload</a></li><li><a href=#development-commands>Development Commands</a></li></ul></li><li><a href=#update-the-home-page-template>Update the Home Page Template</a><ul><li><a href=#make-a-static-home-page>Make a Static Home Page</a></li><li><a href=#build-a-dynamic-home-page>Build a &ldquo;Dynamic&rdquo; Home Page</a></li><li><a href=#list-and-single-templates>List and Single Templates</a></li><li><a href=#add-content-to-the-homepage>Add Content to the Homepage</a></li><li><a href=#add-content-to-the-posts>Add Content to the Posts</a></li><li><a href=#linking-to-content>Linking to Content</a></li><li><a href=#create-a-post-listing>Create a Post Listing</a></li></ul></li><li><a href=#creating-top-level-pages>Creating Top Level Pages</a></li><li><a href=#sharing-templates>Sharing Templates</a><ul><li><a href=#create-the-header-and-footer-partials>Create the Header and Footer Partials</a></li><li><a href=#update-the-home-page-template-to-use-the-partials>Update the Home Page Template to Use the Partials</a></li><li><a href=#update-the-default-single-template-to-use-the-partials>Update the Default Single Template to Use the Partials</a></li></ul></li><li><a href=#add-date-published-to-posts>Add “Date Published” to Posts</a><ul><li><a href=#add-date-published-to-the-template>Add “Date Published” to the Template</a></li><li><a href=#dont-repeat-yourself>Don&rsquo;t Repeat Yourself</a></li></ul></li></ul></li></ul></nav></div><div class=button-next><a class=btn-next href=/posts/migrate-from-jekyll/><strong>Next:</strong> Migrate to Hugo from Jekyll</a></div></div></aside></div><div class=toolbar-trigger></div><aside class=toolbar><button id=theme-toggle class=theme-toggle-btn>
-<img src=/blackhole2.png alt="Switch Theme">
-</button>
-<button id=toc-toggle class=toc-toggle-btn>
-<img src=/toc-icon.svg alt="Toggle TOC"></button><div class=font-size-control><button id=font-toggle class=font-size-btn>
-A</button><div class=font-size-buttons><button id=font-increase class=font-control-btn>+</button>
-<button id=font-reset class=font-control-btn>A</button>
-<button id=font-decrease class=font-control-btn>−</button></div></div></aside><script>document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("book-toc"),t=!0;t?e.classList.remove("hidden"):e.classList.add("hidden"),document.getElementById("toc-toggle").addEventListener("click",function(){e.classList.toggle("hidden")})})</script><script src=/font-size.min.js></script><script src=/toolbar.min.js></script><script src=/toc-animation.min.js></script><script src=/menu-autohide.min.js></script></main><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("theme-toggle");if(!e)return;e.onclick=()=>{const s=e.getBoundingClientRect(),o=s.left+s.width/2,i=s.top+s.height/2,l=document.documentElement.getAttribute("data-theme"),r=l||"auto";let n;r==="auto"?n=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":n=r;const a=n==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",a),localStorage.setItem("theme",a);const c=n==="dark"?"#0b031c":"white",t=document.createElement("div");t.style.position="fixed",t.style.top="0",t.style.left="0",t.style.width="100vw",t.style.height="100vh",t.style.zIndex="9999",t.style.pointerEvents="none",t.style.setProperty("--cx",`${o}px`),t.style.setProperty("--cy",`${i}px`),t.style.setProperty("--r","0px"),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${c} calc(var(--r) + 1px))`,document.body.appendChild(t);const u=window.innerWidth,h=window.innerHeight,m=Math.hypot(Math.max(o,u-o),Math.max(i,h-i)),f=600,p=performance.now();function d(e){const o=e-p,s=Math.min(o/f,1),n=s*m;if(t.style.setProperty("--r",`${n}px`),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${n}px, ${c} ${n+1}px)`,s<1)requestAnimationFrame(d);else{t.remove();const e=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",e)}}requestAnimationFrame(d)}})</script><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0,packages:{"[+]":["ams","noerrors","color"]}},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"],ignoreHtmlClass:"tex2jax_ignore",processHtmlClass:"tex2jax_process"},svg:{fontCache:"global"},startup:{ready:function(){const e=MathJax.startup.findTeX;MathJax.startup.findTeX=function(t){const n=e.call(this,t);for(const e of n)if(e.display){let t=e.math;t=t.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g,function(e,t){return"\\begin{aligned}"+t.replace(/\\/g,"\\\\")+"\\end{aligned}"}),e.math=t}return n},MathJax.startup.defaultReady()}}}</script><script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js id=MathJax-script async></script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("blockquote").forEach(function(e){const t=e.querySelector("p");if(!t)return;const n=t.innerHTML;for(const s of["lemma","theorem","assumption","claim"]){const i=new RegExp(`\\[!${s}\\|(\\*|[\\w\\.\\-]+)\\]`,"i"),o=n.match(i);if(o){console.log(`Found ${s} with label: ${o[1]}`);const a=o[1]!=="*",c=a?o[1]:"",l=Array.from(e.childNodes);e.innerHTML="",e.classList.add("math-theorem",s);const n=document.createElement("div");n.className="theorem-header";const r=s.charAt(0).toUpperCase()+s.slice(1);n.textContent=a?`${r} ${c}`:r,e.appendChild(n);const i=document.createElement("div");i.className="theorem-content",e.appendChild(i),t.innerHTML=t.innerHTML.replace(o[0],""),l.forEach(function(e){i.appendChild(e.cloneNode(!0))});break}}})})</script><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script><script defer src=/partial-load.min.1d4ed5d4ac20533fe341c211fd2c6b93ddb539b801d838d21437b218507d941b.js integrity="sha256-HU7V1KwgUz/jQcIR/Sxrk921ObgB2DjSFDeyGFB9lBs=" crossorigin=anonymous></script><script defer src=/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin=anonymous></script></body></html>
+    </pre>
+    <button class="copy-button">
+        <img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+    </button>
+</div>
+
+<p>Note that we removed the date logic from the default template and put it in the post template. Generate the web site and verify the results. Posts have dates and the about page doesn&rsquo;t.</p>
+<h3 id="dont-repeat-yourself">
+  Don&rsquo;t Repeat Yourself
+  <a class="anchor" href="#dont-repeat-yourself">#</a>
+</h3>
+<p>DRY is a good design goal and Hugo does a great job supporting it. Part of the art of a good template is knowing when to add a new template and when to update an existing one. While you&rsquo;re figuring that out, accept that you&rsquo;ll be doing some refactoring. Hugo makes that easy and fast, so it&rsquo;s okay to delay splitting up a template.</p>
+</div>
+</article>
+ 
+        
+
+        <footer class="book-footer">
+          
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/EriseHe/erisehe.github.io/edit/main/exampleSite/content.en/posts/creating-a-new-theme.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+          
+        </footer>
+
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+  
+ 
+
+        <label for="menu-control" class="hidden book-menu-overlay"></label>
+      </div>
+
+      
+      
+      
+      
+        <aside id="book-toc" class="book-toc hidden">
+          <div class="book-toc-content">
+            
+<div class="button-prev">
+  
+    <a class="btn-prev" href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/">
+      <strong>Previous:</strong> 习题
+    </a>
+  
+</div>
+
+
+
+
+      
+            
+              <div class="toc-entries">
+                
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#some-definitions">Some Definitions</a>
+          <ul>
+            <li><a href="#skins">Skins</a></li>
+            <li><a href="#the-home-page">The Home Page</a></li>
+            <li><a href="#site-configuration-file">Site Configuration File</a></li>
+            <li><a href="#content">Content</a></li>
+            <li><a href="#template-files">Template Files</a></li>
+          </ul>
+        </li>
+        <li><a href="#create-a-new-site">Create a New Site</a>
+          <ul>
+            <li><a href="#generate-the-html-for-the-new-site">Generate the HTML For the New Site</a></li>
+            <li><a href="#test-the-new-site">Test the New Site</a></li>
+          </ul>
+        </li>
+        <li><a href="#create-a-new-theme">Create a New Theme</a>
+          <ul>
+            <li><a href="#create-a-skeleton">Create a Skeleton</a></li>
+            <li><a href="#update-the-configuration-file-to-use-the-theme">Update the Configuration File to Use the Theme</a></li>
+            <li><a href="#generate-the-site">Generate the Site</a></li>
+          </ul>
+        </li>
+        <li><a href="#the-theme-development-cycle">The Theme Development Cycle</a>
+          <ul>
+            <li><a href="#purge-the-public-directory">Purge the public/ Directory</a></li>
+            <li><a href="#hugos-watch-option">Hugo&rsquo;s Watch Option</a></li>
+            <li><a href="#live-reload">Live Reload</a></li>
+            <li><a href="#development-commands">Development Commands</a></li>
+          </ul>
+        </li>
+        <li><a href="#update-the-home-page-template">Update the Home Page Template</a>
+          <ul>
+            <li><a href="#make-a-static-home-page">Make a Static Home Page</a></li>
+            <li><a href="#build-a-dynamic-home-page">Build a &ldquo;Dynamic&rdquo; Home Page</a></li>
+            <li><a href="#list-and-single-templates">List and Single Templates</a></li>
+            <li><a href="#add-content-to-the-homepage">Add Content to the Homepage</a></li>
+            <li><a href="#add-content-to-the-posts">Add Content to the Posts</a></li>
+            <li><a href="#linking-to-content">Linking to Content</a></li>
+            <li><a href="#create-a-post-listing">Create a Post Listing</a></li>
+          </ul>
+        </li>
+        <li><a href="#creating-top-level-pages">Creating Top Level Pages</a></li>
+        <li><a href="#sharing-templates">Sharing Templates</a>
+          <ul>
+            <li><a href="#create-the-header-and-footer-partials">Create the Header and Footer Partials</a></li>
+            <li><a href="#update-the-home-page-template-to-use-the-partials">Update the Home Page Template to Use the Partials</a></li>
+            <li><a href="#update-the-default-single-template-to-use-the-partials">Update the Default Single Template to Use the Partials</a></li>
+          </ul>
+        </li>
+        <li><a href="#add-date-published-to-posts">Add “Date Published” to Posts</a>
+          <ul>
+            <li><a href="#add-date-published-to-the-template">Add “Date Published” to the Template</a></li>
+            <li><a href="#dont-repeat-yourself">Don&rsquo;t Repeat Yourself</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+              </div>
+            
+      
+            
+<div class="button-next">
+  
+    <a class="btn-next" href="/posts/migrate-from-jekyll/">
+      <strong>Next:</strong> Migrate to Hugo from Jekyll
+    </a>
+  
+</div>
+          </div>
+        </aside>
+      
+    </div>
+    
+    <div class="toolbar-trigger"></div>
+<aside class="toolbar">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <img src="/blackhole2.png" alt="Switch Theme">
+  </button>
+  <button id="toc-toggle" class="toc-toggle-btn">
+    <img src="/toc-icon.svg" alt="Toggle TOC">
+  </button>
+  <div class="font-size-control">
+    <button id="font-toggle" class="font-size-btn">
+      A
+    </button>
+    <div class="font-size-buttons">
+      <button id="font-increase" class="font-control-btn">+</button>
+      <button id="font-reset" class="font-control-btn">A</button>
+      <button id="font-decrease" class="font-control-btn">−</button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var tocAside = document.getElementById('book-toc');
+    var initialTOCState = true;
+    
+    if (!initialTOCState) {
+      tocAside.classList.add('hidden');
+    } else {
+      tocAside.classList.remove('hidden');
+    }
+    
+    document.getElementById('toc-toggle').addEventListener('click', function() {
+      tocAside.classList.toggle('hidden');
+    });
+  });
+</script>
+
+
+<script src="/font-size.min.js"></script>
+
+
+<script src="/toolbar.min.js"></script>
+
+
+<script src="/toc-animation.min.js"></script>
+
+
+<script src="/menu-autohide.min.js"></script>
+
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+    
+      toggle.onclick = () => {
+        
+        const rect = toggle.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        
+        
+        
+        const currentThemeRaw = document.documentElement.getAttribute('data-theme');
+        const currentTheme = currentThemeRaw ? currentThemeRaw : 'auto';
+        
+        
+        
+        let effectiveTheme;
+        if (currentTheme === 'auto') {
+          effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+          effectiveTheme = currentTheme;
+        }
+        
+        
+        const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
+        
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        
+        const oldColor = effectiveTheme === 'dark' ? '#0b031c' : 'white';
+        
+        
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.zIndex = '9999';
+        overlay.style.pointerEvents = 'none';
+        
+        
+        overlay.style.setProperty('--cx', `${cx}px`);
+        overlay.style.setProperty('--cy', `${cy}px`);
+        overlay.style.setProperty('--r', '0px');
+        
+        
+
+        overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${oldColor} calc(var(--r) + 1px))`;
+        
+        document.body.appendChild(overlay);
+        
+        
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const finalRadius = Math.hypot(Math.max(cx, vw - cx), Math.max(cy, vh - cy));
+        
+        
+        const duration = 600; 
+        const startTime = performance.now();
+        
+        function animate(time) {
+          const elapsed = time - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const currentRadius = progress * finalRadius;
+          overlay.style.setProperty('--r', `${currentRadius}px`);
+          
+          
+          overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${currentRadius}px, ${oldColor} ${currentRadius + 1}px)`;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            overlay.remove();
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        }
+        requestAnimationFrame(animate);
+      };
+    });
+  </script>
+  
+  
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'noerrors', 'color']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      ready: function() {
+        
+        const oldFindTeX = MathJax.startup.findTeX;
+        MathJax.startup.findTeX = function(options) {
+          
+          const results = oldFindTeX.call(this, options);
+          
+          
+          for (const item of results) {
+            if (item.display) {
+              let processedMath = item.math;
+              
+              
+              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
+                
+                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
+              });
+              
+              item.math = processedMath;
+            }
+          }
+          
+          return results;
+        };
+        
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    document.querySelectorAll('blockquote').forEach(function(blockquote) {
+      
+      const firstParagraph = blockquote.querySelector('p');
+      if (!firstParagraph) return;
+      
+      const text = firstParagraph.innerHTML;
+      
+      
+      
+      for (const type of ['lemma', 'theorem', 'assumption', 'claim']) {
+        
+        const regex = new RegExp(`\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
+        const match = text.match(regex);
+        
+        if (match) {
+          console.log(`Found ${type} with label: ${match[1]}`);
+          
+          
+          const hasNumber = match[1] !== '*';
+          const number = hasNumber ? match[1] : '';
+          
+          
+          const childNodes = Array.from(blockquote.childNodes);
+          blockquote.innerHTML = '';
+          
+          
+          blockquote.classList.add('math-theorem', type);
+          
+          
+          const header = document.createElement('div');
+          header.className = 'theorem-header';
+          
+          
+          const typeText = type.charAt(0).toUpperCase() + type.slice(1);
+          header.textContent = hasNumber ? `${typeText} ${number}` : typeText;
+          
+          blockquote.appendChild(header);
+          
+          
+          const content = document.createElement('div');
+          content.className = 'theorem-content';
+          blockquote.appendChild(content);
+          
+          
+          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(match[0], '');
+          
+          
+          childNodes.forEach(function(node) {
+            content.appendChild(node.cloneNode(true));
+          });
+          
+          break; 
+        }
+      }
+    });
+  });
+</script> 
+  
+
+  <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
+ 
+  <script defer src="/partial-load.min.1d4ed5d4ac20533fe341c211fd2c6b93ddb539b801d838d21437b218507d941b.js" integrity="sha256-HU7V1KwgUz/jQcIR/Sxrk921ObgB2DjSFDeyGFB9lBs=" crossorigin="anonymous"></script>
+  <script defer src="/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js" integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
