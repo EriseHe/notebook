@@ -143,6 +143,9 @@ Convection
 Combine
 Classical
 Continuum
+Charge
+Change
+Corollaries
 font
 for
 functions
@@ -314,6 +317,7 @@ fulfill
 fucntions
 foucault
 fuzzy
+formatting
 color
 curve
 can
@@ -689,6 +693,8 @@ centrifugal
 charge
 cage
 categorized
+cell
+continue
 Problem
 Partial
 Putting
@@ -1803,6 +1809,9 @@ diffusive
 degrading
 dominates
 decreases
+double
+display
+delimiters
 in
 inverse
 implicit
@@ -2050,6 +2059,10 @@ ignored
 interaction
 inch
 illustrates
+interchanged
+iterated
+induces
+integrating
 of
 our
 out
@@ -2392,6 +2405,7 @@ Distance
 Desire
 Defined
 Dopamine
+Double
 map
 matrix
 mapping
@@ -3046,6 +3060,8 @@ Should
 Same
 Spherical
 Size
+Symbol
+Substitution
 equations
 equation
 exists
@@ -3297,6 +3313,7 @@ excitation
 electrons
 emitted
 emission
+establish
 whether
 written
 which
@@ -3575,6 +3592,7 @@ belongs
 binding
 break
 binomial
+blackboard
 allow
 and
 as
@@ -4064,6 +4082,8 @@ Reaction
 Rodrigues
 Radial
 Relativistic
+Reduce
+Roles
 requirement
 respect
 rule
@@ -4308,6 +4328,7 @@ room
 releases
 relativistic
 rotational
+refine
 partials
 partial
 point
@@ -5107,6 +5128,8 @@ Fubini
 Free
 False
 FEM
+FTC
+Fundamental
 Jacobian
 Jobcobian
 John
@@ -5366,6 +5389,8 @@ vertex
 viewed
 valued
 vast
+vice
+versa
 unknowns
 unique
 uniquely
@@ -5840,6 +5865,7 @@ quadratures
 qssstab
 qssmulti
 quantity
+quadrant
 zero
 zoom
 zG
