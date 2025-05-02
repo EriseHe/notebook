@@ -1,10 +1,10 @@
 {
-  "theme": "moonstone",
+  "theme": "system",
   "accentColor": "#5115c1",
   "textFontFamily": "NewComputerModern10",
   "translucency": true,
   "cssTheme": "Things",
-  "baseFontSize": 16,
+  "baseFontSize": 20,
   "baseFontSizeAction": true,
   "interfaceFontFamily": "",
   "monospaceFontFamily": "NewComputerModern10",
