@@ -6,12 +6,13 @@
     <description>Recent content in 量子力学讲义 on 位相学補完計画</description>
     <generator>Hugo</generator>
     <language>en</language>
+    <lastBuildDate>Wed, 05 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/docs/Physics/Quantum-Mechenics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</guid>
+      <link>http://localhost:1313/docs/Physics/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</link>
+      <pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/Physics/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid>
       <description>&lt;h2 id=&#34;0-review&#34;&gt;&#xA;  0. Review&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#0-review&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;$$&#xA;\hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x+V(x)&#xA;$$&#xA;Stationary States&#xA;$$&#xA;\Psi(x,t)=\psi(x)e^{-iEt/\hbar}&#xA;$$&#xA;Eigenvalue equation:&#xA;$$\hat{H}\psi(x) = E\psi(x)$$&#xA;In newtonian mechanics, note&#xA;$$F(x)=-\frac{ \partial V(x) }{ \partial x } $$&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-infinite-finite-well-particle-on-a-box&#34;&gt;&#xA;  1. Infinite Finite Well (particle on a box)&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#1-infinite-finite-well-particle-on-a-box&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;$$E = \frac{p^{2}}{2m}$$&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;knowing $E$ results in knowing momentum $p^{2}$&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Problem Set-up&#xA;Between $x=0$, and $x=a$,&#xA;$$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$&#xA;Subject to &amp;ldquo;boundary condition&amp;rdquo;: $\Psi(0)=\Psi(a)=0$&#xA;$$&#xA;\begin{align}&#xA;\frac{d^{2}\Psi}{dx} &amp;amp; =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \&#xA;&amp;amp; =-k^{2}\Psi&#xA;\end{align}&#xA;$$&#xA;Recall&lt;/p&gt;</description>
     </item>
     <item>
@@ -23,9 +24,16 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</link>
+      <link>http://localhost:1313/docs/Physics/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</guid>
+      <guid>http://localhost:1313/docs/Physics/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/</guid>
+      <description>&lt;h1 id=&#34;quantum-mechanics-backward-learning-path&#34;&gt;&#xA;  Quantum Mechanics Backward Learning Path&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#quantum-mechanics-backward-learning-path&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;This roadmap takes you from the &lt;strong&gt;ultimate goal&lt;/strong&gt;—adding two spin-½ systems using Clebsch–Gordan coefficients—then traces back step by step through all prerequisite concepts.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-ultimate-goal-addition-of-two-spin--systems&#34;&gt;&#xA;  🎯 Ultimate Goal: Addition of Two Spin-½ Systems&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#-ultimate-goal-addition-of-two-spin--systems&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;What it is:&lt;/strong&gt; Building combined spin states $|s, m\rangle$ from tensor products of single-particle basis $|\tfrac{1}{2}, m_1\rangle \otimes |\tfrac{1}{2}, m_2\rangle$, and computing Clebsch–Gordan coefficients.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Why it’s hard:&lt;/strong&gt; You need fluency with abstract Hilbert spaces, operator algebra, ladder operators, and the representation theory of SU(2)—all without the crutch of wave-function intuition.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-backward-learning-path&#34;&gt;&#xA;  🔙 Backward Learning Path&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#-backward-learning-path&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tensor‐Product Hilbert Spaces &amp;amp; Basis Change&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/docs/Physics/Quantum-Mechenics/%E6%B3%A2%E5%87%BD%E6%95%B0%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%9C%A8Hilbert%E7%A9%BA%E9%97%B4%E4%B8%AD/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/Physics/Quantum-Mechenics/%E6%B3%A2%E5%87%BD%E6%95%B0%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%9C%A8Hilbert%E7%A9%BA%E9%97%B4%E4%B8%AD/</guid>
       <description>&lt;h2 id=&#34;hilbert-space&#34;&gt;&#xA;  Hilbert Space&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#hilbert-space&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Infinite dimensional &lt;strong&gt;vector space&lt;/strong&gt;, denoted as $L^2(a,b)$, of &lt;strong&gt;square-integrable functions&lt;/strong&gt; on an interval $[a,b]$.&#xA;$$\int_a^b |f(x)|^2 , dx &amp;lt; \infty$$&#xA;Inner product defined as:&#xA;$$\langle f | g \rangle = \int_a^b f^&lt;em&gt;(x)g(x) , dx$$&#xA;Note that:&#xA;$$\langle f | g \rangle = \langle g | f \rangle^&lt;/em&gt;$$&#xA;$$\langle f | f \rangle = \int_a^b |f(x)|^2 , dx \geq 0$$&#xA;Also:&#xA;$$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]$$&lt;/p&gt;</description>
     </item>
   </channel>

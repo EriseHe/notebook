@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <script>
+    (function(){
+      
+      
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  4.3.1 量子数 (Quantum Numbers)
+  #
+
+The stationary states of the hydrogen atom are labeled by three quantum numbers: $n$, $\ell$, and $m$. The principal quantum number ($n$) determines the energy of the state, while $\ell$ and $m$ are related to the orbital angular momentum. In classical physics, energy and angular momentum are fundamental conserved quantities, so it&rsquo;s not surprising that angular momentum plays an important role in quantum theory as well.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3-%E8%A7%92%E5%8A%A8%E9%87%8F-Angular-Momentum/">
+  <meta property="og:site_name" content="位相学補完計画">
+  <meta property="og:title" content="位相学補完計画">
+  <meta property="og:description" content="4.3.1 量子数 (Quantum Numbers) # The stationary states of the hydrogen atom are labeled by three quantum numbers: $n$, $\ell$, and $m$. The principal quantum number ($n$) determines the energy of the state, while $\ell$ and $m$ are related to the orbital angular momentum. In classical physics, energy and angular momentum are fundamental conserved quantities, so it’s not surprising that angular momentum plays an important role in quantum theory as well.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>
+4.3 角动量 ( Angular Momentum) | 位相学補完計画</title>
+<link rel="icon" href="/topo.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3-%E8%A7%92%E5%8A%A8%E9%87%8F-Angular-Momentum/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
+
+
+<link rel="stylesheet" href="/book.min.2d7c41402e14539fe83d37688057b7e2670d48bbcb530d82bcf09925c94a99e7.css" integrity="sha256-LXxBQC4UU5/oPTdogFe34mcNSLvLUw2CvPCZJclKmec=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.deeb52841ed034ebe527602907bd4beb970603bdd10f12aacf245ec58833e400.js" integrity="sha256-3utShB7QNOvlJ2ApB71L65cGA73RDxKqzyRexYgz5AA=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+
+</head>
+
+<body dir="ltr">
+  
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
+  <main class="container">
+    <div class="book-layout">
+      <aside class="book-menu">
+        <div class="book-menu-content">
+          
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center justify-center" 
+     href="http://localhost:1313/">
+    <img src="/topo.png" 
+         alt="Logo" 
+         class="book-icon" />
+    <span>位相学補完計画</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+ 
+
+<nav class="subject-menu">
+  
+  <div class="subject-tabs">
+    <button class="subject-tab active" data-subject="mathematics">Mathematics</button>
+    <button class="subject-tab" data-subject="physics">Physics</button>
+  </div>
+
+  
+  <div class="subject-content">
+    
+    <div class="subject-panel" data-subject="mathematics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-18cee4a89c29bbca12ad50da583d36e1" class="toggle"  />
+    <label for="section-18cee4a89c29bbca12ad50da583d36e1" class="flex justify-between">
+      <a role="button"
+         class="">爽分析 II</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-f5702df94eec4e717edfdbd2f0b22069" class="toggle"  />
+    <label for="section-f5702df94eec4e717edfdbd2f0b22069" class="flex justify-between">
+      <a role="button"
+         class="">第六章 可微映射</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/"
+       class="">6.4 可微分性的必要条件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/"
+       class="">6.5 链式法则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/"
+       class="">6.6 乘积法则与梯度</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/"
+       class="">6.9 泰勒公式的高维形式</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-f798c5736bf9779da9008396fff66461" class="toggle"  />
+    <label for="section-f798c5736bf9779da9008396fff66461" class="flex justify-between">
+      <a role="button"
+         class="">第七章 逆函数和隐函数定理</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/"
+       class="">7.6 莫尔斯引理</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/"
+       class="">7.1 反函数定理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/"
+       class="">7.1.1 反函数定理（证明）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/"
+       class="">7.2 隐函数定理</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-1bbd95bbbb73fad89c778b86d677e30d" class="toggle"  />
+    <label for="section-1bbd95bbbb73fad89c778b86d677e30d" class="flex justify-between">
+      <a role="button"
+         class="">第八章 度量理论</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/"
+       class="">8.6 勒贝格收敛定理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/"
+       class="">8.1 度量理论</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/"
+       class="">8.2 Criterion for Integrability</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/"
+       class="">8.3 Proof of Lebesgue&#39;s Theorem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/"
+       class="">8.5 不定积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2f021c100a3de451afdb71e66d2aa0f1" class="toggle"  />
+    <label for="section-2f021c100a3de451afdb71e66d2aa0f1" class="flex justify-between">
+      <a role="button"
+         class="">第九章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Computing-Integrals/"
+       class="">积分计算</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%8D%81%E7%AB%A0/10.1-Fourier-Analysis/"
+       class="">10.1 Fourier Analysis</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-8b1d2411b7101a392a48b2bea3796da0" class="toggle"  />
+    <label for="section-8b1d2411b7101a392a48b2bea3796da0" class="flex justify-between">
+      <a role="button"
+         class="">偏微分方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d2a365c571581bcf4c1f513faa9ba796" class="toggle"  />
+    <label for="section-d2a365c571581bcf4c1f513faa9ba796" class="flex justify-between">
+      <a role="button"
+         class="">数值方法</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/"
+       class="">01 Mid Point Method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/"
+       class="">02 Three Point Backward Differentiation Formula</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/"
+       class="">常微分方程的数值解</a>
+  
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-0259cae68c009c361277c75763aa2ebd" class="toggle"  />
+    <label for="section-0259cae68c009c361277c75763aa2ebd" class="flex justify-between">
+      <a role="button"
+         class="">第四章 有限元分析</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Finite-Element-Method/"
+       class="">Finite Element Method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Quiz-4/"
+       class="">Quiz 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-9eeee6dc2f7b432c094fdbbad22b3fb2" class="toggle"  />
+    <label for="section-9eeee6dc2f7b432c094fdbbad22b3fb2" class="flex justify-between">
+      <a role="button"
+         class="">第九章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/"
+       class="">习题</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/"
+       class="">9.1 边值问题的近似</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/"
+       class="">9.2 有限差分法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/"
+       class="">9.3 对流-扩散方程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/"
+       class="">9.4 4.1 二维（2D）偏微分方程问题</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-4ca2e365834321088a593879f6a45ed7" class="toggle"  />
+    <label for="section-4ca2e365834321088a593879f6a45ed7" class="flex justify-between">
+      <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
+         class="">热方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/Heat-Equation-Solution/"
+       class="">Heat Equation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/The-Fourier-Series/"
+       class="">傅立叶级数</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-02b3a6ef9f8497bc0604244daa8db028" class="toggle"  />
+    <label for="section-02b3a6ef9f8497bc0604244daa8db028" class="flex justify-between">
+      <a role="button"
+         class="">波方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-b2cec934f65a7578e61c760a62ae64b7" class="toggle"  />
+    <label for="section-b2cec934f65a7578e61c760a62ae64b7" class="flex justify-between">
+      <a role="button"
+         class="">拉普拉斯方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d68a82dfb08bd80434025e3bb4bc945c" class="toggle"  />
+    <label for="section-d68a82dfb08bd80434025e3bb4bc945c" class="flex justify-between">
+      <a href="/docs/Mathematics/AI/"
+         class="">AI</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/AI/Towards-a-Artificial-Lacanian-Subject-Subjector-0/"
+       class="">Towards a Artificial Lacanian Subject Subjector 0</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+
+    
+    <div class="subject-panel hidden" data-subject="physics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2a50d1ca31c01c9cf38bfd4282625e0c" class="toggle" checked />
+    <label for="section-2a50d1ca31c01c9cf38bfd4282625e0c" class="flex justify-between">
+      <a role="button"
+         class="">量子力学讲义</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-c613a1d66f34f9cf259661be08e6ffab" class="toggle"  />
+    <label for="section-c613a1d66f34f9cf259661be08e6ffab" class="flex justify-between">
+      <a role="button"
+         class="">第一章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/1.1-The-Wave-Function/"
+       class="">1.1 the Wave Function</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-871eb7a68ddd8abd035da55c969042b8" class="toggle"  />
+    <label for="section-871eb7a68ddd8abd035da55c969042b8" class="flex justify-between">
+      <a role="button"
+         class="">第二章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.1-Time-Independent-Schrodinger-Equation-Stationary-States/"
+       class="">2.1 Time Independent Schrodinger Equation Stationary States</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-112b8490b1c8a59f4aaf0521a5939853" class="toggle"  />
+    <label for="section-112b8490b1c8a59f4aaf0521a5939853" class="flex justify-between">
+      <a role="button"
+         class="">第三章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-b910ca16de27d87a228fb62b635faa2d" class="toggle" checked />
+    <label for="section-b910ca16de27d87a228fb62b635faa2d" class="flex justify-between">
+      <a role="button"
+         class="">第四章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E7%BB%8F%E5%85%B8%E6%B0%A2%E5%8E%9F%E5%AD%90/"
+       class="">4.1 经典氢原子</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3-%E8%A7%92%E5%8A%A8%E9%87%8F-Angular-Momentum/"
+       class="active">4.3 角动量 ( Angular Momentum)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.4-Spin-Spin-Spin/"
+       class="">4.4 Spin Spin Spin</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/"
+       class="">第四章</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.2-Hydrogen-Atom/"
+       class="">氢原子</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/"
+       class="">薛定谔方程的傅立叶变换</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/"
+       class="">Hw3 Code</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/"
+       class="">学习量子力学的顺序</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/%E6%B3%A2%E5%87%BD%E6%95%B0%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%9C%A8Hilbert%E7%A9%BA%E9%97%B4%E4%B8%AD/"
+       class="">波函数存在于在 Hilbert空间中</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+  </div>
+</nav>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.subject-tab');
+    const panels = document.querySelectorAll('.subject-panel');
+
+    
+    function activateTab(subject) {
+      
+      tabs.forEach(t => t.classList.remove('active'));
+      
+      panels.forEach(p => p.classList.add('hidden'));
+
+      
+      const selectedTab = document.querySelector(`.subject-tab[data-subject="${subject}"]`);
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
+      
+      
+      const panel = document.querySelector(`.subject-panel[data-subject="${subject}"]`);
+      if (panel) {
+        panel.classList.remove('hidden');
+      }
+      
+      
+      localStorage.setItem('activeSubjectTab', subject);
+    }
+
+    
+    const savedTab = localStorage.getItem('activeSubjectTab');
+    if (savedTab) {
+      activateTab(savedTab);
+    }
+
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const subject = tab.getAttribute('data-subject');
+        activateTab(subject);
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+<div class="after-menu-offset">
+  
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/EriseHe/erisehe.github.io"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/themes/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+</div>
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+        </div>
+      </aside>
+      
+      <div class="book-page">
+        <header class="book-header">
+          
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>4.3 角动量 ( Angular Momentum)</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+  
+  
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#431-量子数-quantum-numbers">4.3.1 量子数 (Quantum Numbers)</a></li>
+        <li><a href="#432-经典角动量-classical-angular-momentum">4.3.2 经典角动量 (Classical Angular Momentum)</a></li>
+        <li><a href="#433-量子算符-quantum-operators">4.3.3 量子算符 (Quantum Operators)</a></li>
+        <li><a href="#434-本征值-eigenvalues">4.3.4 本征值 (Eigenvalues)</a>
+          <ul>
+            <li><a href="#交换关系-commutation-relations">交换关系 (Commutation Relations)</a></li>
+            <li><a href="#不相容的可观测量-incompatible-observables">不相容的可观测量 (Incompatible Observables)</a></li>
+          </ul>
+        </li>
+        <li><a href="#435-阶梯算符-ladder-operators">4.3.5 阶梯算符 (Ladder Operators)</a></li>
+        <li><a href="#436-角动量的球坐标表示-angular-momentum-in-spherical-coordinates">4.3.6 角动量的球坐标表示 (Angular Momentum in Spherical Coordinates)</a></li>
+        <li><a href="#437-球谐函数-spherical-harmonics">4.3.7 球谐函数 (Spherical Harmonics)</a></li>
+        <li><a href="#重要结论-key-conclusions"><strong>重要结论 (Key Conclusions)</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+        </header>
+
+        
+        
+  <article class="book-article">
+    
+    <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;"></h1>
+    
+    <div class="markdown posts"><h2 id="431-量子数-quantum-numbers">
+  4.3.1 量子数 (Quantum Numbers)
+  <a class="anchor" href="#431-%e9%87%8f%e5%ad%90%e6%95%b0-quantum-numbers">#</a>
+</h2>
+<p>The stationary states of the hydrogen atom are labeled by three quantum numbers: $n$, $\ell$, and $m$. The principal quantum number ($n$) determines the energy of the state, while $\ell$ and $m$ are related to the orbital angular momentum. In classical physics, energy and angular momentum are fundamental conserved quantities, so it&rsquo;s not surprising that angular momentum plays an important role in quantum theory as well.</p>
+<h2 id="432-经典角动量-classical-angular-momentum">
+  4.3.2 经典角动量 (Classical Angular Momentum)
+  <a class="anchor" href="#432-%e7%bb%8f%e5%85%b8%e8%a7%92%e5%8a%a8%e9%87%8f-classical-angular-momentum">#</a>
+</h2>
+<p>Classically, the angular momentum of a particle (with respect to the origin) is given by:</p>
+<p>$$\mathbf{L} = \mathbf{r} \times \mathbf{p}$$</p>
+<p>In component form, this gives us:</p>
+<p>$$L_x = yp_z - zp_y, \quad L_y = zp_x - xp_z, \quad L_z = xp_y - yp_x$$</p>
+<h2 id="433-量子算符-quantum-operators">
+  4.3.3 量子算符 (Quantum Operators)
+  <a class="anchor" href="#433-%e9%87%8f%e5%ad%90%e7%ae%97%e7%ac%a6-quantum-operators">#</a>
+</h2>
+<p>In quantum mechanics, we obtain the corresponding operators by the standard prescription:</p>
+<p>$$p_x \rightarrow -i\hbar\frac{\partial}{\partial x}, \quad p_y \rightarrow -i\hbar\frac{\partial}{\partial y}, \quad p_z \rightarrow -i\hbar\frac{\partial}{\partial z}$$</p>
+<p>Now we&rsquo;ll explore the eigenvalues of the angular momentum operators through algebraic techniques based on commutation relations.</p>
+<h2 id="434-本征值-eigenvalues">
+  4.3.4 本征值 (Eigenvalues)
+  <a class="anchor" href="#434-%e6%9c%ac%e5%be%81%e5%80%bc-eigenvalues">#</a>
+</h2>
+<h3 id="交换关系-commutation-relations">
+  交换关系 (Commutation Relations)
+  <a class="anchor" href="#%e4%ba%a4%e6%8d%a2%e5%85%b3%e7%b3%bb-commutation-relations">#</a>
+</h3>
+<p>The operators $L_x$ and $L_y$ do not commute. Let&rsquo;s calculate their commutator:</p>
+<p>$$[L_x, L_y] = [yp_z - zp_y, zp_x - xp_z]$$</p>
+<p>Expanding this:
+$$[L_x, L_y] = [yp_z, zp_x] - [yp_z, xp_z] - [zp_y, zp_x] + [zp_y, xp_z]$$</p>
+<p>From canonical commutation relations, we know that only $x$ with $p_x$, $y$ with $p_y$, and $z$ with $p_z$ fail to commute. So the two middle terms drop out:</p>
+<p>$$[L_x, L_y] = yp_z[z, p_x] + xp_z[z, p_y] = i\hbar(xp_y - yp_x) = i\hbar L_z$$</p>
+<p>By cyclic permutation of indices, we can obtain the other commutation relations:</p>
+<p>$$[L_x, L_y] = i\hbar L_z; \quad [L_y, L_z] = i\hbar L_x; \quad [L_z, L_x] = i\hbar L_y$$</p>
+<p>These are the fundamental commutation relations for angular momentum; everything follows from them.</p>
+<h3 id="不相容的可观测量-incompatible-observables">
+  不相容的可观测量 (Incompatible Observables)
+  <a class="anchor" href="#%e4%b8%8d%e7%9b%b8%e5%ae%b9%e7%9a%84%e5%8f%af%e8%a7%82%e6%b5%8b%e9%87%8f-incompatible-observables">#</a>
+</h3>
+<p>Notice that $L_x$, $L_y$, and $L_z$ are incompatible observables. According to the generalized uncertainty principle:</p>
+<p>$$\sigma_{L_x}\sigma_{L_y} \geq \frac{\hbar}{2}|\langle L_z \rangle|$$</p>
+<p>This means it would be futile to look for states that are simultaneously eigenfunctions of $L_x$ and $L_y$. However, the square of the total angular momentum:</p>
+<p>$$L^2 = L_x^2 + L_y^2 + L_z^2$$</p>
+<p>does commute with all components of $\mathbf{L}$:</p>
+<p>$$[L^2, L_x] = [L_x^2, L_x] + [L_y^2, L_x] + [L_z^2, L_x] = 0$$</p>
+<p>$$[L^2, L_y] = 0, \quad [L^2, L_z] = 0$$</p>
+<p>Or more compactly:</p>
+<p>$$[L^2, \mathbf{L}] = 0$$</p>
+<p>So we can hope to find simultaneous eigenstates of $L^2$ and (say) $L_z$:</p>
+<p>$$L^2 f = \lambda f \quad \text{and} \quad L_z f = \mu f$$</p>
+<h2 id="435-阶梯算符-ladder-operators">
+  4.3.5 阶梯算符 (Ladder Operators)
+  <a class="anchor" href="#435-%e9%98%b6%e6%a2%af%e7%ae%97%e7%ac%a6-ladder-operators">#</a>
+</h2>
+<p>We&rsquo;ll use the ladder operator technique, similar to the harmonic oscillator treatment. Define:</p>
+<p>$$L_{\pm} = L_x \pm iL_y$$</p>
+<p>The commutator with $L_z$ is:</p>
+<p>$$[L_z, L_{\pm}] = [L_z, L_x] \pm i[L_z, L_y] = i\hbar L_y \pm i(-i\hbar L_x) = \pm\hbar(L_x \pm iL_y) = \pm\hbar L_{\pm}$$</p>
+<p>So:
+$$[L_z, L_{\pm}] = \pm\hbar L_{\pm}$$</p>
+<p>Also:
+$$[L^2, L_{\pm}] = 0$$</p>
+<p>If $f$ is an eigenfunction of $L^2$ and $L_z$, so is $L_{\pm}f$:</p>
+<p>$$L^2(L_{\pm}f) = L_{\pm}(L^2f) = L_{\pm}(\lambda f) = \lambda(L_{\pm}f)$$</p>
+<p>$$L_z(L_{\pm}f) = (L_zL_{\pm} - L_{\pm}L_z + L_{\pm}L_z)f = (\pm\hbar L_{\pm} + L_{\pm}L_z)f = (\mu \pm \hbar)(L_{\pm}f)$$</p>
+<p>So $L_{\pm}f$ is an eigenfunction of $L_z$ with eigenvalue $\mu \pm \hbar$. We call $L_+$ the raising operator (increases eigenvalue by $\hbar$) and $L_-$ the lowering operator (decreases eigenvalue by $\hbar$).</p>
+<p>For a given $\lambda$, we get a &ldquo;ladder&rdquo; of states with each &ldquo;rung&rdquo; separated by $\hbar$ in the eigenvalue of $L_z$. But this process must end somewhere. There must be a &ldquo;top rung&rdquo; $f_t$ such that:</p>
+<p>$$L_+f_t = 0$$</p>
+<p>Let $\hbar\ell$ be the eigenvalue of $L_z$ at the top rung:</p>
+<p>$$L_zf_t = \hbar\ell f_t; \quad L^2f_t = \lambda f_t$$</p>
+<p>Now:</p>
+<p>$$L_{\pm}L_{\mp} = (L_x \pm iL_y)(L_x \mp iL_y) = L_x^2 + L_y^2 \mp i(L_xL_y - L_yL_x) = L^2 - L_z^2 \mp i\hbar L_z$$</p>
+<p>So:
+$$L^2 = L_+L_- + L_z^2 + \hbar L_z$$</p>
+<p>This gives:
+$$L^2f_t = (L_-L_+ + L_z^2 - \hbar L_z)f_t = (0 + \hbar^2\ell^2 - \hbar^2\ell)f_t = \hbar^2\ell(\ell - 1)f_t$$</p>
+<p>And:
+$$\lambda = \hbar^2\ell(\ell - 1)$$</p>
+<p>Similarly, there must be a &ldquo;bottom rung&rdquo; $f_b$ such that:</p>
+<p>$$L_-f_b = 0$$</p>
+<p>With:
+$$L_zf_b = \hbar\tilde{\ell}f_b; \quad L^2f_b = \lambda f_b$$</p>
+<p>This leads to:
+$$\lambda = \hbar^2\tilde{\ell}(\tilde{\ell} + 1)$$</p>
+<p>Comparing these equations for $\lambda$, we find that $\ell(\ell - 1) = \tilde{\ell}(\tilde{\ell} + 1)$, which means either $\tilde{\ell} = \ell + 1$ (absurd—the bottom rung would be higher than the top rung!) or:</p>
+<p>$$\tilde{\ell} = -\ell$$</p>
+<p>Thus, the eigenvalues of $L_z$ are $m\hbar$, where $m$ goes from $-\ell$ to $+\ell$ in integer steps. In particular, $\ell = -\tilde{\ell} + N$, and thus $\ell = N/2$, which means $\ell$ must be an integer or a half-integer.</p>
+<p>The eigenfunctions are characterized by the numbers $\ell$ and $m$:</p>
+<p>$$L^2f_\ell^m = \hbar^2\ell(\ell + 1)f_\ell^m; \quad L_zf_\ell^m = \hbar mf_\ell^m$$</p>
+<p>where:
+$$\ell = 0, 1/2, 1, 3/2, \ldots; \quad m = -\ell, -\ell + 1, \ldots, \ell - 1, \ell$$</p>
+<p>For a given value of $\ell$, there are $2\ell + 1$ different values of $m$ (i.e., $2\ell + 1$ &ldquo;rungs&rdquo; on the &ldquo;ladder&rdquo;).</p>
+<h2 id="436-角动量的球坐标表示-angular-momentum-in-spherical-coordinates">
+  4.3.6 角动量的球坐标表示 (Angular Momentum in Spherical Coordinates)
+  <a class="anchor" href="#436-%e8%a7%92%e5%8a%a8%e9%87%8f%e7%9a%84%e7%90%83%e5%9d%90%e6%a0%87%e8%a1%a8%e7%a4%ba-angular-momentum-in-spherical-coordinates">#</a>
+</h2>
+<p>To determine the eigenfunctions $f_\ell^m(\theta, \phi)$, we need to express the angular momentum operators in spherical coordinates.</p>
+<p>First, we rewrite $L_x$, $L_y$, and $L_z$ in spherical coordinates:</p>
+<p>$$L_z = -i\hbar\frac{\partial}{\partial\phi}$$</p>
+<p>$$L_x = -i\hbar\left(-\sin\phi\frac{\partial}{\partial\theta} - \cos\phi\cot\theta\frac{\partial}{\partial\phi}\right)$$</p>
+<p>$$L_y = -i\hbar\left(\cos\phi\frac{\partial}{\partial\theta} - \sin\phi\cot\theta\frac{\partial}{\partial\phi}\right)$$</p>
+<p>The raising and lowering operators become:</p>
+<p>$$L_{\pm} = \pm\hbar e^{\pm i\phi}\left(\frac{\partial}{\partial\theta} \pm i\cot\theta\frac{\partial}{\partial\phi}\right)$$</p>
+<p>And $L^2$ takes the form:</p>
+<p>$$L^2 = -\hbar^2\left[\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right]$$</p>
+<h2 id="437-球谐函数-spherical-harmonics">
+  4.3.7 球谐函数 (Spherical Harmonics)
+  <a class="anchor" href="#437-%e7%90%83%e8%b0%90%e5%87%bd%e6%95%b0-spherical-harmonics">#</a>
+</h2>
+<p>Now we can determine $f_\ell^m(\theta, \phi)$. It&rsquo;s an eigenfunction of $L^2$ with eigenvalue $\hbar^2\ell(\ell + 1)$:</p>
+<p>$$L^2f_\ell^m = -\hbar^2\left[\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right]f_\ell^m = \hbar^2\ell(\ell + 1)f_\ell^m$$</p>
+<p>It&rsquo;s also an eigenfunction of $L_z$ with eigenvalue $m\hbar$:</p>
+<p>$$L_zf_\ell^m = -i\hbar\frac{\partial}{\partial\phi}f_\ell^m = \hbar mf_\ell^m$$</p>
+<p>This is equivalent to the azimuthal equation. We have already solved this system of equations! The result (appropriately normalized) is the spherical harmonic:</p>
+<p>$$f_\ell^m(\theta, \phi) = Y_\ell^m(\theta, \phi)$$</p>
+<p><strong>Conclusion</strong>: Spherical harmonics are the eigenfunctions of $L^2$ and $L_z$. When we solved the Schrödinger equation by separation of variables, we were inadvertently constructing simultaneous eigenfunctions of the three commuting operators $H$, $L^2$, and $L_z$:</p>
+<p>$$H\psi = E\psi, \quad L^2\psi = \hbar^2\ell(\ell + 1)\psi, \quad L_z\psi = \hbar m\psi$$</p>
+<p>This explains why the spherical harmonics are orthogonal: they are eigenfunctions of hermitian operators ($L^2$ and $L_z$) belonging to distinct eigenvalues.</p>
+<h2 id="重要结论-key-conclusions">
+  <strong>重要结论 (Key Conclusions)</strong>
+  <a class="anchor" href="#%e9%87%8d%e8%a6%81%e7%bb%93%e8%ae%ba-key-conclusions">#</a>
+</h2>
+<ol>
+<li>
+<p>Angular momentum operators satisfy the fundamental commutation relations: $[L_i, L_j] = i\hbar\epsilon_{ijk}L_k$</p>
+</li>
+<li>
+<p>While the individual components $L_x$, $L_y$, and $L_z$ do not commute with each other, $L^2$ commutes with all components.</p>
+</li>
+<li>
+<p>The eigenvalues of $L^2$ are $\hbar^2\ell(\ell+1)$ where $\ell$ can be integer or half-integer.</p>
+</li>
+<li>
+<p>For each value of $\ell$, the eigenvalues of $L_z$ are $\hbar m$ where $m$ ranges from $-\ell$ to $+\ell$ in integer steps.</p>
+</li>
+<li>
+<p>For a given $\ell$, there are $2\ell+1$ different values of $m$.</p>
+</li>
+<li>
+<p>The eigenfunctions of $L^2$ and $L_z$ are the spherical harmonics $Y_\ell^m(\theta,\phi)$.</p>
+</li>
+<li>
+<p>In quantum mechanics, angular momentum cannot point in a definite direction; when $L_z$ has a well-defined value, $L_x$ and $L_y$ do not.</p>
+</li>
+</ol>
+</div>
+  </article>
+ 
+        
+
+        <footer class="book-footer">
+          
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/EriseHe/erisehe.github.io/edit/main/exampleSite/content.en/docs/Physics/Quantum%20Mechenics/Lecture/%e7%ac%ac%e5%9b%9b%e7%ab%a0/4.3%20%e8%a7%92%e5%8a%a8%e9%87%8f%20%28Angular%20Momentum%29.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+          
+        </footer>
+
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+  
+ 
+
+        <label for="menu-control" class="hidden book-menu-overlay"></label>
+      </div>
+
+      
+      
+      
+      
+        <aside id="book-toc" class="book-toc hidden">
+          <div class="book-toc-content">
+            
+<div class="button-prev">
+  
+</div>
+
+
+
+
+      
+            
+              <div class="toc-entries">
+                
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#431-量子数-quantum-numbers">4.3.1 量子数 (Quantum Numbers)</a></li>
+        <li><a href="#432-经典角动量-classical-angular-momentum">4.3.2 经典角动量 (Classical Angular Momentum)</a></li>
+        <li><a href="#433-量子算符-quantum-operators">4.3.3 量子算符 (Quantum Operators)</a></li>
+        <li><a href="#434-本征值-eigenvalues">4.3.4 本征值 (Eigenvalues)</a>
+          <ul>
+            <li><a href="#交换关系-commutation-relations">交换关系 (Commutation Relations)</a></li>
+            <li><a href="#不相容的可观测量-incompatible-observables">不相容的可观测量 (Incompatible Observables)</a></li>
+          </ul>
+        </li>
+        <li><a href="#435-阶梯算符-ladder-operators">4.3.5 阶梯算符 (Ladder Operators)</a></li>
+        <li><a href="#436-角动量的球坐标表示-angular-momentum-in-spherical-coordinates">4.3.6 角动量的球坐标表示 (Angular Momentum in Spherical Coordinates)</a></li>
+        <li><a href="#437-球谐函数-spherical-harmonics">4.3.7 球谐函数 (Spherical Harmonics)</a></li>
+        <li><a href="#重要结论-key-conclusions"><strong>重要结论 (Key Conclusions)</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+              </div>
+            
+      
+            
+<div class="button-next">
+  
+</div>
+          </div>
+        </aside>
+      
+    </div>
+    
+    <div class="toolbar-trigger"></div>
+<aside class="toolbar">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <img src="/blackhole2.png" alt="Switch Theme">
+  </button>
+  <button id="toc-toggle" class="toc-toggle-btn">
+    <img src="/toc-icon.svg" alt="Toggle TOC">
+  </button>
+  <div class="font-size-control">
+    <button id="font-toggle" class="font-size-btn">
+      A
+    </button>
+    <div class="font-size-buttons">
+      <button id="font-increase" class="font-control-btn">+</button>
+      <button id="font-reset" class="font-control-btn">A</button>
+      <button id="font-decrease" class="font-control-btn">−</button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var tocAside = document.getElementById('book-toc');
+    var initialTOCState = true;
+    
+    if (!initialTOCState) {
+      tocAside.classList.add('hidden');
+    } else {
+      tocAside.classList.remove('hidden');
+    }
+    
+    document.getElementById('toc-toggle').addEventListener('click', function() {
+      tocAside.classList.toggle('hidden');
+    });
+  });
+</script>
+
+
+<script src="/font-size.min.js"></script>
+
+
+<script src="/toolbar.min.js"></script>
+
+
+<script src="/toc-animation.min.js"></script>
+
+
+<script src="/menu-autohide.min.js"></script>
+
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+    
+      toggle.onclick = () => {
+        
+        const rect = toggle.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        
+        
+        
+        const currentThemeRaw = document.documentElement.getAttribute('data-theme');
+        const currentTheme = currentThemeRaw ? currentThemeRaw : 'auto';
+        
+        
+        
+        let effectiveTheme;
+        if (currentTheme === 'auto') {
+          effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+          effectiveTheme = currentTheme;
+        }
+        
+        
+        const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
+        
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        
+        const oldColor = effectiveTheme === 'dark' ? '#0b031c' : 'white';
+        
+        
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.zIndex = '9999';
+        overlay.style.pointerEvents = 'none';
+        
+        
+        overlay.style.setProperty('--cx', `${cx}px`);
+        overlay.style.setProperty('--cy', `${cy}px`);
+        overlay.style.setProperty('--r', '0px');
+        
+        
+
+        overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${oldColor} calc(var(--r) + 1px))`;
+        
+        document.body.appendChild(overlay);
+        
+        
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const finalRadius = Math.hypot(Math.max(cx, vw - cx), Math.max(cy, vh - cy));
+        
+        
+        const duration = 600; 
+        const startTime = performance.now();
+        
+        function animate(time) {
+          const elapsed = time - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const currentRadius = progress * finalRadius;
+          overlay.style.setProperty('--r', `${currentRadius}px`);
+          
+          
+          overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${currentRadius}px, ${oldColor} ${currentRadius + 1}px)`;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            overlay.remove();
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        }
+        requestAnimationFrame(animate);
+      };
+    });
+  </script>
+  
+  
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'noerrors', 'color']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      ready: function() {
+        
+        const oldFindTeX = MathJax.startup.findTeX;
+        MathJax.startup.findTeX = function(options) {
+          
+          const results = oldFindTeX.call(this, options);
+          
+          
+          for (const item of results) {
+            if (item.display) {
+              let processedMath = item.math;
+              
+              
+              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
+                
+                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
+              });
+              
+              item.math = processedMath;
+            }
+          }
+          
+          return results;
+        };
+        
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    document.querySelectorAll('blockquote').forEach(function(blockquote) {
+      
+      const firstParagraph = blockquote.querySelector('p');
+      if (!firstParagraph) return;
+      
+      const text = firstParagraph.innerHTML;
+      
+      
+      
+      for (const type of ['lemma', 'theorem', 'assumption', 'claim']) {
+        
+        const regex = new RegExp(`\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
+        const match = text.match(regex);
+        
+        if (match) {
+          console.log(`Found ${type} with label: ${match[1]}`);
+          
+          
+          const hasNumber = match[1] !== '*';
+          const number = hasNumber ? match[1] : '';
+          
+          
+          const childNodes = Array.from(blockquote.childNodes);
+          blockquote.innerHTML = '';
+          
+          
+          blockquote.classList.add('math-theorem', type);
+          
+          
+          const header = document.createElement('div');
+          header.className = 'theorem-header';
+          
+          
+          const typeText = type.charAt(0).toUpperCase() + type.slice(1);
+          header.textContent = hasNumber ? `${typeText} ${number}` : typeText;
+          
+          blockquote.appendChild(header);
+          
+          
+          const content = document.createElement('div');
+          content.className = 'theorem-content';
+          blockquote.appendChild(content);
+          
+          
+          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(match[0], '');
+          
+          
+          childNodes.forEach(function(node) {
+            content.appendChild(node.cloneNode(true));
+          });
+          
+          break; 
+        }
+      }
+    });
+  });
+</script> 
+  
+
+  <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
+ 
+  <script defer src="/partial-load.min.1d4ed5d4ac20533fe341c211fd2c6b93ddb539b801d838d21437b218507d941b.js" integrity="sha256-HU7V1KwgUz/jQcIR/Sxrk921ObgB2DjSFDeyGFB9lBs=" crossorigin="anonymous"></script>
+  <script defer src="/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js" integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
