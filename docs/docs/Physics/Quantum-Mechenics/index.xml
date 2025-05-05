@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>量子力学讲义 on 位相学補完計画</title><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/</link><description>Recent content in 量子力学讲义 on 位相学補完計画</description><generator>Hugo</generator><language>en</language><atom:link href="https://erisehe.github.io/docs/Physics/Quantum-Mechenics/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</guid><description>&lt;h2 id="0-review">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>量子力学讲义 on 位相学補完計画</title><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/</link><description>Recent content in 量子力学讲义 on 位相学補完計画</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 05 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/docs/Physics/Quantum-Mechenics/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</link><pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid><description>&lt;h2 id="0-review">
  0. Review
  &lt;a class="anchor" href="#0-review">#&lt;/a>
 &lt;/h2>
@@ -73,7 +73,28 @@ plt.grid()
 plt.show()
 &lt;/code>&lt;/pre>
 &lt;p>if &lt;strong>name&lt;/strong> == &amp;ldquo;&lt;strong>main&lt;/strong>&amp;rdquo;:
-computation()&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</guid><description>&lt;h2 id="hilbert-space">
+computation()&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/</guid><description>&lt;h1 id="quantum-mechanics-backward-learning-path">
+ Quantum Mechanics Backward Learning Path
+ &lt;a class="anchor" href="#quantum-mechanics-backward-learning-path">#&lt;/a>
+&lt;/h1>
+&lt;p>This roadmap takes you from the &lt;strong>ultimate goal&lt;/strong>—adding two spin-½ systems using Clebsch–Gordan coefficients—then traces back step by step through all prerequisite concepts.&lt;/p>
+&lt;hr>
+&lt;h2 id="-ultimate-goal-addition-of-two-spin--systems">
+ 🎯 Ultimate Goal: Addition of Two Spin-½ Systems
+ &lt;a class="anchor" href="#-ultimate-goal-addition-of-two-spin--systems">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>What it is:&lt;/strong> Building combined spin states $|s, m\rangle$ from tensor products of single-particle basis $|\tfrac{1}{2}, m_1\rangle \otimes |\tfrac{1}{2}, m_2\rangle$, and computing Clebsch–Gordan coefficients.&lt;/li>
+&lt;li>&lt;strong>Why it’s hard:&lt;/strong> You need fluency with abstract Hilbert spaces, operator algebra, ladder operators, and the representation theory of SU(2)—all without the crutch of wave-function intuition.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="-backward-learning-path">
+ 🔙 Backward Learning Path
+ &lt;a class="anchor" href="#-backward-learning-path">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Tensor‐Product Hilbert Spaces &amp;amp; Basis Change&lt;/strong>&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E6%B3%A2%E5%87%BD%E6%95%B0%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%9C%A8Hilbert%E7%A9%BA%E9%97%B4%E4%B8%AD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E6%B3%A2%E5%87%BD%E6%95%B0%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%9C%A8Hilbert%E7%A9%BA%E9%97%B4%E4%B8%AD/</guid><description>&lt;h2 id="hilbert-space">
  Hilbert Space
  &lt;a class="anchor" href="#hilbert-space">#&lt;/a>
 &lt;/h2>

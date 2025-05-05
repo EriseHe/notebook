@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <script>
+    (function(){
+      
+      
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Quantum Mechanics Backward Learning Path
+  #
+
+This roadmap takes you from the ultimate goal—adding two spin-½ systems using Clebsch–Gordan coefficients—then traces back step by step through all prerequisite concepts.
+
+
+  🎯 Ultimate Goal: Addition of Two Spin-½ Systems
+  #
+
+
+What it is: Building combined spin states $|s, m\rangle$ from tensor products of single-particle basis $|\tfrac{1}{2}, m_1\rangle \otimes |\tfrac{1}{2}, m_2\rangle$, and computing Clebsch–Gordan coefficients.
+Why it’s hard: You need fluency with abstract Hilbert spaces, operator algebra, ladder operators, and the representation theory of SU(2)—all without the crutch of wave-function intuition.
+
+
+
+  🔙 Backward Learning Path
+  #
+
+
+
+Tensor‐Product Hilbert Spaces &amp; Basis Change">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/Physics/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/">
+  <meta property="og:site_name" content="位相学補完計画">
+  <meta property="og:title" content="位相学補完計画">
+  <meta property="og:description" content="Quantum Mechanics Backward Learning Path # This roadmap takes you from the ultimate goal—adding two spin-½ systems using Clebsch–Gordan coefficients—then traces back step by step through all prerequisite concepts.
+🎯 Ultimate Goal: Addition of Two Spin-½ Systems # What it is: Building combined spin states $|s, m\rangle$ from tensor products of single-particle basis $|\tfrac{1}{2}, m_1\rangle \otimes |\tfrac{1}{2}, m_2\rangle$, and computing Clebsch–Gordan coefficients. Why it’s hard: You need fluency with abstract Hilbert spaces, operator algebra, ladder operators, and the representation theory of SU(2)—all without the crutch of wave-function intuition. 🔙 Backward Learning Path # Tensor‐Product Hilbert Spaces &amp; Basis Change">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>
+学习量子力学的顺序 | 位相学補完計画</title>
+<link rel="icon" href="/topo.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/Physics/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css">
+
+
+<link rel="stylesheet" href="/book.min.2d7c41402e14539fe83d37688057b7e2670d48bbcb530d82bcf09925c94a99e7.css" integrity="sha256-LXxBQC4UU5/oPTdogFe34mcNSLvLUw2CvPCZJclKmec=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.deeb52841ed034ebe527602907bd4beb970603bdd10f12aacf245ec58833e400.js" integrity="sha256-3utShB7QNOvlJ2ApB71L65cGA73RDxKqzyRexYgz5AA=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+
+</head>
+
+<body dir="ltr">
+  
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
+  <main class="container">
+    <div class="book-layout">
+      <aside class="book-menu">
+        <div class="book-menu-content">
+          
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center justify-center" 
+     href="http://localhost:1313/">
+    <img src="/topo.png" 
+         alt="Logo" 
+         class="book-icon" />
+    <span>位相学補完計画</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+ 
+
+<nav class="subject-menu">
+  
+  <div class="subject-tabs">
+    <button class="subject-tab active" data-subject="mathematics">Mathematics</button>
+    <button class="subject-tab" data-subject="physics">Physics</button>
+  </div>
+
+  
+  <div class="subject-content">
+    
+    <div class="subject-panel" data-subject="mathematics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-18cee4a89c29bbca12ad50da583d36e1" class="toggle"  />
+    <label for="section-18cee4a89c29bbca12ad50da583d36e1" class="flex justify-between">
+      <a role="button"
+         class="">爽分析 II</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-f5702df94eec4e717edfdbd2f0b22069" class="toggle"  />
+    <label for="section-f5702df94eec4e717edfdbd2f0b22069" class="flex justify-between">
+      <a role="button"
+         class="">第六章 可微映射</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/"
+       class="">6.4 可微分性的必要条件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/"
+       class="">6.5 链式法则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/"
+       class="">6.6 乘积法则与梯度</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/"
+       class="">6.9 泰勒公式的高维形式</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-f798c5736bf9779da9008396fff66461" class="toggle"  />
+    <label for="section-f798c5736bf9779da9008396fff66461" class="flex justify-between">
+      <a role="button"
+         class="">第七章 逆函数和隐函数定理</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/"
+       class="">7.6 莫尔斯引理</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/"
+       class="">7.1 反函数定理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/"
+       class="">7.1.1 反函数定理（证明）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/"
+       class="">7.2 隐函数定理</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-1bbd95bbbb73fad89c778b86d677e30d" class="toggle"  />
+    <label for="section-1bbd95bbbb73fad89c778b86d677e30d" class="flex justify-between">
+      <a role="button"
+         class="">第八章 度量理论</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/"
+       class="">8.6 勒贝格收敛定理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/"
+       class="">8.1 度量理论</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/"
+       class="">8.2 Criterion for Integrability</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/"
+       class="">8.3 Proof of Lebesgue&#39;s Theorem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/"
+       class="">8.5 不定积分</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2f021c100a3de451afdb71e66d2aa0f1" class="toggle"  />
+    <label for="section-2f021c100a3de451afdb71e66d2aa0f1" class="flex justify-between">
+      <a role="button"
+         class="">第九章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Computing-Integrals/"
+       class="">积分计算</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%8D%81%E7%AB%A0/10.1-Fourier-Analysis/"
+       class="">10.1 Fourier Analysis</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-8b1d2411b7101a392a48b2bea3796da0" class="toggle"  />
+    <label for="section-8b1d2411b7101a392a48b2bea3796da0" class="flex justify-between">
+      <a role="button"
+         class="">偏微分方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d2a365c571581bcf4c1f513faa9ba796" class="toggle"  />
+    <label for="section-d2a365c571581bcf4c1f513faa9ba796" class="flex justify-between">
+      <a role="button"
+         class="">数值方法</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/"
+       class="">01 Mid Point Method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/"
+       class="">02 Three Point Backward Differentiation Formula</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/"
+       class="">常微分方程的数值解</a>
+  
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-0259cae68c009c361277c75763aa2ebd" class="toggle"  />
+    <label for="section-0259cae68c009c361277c75763aa2ebd" class="flex justify-between">
+      <a role="button"
+         class="">第四章 有限元分析</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Finite-Element-Method/"
+       class="">Finite Element Method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Quiz-4/"
+       class="">Quiz 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-9eeee6dc2f7b432c094fdbbad22b3fb2" class="toggle"  />
+    <label for="section-9eeee6dc2f7b432c094fdbbad22b3fb2" class="flex justify-between">
+      <a role="button"
+         class="">第九章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/"
+       class="">习题</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/"
+       class="">9.1 边值问题的近似</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/"
+       class="">9.2 有限差分法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/"
+       class="">9.3 对流-扩散方程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/"
+       class="">9.4 4.1 二维（2D）偏微分方程问题</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-4ca2e365834321088a593879f6a45ed7" class="toggle"  />
+    <label for="section-4ca2e365834321088a593879f6a45ed7" class="flex justify-between">
+      <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/"
+         class="">热方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/Heat-Equation-Solution/"
+       class="">Heat Equation Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/MATH-351-352/Heat-Equation/The-Fourier-Series/"
+       class="">傅立叶级数</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-02b3a6ef9f8497bc0604244daa8db028" class="toggle"  />
+    <label for="section-02b3a6ef9f8497bc0604244daa8db028" class="flex justify-between">
+      <a role="button"
+         class="">波方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-b2cec934f65a7578e61c760a62ae64b7" class="toggle"  />
+    <label for="section-b2cec934f65a7578e61c760a62ae64b7" class="flex justify-between">
+      <a role="button"
+         class="">拉普拉斯方程</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d68a82dfb08bd80434025e3bb4bc945c" class="toggle"  />
+    <label for="section-d68a82dfb08bd80434025e3bb4bc945c" class="flex justify-between">
+      <a href="/docs/Mathematics/AI/"
+         class="">AI</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Mathematics/AI/Towards-a-Artificial-Lacanian-Subject-Subjector-0/"
+       class="">Towards a Artificial Lacanian Subject Subjector 0</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+
+    
+    <div class="subject-panel hidden" data-subject="physics">
+      
+        
+  
+  <ul>
+    
+      
+        <li class="book-section-flat">
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2a50d1ca31c01c9cf38bfd4282625e0c" class="toggle" checked />
+    <label for="section-2a50d1ca31c01c9cf38bfd4282625e0c" class="flex justify-between">
+      <a role="button"
+         class="">量子力学讲义</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-c613a1d66f34f9cf259661be08e6ffab" class="toggle"  />
+    <label for="section-c613a1d66f34f9cf259661be08e6ffab" class="flex justify-between">
+      <a role="button"
+         class="">第一章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/1.1-The-Wave-Function/"
+       class="">1.1 the Wave Function</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-871eb7a68ddd8abd035da55c969042b8" class="toggle"  />
+    <label for="section-871eb7a68ddd8abd035da55c969042b8" class="flex justify-between">
+      <a role="button"
+         class="">第二章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.1-Time-Independent-Schrodinger-Equation-Stationary-States/"
+       class="">2.1 Time Independent Schrodinger Equation Stationary States</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-112b8490b1c8a59f4aaf0521a5939853" class="toggle"  />
+    <label for="section-112b8490b1c8a59f4aaf0521a5939853" class="flex justify-between">
+      <a role="button"
+         class="">第三章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li >
+          
+  
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-b910ca16de27d87a228fb62b635faa2d" class="toggle"  />
+    <label for="section-b910ca16de27d87a228fb62b635faa2d" class="flex justify-between">
+      <a role="button"
+         class="">第四章</a>
+    </label>
+  
+
+          
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E7%BB%8F%E5%85%B8%E6%B0%A2%E5%8E%9F%E5%AD%90/"
+       class="">4.1 经典氢原子</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3-%E8%A7%92%E5%8A%A8%E9%87%8F-Angular-Momentum/"
+       class="">4.3 角动量 ( Angular Momentum)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.4-Spin-Spin-Spin/"
+       class="">4.4 Spin Spin Spin</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/"
+       class="">第四章</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.2-Hydrogen-Atom/"
+       class="">氢原子</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/"
+       class="">薛定谔方程的傅立叶变换</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/"
+       class="">Hw3 Code</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/"
+       class="active">学习量子力学的顺序</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+  
+
+  
+    <a href="/docs/Physics/Quantum-Mechenics/%E6%B3%A2%E5%87%BD%E6%95%B0%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%9C%A8Hilbert%E7%A9%BA%E9%97%B4%E4%B8%AD/"
+       class="">波函数存在于在 Hilbert空间中</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+      
+    </div>
+  </div>
+</nav>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.subject-tab');
+    const panels = document.querySelectorAll('.subject-panel');
+
+    
+    function activateTab(subject) {
+      
+      tabs.forEach(t => t.classList.remove('active'));
+      
+      panels.forEach(p => p.classList.add('hidden'));
+
+      
+      const selectedTab = document.querySelector(`.subject-tab[data-subject="${subject}"]`);
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
+      
+      
+      const panel = document.querySelector(`.subject-panel[data-subject="${subject}"]`);
+      if (panel) {
+        panel.classList.remove('hidden');
+      }
+      
+      
+      localStorage.setItem('activeSubjectTab', subject);
+    }
+
+    
+    const savedTab = localStorage.getItem('activeSubjectTab');
+    if (savedTab) {
+      activateTab(savedTab);
+    }
+
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const subject = tab.getAttribute('data-subject');
+        activateTab(subject);
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+<div class="after-menu-offset">
+  
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/EriseHe/erisehe.github.io"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/themes/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+</div>
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+        </div>
+      </aside>
+      
+      <div class="book-page">
+        <header class="book-header">
+          
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>学习量子力学的顺序</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+  
+  
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#quantum-mechanics-backward-learning-path">Quantum Mechanics Backward Learning Path</a>
+      <ul>
+        <li><a href="#-ultimate-goal-addition-of-two-spin--systems">🎯 Ultimate Goal: Addition of Two Spin-½ Systems</a></li>
+        <li><a href="#-backward-learning-path">🔙 Backward Learning Path</a></li>
+        <li><a href="#-how-to-use-this-map">🗺️ How to Use This Map</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+        </header>
+
+        
+        
+  <article class="book-article">
+    
+    <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;"></h1>
+    
+    <div class="markdown posts"><h1 id="quantum-mechanics-backward-learning-path">
+  Quantum Mechanics Backward Learning Path
+  <a class="anchor" href="#quantum-mechanics-backward-learning-path">#</a>
+</h1>
+<p>This roadmap takes you from the <strong>ultimate goal</strong>—adding two spin-½ systems using Clebsch–Gordan coefficients—then traces back step by step through all prerequisite concepts.</p>
+<hr>
+<h2 id="-ultimate-goal-addition-of-two-spin--systems">
+  🎯 Ultimate Goal: Addition of Two Spin-½ Systems
+  <a class="anchor" href="#-ultimate-goal-addition-of-two-spin--systems">#</a>
+</h2>
+<ul>
+<li><strong>What it is:</strong> Building combined spin states $|s, m\rangle$ from tensor products of single-particle basis $|\tfrac{1}{2}, m_1\rangle \otimes |\tfrac{1}{2}, m_2\rangle$, and computing Clebsch–Gordan coefficients.</li>
+<li><strong>Why it’s hard:</strong> You need fluency with abstract Hilbert spaces, operator algebra, ladder operators, and the representation theory of SU(2)—all without the crutch of wave-function intuition.</li>
+</ul>
+<hr>
+<h2 id="-backward-learning-path">
+  🔙 Backward Learning Path
+  <a class="anchor" href="#-backward-learning-path">#</a>
+</h2>
+<ol>
+<li>
+<p><strong>Tensor‐Product Hilbert Spaces &amp; Basis Change</strong></p>
+<ul>
+<li><strong>Goal:</strong> Understand $\langle m_1, m_2|s, m\rangle$ overlaps (i.e., CG coefficients).</li>
+<li><strong>Why:</strong> Coupling spins lives in a tensor-product space—knowing how bases transform is essential.</li>
+<li><strong>Study:</strong>
+<ul>
+<li>Chapter on tensor products in Sakurai’s <em>Modern QM</em> (pp. 29–34).</li>
+<li>Worked example: decompose $|\uparrow\downarrow\rangle + |\downarrow\uparrow\rangle$ into singlet/triplet.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Eigenstates of Total Angular Momentum</strong></p>
+<ul>
+<li><strong>Goal:</strong> Derive $|j,m\rangle$ as simultaneous eigenstates of $J^2$ and $J_z$.</li>
+<li><strong>Why:</strong> CG coefficients arise from requiring simultaneous eigenstates of coupled operators.</li>
+<li><strong>Study:</strong>
+<ul>
+<li>Griffiths Ch 4.5 on adding angular momenta.</li>
+<li>Verify $J_\pm|j,m\rangle$ ladder action.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Ladder Operators &amp; Algebra of $J_\pm$</strong></p>
+<ul>
+<li><strong>Goal:</strong> Use $J_\pm = J_x \pm iJ_y$ to step between $m$-levels.</li>
+<li><strong>Why:</strong> Ladder operators generate CG recursion relations.</li>
+<li><strong>Study:</strong>
+<ul>
+<li>Derivation of $J_\pm$ action in Griffiths Ch 3.7.</li>
+<li>Practice: apply $J_+$ to $|j,m\rangle$ and normalize.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Commutation Relations of Angular Momentum</strong></p>
+<ul>
+<li><strong>Goal:</strong> Show $[J_x, J_y] = i\hbar,J_z$ (and cyclic perms).</li>
+<li><strong>Why:</strong> All eigenvalue structures and ladder-operator proofs rest on these.</li>
+<li><strong>Study:</strong>
+<ul>
+<li>Griffiths Ch 4.1; reproduce $[L_i,L_j]$ proof.</li>
+<li>Quick check: act $[J_x, J_y]$ on basis functions.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Pauli Matrices &amp; Spin-½ Representation</strong></p>
+<ul>
+<li><strong>Goal:</strong> Know $\sigma_i$ matrices, eigenvalues ±$\hbar/2$, and their commutators.</li>
+<li><strong>Why:</strong> Spin-½ is the simplest non-trivial SU(2) rep—your concrete playground.</li>
+<li><strong>Study:</strong>
+<ul>
+<li>Pauli matrices section in Griffiths Ch 4.2.</li>
+<li>Verify $[\sigma_x, \sigma_y] = 2i,\sigma_z$.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Orbital Angular Momentum (L) vs. Spin (S)</strong></p>
+<ul>
+<li><strong>Goal:</strong> Distinguish $L$ (from spatial wavefunctions) from intrinsic $S$.</li>
+<li><strong>Why:</strong> Mathematically identical algebras, but very different physical origin.</li>
+<li><strong>Study:</strong>
+<ul>
+<li>Griffiths Ch 4.1 distinction discussion.</li>
+<li>Work a “particle on a ring” example to see $L$ eigenstates.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Operator Formalism &amp; Expectation Values</strong></p>
+<ul>
+<li><strong>Goal:</strong> Move from wavefunctions $\psi(x)$ to abstract operators $\hat A$ acting on $|\psi\rangle$.</li>
+<li><strong>Why:</strong> Spin has no $x$-space wavefunction—everything is operators in a finite Hilbert space.</li>
+<li><strong>Study:</strong>
+<ul>
+<li>Dirac notation intro, Griffiths Ch 2.6–2.7.</li>
+<li>Compute $\langle\psi|\hat A|\psi\rangle$ in a 2-D vector example.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Time-Independent Schrödinger Equation</strong></p>
+<ul>
+<li><strong>Goal:</strong> Understand eigenvalue problems $\hat H|\psi\rangle = E|\psi\rangle$ in abstract form.</li>
+<li><strong>Why:</strong> Spin Hamiltonians (e.g., magnetic interactions) are just 2×2 eigenproblems.</li>
+<li><strong>Study:</strong>
+<ul>
+<li>Griffiths Ch 2.1–2.3 “particle in a box” to grasp boundary-condition quantization.</li>
+<li>Solve a 2×2 matrix Hamiltonian by hand.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Wavefunction Postulates &amp; Dirac Notation</strong></p>
+<ul>
+<li><strong>Goal:</strong> Grasp states as vectors, normalization $\langle\psi|\psi\rangle = 1$, and superposition principle.</li>
+<li><strong>Why:</strong> Spin superposition is the core “mystery” (e.g., $(|\uparrow\rangle + |\downarrow\rangle)/\sqrt2$).</li>
+<li><strong>Study:</strong>
+<ul>
+<li>QM postulates in Griffiths Ch 1.2–1.4.</li>
+<li>Normalize a generic 2-component spinor $(a,b)$.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Complex Numbers &amp; Linear Algebra Refresher</strong></p>
+<ul>
+<li><strong>Goal:</strong> Be completely comfortable with 2×2 matrices, eigenproblems, inner products over $\mathbb{C}$.</li>
+<li><strong>Why:</strong> The entire spin formalism is finite‐dimensional complex linear algebra.</li>
+<li><strong>Study:</strong>
+<ul>
+<li>Quick Khan Academy on “Eigenvalues &amp; Eigenvectors” and “Complex vectors.”</li>
+<li>Practice diagonalizing a sample 2×2 Hermitian matrix.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Mathematical Prerequisites Check</strong></p>
+<ul>
+<li><strong>Goal:</strong> Ensure no gaps in:
+<ul>
+<li>Complex arithmetic,</li>
+<li>Basic ODE solutions,</li>
+<li>Vector spaces &amp; basis expansions.</li>
+</ul>
+</li>
+<li><strong>Why:</strong> Any gap here will block operator‐based derivations.</li>
+<li><strong>Study:</strong>
+<ul>
+<li>10-min refresh on each topic (e.g., MIT OCW linear algebra snippets).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="-how-to-use-this-map">
+  🗺️ How to Use This Map
+  <a class="anchor" href="#-how-to-use-this-map">#</a>
+</h2>
+<ol>
+<li><strong>Start at the bottom</strong> (math &amp; notation) only if you truly need it—otherwise dive in at step 9.</li>
+<li><strong>At each step</strong>: spend 30–60 min seeing the “why” (video/text) and doing a tiny hands-on exercise (derivation or 2×2 calc).</li>
+<li><strong>Checkpoint</strong>: once you can write out and explain each commutator and ladder-operator action in a spin-½ system, you’re ready to couple two spins and extract CG coefficients.</li>
+</ol>
+<p><em>By anchoring on the final target from the outset, you’ll always know <strong>why</strong> you’re learning each concept—and exactly how it feeds into the head-spinning topic of Clebsch–Gordan coupling.</em></p>
+</div>
+  </article>
+ 
+        
+
+        <footer class="book-footer">
+          
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/EriseHe/erisehe.github.io/edit/main/exampleSite/content.en/docs/Physics/Quantum%20Mechenics/%e5%ad%a6%e4%b9%a0%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6%e7%9a%84%e9%a1%ba%e5%ba%8f.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+          
+        </footer>
+
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+  
+ 
+
+        <label for="menu-control" class="hidden book-menu-overlay"></label>
+      </div>
+
+      
+      
+      
+      
+        <aside id="book-toc" class="book-toc hidden">
+          <div class="book-toc-content">
+            
+<div class="button-prev">
+  
+</div>
+
+
+
+
+      
+            
+              <div class="toc-entries">
+                
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#quantum-mechanics-backward-learning-path">Quantum Mechanics Backward Learning Path</a>
+      <ul>
+        <li><a href="#-ultimate-goal-addition-of-two-spin--systems">🎯 Ultimate Goal: Addition of Two Spin-½ Systems</a></li>
+        <li><a href="#-backward-learning-path">🔙 Backward Learning Path</a></li>
+        <li><a href="#-how-to-use-this-map">🗺️ How to Use This Map</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+              </div>
+            
+      
+            
+<div class="button-next">
+  
+</div>
+          </div>
+        </aside>
+      
+    </div>
+    
+    <div class="toolbar-trigger"></div>
+<aside class="toolbar">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <img src="/blackhole2.png" alt="Switch Theme">
+  </button>
+  <button id="toc-toggle" class="toc-toggle-btn">
+    <img src="/toc-icon.svg" alt="Toggle TOC">
+  </button>
+  <div class="font-size-control">
+    <button id="font-toggle" class="font-size-btn">
+      A
+    </button>
+    <div class="font-size-buttons">
+      <button id="font-increase" class="font-control-btn">+</button>
+      <button id="font-reset" class="font-control-btn">A</button>
+      <button id="font-decrease" class="font-control-btn">−</button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var tocAside = document.getElementById('book-toc');
+    var initialTOCState = true;
+    
+    if (!initialTOCState) {
+      tocAside.classList.add('hidden');
+    } else {
+      tocAside.classList.remove('hidden');
+    }
+    
+    document.getElementById('toc-toggle').addEventListener('click', function() {
+      tocAside.classList.toggle('hidden');
+    });
+  });
+</script>
+
+
+<script src="/font-size.min.js"></script>
+
+
+<script src="/toolbar.min.js"></script>
+
+
+<script src="/toc-animation.min.js"></script>
+
+
+<script src="/menu-autohide.min.js"></script>
+
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+    
+      toggle.onclick = () => {
+        
+        const rect = toggle.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        
+        
+        
+        const currentThemeRaw = document.documentElement.getAttribute('data-theme');
+        const currentTheme = currentThemeRaw ? currentThemeRaw : 'auto';
+        
+        
+        
+        let effectiveTheme;
+        if (currentTheme === 'auto') {
+          effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+          effectiveTheme = currentTheme;
+        }
+        
+        
+        const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
+        
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        
+        const oldColor = effectiveTheme === 'dark' ? '#0b031c' : 'white';
+        
+        
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.zIndex = '9999';
+        overlay.style.pointerEvents = 'none';
+        
+        
+        overlay.style.setProperty('--cx', `${cx}px`);
+        overlay.style.setProperty('--cy', `${cy}px`);
+        overlay.style.setProperty('--r', '0px');
+        
+        
+
+        overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${oldColor} calc(var(--r) + 1px))`;
+        
+        document.body.appendChild(overlay);
+        
+        
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const finalRadius = Math.hypot(Math.max(cx, vw - cx), Math.max(cy, vh - cy));
+        
+        
+        const duration = 600; 
+        const startTime = performance.now();
+        
+        function animate(time) {
+          const elapsed = time - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const currentRadius = progress * finalRadius;
+          overlay.style.setProperty('--r', `${currentRadius}px`);
+          
+          
+          overlay.style.backgroundImage = `radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${currentRadius}px, ${oldColor} ${currentRadius + 1}px)`;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            overlay.remove();
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        }
+        requestAnimationFrame(animate);
+      };
+    });
+  </script>
+  
+  
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['ams', 'noerrors', 'color']}
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    startup: {
+      ready: function() {
+        
+        const oldFindTeX = MathJax.startup.findTeX;
+        MathJax.startup.findTeX = function(options) {
+          
+          const results = oldFindTeX.call(this, options);
+          
+          
+          for (const item of results) {
+            if (item.display) {
+              let processedMath = item.math;
+              
+              
+              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
+                
+                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
+              });
+              
+              item.math = processedMath;
+            }
+          }
+          
+          return results;
+        };
+        
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    document.querySelectorAll('blockquote').forEach(function(blockquote) {
+      
+      const firstParagraph = blockquote.querySelector('p');
+      if (!firstParagraph) return;
+      
+      const text = firstParagraph.innerHTML;
+      
+      
+      
+      for (const type of ['lemma', 'theorem', 'assumption', 'claim']) {
+        
+        const regex = new RegExp(`\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
+        const match = text.match(regex);
+        
+        if (match) {
+          console.log(`Found ${type} with label: ${match[1]}`);
+          
+          
+          const hasNumber = match[1] !== '*';
+          const number = hasNumber ? match[1] : '';
+          
+          
+          const childNodes = Array.from(blockquote.childNodes);
+          blockquote.innerHTML = '';
+          
+          
+          blockquote.classList.add('math-theorem', type);
+          
+          
+          const header = document.createElement('div');
+          header.className = 'theorem-header';
+          
+          
+          const typeText = type.charAt(0).toUpperCase() + type.slice(1);
+          header.textContent = hasNumber ? `${typeText} ${number}` : typeText;
+          
+          blockquote.appendChild(header);
+          
+          
+          const content = document.createElement('div');
+          content.className = 'theorem-content';
+          blockquote.appendChild(content);
+          
+          
+          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(match[0], '');
+          
+          
+          childNodes.forEach(function(node) {
+            content.appendChild(node.cloneNode(true));
+          });
+          
+          break; 
+        }
+      }
+    });
+  });
+</script> 
+  
+
+  <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script>
+ 
+  <script defer src="/partial-load.min.1d4ed5d4ac20533fe341c211fd2c6b93ddb539b801d838d21437b218507d941b.js" integrity="sha256-HU7V1KwgUz/jQcIR/Sxrk921ObgB2DjSFDeyGFB9lBs=" crossorigin="anonymous"></script>
+  <script defer src="/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js" integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

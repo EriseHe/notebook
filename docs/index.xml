@@ -294,7 +294,39 @@ $$\lim_{n\to\infty}\int_0^1 g_n(x)dx = \int_0^1 0 dx = 0$$&lt;/p>
 &lt;p>[!lemma|*]
 Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ with critical point $x_0 \in A$. If $H(x_0)$ is &lt;strong>non-degenerate&lt;/strong>, then there exists a neighborhood of $x_0$ and a diffeomorphism $g$ such that the function $f \circ g$ has the form:
 $$f \circ g(y) = f(x_0) + \sum_{i=1}^{\lambda} -y_i^2 + \sum_{i=\lambda+1}^n y_i^2$$
-where $\lambda$ is an integer called the &lt;strong>index&lt;/strong> of $f$ at $x_0$.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/GPT-Conversion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/GPT-Conversion/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/AI/Towards-a-Artificial-Lacanian-Subject-Subjector-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/AI/Towards-a-Artificial-Lacanian-Subject-Subjector-0/</guid><description>&lt;h2 id="1-introduction">
+where $\lambda$ is an integer called the &lt;strong>index&lt;/strong> of $f$ at $x_0$.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</link><pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid><description>&lt;h2 id="0-review">
+ 0. Review
+ &lt;a class="anchor" href="#0-review">#&lt;/a>
+&lt;/h2>
+&lt;p>$$
+\hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x+V(x)
+$$
+Stationary States
+$$
+\Psi(x,t)=\psi(x)e^{-iEt/\hbar}
+$$
+Eigenvalue equation:
+$$\hat{H}\psi(x) = E\psi(x)$$
+In newtonian mechanics, note
+$$F(x)=-\frac{ \partial V(x) }{ \partial x } $$&lt;/p>
+&lt;h2 id="1-infinite-finite-well-particle-on-a-box">
+ 1. Infinite Finite Well (particle on a box)
+ &lt;a class="anchor" href="#1-infinite-finite-well-particle-on-a-box">#&lt;/a>
+&lt;/h2>
+&lt;p>$$E = \frac{p^{2}}{2m}$$&lt;/p>
+&lt;blockquote>
+&lt;p>knowing $E$ results in knowing momentum $p^{2}$&lt;/p>&lt;/blockquote>
+&lt;p>Problem Set-up
+Between $x=0$, and $x=a$,
+$$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$
+Subject to &amp;ldquo;boundary condition&amp;rdquo;: $\Psi(0)=\Psi(a)=0$
+$$
+\begin{align}
+\frac{d^{2}\Psi}{dx} &amp;amp; =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \
+&amp;amp; =-k^{2}\Psi
+\end{align}
+$$
+Recall&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/GPT-Conversion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/GPT-Conversion/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/AI/Towards-a-Artificial-Lacanian-Subject-Subjector-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/AI/Towards-a-Artificial-Lacanian-Subject-Subjector-0/</guid><description>&lt;h2 id="1-introduction">
  1. Introduction
  &lt;a class="anchor" href="#1-introduction">#&lt;/a>
 &lt;/h2>
@@ -528,41 +560,7 @@ converges, so $\int_M^{\infty} e^{-x} x^p d x$ converges. By the Comparison Test
 $$\int_{M}^\infty e^{-x}x^p,dx$$
 must also converges. Finally, note that integral over any finite interval $[1,M]$ is finite, so the entire integral
 $$\int_{1}^\infty e^{-x}x^p,dx$$
-converges.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1/</guid><description>&lt;h1 id="chapter-9-computing-integrals">
- Chapter 9: Computing Integrals
- &lt;a class="anchor" href="#chapter-9-computing-integrals">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="911-introduction">
- 9.1.1 Introduction
- &lt;a class="anchor" href="#911-introduction">#&lt;/a>
-&lt;/h2>
-&lt;p>In practice, how do we compute integral $\int_A f(x)dx$?&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>In $\mathbb{R}^1$ (one-dimensional space):
-$$\int_a^b f(x)dx = F(x)|_a^b = F(b) - F(a)$$&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>FTC&lt;/strong> (Fundamental Theorem of Calculus)&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>In $\mathbb{R}^n$ (n-dimensional space):&lt;/p>
-&lt;ul>
-&lt;li>Reduce to $\mathbb{R}^1$ case by Fubini&amp;rsquo;s Theorem&lt;/li>
-&lt;li>Change of Variables (Substitution) first&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="912-fubinis-theorem">
- 9.1.2 Fubini&amp;rsquo;s Theorem
- &lt;a class="anchor" href="#912-fubinis-theorem">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="1-statement-of-main-result">
- 1. Statement of Main Result
- &lt;a class="anchor" href="#1-statement-of-main-result">#&lt;/a>
-&lt;/h3>
-&lt;p>&lt;strong>Theorem 1&lt;/strong>: Let $A = {(x,y): a \leq x \leq b, c \leq y \leq d}$ be a rectangle in $\mathbb{R}^2$ and $f: A \to \mathbb{R}$ be integrable. Suppose, for each $x \in [a,b]$, the following integral exists:
-$$g(x) = \int_c^d f(x,y)dy$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</guid><description>&lt;p>第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质。&lt;/p>
+converges.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.7/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</guid><description>&lt;p>第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质。&lt;/p>
 &lt;p>我们主要看以下这几个方面：&lt;/p>
 &lt;ol>
 &lt;li>积分的定义&lt;/li>
@@ -745,7 +743,29 @@ When there is no &lt;em>outside&lt;/em>, what does it mean to have transgression
 &lt;/ul>
 &lt;hr>
 &lt;p>p.154&lt;/p>
-&lt;p>(It is apparent that the deployment of sexuality, with its differ­ ent strategies, was what established this notion of &amp;ldquo;sex&amp;rdquo;; and in the four major forms of hysteria, onanism, fetishism, and interrupted coition, it showed this sex to be governed by the interplay of whole and part, principle and lack, absence and presence, excess and deficiency, by the function of instinct, finality, and meaning, of reality and pleasure.)&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/</guid><description>&lt;p>我相信，&lt;/p>
+&lt;p>(It is apparent that the deployment of sexuality, with its differ­ ent strategies, was what established this notion of &amp;ldquo;sex&amp;rdquo;; and in the four major forms of hysteria, onanism, fetishism, and interrupted coition, it showed this sex to be governed by the interplay of whole and part, principle and lack, absence and presence, excess and deficiency, by the function of instinct, finality, and meaning, of reality and pleasure.)&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/%E5%AE%B6%E5%BA%AD%E7%94%9F%E5%91%BD%E6%9D%83%E5%8A%9B%E9%80%9A%E8%BF%87%E5%84%92%E5%AE%B6%E7%9A%84%E5%AE%B6%E5%9B%BD%E4%BD%93%E7%B3%BB%E9%87%8D%E8%AF%BB%E7%A6%8F%E6%9F%AF%E7%9A%84%E7%94%9F%E5%91%BD%E6%94%BF%E6%B2%BB%E7%90%86%E8%AE%BA%E5%9C%A8%E4%B8%9C%E4%BA%9A%E7%9A%84%E5%AE%9E%E8%B7%B5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/%E5%AE%B6%E5%BA%AD%E7%94%9F%E5%91%BD%E6%9D%83%E5%8A%9B%E9%80%9A%E8%BF%87%E5%84%92%E5%AE%B6%E7%9A%84%E5%AE%B6%E5%9B%BD%E4%BD%93%E7%B3%BB%E9%87%8D%E8%AF%BB%E7%A6%8F%E6%9F%AF%E7%9A%84%E7%94%9F%E5%91%BD%E6%94%BF%E6%B2%BB%E7%90%86%E8%AE%BA%E5%9C%A8%E4%B8%9C%E4%BA%9A%E7%9A%84%E5%AE%9E%E8%B7%B5/</guid><description>&lt;h1 id="家庭生命权力通过儒家的家国体系重读福柯的生命政治理论在东亚的实践">
+ 家庭生命权力：通过儒家的家国体系重读福柯的生命政治理论在东亚的实践
+ &lt;a class="anchor" href="#%e5%ae%b6%e5%ba%ad%e7%94%9f%e5%91%bd%e6%9d%83%e5%8a%9b%e9%80%9a%e8%bf%87%e5%84%92%e5%ae%b6%e7%9a%84%e5%ae%b6%e5%9b%bd%e4%bd%93%e7%b3%bb%e9%87%8d%e8%af%bb%e7%a6%8f%e6%9f%af%e7%9a%84%e7%94%9f%e5%91%bd%e6%94%bf%e6%b2%bb%e7%90%86%e8%ae%ba%e5%9c%a8%e4%b8%9c%e4%ba%9a%e7%9a%84%e5%ae%9e%e8%b7%b5">#&lt;/a>
+&lt;/h1>
+&lt;p>在《性史》第一卷中，米歇尔·福柯（Michel Foucault）提出现代权力沿两条轴线运行。纪律权力（disciplinary power）通过各种机构训练、监督和矫正个体的身体；而规训权力（regulatory power），即所谓的“人口生命政治”（biopolitics of the population），则兴起于18世纪的欧洲，当时国家开始通过统计与医疗体制（statistical-medical regimes）来优化和管理生命本身。后一种权力，即生命权力（biopower），并非仅仅是对古典主权权力（sovereign power）的技术性附加，而是一种在大规模层面上规训、监控和治理人类生命的新型权力模式。作为许多女性主义论述的基础文本，《性史》暗示了一种前现代道德秩序与现代国家主导的生命政治之间的断裂式转型。这种连续性的断裂，常被福柯表述为一种“前/后”（before/after）的叙事，显然源于国家迫切需要从“处死的权力”（the right to kill）转向“滋养生命的权力”（the power to foster life），这一转型自18世纪以来资本主义的发展所必然推动。然而，这种决定性转型并非源自现代权力本身的本质，而是特定的欧洲历史语境以及福柯有意排除了非欧洲地区的案例所导致的。&lt;/p>
+&lt;p>在东亚地区，国家权力很少孤立地作用于“赤裸的”个体（bare individuals）或抽象的人口，这与欧洲情形显著不同；它一直通过已有的关系层级——家庭义务、孝道（filial piety）和宗族荣誉——运作，这些关系皆深植于长达数千年的儒家传统中。这些关系性的纪律维持了一种家庭-国家连续体（family-state continuum），指向一种集体自我（collective self），而福柯强调个体自我治理（individual self-governance）时往往忽视了这一点。我认为，西方式生命权力的引入——如人口普查、公共卫生委员会、人口控制政策等——并未取代东亚的传统规范，而是被吸纳进儒家-家庭等级制度中，形成了一种混合模式，即所谓的“家庭式生命权力”（familial biopower）。这种模式以家庭/户为主要渠道，实现国家的生命政治治理。因此，与欧洲语境中经常假定的剧烈转型不同，东亚家庭式生命权力的引入表现出了更为明显的连续性。&lt;/p>
+&lt;h2 id="1-儒家家庭装置下的福柯生命权力系谱学再读">
+ 1. 儒家家庭装置下的福柯生命权力系谱学再读
+ &lt;a class="anchor" href="#1-%e5%84%92%e5%ae%b6%e5%ae%b6%e5%ba%ad%e8%a3%85%e7%bd%ae%e4%b8%8b%e7%9a%84%e7%a6%8f%e6%9f%af%e7%94%9f%e5%91%bd%e6%9d%83%e5%8a%9b%e7%b3%bb%e8%b0%b1%e5%ad%a6%e5%86%8d%e8%af%bb">#&lt;/a>
+&lt;/h2>
+&lt;p>福柯在追溯西方权力如何渗透进身体内部并扩展到整个人口的著名分析中，指出18世纪出现了“一场多样且丰富的技术爆发，这些技术用于征服身体并控制人口”（Foucault 140）。这些权力技术并非边缘化，而是渗透进每一个社会制度中，包括家庭、军队、学校、个性化医疗以及集体机构管理。这些规训性操作（regulatory operations）以循环的方式运行，一定程度上构成了一种更宏大的“属于人类生命特有现象的介入”，从而彻底转变了西方人对自身的理解，即将自己视为“一个活在活的世界中的活物种……具有一个身体、生存条件、生命的可能性……”等。在福柯的理论框架中，一个社会之所以真正进入现代性（threshold of modernity），是因为人类的生存本身成为政治计算的对象；也就是说，治理机构公开地将人口健康作为政策目标时，社会便跨越了现代性的门槛（Foucault 143）。&lt;/p>
+&lt;p>然而，这一门槛在全球范围内呈现出明显的时间与形态差异。福柯对此保持了极大的谨慎，避免过度概括，因为作为一名历史学家，他清楚地意识到，他所描述的战胜饥荒和瘟疫、控制死亡的“胜利”历程并非普遍现象，而是特定于18和19世纪欧洲及其衍生地区的现象，这些地区的国家机构、医学科学和农业技术共同发展成熟。福柯理论在西欧轨迹上的特定应用，也因此留下了一个开放问题：例如在中国或日本存在哪些生命管理（life-management）形式，以及殖民力量又如何将它们的生命政治叠加到这些地方。因此，关键的问题并非生命权力是否具有普遍适用性，而是欧洲模式的生命权力如何整合进非西方社会，以及这种转型后的生命政治在多大程度上保留了其在欧洲的断裂式特征。&lt;/p>
+&lt;p>回溯东亚历史，我们会发现，长期延续的儒家传统、家庭与宗族观念不仅在当今全球化的个人主义浪潮下幸存下来，而且形成了一种非常特殊的社会结构：一种儒家-家庭装置（Confucian-familial apparatus），它将国家治理与亲属义务紧密融合，并成为生命权力的通道。福柯的分析预设了一定程度的个体化（individualization）：公民、工人、病人……他们内化各种规范。福柯所谓“稍晚出现”的西方生命权力构型，是与古典欧洲政治理论（例如洛克或卢梭）预设的个体主义相融合的产物。福柯的分析反映了这种遗产：在大规模治理层面上，集体规训围绕着解剖政治（anatomo-politics）与生命政治（biopolitics）交汇的轴线形成，整体的人口与个体之间成为基本的分析单位。福柯着重分析诸如监狱、学校、精神病院等机构，因为它们生动地展现了现代权力的运作机制，但相较之下，他较少关注家庭作为现代权力中心的角色或直接作为国家生命政治装置（state biopolitics apparatus）的功能。他更多地将家庭视为“性最活跃的场所”（Foucault, 109），在他的论述中，家庭功能似乎只是资产阶级性欲部署的一个载体（可能是最重要的载体），但并未将家庭充分地视为一种国家权力的制度化机构来完整阐释。&lt;/p>
+&lt;p>家庭历来是社会最基本的构成单元，在儒家哲学中更被视作美德的训练场所。尽管福柯提出的分类框架大体上有效，但如果通过系谱学（genealogical）方式重新解读东亚的孝道和宗族体系，我们会发现家庭远非仅仅是性欲与纪律规范的载体，而是具有更加核心的功能性地位——同时也更加显著地政治化了。重新审视福柯在“家庭作为国家机器”（family-as-state-machine）方面的相对沉默，有其必然性，这一点恰好可以从广泛流传的中文谚语“家是小国，国是大家”逐字逐句地体现出来。&lt;/p>
+&lt;p>这种家国同构（family-state isomorphism）源自早期儒家经典文本，其中尤以《礼记·大学》中“修身齐家治国平天下”的论述最为著名，这一经典最早可追溯到公元前206年，并提出了一套有关自我修养的等级体系。这种观点并非仅限于道德劝诫，而是早自周代以来便已制度化。正如一位历史学家所指出，清代法律明确实施了“父母对子女所享有的关系权力（relational power），这一关系随后被类比为官员以及皇帝对平民的权威”（Blackwood）。换言之，国家利用家庭结构，尤其是父权制家庭（patriarchal family）的结构，来强化其自身结构。家庭-国家之间的连续性在东亚历史中一直显而易见：皇帝名义上被视为国家的“父亲”，个人对自己父亲的孝道服从被期待转化为对国家的忠诚。这种原始的纪律性与政治化的家庭共识普遍汇聚在东亚地区，长期以来便模糊了私人家庭生活与公共治理之间的界限，并远早于所谓的现代性门槛（threshold of modernity）。
+在这种背景下，君主与臣民的关系直接映射了父与子的关系（即“君君臣臣父父子子”）。因此家庭户主负责登记出生与死亡，监督礼仪，发放慈善，以及裁决争端，其职能恰如地方县级官员（magistrate）。由此可见，家庭处于孤立的个体与国家机器之间，成为纪律规训与生命政治管理的基本单位。每个家庭同时既是国家的微观缩影，又是治理的单元，这一观念正是提示了另一种不同的生命政治治理需求——即通过亲属关系（kinship）来实现。&lt;/p>
+&lt;p>因此，在讨论东亚生命权力兴起的问题时，我们必须系统地将家庭理论化为一种关键的配置（dispositif），将解剖政治（anatomo-politics）与生命政治（biopolitics）联结起来。这一特定的权力网络要求我们在现代语境下提出“家庭式生命权力”（familial biopower）的概念，其中生命政治技术首先由国家辐射到家庭单位，然后才进一步下沉至个体。在这种“个体-家庭-人口”（individual-family-population）的三元结构中，亲属义务与宗族礼仪调节着所有现代治理措施，包括出生登记到公共卫生宣传运动，使得家庭本身成为一种生命权力的微型官僚机制。因此，在东亚，家庭远非私人庇护所，而是国家权力对生命的延伸场域，其“私人”与“公共”领域之间的界限几乎已无法区分，这正是福柯理论框架所能涵盖的融合形式。&lt;/p>
+&lt;h2 id="2-现代性门槛的连续性continuity">
+ 2. 现代性“门槛”的连续性（Continuity）
+ &lt;a class="anchor" href="#2-%e7%8e%b0%e4%bb%a3%e6%80%a7%e9%97%a8%e6%a7%9b%e7%9a%84%e8%bf%9e%e7%bb%ad%e6%80%a7continuity">#&lt;/a>
+&lt;/h2>
+&lt;p>福柯试图揭示的决定性转型，实质上是权力在逻辑与目标上双重变化的过程；然而，这种向“使其生、任其死”（making live and letting die）方向的转变，本身更多是一种强调重点与治理尺度的问题。“门槛”的连续性，并不在于权力是否瞄准生命，而在于它如何、以及在何处对生命施加控制。因此，强调东亚以家庭为核心的行政模式，并非意在夸大其独特性，以及是否存在家庭制度——因为西欧早期现代的生命政治措施，同样也扎根于原有的家庭和社区结构之中（如法国 livrets de famille、瑞典教区登记）——而是在于国家与个体之间是否发生了中介结构的剥离与重构。&lt;/p>
+&lt;p>在东亚，公共与私人领域从未像欧洲那样被严格区分，因此外来生命权力对两者界限的模糊，并未对现有的家国同构（family–state isomorphism）造成根本性冲击。或者，更精准的说，“生命权力”在东亚是更容易嵌入原有秩序结构中，因此无需强行重构私域公化的渗透机制。在欧洲，随着统计学、现代警察制度和卫生法律的兴起，一套密集的微观治理网络逐步渗透进私人领域——在福柯看来，“权力无处不在”（there is no outside to power）。这一现象在东亚也有发生，但东亚的儒家-家庭格局本身就具有强调角色本位的“修身”的系谱根基，这是国家支持的项目。在这种语境下，个体若试图划出一个脱离社会角色的“私人内部”，是不被鼓励的。因为自由主义意义上的“自主人格”——即“选择你是谁”——并非理想状态；相反，社会强调的是与政治秩序和宇宙秩序之间的“和谐”（和）。&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Philosophy/%E7%A6%8F%E6%9F%AF%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%89%A9%E7%90%86%E5%AD%A6%E8%BD%AC%E5%8F%98%E4%BB%A5%E5%8F%8A%E6%96%B0%E8%8C%83%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%83%BD/</guid><description>&lt;p>我相信，&lt;/p>
 &lt;p>翻开《词与物》没读完第一章就合上了，然后草率地读了结尾——我实在对这种节奏巨慢的历史学庞杂征引感到索然无味，以至于不得不读两页国内的数学书来综合一下&amp;hellip; 我对物理学的态度，以及对其研究方向的直觉，远远大于我本身可以延展他们的能力（很可惜，否则我必然毫不犹豫的投身其中）。但是幸运的是，对于基础科学来说，这会是人类历史当中，提出正确的问题所能带给我们的效益最大话的时代。我真正需要提出他对知识进行了激进的历史分析，并且构建了和绝大部分的科学家秉持的认识论有悖的历史断裂式“知识论领域”。&lt;/p>
 &lt;p>所谓的知识论领域，原文里说：&lt;/p>
 &lt;p>[&amp;hellip;] &lt;strong>epistemological field&lt;/strong>, the episteme in which knowledge, envisaged apart from all criteria having reference to its rational value or to its objective forms, grounds its positivity and thereby manifests a history which is not that of its growing perfection, but rather that of its conditions of possibility.&lt;/p>
@@ -755,39 +775,7 @@ When there is no &lt;em>outside&lt;/em>, what does it mean to have transgression
 &lt;p>他明确拒绝知识向&amp;quot;日益完善&amp;quot;（perfection croissante）进步的观念。这或许是他的认知论最激进的观点之一，进步不仅不是线性且连续的，而是进步本身根本不可能存在——因为认识型断裂（rupture épistémologique）会改变何为知识的框架，并使先前的思维方式变得不可想象（impensable）（哪怕是和他类似的托马斯·库恩的断裂式科学观中的连续性，也被完全抛弃）。由于认识型构建了知识史展开的条件，它决定了历史制度与话语将知识&amp;quot;确立&amp;quot;为合法性的框架。&lt;/p>
 &lt;p>这用来支撑了他对疯狂、犯罪与性态话语的考察，例如历史上不断变化的疯狂认识型如何通过禁闭（confinement）逻辑或精神病学权威下的医学化重新定义其内涵。我对这段文本的细读迫使自己跳出正在研究的科学领域，反思所谓&lt;/p>
 &lt;p>如果我们接受认识论进步是某一种历史幻觉，那么重新评估物理学的转变，于是我们便可以说：&lt;/p>
-&lt;p>相对论的诞生并没有超越了牛顿力学，取得了更加正确的结论，而仅仅是知识论领域场从绝对时空转移到了相对时空——这是一种“épistémè”的转移。那么至于相对时空对物理现实的逼进是否优于绝对时空，这个问题是无法以绝对正确的方式被提出的，因为现代物理学的范式 - 实验，证伪性，同行评估 - 已经被塑造成了评估这个问题的核心范式。从历史学的角度上说，爱因斯坦的弯曲几何、薛定谔的波函数，本质上都是权力配置知识生产的历史先验（a priori historique）。物理学史中那些被视为“自然”的真理秩序在福科的认识论范围内被彻底解构。&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Feb-5-Fourier-Series-on-S.-Euqation-Solution/</guid><description>&lt;h2 id="0-review">
- 0. Review
- &lt;a class="anchor" href="#0-review">#&lt;/a>
-&lt;/h2>
-&lt;p>$$
-\hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x+V(x)
-$$
-Stationary States
-$$
-\Psi(x,t)=\psi(x)e^{-iEt/\hbar}
-$$
-Eigenvalue equation:
-$$\hat{H}\psi(x) = E\psi(x)$$
-In newtonian mechanics, note
-$$F(x)=-\frac{ \partial V(x) }{ \partial x } $$&lt;/p>
-&lt;h2 id="1-infinite-finite-well-particle-on-a-box">
- 1. Infinite Finite Well (particle on a box)
- &lt;a class="anchor" href="#1-infinite-finite-well-particle-on-a-box">#&lt;/a>
-&lt;/h2>
-&lt;p>$$E = \frac{p^{2}}{2m}$$&lt;/p>
-&lt;blockquote>
-&lt;p>knowing $E$ results in knowing momentum $p^{2}$&lt;/p>&lt;/blockquote>
-&lt;p>Problem Set-up
-Between $x=0$, and $x=a$,
-$$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$
-Subject to &amp;ldquo;boundary condition&amp;rdquo;: $\Psi(0)=\Psi(a)=0$
-$$
-\begin{align}
-\frac{d^{2}\Psi}{dx} &amp;amp; =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \
-&amp;amp; =-k^{2}\Psi
-\end{align}
-$$
-Recall&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/</guid><description>&lt;p>import numpy as np
+&lt;p>相对论的诞生并没有超越了牛顿力学，取得了更加正确的结论，而仅仅是知识论领域场从绝对时空转移到了相对时空——这是一种“épistémè”的转移。那么至于相对时空对物理现实的逼进是否优于绝对时空，这个问题是无法以绝对正确的方式被提出的，因为现代物理学的范式 - 实验，证伪性，同行评估 - 已经被塑造成了评估这个问题的核心范式。从历史学的角度上说，爱因斯坦的弯曲几何、薛定谔的波函数，本质上都是权力配置知识生产的历史先验（a priori historique）。物理学史中那些被视为“自然”的真理秩序在福科的认识论范围内被彻底解构。&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Homework/HW3-Code/</guid><description>&lt;p>import numpy as np
 import scipy.sparse as sp
 import scipy.sparse.linalg as spla
 import matplotlib.pyplot as plt&lt;/p>
@@ -882,58 +870,25 @@ $$
 $$E = -\frac{1}{2}\frac{e^2}{4\pi\varepsilon_0 r}$$
 According to classical electrodynamics, an accelerated charged particle radiates energy. The power radiated by an accelerated particle is given by the Larmor formula:
 $$P = \frac{dE}{dt} = -\frac{e^2}{6\pi\varepsilon_0 c^3}a^2$$
-This would cause the electron to spiral into the proton in approximately $10^{-11}$ seconds!&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.2-%E6%B0%A2%E5%8E%9F%E5%AD%90-Hydrogen-Atom/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.2-%E6%B0%A2%E5%8E%9F%E5%AD%90-Hydrogen-Atom/</guid><description>&lt;h2 id="421-经典图像-classical-picture">
- 4.2.1 经典图像 (Classical Picture)
- &lt;a class="anchor" href="#421-%e7%bb%8f%e5%85%b8%e5%9b%be%e5%83%8f-classical-picture">#&lt;/a>
+This would cause the electron to spiral into the proton in approximately $10^{-11}$ seconds!&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3-%E8%A7%92%E5%8A%A8%E9%87%8F-Angular-Momentum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3-%E8%A7%92%E5%8A%A8%E9%87%8F-Angular-Momentum/</guid><description>&lt;h2 id="431-量子数-quantum-numbers">
+ 4.3.1 量子数 (Quantum Numbers)
+ &lt;a class="anchor" href="#431-%e9%87%8f%e5%ad%90%e6%95%b0-quantum-numbers">#&lt;/a>
 &lt;/h2>
-&lt;p>The hydrogen atom in classical physics consists of an electron orbiting around a proton. Let&amp;rsquo;s examine the key parameters:&lt;/p>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Particle&lt;/th>
- &lt;th>Property&lt;/th>
- &lt;th>Symbol&lt;/th>
- &lt;th>Charge&lt;/th>
- &lt;th>Value&lt;/th>
- &lt;th>Unit&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>Electron&lt;/td>
- &lt;td>Mass&lt;/td>
- &lt;td>$m_e$&lt;/td>
- &lt;td>-&lt;/td>
- &lt;td>$9.1 \times 10^{-31}$&lt;/td>
- &lt;td>kg&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>Electron&lt;/td>
- &lt;td>Charge&lt;/td>
- &lt;td>$q_{electron}$&lt;/td>
- &lt;td>$-e$&lt;/td>
- &lt;td>$-1.6 \times 10^{-19}$&lt;/td>
- &lt;td>C&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>Proton&lt;/td>
- &lt;td>Mass&lt;/td>
- &lt;td>$M$&lt;/td>
- &lt;td>-&lt;/td>
- &lt;td>$1.6 \times 10^{-27}$&lt;/td>
- &lt;td>kg&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>Proton&lt;/td>
- &lt;td>Charge&lt;/td>
- &lt;td>$q_{proton}$&lt;/td>
- &lt;td>$+e$&lt;/td>
- &lt;td>$+1.6 \times 10^{-19}$&lt;/td>
- &lt;td>C&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;p>The mass ratio $\frac{M}{m_e} \simeq 1800$, which means we can effectively treat the proton as motionless.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.4/</guid><description/></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid><description>&lt;h2 id="41-三维空间的薛定谔方程">
+&lt;p>The stationary states of the hydrogen atom are labeled by three quantum numbers: $n$, $\ell$, and $m$. The principal quantum number ($n$) determines the energy of the state, while $\ell$ and $m$ are related to the orbital angular momentum. In classical physics, energy and angular momentum are fundamental conserved quantities, so it&amp;rsquo;s not surprising that angular momentum plays an important role in quantum theory as well.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.4-Spin-Spin-Spin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.4-Spin-Spin-Spin/</guid><description>&lt;h1 id="量子自旋态与算符讲义quantum-spin-states-and-operators-lecture-notes">
+ 量子自旋态与算符讲义（Quantum Spin States and Operators Lecture Notes）
+ &lt;a class="anchor" href="#%e9%87%8f%e5%ad%90%e8%87%aa%e6%97%8b%e6%80%81%e4%b8%8e%e7%ae%97%e7%ac%a6%e8%ae%b2%e4%b9%89quantum-spin-states-and-operators-lecture-notes">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="单自旋态one-spin-states">
+ 单自旋态（One Spin States）：
+ &lt;a class="anchor" href="#%e5%8d%95%e8%87%aa%e6%97%8b%e6%80%81one-spin-states">#&lt;/a>
+&lt;/h2>
+&lt;p>这里定义了基本的&lt;strong>自旋向上&lt;/strong>和&lt;strong>自旋向下&lt;/strong>态的矢量表示：
+$|\uparrow\rangle = \begin{pmatrix} 1 \ 0 \end{pmatrix}$, $|\downarrow\rangle = \begin{pmatrix} 0 \ 1 \end{pmatrix}$
+$S_z$算符作用于自旋态，得到对应的本征值&lt;/p>
+&lt;p>$S_z|\uparrow\rangle = \frac{\hbar}{2}|\uparrow\rangle$&lt;/p>
+&lt;p>$S_z|\downarrow\rangle = -\frac{\hbar}{2}|\downarrow\rangle$&lt;/p>
+&lt;p>这些是三个方向上自旋算符的矩阵表示形式&lt;/p>
+&lt;p>$S_x = \frac{\hbar}{2}\begin{pmatrix} 0 &amp;amp; 1 \ 1 &amp;amp; 0 \end{pmatrix}$, $S_y = \frac{\hbar}{2}\begin{pmatrix} 0 &amp;amp; -i \ i &amp;amp; 0 \end{pmatrix}$, $S_z = \frac{\hbar}{2}\begin{pmatrix} 1 &amp;amp; 0 \ 0 &amp;amp; -1 \end{pmatrix}$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid><description>&lt;h2 id="41-三维空间的薛定谔方程">
  4.1 三维空间的薛定谔方程
  &lt;a class="anchor" href="#41-%e4%b8%89%e7%bb%b4%e7%a9%ba%e9%97%b4%e7%9a%84%e8%96%9b%e5%ae%9a%e8%b0%94%e6%96%b9%e7%a8%8b">#&lt;/a>
 &lt;/h2>
@@ -958,7 +913,28 @@ $$
 where
 $$
 \nabla^2 \equiv \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}
-$$&lt;/p>&lt;/blockquote></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Wave-Functions-live-in-Hilbert-Space/</guid><description>&lt;h2 id="hilbert-space">
+$$&lt;/p>&lt;/blockquote></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/</guid><description>&lt;h1 id="quantum-mechanics-backward-learning-path">
+ Quantum Mechanics Backward Learning Path
+ &lt;a class="anchor" href="#quantum-mechanics-backward-learning-path">#&lt;/a>
+&lt;/h1>
+&lt;p>This roadmap takes you from the &lt;strong>ultimate goal&lt;/strong>—adding two spin-½ systems using Clebsch–Gordan coefficients—then traces back step by step through all prerequisite concepts.&lt;/p>
+&lt;hr>
+&lt;h2 id="-ultimate-goal-addition-of-two-spin--systems">
+ 🎯 Ultimate Goal: Addition of Two Spin-½ Systems
+ &lt;a class="anchor" href="#-ultimate-goal-addition-of-two-spin--systems">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>What it is:&lt;/strong> Building combined spin states $|s, m\rangle$ from tensor products of single-particle basis $|\tfrac{1}{2}, m_1\rangle \otimes |\tfrac{1}{2}, m_2\rangle$, and computing Clebsch–Gordan coefficients.&lt;/li>
+&lt;li>&lt;strong>Why it’s hard:&lt;/strong> You need fluency with abstract Hilbert spaces, operator algebra, ladder operators, and the representation theory of SU(2)—all without the crutch of wave-function intuition.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="-backward-learning-path">
+ 🔙 Backward Learning Path
+ &lt;a class="anchor" href="#-backward-learning-path">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Tensor‐Product Hilbert Spaces &amp;amp; Basis Change&lt;/strong>&lt;/p></description></item><item><title/><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E6%B3%A2%E5%87%BD%E6%95%B0%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%9C%A8Hilbert%E7%A9%BA%E9%97%B4%E4%B8%AD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/%E6%B3%A2%E5%87%BD%E6%95%B0%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%9C%A8Hilbert%E7%A9%BA%E9%97%B4%E4%B8%AD/</guid><description>&lt;h2 id="hilbert-space">
  Hilbert Space
  &lt;a class="anchor" href="#hilbert-space">#&lt;/a>
 &lt;/h2>
@@ -1272,4 +1248,89 @@ y_0 = A_0, \ y_1=A_1\sin(\omega t + \alpha_1), \ y_2=A_2\sin(2\omega t + \alpha_
 $$&lt;/p>
 &lt;p>we have frequency as the multiple of the smallest frequency with their period:&lt;/p>
 &lt;p>$\omega$, $2\omega$, $3\omega$…&lt;/p>
-&lt;p>$T$, $\frac{1}{2}T$, $\frac{1}{3}T$…&lt;/p></description></item></channel></rss>
+&lt;p>$T$, $\frac{1}{2}T$, $\frac{1}{3}T$…&lt;/p></description></item><item><title>氢原子</title><link>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.2-Hydrogen-Atom/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Physics/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.2-Hydrogen-Atom/</guid><description>&lt;h2 id="421-经典图像-classical-picture">
+ 4.2.1 经典图像 (Classical Picture)
+ &lt;a class="anchor" href="#421-%e7%bb%8f%e5%85%b8%e5%9b%be%e5%83%8f-classical-picture">#&lt;/a>
+&lt;/h2>
+&lt;p>The hydrogen atom in classical physics consists of an electron orbiting around a proton. Let&amp;rsquo;s examine the key parameters:&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Particle&lt;/th>
+ &lt;th>Property&lt;/th>
+ &lt;th>Symbol&lt;/th>
+ &lt;th>Charge&lt;/th>
+ &lt;th>Value&lt;/th>
+ &lt;th>Unit&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Electron&lt;/td>
+ &lt;td>Mass&lt;/td>
+ &lt;td>$m_e$&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>$9.1 \times 10^{-31}$&lt;/td>
+ &lt;td>kg&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Electron&lt;/td>
+ &lt;td>Charge&lt;/td>
+ &lt;td>$q_{electron}$&lt;/td>
+ &lt;td>$-e$&lt;/td>
+ &lt;td>$-1.6 \times 10^{-19}$&lt;/td>
+ &lt;td>C&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Proton&lt;/td>
+ &lt;td>Mass&lt;/td>
+ &lt;td>$M$&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>$1.6 \times 10^{-27}$&lt;/td>
+ &lt;td>kg&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Proton&lt;/td>
+ &lt;td>Charge&lt;/td>
+ &lt;td>$q_{proton}$&lt;/td>
+ &lt;td>$+e$&lt;/td>
+ &lt;td>$+1.6 \times 10^{-19}$&lt;/td>
+ &lt;td>C&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>The mass ratio $\frac{M}{m_e} \simeq 1800$, which means we can effectively treat the proton as motionless.&lt;/p></description></item><item><title>积分计算</title><link>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Computing-Integrals/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/docs/Mathematics/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Computing-Integrals/</guid><description>&lt;h1 id="chapter-9-computing-integrals">
+ Chapter 9: Computing Integrals
+ &lt;a class="anchor" href="#chapter-9-computing-integrals">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="911-introduction">
+ 9.1.1 Introduction
+ &lt;a class="anchor" href="#911-introduction">#&lt;/a>
+&lt;/h2>
+&lt;p>In practice, how do we compute integral $\int_A f(x)dx$?&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>In $\mathbb{R}^1$ (one-dimensional space):
+$$\int_a^b f(x)dx = F(x)|_a^b = F(b) - F(a)$$&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>FTC&lt;/strong> (Fundamental Theorem of Calculus)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>In $\mathbb{R}^n$ (n-dimensional space):&lt;/p>
+&lt;ul>
+&lt;li>Reduce to $\mathbb{R}^1$ case by Fubini&amp;rsquo;s Theorem&lt;/li>
+&lt;li>Change of Variables (Substitution) first&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="912-fubinis-theorem">
+ 9.1.2 Fubini&amp;rsquo;s Theorem
+ &lt;a class="anchor" href="#912-fubinis-theorem">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="1-statement-of-main-result">
+ 1. Statement of Main Result
+ &lt;a class="anchor" href="#1-statement-of-main-result">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;strong>Theorem 1&lt;/strong>: Let $A = {(x,y): a \leq x \leq b, c \leq y \leq d}$ be a rectangle in $\mathbb{R}^2$ and $f: A \to \mathbb{R}$ be integrable. Suppose, for each $x \in [a,b]$, the following integral exists:
+$$g(x) = \int_c^d f(x,y)dy$$&lt;/p></description></item></channel></rss>
