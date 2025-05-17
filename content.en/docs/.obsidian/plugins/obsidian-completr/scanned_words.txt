@@ -150,6 +150,7 @@ Chizuko
 Confucian
 Confucianism
 Colonial
+Cao
 font
 for
 functions
@@ -333,6 +334,8 @@ fused
 functioned
 familiar
 focuses
+foster
+famille
 color
 curve
 can
@@ -728,6 +731,8 @@ census
 creating
 campaigns
 colonized
+continuum
+collective
 Problem
 Partial
 Putting
@@ -849,6 +854,8 @@ Proton
 Photon
 Population
 Patriarchal
+Policies
+Panopticon
 In
 Implicit
 Invertibility
@@ -1182,6 +1189,7 @@ theorized
 transposition
 targeted
 treats
+threshold
 system
 solvability
 such
@@ -1593,6 +1601,7 @@ shame
 schools
 statistics
 subjects
+sovereign
 discuss
 determine
 described
@@ -1878,6 +1887,8 @@ distant
 developments
 diffuse
 disciplining
+dispositif
+die
 in
 inverse
 implicit
@@ -2141,6 +2152,9 @@ intra
 insists
 imperial
 inseparable
+individuals
+individualization
+isomorphism
 of
 our
 out
@@ -2273,6 +2287,7 @@ oppressive
 offices
 operated
 omits
+operations
 near
 neighborhood
 necessary
@@ -2711,6 +2726,7 @@ mothers
 ministries
 melding
 mother
+magistrate
 have
 holds
 has
@@ -2843,6 +2859,7 @@ household
 head
 hygiene
 highlights
+hukou
 local
 limit
 lim
@@ -3011,6 +3028,7 @@ layering
 landscape
 legally
 locus
+livrets
 Show
 Sufficient
 Substitute
@@ -3174,6 +3192,7 @@ Spin
 Start
 Spins
 She
+Susan
 equations
 equation
 exists
@@ -3727,6 +3746,9 @@ bureaus
 biopolitical
 bureaucratic
 began
+biopolitics
+bare
+baojia
 allow
 and
 as
@@ -4010,6 +4032,8 @@ administrative
 apparatus
 account
 absent
+anatomo
+augmentation
 you
 yields
 yF
@@ -4128,6 +4152,7 @@ NLP
 Neumann
 Notion
 Neuroscience
+New
 Recall
 Rigorous
 Respect
@@ -4484,6 +4509,8 @@ repressive
 readers
 racial
 reproductive
+regimes
+relational
 partials
 partial
 point
@@ -4786,6 +4813,9 @@ populations
 primary
 policed
 purity
+piety
+proto
+practices
 Ex
 Evaluate
 Evaluating
@@ -5225,6 +5255,7 @@ Basis
 Bessel
 Bohr
 Binding
+Blackwood
 Function
 For
 FT
@@ -5826,6 +5857,8 @@ gravitational
 gauge
 grafted
 generis
+genealogical
+grafting
 Moreover
 Matrix
 Maximum
@@ -6366,6 +6399,9 @@ kinetic
 keep
 kept
 kernel
+kill
+kinship
+koseki
 One
 Olympo
 Oculis
@@ -6512,6 +6548,7 @@ Give
 Galerkin
 Gravitational
 Gendered
+Greenhalgh
 xF
 xxii
 xmp
