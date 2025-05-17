@@ -1,7 +1,7 @@
 ---
-weight: "999"
+weight: "2"
 bookCollapseSection: true
-title: AI
+title: 人工主体
 bookHidden: false
 ---
 

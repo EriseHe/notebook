@@ -2,6 +2,6 @@
 bookHidden: false
 bookFlatSection: true
 bookCollapseSection: true
-weight: 2
+weight: 6
 title: 偏微分方程
 ---
