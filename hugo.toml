@@ -1,5 +1,5 @@
 baseURL = 'https://erisehe.github.io/'
-title = '位相学補完計画'
+title = '学习笔记'
 theme = 'hugo-book'
 
 # defaultContentLanguage = "zh"
