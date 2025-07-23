@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>第四章 有限元分析 on 位相学補完計画</title>
-    <link>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
-    <description>Recent content in 第四章 有限元分析 on 位相学補完計画</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <atom:link href="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title></title>
-      <link>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</guid>
-      <description></description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第四章 有限元分析 on 学习笔记</title><link>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link><description>Recent content in 第四章 有限元分析 on 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</guid><description/></item></channel></rss>

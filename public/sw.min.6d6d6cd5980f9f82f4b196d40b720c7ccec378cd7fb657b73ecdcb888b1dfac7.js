@@ -1,0 +1,1 @@
+navigator.serviceWorker&&navigator.serviceWorker.register("/notebook/sw.js",{scope:"/notebook/"})

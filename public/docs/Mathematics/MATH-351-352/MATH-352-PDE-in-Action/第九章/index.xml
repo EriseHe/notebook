@@ -1,46 +1,131 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>第九章 on 位相学補完計画</title>
-    <link>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/</link>
-    <description>Recent content in 第九章 on 位相学補完計画</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <atom:link href="http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>习题</title>
-      <link>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/</guid>
-      <description>&lt;h1 id=&#34;problem-1-finite-difference-solution&#34;&gt;&#xA;  Problem 1: Finite-Difference Solution&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#problem-1-finite-difference-solution&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;We wish to discretize and solve the boundary-value problem&lt;/p&gt;&#xA;&lt;p&gt;$$-\mu\frac{d^2u}{dx^2} + \beta\frac{du}{dx} = f(x),\quad x\in(0,1),\quad u(0)=u(1)=0$$&lt;/p&gt;&#xA;&lt;p&gt;Or equivalently:&lt;/p&gt;&#xA;&lt;p&gt;$$\begin{cases}&#xA;-\mu u&amp;rsquo;&amp;rsquo;(x) + \beta u&amp;rsquo;(x) = f(x), &amp;amp; 0&amp;lt;x&amp;lt;1,\&#xA;u(0)=0,; u(1)=0.&#xA;\end{cases}$$&lt;/p&gt;&#xA;&lt;p&gt;Where $\mu&amp;gt;0$ and $\beta$ is a constant (possibly negative), and $f\in C^0(0,1)$.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-finite-difference-discretization&#34;&gt;&#xA;  1. Finite-Difference Discretization&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#1-finite-difference-discretization&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Divide $[0,1]$ into $N$ equal subintervals so that $\Delta x = \frac{1}{N}$. Let&lt;/p&gt;&#xA;&lt;p&gt;$$x_j = j\Delta x,\quad j=0,1,2,\dots,N,$$&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>9.1 边值问题的近似</title>
-      <link>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/</guid>
-      <description>&lt;h2 id=&#34;11-set-up-string-with-fixed-endpoints&#34;&gt;&#xA;  1.1 Set-up: String with fixed endpoints&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#11-set-up-string-with-fixed-endpoints&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;我们可以写&#xA;$$&#xA;\begin{align}&#xA;-\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x \in (0,1) \&#xA;u(0) &amp;amp;= \alpha, \quad \frac{du}{dx}(0) = \beta&#xA;\end{align}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;记$w = \frac{du}{dx}$，那么 $\frac{dw}{dx} = f(x)$。因此，我们知道&lt;/p&gt;&#xA;&lt;p&gt;$$\frac{d}{dt} = \begin{bmatrix} 0 &amp;amp; 0 \ 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} w \ u \end{bmatrix}$$&lt;/p&gt;&#xA;&lt;h3 id=&#34;定义&#34;&gt;&#xA;  定义&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%ae%9a%e4%b9%89&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;边值问题（boundary-value problem）的定义为&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;[!definition|*]&#xA;$$\begin{align}&#xA;-\mu\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x\in (0,1), \quad \mu &amp;gt; 0 \&#xA;u(0) &amp;amp;= \alpha, \quad u(1) = \beta&#xA;\end{align}&#xA;$$&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>9.2 有限差分法</title>
-      <link>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/</guid>
-      <description>&lt;h2 id=&#34;21-边值问题bvp的有限差分&#34;&gt;&#xA;  2.1 边值问题（BVP）的有限差分:&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#21-%e8%be%b9%e5%80%bc%e9%97%ae%e9%a2%98bvp%e7%9a%84%e6%9c%89%e9%99%90%e5%b7%ae%e5%88%86&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;[!claim|*]&#xA;Consider the Boundary-Value Problem:&#xA;$$&#xA;\begin{align}&#xA;-\mu\frac{d^2u}{dx^2} &amp;amp;= f, \quad x \in (0,1) \&#xA;u(0) &amp;amp;= u(1) = 0&#xA;\end{align}&#xA;$$&#xA;with discrete points: $$0 = x_0 &amp;lt; x_1 &amp;lt;  \cdots &amp;lt; x_{N} = 1\quad\Longrightarrow \quad-\mu\frac{d^2u}{dx^2}(x_i) = f(x_i)$$&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;22-推导二阶中心差分近似法&#34;&gt;&#xA;  2.2 推导二阶中心差分近似法&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#22-%e6%8e%a8%e5%af%bc%e4%ba%8c%e9%98%b6%e4%b8%ad%e5%bf%83%e5%b7%ae%e5%88%86%e8%bf%91%e4%bc%bc%e6%b3%95&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;221-poisson-微分方程&#34;&gt;&#xA;  2.2.1 Poisson 微分方程&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#221-poisson-%e5%be%ae%e5%88%86%e6%96%b9%e7%a8%8b&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;对与任意一个离散的点$x_{i}$，我们首先在网格点 $x_{i+1} = x_i + \Delta x$ 和 $x_{i-1} = x_i - \Delta x$ 处对函数 $u(x)$ 进行泰勒级数展开：&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>9.3 对流-扩散方程</title>
-      <link>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/</guid>
-      <description>&lt;h2 id=&#34;31-对流-扩散方程&#34;&gt;&#xA;  3.1 对流-扩散方程&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#31-%e5%af%b9%e6%b5%81-%e6%89%a9%e6%95%a3%e6%96%b9%e7%a8%8b&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;对流-扩散方程是一种描述物质或热量在流体中同时受到对流（也称为平流）和扩散作用影响的偏微分方程。这个方程在流体力学、传热学和物质传输等领域有广泛应用。&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\begin{align}&#xA;-\mu\frac{\partial^2 u}{\partial x^2} + \beta\frac{\partial u}{\partial x} &amp;amp;= f \&#xA;\text{diffusion} \quad &amp;amp; \text{advection}&#xA;\end{align}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$u(0) = u_L, \quad u(1) = u_R$$&lt;/p&gt;&#xA;&lt;h3 id=&#34;311-离散化过程&#34;&gt;&#xA;  3.1.1 离散化过程：&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#311-%e7%a6%bb%e6%95%a3%e5%8c%96%e8%bf%87%e7%a8%8b&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;h4 id=&#34;一阶导数对流项-advection&#34;&gt;&#xA;  一阶导数：对流项 （Advection）&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e4%b8%80%e9%98%b6%e5%af%bc%e6%95%b0%e5%af%b9%e6%b5%81%e9%a1%b9-advection&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;h5 id=&#34;泰勒展开向前&#34;&gt;&#xA;  泰勒展开（向前）&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%b3%b0%e5%8b%92%e5%b1%95%e5%bc%80%e5%90%91%e5%89%8d&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h5&gt;&#xA;&lt;p&gt;$$&#xA;\begin{align}&lt;/p&gt;&#xA;&lt;p&gt;u(x_{j+1})  &amp;amp; = u(x_j) + \frac{\partial u}{\partial x}(x_j)\Delta x + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2  \&#xA;&amp;amp;\quad\quad\quad\quad-\frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 + \mathcal{O}(||x||^5)\&#xA;\frac{\partial u}{\partial x}(x_j)\Delta x  &amp;amp; = u(x_{j+1}) - u(x_j) + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2\&#xA;\frac{\partial u}{\partial x}(x_j)  &amp;amp; = \frac{u_{j+1} - u_j}{\Delta x} + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x&#xA;\end{align}$$&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>9.4 4.1 二维（2D）偏微分方程问题</title>
-      <link>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/</guid>
-      <description>&lt;h2 id=&#34;椭圆型&#34;&gt;&#xA;  椭圆型&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%a4%ad%e5%9c%86%e5%9e%8b&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;411-问题设定&#34;&gt;&#xA;  4.1.1 问题设定&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#411-%e9%97%ae%e9%a2%98%e8%ae%be%e5%ae%9a&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;我们考虑一个二维空间的问题，记为区域 $\Omega$。边界记为 $\partial\Omega$。&lt;/p&gt;&#xA;&lt;p&gt;方程一般形式如下：&#xA;$$-\mu \Delta u + \beta \cdot \nabla u = f,\quad \text{在}\ \Omega 内$$&lt;/p&gt;&#xA;&lt;p&gt;边界条件为：&#xA;$$u(\partial \Omega) = d \quad (\text{给定的数据})$$&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;这里的符号解释（见上一章）：&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$\beta$：表示&amp;quot;风&amp;quot;或者对流的方向和强度&lt;/li&gt;&#xA;&lt;li&gt;$\mu$：扩散系数&lt;/li&gt;&#xA;&lt;li&gt;$f$：外力或源项&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;因此，上面的方程可以展开写成：&lt;/p&gt;&#xA;&lt;p&gt;$$-\mu \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right)&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;\beta_x \frac{\partial u}{\partial x} + \beta_y \frac{\partial u}{\partial y} = f(x,y)$$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;412-简化情形只有扩散没有风&#34;&gt;&#xA;  4.1.2 简化情形（只有扩散，没有风）&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#412-%e7%ae%80%e5%8c%96%e6%83%85%e5%bd%a2%e5%8f%aa%e6%9c%89%e6%89%a9%e6%95%a3%e6%b2%a1%e6%9c%89%e9%a3%8e&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;首先考虑更简单的情况，忽略对流（即“关掉风”），变成纯扩散问题：&lt;/p&gt;&#xA;&lt;p&gt;$$-\mu\left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) = f(x,y)$$&lt;/p&gt;&#xA;&lt;h3 id=&#34;413-离散化方法有限差分法&#34;&gt;&#xA;  4.1.3 离散化方法（有限差分法）&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#413-%e7%a6%bb%e6%95%a3%e5%8c%96%e6%96%b9%e6%b3%95%e6%9c%89%e9%99%90%e5%b7%ae%e5%88%86%e6%b3%95&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;用有限差分法来数值求解：&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第九章 on 学习笔记</title><link>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/</link><description>Recent content in 第九章 on 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>习题</title><link>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/</guid><description>&lt;h1 id="problem-1-finite-difference-solution">
+ Problem 1: Finite-Difference Solution
+ &lt;a class="anchor" href="#problem-1-finite-difference-solution">#&lt;/a>
+&lt;/h1>
+&lt;p>We wish to discretize and solve the boundary-value problem&lt;/p>
+&lt;p>$$-\mu\frac{d^2u}{dx^2} + \beta\frac{du}{dx} = f(x),\quad x\in(0,1),\quad u(0)=u(1)=0$$&lt;/p>
+&lt;p>Or equivalently:&lt;/p>
+&lt;p>$$\begin{cases}
+-\mu u&amp;rsquo;&amp;rsquo;(x) + \beta u&amp;rsquo;(x) = f(x), &amp;amp; 0&amp;lt;x&amp;lt;1,\
+u(0)=0,; u(1)=0.
+\end{cases}$$&lt;/p>
+&lt;p>Where $\mu&amp;gt;0$ and $\beta$ is a constant (possibly negative), and $f\in C^0(0,1)$.&lt;/p>
+&lt;h2 id="1-finite-difference-discretization">
+ 1. Finite-Difference Discretization
+ &lt;a class="anchor" href="#1-finite-difference-discretization">#&lt;/a>
+&lt;/h2>
+&lt;p>Divide $[0,1]$ into $N$ equal subintervals so that $\Delta x = \frac{1}{N}$. Let&lt;/p>
+&lt;p>$$x_j = j\Delta x,\quad j=0,1,2,\dots,N,$$&lt;/p></description></item><item><title>9.1 边值问题的近似</title><link>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/</guid><description>&lt;h2 id="11-set-up-string-with-fixed-endpoints">
+ 1.1 Set-up: String with fixed endpoints
+ &lt;a class="anchor" href="#11-set-up-string-with-fixed-endpoints">#&lt;/a>
+&lt;/h2>
+&lt;p>我们可以写
+$$
+\begin{align}
+-\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x \in (0,1) \
+u(0) &amp;amp;= \alpha, \quad \frac{du}{dx}(0) = \beta
+\end{align}
+$$&lt;/p>
+&lt;p>记$w = \frac{du}{dx}$，那么 $\frac{dw}{dx} = f(x)$。因此，我们知道&lt;/p>
+&lt;p>$$\frac{d}{dt} = \begin{bmatrix} 0 &amp;amp; 0 \ 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} w \ u \end{bmatrix}$$&lt;/p>
+&lt;h3 id="定义">
+ 定义
+ &lt;a class="anchor" href="#%e5%ae%9a%e4%b9%89">#&lt;/a>
+&lt;/h3>
+&lt;p>边值问题（boundary-value problem）的定义为&lt;/p>
+&lt;blockquote>
+&lt;p>[!definition|*]
+$$\begin{align}
+-\mu\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x\in (0,1), \quad \mu &amp;gt; 0 \
+u(0) &amp;amp;= \alpha, \quad u(1) = \beta
+\end{align}
+$$&lt;/p></description></item><item><title>9.2 有限差分法</title><link>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/</guid><description>&lt;h2 id="21-边值问题bvp的有限差分">
+ 2.1 边值问题（BVP）的有限差分:
+ &lt;a class="anchor" href="#21-%e8%be%b9%e5%80%bc%e9%97%ae%e9%a2%98bvp%e7%9a%84%e6%9c%89%e9%99%90%e5%b7%ae%e5%88%86">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>[!claim|*]
+Consider the Boundary-Value Problem:
+$$
+\begin{align}
+-\mu\frac{d^2u}{dx^2} &amp;amp;= f, \quad x \in (0,1) \
+u(0) &amp;amp;= u(1) = 0
+\end{align}
+$$
+with discrete points: $$0 = x_0 &amp;lt; x_1 &amp;lt; \cdots &amp;lt; x_{N} = 1\quad\Longrightarrow \quad-\mu\frac{d^2u}{dx^2}(x_i) = f(x_i)$$&lt;/p>&lt;/blockquote>
+&lt;h2 id="22-推导二阶中心差分近似法">
+ 2.2 推导二阶中心差分近似法
+ &lt;a class="anchor" href="#22-%e6%8e%a8%e5%af%bc%e4%ba%8c%e9%98%b6%e4%b8%ad%e5%bf%83%e5%b7%ae%e5%88%86%e8%bf%91%e4%bc%bc%e6%b3%95">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="221-poisson-微分方程">
+ 2.2.1 Poisson 微分方程
+ &lt;a class="anchor" href="#221-poisson-%e5%be%ae%e5%88%86%e6%96%b9%e7%a8%8b">#&lt;/a>
+&lt;/h3>
+&lt;p>对与任意一个离散的点$x_{i}$，我们首先在网格点 $x_{i+1} = x_i + \Delta x$ 和 $x_{i-1} = x_i - \Delta x$ 处对函数 $u(x)$ 进行泰勒级数展开：&lt;/p></description></item><item><title>9.3 对流-扩散方程</title><link>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/</guid><description>&lt;h2 id="31-对流-扩散方程">
+ 3.1 对流-扩散方程
+ &lt;a class="anchor" href="#31-%e5%af%b9%e6%b5%81-%e6%89%a9%e6%95%a3%e6%96%b9%e7%a8%8b">#&lt;/a>
+&lt;/h2>
+&lt;p>对流-扩散方程是一种描述物质或热量在流体中同时受到对流（也称为平流）和扩散作用影响的偏微分方程。这个方程在流体力学、传热学和物质传输等领域有广泛应用。&lt;/p>
+&lt;p>$$
+\begin{align}
+-\mu\frac{\partial^2 u}{\partial x^2} + \beta\frac{\partial u}{\partial x} &amp;amp;= f \
+\text{diffusion} \quad &amp;amp; \text{advection}
+\end{align}
+$$&lt;/p>
+&lt;p>$$u(0) = u_L, \quad u(1) = u_R$$&lt;/p>
+&lt;h3 id="311-离散化过程">
+ 3.1.1 离散化过程：
+ &lt;a class="anchor" href="#311-%e7%a6%bb%e6%95%a3%e5%8c%96%e8%bf%87%e7%a8%8b">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="一阶导数对流项-advection">
+ 一阶导数：对流项 （Advection）
+ &lt;a class="anchor" href="#%e4%b8%80%e9%98%b6%e5%af%bc%e6%95%b0%e5%af%b9%e6%b5%81%e9%a1%b9-advection">#&lt;/a>
+&lt;/h4>
+&lt;h5 id="泰勒展开向前">
+ 泰勒展开（向前）
+ &lt;a class="anchor" href="#%e6%b3%b0%e5%8b%92%e5%b1%95%e5%bc%80%e5%90%91%e5%89%8d">#&lt;/a>
+&lt;/h5>
+&lt;p>$$
+\begin{align}&lt;/p>
+&lt;p>u(x_{j+1}) &amp;amp; = u(x_j) + \frac{\partial u}{\partial x}(x_j)\Delta x + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 \
+&amp;amp;\quad\quad\quad\quad-\frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 + \mathcal{O}(||x||^5)\
+\frac{\partial u}{\partial x}(x_j)\Delta x &amp;amp; = u(x_{j+1}) - u(x_j) + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2\
+\frac{\partial u}{\partial x}(x_j) &amp;amp; = \frac{u_{j+1} - u_j}{\Delta x} + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x
+\end{align}$$&lt;/p></description></item><item><title>9.4 4.1 二维（2D）偏微分方程问题</title><link>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/Mathematics/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/</guid><description>&lt;h2 id="椭圆型">
+ 椭圆型
+ &lt;a class="anchor" href="#%e6%a4%ad%e5%9c%86%e5%9e%8b">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="411-问题设定">
+ 4.1.1 问题设定
+ &lt;a class="anchor" href="#411-%e9%97%ae%e9%a2%98%e8%ae%be%e5%ae%9a">#&lt;/a>
+&lt;/h3>
+&lt;p>我们考虑一个二维空间的问题，记为区域 $\Omega$。边界记为 $\partial\Omega$。&lt;/p>
+&lt;p>方程一般形式如下：
+$$-\mu \Delta u + \beta \cdot \nabla u = f,\quad \text{在}\ \Omega 内$$&lt;/p>
+&lt;p>边界条件为：
+$$u(\partial \Omega) = d \quad (\text{给定的数据})$$&lt;/p>
+&lt;ul>
+&lt;li>这里的符号解释（见上一章）：
+&lt;ul>
+&lt;li>$\beta$：表示&amp;quot;风&amp;quot;或者对流的方向和强度&lt;/li>
+&lt;li>$\mu$：扩散系数&lt;/li>
+&lt;li>$f$：外力或源项&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>因此，上面的方程可以展开写成：&lt;/p>
+&lt;p>$$-\mu \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right)&lt;/p>
+&lt;ul>
+&lt;li>\beta_x \frac{\partial u}{\partial x} + \beta_y \frac{\partial u}{\partial y} = f(x,y)$$&lt;/li>
+&lt;/ul>
+&lt;h3 id="412-简化情形只有扩散没有风">
+ 4.1.2 简化情形（只有扩散，没有风）
+ &lt;a class="anchor" href="#412-%e7%ae%80%e5%8c%96%e6%83%85%e5%bd%a2%e5%8f%aa%e6%9c%89%e6%89%a9%e6%95%a3%e6%b2%a1%e6%9c%89%e9%a3%8e">#&lt;/a>
+&lt;/h3>
+&lt;p>首先考虑更简单的情况，忽略对流（即“关掉风”），变成纯扩散问题：&lt;/p>
+&lt;p>$$-\mu\left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) = f(x,y)$$&lt;/p>
+&lt;h3 id="413-离散化方法有限差分法">
+ 4.1.3 离散化方法（有限差分法）
+ &lt;a class="anchor" href="#413-%e7%a6%bb%e6%95%a3%e5%8c%96%e6%96%b9%e6%b3%95%e6%9c%89%e9%99%90%e5%b7%ae%e5%88%86%e6%b3%95">#&lt;/a>
+&lt;/h3>
+&lt;p>用有限差分法来数值求解：&lt;/p></description></item></channel></rss>

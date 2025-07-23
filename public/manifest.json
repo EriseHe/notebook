@@ -1,14 +1,14 @@
 {
-  "name": "位相学補完計画",
-  "short_name": "位相学補完計画",
-  "start_url": "/",
-  "scope": "/",
+  "name": "学习笔记",
+  "short_name": "学习笔记",
+  "start_url": "/notebook/",
+  "scope": "/notebook/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/notebook/favicon.svg",
       "sizes": "512x512"
     }
   ]
