@@ -11,15 +11,10 @@
             "id": "7fd0778c954cfc03",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Physics/Quantum Mechenics/Lecture/第四章/4.1.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "4.1"
+              "title": "New tab"
             }
           },
           {
@@ -28,17 +23,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Physics/Quantum Mechenics/学习量子力学的顺序.md",
-                "mode": "preview",
-                "source": true,
+                "file": "Clippings/Structured like a language model Analysing AI as an automated subject - Liam Magee, Vanicka Arora, Luke Munn, 2023.md",
+                "mode": "source",
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "学习量子力学的顺序"
+              "title": "Structured like a language model Analysing AI as an automated subject - Liam Magee, Vanicka Arora, Luke Munn, 2023"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -70,7 +64,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "AI",
+                "query": "tag:#psychoanalysis",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -121,6 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Mathematics/MATH 351 & 352/Heat Equation/The Fourier Series.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +125,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for The Fourier Series"
             }
           },
           {
@@ -139,11 +134,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Mathematics/MATH 351 & 352/Heat Equation/The Fourier Series.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from The Fourier Series"
             }
           },
           {
@@ -167,22 +163,21 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Mathematics/MATH 351 & 352/Heat Equation/_index.md",
+                "file": "Mathematics/MATH 351 & 352/Heat Equation/The Fourier Series.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of _index"
+              "title": "Outline of The Fourier Series"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,13 +189,29 @@
       "command-palette:Open command palette": false,
       "markdown-importer:Open format converter": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
-      "transfer-latex-from-gpt:Convert LaTeX to MathJax": false,
+      "webpage-html-export:Export Vault to HTML": false,
       "obsidian-matrix:Obsidian Matrix": false,
-      "webpage-html-export:Export Vault to HTML": false
+      "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "7732ce94cfe7f73a",
+  "active": "829f54a31a6b8d4d",
   "lastOpenFiles": [
+    "Clippings/Structured like a language model Analysing AI as an automated subject - Liam Magee, Vanicka Arora, Luke Munn, 2023.md",
+    "Clippings/(PDF) Circling the Void Using Heidegger and Lacan to think about Large Language Models.md",
+    "Clippings/The extimate core of understanding absolute metaphors, psychosis and large language models - AI & SOCIETY.md",
+    "Clippings/Algorithmic unconscious why psychoanalysis helps in understanding AI - Humanities and Social Sciences Communications.md",
+    "Clippings/Artificial intelligence and psychoanalysis is it time for psychoanalyst.AI - PMC.md",
+    "Clippings/From Hallucination to Suture Insights from Language Philosophy to Enhance Large Language Models.md",
+    "Mathematics/MATH 351 & 352/Heat Equation/The Fourier Series.md",
+    "Clippings/Geometric Deep Learning Grids, Groups, Graphs, Geodesics, and Gauges.md",
+    "Clippings/FinTextSim Enhancing Financial Text Analysis with BERTopic.md",
+    "Clippings/Attention Is All You Need.md",
+    "Philosophy/50-words Close Reading.md",
+    "Physics/Quantum Mechenics/薛定谔方程的傅立叶变换.md",
+    "Clippings",
+    "Physics/Quantum Mechenics/学习量子力学的顺序.md",
+    "Physics/Quantum Mechenics/_index.md",
+    "Philosophy/福柯视角下的物理学转变以及新范式的可能.md",
     "Mathematics/撰写主体的结构：拉康和拓扑.md",
     "Mathematics/拓扑学/_index.md",
     "Mathematics/拓扑学",
@@ -212,23 +223,8 @@
     "Mathematics/MATH 412 Real Analysis II/第七章/7.7.md",
     "Philosophy/Sex & Sexuality.md",
     "Philosophy/Object petit a.md",
-    "Philosophy/福柯视角下的物理学转变以及新范式的可能.md",
     "Physics/Quantum Mechenics/Lecture/第四章/4.1 经典氢原子.md",
     "Physics/Quantum Mechenics/Lecture/第四章/4.2 Hydrogen Atom.md",
-    "Physics/Quantum Mechenics/薛定谔方程的傅立叶变换.md",
-    "Physics/Quantum Mechenics/波函数存在于在Hilbert空间中.md",
-    "Physics/Quantum Mechenics/学习量子力学的顺序.md",
-    "Physics/Quantum Mechenics/Lecture/第四章/4.3 角动量 (Angular Momentum).md",
-    "Mathematics/MATH 412 Real Analysis II/第九章/9.1 Computing Integrals.md",
-    "Mathematics/MATH 412 Real Analysis II/第九章/_index.md",
-    "Mathematics/MATH 412 Real Analysis II/第七章/_index.md",
-    "Physics/Quantum Mechenics/_index.md",
-    "Physics/Quantum Mechenics/Lecture/第四章/_index.md",
-    "Physics/Quantum Mechenics/Lecture/第三章/_index.md",
-    "Physics/Quantum Mechenics/Lecture/第二章/_index.md",
-    "Physics/Quantum Mechenics/Lecture/第一章/_index.md",
-    "Physics/Quantum Mechenics/Lecture/第四章/第四章.md",
-    "Mathematics/MATH 412 Real Analysis II/Homework/Homework 11.md",
     "Mathematics/MATH 351 & 352/MATH 352 PDE in Action/第十章",
     "Mathematics/MATH 412 Real Analysis II/第十章",
     "image-1.png",
@@ -241,7 +237,6 @@
     "L-space.png",
     "L-space-1.png",
     "Physics/Quantum Mechenics/Lecture/第三章",
-    "Physics/Quantum Mechenics/Lecture/第二章",
     "Mathematics/MATH 351 & 352/Heat Equation/Untitled.canvas"
   ]
 }
