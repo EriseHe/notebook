@@ -1,9 +1,9 @@
 {
-  "theme": "system",
-  "accentColor": "#5115c1",
+  "theme": "moonstone",
+  "accentColor": "",
   "textFontFamily": "NewComputerModern10",
   "translucency": true,
-  "cssTheme": "Things",
+  "cssTheme": "AnuPpuccin",
   "baseFontSize": 20,
   "baseFontSizeAction": true,
   "interfaceFontFamily": "",

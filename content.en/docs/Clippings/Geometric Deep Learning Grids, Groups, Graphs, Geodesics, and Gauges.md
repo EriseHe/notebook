@@ -1,17 +1,18 @@
 ---
 title: "Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges"
-source: "https://arxiv.org/abs/2104.13478"
+source: https://arxiv.org/abs/2104.13478
 author:
   - "[[Michael M. Bronstein]]"
   - "[[Joan Bruna]]"
   - "[[Taco Cohen]]"
   - "[[Petar Veličković]]"
   - "[[Petar Velickovic]]"
-published:
+published: 
 created: 2025-08-04
 description: "Abstract page for arXiv paper 2104.13478: Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges"
 tags:
-  - "clippings"
+  - clippings
+  - DeepLearning
 ---
 \[Submitted on 27 Apr 2021 ([v1](https://arxiv.org/abs/2104.13478v1)), last revised 2 May 2021 (this version, v2)\]
 
