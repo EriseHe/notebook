@@ -1,1 +1,1 @@
-This is a test work. What are the features of obsidian? 
+This is a test work. 
