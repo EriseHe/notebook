@@ -1,33 +1,52 @@
 
 
 ```tikz
+\usetikzlibrary{arrows.meta, positioning}
+
+\tikzset{
+  ladder/.style = {draw, rounded corners, align=left, minimum width=9.8cm, inner sep=6pt},
+  arrow/.style  = {-{Latex[length=3mm]}, thick}
+}
+
 \begin{document}
-  \begin{tikzpicture}[domain=0:4]
-    \draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);
-    \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
-    \draw[->] (0,-1.2) -- (0,4.2) node[above] {$f(x)$};
-    \draw[color=red]    plot (\x,\x)             node[right] {$f(x) =x$};
-    \draw[color=blue]   plot (\x,{sin(\x r)})    node[right] {$f(x) = \sin x$};
-    \draw[color=orange] plot (\x,{0.05*exp(\x)}) node[right] {$f(x) = \frac{1}{20} \mathrm e^x$};
-  \end{tikzpicture}
+\begin{tikzpicture}[node distance=8mm]
+  \small
+
+  % Nodes (top to bottom)
+  \node[ladder, fill=gray!10] (T5)  {\bfseries $T_5$ \; Completely normal Hausdorff（完全正规豪斯多夫）\\
+    Disjoint closed sets separated by $f:X\to[0,1]$.};
+  \node[ladder, below=of T5]  (T4)  {\bfseries $T_4$ \; Normal Hausdorff（正规豪斯多夫）\\
+    Disjoint closed sets contained in disjoint open sets.};
+  \node[ladder, below=of T4]  (T35) {\bfseries $T_{3.5}$ \; Tychonoff（完全正规豪斯多夫）\\
+    For $x\notin A$ (closed) $\exists f:X\to[0,1]$ with $f(x)=0,\ f(A)=\{1\}$.};
+  \node[ladder, below=of T35] (T3)  {\bfseries $T_3$ \; Regular Hausdorff（正规豪斯多夫）\\
+    For $x\notin A$ (closed) $\exists$ disjoint open $U,V$ with $x\in U,\ A\subset V$.};
+  \node[ladder, below=of T3]  (T25) {\bfseries $T_{2.5}$ \; Urysohn（乌里松）\\
+    Distinct points have disjoint closed neighborhoods.};
+  \node[ladder, below=of T25] (T2)  {\bfseries $T_2$ \; Hausdorff（豪斯多夫）\\
+    Distinct points lie in disjoint open sets.};
+  \node[ladder, below=of T2]  (T1)  {\bfseries $T_1$ \; Fréchet（Fréchet）\\
+    All singletons are closed.};
+  \node[ladder, below=of T1]  (T0)  {\bfseries $T_0$ \; Kolmogorov（Kolmogorov）\\
+    For $x\neq y$, some open set contains one but not the other.};
+
+  % Arrows
+  \draw[arrow] (T5)  -- (T4);
+  \draw[arrow] (T4)  -- (T35);
+  \draw[arrow] (T35) -- (T3);
+  \draw[arrow] (T3)  -- (T25);
+  \draw[arrow] (T25) -- (T2);
+  \draw[arrow] (T2)  -- (T1);
+  \draw[arrow] (T1)  -- (T0);
+
+  % Caption
+  \node[below=6mm of T0, align=center] {\footnotesize Implications downward; reverse implications generally fail.};
+\end{tikzpicture}
 \end{document}
 ```
 
 ```tikz
-\usepackage{circuitikz}
-\begin{document}
 
-\begin{circuitikz}[american, voltage shift=0.5]
-\draw (0,0)
-to[isource, l=$I_0$, v=$V_0$] (0,3)
-to[short, -*, i=$I_0$] (2,3)
-to[R=$R_1$, i>_=$i_1$] (2,0) -- (0,0);
-\draw (2,3) -- (4,3)
-to[R=$R_2$, i>_=$i_2$]
-(4,0) to[short, -*] (2,0);
-\end{circuitikz}
-
-\end{document}
 ```
 
 ```tikz
