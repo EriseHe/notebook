@@ -193,13 +193,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Master:PhD Application/Resume.pdf",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Resume"
+              "title": "Outline"
             }
           },
           {
@@ -236,48 +235,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "floating": {
-    "id": "61dfa85a08da1e46",
-    "type": "floating",
-    "children": [
-      {
-        "id": "467609689dd4ecca",
-        "type": "window",
-        "children": [
-          {
-            "id": "63ba29ee4278c4e1",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "34e0db97f80a0e79",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Clippings/LLM/Attention Is All You Need.md",
-                    "mode": "source",
-                    "source": false,
-                    "backlinks": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "Attention Is All You Need"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 0,
-        "y": 36,
-        "width": 1470,
-        "height": 920,
-        "maximize": true,
-        "zoom": 0
-      }
-    ]
-  },
   "active": "829f54a31a6b8d4d",
   "lastOpenFiles": [
+    "Graduate Application/Xudong He SS Card back.pdf",
+    "Graduate Application/Resume.pdf",
     "数学/PS.md",
     "Clippings/LLM/Attention Is All You Need.md",
     "数学/拓扑学/T-n分离公理.md",
@@ -308,14 +269,12 @@
     "数学/MATH 412 Real Analysis II/第九章/9.1 Computing Integrals.md",
     "数学/MATH 412 Real Analysis II/第七章/7.2 Implicit Function Theorem.md",
     "数学/MATH 412 Real Analysis II/第七章/7.6 Morse Lemma.md",
-    "数学/MATH 412 Real Analysis II/第七章/7.1.1 Inverse FT (Proof).md",
     "copilot-custom-prompts",
     "Clippings",
     "数学/拓扑学",
     "数学/人工主体",
     "Mathematics/Geometric Deep Learning",
     "数学/MATH 351 & 352/MATH 352 PDE in Action/第十章",
-    "数学/MATH 412 Real Analysis II/第十章",
     "Fourier Series.png",
     "L-space.png",
     "L-space-1.png",
