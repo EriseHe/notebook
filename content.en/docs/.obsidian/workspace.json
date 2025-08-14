@@ -64,7 +64,8 @@
               "title": "PS"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -193,22 +194,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "数学/PS.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
-            }
-          },
-          {
-            "id": "49605639781d1d0a",
-            "type": "leaf",
-            "state": {
-              "type": "github-copilot-chat-view",
-              "state": {},
-              "icon": "bot-message-square",
-              "title": "Copilot Chat"
+              "title": "Outline of PS"
             }
           }
         ],
@@ -235,8 +227,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "829f54a31a6b8d4d",
+  "active": "f9240a65f1b9ebe0",
   "lastOpenFiles": [
+    "Untitled.canvas",
     "Graduate Application/Xudong He SS Card back.pdf",
     "Graduate Application/Resume.pdf",
     "数学/PS.md",
@@ -274,7 +267,6 @@
     "数学/拓扑学",
     "数学/人工主体",
     "Mathematics/Geometric Deep Learning",
-    "数学/MATH 351 & 352/MATH 352 PDE in Action/第十章",
     "Fourier Series.png",
     "L-space.png",
     "L-space-1.png",
