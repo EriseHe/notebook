@@ -147,6 +147,7 @@ $$
 This form is often easier to compute in practice.
 
 # 2. Surfaces in $\mathbb{R}^3$
+## 2.1 Coordinate patch
 
 A **coordinate patch** is a $C^\infty$ map
 $$
@@ -160,4 +161,24 @@ $$
 > [!remark|*]
 > We will use **Einstein summation convention**: upper and lower indices are used to signify how objects transform under a change of coordinates. 
 > This will streamline notation when expressing surface geometry (e.g., metric tensor, Christoffel symbols, curvature).
+### 2.1.1 Coordinate Vectors
 
+$$
+\sigma_i := \frac{\partial X}{\partial u^i}, \qquad i=1,2.
+$$
+These are vectors in $\mathbb{R}^3$, tangent to the surface.
+### 2.1.2 Regularity
+
+**Regular** means:
+
+* The differential $DX$ has maximal rank (=2).
+* Equivalently, $\sigma_1$ and $\sigma_2$ are linearly independent at each point.
+
+## 2.2 Smooth Surfaces
+
+A **smooth surface** $S \subset \mathbb{R}^3$ is a set equipped with an **atlas** of regular coordinate patches such that every point of $S$ lies in some patch.
+
+Blackboard Sketches:
+* A grid in the $(u^1,u^2)$-plane maps to a curvilinear grid on the surface in $\mathbb{R}^3$.
+* The tangent vectors $\sigma_1, \sigma_2$ span the tangent plane at each point.
+* Regularity means these tangent vectors are independent, so the patch is locally non-degenerate.
