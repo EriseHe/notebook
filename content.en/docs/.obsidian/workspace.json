@@ -55,17 +55,47 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数学/PS.md",
+                "file": "Clippings/Psychoanalysis/Artificial intelligence and psychoanalysis is it time for psychoanalyst.AI - PMC.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "PS"
+              "title": "Artificial intelligence and psychoanalysis is it time for psychoanalyst.AI - PMC"
+            }
+          },
+          {
+            "id": "69dc2bbcb67ed0d4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "数学/Machine Learning/Lecture.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Lecture"
+            }
+          },
+          {
+            "id": "581b3b2332c127eb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "数学/Differential Geometry/Lecture 2.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Lecture 2"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -97,7 +127,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "contactgeome",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -194,13 +224,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数学/PS.md",
+                "file": "数学/Differential Geometry/Lecture 2.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of PS"
+              "title": "Outline of Lecture 2"
             }
           }
         ],
@@ -212,6 +242,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -222,33 +253,37 @@
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "obsidian-matrix:Obsidian Matrix": false,
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false,
-      "copilot:Open Copilot Chat": false,
       "callout-manager:Insert Callout": false,
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f9240a65f1b9ebe0",
+  "active": "581b3b2332c127eb",
   "lastOpenFiles": [
+    "数学/MATH 351 & 352/Heat Equation/Heat Equation Solution.md",
+    "数学/Differential Geometry/Lecture 2.md",
+    "数学/Differential Geometry",
+    "数学/Machine Learning/Lecture.md",
+    "Clippings/Psychoanalysis/(PDF) Circling the Void Using Heidegger and Lacan to think about Large Language Models.md",
+    "Clippings/Psychoanalysis/Artificial intelligence and psychoanalysis is it time for psychoanalyst.AI - PMC.md",
+    "Clippings/Psychoanalysis/From Hallucination to Suture Insights from Language Philosophy to Enhance Large Language Models.md",
+    "数学/拓扑学/T-n分离公理.md",
+    "数学/MATH 412 Real Analysis II/第七章/7.1 Inverse Function Theorem.md",
+    "Clippings/LLM/Attention Is All You Need.md",
+    "数学/PS.md",
     "Untitled.canvas",
     "Graduate Application/Xudong He SS Card back.pdf",
     "Graduate Application/Resume.pdf",
-    "数学/PS.md",
-    "Clippings/LLM/Attention Is All You Need.md",
-    "数学/拓扑学/T-n分离公理.md",
     "Clippings/LLM/FinTextSim Enhancing Financial Text Analysis with BERTopic.md",
     "Clippings/Deep Learning/Geometric Deep Learning Grids, Groups, Graphs, Geodesics, and Gauges.md",
     "Clippings/Psychoanalysis/The extimate core of understanding absolute metaphors, psychosis and large language models - AI & SOCIETY.md",
     "Clippings/Psychoanalysis/Structured like a language model Analysing AI as an automated subject - Liam Magee, Vanicka Arora, Luke Munn, 2023.md",
-    "Clippings/Psychoanalysis/From Hallucination to Suture Insights from Language Philosophy to Enhance Large Language Models.md",
-    "Clippings/Psychoanalysis/Artificial intelligence and psychoanalysis is it time for psychoanalyst.AI - PMC.md",
     "Clippings/Psychoanalysis/Algorithmic unconscious why psychoanalysis helps in understanding AI - Humanities and Social Sciences Communications.md",
-    "Clippings/Psychoanalysis/(PDF) Circling the Void Using Heidegger and Lacan to think about Large Language Models.md",
     "Clippings/Deep Learning",
     "Clippings/LLM",
     "Clippings/Psychoanalysis",
     "随笔/Create Graph Using LaTex Code.md",
     "数学/拓扑学/_index.md",
-    "数学/Deep Learning/_index.md",
+    "数学/Machine Learning/_index.md",
     "copilot-custom-prompts/Explain like I am 5.md",
     "Main Plug-in.md",
     "GPT Conversion.md",
@@ -259,14 +294,10 @@
     "随笔/Commentary on the Collage.md",
     "数学/MATH 412 Real Analysis II/第八章/8.2 Criterion for Integrability.md",
     "Philosophy/50-words Close Reading.md",
-    "数学/MATH 412 Real Analysis II/第九章/9.1 Computing Integrals.md",
-    "数学/MATH 412 Real Analysis II/第七章/7.2 Implicit Function Theorem.md",
-    "数学/MATH 412 Real Analysis II/第七章/7.6 Morse Lemma.md",
     "copilot-custom-prompts",
     "Clippings",
     "数学/拓扑学",
     "数学/人工主体",
-    "Mathematics/Geometric Deep Learning",
     "Fourier Series.png",
     "L-space.png",
     "L-space-1.png",
