@@ -326,6 +326,10 @@ Cwm
 Cnb
 Caw
 CTQ
+Curvature
+Chain
+Cross
+Christoffel
 font
 for
 functions
@@ -1521,6 +1525,10 @@ cTd
 cEo
 causal
 concatenate
+curvature
+curvilinear
+clean
+commutative
 Problem
 Partial
 Putting
@@ -1791,6 +1799,8 @@ PcS
 Pt
 PKyag
 Positional
+Parametrized
+Proposition
 In
 Implicit
 Invertibility
@@ -2427,6 +2437,8 @@ tMJ
 tJx
 tXJ
 trailer
+tensor
+transcription
 system
 solvability
 such
@@ -3234,6 +3246,9 @@ slT
 sAqgx
 seq
 subspaces
+summation
+signify
+surfaces
 discuss
 determine
 described
@@ -4361,6 +4376,7 @@ inv
 iWv
 idDdl
 iMf
+inversion
 of
 our
 out
@@ -5131,6 +5147,7 @@ DVV
 Dex
 DGl
 Decoder
+Differentiating
 map
 matrix
 mapping
@@ -6457,6 +6474,11 @@ Sequential
 Scaled
 Softmax
 Split
+Speed
+Surfaces
+Smooth
+Sketches
+Smoothness
 equations
 equation
 exists
@@ -6991,6 +7013,7 @@ eE
 egs
 ecn
 extra
+easier
 whether
 written
 which
@@ -7552,6 +7575,7 @@ bQ
 bMF
 bü
 blend
+blackboards
 allow
 and
 as
@@ -8183,6 +8207,10 @@ auu
 aY
 apwMh
 asv
+arc
+admits
+acceleration
+atlas
 you
 yields
 yF
@@ -8682,6 +8710,8 @@ Rf
 RFc
 Removing
 Residual
+Rule
+Regularity
 requirement
 respect
 rule
@@ -9216,6 +9246,7 @@ rOz
 rIgl
 rQW
 relied
+reparametrization
 partials
 partial
 point
@@ -9871,6 +9902,10 @@ pwW
 pm
 parallelize
 processed
+parametrization
+parameterization
+parametrized
+patch
 Ex
 Evaluate
 Evaluating
@@ -10496,6 +10531,7 @@ TVC
 TZ
 Ts
 Tgt
+Transition
 Hence
 Here
 Hypotheses
@@ -10880,6 +10916,7 @@ BJJ
 BFce
 BEXK
 Bahdanau
+Blackboard
 Function
 For
 FT
@@ -11456,6 +11493,7 @@ Aoo
 Awb
 Architecture
 Allows
+Arc
 via
 variables
 view
@@ -12384,6 +12422,7 @@ MDD
 Mwgq
 Mwi
 Multiply
+Maps
 Using
 Up
 Ut
@@ -13090,6 +13129,7 @@ VL
 Vv
 Vwd
 VRC
+Vectors
 Yes
 You
 YX
@@ -13508,6 +13548,7 @@ Orb
 OUU
 Oix
 OlP
+Orthogonality
 Given
 Get
 Guessing

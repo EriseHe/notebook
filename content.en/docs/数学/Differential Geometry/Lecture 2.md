@@ -1,4 +1,8 @@
-# 1. Parametrized Curves in $\mathbb{R}^3$
+---
+date: 2025-09-02
+lecture: "2"
+---
+# Parametrized Curves in $\mathbb{R}^3$
 
 Let $I\subset \mathbb{R}$ be an open interval. A **(smooth) curve** is a map
 $$
@@ -14,11 +18,9 @@ $$
 ### 1.1.1 Arc-Length Function
 
 Fix $t_0\in I$. The **arc-length** from $t_0$ to $t\in I$ is
-
 $$
 s(t)\;=\;\int_{t_0}^{t}\bigl\lVert \dot\gamma(u)\bigr\rVert\,du .
 $$
-
 Differentiating,
 
 $$
@@ -50,16 +52,12 @@ $$
 **Lemma.** Every regular curve admits a reparametrization by arc length (i.e., a unit-speed parameterization).
 
 ## 1.2 Example: Circle of radius $r$ (angular velocity $\omega$)
-
 Let
-
 $$
 \gamma(t)=\big(r\cos(\omega t),\, r\sin(\omega t)\big),\qquad t\in\mathbb{R}.
 $$
-
 1. **Speed**
-
-   $$
+$$
    \|\dot\gamma(t)\|=\|(-r\omega\sin(\omega t),\, r\omega\cos(\omega t))\|=r\omega .
    $$
 
@@ -149,7 +147,7 @@ This form is often easier to compute in practice.
 # 2. Surfaces in $\mathbb{R}^3$
 ## 2.1 Coordinate patch
 
-A **coordinate patch** is a $C^\infty$ map
+A **coordinate patch** is a $C^\infty$ (smooth) map
 $$
 X: U \;\to\; \mathbb{R}^3,
 $$
@@ -182,3 +180,55 @@ Blackboard Sketches:
 * A grid in the $(u^1,u^2)$-plane maps to a curvilinear grid on the surface in $\mathbb{R}^3$.
 * The tangent vectors $\sigma_1, \sigma_2$ span the tangent plane at each point.
 * Regularity means these tangent vectors are independent, so the patch is locally non-degenerate.
+
+Here’s a clean transcription of the two blackboards you shared, written in structured Markdown with all details preserved:
+
+---
+
+## 2.3 Transition Maps and Smoothness
+
+**Proposition.** Transition maps between overlapping regular patches are $C^\infty$ (smooth).
+
+* Suppose $\sigma: U \to S$ and $\tilde{\sigma} : \tilde{U} \to S$ are two overlapping patches of a surface $S$.
+* On the overlap region $\sigma(U) \cap \tilde{\sigma}(\tilde{U})$, the transition map is
+$$
+\tilde{\sigma}^{-1} \circ \sigma : U \;\to\; \tilde{U}.
+$$
+* This map is smooth.
+
+**Example (polar coordinates):**
+
+$$
+x = r \cos\theta, \qquad y = r \sin\theta.
+$$
+
+(diagram on board shows overlapping coordinate regions in $\mathbb{R}^2$)
+
+---
+
+### 2.3.1 Smooth Functions on Surfaces
+
+This property of smooth transition maps allows us to define **smoothness for functions on surfaces**.
+
+Let $f: S \to \mathbb{R}$.
+We say $f$ is **smooth** if, for every patch $\sigma: U \to S$,
+
+$$
+f \circ \sigma : U \to \mathbb{R}
+$$
+
+is smooth.
+
+---
+
+### 2.3.2 Smooth Maps Between Surfaces
+
+More generally, if $f: S_1 \to S_2$ is a map between smooth surfaces, then $f$ is **smooth** if for every pair of patches $\sigma: U \to S_1$, $\tilde{\sigma} : \tilde{U} \to S_2$,
+
+$$
+\tilde{\sigma}^{-1} \circ f \circ \sigma : U \to \tilde{U}
+$$
+is smooth.
+
+(diagram on board shows commutative diagram: patches $U,\tilde{U}$ mapping into $S_1,S_2$, with $f$ in between, and composition leading to smoothness condition)
+ 
