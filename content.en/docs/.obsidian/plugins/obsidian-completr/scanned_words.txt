@@ -330,6 +330,9 @@ Curvature
 Chain
 Cross
 Christoffel
+Context
+Conditionals
+Collected
 font
 for
 functions
@@ -701,6 +704,7 @@ fKf
 fxk
 fm
 fg
+factorizations
 color
 curve
 can
@@ -1529,6 +1533,11 @@ curvature
 curvilinear
 clean
 commutative
+chaining
+conditionals
+combinatorially
+chooses
+confused
 Problem
 Partial
 Putting
@@ -1801,6 +1810,7 @@ PKyag
 Positional
 Parametrized
 Proposition
+Perplexity
 In
 Implicit
 Invertibility
@@ -2008,6 +2018,7 @@ ILR
 IuS
 IJK
 Iwm
+Inference
 the
 terms
 that
@@ -2439,6 +2450,7 @@ tXJ
 trailer
 tensor
 transcription
+tractable
 system
 solvability
 such
@@ -3249,6 +3261,11 @@ subspaces
 summation
 signify
 surfaces
+slides
+softmax
+scan
+sharper
+slow
 discuss
 determine
 described
@@ -3791,6 +3808,9 @@ ddx
 dGo
 degraded
 dot
+distributions
+decoders
+decoding
 in
 inverse
 implicit
@@ -4671,6 +4691,7 @@ oKH
 oGt
 oC
 okg
+optionally
 near
 neighborhood
 necessary
@@ -4933,6 +4954,7 @@ nsW
 nLq
 nWg
 noJd
+notebook
 Does
 Determine
 Differentiability
@@ -5148,6 +5170,10 @@ Dex
 DGl
 Decoder
 Differentiating
+Distributions
+Decoding
+Deterministic
+Derivations
 map
 matrix
 mapping
@@ -5615,6 +5641,7 @@ mCOx
 mSS
 masking
 matrices
+matters
 have
 holds
 has
@@ -5852,6 +5879,7 @@ hZN
 hZdZ
 hmn
 hUK
+hypotheses
 local
 limit
 lim
@@ -6152,6 +6180,8 @@ lhZ
 lgk
 lOj
 lFP
+linking
+logits
 Show
 Sufficient
 Substitute
@@ -6479,6 +6509,10 @@ Surfaces
 Smooth
 Sketches
 Smoothness
+Scope
+Sequences
+Sampling
+Stop
 equations
 equation
 exists
@@ -7014,6 +7048,8 @@ egs
 ecn
 extra
 easier
+entropy
+estimator
 whether
 written
 which
@@ -7576,6 +7612,8 @@ bMF
 bü
 blend
 blackboards
+branching
+bland
 allow
 and
 as
@@ -8211,6 +8249,13 @@ arc
 admits
 acceleration
 atlas
+autoregressive
+anomaly
+audio
+average
+argmax
+accelerations
+amortized
 you
 yields
 yF
@@ -8491,6 +8536,9 @@ NeO
 Nmc
 NZ
 NmZkIcF
+Nucleus
+NLL
+Normalizing
 Recall
 Rigorous
 Respect
@@ -8712,6 +8760,7 @@ Removing
 Residual
 Rule
 Regularity
+Random
 requirement
 respect
 rule
@@ -9247,6 +9296,11 @@ rIgl
 rQW
 relied
 reparametrization
+recap
+raster
+rescale
+restrict
+renormalize
 partials
 partial
 point
@@ -9906,6 +9960,13 @@ parametrization
 parameterization
 parametrized
 patch
+portions
+prefix
+parametrizes
+predictability
+perplexity
+perplexed
+parameterized
 Ex
 Evaluate
 Evaluating
@@ -10532,6 +10593,9 @@ TZ
 Ts
 Tgt
 Transition
+Temperature
+Trade
+Token
 Hence
 Here
 Hypotheses
@@ -10917,6 +10981,8 @@ BFce
 BEXK
 Bahdanau
 Blackboard
+Beam
+Bits
 Function
 For
 FT
@@ -11125,6 +11191,7 @@ Fww
 Fwl
 FNW
 Feed
+Families
 Jacobian
 Jobcobian
 John
@@ -11241,6 +11308,7 @@ JVx
 JmJ
 Jml
 JAo
+Joint
 At
 And
 Again
@@ -11494,6 +11562,8 @@ Awb
 Architecture
 Allows
 Arc
+Autoregressive
+Attractive
 via
 variables
 view
@@ -12423,6 +12493,10 @@ Mwgq
 Mwi
 Multiply
 Maps
+Multivariate
+MLE
+Minimal
+Minimization
 Using
 Up
 Ut
@@ -12991,6 +13065,8 @@ LDz
 Lpq
 Lknwa
 LBA
+Likelihood
+Leibler
 Value
 Verifying
 Verify
@@ -13130,6 +13206,7 @@ Vv
 Vwd
 VRC
 Vectors
+VAEs
 Yes
 You
 YX
@@ -13379,6 +13456,7 @@ kzc
 kb
 kEp
 kKS
+keeps
 One
 Olympo
 Oculis
@@ -13549,6 +13627,7 @@ OUU
 Oix
 OlP
 Orthogonality
+Output
 Given
 Get
 Guessing
@@ -13745,6 +13824,10 @@ GpS
 GIm
 Gqds
 GaV
+Generic
+Generation
+Greedy
+GRUs
 xF
 xxii
 xmp
@@ -14254,6 +14337,7 @@ KrCz
 KXG
 KUX
 Kymm
+Kullback
 ZH
 ZCjHR
 ZY
