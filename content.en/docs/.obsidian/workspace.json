@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数学/Machine Learning/自回归模型（Autoregressive模型） 2.md",
+                "file": "数学/Differential Geometry/Lecture 3 Tangent Vectors on a Surface.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "自回归模型（Autoregressive模型） 2"
+              "title": "Lecture 3 Tangent Vectors on a Surface"
             }
           }
         ]
@@ -151,13 +151,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数学/Machine Learning/自回归模型（Autoregressive模型） 2.md",
+                "file": "数学/Differential Geometry/Lecture 3 Tangent Vectors on a Surface.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 自回归模型（Autoregressive模型） 2"
+              "title": "Outline of Lecture 3 Tangent Vectors on a Surface"
             }
           }
         ],
@@ -186,10 +186,11 @@
   },
   "active": "1e5141ce25141718",
   "lastOpenFiles": [
-    "数学/Machine Learning/自回归模型（Autoregressive模型）.md",
-    "数学/Machine Learning/自回归模型（Autoregressive模型） 2.md",
-    "数学/Machine Learning/_index.md",
     "数学/Differential Geometry/Lecture 2.md",
+    "数学/Differential Geometry/Lecture 3 Tangent Vectors on a Surface.md",
+    "数学/Machine Learning/自回归模型（Autoregressive模型） 2.md",
+    "数学/Machine Learning/自回归模型（Autoregressive模型）.md",
+    "数学/Machine Learning/_index.md",
     "2025-09-02.md",
     "数学/MATH 351 & 352/Heat Equation/Heat Equation Solution.md",
     "Main Plug-in.md",
@@ -220,7 +221,6 @@
     "GPT Conversion.md",
     "image-1.png",
     "image.png",
-    "随笔/Sex & Sexuality.md",
     "copilot-custom-prompts",
     "Clippings",
     "数学/拓扑学",
