@@ -460,38 +460,7 @@ Recall&lt;/p></description></item><item><title>The extimate core of understandin
 &lt;li>Use the appropriate environments (&lt;code>tikzpicture&lt;/code>, &lt;code>circuitikz&lt;/code>, &lt;code>tikzcd&lt;/code>, &lt;code>chemfig&lt;/code>, &lt;code>pgfplots&lt;/code>, etc.).&lt;/li>
 &lt;li>Output only the code inside a &lt;strong>plain markdown code block&lt;/strong>, so you can paste it directly into Obsidian.&lt;/li>
 &lt;/ul>
-&lt;p>Here’s the full reusable prompt for you:&lt;/p></description></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/hidden/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/hidden/</guid><description>&lt;h1 id="this-page-is-hidden-in-menu">
- This page is hidden in menu
- &lt;a class="anchor" href="#this-page-is-hidden-in-menu">#&lt;/a>
-&lt;/h1>
-&lt;h1 id="quondam-non-pater-est-dignior-ille-eurotas">
- Quondam non pater est dignior ille Eurotas
- &lt;a class="anchor" href="#quondam-non-pater-est-dignior-ille-eurotas">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="latent-te-facies">
- Latent te facies
- &lt;a class="anchor" href="#latent-te-facies">#&lt;/a>
-&lt;/h2>
-&lt;p>Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus,
-frementes, qui in vel. Hippotades Peleus 
- &lt;a href="http://gratia.net/tot-qua.php">pennas
-conscia&lt;/a> cuiquam Caeneus quas.&lt;/p>
-&lt;ul>
-&lt;li>Pater demittere evincitque reddunt&lt;/li>
-&lt;li>Maxime adhuc pressit huc Danaas quid freta&lt;/li>
-&lt;li>Soror ego&lt;/li>
-&lt;li>Luctus linguam saxa ultroque prior Tatiumque inquit&lt;/li>
-&lt;li>Saepe liquitur subita superata dederat Anius sudor&lt;/li>
-&lt;/ul>
-&lt;h2 id="cum-honorum-latona">
- Cum honorum Latona
- &lt;a class="anchor" href="#cum-honorum-latona">#&lt;/a>
-&lt;/h2>
-&lt;p>O fallor 
- &lt;a href="http://www.spectataharundine.org/aquas-relinquit.html">in sustinui
-iussorum&lt;/a> equidem.
-Nymphae operi oris alii fronde parens dumque, in auro ait mox ingenti proxima
-iamdudum maius?&lt;/p></description></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/PDE/Heat-Equation/Heat-Equation-Solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/PDE/Heat-Equation/Heat-Equation-Solution/</guid><description>&lt;h1 id="heat-equation-solution">
+&lt;p>Here’s the full reusable prompt for you:&lt;/p></description></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/PDE/Heat-Equation/Heat-Equation-Solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/PDE/Heat-Equation/Heat-Equation-Solution/</guid><description>&lt;h1 id="heat-equation-solution">
  Heat Equation Solution
  &lt;a class="anchor" href="#heat-equation-solution">#&lt;/a>
 &lt;/h1>
@@ -561,7 +530,7 @@ Since we know that $u_t=ku_{xx}$ , then we know if $u \in U$ for $U \subset \mat
  Solution:
  &lt;a class="anchor" href="#solution">#&lt;/a>
 &lt;/h3>
-&lt;p>Based on approximation theory for finite elements, we can analyze this using the relationship between the solution regularity, the polynomial order, and the expected convergence rate.&lt;/p></description></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/PDE/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/PDE/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</guid><description/></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Probabilistic-Machine-Learning/3.1-Matrix-Calculus/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Probabilistic-Machine-Learning/3.1-Matrix-Calculus/</guid><description/></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/PS/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/PS/</guid><description>&lt;p>I still remember the first time a few lines in a book made me stop and close the cover, just to think. The author was describing topology as “the study of properties that persist through deformation,” but then added almost in passing: form bends, distances stretch, yet structure remains. That sentence unsettled me—in the best way. It shifted my attention from shapes and equations to something more fundamental: the invisible framework that survives transformation. It was the first time I understood that geometry and topology are not just branches of mathematics, but languages for expressing the deeper order that systems cannot shed.&lt;/p></description></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Real-Analysis-II/Homework/Homework-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Real-Analysis-II/Homework/Homework-10/</guid><description>&lt;p>8.6: [1, 3]; Chapter 8: [24, 36, 39]&lt;/p>
+&lt;p>Based on approximation theory for finite elements, we can analyze this using the relationship between the solution regularity, the polynomial order, and the expected convergence rate.&lt;/p></description></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/PDE/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/PDE/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</guid><description/></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Probabilistic-Machine-Learning/3.1-Matrix-Calculus/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Probabilistic-Machine-Learning/3.1-Matrix-Calculus/</guid><description/></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Real-Analysis-II/Homework/Homework-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Real-Analysis-II/Homework/Homework-10/</guid><description>&lt;p>8.6: [1, 3]; Chapter 8: [24, 36, 39]&lt;/p>
 &lt;p>&lt;strong>Problem 8.6.1&lt;/strong> Show that Theorem 8.6.1 can be proved using the methods of Chapter 5 if the $g_n$ are continuous.&lt;/p>
 &lt;p>Theorem 8.6.1 (Lebesgue&amp;rsquo;s Monotone Convergence Theorem) Let $g_n : [0, 1] \to \mathbb{R}$ be a sequence of nonnegative functions such that each improper integral $\int_0^1 g_n(x) dx$ exists and is finite. Suppose that $0 \leq g_{n+1}(x) \leq g_n(x)$
 and that $g_n(x) \to 0$ for each $x \in [0, 1]$. Then $$\lim_{n\to\infty} \int_0^1 g_n(x) dx = 0.$$&lt;/p></description></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Real-Analysis-II/Homework/Homework-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Real-Analysis-II/Homework/Homework-11/</guid><description>&lt;p>HW 11: 9.2: 1, [2], 3, 4; 9.3: [5]; 9.4: 1, [2], 3; 9.5: 1, [2], 3, 4, [5]; Chapter 9: 1, 3, 5(a,b,c, [d]), 7, 10.&lt;/p></description></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Real-Analysis-II/Homework/Homework-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Real-Analysis-II/Homework/Homework-6/</guid><description>&lt;p>7.2: 1, 2, [3,4]; Chapter 7: [4], 5, [6], 9, [12].&lt;/p>
@@ -818,7 +787,7 @@ $$O(h, x_0) = \inf { \sup \left{ h(x) - h(y) : x, y \in U } : U \text{ is a neig
 &lt;p>$$\int_{D_R} e^{-x^2-y^2} dxdy = \int_0^{2\pi} \int_0^R e^{-r^2} r dr d\theta$$&lt;/p>
 &lt;p>$$= \int_0^{2\pi} \left(-\frac{1}{2} e^{-r^2}\right)\bigg|_0^R d\theta = 2\pi \left(\frac{1}{2} - \frac{1}{2}e^{-R^2}\right)$$&lt;/p>
 &lt;p>The boxed result: $$\int_{\mathbb{R}^2} e^{-x^2-y^2} dxdy = \pi$$&lt;/p>
-&lt;p>&lt;strong>Step 2:&lt;/strong> Evaluate $\int_{\mathbb{R}^2} e^{-x^2-y^2} dxdy$ by Fubini&amp;rsquo;s Theorem&lt;/p></description></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/%E6%8B%93%E6%89%91%E5%AD%A6/T-n%E5%88%86%E7%A6%BB%E5%85%AC%E7%90%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/%E6%8B%93%E6%89%91%E5%AD%A6/T-n%E5%88%86%E7%A6%BB%E5%85%AC%E7%90%86/</guid><description>&lt;h3 id="t-n-levels-of-separation-axiom">
+&lt;p>&lt;strong>Step 2:&lt;/strong> Evaluate $\int_{\mathbb{R}^2} e^{-x^2-y^2} dxdy$ by Fubini&amp;rsquo;s Theorem&lt;/p></description></item><item><title/><link>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Topology/T-n%E5%88%86%E7%A6%BB%E5%85%AC%E7%90%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1318/notes/%E7%90%86%E8%AE%BA/Topology/T-n%E5%88%86%E7%A6%BB%E5%85%AC%E7%90%86/</guid><description>&lt;h3 id="t-n-levels-of-separation-axiom">
  T-n Levels of Separation Axiom
  &lt;a class="anchor" href="#t-n-levels-of-separation-axiom">#&lt;/a>
 &lt;/h3>

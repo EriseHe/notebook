@@ -1,3 +1,6 @@
+---
+bookHidden: true
+---
 
 ### T-n Levels of Separation Axiom
 

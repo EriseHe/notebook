@@ -1,6 +1,5 @@
 ---
 bookFlatSection: true
-title: 点集拓扑学基础
+bookCollapseSection: true
 weight: 1
 ---
-
