@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第七章 逆函数和隐函数定理 on 学习笔记</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/</link><description>Recent content in 第七章 逆函数和隐函数定理 on 学习笔记</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 22 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>7.6 莫尔斯引理</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/</link><pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/</guid><description>&lt;h2 id="morse-theory-local-behavior-near-a-critical-point">
+ Morse Theory: Local Behavior Near a Critical Point
+ &lt;a class="anchor" href="#morse-theory-local-behavior-near-a-critical-point">#&lt;/a>
+&lt;/h2>
+&lt;p>Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ and $x_0$ is a critical point $\rightarrow$ one can use $H(x_0)$ to classify critical points.&lt;/p>
+&lt;p>Morse theory: makes this classification &lt;strong>more precise.&lt;/strong>&lt;/p>
+&lt;h3 id="morse-lemma">
+ Morse Lemma
+ &lt;a class="anchor" href="#morse-lemma">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>[!lemma|*]
+Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ with critical point $x_0 \in A$. If $H(x_0)$ is &lt;strong>non-degenerate&lt;/strong>, then there exists a neighborhood of $x_0$ and a diffeomorphism $g$ such that the function $f \circ g$ has the form:
+$$f \circ g(y) = f(x_0) + \sum_{i=1}^{\lambda} -y_i^2 + \sum_{i=\lambda+1}^n y_i^2$$
+where $\lambda$ is an integer called the &lt;strong>index&lt;/strong> of $f$ at $x_0$.&lt;/p></description></item><item><title>7.1 反函数定理</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/</guid><description>&lt;h1 id="71-inverse-function-theorem-ift">
+ 7.1 Inverse Function Theorem (IFT)
+ &lt;a class="anchor" href="#71-inverse-function-theorem-ift">#&lt;/a>
+&lt;/h1>
+&lt;p>Two lines of ideas:&lt;/p>
+&lt;p>&lt;strong>A&lt;/strong>: CMP $⇒$ Inverse FT $⇒$ Applications in ODE&lt;br>
+&lt;strong>B&lt;/strong>: IFT $⇒$ Implicit FT $⇒$ Local behavior, extreme problems&lt;/p>
+&lt;h2 id="i-inverse-function-theorem">
+ I. Inverse Function Theorem
+ &lt;a class="anchor" href="#i-inverse-function-theorem">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="1-linear-case">
+ 1. Linear Case
+ &lt;a class="anchor" href="#1-linear-case">#&lt;/a>
+&lt;/h3>
+&lt;p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.&lt;/p>
+&lt;p>$$
+x = (x_1, x_2, \dots, x_n)^T
+$$&lt;/p>
+&lt;p>Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p></description></item><item><title>7.1.1 反函数定理（证明）</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/</guid><description>&lt;h1 id="71-implicit-function-theorem-ift-proof">
+ 7.1* Implicit Function Theorem (IFT) Proof
+ &lt;a class="anchor" href="#71-implicit-function-theorem-ift-proof">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="1-recall-ift">
+ 1. Recall IFT
+ &lt;a class="anchor" href="#1-recall-ift">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>Theorem 7.1.1:&lt;/strong> Let $y = f(x): A \subset \mathbb{R}^n \to \mathbb{R}^n$ be of class $C^1$. Suppose $x_0 \in A$ with:
+$$
+J_f(x_0) = \det(Df(x_0)) \ne 0
+$$
+Then there exist neighborhoods $U$ of $x_0$ in $A$ and $W$ of $y_0 = f(x_0)$ such that:&lt;/p>
+&lt;ol>
+&lt;li>$f(U) = W$ and $f: U \to W$ has an inverse $f^{-1}: W \to U$.&lt;/li>
+&lt;li>$f^{-1} \in C^1$ (If $f \in C^r$, then $f^{-1} \in C^r$).&lt;/li>
+&lt;li>$Df^{-1}(y) = [Df(x)]^{-1}$ for $x \in U$ and $y = f(x)$.&lt;/li>
+&lt;/ol>
+&lt;h2 id="2-proof-of-theorem-711">
+ 2. Proof of Theorem 7.1.1
+ &lt;a class="anchor" href="#2-proof-of-theorem-711">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="step-1-reduction">
+ Step 1: Reduction
+ &lt;a class="anchor" href="#step-1-reduction">#&lt;/a>
+&lt;/h3>
+&lt;p>We may assume $Df(x_0) = I$ and $x_0 = 0$, $y_0 = f(x_0)$.&lt;/p></description></item><item><title>7.2 隐函数定理</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/</guid><description>&lt;p>111&lt;/p></description></item></channel></rss>
