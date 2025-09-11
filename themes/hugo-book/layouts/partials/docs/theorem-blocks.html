@@ -7,7 +7,7 @@
       const firstParagraph = blockquote.querySelector('p');
       if (!firstParagraph) return;
       
-      const text = firstParagraph.innerHTML || '';
+      const text = firstParagraph.textContent || '';
       
       // More flexible pattern matching for theorem types with optional numbering
       // Match patterns like [!theorem|*] or [!theorem|7.1.1]
@@ -15,7 +15,7 @@
       for (const type of ['definition', 'proposition', 'lemma', 'theorem', 'assumption', 'claim']) {
         // Accept optional inline title after the marker, e.g.:
         // > [!definition|1.1] regular curve
-        const regex = new RegExp(`^\\s*\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
+        const regex = new RegExp(`^\\s*\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]\\s*`, 'i');
         const match = text.match(regex);
         
         if (match) {
@@ -24,15 +24,24 @@
           // Determine if we have a number or just a wildcard
           const hasNumber = match[1] !== '*';
           const number = hasNumber ? match[1] : '';
-          // Extract only the remainder of the first visual line (before first <br>) as subtitle
-          const html = firstParagraph.innerHTML || '';
-          const parts = html.split(/<br\s*\/?\s*>/i); // split by first soft line break
-          const headerLine = (parts[0] || '');
-          const afterHeader = parts.slice(1).join('<br>');
-          // Remove HTML tags to get plain text for subtitle extraction
-          const headerPlain = headerLine.replace(/<[^>]*>/g, '');
-          const subMatch = headerPlain.replace(regex, '').trim();
-          const subtitle = subMatch;
+          // Substring after marker in raw text
+          const afterMarker = text.replace(regex, '');
+          // Heuristic: take subtitle as the shortest of (
+          //   up to first punctuation .,;: — ( , up to the first " is/are ",
+          //   or 48 chars max, trimmed to word boundary)
+          let cut = afterMarker.length;
+          const candidates = [];
+          const pushIdx = (i) => { if (i > 0) candidates.push(i); };
+          pushIdx(afterMarker.search(/[\.;:—–\(]/));
+          const isIdx = afterMarker.search(/\s(is|are)\s/i); pushIdx(isIdx);
+          const twoSpace = afterMarker.search(/\s{2,}/); pushIdx(twoSpace);
+          if (candidates.length) cut = Math.min(...candidates);
+          if (!candidates.length && afterMarker.length > 48) {
+            const slice = afterMarker.slice(0, 48);
+            const lastSpace = slice.lastIndexOf(' ');
+            cut = lastSpace > 0 ? lastSpace : 48;
+          }
+          const subtitle = afterMarker.slice(0, cut).trim();
           
           // Skip if already processed
           if (blockquote.classList.contains('math-theorem')) {
@@ -69,17 +78,13 @@
           content.className = 'theorem-content';
           blockquote.appendChild(content);
           
-          // Add all children back to the content div, but remove marker (and header line) from the first paragraph
+          // Add all children back to the content div, but remove marker + subtitle from the first paragraph (text-only safe approach)
           childNodes.forEach(function(node) {
             let toAppend = node.cloneNode(true);
             if (node === firstParagraph && toAppend.nodeType === 1) {
-              // If there was a <br>, drop everything before it (the header line)
-              if (afterHeader) {
-                toAppend.innerHTML = afterHeader;
-              } else {
-                // No <br> present: just strip the marker token
-                toAppend.innerHTML = (toAppend.innerHTML || '').replace(regex, '').trim();
-              }
+              const originalText = toAppend.textContent || '';
+              const remainder = originalText.replace(regex, '').slice(subtitle.length).trimStart();
+              toAppend.textContent = remainder;
             }
             content.appendChild(toAppend);
           });
