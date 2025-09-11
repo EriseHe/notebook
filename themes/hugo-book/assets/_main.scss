@@ -156,14 +156,13 @@ input.toggle:checked + label + ul {
 }
 
 input.toggle + label::after {
-    content: "▸"; // Collapsed icon
-    transition: transform 0.3s ease-in-out;
-    display: inline-block;
+    content: ""; // Remove triangle icon
+    display: none; // Hide completely
 }
 
 input.toggle:checked + label::after {
-    content: "▾"; // Expanded icon
-    transform: rotate(0deg); // Ensures smooth visual change
+    content: ""; // Remove triangle icon  
+    display: none; // Hide completely
 }
 
 
@@ -173,11 +172,13 @@ input.toggle:checked + label::after {
 body[dir="rtl"] .book-menu {
 
   input.toggle + label::after {
-    content: "◂";
+    content: ""; // Remove triangle icon
+    display: none; // Hide completely
   }
 
   input.toggle:checked + label::after {
-    content: "▾";
+    content: ""; // Remove triangle icon
+    display: none; // Hide completely
   }
 }
 
@@ -190,9 +191,9 @@ body[dir="rtl"] .book-menu {
     content: "";
     position: absolute;
     top: -$padding-8;
-    left: -$padding-8;
-    right: -$padding-8;
-    bottom: -$padding-8;
+    left: -$padding-16 * 1.01; /* Wider left extension */
+    right: -$padding-16 * 1.01; /* Wider right extension */
+    bottom: 0;
     background-color: transparent;
     opacity: 0.5;
     border-radius: 12px;
