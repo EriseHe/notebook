@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>量子力学讲义 on 学习笔记</title><link>http://localhost:1313/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/</link><description>Recent content in 量子力学讲义 on 学习笔记</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 05 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1313/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</link><pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid><description>&lt;h2 id="0-review">
+ 0. Review
+ &lt;a class="anchor" href="#0-review">#&lt;/a>
+&lt;/h2>
+&lt;p>$$
+\hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x+V(x)
+$$
+Stationary States
+$$
+\Psi(x,t)=\psi(x)e^{-iEt/\hbar}
+$$
+Eigenvalue equation:
+$$\hat{H}\psi(x) = E\psi(x)$$
+In newtonian mechanics, note
+$$F(x)=-\frac{ \partial V(x) }{ \partial x } $$&lt;/p>
+&lt;h2 id="1-infinite-finite-well-particle-on-a-box">
+ 1. Infinite Finite Well (particle on a box)
+ &lt;a class="anchor" href="#1-infinite-finite-well-particle-on-a-box">#&lt;/a>
+&lt;/h2>
+&lt;p>$$E = \frac{p^{2}}{2m}$$&lt;/p>
+&lt;blockquote>
+&lt;p>knowing $E$ results in knowing momentum $p^{2}$&lt;/p>&lt;/blockquote>
+&lt;p>Problem Set-up
+Between $x=0$, and $x=a$,
+$$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$
+Subject to &amp;ldquo;boundary condition&amp;rdquo;: $\Psi(0)=\Psi(a)=0$
+$$
+\begin{align}
+\frac{d^{2}\Psi}{dx} &amp;amp; =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \
+&amp;amp; =-k^{2}\Psi
+\end{align}
+$$
+Recall&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Homework/HW3-Code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Homework/HW3-Code/</guid><description>&lt;p>import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+import matplotlib.pyplot as plt&lt;/p>
+&lt;p>def computation():
+#parameters
+N, V0_tilde, L = 600, 10.0, 1.0
+M, dx = N - 2, L / (N - 1)
+x_vals = np.linspace(-0.5 * L + dx, 0.5 * L - dx, M) # Interior points&lt;/p>
+&lt;pre>&lt;code># KE matrix T (tridiagonal)
+factor = (N**2) / (np.pi**2)
+T = sp.diags([np.full(M - 1, -factor), np.full(M, 2 * factor), np.full(M - 1, -factor)], [-1, 0, 1])
+
+# PE matrix V (diagonal)
+V = sp.diags(np.where(np.abs(x_vals) &amp;lt; (L / 6), V0_tilde, 0))
+
+#Hamiltonian H = T + V
+H = T + V
+
+#solve for lowest two eigenvalues/eigenvectors
+eigvals, eigvecs = spla.eigsh(H, k=2, which='SM')
+eigvals, eigvecs = zip(*sorted(zip(eigvals, eigvecs.T))) # Sort eigenvalues &amp;amp; vectors
+
+print(f&amp;quot;Ground state energy = {eigvals[0]}&amp;quot;)
+print(f&amp;quot;1st excited energy = {eigvals[1]}&amp;quot;)
+
+#include boundary points
+x_full = np.linspace(-0.5 * L, 0.5 * L, N)
+psi_full = [np.concatenate(([0], psi, [0])) for psi in eigvecs]
+
+# Plot wavefunctions
+plt.figure(figsize=(8,6))
+plt.plot(x_full, psi_full[0], color='red',label=&amp;quot;Ground State&amp;quot;)
+plt.plot(x_full, psi_full[1], color='blue', label=&amp;quot;1st Excited State&amp;quot;)
+plt.axvspan(-L/6, L/6, color='gray', alpha=0.1, label='Barrier region')
+plt.title(&amp;quot;Wavefunctions for lowest two states&amp;quot;)
+plt.xlabel(&amp;quot;x (dimensionless)&amp;quot;)
+plt.ylabel(&amp;quot;ψ(x)&amp;quot;)
+plt.legend()
+plt.grid()
+plt.show()
+&lt;/code>&lt;/pre>
+&lt;p>if &lt;strong>name&lt;/strong> == &amp;ldquo;&lt;strong>main&lt;/strong>&amp;rdquo;:
+computation()&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/</guid><description>&lt;h1 id="standard-quantum-models-infinite-well-finite-well-delta-potential-free-particle-and-harmonic-oscillator">
+ Standard Quantum Models: Infinite Well, Finite Well, Delta Potential, Free Particle, and Harmonic Oscillator
+ &lt;a class="anchor" href="#standard-quantum-models-infinite-well-finite-well-delta-potential-free-particle-and-harmonic-oscillator">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;strong>Introduction:&lt;/strong> Chapter 2 of Griffiths’ &lt;em>Introduction to Quantum Mechanics (3rd Ed.)&lt;/em> introduces several fundamental one-dimensional quantum models. These include the &lt;strong>infinite square well&lt;/strong> (an idealized particle-in-a-box), the &lt;strong>finite square well&lt;/strong> (a box with finite walls allowing tunneling), the &lt;strong>delta-function potential&lt;/strong> (an extremely narrow attractive well), the &lt;strong>free particle&lt;/strong> (no potential at all), and the &lt;strong>harmonic oscillator&lt;/strong> (a particle in a parabolic potential). These models build on one another logically. We begin with the infinite well as a baseline, then generalize to finite wells. In the limit of a very narrow deep finite well we obtain the delta-function potential, and if we remove the confining walls we recover the free particle as a special case. Finally, we discuss the harmonic oscillator as a separate class of smoothly varying potential. Each section below provides a conceptual explanation, the physical setup and assumptions, key equations with boundary conditions, a step-by-step problem-solving workflow, and a standard example with results. The notation follows Griffiths’ textbook conventions for consistency. By studying these models, one gains practical problem-solving skills and exam readiness in solving the time-independent Schrödinger equation for various potentials.&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/%E6%B3%A2%E5%87%BD%E6%95%B0%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%9C%A8Hilbert%E7%A9%BA%E9%97%B4%E4%B8%AD/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/%E6%B3%A2%E5%87%BD%E6%95%B0%E5%AD%98%E5%9C%A8%E4%BA%8E%E5%9C%A8Hilbert%E7%A9%BA%E9%97%B4%E4%B8%AD/</guid><description>&lt;h2 id="hilbert-space">
+ Hilbert Space
+ &lt;a class="anchor" href="#hilbert-space">#&lt;/a>
+&lt;/h2>
+&lt;p>Infinite dimensional &lt;strong>vector space&lt;/strong>, denoted as $L^2(a,b)$, of &lt;strong>square-integrable functions&lt;/strong> on an interval $[a,b]$.
+$$\int_a^b |f(x)|^2 , dx &amp;lt; \infty$$
+Inner product defined as:
+$$\langle f | g \rangle = \int_a^b f^&lt;em>(x)g(x) , dx$$
+Note that:
+$$\langle f | g \rangle = \langle g | f \rangle^&lt;/em>$$
+$$\langle f | f \rangle = \int_a^b |f(x)|^2 , dx \geq 0$$
+Also:
+$$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]$$&lt;/p></description></item></channel></rss>

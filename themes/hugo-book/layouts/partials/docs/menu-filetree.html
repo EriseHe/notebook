@@ -3,22 +3,22 @@
 <nav class="subject-menu">
   <!-- The tab buttons -->
   <div class="subject-tabs">
-    <button class="subject-tab active" data-subject="mathematics">Mathematics</button>
-    <button class="subject-tab" data-subject="physics">Physics</button>
+    <button class="subject-tab active" data-subject="数学">数学</button>
+    <button class="subject-tab" data-subject="物理">物理</button>
   </div>
 
   <!-- Tab panels for each subject -->
   <div class="subject-content">
     <!-- Mathematics panel (visible by default) -->
-    <div class="subject-panel" data-subject="mathematics">
-      {{ with .Site.GetPage "docs/mathematics" }}
+    <div class="subject-panel" data-subject="数学">
+      {{ with .Site.GetPage "docs/数学" }}
         {{ template "book-section-children" (dict "Section" . "CurrentPage" $thisPage) }}
       {{ end }}
     </div>
 
     <!-- Physics panel (hidden by default) -->
-    <div class="subject-panel hidden" data-subject="physics">
-      {{ with .Site.GetPage "docs/physics" }}
+    <div class="subject-panel hidden" data-subject="物理">
+      {{ with .Site.GetPage "docs/物理" }}
         {{ template "book-section-children" (dict "Section" . "CurrentPage" $thisPage) }}
       {{ end }}
     </div>
@@ -84,16 +84,39 @@
 
 {{ define "book-section-children" }}
   {{ $cp := .CurrentPage }}
+  {{ $children := where .Section.Pages "Params.bookHidden" "ne" true }}
+  {{ $items := slice }}
+  {{ range $children }}
+    {{ $p := . }}
+    {{ $order := 999999 }}
+    {{ with $p.Params.weight }}{{ $order = . }}{{ end }}
+    {{ if eq $order 999999 }}
+      {{ with $p.Params.lecture }}{{ $order = (int .) }}{{ end }}
+    {{ end }}
+    {{ if eq $order 999999 }}
+      {{ $bn := "" }}
+      {{ with $p.File }}{{ $bn = .BaseFileName }}{{ end }}
+      {{ $m := findRE `^([0-9]+)` $bn }}
+      {{ if gt (len $m) 0 }}
+        {{ $order = (int (index $m 0)) }}
+      {{ end }}
+    {{ end }}
+    {{ $name := partial "docs/title" $p }}
+    {{ $key := printf "%08d-%s" $order $name }}
+    {{ $items = $items | append (dict "page" $p "key" $key) }}
+  {{ end }}
+
   <ul>
-    {{ range (where .Section.Pages "Params.bookHidden" "ne" true) }}
-      {{ if .IsSection }}
-        <li {{ if .Params.BookFlatSection }}class="book-section-flat"{{ end }}>
-          {{ template "book-page-link" (dict "Page" . "CurrentPage" $cp) }}
-          {{ template "book-section-children" (dict "Section" . "CurrentPage" $cp) }}
+    {{ range (sort $items "key") }}
+      {{ $p := .page }}
+      {{ if $p.IsSection }}
+        <li {{ if $p.Params.BookFlatSection }}class="book-section-flat"{{ end }}>
+          {{ template "book-page-link" (dict "Page" $p "CurrentPage" $cp) }}
+          {{ template "book-section-children" (dict "Section" $p "CurrentPage" $cp) }}
         </li>
-      {{ else if and .IsPage .Content }}
+      {{ else if and $p.IsPage $p.Content }}
         <li>
-          {{ template "book-page-link" (dict "Page" . "CurrentPage" $cp) }}
+          {{ template "book-page-link" (dict "Page" $p "CurrentPage" $cp) }}
         </li>
       {{ end }}
     {{ end }}

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>微分几何 on 学习笔记</title><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/</link><description>Recent content in 微分几何 on 学习笔记</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Tangent-Vectors-on-a-Surface/</link><pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Tangent-Vectors-on-a-Surface/</guid><description>&lt;h1 id="0-recap-from-last-lecture">
+ 0. Recap from Last lecture
+ &lt;a class="anchor" href="#0-recap-from-last-lecture">#&lt;/a>
+&lt;/h1>
+&lt;h3 id="slide-1---2">
+ Slide 1 - 2
+ &lt;a class="anchor" href="#slide-1---2">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;strong>Definition.&lt;/strong> A &lt;em>tangent vector&lt;/em> to a smooth surface $S$ at $p\in S$
+is a linear map
+$$
+X: C^\infty(S)\to\mathbb{R}\qquad\text{(based at }p\text{)},
+$$
+meaning:&lt;/p>
+&lt;ol>
+&lt;li>$Xf = Xg$ if $f$ and $g$ agree on a neighbourhood of $p$.
+&lt;em>(So $X$ depends only on the germ of a function at $p$, not on values away from $p$.)&lt;/em>&lt;/li>
+&lt;li>$X(fg) = f(p),X(g) + g(p),X(f)$.
+&lt;em>(Leibniz / derivation rule at $p$.)&lt;/em>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;em>(Intuition: a tangent vector acts like a directional derivative at the point $p$; it is a derivation on smooth functions.)&lt;/em>&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</guid><description>&lt;h2 id="1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">
+ 1. Parametrized curves in $\mathbb{R}^3$ (plane curves as a special case)
+ &lt;a class="anchor" href="#1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>[!definition|1.1] regular curve
+A (smooth) curve is a $C^\infty$ map $\gamma:I\subset\mathbb{R}\to\mathbb{R}^3$.&lt;br>
+It is &lt;strong>regular&lt;/strong> if $\dot{\gamma}(t)\neq 0$ for all $t\in I$ (here $\dot{\gamma}=\dfrac{d\gamma}{dt}$ is the &lt;strong>velocity&lt;/strong>).&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>[!definition|1.2] arclength function
+Fix $t_0\in I$. The arclength from $t_0$ to $t$ is
+$$
+s(t)=\int_{t_0}^{t}|\dot{\gamma}(\tau)|,d\tau.
+$$&lt;/p>&lt;/blockquote>
+&lt;p>From the Fundamental Theorem of Calculus,
+$$
+\frac{ds}{dt}=|\dot{\gamma}(t)| \quad\text{(speed)}&amp;gt;0\ \text{for regular curves}.
+$$
+Hence, by the Inverse Function Theorem, $s(t)$ admits a smooth local inverse $t=t(s)$.&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Lecture-2-ACTUAL/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Lecture-2-ACTUAL/</guid><description>&lt;h1 id="parametrized-curves-in-mathbbr3">
+ Parametrized Curves in $\mathbb{R}^3$
+ &lt;a class="anchor" href="#parametrized-curves-in-mathbbr3">#&lt;/a>
+&lt;/h1>
+&lt;p>Let $I\subset \mathbb{R}$ be an open interval. A &lt;strong>(smooth) curve&lt;/strong> is a map
+$$
+\gamma:I\to\mathbb{R}^3,\qquad \gamma\in C^\infty,
+$$
+Therefore, $\gamma(t)$ is a &lt;em>parametrization&lt;/em>, as the position of a moving point in space at time $t$, that is:
+$$t \mapsto \gamma(t)=(x(t), y(t), z(t))$$
+We write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its &lt;strong>velocity&lt;/strong>.&lt;/p>
+&lt;div class="code-block">
+ &lt;pre>
+&lt;code>\begin{document}
+\begin{tikzpicture}[line cap=round,line join=round,>=stealth,thick,scale=2.5]
+ % curve with arrowhead at the end
+ \draw[->] plot[smooth, tension=0.8] coordinates {(0,0.2) (1.2,0.8) (2.6,0.3) (4.0,0.7)};
+ % marked point on the curve
+ \fill[black] (1.2,0.8) circle (0.7pt);
+ \draw (1.2,0.8) circle (0.4pt);
+ % tangent/velocity arrow starting at the marked point
+ \draw[->] (1.2,0.8) -- (2.1,0.8);
+ % labels
+ \node[above] at (2.15,0.9) {\large $\dot{\gamma}$};
+ \node[right] at (2.4,1) {\large (velocity)};
+\end{tikzpicture}
+\end{document}&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;blockquote>
+&lt;p>[!definition|1.1] regular curve
+$\gamma$ is &lt;strong>regular&lt;/strong> if
+$$
+\dot\gamma(t)\neq 0 \quad\text{for all } t\in I.
+$$&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/</link><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/</guid><description>&lt;h2 id="1-from-calculus-to-manifolds">
+ 1. From Calculus to Manifolds
+ &lt;a class="anchor" href="#1-from-calculus-to-manifolds">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>In multivariable calculus we study &lt;strong>parametrized surfaces&lt;/strong> $X: U \subset \mathbb{R}^2 \to \mathbb{R}^3$.&lt;/li>
+&lt;li>A parametrization is &lt;strong>regular&lt;/strong> if the tangent vectors $X_u=\partial_u X$ and $X_v=\partial_v X$ are linearly independent at each point (so $dX$ has rank $2$).&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!definition|1.1] Smooth manifold
+A $2$–manifold (surface) is a space that can be covered by coordinate patches ${(U_\alpha,\varphi_\alpha)}$ with homeomorphisms $\varphi_\alpha:U_\alpha\to\mathbb{R}^2$ whose &lt;strong>transition maps&lt;/strong> $\varphi_\beta\circ\varphi_\alpha^{-1}$ are smooth wherever defined.&lt;br>
+Higher–dimensional manifolds are defined similarly with $\mathbb{R}^n$.&lt;/p></description></item></channel></rss>
