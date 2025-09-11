@@ -1,0 +1,13 @@
+{
+  "name": "notebook-build-tools",
+  "private": true,
+  "scripts": {
+    "render-tikz": "node scripts/render-tikz.js",
+    "build": "npm run render-tikz && hugo --minify"
+  },
+  "dependencies": {
+    "puppeteer": "22.10.0"
+  }
+}
+
+
