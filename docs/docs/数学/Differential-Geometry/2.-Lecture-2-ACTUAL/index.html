@@ -51,7 +51,7 @@ $$
 \dot\gamma(t)\neq 0 \quad\text{for all } t\in I.
 $$"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Lecture-2-ACTUAL/"><meta property="og:site_name" content="学习笔记"><meta property="og:title" content="学习笔记"><meta property="og:description" content="Parametrized Curves in $\mathbb{R}^3$ # Let $I\subset \mathbb{R}$ be an open interval. A (smooth) curve is a map $$ \gamma:I\to\mathbb{R}^3,\qquad \gamma\in C^\infty, $$ Therefore, $\gamma(t)$ is a parametrization, as the position of a moving point in space at time $t$, that is: $$t \mapsto \gamma(t)=(x(t), y(t), z(t))$$ We write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its velocity.
 \begin{document} \begin{tikzpicture}[line cap=round,line join=round,&amp;gt;=stealth,thick,scale=2.5] % curve with arrowhead at the end \draw[-&amp;gt;] plot[smooth, tension=0.8] coordinates {(0,0.2) (1.2,0.8) (2.6,0.3) (4.0,0.7)}; % marked point on the curve \fill[black] (1.2,0.8) circle (0.7pt); \draw (1.2,0.8) circle (0.4pt); % tangent/velocity arrow starting at the marked point \draw[-&amp;gt;] (1.2,0.8) -- (2.1,0.8); % labels \node[above] at (2.15,0.9) {\large $\dot{\gamma}$}; \node[right] at (2.4,1) {\large (velocity)}; \end{tikzpicture} \end{document} \begin{document} \begin{tikzpicture}[line cap=round,line join=round,>=stealth,thick,scale=2.5] % curve with arrowhead at the end \draw[->] plot[smooth, tension=0.8] coordinates {(0,0.2) (1.2,0.8) (2.6,0.3) (4.0,0.7)}; % marked point on the curve \fill[black] (1.2,0.8) circle (0.7pt); \draw (1.2,0.8) circle (0.4pt); % tangent/velocity arrow starting at the marked point \draw[->] (1.2,0.8) -- (2.1,0.8); % labels \node[above] at (2.15,0.9) {\large $\dot{\gamma}$}; \node[right] at (2.4,1) {\large (velocity)}; \end{tikzpicture} \end{document} [!definition|1.1] regular curve $\gamma$ is regular if $$ \dot\gamma(t)\neq 0 \quad\text{for all } t\in I. $$"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2025-09-03T00:00:00+00:00"><meta property="article:modified_time" content="2025-09-03T00:00:00+00:00"><title>2. Lecture 2 ( Actual) | 学习笔记</title>
-<link rel=icon href=/notebook/topo.png><link rel=manifest href=/notebook/manifest.json><link rel=canonical href=https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Lecture-2-ACTUAL/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css><link rel=stylesheet href=/notebook/book.min.b3dea21ef7167d137d5c3d91df2df1ae008874baa457a6eb3fa1217af8da3509.css integrity="sha256-s96iHvcWfRN9XD2R3y3xrgCIdLqkV6brP6EhevjaNQk=" crossorigin=anonymous><script defer src=/notebook/fuse.min.js></script><script defer src=/notebook/en.search.min.c8deb4b664c5dc76fcfab3ab32f6540e98d42e4cc0f8adaa83e0d13af569ed59.js integrity="sha256-yN60tmTF3Hb8+rOrMvZUDpjULkzA+K2qg+DROvVp7Vk=" crossorigin=anonymous></script><script defer src=/notebook/sw.min.6d6d6cd5980f9f82f4b196d40b720c7ccec378cd7fb657b73ecdcb888b1dfac7.js integrity="sha256-bW1s1ZgPn4L0sZbUC3IMfM7DeM1/tle3Ps3LiIsd+sc=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<link rel=icon href=/notebook/topo.png><link rel=manifest href=/notebook/manifest.json><link rel=canonical href=https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Lecture-2-ACTUAL/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css><link rel=stylesheet href=/notebook/book.min.b3dea21ef7167d137d5c3d91df2df1ae008874baa457a6eb3fa1217af8da3509.css integrity="sha256-s96iHvcWfRN9XD2R3y3xrgCIdLqkV6brP6EhevjaNQk=" crossorigin=anonymous><script defer src=/notebook/fuse.min.js></script><script defer src=/notebook/en.search.min.f5efbe4cc3404b042dc86ff51e3d6a6b9c5d3c9f07c3b5fcd5085ed2c04c9cf0.js integrity="sha256-9e++TMNASwQtyG/1Hj1qa5xdPJ8Hw7X81Qhe0sBMnPA=" crossorigin=anonymous></script><script defer src=/notebook/sw.min.6d6d6cd5980f9f82f4b196d40b720c7ccec378cd7fb657b73ecdcb888b1dfac7.js integrity="sha256-bW1s1ZgPn4L0sZbUC3IMfM7DeM1/tle3Ps3LiIsd+sc=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class=container><div class=book-layout><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center justify-center" href=https://erisehe.github.io/notebook/><span>学习笔记</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><nav class=subject-menu><div class=subject-tabs><button class="subject-tab active" data-subject=数学>数学</button>
 <button class=subject-tab data-subject=物理>物理</button></div><div class=subject-content><div class=subject-panel data-subject=数学><ul><li class=book-section-flat><span>点集拓扑学基础</span><ul><li><a href=/notebook/docs/%E6%95%B0%E5%AD%A6/%E6%8B%93%E6%89%91%E5%AD%A6/T-n%E5%88%86%E7%A6%BB%E5%85%AC%E7%90%86/>T N分离公理</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-2626c0c7c40e5ba289bbf96779ed7be9 class=toggle checked>
 <label for=section-2626c0c7c40e5ba289bbf96779ed7be9 class="flex justify-between"><a role=button>微分几何</a></label><ul><li><a href=/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/>1. Overview of Differential Geometry</a></li><li><a href=/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Lecture-2-ACTUAL/ class=active>2. Lecture 2 ( Actual)</a></li><li><a href=/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/>2. Parametrized Curves and Surfaces</a></li><li><a href=/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Tangent-Vectors-on-a-Surface/>Tangent Vectors on a Surface</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-6e5f2db787427bb8bccbb3c3eafa6cb6 class=toggle>
@@ -235,27 +235,16 @@ $$'>$$
 \Rightarrow\quad \gamma&rsquo;(s)&\perp \gamma&rsquo;&rsquo;(s).
 \end{aligned}
 $$</p><h3 id=142-chain-rule-for-a-general-parameter>1.4.2 Chain rule for a general parameter
-<a class=anchor href=#142-chain-rule-for-a-general-parameter>#</a></h3><p data-raw='Let $v:=\dfrac{ds}{dt}=|\dot\gamma(t)|$ be the speed. Then
-$$
+<a class=anchor href=#142-chain-rule-for-a-general-parameter>#</a></h3><p data-raw='Let $v:=\dfrac{ds}{dt}=|\dot\gamma(t)|$ be the speed. Then'>Let $v:=\dfrac{ds}{dt}=|\dot\gamma(t)|$ be the speed. Then</p><div>$$
 \begin{aligned}
-\frac{d}{dt}&=v,\frac{d}{ds},\qquad
-\frac{d}{ds}=\frac{1}{v},\frac{d}{dt},\[4pt]
-\frac{d\gamma}{ds}&=\frac{1}{v},\dot\gamma(t),\[4pt]
+\frac{d}{dt}&=v\,\frac{d}{ds},\qquad
+\frac{d}{ds}=\frac{1}{v}\,\frac{d}{dt},\\[4pt]
+\frac{d\gamma}{ds}&=\frac{1}{v}\,\dot\gamma(t),\\[4pt]
 \frac{d^2\gamma}{ds^2}
-&=\frac{1}{v}\frac{d}{dt}!\left(\frac{\dot\gamma}{v}\right)
-=\frac{v,\ddot\gamma-\dot v,\dot\gamma}{v^3}.
+&=\frac{1}{v}\frac{d}{dt}\!\left(\frac{\dot\gamma}{v}\right)
+=\frac{v\,\ddot\gamma-\dot v\,\dot\gamma}{v^3}.
 \end{aligned}
-$$'>Let $v:=\dfrac{ds}{dt}=|\dot\gamma(t)|$ be the speed. Then
-$$
-\begin{aligned}
-\frac{d}{dt}&=v,\frac{d}{ds},\qquad
-\frac{d}{ds}=\frac{1}{v},\frac{d}{dt},\[4pt]
-\frac{d\gamma}{ds}&=\frac{1}{v},\dot\gamma(t),\[4pt]
-\frac{d^2\gamma}{ds^2}
-&=\frac{1}{v}\frac{d}{dt}!\left(\frac{\dot\gamma}{v}\right)
-=\frac{v,\ddot\gamma-\dot v,\dot\gamma}{v^3}.
-\end{aligned}
-$$</p><h3 id=143-general-curvature-formulas>1.4.3 General curvature formulas
+$$</div><h3 id=143-general-curvature-formulas>1.4.3 General curvature formulas
 <a class=anchor href=#143-general-curvature-formulas>#</a></h3><p data-raw='$$
 \boxed{\ \kappa(t)=\left\lVert \frac{d^2\gamma}{ds^2}\right\rVert
 =\frac{\big|,v,\ddot{\gamma}(t)-\dot{v},\dot{\gamma}(t),\big|}{v(t)^3}\ }

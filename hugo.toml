@@ -14,8 +14,6 @@ enableGitInfo = false
   unsafe = true
   # hardWraps left false to avoid inserting <br> inside math blocks
 
-[markup.goldmark.extensions]
-  passthrough = { delimiters = { block = [['$$', '$$']], inline = [['$', '$'], ['\\(', '\\)']] } }
 
 [markup.tableOfContents]
   startLevel = 1
