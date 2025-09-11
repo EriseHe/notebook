@@ -7,7 +7,7 @@
       const firstParagraph = blockquote.querySelector('p');
       if (!firstParagraph) return;
       
-      const text = firstParagraph.innerHTML || '';
+      const text = (firstParagraph.innerText || '').trim();
       
       // More flexible pattern matching for theorem types with optional numbering
       // Match patterns like [!theorem|*] or [!theorem|7.1.1]
@@ -24,9 +24,8 @@
           // Determine if we have a number or just a wildcard
           const hasNumber = match[1] !== '*';
           const number = hasNumber ? match[1] : '';
-          // Extract subtitle: read only the remainder of the firstParagraph text node up to the first real line break
-          // Use textContent to ignore inline math HTML and get plain text
-          const paraPlain = firstParagraph.textContent || '';
+          // Extract subtitle from the first visual line
+          const paraPlain = firstParagraph.innerText || '';
           const headerPlain = paraPlain.split(/\n/)[0];
           const subtitle = headerPlain.replace(markerRe, '').trim();
           
@@ -70,17 +69,15 @@
             let toAppend = node.cloneNode(true);
             if (node === firstParagraph && toAppend.nodeType === 1) {
               // Keep only text after the first real newline in the quoted paragraph
-              const lines = (toAppend.textContent || '').split(/\n/);
+              const lines = (toAppend.innerText || '').split(/\n/);
               if (lines.length > 1) {
                 lines.shift();
                 const rest = lines.join('\n').trim();
-                // Preserve inline HTML by replacing the whole paragraph with a text node containing the rest;
-                // MathJax will typeset later.
                 toAppend.innerHTML = '';
                 toAppend.appendChild(document.createTextNode(rest));
               } else {
                 // Fallback: just strip the marker
-                toAppend.textContent = (toAppend.textContent || '').replace(markerRe, '').trim();
+                toAppend.innerText = (toAppend.innerText || '').replace(markerRe, '').trim();
               }
             }
             content.appendChild(toAppend);

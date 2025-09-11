@@ -76,16 +76,16 @@
  &lt;a class="anchor" href="#formula-derivation">#&lt;/a>
 &lt;/h2>
 &lt;center>The derivative approximation:&lt;/center>
-&lt;p>$$&lt;br>
-\begin{aligned}&lt;br>
-f(t_i, u_i) &amp;amp;= \frac{dy}{dt} \Big|&lt;em>{t_i} \approx \frac{y(t&lt;/em>{i+1}) - y(t_{i-1})}{2\Delta t} + \mathcal{O}(\Delta t^2)&lt;br>
-\end{aligned}&lt;br>
+&lt;p>$$
+\begin{aligned}
+f(t_i, u_i) &amp;amp;= \frac{dy}{dt} \Big|&lt;em>{t_i} \approx \frac{y(t&lt;/em>{i+1}) - y(t_{i-1})}{2\Delta t} + \mathcal{O}(\Delta t^2)
+\end{aligned}
 $$&lt;/p>
 &lt;p>Update formula:&lt;/p>
-&lt;p>$$&lt;br>
-\begin{aligned}&lt;br>
-u_{i+1} &amp;amp;= u_{i-1} + 2\Delta t f(t_i, u_i)&lt;br>
-\end{aligned}&lt;br>
+&lt;p>$$
+\begin{aligned}
+u_{i+1} &amp;amp;= u_{i-1} + 2\Delta t f(t_i, u_i)
+\end{aligned}
 $$&lt;/p>
 &lt;hr>
 &lt;h3 id="initial-conditions">
@@ -94,21 +94,21 @@ $$&lt;/p>
 &lt;/h3>
 &lt;ol>
 &lt;li>
-&lt;p>&lt;strong>Initial Condition Calculation&lt;/strong>:&lt;br>
-Given $y_0$&lt;br>
-$$&lt;br>
-\begin{aligned}&lt;br>
-u_2 &amp;amp;= y_0 + 2\Delta t f(t_1, u_1)&lt;br>
-\end{aligned}&lt;br>
+&lt;p>&lt;strong>Initial Condition Calculation&lt;/strong>:
+Given $y_0$
+$$
+\begin{aligned}
+u_2 &amp;amp;= y_0 + 2\Delta t f(t_1, u_1)
+\end{aligned}
 $$&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Predictor-Corrector Steps&lt;/strong>:&lt;/p>
-&lt;p>$$&lt;br>
-\begin{aligned}&lt;br>
-u_1^* &amp;amp;= y_0 + \Delta t f(t_0, y_0), \&lt;br>
-u_1 &amp;amp;= y_0 + \frac{\Delta t}{2} (f(t_0, y_0) + f(t_1, u_1^*))&lt;br>
-\end{aligned}&lt;br>
+&lt;p>$$
+\begin{aligned}
+u_1^* &amp;amp;= y_0 + \Delta t f(t_0, y_0), \
+u_1 &amp;amp;= y_0 + \frac{\Delta t}{2} (f(t_0, y_0) + f(t_1, u_1^*))
+\end{aligned}
 $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/posts/Integrate-DeepL-Translation-Instruction/</link><pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/posts/Integrate-DeepL-Translation-Instruction/</guid><description>&lt;h3 id="1-install-r-and-babeldown">
  1. Install R and Babeldown
  &lt;a class="anchor" href="#1-install-r-and-babeldown">#&lt;/a>
@@ -145,36 +145,36 @@ $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/note
  &lt;a class="anchor" href="#1-ok-honestly-i-have-no-idea-where-he-started">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>MATH 212 is useless&lt;br>
+&lt;p>MATH 212 is useless
 - Alessandro Veneziani&lt;/p>&lt;/blockquote>
 &lt;p>Given the population problem #Implicit:&lt;/p>
 &lt;h2 id="heading">
- $$&lt;br>
-\dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y&lt;br>
+ $$
+\dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y
 $$
  &lt;a class="anchor" href="#heading">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;strong>Numerically&lt;/strong>, the problem is:&lt;br>
-$$&lt;br>
-\frac{u_{i+1} - u_i}{\Delta t} = A \left(1 - \frac{u_{i+1}}{B} \right) u_{i+1}&lt;br>
-$$&lt;br>
-To solve this numerically, we rewrite the equation:&lt;br>
-$$&lt;br>
-\begin{align}&lt;br>
-x - u_i &amp;amp;= A \left(1 - \frac{x}{B} \right) x \&lt;br>
-&amp;amp;= A x - \frac{A}{B} x^2&lt;br>
-\end{align}&lt;br>
+&lt;p>&lt;strong>Numerically&lt;/strong>, the problem is:
+$$
+\frac{u_{i+1} - u_i}{\Delta t} = A \left(1 - \frac{u_{i+1}}{B} \right) u_{i+1}
+$$
+To solve this numerically, we rewrite the equation:
+$$
+\begin{align}
+x - u_i &amp;amp;= A \left(1 - \frac{x}{B} \right) x \
+&amp;amp;= A x - \frac{A}{B} x^2
+\end{align}
 $$&lt;/p></description></item><item><title>常微分方程的数值解</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/</guid><description>&lt;h2 id="introduction">
  Introduction
  &lt;a class="anchor" href="#introduction">#&lt;/a>
 &lt;/h2>
 &lt;p>The subject of this Chapter is the numerical approximation of the Cauchy problem:&lt;/p>
 &lt;p>$$(1) \quad \frac{dy}{dt} = f(t,y) \quad \text{in } t &amp;gt; 0 \quad (I.C.)$$&lt;/p>
-&lt;p>with&lt;br>
+&lt;p>with
 $$y(0) = y_0 \text{ given}.$$&lt;/p>
 &lt;p>or, more in general, a system:&lt;/p>
 &lt;p>$$(2) \quad \frac{d\mathbf{y}}{dt} = \mathbf{f}(t,\mathbf{y}) \quad \text{in } t &amp;gt; 0$$&lt;/p>
-&lt;p>with&lt;br>
+&lt;p>with
 $$\mathbf{y}(0) = \mathbf{y}_0.$$&lt;/p>
 &lt;p>Let&amp;rsquo;s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &amp;gt; 0$ s.t.&lt;/p></description></item><item><title>习题</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/</guid><description>&lt;h1 id="problem-1-finite-difference-solution">
  Problem 1: Finite-Difference Solution
@@ -183,9 +183,9 @@ $$\mathbf{y}(0) = \mathbf{y}_0.$$&lt;/p>
 &lt;p>We wish to discretize and solve the boundary-value problem&lt;/p>
 &lt;p>$$-\mu\frac{d^2u}{dx^2} + \beta\frac{du}{dx} = f(x),\quad x\in(0,1),\quad u(0)=u(1)=0$$&lt;/p>
 &lt;p>Or equivalently:&lt;/p>
-&lt;p>$$\begin{cases}&lt;br>
--\mu u&amp;rsquo;&amp;rsquo;(x) + \beta u&amp;rsquo;(x) = f(x), &amp;amp; 0&amp;lt;x&amp;lt;1,\&lt;br>
-u(0)=0,; u(1)=0.&lt;br>
+&lt;p>$$\begin{cases}
+-\mu u&amp;rsquo;&amp;rsquo;(x) + \beta u&amp;rsquo;(x) = f(x), &amp;amp; 0&amp;lt;x&amp;lt;1,\
+u(0)=0,; u(1)=0.
 \end{cases}$$&lt;/p>
 &lt;p>Where $\mu&amp;gt;0$ and $\beta$ is a constant (possibly negative), and $f\in C^0(0,1)$.&lt;/p>
 &lt;h2 id="1-finite-difference-discretization">
@@ -202,7 +202,7 @@ u(0)=0,; u(1)=0.&lt;br>
  Move static content to &lt;code>static&lt;/code>
  &lt;a class="anchor" href="#move-static-content-to-static">#&lt;/a>
 &lt;/h2>
-&lt;p>Jekyll has a rule that any directory not starting with &lt;code>_&lt;/code> will be copied as-is to the &lt;code>_site&lt;/code> output. Hugo keeps all static content under &lt;code>static&lt;/code>. You should therefore move it all there.&lt;br>
+&lt;p>Jekyll has a rule that any directory not starting with &lt;code>_&lt;/code> will be copied as-is to the &lt;code>_site&lt;/code> output. Hugo keeps all static content under &lt;code>static&lt;/code>. You should therefore move it all there.
 With Jekyll, something that looked like&lt;/p>
 &lt;pre>&lt;code>▾ &amp;lt;root&amp;gt;/
  ▾ images/
@@ -222,19 +222,19 @@ With Jekyll, something that looked like&lt;/p>
  Slide 1 - 2
  &lt;a class="anchor" href="#slide-1---2">#&lt;/a>
 &lt;/h3>
-&lt;p>&lt;strong>Definition.&lt;/strong> A &lt;em>tangent vector&lt;/em> to a smooth surface $S$ at $p\in S$&lt;br>
-is a linear map&lt;br>
-$$&lt;br>
-X: C^\infty(S)\to\mathbb{R}\qquad\text{(based at }p\text{)},&lt;br>
-$$&lt;br>
+&lt;p>&lt;strong>Definition.&lt;/strong> A &lt;em>tangent vector&lt;/em> to a smooth surface $S$ at $p\in S$
+is a linear map
+$$
+X: C^\infty(S)\to\mathbb{R}\qquad\text{(based at }p\text{)},
+$$
 meaning:&lt;/p>
 &lt;ol>
-&lt;li>$Xf = Xg$ if $f$ and $g$ agree on a neighbourhood of $p$.&lt;br>
+&lt;li>$Xf = Xg$ if $f$ and $g$ agree on a neighbourhood of $p$.
 &lt;em>(So $X$ depends only on the germ of a function at $p$, not on values away from $p$.)&lt;/em>&lt;/li>
-&lt;li>$X(fg) = f(p),X(g) + g(p),X(f)$.&lt;br>
+&lt;li>$X(fg) = f(p),X(g) + g(p),X(f)$.
 &lt;em>(Leibniz / derivation rule at $p$.)&lt;/em>&lt;/li>
 &lt;/ol>
-&lt;p>&lt;em>(Intuition: a tangent vector acts like a directional derivative at the point $p$; it is a derivation on smooth functions.)&lt;/em>&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Probabilistic-Machine-Learning/3.-Autoregressive%E6%A8%A1%E5%9E%8B-2/</link><pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Probabilistic-Machine-Learning/3.-Autoregressive%E6%A8%A1%E5%9E%8B-2/</guid><description>&lt;p>An AR (autoregressive) generative model represents the &lt;strong>joint probability of a sequence&lt;/strong> by chaining conditionals left-to-right (the chain rule&lt;br>
+&lt;p>&lt;em>(Intuition: a tangent vector acts like a directional derivative at the point $p$; it is a derivation on smooth functions.)&lt;/em>&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Probabilistic-Machine-Learning/3.-Autoregressive%E6%A8%A1%E5%9E%8B-2/</link><pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Probabilistic-Machine-Learning/3.-Autoregressive%E6%A8%A1%E5%9E%8B-2/</guid><description>&lt;p>An AR (autoregressive) generative model represents the &lt;strong>joint probability of a sequence&lt;/strong> by chaining conditionals left-to-right (the chain rule
 $$P\left(w_{1: T}\right)=\prod_{t=1}^T P\left(w_t \mid w_{&amp;lt;t}\right)$$&lt;/p>
 &lt;h2 id="1-decoding--inference-in-language-models">
  1. Decoding / Inference in Language Models
@@ -248,37 +248,37 @@ $$P\left(w_{1: T}\right)=\prod_{t=1}^T P\left(w_t \mid w_{&amp;lt;t}\right)$$&lt
  1. 1. Argmax (Greedy Decoding)
  &lt;a class="anchor" href="#1-1-argmax-greedy-decoding">#&lt;/a>
 &lt;/h3>
-&lt;p>Choose the most likely token:&lt;br>
-$$&lt;br>
-w_t = \arg\max_{w} p_\theta(w \mid w_{&amp;lt;t})&lt;br>
+&lt;p>Choose the most likely token:
+$$
+w_t = \arg\max_{w} p_\theta(w \mid w_{&amp;lt;t})
 $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</guid><description>&lt;h2 id="1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">
  1. Parametrized curves in $\mathbb{R}^3$ (plane curves as a special case)
  &lt;a class="anchor" href="#1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>[!definition|1.1] regular curve&lt;br>
+&lt;p>[!definition|1.1] regular curve
 A (smooth) curve is a $C^\infty$ map $\gamma:I\subset\mathbb{R}\to\mathbb{R}^3$.&lt;br>
 It is &lt;strong>regular&lt;/strong> if $\dot{\gamma}(t)\neq 0$ for all $t\in I$ (here $\dot{\gamma}=\dfrac{d\gamma}{dt}$ is the &lt;strong>velocity&lt;/strong>).&lt;/p>&lt;/blockquote>
 &lt;blockquote>
-&lt;p>[!definition|1.2] arclength function&lt;br>
-Fix $t_0\in I$. The arclength from $t_0$ to $t$ is&lt;br>
-$$&lt;br>
-s(t)=\int_{t_0}^{t}|\dot{\gamma}(\tau)|,d\tau.&lt;br>
+&lt;p>[!definition|1.2] arclength function
+Fix $t_0\in I$. The arclength from $t_0$ to $t$ is
+$$
+s(t)=\int_{t_0}^{t}|\dot{\gamma}(\tau)|,d\tau.
 $$&lt;/p>&lt;/blockquote>
-&lt;p>From the Fundamental Theorem of Calculus,&lt;br>
-$$&lt;br>
-\frac{ds}{dt}=|\dot{\gamma}(t)| \quad\text{(speed)}&amp;gt;0\ \text{for regular curves}.&lt;br>
-$$&lt;br>
+&lt;p>From the Fundamental Theorem of Calculus,
+$$
+\frac{ds}{dt}=|\dot{\gamma}(t)| \quad\text{(speed)}&amp;gt;0\ \text{for regular curves}.
+$$
 Hence, by the Inverse Function Theorem, $s(t)$ admits a smooth local inverse $t=t(s)$.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Lecture-2-ACTUAL/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Lecture-2-ACTUAL/</guid><description>&lt;h1 id="parametrized-curves-in-mathbbr3">
  Parametrized Curves in $\mathbb{R}^3$
  &lt;a class="anchor" href="#parametrized-curves-in-mathbbr3">#&lt;/a>
 &lt;/h1>
-&lt;p>Let $I\subset \mathbb{R}$ be an open interval. A &lt;strong>(smooth) curve&lt;/strong> is a map&lt;br>
-$$&lt;br>
-\gamma:I\to\mathbb{R}^3,\qquad \gamma\in C^\infty,&lt;br>
-$$&lt;br>
-Therefore, $\gamma(t)$ is a &lt;em>parametrization&lt;/em>, as the position of a moving point in space at time $t$, that is:&lt;br>
-$$t \mapsto \gamma(t)=(x(t), y(t), z(t))$$&lt;br>
+&lt;p>Let $I\subset \mathbb{R}$ be an open interval. A &lt;strong>(smooth) curve&lt;/strong> is a map
+$$
+\gamma:I\to\mathbb{R}^3,\qquad \gamma\in C^\infty,
+$$
+Therefore, $\gamma(t)$ is a &lt;em>parametrization&lt;/em>, as the position of a moving point in space at time $t$, that is:
+$$t \mapsto \gamma(t)=(x(t), y(t), z(t))$$
 We write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its &lt;strong>velocity&lt;/strong>.&lt;/p>
 &lt;pre>&lt;code class="language-">\begin{document}
 \begin{tikzpicture}[line cap=round,line join=round,&amp;amp;gt;=stealth,thick,scale=2.5]
@@ -316,11 +316,11 @@ We write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its &lt;strong>velocity&lt;/
 &lt;/div>
 
 &lt;blockquote>
-&lt;p>[!definition|1.1] regular curve&lt;br>
-$\gamma$ is &lt;strong>regular&lt;/strong> if&lt;br>
-$$&lt;br>
-\dot\gamma(t)\neq 0 \quad\text{for all } t\in I.&lt;br>
-$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Probabilistic-Machine-Learning/2.-Autoregressive%E6%A8%A1%E5%9E%8B/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Probabilistic-Machine-Learning/2.-Autoregressive%E6%A8%A1%E5%9E%8B/</guid><description>&lt;p>An AR (autoregressive) generative model represents the &lt;strong>joint probability of a sequence&lt;/strong> by chaining conditionals left-to-right (the chain rule&lt;br>
+&lt;p>[!definition|1.1] regular curve
+$\gamma$ is &lt;strong>regular&lt;/strong> if
+$$
+\dot\gamma(t)\neq 0 \quad\text{for all } t\in I.
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Probabilistic-Machine-Learning/2.-Autoregressive%E6%A8%A1%E5%9E%8B/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Probabilistic-Machine-Learning/2.-Autoregressive%E6%A8%A1%E5%9E%8B/</guid><description>&lt;p>An AR (autoregressive) generative model represents the &lt;strong>joint probability of a sequence&lt;/strong> by chaining conditionals left-to-right (the chain rule
 $$P\left(w_{1: T}\right)=\prod_{t=1}^T P\left(w_t \mid w_{&amp;lt;t}\right)$$&lt;/p>
 &lt;h2 id="1-probability-distributions-recap">
  1. Probability Distributions (recap)
@@ -345,13 +345,13 @@ $$P\left(w_{1: T}\right)=\prod_{t=1}^T P\left(w_t \mid w_{&amp;lt;t}\right)$$&lt
 &lt;li>A parametrization is &lt;strong>regular&lt;/strong> if the tangent vectors $X_u=\partial_u X$ and $X_v=\partial_v X$ are linearly independent at each point (so $dX$ has rank $2$).&lt;/li>
 &lt;/ul>
 &lt;blockquote>
-&lt;p>[!definition|1.1] Smooth manifold&lt;br>
+&lt;p>[!definition|1.1] Smooth manifold
 A $2$–manifold (surface) is a space that can be covered by coordinate patches ${(U_\alpha,\varphi_\alpha)}$ with homeomorphisms $\varphi_\alpha:U_\alpha\to\mathbb{R}^2$ whose &lt;strong>transition maps&lt;/strong> $\varphi_\beta\circ\varphi_\alpha^{-1}$ are smooth wherever defined.&lt;br>
 Higher–dimensional manifolds are defined similarly with $\mathbb{R}^n$.&lt;/p></description></item><item><title>8.6 勒贝格收敛定理</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/</link><pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/</guid><description>&lt;h2 id="main-question">
  Main Question
  &lt;a class="anchor" href="#main-question">#&lt;/a>
 &lt;/h2>
-&lt;p>When do we have:&lt;br>
+&lt;p>When do we have:
 $$\lim_{n\to\infty}\int_A f_n(x)dx = \int_A(\lim_{n\to\infty}f_n(x))dx?$$&lt;/p>
 &lt;h2 id="lebesgue-monotone-convergence-theorem-theorem-861">
  Lebesgue Monotone Convergence Theorem (Theorem 8.6.1)
@@ -362,7 +362,7 @@ $$\lim_{n\to\infty}\int_A f_n(x)dx = \int_A(\lim_{n\to\infty}f_n(x))dx?$$&lt;/p>
 &lt;li>$g_{n+1}(x) \leq g_n(x)$ $\forall x$ (decreasing sequence)&lt;/li>
 &lt;li>$\lim_{n\to\infty} g_n(x) = 0$ $\forall x \in [0,1]$&lt;/li>
 &lt;/ol>
-&lt;p>Then:&lt;br>
+&lt;p>Then:
 $$\lim_{n\to\infty}\int_0^1 g_n(x)dx = \int_0^1 0 dx = 0$$&lt;/p>
 &lt;h2 id="proof-details">
  Proof Details
@@ -384,23 +384,23 @@ $$\lim_{n\to\infty}\int_0^1 g_n(x)dx = \int_0^1 0 dx = 0$$&lt;/p>
  &lt;a class="anchor" href="#morse-lemma">#&lt;/a>
 &lt;/h3>
 &lt;blockquote>
-&lt;p>[!lemma|*]&lt;br>
-Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ with critical point $x_0 \in A$. If $H(x_0)$ is &lt;strong>non-degenerate&lt;/strong>, then there exists a neighborhood of $x_0$ and a diffeomorphism $g$ such that the function $f \circ g$ has the form:&lt;br>
-$$f \circ g(y) = f(x_0) + \sum_{i=1}^{\lambda} -y_i^2 + \sum_{i=\lambda+1}^n y_i^2$$&lt;br>
+&lt;p>[!lemma|*]
+Let $f: A \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$ with critical point $x_0 \in A$. If $H(x_0)$ is &lt;strong>non-degenerate&lt;/strong>, then there exists a neighborhood of $x_0$ and a diffeomorphism $g$ such that the function $f \circ g$ has the form:
+$$f \circ g(y) = f(x_0) + \sum_{i=1}^{\lambda} -y_i^2 + \sum_{i=\lambda+1}^n y_i^2$$
 where $\lambda$ is an integer called the &lt;strong>index&lt;/strong> of $f$ at $x_0$.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</link><pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid><description>&lt;h2 id="0-review">
  0. Review
  &lt;a class="anchor" href="#0-review">#&lt;/a>
 &lt;/h2>
-&lt;p>$$&lt;br>
-\hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x+V(x)&lt;br>
-$$&lt;br>
-Stationary States&lt;br>
-$$&lt;br>
-\Psi(x,t)=\psi(x)e^{-iEt/\hbar}&lt;br>
-$$&lt;br>
-Eigenvalue equation:&lt;br>
-$$\hat{H}\psi(x) = E\psi(x)$$&lt;br>
-In newtonian mechanics, note&lt;br>
+&lt;p>$$
+\hat{H}=-\frac{\hbar^{2}}{2m}\partial^{2}x+V(x)
+$$
+Stationary States
+$$
+\Psi(x,t)=\psi(x)e^{-iEt/\hbar}
+$$
+Eigenvalue equation:
+$$\hat{H}\psi(x) = E\psi(x)$$
+In newtonian mechanics, note
 $$F(x)=-\frac{ \partial V(x) }{ \partial x } $$&lt;/p>
 &lt;h2 id="1-infinite-finite-well-particle-on-a-box">
  1. Infinite Finite Well (particle on a box)
@@ -409,16 +409,16 @@ $$F(x)=-\frac{ \partial V(x) }{ \partial x } $$&lt;/p>
 &lt;p>$$E = \frac{p^{2}}{2m}$$&lt;/p>
 &lt;blockquote>
 &lt;p>knowing $E$ results in knowing momentum $p^{2}$&lt;/p>&lt;/blockquote>
-&lt;p>Problem Set-up&lt;br>
-Between $x=0$, and $x=a$,&lt;br>
-$$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$&lt;br>
-Subject to &amp;ldquo;boundary condition&amp;rdquo;: $\Psi(0)=\Psi(a)=0$&lt;br>
-$$&lt;br>
-\begin{align}&lt;br>
-\frac{d^{2}\Psi}{dx} &amp;amp; =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \&lt;br>
-&amp;amp; =-k^{2}\Psi&lt;br>
-\end{align}&lt;br>
-$$&lt;br>
+&lt;p>Problem Set-up
+Between $x=0$, and $x=a$,
+$$-\frac{\hbar^{2}}{2m} \frac{d^{2}}{dx}\Psi(x)=E \Psi(x)$$
+Subject to &amp;ldquo;boundary condition&amp;rdquo;: $\Psi(0)=\Psi(a)=0$
+$$
+\begin{align}
+\frac{d^{2}\Psi}{dx} &amp;amp; =-\left( \frac{2m}{\hbar^{2}} \right) E \Psi \
+&amp;amp; =-k^{2}\Psi
+\end{align}
+$$
 Recall&lt;/p></description></item><item><title>The extimate core of understanding: absolute metaphors, psychosis and large language models - AI &amp; SOCIETY</title><link>https://erisehe.github.io/notebook/docs/Clippings/Psychoanalysis/The-extimate-core-of-understanding-absolute-metaphors-psychosis-and-large-language-models-AI-SOCIETY/</link><pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/Clippings/Psychoanalysis/The-extimate-core-of-understanding-absolute-metaphors-psychosis-and-large-language-models-AI-SOCIETY/</guid><description>&lt;p>Advertisement&lt;/p>
 &lt;h2 id="the-extimate-core-of-understanding-absolute-metaphors-psychosis-and-large-language-models">
  The extimate core of understanding: absolute metaphors, psychosis and large language models
@@ -452,39 +452,39 @@ Recall&lt;/p></description></item><item><title>The extimate core of understandin
  Abstract
  &lt;a class="anchor" href="#abstract">#&lt;/a>
 &lt;/h2>
-&lt;p>The central hypothesis of this paper is that the concepts and methods of psychoanalysis can be applied to the study of AI and human/AI interaction. The paper connects three research fields: machine behavior approach, psychoanalysis and anthropology of science. In the “Machine behavior: research perspectives” section, I argue that the behavior of AI systems cannot be studied only in a logical-mathematical or engineering perspective. We need to study AI systems not merely as engineering artifacts, but as a class of social actors with particular behavioral patterns and ecology. Hence, AI behavior cannot be fully understood without human and social sciences. In the “Why an unconscious for AI? What this paper is about” section, I give some clarifications about the aims of the paper. In the “Unconscious and technology. Lacan and Latour” section, I introduce the central thesis. I propose a re-interpretation of Lacan’s psychoanalysis through Latour’s anthropology of sciences. The aim of this re-interpretation is to show that the concept of unconscious is not so far from technique and technology. In the “The difficulty of being an AI” section, I argue that AI is a new stage in the human identification process, namely, a new development of the unconscious identification. After the imaginary and symbolic registers, AI is the third register of identification. Therefore, AI extends the movement that is at work in the Lacanian interpretation of the mirror stage and Oedipus complex and which Latour’s reading helps us to clarify. From this point of view, I describe an AI system as a set of three contrasting forces: the human desire for identification, logic and machinery. In the “Miscomputation and information” section, I show how this interpretative model improves our understanding of AI.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/2025-09-02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/2025-09-02/</guid><description/></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Emojify/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Emojify/</guid><description>&lt;p>Add relevant emojis to enhance {}. Follow these rules:&lt;br>
-1. Insert emojis at natural breaks in the text&lt;br>
-2. Never place two emojis next to each other&lt;br>
-3. Keep all original text unchanged&lt;br>
-4. Choose emojis that match the context and tone&lt;br>
-Return only the emojified text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Explain-like-I-am-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Explain-like-I-am-5/</guid><description>&lt;p>Explain {} in simple terms that a 5-year-old would understand:&lt;br>
-1. Use basic vocabulary&lt;br>
-2. Include simple analogies&lt;br>
-3. Break down complex concepts&lt;br>
-Return only the simplified explanation.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Fix-grammar-and-spelling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Fix-grammar-and-spelling/</guid><description>&lt;p>Fix the grammar and spelling of {}. Preserve all formatting, line breaks, and special characters. Do not add or remove any content. Return only the corrected text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Generate-glossary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Generate-glossary/</guid><description>&lt;p>Create a glossary of important terms, concepts, and phrases from {}. Format each entry as &amp;ldquo;Term: Definition&amp;rdquo;. Sort entries alphabetically. Return only the glossary.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Generate-table-of-contents/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Generate-table-of-contents/</guid><description>&lt;p>Generate a hierarchical table of contents for {}. Use appropriate heading levels (H1, H2, H3, etc.). Include page numbers if present. Return only the table of contents.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Make-longer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Make-longer/</guid><description>&lt;p>Expand {} to twice its length by:&lt;br>
-1. Adding relevant details and examples&lt;br>
-2. Elaborating on key points&lt;br>
-3. Maintaining the original tone and style&lt;br>
-Return only the expanded text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Make-shorter/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Make-shorter/</guid><description>&lt;p>Reduce {} to half its length while preserving these elements:&lt;br>
-1. Main ideas and key points&lt;br>
-2. Essential details&lt;br>
-3. Original tone and style&lt;br>
-Return only the shortened text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Remove-URLs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Remove-URLs/</guid><description>&lt;p>Remove all URLs from {}. Preserve all other content and formatting. URLs may be in various formats (http, https, www). Return only the text with URLs removed.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Rewrite-as-tweet-thread/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Rewrite-as-tweet-thread/</guid><description>&lt;p>Convert {} into a Twitter thread following these rules:&lt;br>
-1. Each tweet must be under 240 characters&lt;br>
-2. Start with &amp;ldquo;THREAD START&amp;rdquo; on its own line&lt;br>
+&lt;p>The central hypothesis of this paper is that the concepts and methods of psychoanalysis can be applied to the study of AI and human/AI interaction. The paper connects three research fields: machine behavior approach, psychoanalysis and anthropology of science. In the “Machine behavior: research perspectives” section, I argue that the behavior of AI systems cannot be studied only in a logical-mathematical or engineering perspective. We need to study AI systems not merely as engineering artifacts, but as a class of social actors with particular behavioral patterns and ecology. Hence, AI behavior cannot be fully understood without human and social sciences. In the “Why an unconscious for AI? What this paper is about” section, I give some clarifications about the aims of the paper. In the “Unconscious and technology. Lacan and Latour” section, I introduce the central thesis. I propose a re-interpretation of Lacan’s psychoanalysis through Latour’s anthropology of sciences. The aim of this re-interpretation is to show that the concept of unconscious is not so far from technique and technology. In the “The difficulty of being an AI” section, I argue that AI is a new stage in the human identification process, namely, a new development of the unconscious identification. After the imaginary and symbolic registers, AI is the third register of identification. Therefore, AI extends the movement that is at work in the Lacanian interpretation of the mirror stage and Oedipus complex and which Latour’s reading helps us to clarify. From this point of view, I describe an AI system as a set of three contrasting forces: the human desire for identification, logic and machinery. In the “Miscomputation and information” section, I show how this interpretative model improves our understanding of AI.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/2025-09-02/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/2025-09-02/</guid><description/></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Emojify/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Emojify/</guid><description>&lt;p>Add relevant emojis to enhance {}. Follow these rules:
+1. Insert emojis at natural breaks in the text
+2. Never place two emojis next to each other
+3. Keep all original text unchanged
+4. Choose emojis that match the context and tone
+Return only the emojified text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Explain-like-I-am-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Explain-like-I-am-5/</guid><description>&lt;p>Explain {} in simple terms that a 5-year-old would understand:
+1. Use basic vocabulary
+2. Include simple analogies
+3. Break down complex concepts
+Return only the simplified explanation.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Fix-grammar-and-spelling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Fix-grammar-and-spelling/</guid><description>&lt;p>Fix the grammar and spelling of {}. Preserve all formatting, line breaks, and special characters. Do not add or remove any content. Return only the corrected text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Generate-glossary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Generate-glossary/</guid><description>&lt;p>Create a glossary of important terms, concepts, and phrases from {}. Format each entry as &amp;ldquo;Term: Definition&amp;rdquo;. Sort entries alphabetically. Return only the glossary.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Generate-table-of-contents/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Generate-table-of-contents/</guid><description>&lt;p>Generate a hierarchical table of contents for {}. Use appropriate heading levels (H1, H2, H3, etc.). Include page numbers if present. Return only the table of contents.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Make-longer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Make-longer/</guid><description>&lt;p>Expand {} to twice its length by:
+1. Adding relevant details and examples
+2. Elaborating on key points
+3. Maintaining the original tone and style
+Return only the expanded text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Make-shorter/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Make-shorter/</guid><description>&lt;p>Reduce {} to half its length while preserving these elements:
+1. Main ideas and key points
+2. Essential details
+3. Original tone and style
+Return only the shortened text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Remove-URLs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Remove-URLs/</guid><description>&lt;p>Remove all URLs from {}. Preserve all other content and formatting. URLs may be in various formats (http, https, www). Return only the text with URLs removed.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Rewrite-as-tweet-thread/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Rewrite-as-tweet-thread/</guid><description>&lt;p>Convert {} into a Twitter thread following these rules:
+1. Each tweet must be under 240 characters
+2. Start with &amp;ldquo;THREAD START&amp;rdquo; on its own line
 3. Separate tweets with &amp;quot;&lt;/p>
 &lt;hr>
-&lt;p>&amp;quot;&lt;br>
-4. End with &amp;ldquo;THREAD END&amp;rdquo; on its own line&lt;br>
-5. Make content engaging and clear&lt;br>
-Return only the formatted thread.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Rewrite-as-tweet/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Rewrite-as-tweet/</guid><description>&lt;p>Rewrite {} as a single tweet with these requirements:&lt;br>
-1. Maximum 280 characters&lt;br>
-2. Use concise, impactful language&lt;br>
-3. Maintain the core message&lt;br>
-Return only the tweet text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Simplify/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Simplify/</guid><description>&lt;p>Simplify {} to a 6th-grade reading level (ages 11-12). Use simple sentences, common words, and clear explanations. Maintain the original key concepts. Return only the simplified text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Summarize/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Summarize/</guid><description>&lt;p>Create a bullet-point summary of {}. Each bullet point should capture a key point. Return only the bullet-point summary.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Translate-to-Chinese/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Translate-to-Chinese/</guid><description>&lt;p>Translate {} into Chinese:&lt;br>
-1. Preserve the meaning and tone&lt;br>
-2. Maintain appropriate cultural context&lt;br>
-3. Keep formatting and structure&lt;br>
+&lt;p>&amp;quot;
+4. End with &amp;ldquo;THREAD END&amp;rdquo; on its own line
+5. Make content engaging and clear
+Return only the formatted thread.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Rewrite-as-tweet/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Rewrite-as-tweet/</guid><description>&lt;p>Rewrite {} as a single tweet with these requirements:
+1. Maximum 280 characters
+2. Use concise, impactful language
+3. Maintain the core message
+Return only the tweet text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Simplify/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Simplify/</guid><description>&lt;p>Simplify {} to a 6th-grade reading level (ages 11-12). Use simple sentences, common words, and clear explanations. Maintain the original key concepts. Return only the simplified text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Summarize/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Summarize/</guid><description>&lt;p>Create a bullet-point summary of {}. Each bullet point should capture a key point. Return only the bullet-point summary.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Translate-to-Chinese/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/copilot-custom-prompts/Translate-to-Chinese/</guid><description>&lt;p>Translate {} into Chinese:
+1. Preserve the meaning and tone
+2. Maintain appropriate cultural context
+3. Keep formatting and structure
 Return only the translated text.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/Main-Plug-in/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/Main-Plug-in/</guid><description>&lt;p>prompt for graph generationPerfect, I understand what you want: a &lt;strong>system-style instruction prompt&lt;/strong> to teach GPT how to generate diagrams in Obsidian using the TikZJax plugin. This prompt will tell GPT:&lt;/p>
 &lt;ul>
 &lt;li>Use &lt;code>```tikz ... ```&lt;/code> blocks.&lt;/li>
@@ -505,9 +505,9 @@ Return only the translated text.&lt;/p></description></item><item><title/><link>
  Latent te facies
  &lt;a class="anchor" href="#latent-te-facies">#&lt;/a>
 &lt;/h2>
-&lt;p>Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus,&lt;br>
+&lt;p>Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus,
 frementes, qui in vel. Hippotades Peleus 
- &lt;a href="http://gratia.net/tot-qua.php">pennas&lt;br>
+ &lt;a href="http://gratia.net/tot-qua.php">pennas
 conscia&lt;/a> cuiquam Caeneus quas.&lt;/p>
 &lt;ul>
 &lt;li>Pater demittere evincitque reddunt&lt;/li>
@@ -521,9 +521,9 @@ conscia&lt;/a> cuiquam Caeneus quas.&lt;/p>
  &lt;a class="anchor" href="#cum-honorum-latona">#&lt;/a>
 &lt;/h2>
 &lt;p>O fallor 
- &lt;a href="http://www.spectataharundine.org/aquas-relinquit.html">in sustinui&lt;br>
-iussorum&lt;/a> equidem.&lt;br>
-Nymphae operi oris alii fronde parens dumque, in auro ait mox ingenti proxima&lt;br>
+ &lt;a href="http://www.spectataharundine.org/aquas-relinquit.html">in sustinui
+iussorum&lt;/a> equidem.
+Nymphae operi oris alii fronde parens dumque, in auro ait mox ingenti proxima
 iamdudum maius?&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/Heat-Equation/Heat-Equation-Solution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/Heat-Equation/Heat-Equation-Solution/</guid><description>&lt;h1 id="heat-equation-solution">
  Heat Equation Solution
  &lt;a class="anchor" href="#heat-equation-solution">#&lt;/a>
@@ -533,7 +533,7 @@ iamdudum maius?&lt;/p></description></item><item><title/><link>https://erisehe.g
  &lt;a class="anchor" href="#scale-invariance-property">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>[!Theorem]&lt;br>
+&lt;p>[!Theorem]
 Since we know that $u_t=ku_{xx}$ , then we know if $u \in U$ for $U \subset \mathbb{R}^n$ solves the equation, so does $u(\lambda x, \lambda^2 t)$ for $\lambda \in \mathbb{R}$ according to the &lt;strong>scale invariance property.&lt;/strong>&lt;/p>&lt;/blockquote>
 &lt;p>Let’s set that $\bar{x}=\lambda x, \bar{t}=\lambda^2 t$, then it is easy to see:&lt;/p>
 &lt;p>$$ \begin{align} u_{\bar{t}}= \frac{\partial u}{\partial \bar{t}}\cdot\frac{\partial \bar{t}}{\partial t} = \frac{\partial u}{\partial t} \cdot (\lambda^2) \ u_{\bar{x}\bar{x}} &amp;amp;=\frac{\partial}{\partial x} \cdot \frac{\partial u}{\partial \bar{x} } = (\frac{\partial}{\partial \bar{x}} \cdot \frac{\partial \bar{x}}{\partial x})(\frac{\partial u}{\partial \bar{x} } \cdot \frac{\partial \bar{x}}{\partial x})\ &amp;amp;= \frac{\partial^2 u}{\partial x^2} \cdot (\lambda^2) \end{align} $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Finite-Element-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Finite-Element-Method/</guid><description>&lt;h2 id="order-of-convergence-in-finite-elements">
@@ -596,133 +596,133 @@ Since we know that $u_t=ku_{xx}$ , then we know if $u \in U$ for $U \subset \mat
 &lt;/h3>
 &lt;p>Based on approximation theory for finite elements, we can analyze this using the relationship between the solution regularity, the polynomial order, and the expected convergence rate.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E6%9C%89%E9%99%90%E5%85%83/</guid><description/></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-10/</guid><description>&lt;p>8.6: [1, 3]; Chapter 8: [24, 36, 39]&lt;/p>
 &lt;p>&lt;strong>Problem 8.6.1&lt;/strong> Show that Theorem 8.6.1 can be proved using the methods of Chapter 5 if the $g_n$ are continuous.&lt;/p>
-&lt;p>Theorem 8.6.1 (Lebesgue&amp;rsquo;s Monotone Convergence Theorem) Let $g_n : [0, 1] \to \mathbb{R}$ be a sequence of nonnegative functions such that each improper integral $\int_0^1 g_n(x) dx$ exists and is finite. Suppose that $0 \leq g_{n+1}(x) \leq g_n(x)$&lt;br>
+&lt;p>Theorem 8.6.1 (Lebesgue&amp;rsquo;s Monotone Convergence Theorem) Let $g_n : [0, 1] \to \mathbb{R}$ be a sequence of nonnegative functions such that each improper integral $\int_0^1 g_n(x) dx$ exists and is finite. Suppose that $0 \leq g_{n+1}(x) \leq g_n(x)$
 and that $g_n(x) \to 0$ for each $x \in [0, 1]$. Then $$\lim_{n\to\infty} \int_0^1 g_n(x) dx = 0.$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-11/</guid><description>&lt;p>HW 11: 9.2: 1, [2], 3, 4; 9.3: [5]; 9.4: 1, [2], 3; 9.5: 1, [2], 3, 4, [5]; Chapter 9: 1, 3, 5(a,b,c, [d]), 7, 10.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-6/</guid><description>&lt;p>7.2: 1, 2, [3,4]; Chapter 7: [4], 5, [6], 9, [12].&lt;/p>
-&lt;p>&lt;strong>&lt;font color="#c00000">Problem 7.2.3&lt;/font>&lt;/strong> In the system&lt;br>
-$$\begin{array}{r}&lt;br>
-3 x+2 y+z^2+u+v^2=0 \&lt;br>
-4 x+3 y+z+u^2+v+w+2=0 \&lt;br>
-x+z+w+u^2+2=0&lt;br>
-\end{array}&lt;br>
-$$&lt;br>
+&lt;p>&lt;strong>&lt;font color="#c00000">Problem 7.2.3&lt;/font>&lt;/strong> In the system
+$$\begin{array}{r}
+3 x+2 y+z^2+u+v^2=0 \
+4 x+3 y+z+u^2+v+w+2=0 \
+x+z+w+u^2+2=0
+\end{array}
+$$
 discuss the solvability for $u, v, w$ in terms of $x, y, z$ near $x=y=z=0, u=$ $v=0, w=-2$.&lt;/p>
 &lt;blockquote>
-&lt;p>[!theorem|*]&lt;br>
-We first define three functions:&lt;br>
-$$&lt;br>
-\begin{aligned}&lt;br>
-F_1(x,y,z,u,v,w) ;&amp;amp;=; 3x + 2y + z^2 + u + v^2,\&lt;br>
-F_2(x,y,z,u,v,w) ;&amp;amp;=; 4x + 3y + z + u^2 + v + w + 2,\&lt;br>
-F_3(x,y,z,u,v,w) ;&amp;amp;=; x + z + w + u^2 + 2.&lt;br>
-\end{aligned}&lt;br>
-$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-7/</guid><description>&lt;p>HW 7:&lt;br>
-7.6: 1, 2, 3, [4,5]; 7.7: 1, 2, 3, [4], 5, [6];&lt;br>
+&lt;p>[!theorem|*]
+We first define three functions:
+$$
+\begin{aligned}
+F_1(x,y,z,u,v,w) ;&amp;amp;=; 3x + 2y + z^2 + u + v^2,\
+F_2(x,y,z,u,v,w) ;&amp;amp;=; 4x + 3y + z + u^2 + v + w + 2,\
+F_3(x,y,z,u,v,w) ;&amp;amp;=; x + z + w + u^2 + 2.
+\end{aligned}
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-7/</guid><description>&lt;p>HW 7:
+7.6: 1, 2, 3, [4,5]; 7.7: 1, 2, 3, [4], 5, [6];
 Chapter 7: [25], 36, [38], 39.&lt;/p>
-&lt;p>&lt;font color="#ff0000">Problem 7.6.4&lt;/font>&lt;br>
-Let $f(x,y) = x^2 + y^2 + 3y^3 + 8x^4 + x^2e^x \sin x + 6$. Show that there exist new coordinates $\xi, \eta$, where&lt;br>
-$$\xi = \xi(x,y), \quad \eta = \eta(x,y),$$&lt;br>
-for which&lt;br>
-$$f(x,y) = \xi^2 + \eta^2 + 6$$&lt;br>
+&lt;p>&lt;font color="#ff0000">Problem 7.6.4&lt;/font>
+Let $f(x,y) = x^2 + y^2 + 3y^3 + 8x^4 + x^2e^x \sin x + 6$. Show that there exist new coordinates $\xi, \eta$, where
+$$\xi = \xi(x,y), \quad \eta = \eta(x,y),$$
+for which
+$$f(x,y) = \xi^2 + \eta^2 + 6$$
 in a neighborhood of $(0, 0)$.&lt;/p>
-&lt;p>&lt;font color="#ff0000">Problem 7.6.5&lt;/font>&lt;br>
-(a).&lt;br>
-If $f$ has a nondegenerate critical point at $x_0 \in \mathbb{R}^n$, show that there is a neighborhood of $x_0$ containing no other critical points.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-8/</guid><description>&lt;p>8.1: 1, [2, 6]; 8.2: [2], 3, 4, 5, [6]; 8.3: [2], 5, 6;&lt;br>
+&lt;p>&lt;font color="#ff0000">Problem 7.6.5&lt;/font>
+(a).
+If $f$ has a nondegenerate critical point at $x_0 \in \mathbb{R}^n$, show that there is a neighborhood of $x_0$ containing no other critical points.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-8/</guid><description>&lt;p>8.1: 1, [2, 6]; 8.2: [2], 3, 4, 5, [6]; 8.3: [2], 5, 6;
 Chapter 8: [12].&lt;/p>
 &lt;p>&lt;strong>Problem 8.1.2&lt;/strong> Let $f:[0,2] \rightarrow \mathbb{R}$ be defined by $f(x)=0$ for $0 \leq x \leq 1$, and by $f(x)=1$ for $1&amp;lt;x \leq 2$. Compute, using the definition, $\int_0^2 f(x) d x$.&lt;/p>
 &lt;blockquote>
-&lt;p>[!definition]&lt;br>
-We first define a partition $P_{n}$ on $[0,2]$ into $n$ equal subintervals $\Delta x=\frac{2}{n}$, s.t.&lt;br>
-$$\left[ 0, \frac{2}{n} \right], \left[ \frac{2}{n} , \frac{4}{n} \right],\dots,\left[ \frac{2(n-1)}{n},2 \right]$$&lt;br>
-Then, each subinterval, we have $[x_{i-1},x_{i}]=\left[ \frac{2(i-1)}{n}, \frac{2i}{n} \right]$. Consider Riemman sum $S_n$ for this partition with any choice of sample points $k_{i} \in [x_{i-1},x_i]$:&lt;br>
-$$&lt;br>
-S_n ;=;\sum_{k=1}^{n} f(k_{i}),\Delta x&lt;br>
-;=;\sum_{k=1}^{n} f(k_{i}) \cdot \frac{2}{n}.&lt;br>
-$$&lt;br>
-For $[x_{i-1},,x_i]\subset [0,1]$, then $f(x)=0$ by definition. Hence $f(k_{i}) = 0$; for $[x_{i-1},,x_i]\subset (1,2]$, then $f(x)=1$. Hence $f(k_{i}) = 1$. Then, notice one subinterval, say $[x_{j-1},,x_j]$, must include $x=1$, and $f$ = 0 or 1 depending on $k_{j}\le 1$ or $k_{j}&amp;gt;1$. Hence, we have:&lt;br>
-$$&lt;br>
-\inf {f(x): x\in [x_{j-1},x_j]} ;=; 0,&lt;br>
-\quad&lt;br>
-\sup {f(x): x\in [x_{j-1},x_j]} ;=; 1.&lt;br>
-$$&lt;br>
-Next, we find a lower bound and an upper bound for $S_n$. For lower bound, suppose subinterval $[x_{j-1},x_j]$ contains 1, and we pick $j$ so that $f(k_j)=0$. Let $m$ be the number of intervals inside fully in $(1,2]$. Then for those $m$ intervals, we have&lt;br>
-$$&lt;br>
-\begin{align}&lt;br>
-S_n ;\ge; L(P) = &amp;amp; (1)m\cdot\Delta x +(0)(n-m)\cdot\Delta x&lt;br>
-; \&lt;br>
-= &amp;amp; ; m \cdot \frac{2}{n}&lt;br>
-\end{align}&lt;br>
-$$&lt;br>
-Since $[x_{j},x_{j+1}]$ begins once $x &amp;gt; 1$, notice that $m\approx \frac{n}{2}$ for large $n$. More precisely, we have $m \ge \frac{n}{2}-1$. Hence:&lt;br>
-$$&lt;br>
-m ;\ge; \frac{n}{2} -1&lt;br>
-\quad\Longrightarrow\quad&lt;br>
-S_n&lt;br>
-;\ge; \Bigl(\frac{n}{2}-1\Bigr),\frac{2}{n}&lt;br>
-;=;&lt;br>
-1 - \frac{2}{n}.&lt;br>
-$$&lt;br>
-Similarly, for upper bound, we pick $k_j$ such that $f(k_{j})=1$. The the number of intervals $m$ entirely in $(1,2]$ each contribute 1, so we in total have $m+1$ subintervals to contribute $\Delta x$. Thus&lt;br>
-$$&lt;br>
-\begin{align}&lt;br>
-S_n&lt;br>
-; &amp;amp; \le; U(P)= (1)(m+1)\cdot \Delta x \&lt;br>
-; &amp;amp; =; (m+1),\frac{2}{n}.&lt;br>
-\end{align}&lt;br>
-$$&lt;br>
-But $m \le \frac{n}{2}$ for this case. Hence,&lt;br>
-$$&lt;br>
-m+1 ;\le; \frac{n}{2} + 1&lt;br>
-\quad\Longrightarrow\quad&lt;br>
-S_n&lt;br>
-;\le; \Bigl(\frac{n}{2}+1\Bigr),\frac{2}{n}&lt;br>
-;=;&lt;br>
-1 + \frac{2}{n}.&lt;br>
-$$&lt;br>
-Therefore, for every Riemann sum $S_n$:&lt;br>
-$$&lt;br>
-1 - \frac{2}{n}&lt;br>
-;;\le;;&lt;br>
-S_n&lt;br>
-;;\le;;&lt;br>
-1 + \frac{2}{n}.&lt;br>
-$$&lt;br>
-As $n$ grows, the Squeeze Theorem forces each Riemann sum $S_n$ to converge to 1. More precisely, for any $\varepsilon&amp;gt;0$, choose $N$ large enough s.t. $\forall n \ge N$,&lt;br>
-$$&lt;br>
--\frac{2}{n} &amp;gt; -\varepsilon&lt;br>
-\quad\text{and}\quad&lt;br>
-\frac{2}{n} &amp;lt; \varepsilon,&lt;br>
-$$&lt;br>
-which gives $\bigl|S_n - 1\bigr| &amp;lt; \varepsilon$. This shows that $\lim_{n\to\infty} S_n = 1$, so by definition of the Riemann integral, we have&lt;br>
-$$&lt;br>
-\int_{0}^{2} f(x),dx = 1.&lt;br>
+&lt;p>[!definition]
+We first define a partition $P_{n}$ on $[0,2]$ into $n$ equal subintervals $\Delta x=\frac{2}{n}$, s.t.
+$$\left[ 0, \frac{2}{n} \right], \left[ \frac{2}{n} , \frac{4}{n} \right],\dots,\left[ \frac{2(n-1)}{n},2 \right]$$
+Then, each subinterval, we have $[x_{i-1},x_{i}]=\left[ \frac{2(i-1)}{n}, \frac{2i}{n} \right]$. Consider Riemman sum $S_n$ for this partition with any choice of sample points $k_{i} \in [x_{i-1},x_i]$:
+$$
+S_n ;=;\sum_{k=1}^{n} f(k_{i}),\Delta x
+;=;\sum_{k=1}^{n} f(k_{i}) \cdot \frac{2}{n}.
+$$
+For $[x_{i-1},,x_i]\subset [0,1]$, then $f(x)=0$ by definition. Hence $f(k_{i}) = 0$; for $[x_{i-1},,x_i]\subset (1,2]$, then $f(x)=1$. Hence $f(k_{i}) = 1$. Then, notice one subinterval, say $[x_{j-1},,x_j]$, must include $x=1$, and $f$ = 0 or 1 depending on $k_{j}\le 1$ or $k_{j}&amp;gt;1$. Hence, we have:
+$$
+\inf {f(x): x\in [x_{j-1},x_j]} ;=; 0,
+\quad
+\sup {f(x): x\in [x_{j-1},x_j]} ;=; 1.
+$$
+Next, we find a lower bound and an upper bound for $S_n$. For lower bound, suppose subinterval $[x_{j-1},x_j]$ contains 1, and we pick $j$ so that $f(k_j)=0$. Let $m$ be the number of intervals inside fully in $(1,2]$. Then for those $m$ intervals, we have
+$$
+\begin{align}
+S_n ;\ge; L(P) = &amp;amp; (1)m\cdot\Delta x +(0)(n-m)\cdot\Delta x
+; \
+= &amp;amp; ; m \cdot \frac{2}{n}
+\end{align}
+$$
+Since $[x_{j},x_{j+1}]$ begins once $x &amp;gt; 1$, notice that $m\approx \frac{n}{2}$ for large $n$. More precisely, we have $m \ge \frac{n}{2}-1$. Hence:
+$$
+m ;\ge; \frac{n}{2} -1
+\quad\Longrightarrow\quad
+S_n
+;\ge; \Bigl(\frac{n}{2}-1\Bigr),\frac{2}{n}
+;=;
+1 - \frac{2}{n}.
+$$
+Similarly, for upper bound, we pick $k_j$ such that $f(k_{j})=1$. The the number of intervals $m$ entirely in $(1,2]$ each contribute 1, so we in total have $m+1$ subintervals to contribute $\Delta x$. Thus
+$$
+\begin{align}
+S_n
+; &amp;amp; \le; U(P)= (1)(m+1)\cdot \Delta x \
+; &amp;amp; =; (m+1),\frac{2}{n}.
+\end{align}
+$$
+But $m \le \frac{n}{2}$ for this case. Hence,
+$$
+m+1 ;\le; \frac{n}{2} + 1
+\quad\Longrightarrow\quad
+S_n
+;\le; \Bigl(\frac{n}{2}+1\Bigr),\frac{2}{n}
+;=;
+1 + \frac{2}{n}.
+$$
+Therefore, for every Riemann sum $S_n$:
+$$
+1 - \frac{2}{n}
+;;\le;;
+S_n
+;;\le;;
+1 + \frac{2}{n}.
+$$
+As $n$ grows, the Squeeze Theorem forces each Riemann sum $S_n$ to converge to 1. More precisely, for any $\varepsilon&amp;gt;0$, choose $N$ large enough s.t. $\forall n \ge N$,
+$$
+-\frac{2}{n} &amp;gt; -\varepsilon
+\quad\text{and}\quad
+\frac{2}{n} &amp;lt; \varepsilon,
+$$
+which gives $\bigl|S_n - 1\bigr| &amp;lt; \varepsilon$. This shows that $\lim_{n\to\infty} S_n = 1$, so by definition of the Riemann integral, we have
+$$
+\int_{0}^{2} f(x),dx = 1.
 $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-9/</guid><description>&lt;p>8.5: 1, [2, 3], 4, [5]; Chapter 8: [21, 22].&lt;/p>
 &lt;p>&lt;strong>Problem 8.5.2&lt;/strong> Establish formula $\mathbf{c}$ of Example 8.5.7 as follows. Prove that $e^{-x} x^{p+2} \rightarrow 0$ as $x \rightarrow \infty$, and then compare the integral with $\int_1^{\infty}\left(1 / x^2\right) d x$.&lt;/p>
 &lt;blockquote>
 &lt;p>[!definition|*]&lt;/p>&lt;/blockquote>
 &lt;p>Let $\epsilon &amp;gt; 0$ be arbitrary. We want to show that $\exists N &amp;gt; 0$ such that for all $x &amp;gt; N$,&lt;br>
-$$\left|e^{-x}x^{p+2} - 0\right| = e^{-x}x^{p+2} &amp;lt; \epsilon.$$&lt;br>
+$$\left|e^{-x}x^{p+2} - 0\right| = e^{-x}x^{p+2} &amp;lt; \epsilon.$$
 Since $e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr)$, and $\displaystyle\lim_{x\to\infty}\frac{(p+2)\ln x}{x} = 0,$ there exists a number $N_1&amp;gt;0$ such that for all $x &amp;gt; N_1$ we have&lt;br>
-$$\frac{(p+2)\ln x}{x} &amp;lt; \frac{1}{2}\Longrightarrow (p+2)\ln x &amp;lt; \frac{x}{2}$$&lt;br>
+$$\frac{(p+2)\ln x}{x} &amp;lt; \frac{1}{2}\Longrightarrow (p+2)\ln x &amp;lt; \frac{x}{2}$$
 It follows that for all $x &amp;gt; N_1$,&lt;br>
-$$-x + (p+2)\ln x &amp;lt; -\frac{x}{2}.$$&lt;br>
+$$-x + (p+2)\ln x &amp;lt; -\frac{x}{2}.$$
 Taking exponentials to get:&lt;br>
-$$e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr) &amp;lt; \exp\Bigl(-\frac{x}{2}\Bigr) = e^{-x/2}.$$&lt;br>
+$$e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr) &amp;lt; \exp\Bigl(-\frac{x}{2}\Bigr) = e^{-x/2}.$$
 For $e^{-x/2} &amp;lt; \epsilon,$ we simply need $-\frac{x}{2} &amp;lt; \ln \epsilon$, which is $x &amp;gt; -2\ln \epsilon$. We define $N_2 = -2\ln \epsilon$. Let $N = \max{N_1, N_2}$. Then, $\forall x &amp;gt; N$ we have both&lt;br>
-$$e^{-x}x^{p+2} &amp;lt; e^{-x/2} \quad \text{and} \quad e^{-x/2} &amp;lt; \epsilon,$$&lt;br>
-so that $e^{-x}x^{p+2} &amp;lt; \epsilon$. By the definition of the limit we have:&lt;br>
-$$\lim_{x\to\infty} e^{-x}x^{p+2} = 0.$$&lt;br>
-Next, we use this to compare the integral $\int_1^\infty e^{-x}x^p,dx$ with the convergent integral $\int_1^\infty \frac{1}{x^2},dx$. Note that for $x \ge 1$ and a fixed $p$, it is always true that&lt;br>
-$$x^{p} \le x^{p+2}\Longrightarrow e^{-x}x^p \le e^{-x}x^{p+2}$$&lt;br>
-As already demonstrated above, for sufficiently large $x$ , we can have&lt;br>
-$$0 \leq e^{-x} x^p \leq e^{-x} x^{p+2}&amp;lt;\frac{1}{x^2}$$&lt;br>
-Hence, there exists some $M$ such that for all $x &amp;gt; M$,&lt;br>
-$$0 \le e^{-x}x^p \le \frac{1}{x^2}.$$&lt;br>
-Given that the tail integral&lt;br>
-$$\int_1^{\infty} e^{-x} x^p d x=\int_1^M e^{-x} x^p d x+\int_M^{\infty} e^{-x} x^p d x$$&lt;br>
-converges, so $\int_M^{\infty} e^{-x} x^p d x$ converges. By the Comparison Test, the integral&lt;br>
-$$\int_{M}^\infty e^{-x}x^p,dx$$&lt;br>
-must also converges. Finally, note that integral over any finite interval $[1,M]$ is finite, so the entire integral&lt;br>
-$$\int_{1}^\infty e^{-x}x^p,dx$$&lt;br>
+$$e^{-x}x^{p+2} &amp;lt; e^{-x/2} \quad \text{and} \quad e^{-x/2} &amp;lt; \epsilon,$$
+so that $e^{-x}x^{p+2} &amp;lt; \epsilon$. By the definition of the limit we have:
+$$\lim_{x\to\infty} e^{-x}x^{p+2} = 0.$$
+Next, we use this to compare the integral $\int_1^\infty e^{-x}x^p,dx$ with the convergent integral $\int_1^\infty \frac{1}{x^2},dx$. Note that for $x \ge 1$ and a fixed $p$, it is always true that
+$$x^{p} \le x^{p+2}\Longrightarrow e^{-x}x^p \le e^{-x}x^{p+2}$$
+As already demonstrated above, for sufficiently large $x$ , we can have
+$$0 \leq e^{-x} x^p \leq e^{-x} x^{p+2}&amp;lt;\frac{1}{x^2}$$
+Hence, there exists some $M$ such that for all $x &amp;gt; M$,
+$$0 \le e^{-x}x^p \le \frac{1}{x^2}.$$
+Given that the tail integral
+$$\int_1^{\infty} e^{-x} x^p d x=\int_1^M e^{-x} x^p d x+\int_M^{\infty} e^{-x} x^p d x$$
+converges, so $\int_M^{\infty} e^{-x} x^p d x$ converges. By the Comparison Test, the integral
+$$\int_{M}^\infty e^{-x}x^p,dx$$
+must also converges. Finally, note that integral over any finite interval $[1,M]$ is finite, so the entire integral
+$$\int_{1}^\infty e^{-x}x^p,dx$$
 converges.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</guid><description>&lt;p>第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质。&lt;/p>
 &lt;p>我们主要看以下这几个方面：&lt;/p>
 &lt;ol>
@@ -775,16 +775,16 @@ converges.&lt;/p></description></item><item><title/><link>https://erisehe.github
 &lt;li>Volume of $A$&lt;/li>
 &lt;/ul>
 &lt;blockquote>
-&lt;p>[!definition|8.2.2]&lt;br>
-A bounded set $A \subset \mathbb{R}^n$ has &lt;em>volume&lt;/em> (or is Jordan measurable) if its characteristic function:&lt;br>
-$$1_A(x) =&lt;br>
-\begin{cases}&lt;br>
-1, &amp;amp; x \in A \&lt;br>
-0, &amp;amp; x \notin A&lt;br>
-\end{cases} $$&lt;br>
+&lt;p>[!definition|8.2.2]
+A bounded set $A \subset \mathbb{R}^n$ has &lt;em>volume&lt;/em> (or is Jordan measurable) if its characteristic function:
+$$1_A(x) =
+\begin{cases}
+1, &amp;amp; x \in A \
+0, &amp;amp; x \notin A
+\end{cases} $$
 is integrable:&lt;/p>&lt;/blockquote>
 &lt;p>$$V(A) = \int_A 1_A(x), dx$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</guid><description>&lt;blockquote>
-&lt;p>[!theorem|8.?.?]&lt;br>
+&lt;p>[!theorem|8.?.?]
 Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded set $A$. Then $f$ is integrable on $A$ &lt;strong>if and only if&lt;/strong> the set of discontinuities for the extended $f(x)$ has measure zero.&lt;/p>&lt;/blockquote>
 &lt;h2 id="proof-of-the-theorem">
  Proof of the Theorem
@@ -802,20 +802,20 @@ Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded
  &lt;a class="anchor" href="#a-set-up">#&lt;/a>
 &lt;/h4>
 &lt;ul>
-&lt;li>Fix rectangle $B$ with $\overline{A} \subset \text{int}(B)$ and let:&lt;br>
-$$&lt;br>
+&lt;li>Fix rectangle $B$ with $\overline{A} \subset \text{int}(B)$ and let:
+$$
 g(x) = \begin{cases}&lt;br>
 f(x) &amp;amp; \text{if } x \in A \&lt;br>
 0 &amp;amp; \text{if } x \notin A&lt;br>
-\end{cases}&lt;br>
+\end{cases}
 $$&lt;/li>
-&lt;li>Define:&lt;br>
-$$&lt;br>
-D = { x \in B \mid g \text{ is not continuous at } x }&lt;br>
+&lt;li>Define:
+$$
+D = { x \in B \mid g \text{ is not continuous at } x }
 $$&lt;/li>
-&lt;li>Need to show:&lt;br>
-$$&lt;br>
-f \text{ integrable } \Leftrightarrow m(D) = 0&lt;br>
+&lt;li>Need to show:
+$$
+f \text{ integrable } \Leftrightarrow m(D) = 0
 $$&lt;/li>
 &lt;/ul>
 &lt;h4 id="b-how-to-measure-discontinuity">
@@ -823,7 +823,7 @@ $$&lt;/li>
  &lt;a class="anchor" href="#b-how-to-measure-discontinuity">#&lt;/a>
 &lt;/h4>
 &lt;ul>
-&lt;li>Oscillation of a function $h$ at a point $x_0$:&lt;br>
+&lt;li>Oscillation of a function $h$ at a point $x_0$:
 $$O(h, x_0) = \inf { \sup \left{ h(x) - h(y) : x, y \in U } : U \text{ is a neighborhood of } x_0 \right}$$&lt;/li>
 &lt;li>&lt;strong>Fact:&lt;/strong> $h$ is continuous at $x_0$ if and only if $O(h, x_0) = 0$.&lt;/li>
 &lt;/ul>
@@ -856,21 +856,21 @@ $$O(h, x_0) = \inf { \sup \left{ h(x) - h(y) : x, y \in U } : U \text{ is a neig
  &lt;a class="anchor" href="#t-n-levels-of-separation-axiom">#&lt;/a>
 &lt;/h3>
 &lt;blockquote>
-&lt;p>[!axiom]&lt;br>
+&lt;p>[!axiom]
 &lt;strong>$T_{0}$ — Kolmogorov Space&lt;/strong>&lt;br>
 $\forall x \neq y \in X,, \exists$ open $U$ s.t. $x \in U,, y \notin U$ or $y \in U,, x \notin U$.&lt;/p>&lt;/blockquote>
 &lt;blockquote>
-&lt;p>[!axiom]&lt;br>
+&lt;p>[!axiom]
 &lt;strong>$T_{1}$ — Fréchet Space&lt;/strong>&lt;br>
 $\forall x \neq y \in X,, \exists$ open $U, V$ s.t. $x \in U,, y \notin U$ and $y \in V,, x \notin V$.&lt;br>
-(Equivalently, all singletons are closed.)&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Homework/HW3-Code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Homework/HW3-Code/</guid><description>&lt;p>import numpy as np&lt;br>
-import scipy.sparse as sp&lt;br>
-import scipy.sparse.linalg as spla&lt;br>
+(Equivalently, all singletons are closed.)&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Homework/HW3-Code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Homework/HW3-Code/</guid><description>&lt;p>import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
 import matplotlib.pyplot as plt&lt;/p>
-&lt;p>def computation():&lt;br>
-#parameters&lt;br>
-N, V0_tilde, L = 600, 10.0, 1.0&lt;br>
-M, dx = N - 2, L / (N - 1)&lt;br>
+&lt;p>def computation():
+#parameters
+N, V0_tilde, L = 600, 10.0, 1.0
+M, dx = N - 2, L / (N - 1)
 x_vals = np.linspace(-0.5 * L + dx, 0.5 * L - dx, M) # Interior points&lt;/p>
 &lt;pre>&lt;code># KE matrix T (tridiagonal)
 factor = (N**2) / (np.pi**2)
@@ -905,59 +905,59 @@ plt.legend()
 plt.grid()
 plt.show()
 &lt;/code>&lt;/pre>
-&lt;p>if &lt;strong>name&lt;/strong> == &amp;ldquo;&lt;strong>main&lt;/strong>&amp;rdquo;:&lt;br>
+&lt;p>if &lt;strong>name&lt;/strong> == &amp;ldquo;&lt;strong>main&lt;/strong>&amp;rdquo;:
 computation()&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/1.1-The-Wave-Function/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%80%E7%AB%A0/1.1-The-Wave-Function/</guid><description>&lt;p>To find a particle&amp;rsquo;s wave function, $\psi(x,t)$, we solve:&lt;/p>
 &lt;blockquote>
 &lt;p>logically analogous to &lt;strong>Newton&amp;rsquo;s Second Law&lt;/strong> $F=ma$&lt;/p>&lt;/blockquote>
 &lt;blockquote>
-&lt;p>[!definition] Schrodinger&amp;rsquo;s Equation&lt;br>
+&lt;p>[!definition] Schrodinger&amp;rsquo;s Equation
 $$i\hbar \frac{ \partial \Psi}{ \partial t}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2}\Psi}{ \partial x^{2} }+V \Psi$$&lt;/p>&lt;/blockquote>
 &lt;p>where &lt;strong>Planck&amp;rsquo;s constant&lt;/strong> $\hbar=\frac{h}{2\pi}=1.054573 \times 10^{-34}$.&lt;/p>
 &lt;blockquote>
-&lt;p>[!definition] Born&amp;rsquo;s Statistical Interpretation&lt;br>
-$$\int^{a}_{b} |\Psi(x,t)^{2}| , dx $$&lt;br>
+&lt;p>[!definition] Born&amp;rsquo;s Statistical Interpretation
+$$\int^{a}_{b} |\Psi(x,t)^{2}| , dx $$
 which is the probability finding the particle between $a$ and $b$.&lt;/p>&lt;/blockquote>
 &lt;blockquote>
 &lt;p>It is natural to wonder whether it is a fact of nature, or a defect in theory.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%89%E7%AB%A0/Chapter-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%B8%89%E7%AB%A0/Chapter-3/</guid><description/></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.1-Time-Independent-Schrodinger-Equation-Stationary-States/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Lecture/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.1-Time-Independent-Schrodinger-Equation-Stationary-States/</guid><description>&lt;h2 id="music-harmonics">
  Music: Harmonics
  &lt;a class="anchor" href="#music-harmonics">#&lt;/a>
 &lt;/h2>
-&lt;p>$$&lt;br>
-\begin{align}&lt;br>
-C_{1}:f_{1}&amp;amp;=f_{0} \&lt;br>
-C_{2}:f_{1}&amp;amp;=2f_{0} \&lt;br>
-G:f_{1}&amp;amp;=3f_{0} \&lt;br>
-C_{3}:f_{1}&amp;amp;=4f_{0}&lt;br>
-\end{align}&lt;br>
+&lt;p>$$
+\begin{align}
+C_{1}:f_{1}&amp;amp;=f_{0} \
+C_{2}:f_{1}&amp;amp;=2f_{0} \
+G:f_{1}&amp;amp;=3f_{0} \
+C_{3}:f_{1}&amp;amp;=4f_{0}
+\end{align}
 $$&lt;/p>
 &lt;h2 id="separation-of-variables">
  Separation of variables
  &lt;a class="anchor" href="#separation-of-variables">#&lt;/a>
 &lt;/h2>
-&lt;p>$$&lt;br>
-\begin{equation}&lt;br>
-i\hbar \frac{ \partial \Psi}{ \partial t}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2}\Psi}{ \partial x^{2} }+V_{x} \Psi&lt;br>
-\end{equation}&lt;br>
-$$&lt;br>
-where&lt;br>
-$V(x)$: time independent potential&lt;br>
-$\hat{H}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2} }{ \partial x^{2} }+V(x)$.&lt;br>
-$$&lt;br>
-H\Psi=i\hbar \frac{ \partial }{ \partial t } \Psi&lt;br>
-$$&lt;br>
-We begin by= separate the variables, and set&lt;br>
-$$&lt;br>
-\begin{equation}&lt;br>
-\Psi(x,t)=\psi(x) \phi(t)&lt;br>
+&lt;p>$$
+\begin{equation}
+i\hbar \frac{ \partial \Psi}{ \partial t}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2}\Psi}{ \partial x^{2} }+V_{x} \Psi
+\end{equation}
+$$
+where
+$V(x)$: time independent potential
+$\hat{H}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2} }{ \partial x^{2} }+V(x)$.
+$$
+H\Psi=i\hbar \frac{ \partial }{ \partial t } \Psi
+$$
+We begin by= separate the variables, and set
+$$
+\begin{equation}
+\Psi(x,t)=\psi(x) \phi(t)
 \end{equation}&lt;/p>
 &lt;p>$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E7%BB%8F%E5%85%B8%E6%B0%A2%E5%8E%9F%E5%AD%90/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.1-%E7%BB%8F%E5%85%B8%E6%B0%A2%E5%8E%9F%E5%AD%90/</guid><description>&lt;h2 id="411-经典氢原子-classical-hydrogen-atom">
  4.1.1 经典氢原子 (Classical Hydrogen Atom)
  &lt;a class="anchor" href="#411-%e7%bb%8f%e5%85%b8%e6%b0%a2%e5%8e%9f%e5%ad%90-classical-hydrogen-atom">#&lt;/a>
 &lt;/h2>
-&lt;p>In the classical model of the hydrogen atom, we have an electron orbiting around a proton. The electrostatic potential energy is:&lt;br>
-$$E = -\frac{1}{2}\frac{e^2}{4\pi\varepsilon_0 r}$$&lt;br>
-According to classical electrodynamics, an accelerated charged particle radiates energy. The power radiated by an accelerated particle is given by the Larmor formula:&lt;br>
-$$P = \frac{dE}{dt} = -\frac{e^2}{6\pi\varepsilon_0 c^3}a^2$$&lt;br>
+&lt;p>In the classical model of the hydrogen atom, we have an electron orbiting around a proton. The electrostatic potential energy is:
+$$E = -\frac{1}{2}\frac{e^2}{4\pi\varepsilon_0 r}$$
+According to classical electrodynamics, an accelerated charged particle radiates energy. The power radiated by an accelerated particle is given by the Larmor formula:
+$$P = \frac{dE}{dt} = -\frac{e^2}{6\pi\varepsilon_0 c^3}a^2$$
 This would cause the electron to spiral into the proton in approximately $10^{-11}$ seconds!&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3-%E8%A7%92%E5%8A%A8%E9%87%8F-Angular-Momentum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/Lecture/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.3-%E8%A7%92%E5%8A%A8%E9%87%8F-Angular-Momentum/</guid><description>&lt;h2 id="431-量子数-quantum-numbers">
  4.3.1 量子数 (Quantum Numbers)
  &lt;a class="anchor" href="#431-%e9%87%8f%e5%ad%90%e6%95%b0-quantum-numbers">#&lt;/a>
@@ -970,8 +970,8 @@ This would cause the electron to spiral into the proton in approximately $10^{-1
  单自旋态（One Spin States）：
  &lt;a class="anchor" href="#%e5%8d%95%e8%87%aa%e6%97%8b%e6%80%81one-spin-states">#&lt;/a>
 &lt;/h2>
-&lt;p>这里定义了基本的&lt;strong>自旋向上&lt;/strong>和&lt;strong>自旋向下&lt;/strong>态的矢量表示：&lt;br>
-$|\uparrow\rangle = \begin{pmatrix} 1 \ 0 \end{pmatrix}$, $|\downarrow\rangle = \begin{pmatrix} 0 \ 1 \end{pmatrix}$&lt;br>
+&lt;p>这里定义了基本的&lt;strong>自旋向上&lt;/strong>和&lt;strong>自旋向下&lt;/strong>态的矢量表示：
+$|\uparrow\rangle = \begin{pmatrix} 1 \ 0 \end{pmatrix}$, $|\downarrow\rangle = \begin{pmatrix} 0 \ 1 \end{pmatrix}$
 $S_z$算符作用于自旋态，得到对应的本征值&lt;/p>
 &lt;p>$S_z|\uparrow\rangle = \frac{\hbar}{2}|\uparrow\rangle$&lt;/p>
 &lt;p>$S_z|\downarrow\rangle = -\frac{\hbar}{2}|\downarrow\rangle$&lt;/p>
@@ -980,27 +980,27 @@ $S_z$算符作用于自旋态，得到对应的本征值&lt;/p>
  4.1 三维空间的薛定谔方程
  &lt;a class="anchor" href="#41-%e4%b8%89%e7%bb%b4%e7%a9%ba%e9%97%b4%e7%9a%84%e8%96%9b%e5%ae%9a%e8%b0%94%e6%96%b9%e7%a8%8b">#&lt;/a>
 &lt;/h2>
-&lt;p>薛定谔方程（S.E.）的一般形式记为：&lt;br>
-$$&lt;br>
-i \hbar \frac{\partial \Psi}{\partial t}=\hat{H} \Psi&lt;br>
-$$&lt;br>
-三维哈密顿算符$\hat{H}$从经典能量得出：&lt;br>
-$$&lt;br>
-\frac{1}{2} m v^2+V=\frac{1}{2 m}\left(p_x^2+p_y^2+p_z^2\right)+V&lt;br>
-$$&lt;br>
-通过标准的量子化处理&lt;br>
-$$&lt;br>
-\mathbf{p} \rightarrow-i \hbar \nabla&lt;br>
+&lt;p>薛定谔方程（S.E.）的一般形式记为：
+$$
+i \hbar \frac{\partial \Psi}{\partial t}=\hat{H} \Psi
+$$
+三维哈密顿算符$\hat{H}$从经典能量得出：
+$$
+\frac{1}{2} m v^2+V=\frac{1}{2 m}\left(p_x^2+p_y^2+p_z^2\right)+V
+$$
+通过标准的量子化处理
+$$
+\mathbf{p} \rightarrow-i \hbar \nabla
 $$&lt;/p>
 &lt;p>因此，我们获得三维的薛定谔方程：&lt;/p>
 &lt;blockquote>
-&lt;p>[!theorem|*] 3-Dimentional Schrodinger Equation&lt;br>
-$$&lt;br>
-i \hbar \frac{\partial \Psi}{\partial t}=-\frac{\hbar^2}{2 m} \nabla^2 \Psi+V \Psi&lt;br>
-$$&lt;br>
-where&lt;br>
-$$&lt;br>
-\nabla^2 \equiv \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}&lt;br>
+&lt;p>[!theorem|*] 3-Dimentional Schrodinger Equation
+$$
+i \hbar \frac{\partial \Psi}{\partial t}=-\frac{\hbar^2}{2 m} \nabla^2 \Psi+V \Psi
+$$
+where
+$$
+\nabla^2 \equiv \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}
 $$&lt;/p>&lt;/blockquote></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/Quantum-Mechenics/%E5%AD%A6%E4%B9%A0%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E9%A1%BA%E5%BA%8F/</guid><description>&lt;h1 id="standard-quantum-models-infinite-well-finite-well-delta-potential-free-particle-and-harmonic-oscillator">
  Standard Quantum Models: Infinite Well, Finite Well, Delta Potential, Free Particle, and Harmonic Oscillator
  &lt;a class="anchor" href="#standard-quantum-models-infinite-well-finite-well-delta-potential-free-particle-and-harmonic-oscillator">#&lt;/a>
@@ -1009,14 +1009,14 @@ $$&lt;/p>&lt;/blockquote></description></item><item><title/><link>https://eriseh
  Hilbert Space
  &lt;a class="anchor" href="#hilbert-space">#&lt;/a>
 &lt;/h2>
-&lt;p>Infinite dimensional &lt;strong>vector space&lt;/strong>, denoted as $L^2(a,b)$, of &lt;strong>square-integrable functions&lt;/strong> on an interval $[a,b]$.&lt;br>
-$$\int_a^b |f(x)|^2 , dx &amp;lt; \infty$$&lt;br>
-Inner product defined as:&lt;br>
-$$\langle f | g \rangle = \int_a^b f^&lt;em>(x)g(x) , dx$$&lt;br>
-Note that:&lt;br>
-$$\langle f | g \rangle = \langle g | f \rangle^&lt;/em>$$&lt;br>
-$$\langle f | f \rangle = \int_a^b |f(x)|^2 , dx \geq 0$$&lt;br>
-Also:&lt;br>
+&lt;p>Infinite dimensional &lt;strong>vector space&lt;/strong>, denoted as $L^2(a,b)$, of &lt;strong>square-integrable functions&lt;/strong> on an interval $[a,b]$.
+$$\int_a^b |f(x)|^2 , dx &amp;lt; \infty$$
+Inner product defined as:
+$$\langle f | g \rangle = \int_a^b f^&lt;em>(x)g(x) , dx$$
+Note that:
+$$\langle f | g \rangle = \langle g | f \rangle^&lt;/em>$$
+$$\langle f | f \rangle = \int_a^b |f(x)|^2 , dx \geq 0$$
+Also:
 $$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/section/buttons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E7%89%A9%E7%90%86/section/buttons/</guid><description>&lt;h1 id="buttons">
  Buttons
  &lt;a class="anchor" href="#buttons">#&lt;/a>
@@ -1038,7 +1038,7 @@ $$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]
 &lt;/div>
 
 &lt;p>&lt;a href="https://erisehe.github.io/notebook/" class="book-btn">Get Home&lt;/a>
-&lt;br>
+
 &lt;a href="https://github.com/alex-shpak/hugo-book" target="_blank" rel="noopener" class="book-btn">Contribute&lt;/a>
 &lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E9%9A%8F%E7%AC%94/Commentary-on-Foucaults-The-Order-of-Things/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E9%9A%8F%E7%AC%94/Commentary-on-Foucaults-The-Order-of-Things/</guid><description>&lt;h1 id="close-reading-commentary">
  Close Reading Commentary
@@ -1339,7 +1339,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] &amp;&amp; D' \arrow[dr,swap,"d"
 &lt;p>Modern subject is a sexual subject (gendered being)&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>What does freedom look like in this?&lt;br>
+&lt;p>What does freedom look like in this?
 When there is no &lt;em>outside&lt;/em>, what does it mean to have transgression?&lt;/p>
 &lt;p>power-knowledge-pleasure&lt;/p>
 &lt;ul>
@@ -1410,9 +1410,9 @@ When there is no &lt;em>outside&lt;/em>, what does it mean to have transgression
  &lt;a class="anchor" href="#1-necessary-condition-for-differentiability">#&lt;/a>
 &lt;/h2>
 &lt;ul>
-&lt;li>Recall: A necessary condition for differentiability:&lt;br>
-$$&lt;br>
-\boxed{ f \text{ differentiable} \Rightarrow f \text{ is continuous} }&lt;br>
+&lt;li>Recall: A necessary condition for differentiability:
+$$
+\boxed{ f \text{ differentiable} \Rightarrow f \text{ is continuous} }
 $$&lt;/li>
 &lt;li>&lt;strong>Continuity&lt;/strong> is a requirement.&lt;/li>
 &lt;/ul>
@@ -1420,8 +1420,8 @@ $$&lt;/li>
  &lt;strong>2. Sufficient Conditions for Differentiability&lt;/strong>
  &lt;a class="anchor" href="#2-sufficient-conditions-for-differentiability">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;strong>(a) Partial derivatives and differentiability&lt;/strong>&lt;br>
-f differentiable $\Rightarrow$ continuity + partials exists&lt;br>
+&lt;p>&lt;strong>(a) Partial derivatives and differentiability&lt;/strong>
+f differentiable $\Rightarrow$ continuity + partials exists
 conditions + partials exists $\Rightarrow f$ differentiable &lt;strong>(?)&lt;/strong>&lt;/p>
 &lt;hr>
 &lt;h3 id="ex-1">
@@ -1429,36 +1429,36 @@ conditions + partials exists $\Rightarrow f$ differentiable &lt;strong>(?)&lt;/s
  &lt;a class="anchor" href="#ex-1">#&lt;/a>
 &lt;/h3>
 &lt;p>Consider the function defined as:&lt;/p>
-&lt;p>$$&lt;br>
-f(x,y) =&lt;br>
-\begin{cases}&lt;br>
-\frac{xy}{x^2 + y^2}, &amp;amp; (x,y) \neq (0,0) \&lt;br>
-0, &amp;amp; (x,y) = (0,0)&lt;br>
-\end{cases}&lt;br>
-$$&lt;/p></description></item><item><title>6.5 链式法则</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/</guid><description/></item><item><title>6.6 乘积法则与梯度</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/</guid><description>&lt;p>[ ]&lt;/p></description></item><item><title>6.9 泰勒公式的高维形式</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/</guid><description>&lt;p>$$&lt;br>
-R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0)&lt;br>
-$$&lt;br>
-And satisfying&lt;br>
-$$&lt;br>
-\frac{R_{r-1}(x_0)}{|x - x_0|^{r-1}} \to 0 \quad \text{as} \quad x \to x_0.&lt;br>
-$$&lt;br>
-&lt;code>\begin{proof}&lt;/code>&lt;br>
-Consider 1-variable function:&lt;br>
-$$&lt;br>
-g(t) = f(x_0 + t(x - x_0)), \quad (a, b) \to \mathbb{R}&lt;br>
-$$&lt;br>
+&lt;p>$$
+f(x,y) =
+\begin{cases}
+\frac{xy}{x^2 + y^2}, &amp;amp; (x,y) \neq (0,0) \
+0, &amp;amp; (x,y) = (0,0)
+\end{cases}
+$$&lt;/p></description></item><item><title>6.5 链式法则</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/</guid><description/></item><item><title>6.6 乘积法则与梯度</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/</guid><description>&lt;p>[ ]&lt;/p></description></item><item><title>6.9 泰勒公式的高维形式</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/</guid><description>&lt;p>$$
+R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0)
+$$
+And satisfying
+$$
+\frac{R_{r-1}(x_0)}{|x - x_0|^{r-1}} \to 0 \quad \text{as} \quad x \to x_0.
+$$
+&lt;code>\begin{proof}&lt;/code>
+Consider 1-variable function:
+$$
+g(t) = f(x_0 + t(x - x_0)), \quad (a, b) \to \mathbb{R}
+$$
 for $t\in (a, b)$ with $[0, 1] \subset (a, b)$.&lt;/p>
 &lt;hr>
-&lt;p>Applying Taylor&amp;rsquo;s theorem to $g(t)$:&lt;br>
-$$&lt;br>
-\begin{align}&lt;br>
-g(1) &amp;amp;= g(0) + g&amp;rsquo;(0)(1-0) + \frac{g&amp;rsquo;&amp;rsquo;(0)}{2!} (1-0)^2 + \dots + \frac{g^{(r-1)}(0)}{(r-1)!} (1-0)^{r-1} + R_{r-1}\&lt;br>
-f(x) &amp;amp;= f(x_0) + \sum_{k=1}^{r-1} \frac{g^{(k)}(0)}{k!} + \frac{1}{r!} g^{(r)}(\tilde{c}), \quad \tilde{c} \in [0,1]&lt;br>
-\end{align}&lt;br>
-$$&lt;br>
-By chain rule,&lt;br>
-$$ g&amp;rsquo;(t) = Df(\varphi(t)) \cdot \varphi&amp;rsquo;(t) $$&lt;br>
-$$g&amp;rsquo;(0) = Df(x_0) (x - x_0) $$&lt;br>
+&lt;p>Applying Taylor&amp;rsquo;s theorem to $g(t)$:
+$$
+\begin{align}
+g(1) &amp;amp;= g(0) + g&amp;rsquo;(0)(1-0) + \frac{g&amp;rsquo;&amp;rsquo;(0)}{2!} (1-0)^2 + \dots + \frac{g^{(r-1)}(0)}{(r-1)!} (1-0)^{r-1} + R_{r-1}\
+f(x) &amp;amp;= f(x_0) + \sum_{k=1}^{r-1} \frac{g^{(k)}(0)}{k!} + \frac{1}{r!} g^{(r)}(\tilde{c}), \quad \tilde{c} \in [0,1]
+\end{align}
+$$
+By chain rule,
+$$ g&amp;rsquo;(t) = Df(\varphi(t)) \cdot \varphi&amp;rsquo;(t) $$
+$$g&amp;rsquo;(0) = Df(x_0) (x - x_0) $$
 &lt;code>\end{proof}&lt;/code>&lt;/p></description></item><item><title>7.1 反函数定理</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/</guid><description>&lt;h1 id="71-inverse-function-theorem-ift">
  7.1 Inverse Function Theorem (IFT)
  &lt;a class="anchor" href="#71-inverse-function-theorem-ift">#&lt;/a>
@@ -1475,8 +1475,8 @@ $$g&amp;rsquo;(0) = Df(x_0) (x - x_0) $$&lt;br>
  &lt;a class="anchor" href="#1-linear-case">#&lt;/a>
 &lt;/h3>
 &lt;p>Consider a linear map, $y = f(x): \mathbb{R}^n \to \mathbb{R}^n$.&lt;/p>
-&lt;p>$$&lt;br>
-x = (x_1, x_2, \dots, x_n)^T&lt;br>
+&lt;p>$$
+x = (x_1, x_2, \dots, x_n)^T
 $$&lt;/p>
 &lt;p>Given $y \in \mathbb{R}^n$, $f(x)$ is a linear system of equations:&lt;/p></description></item><item><title>7.1.1 反函数定理（证明）</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/</guid><description>&lt;h1 id="71-implicit-function-theorem-ift-proof">
  7.1* Implicit Function Theorem (IFT) Proof
@@ -1486,10 +1486,10 @@ $$&lt;/p>
  1. Recall IFT
  &lt;a class="anchor" href="#1-recall-ift">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;strong>Theorem 7.1.1:&lt;/strong> Let $y = f(x): A \subset \mathbb{R}^n \to \mathbb{R}^n$ be of class $C^1$. Suppose $x_0 \in A$ with:&lt;br>
-$$&lt;br>
-J_f(x_0) = \det(Df(x_0)) \ne 0&lt;br>
-$$&lt;br>
+&lt;p>&lt;strong>Theorem 7.1.1:&lt;/strong> Let $y = f(x): A \subset \mathbb{R}^n \to \mathbb{R}^n$ be of class $C^1$. Suppose $x_0 \in A$ with:
+$$
+J_f(x_0) = \det(Df(x_0)) \ne 0
+$$
 Then there exist neighborhoods $U$ of $x_0$ in $A$ and $W$ of $y_0 = f(x_0)$ such that:&lt;/p>
 &lt;ol>
 &lt;li>$f(U) = W$ and $f: U \to W$ has an inverse $f^{-1}: W \to U$.&lt;/li>
@@ -1515,21 +1515,21 @@ Then there exist neighborhoods $U$ of $x_0$ in $A$ and $W$ of $y_0 = f(x_0)$ suc
 &lt;/h3>
 &lt;ul>
 &lt;li>
-&lt;p>If $A \subset \mathbb{R}^n$ is bounded and $f$ is bounded, then&lt;br>
+&lt;p>If $A \subset \mathbb{R}^n$ is bounded and $f$ is bounded, then
 $$\int_A f(x) = \int_{\overline{A}} f(x) = \underline{\int_{A}} f(x) \quad \text{(Riemann Condition)}$$&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>$f(x) \geq 0$ bounded and $A$ is arbitrary, then&lt;br>
+&lt;p>$f(x) \geq 0$ bounded and $A$ is arbitrary, then
 $$\int_A f(x) = \lim_{a\to\infty} \int_{A_a} f(x)$$&lt;/p></description></item><item><title>9.1 边值问题的近似</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/</guid><description>&lt;h2 id="11-set-up-string-with-fixed-endpoints">
  1.1 Set-up: String with fixed endpoints
  &lt;a class="anchor" href="#11-set-up-string-with-fixed-endpoints">#&lt;/a>
 &lt;/h2>
-&lt;p>我们可以写&lt;br>
-$$&lt;br>
-\begin{align}&lt;br>
--\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x \in (0,1) \&lt;br>
-u(0) &amp;amp;= \alpha, \quad \frac{du}{dx}(0) = \beta&lt;br>
-\end{align}&lt;br>
+&lt;p>我们可以写
+$$
+\begin{align}
+-\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x \in (0,1) \
+u(0) &amp;amp;= \alpha, \quad \frac{du}{dx}(0) = \beta
+\end{align}
 $$&lt;/p>
 &lt;p>记$w = \frac{du}{dx}$，那么 $\frac{dw}{dx} = f(x)$。因此，我们知道&lt;/p>
 &lt;p>$$\frac{d}{dt} = \begin{bmatrix} 0 &amp;amp; 0 \ 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} w \ u \end{bmatrix}$$&lt;/p>
@@ -1539,24 +1539,24 @@ $$&lt;/p>
 &lt;/h3>
 &lt;p>边值问题（boundary-value problem）的定义为&lt;/p>
 &lt;blockquote>
-&lt;p>[!definition|*]&lt;br>
-$$\begin{align}&lt;br>
--\mu\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x\in (0,1), \quad \mu &amp;gt; 0 \&lt;br>
-u(0) &amp;amp;= \alpha, \quad u(1) = \beta&lt;br>
-\end{align}&lt;br>
+&lt;p>[!definition|*]
+$$\begin{align}
+-\mu\frac{d^2u}{dx^2} &amp;amp;= f(x), \quad x\in (0,1), \quad \mu &amp;gt; 0 \
+u(0) &amp;amp;= \alpha, \quad u(1) = \beta
+\end{align}
 $$&lt;/p></description></item><item><title>9.2 有限差分法</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/</guid><description>&lt;h2 id="21-边值问题bvp的有限差分">
  2.1 边值问题（BVP）的有限差分:
  &lt;a class="anchor" href="#21-%e8%be%b9%e5%80%bc%e9%97%ae%e9%a2%98bvp%e7%9a%84%e6%9c%89%e9%99%90%e5%b7%ae%e5%88%86">#&lt;/a>
 &lt;/h2>
 &lt;blockquote>
-&lt;p>[!claim|*]&lt;br>
-Consider the Boundary-Value Problem:&lt;br>
-$$&lt;br>
-\begin{align}&lt;br>
--\mu\frac{d^2u}{dx^2} &amp;amp;= f, \quad x \in (0,1) \&lt;br>
-u(0) &amp;amp;= u(1) = 0&lt;br>
-\end{align}&lt;br>
-$$&lt;br>
+&lt;p>[!claim|*]
+Consider the Boundary-Value Problem:
+$$
+\begin{align}
+-\mu\frac{d^2u}{dx^2} &amp;amp;= f, \quad x \in (0,1) \
+u(0) &amp;amp;= u(1) = 0
+\end{align}
+$$
 with discrete points: $$0 = x_0 &amp;lt; x_1 &amp;lt; \cdots &amp;lt; x_{N} = 1\quad\Longrightarrow \quad-\mu\frac{d^2u}{dx^2}(x_i) = f(x_i)$$&lt;/p>&lt;/blockquote>
 &lt;h2 id="22-推导二阶中心差分近似法">
  2.2 推导二阶中心差分近似法
@@ -1571,11 +1571,11 @@ with discrete points: $$0 = x_0 &amp;lt; x_1 &amp;lt; \cdots &amp;lt; x_{N} = 1\
  &lt;a class="anchor" href="#31-%e5%af%b9%e6%b5%81-%e6%89%a9%e6%95%a3%e6%96%b9%e7%a8%8b">#&lt;/a>
 &lt;/h2>
 &lt;p>对流-扩散方程是一种描述物质或热量在流体中同时受到对流（也称为平流）和扩散作用影响的偏微分方程。这个方程在流体力学、传热学和物质传输等领域有广泛应用。&lt;/p>
-&lt;p>$$&lt;br>
-\begin{align}&lt;br>
--\mu\frac{\partial^2 u}{\partial x^2} + \beta\frac{\partial u}{\partial x} &amp;amp;= f \&lt;br>
-\text{diffusion} \quad &amp;amp; \text{advection}&lt;br>
-\end{align}&lt;br>
+&lt;p>$$
+\begin{align}
+-\mu\frac{\partial^2 u}{\partial x^2} + \beta\frac{\partial u}{\partial x} &amp;amp;= f \
+\text{diffusion} \quad &amp;amp; \text{advection}
+\end{align}
 $$&lt;/p>
 &lt;p>$$u(0) = u_L, \quad u(1) = u_R$$&lt;/p>
 &lt;h3 id="311-离散化过程">
@@ -1590,12 +1590,12 @@ $$&lt;/p>
  泰勒展开（向前）
  &lt;a class="anchor" href="#%e6%b3%b0%e5%8b%92%e5%b1%95%e5%bc%80%e5%90%91%e5%89%8d">#&lt;/a>
 &lt;/h5>
-&lt;p>$$&lt;br>
+&lt;p>$$
 \begin{align}&lt;/p>
-&lt;p>u(x_{j+1}) &amp;amp; = u(x_j) + \frac{\partial u}{\partial x}(x_j)\Delta x + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 \&lt;br>
-&amp;amp;\quad\quad\quad\quad-\frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 + \mathcal{O}(||x||^5)\&lt;br>
-\frac{\partial u}{\partial x}(x_j)\Delta x &amp;amp; = u(x_{j+1}) - u(x_j) + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2\&lt;br>
-\frac{\partial u}{\partial x}(x_j) &amp;amp; = \frac{u_{j+1} - u_j}{\Delta x} + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x&lt;br>
+&lt;p>u(x_{j+1}) &amp;amp; = u(x_j) + \frac{\partial u}{\partial x}(x_j)\Delta x + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2 \
+&amp;amp;\quad\quad\quad\quad-\frac{1}{6}\frac{\partial^3 u}{\partial x^3}(x_j)\Delta x^3 + \frac{1}{12}\frac{\partial^4 u}{\partial x^4}(x_j)\Delta x^4 + \mathcal{O}(||x||^5)\
+\frac{\partial u}{\partial x}(x_j)\Delta x &amp;amp; = u(x_{j+1}) - u(x_j) + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x^2\
+\frac{\partial u}{\partial x}(x_j) &amp;amp; = \frac{u_{j+1} - u_j}{\Delta x} + \frac{1}{2}\frac{\partial^2 u}{\partial x^2}(x_j)\Delta x
 \end{align}$$&lt;/p></description></item><item><title>9.4 4.1 二维（2D）偏微分方程问题</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/</guid><description>&lt;h2 id="椭圆型">
  椭圆型
  &lt;a class="anchor" href="#%e6%a4%ad%e5%9c%86%e5%9e%8b">#&lt;/a>
@@ -1605,9 +1605,9 @@ $$&lt;/p>
  &lt;a class="anchor" href="#411-%e9%97%ae%e9%a2%98%e8%ae%be%e5%ae%9a">#&lt;/a>
 &lt;/h3>
 &lt;p>我们考虑一个二维空间的问题，记为区域 $\Omega$。边界记为 $\partial\Omega$。&lt;/p>
-&lt;p>方程一般形式如下：&lt;br>
+&lt;p>方程一般形式如下：
 $$-\mu \Delta u + \beta \cdot \nabla u = f,\quad \text{在}\ \Omega 内$$&lt;/p>
-&lt;p>边界条件为：&lt;br>
+&lt;p>边界条件为：
 $$u(\partial \Omega) = d \quad (\text{给定的数据})$$&lt;/p>
 &lt;ul>
 &lt;li>这里的符号解释（见上一章）：
@@ -1642,8 +1642,8 @@ $$u(\partial \Omega) = d \quad (\text{给定的数据})$$&lt;/p>
  &lt;a class="anchor" href="#11-%e5%91%a8%e6%9c%9f">#&lt;/a>
 &lt;/h2>
 &lt;p>在经历了周期$T$后，重新获得原值的函数为&lt;strong>周期函数：&lt;/strong>&lt;/p>
-&lt;p>$$&lt;br>
-\varphi(t+T)=\varphi&lt;br>
+&lt;p>$$
+\varphi(t+T)=\varphi
 $$&lt;/p>
 &lt;h2 id="12-正弦型量">
  1.2 正弦型量
@@ -1653,8 +1653,8 @@ $$&lt;/p>
 &lt;blockquote>
 &lt;p>$y(t)=Asin(\omega t+\alpha)$ where $\omega = \cfrac{2\pi}{T}$ is the &lt;strong>frequency.&lt;/strong>&lt;/p>&lt;/blockquote>
 &lt;p>Notice that for values $s.t.$:&lt;/p>
-&lt;p>$$&lt;br>
-y_0 = A_0, \ y_1=A_1\sin(\omega t + \alpha_1), \ y_2=A_2\sin(2\omega t + \alpha_2), \ y_3=A_3\sin(3\omega t + \alpha_3) &amp;hellip;&lt;br>
+&lt;p>$$
+y_0 = A_0, \ y_1=A_1\sin(\omega t + \alpha_1), \ y_2=A_2\sin(2\omega t + \alpha_2), \ y_3=A_3\sin(3\omega t + \alpha_3) &amp;hellip;
 $$&lt;/p>
 &lt;p>we have frequency as the multiple of the smallest frequency with their period:&lt;/p>
 &lt;p>$\omega$, $2\omega$, $3\omega$…&lt;/p>
@@ -1720,7 +1720,7 @@ $$&lt;/p>
 &lt;p>In practice, how do we compute integral $\int_A f(x)dx$?&lt;/p>
 &lt;ul>
 &lt;li>
-&lt;p>In $\mathbb{R}^1$ (one-dimensional space):&lt;br>
+&lt;p>In $\mathbb{R}^1$ (one-dimensional space):
 $$\int_a^b f(x)dx = F(x)|_a^b = F(b) - F(a)$$&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>FTC&lt;/strong> (Fundamental Theorem of Calculus)&lt;/li>
@@ -1742,5 +1742,5 @@ $$\int_a^b f(x)dx = F(x)|_a^b = F(b) - F(a)$$&lt;/p>
  1. Statement of Main Result
  &lt;a class="anchor" href="#1-statement-of-main-result">#&lt;/a>
 &lt;/h3>
-&lt;p>&lt;strong>Theorem 1&lt;/strong>: Let $A = {(x,y): a \leq x \leq b, c \leq y \leq d}$ be a rectangle in $\mathbb{R}^2$ and $f: A \to \mathbb{R}$ be integrable. Suppose, for each $x \in [a,b]$, the following integral exists:&lt;br>
+&lt;p>&lt;strong>Theorem 1&lt;/strong>: Let $A = {(x,y): a \leq x \leq b, c \leq y \leq d}$ be a rectangle in $\mathbb{R}^2$ and $f: A \to \mathbb{R}$ be integrable. Suppose, for each $x \in [a,b]$, the following integral exists:
 $$g(x) = \int_c^d f(x,y)dy$$&lt;/p></description></item></channel></rss>

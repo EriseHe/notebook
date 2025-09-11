@@ -2,7 +2,7 @@
  Main Question
  &lt;a class="anchor" href="#main-question">#&lt;/a>
 &lt;/h2>
-&lt;p>When do we have:&lt;br>
+&lt;p>When do we have:
 $$\lim_{n\to\infty}\int_A f_n(x)dx = \int_A(\lim_{n\to\infty}f_n(x))dx?$$&lt;/p>
 &lt;h2 id="lebesgue-monotone-convergence-theorem-theorem-861">
  Lebesgue Monotone Convergence Theorem (Theorem 8.6.1)
@@ -13,7 +13,7 @@ $$\lim_{n\to\infty}\int_A f_n(x)dx = \int_A(\lim_{n\to\infty}f_n(x))dx?$$&lt;/p>
 &lt;li>$g_{n+1}(x) \leq g_n(x)$ $\forall x$ (decreasing sequence)&lt;/li>
 &lt;li>$\lim_{n\to\infty} g_n(x) = 0$ $\forall x \in [0,1]$&lt;/li>
 &lt;/ol>
-&lt;p>Then:&lt;br>
+&lt;p>Then:
 $$\lim_{n\to\infty}\int_0^1 g_n(x)dx = \int_0^1 0 dx = 0$$&lt;/p>
 &lt;h2 id="proof-details">
  Proof Details
@@ -76,16 +76,16 @@ $$\lim_{n\to\infty}\int_0^1 g_n(x)dx = \int_0^1 0 dx = 0$$&lt;/p>
 &lt;li>Volume of $A$&lt;/li>
 &lt;/ul>
 &lt;blockquote>
-&lt;p>[!definition|8.2.2]&lt;br>
-A bounded set $A \subset \mathbb{R}^n$ has &lt;em>volume&lt;/em> (or is Jordan measurable) if its characteristic function:&lt;br>
-$$1_A(x) =&lt;br>
-\begin{cases}&lt;br>
-1, &amp;amp; x \in A \&lt;br>
-0, &amp;amp; x \notin A&lt;br>
-\end{cases} $$&lt;br>
+&lt;p>[!definition|8.2.2]
+A bounded set $A \subset \mathbb{R}^n$ has &lt;em>volume&lt;/em> (or is Jordan measurable) if its characteristic function:
+$$1_A(x) =
+\begin{cases}
+1, &amp;amp; x \in A \
+0, &amp;amp; x \notin A
+\end{cases} $$
 is integrable:&lt;/p>&lt;/blockquote>
 &lt;p>$$V(A) = \int_A 1_A(x), dx$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</guid><description>&lt;blockquote>
-&lt;p>[!theorem|8.?.?]&lt;br>
+&lt;p>[!theorem|8.?.?]
 Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded set $A$. Then $f$ is integrable on $A$ &lt;strong>if and only if&lt;/strong> the set of discontinuities for the extended $f(x)$ has measure zero.&lt;/p>&lt;/blockquote>
 &lt;h2 id="proof-of-the-theorem">
  Proof of the Theorem
@@ -103,20 +103,20 @@ Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded
  &lt;a class="anchor" href="#a-set-up">#&lt;/a>
 &lt;/h4>
 &lt;ul>
-&lt;li>Fix rectangle $B$ with $\overline{A} \subset \text{int}(B)$ and let:&lt;br>
-$$&lt;br>
+&lt;li>Fix rectangle $B$ with $\overline{A} \subset \text{int}(B)$ and let:
+$$
 g(x) = \begin{cases}&lt;br>
 f(x) &amp;amp; \text{if } x \in A \&lt;br>
 0 &amp;amp; \text{if } x \notin A&lt;br>
-\end{cases}&lt;br>
+\end{cases}
 $$&lt;/li>
-&lt;li>Define:&lt;br>
-$$&lt;br>
-D = { x \in B \mid g \text{ is not continuous at } x }&lt;br>
+&lt;li>Define:
+$$
+D = { x \in B \mid g \text{ is not continuous at } x }
 $$&lt;/li>
-&lt;li>Need to show:&lt;br>
-$$&lt;br>
-f \text{ integrable } \Leftrightarrow m(D) = 0&lt;br>
+&lt;li>Need to show:
+$$
+f \text{ integrable } \Leftrightarrow m(D) = 0
 $$&lt;/li>
 &lt;/ul>
 &lt;h4 id="b-how-to-measure-discontinuity">
@@ -124,7 +124,7 @@ $$&lt;/li>
  &lt;a class="anchor" href="#b-how-to-measure-discontinuity">#&lt;/a>
 &lt;/h4>
 &lt;ul>
-&lt;li>Oscillation of a function $h$ at a point $x_0$:&lt;br>
+&lt;li>Oscillation of a function $h$ at a point $x_0$:
 $$O(h, x_0) = \inf { \sup \left{ h(x) - h(y) : x, y \in U } : U \text{ is a neighborhood of } x_0 \right}$$&lt;/li>
 &lt;li>&lt;strong>Fact:&lt;/strong> $h$ is continuous at $x_0$ if and only if $O(h, x_0) = 0$.&lt;/li>
 &lt;/ul>
@@ -146,9 +146,9 @@ $$O(h, x_0) = \inf { \sup \left{ h(x) - h(y) : x, y \in U } : U \text{ is a neig
 &lt;/h3>
 &lt;ul>
 &lt;li>
-&lt;p>If $A \subset \mathbb{R}^n$ is bounded and $f$ is bounded, then&lt;br>
+&lt;p>If $A \subset \mathbb{R}^n$ is bounded and $f$ is bounded, then
 $$\int_A f(x) = \int_{\overline{A}} f(x) = \underline{\int_{A}} f(x) \quad \text{(Riemann Condition)}$$&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>$f(x) \geq 0$ bounded and $A$ is arbitrary, then&lt;br>
+&lt;p>$f(x) \geq 0$ bounded and $A$ is arbitrary, then
 $$\int_A f(x) = \lim_{a\to\infty} \int_{A_a} f(x)$$&lt;/p></description></item></channel></rss>

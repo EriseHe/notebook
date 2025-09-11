@@ -3,11 +3,11 @@
  &lt;a class="anchor" href="#t-n-levels-of-separation-axiom">#&lt;/a>
 &lt;/h3>
 &lt;blockquote>
-&lt;p>[!axiom]&lt;br>
+&lt;p>[!axiom]
 &lt;strong>$T_{0}$ — Kolmogorov Space&lt;/strong>&lt;br>
 $\forall x \neq y \in X,, \exists$ open $U$ s.t. $x \in U,, y \notin U$ or $y \in U,, x \notin U$.&lt;/p>&lt;/blockquote>
 &lt;blockquote>
-&lt;p>[!axiom]&lt;br>
+&lt;p>[!axiom]
 &lt;strong>$T_{1}$ — Fréchet Space&lt;/strong>&lt;br>
 $\forall x \neq y \in X,, \exists$ open $U, V$ s.t. $x \in U,, y \notin U$ and $y \in V,, x \notin V$.&lt;br>
 (Equivalently, all singletons are closed.)&lt;/p></description></item></channel></rss>
