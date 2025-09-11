@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算/Julia科学计算笔记/_index.md",
+                "file": "理论/Probabilistic Machine Learning/_index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -187,15 +187,16 @@
   },
   "active": "5fae66f9ec9349cb",
   "lastOpenFiles": [
-    "计算/Julia科学计算笔记/基本语法.md",
+    "理论/Differential Geometry/_index.md",
+    "理论/Real Analysis II/_index.md",
     "计算/Julia科学计算笔记/_index.md",
+    "计算/Julia科学计算笔记/基本语法.md",
     "理论/Topology/_index.md",
     "计算/Julia科学计算笔记.md",
     "计算/Julia科学计算笔记",
     "理论/Differential Geometry/2. Lecture 2 (ACTUAL).md",
     "理论/Differential Geometry/Tangent Vectors on a Surface.md",
     "理论/Differential Geometry/1. Overview of Differential Geometry.md",
-    "理论/Differential Geometry/_index.md",
     "理论/Topology/T-n分离公理.md",
     "理论/_index.md",
     "理论/hidden.md",
@@ -216,7 +217,6 @@
     "理论/PDE/MATH 352 PDE in Action/第九章",
     "理论/PDE/MATH 352 PDE in Action/_index.md",
     "理论/PDE/MATH 352 PDE in Action/03 Numerical Solution of Ordinary Differential Equations.md",
-    "理论/PDE/MATH 352 PDE in Action/02 Three-Point Backward Differentiation Formula.md",
     "理论/PDE/Wave Equation",
     "理论/PDE/MATH 352 PDE in Action",
     "理论/PDE/Laplace Equation",
