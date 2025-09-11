@@ -1,27 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Font size control for body content only
-  var defaultFontSize = 16; // stable default
-  var raw = localStorage.getItem('bodyFontSize');
-  var currentSize = raw ? parseInt(raw, 10) : defaultFontSize;
+  var defaultFontSize = 16; // Reset to standard browser default
+  var currentSize = parseInt(localStorage.getItem('bodyFontSize')) || defaultFontSize;
   
-  // Set initial font size from localStorage
-  setFontSize(currentSize);
+  // Only set font size if user has explicitly chosen a different size
+  // This prevents the flash of large text on refresh
+  if (localStorage.getItem('bodyFontSize') !== null) {
+    setFontSize(currentSize);
+  } else {
+    // Use CSS default, don't override with JS
+    currentSize = defaultFontSize;
+  }
   
   // Font size buttons
-  var dec = document.getElementById('font-decrease');
-  if (dec) dec.addEventListener('click', function() {
+  document.getElementById('font-decrease').addEventListener('click', function() {
     if (currentSize > 12) { // Minimum size
       setFontSize(currentSize - 1);
     }
   });
   
-  var reset = document.getElementById('font-reset');
-  if (reset) reset.addEventListener('click', function() {
+  document.getElementById('font-reset').addEventListener('click', function() {
     setFontSize(defaultFontSize);
   });
   
-  var inc = document.getElementById('font-increase');
-  if (inc) inc.addEventListener('click', function() {
+  document.getElementById('font-increase').addEventListener('click', function() {
     if (currentSize < 24) { // Maximum size
       setFontSize(currentSize + 1);
     }
