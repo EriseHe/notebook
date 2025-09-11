@@ -119,11 +119,12 @@
   b,
   optgroup,
   strong {
-    font-weight: 500;
-    color: purple; /* remove red */
+    font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600; /* Use SF Pro's semibold weight */
+    color: purple;
     background-color: transparent;
     border: 1px solid var(--strong-border);
-    border-radius: 0.2rem;
+    border-radius: 0.1rem;
     padding: 0.05rem 0.25rem;
   }
 
