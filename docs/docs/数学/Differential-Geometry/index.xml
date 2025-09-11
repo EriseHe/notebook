@@ -18,25 +18,7 @@ meaning:&lt;/p>
 &lt;li>$X(fg) = f(p),X(g) + g(p),X(f)$.
 &lt;em>(Leibniz / derivation rule at $p$.)&lt;/em>&lt;/li>
 &lt;/ol>
-&lt;p>&lt;em>(Intuition: a tangent vector acts like a directional derivative at the point $p$; it is a derivation on smooth functions.)&lt;/em>&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</guid><description>&lt;h2 id="1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">
- 1. Parametrized curves in $\mathbb{R}^3$ (plane curves as a special case)
- &lt;a class="anchor" href="#1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">#&lt;/a>
-&lt;/h2>
-&lt;blockquote>
-&lt;p>[!definition|1.1] regular curve
-A (smooth) curve is a $C^\infty$ map $\gamma:I\subset\mathbb{R}\to\mathbb{R}^3$.&lt;br>
-It is &lt;strong>regular&lt;/strong> if $\dot{\gamma}(t)\neq 0$ for all $t\in I$ (here $\dot{\gamma}=\dfrac{d\gamma}{dt}$ is the &lt;strong>velocity&lt;/strong>).&lt;/p>&lt;/blockquote>
-&lt;blockquote>
-&lt;p>[!definition|1.2] arclength function
-Fix $t_0\in I$. The arclength from $t_0$ to $t$ is
-$$
-s(t)=\int_{t_0}^{t}|\dot{\gamma}(\tau)|,d\tau.
-$$&lt;/p>&lt;/blockquote>
-&lt;p>From the Fundamental Theorem of Calculus,
-$$
-\frac{ds}{dt}=|\dot{\gamma}(t)| \quad\text{(speed)}&amp;gt;0\ \text{for regular curves}.
-$$
-Hence, by the Inverse Function Theorem, $s(t)$ admits a smooth local inverse $t=t(s)$.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Lecture-2-ACTUAL/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Lecture-2-ACTUAL/</guid><description>&lt;h1 id="parametrized-curves-in-mathbbr3">
+&lt;p>&lt;em>(Intuition: a tangent vector acts like a directional derivative at the point $p$; it is a derivation on smooth functions.)&lt;/em>&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Lecture-2-ACTUAL/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Lecture-2-ACTUAL/</guid><description>&lt;h1 id="parametrized-curves-in-mathbbr3">
  Parametrized Curves in $\mathbb{R}^3$
  &lt;a class="anchor" href="#parametrized-curves-in-mathbbr3">#&lt;/a>
 &lt;/h1>
@@ -87,7 +69,25 @@ We write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its &lt;strong>velocity&lt;/
 $\gamma$ is &lt;strong>regular&lt;/strong> if
 $$
 \dot\gamma(t)\neq 0 \quad\text{for all } t\in I.
-$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/</link><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/</guid><description>&lt;h2 id="1-from-calculus-to-manifolds">
+$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</guid><description>&lt;h2 id="1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">
+ 1. Parametrized curves in $\mathbb{R}^3$ (plane curves as a special case)
+ &lt;a class="anchor" href="#1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>[!definition|1.1] regular curve
+A (smooth) curve is a $C^\infty$ map $\gamma:I\subset\mathbb{R}\to\mathbb{R}^3$.&lt;br>
+It is &lt;strong>regular&lt;/strong> if $\dot{\gamma}(t)\neq 0$ for all $t\in I$ (here $\dot{\gamma}=\dfrac{d\gamma}{dt}$ is the &lt;strong>velocity&lt;/strong>).&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>[!definition|1.2] arclength function
+Fix $t_0\in I$. The arclength from $t_0$ to $t$ is
+$$
+s(t)=\int_{t_0}^{t}|\dot{\gamma}(\tau)|,d\tau.
+$$&lt;/p>&lt;/blockquote>
+&lt;p>From the Fundamental Theorem of Calculus,
+$$
+\frac{ds}{dt}=|\dot{\gamma}(t)| \quad\text{(speed)}&amp;gt;0\ \text{for regular curves}.
+$$
+Hence, by the Inverse Function Theorem, $s(t)$ admits a smooth local inverse $t=t(s)$.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/</link><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/</guid><description>&lt;h2 id="1-from-calculus-to-manifolds">
  1. From Calculus to Manifolds
  &lt;a class="anchor" href="#1-from-calculus-to-manifolds">#&lt;/a>
 &lt;/h2>
