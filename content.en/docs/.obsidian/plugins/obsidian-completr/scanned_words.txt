@@ -333,6 +333,9 @@ Christoffel
 Context
 Conditionals
 Collected
+Charts
+Curve
+Correction
 font
 for
 functions
@@ -705,6 +708,8 @@ fxk
 fm
 fg
 factorizations
+faithful
+filling
 color
 curve
 can
@@ -1538,6 +1543,11 @@ conditionals
 combinatorially
 chooses
 confused
+curvatures
+correction
+cleanly
+calculus
+convert
 Problem
 Partial
 Putting
@@ -1811,6 +1821,7 @@ Positional
 Parametrized
 Proposition
 Perplexity
+Patches
 In
 Implicit
 Invertibility
@@ -2019,6 +2030,8 @@ IuS
 IJK
 Iwm
 Inference
+Intuition
+Implication
 the
 terms
 that
@@ -3266,6 +3279,11 @@ softmax
 scan
 sharper
 slow
+summed
+sphere
+singularities
+save
+skipping
 discuss
 determine
 described
@@ -3811,6 +3829,11 @@ dot
 distributions
 decoders
 decoding
+directional
+derivations
+dull
+displacements
+direciton
 in
 inverse
 implicit
@@ -4397,6 +4420,10 @@ iWv
 idDdl
 iMf
 inversion
+inline
+immersion
+inverses
+intersecting
 of
 our
 out
@@ -4692,6 +4719,9 @@ oGt
 oC
 okg
 optionally
+osculating
+obtains
+obsidian
 near
 neighborhood
 necessary
@@ -4955,6 +4985,8 @@ nLq
 nWg
 noJd
 notebook
+neighbourhood
+numbered
 Does
 Determine
 Differentiability
@@ -5642,6 +5674,8 @@ mSS
 masking
 matrices
 matters
+multivariable
+manifolds
 have
 holds
 has
@@ -5880,6 +5914,9 @@ hZdZ
 hmn
 hUK
 hypotheses
+homeomorphic
+homeomorphisms
+headings
 local
 limit
 lim
@@ -6182,6 +6219,8 @@ lOj
 lFP
 linking
 logits
+lets
+locality
 Show
 Sufficient
 Substitute
@@ -6513,6 +6552,11 @@ Scope
 Sequences
 Sampling
 Stop
+Slide
+Slides
+Surface
+Sphere
+Symbols
 equations
 equation
 exists
@@ -7050,6 +7094,9 @@ extra
 easier
 entropy
 estimator
+encodes
+extrinsic
+explained
 whether
 written
 which
@@ -7297,6 +7344,7 @@ wmH
 wrbu
 waULPYO
 wgw
+writes
 by
 be
 bijective
@@ -7614,6 +7662,7 @@ blend
 blackboards
 branching
 bland
+bend
 allow
 and
 as
@@ -8256,6 +8305,13 @@ average
 argmax
 accelerations
 amortized
+annihilates
+assigns
+angles
+ambient
+arclength
+axioms
+abbreviation
 you
 yields
 yF
@@ -8539,6 +8595,7 @@ NmZkIcF
 Nucleus
 NLL
 Normalizing
+Needed
 Recall
 Rigorous
 Respect
@@ -8761,6 +8818,9 @@ Residual
 Rule
 Regularity
 Random
+Riemannian
+Reference
+Reparametrization
 requirement
 respect
 rule
@@ -9967,6 +10027,11 @@ predictability
 perplexity
 perplexed
 parameterized
+planes
+principal
+pictures
+professor
+pinpoint
 Ex
 Evaluate
 Evaluating
@@ -10217,6 +10282,8 @@ EyG
 EnP
 ETa
 EkM
+Egregium
+ENSURE
 We
 What
 With
@@ -10596,6 +10663,9 @@ Transition
 Temperature
 Trade
 Token
+Theorema
+Tensor
+Tangent
 Hence
 Here
 Hypotheses
@@ -11192,6 +11262,7 @@ Fwl
 FNW
 Feed
 Families
+FAITHFUL
 Jacobian
 Jobcobian
 John
@@ -11564,6 +11635,13 @@ Allows
 Arc
 Autoregressive
 Attractive
+Argmax
+Atlases
+Angles
+Area
+Around
+Angle
+Arclength
 via
 variables
 view
@@ -11756,6 +11834,8 @@ vIc
 vwb
 vEC
 vDe
+velocities
+vividly
 unknowns
 unique
 uniquely
@@ -12221,6 +12301,9 @@ ges
 gon
 gd
 gRc
+germ
+geodesic
+gpt
 Moreover
 Matrix
 Maximum
@@ -12497,6 +12580,7 @@ Multivariate
 MLE
 Minimal
 Minimization
+Manifolds
 Using
 Up
 Ut
@@ -12623,6 +12707,8 @@ UR
 Um
 Ukyc
 UCm
+Uniqueness
+Unrolled
 quotient
 question
 quickly
@@ -13067,6 +13153,9 @@ Lknwa
 LBA
 Likelihood
 Leibler
+Last
+Leibniz
+Locally
 Value
 Verifying
 Verify
@@ -13207,6 +13296,7 @@ Vwd
 VRC
 Vectors
 VAEs
+Velocity
 Yes
 You
 YX
@@ -13628,6 +13718,7 @@ Oix
 OlP
 Orthogonality
 Output
+Often
 Given
 Get
 Guessing
@@ -13828,6 +13919,8 @@ Generic
 Generation
 Greedy
 GRUs
+Geometrically
+Geodesic
 xF
 xxii
 xmp
@@ -14074,6 +14167,8 @@ Qol
 Qav
 Qpa
 QKT
+Quick
+Quadratic
 jpeg
 json
 joystick
