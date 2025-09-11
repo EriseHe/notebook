@@ -3,22 +3,22 @@
 <nav class="subject-menu">
   <!-- The tab buttons -->
   <div class="subject-tabs">
-    <button class="subject-tab active" data-subject="数学">数学</button>
-    <button class="subject-tab" data-subject="物理">物理</button>
+    <button class="subject-tab active" data-subject="理论">理论</button>
+    <button class="subject-tab" data-subject="计算">计算</button>
   </div>
 
   <!-- Tab panels for each subject -->
   <div class="subject-content">
-    <!-- Mathematics panel (visible by default) -->
-    <div class="subject-panel" data-subject="数学">
-      {{ with .Site.GetPage "docs/数学" }}
+    <!-- 理论 panel (visible by default) -->
+    <div class="subject-panel" data-subject="理论">
+      {{ with .Site.GetPage "notes/理论" }}
         {{ template "book-section-children" (dict "Section" . "CurrentPage" $thisPage) }}
       {{ end }}
     </div>
 
-    <!-- Physics panel (hidden by default) -->
-    <div class="subject-panel hidden" data-subject="物理">
-      {{ with .Site.GetPage "docs/物理" }}
+    <!-- 计算 panel (hidden by default) -->
+    <div class="subject-panel hidden" data-subject="计算">
+      {{ with .Site.GetPage "notes/计算" }}
         {{ template "book-section-children" (dict "Section" . "CurrentPage" $thisPage) }}
       {{ end }}
     </div>
