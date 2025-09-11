@@ -4,6 +4,7 @@
 .markdown { 
   background-color: transparent;
   font-family: "Computer Modern", Georgia, Times, serif;
+  font-size: var(--markdown-font-size); /* Use centralized font size variable */
   
   p {
     font-weight: normal;
@@ -20,6 +21,7 @@
 .posts { 
   background-color: transparent;
   font-family: "Computer Modern", Georgia, Times, serif;
+  font-size: var(--markdown-font-size); /* Use centralized font size variable */
   padding: 2rem;
   padding-top: 1rem; 
   border-radius: 12px; 

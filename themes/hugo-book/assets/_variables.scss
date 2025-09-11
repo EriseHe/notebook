@@ -3,6 +3,8 @@
 // @import "plugins/dark";
 
 // Adding RGB values for color-link for use in rgba() functions
+// Centralized font size system - all markdown content uses this variable
 :root {
   --color-link-rgb: 0, 62, 187;  // RGB values extracted from the link color in _defaults.scss
+  --markdown-font-size: 16px;    // Single source of truth for all markdown content font size
 }
