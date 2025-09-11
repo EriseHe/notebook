@@ -7,7 +7,24 @@
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true,
       processEnvironments: true,
-      packages: {'[+]': ['base', 'ams', 'bbox', 'boldsymbol', 'color', 'newcommand', 'noerrors']}
+      processRefs: true,
+      tags: 'ams',
+      packages: {
+        '[+]': [
+          'base',
+          'ams',
+          'amsmath', 
+          'amssymb',
+          'array',
+          'bbox', 
+          'boldsymbol', 
+          'color', 
+          'newcommand', 
+          'noerrors',
+          'noundefined',
+          'mathtools'
+        ]
+      }
     },
     options: {
       skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
