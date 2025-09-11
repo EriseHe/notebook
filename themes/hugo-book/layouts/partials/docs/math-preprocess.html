@@ -1,0 +1,47 @@
+<script>
+// Pre-process math blocks to fix backslash issues before MathJax runs
+document.addEventListener('DOMContentLoaded', function() {
+  // Function to fix backslashes in math content
+  function fixMathBackslashes(content) {
+    // Fix \\[spacing] patterns that got mangled by Hugo's goldmark
+    // Replace \[4pt] with \\[4pt] (and similar patterns)
+    return content.replace(/\\(\[[0-9]+(?:\.[0-9]+)?(?:pt|em|ex|px|cm|mm|in)\])/g, '\\\\$1');
+  }
+  
+  // Process all math blocks before MathJax initializes
+  function preprocessMathBlocks() {
+    // Find all elements that contain math (both inline and display)
+    const mathElements = document.querySelectorAll('p, div');
+    
+    mathElements.forEach(function(element) {
+      let content = element.innerHTML;
+      let modified = false;
+      
+      // Process display math blocks $$...$$
+      content = content.replace(/\$\$([\s\S]*?)\$\$/g, function(match, mathContent) {
+        const fixed = fixMathBackslashes(mathContent);
+        if (fixed !== mathContent) {
+          modified = true;
+        }
+        return '$$' + fixed + '$$';
+      });
+      
+      // Process inline math blocks $...$
+      content = content.replace(/\$([^$]+)\$/g, function(match, mathContent) {
+        const fixed = fixMathBackslashes(mathContent);
+        if (fixed !== mathContent) {
+          modified = true;
+        }
+        return '$' + fixed + '$';
+      });
+      
+      if (modified) {
+        element.innerHTML = content;
+      }
+    });
+  }
+  
+  // Run preprocessing before MathJax
+  preprocessMathBlocks();
+});
+</script>
