@@ -7,7 +7,7 @@
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true,
       processEnvironments: true,
-      packages: {'[+]': ['ams', 'noerrors', 'color']}
+      packages: {'[+]': ['base', 'ams', 'bbox', 'boldsymbol', 'color', 'newcommand', 'noerrors']}
     },
     options: {
       skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
@@ -19,30 +19,6 @@
     },
     startup: {
       ready: function() {
-        // Override the default find method to process the content before MathJax acts on it
-        const oldFindTeX = MathJax.startup.findTeX;
-        MathJax.startup.findTeX = function(options) {
-          // First run the original method
-          const results = oldFindTeX.call(this, options);
-          
-          // Process display math content to handle line breaks in aligned environments
-          for (const item of results) {
-            if (item.display) {
-              let processedMath = item.math;
-              
-              // Handle line breaks in aligned environments
-              processedMath = processedMath.replace(/\\begin\{aligned\}([\s\S]*?)\\end\{aligned\}/g, function(match, content) {
-                // Replace single backslashes with double backslashes for line breaks
-                return '\\begin{aligned}' + content.replace(/\\/g, '\\\\') + '\\end{aligned}';
-              });
-              
-              item.math = processedMath;
-            }
-          }
-          
-          return results;
-        };
-        
         MathJax.startup.defaultReady();
       }
     }

@@ -2,12 +2,12 @@
 &lt;blockquote>
 &lt;p>logically analogous to &lt;strong>Newton&amp;rsquo;s Second Law&lt;/strong> $F=ma$&lt;/p>&lt;/blockquote>
 &lt;blockquote>
-&lt;p>[!definition] Schrodinger&amp;rsquo;s Equation&lt;br>
+&lt;p>[!definition] Schrodinger&amp;rsquo;s Equation
 $$i\hbar \frac{ \partial \Psi}{ \partial t}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2}\Psi}{ \partial x^{2} }+V \Psi$$&lt;/p>&lt;/blockquote>
 &lt;p>where &lt;strong>Planck&amp;rsquo;s constant&lt;/strong> $\hbar=\frac{h}{2\pi}=1.054573 \times 10^{-34}$.&lt;/p>
 &lt;blockquote>
-&lt;p>[!definition] Born&amp;rsquo;s Statistical Interpretation&lt;br>
-$$\int^{a}_{b} |\Psi(x,t)^{2}| , dx $$&lt;br>
+&lt;p>[!definition] Born&amp;rsquo;s Statistical Interpretation
+$$\int^{a}_{b} |\Psi(x,t)^{2}| , dx $$
 which is the probability finding the particle between $a$ and $b$.&lt;/p>&lt;/blockquote>
 &lt;blockquote>
 &lt;p>It is natural to wonder whether it is a fact of nature, or a defect in theory.&lt;/p></description></item></channel></rss>

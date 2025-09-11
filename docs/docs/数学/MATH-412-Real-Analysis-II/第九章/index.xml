@@ -9,7 +9,7 @@
 &lt;p>In practice, how do we compute integral $\int_A f(x)dx$?&lt;/p>
 &lt;ul>
 &lt;li>
-&lt;p>In $\mathbb{R}^1$ (one-dimensional space):&lt;br>
+&lt;p>In $\mathbb{R}^1$ (one-dimensional space):
 $$\int_a^b f(x)dx = F(x)|_a^b = F(b) - F(a)$$&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>FTC&lt;/strong> (Fundamental Theorem of Calculus)&lt;/li>
@@ -31,5 +31,5 @@ $$\int_a^b f(x)dx = F(x)|_a^b = F(b) - F(a)$$&lt;/p>
  1. Statement of Main Result
  &lt;a class="anchor" href="#1-statement-of-main-result">#&lt;/a>
 &lt;/h3>
-&lt;p>&lt;strong>Theorem 1&lt;/strong>: Let $A = {(x,y): a \leq x \leq b, c \leq y \leq d}$ be a rectangle in $\mathbb{R}^2$ and $f: A \to \mathbb{R}$ be integrable. Suppose, for each $x \in [a,b]$, the following integral exists:&lt;br>
+&lt;p>&lt;strong>Theorem 1&lt;/strong>: Let $A = {(x,y): a \leq x \leq b, c \leq y \leq d}$ be a rectangle in $\mathbb{R}^2$ and $f: A \to \mathbb{R}$ be integrable. Suppose, for each $x \in [a,b]$, the following integral exists:
 $$g(x) = \int_c^d f(x,y)dy$$&lt;/p></description></item></channel></rss>
