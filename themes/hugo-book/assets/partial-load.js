@@ -1,12 +1,13 @@
 // Initialize function to reinitialize scripts after content update
 function initializeComponents() {
-  // Reinitialize MathJax if it exists
-  if (window.MathJax) {
-    window.MathJax.typeset();
-  }
-  // Re-run theorem block processor if available
+  // IMPORTANT: process theorem blocks BEFORE MathJax typesets to avoid
+  // MathJax altering text nodes and confusing our extraction
   if (typeof window.processTheoremBlocks === 'function') {
     try { window.processTheoremBlocks(); } catch (e) { console.error(e); }
+  }
+  // Now typeset math
+  if (window.MathJax) {
+    window.MathJax.typeset();
   }
   
   // Reinitialize copy code buttons

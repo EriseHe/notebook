@@ -43,12 +43,13 @@ $$ \dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y $$ # Numerically, the pro
 <label for=section-7f42ebdf414be775241761c5b3262618 class="flex justify-between"><a role=button>波方程</a></label><ul></ul></li><li><input type=checkbox id=section-3cdad47fb9156c74a9aac21d7840334d class=toggle>
 <label for=section-3cdad47fb9156c74a9aac21d7840334d class="flex justify-between"><a role=button>拉普拉斯方程</a></label><ul></ul></li></ul></li><li><a href=/notebook/docs/%E6%95%B0%E5%AD%A6/PS/>Ps</a></li></ul></div><div class="subject-panel hidden" data-subject=物理><ul></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".subject-tab"),s=document.querySelectorAll(".subject-panel");function t(t){e.forEach(e=>e.classList.remove("active")),s.forEach(e=>e.classList.add("hidden"));const n=document.querySelector(`.subject-tab[data-subject="${t}"]`);n&&n.classList.add("active");const o=document.querySelector(`.subject-panel[data-subject="${t}"]`);o&&o.classList.remove("hidden"),localStorage.setItem("activeSubjectTab",t)}const n=localStorage.getItem("activeSubjectTab");n&&t(n),e.forEach(e=>{e.addEventListener("click",function(){const n=e.getAttribute("data-subject");t(n)})})})</script><div class=after-menu-offset><ul><li><a href=/notebook/posts/>Blog</a></li><li><a href=https://github.com/EriseHe/notebook target=_blank rel=noopener>Github</a></li><li><a href=https://themes.gohugo.io/themes/hugo-book/ target=_blank rel=noopener>Hugo Themes</a></li></ul></div></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/notebook/svg/menu.svg class=book-icon alt=Menu></label><h3>02 Three Point Backward Differentiation Formula</h3><label for=toc-control><img src=/notebook/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li><a href=#1-ok-honestly-i-have-no-idea-where-he-started>1. Ok Honestly I Have No Idea Where He Started</a></li><li><a href=#heading>$$
 \dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y
-$$</a></li><li><a href=#2-approximate-fracd-yd-x-using-a-three-point-backward-differentiation-formula-bdf>2. Approximate $\frac{d y}{d x}$ Using a Three-Point Backward Differentiation Formula (BDF)</a></li></ul></li></ul></nav></aside></header><article class=book-article><h1 style="text-align:center;font-size:1.8em;font-family:computer modern,cmu serif,serif"></h1><div class="markdown posts"><h2 id=1-ok-honestly-i-have-no-idea-where-he-started>1. Ok Honestly I Have No Idea Where He Started
-<a class=anchor href=#1-ok-honestly-i-have-no-idea-where-he-started>#</a></h2><blockquote><p>MATH 212 is useless
-- Alessandro Veneziani</p></blockquote><p>Given the population problem #Implicit:</p><h2 id=heading>$$
+$$</a></li><li><a href=#2-approximate-fracd-yd-x-using-a-three-point-backward-differentiation-formula-bdf>2. Approximate $\frac{d y}{d x}$ Using a Three-Point Backward Differentiation Formula (BDF)</a></li></ul></li></ul></nav></aside></header><article class=book-article><h1 style="text-align:center;font-size:1.8em;font-family:computer modern,cmu serif,serif"></h1><div class="markdown posts" x-data><h2 id=1-ok-honestly-i-have-no-idea-where-he-started>1. Ok Honestly I Have No Idea Where He Started
+<a class=anchor href=#1-ok-honestly-i-have-no-idea-where-he-started>#</a></h2><blockquote><p data-raw='MATH 212 is useless
+- Alessandro Veneziani'>MATH 212 is useless
+- Alessandro Veneziani</p></blockquote><p data-raw='Given the population problem #Implicit:'>Given the population problem #Implicit:</p><h2 id=heading>$$
 \dfrac{d y}{d x} = A\left( 1 - \dfrac{y}{B}\right)y
 $$
-<a class=anchor href=#heading>#</a></h2><p><strong>Numerically</strong>, the problem is:
+<a class=anchor href=#heading>#</a></h2><p data-raw='<strong>Numerically</strong>, the problem is:
 $$
 \frac{u_{i+1} - u_i}{\Delta t} = A \left(1 - \frac{u_{i+1}}{B} \right) u_{i+1}
 $$
@@ -58,12 +59,44 @@ $$
 x - u_i &= A \left(1 - \frac{x}{B} \right) x \
 &= A x - \frac{A}{B} x^2
 \end{align}
-$$</p><p>using $f(x)=0$, and we iterate using Newton&rsquo;s method:</p><blockquote><p>yes he changed notation again</p></blockquote><blockquote><p>[!remark|*] Newton&rsquo;s Method
+$$'><strong>Numerically</strong>, the problem is:
+$$
+\frac{u_{i+1} - u_i}{\Delta t} = A \left(1 - \frac{u_{i+1}}{B} \right) u_{i+1}
+$$
+To solve this numerically, we rewrite the equation:
+$$
+\begin{align}
+x - u_i &= A \left(1 - \frac{x}{B} \right) x \
+&= A x - \frac{A}{B} x^2
+\end{align}
+$$</p><p data-raw='using $f(x)=0$, and we iterate using Newton&rsquo;s method:'>using $f(x)=0$, and we iterate using Newton&rsquo;s method:</p><blockquote><p data-raw='yes he changed notation again'>yes he changed notation again</p></blockquote><blockquote><p data-raw='[!remark|*] Newton&rsquo;s Method
 $$\underbrace{x^{(u+1)}}<em>{y</em>{\text{new}}}=\underbrace{x^{(u)}}<em>{y</em>{\text{old}}}-\frac{f(x^{(u)})}{f&rsquo;(x^{(u)})}$$
-We have $|y_{\text{new}}-y_{\text{old}}|\leq \text{tol}.$</p></blockquote><p>$$
+We have $|y_{\text{new}}-y_{\text{old}}|\leq \text{tol}.$'>[!remark|*] Newton&rsquo;s Method
+$$\underbrace{x^{(u+1)}}<em>{y</em>{\text{new}}}=\underbrace{x^{(u)}}<em>{y</em>{\text{old}}}-\frac{f(x^{(u)})}{f&rsquo;(x^{(u)})}$$
+We have $|y_{\text{new}}-y_{\text{old}}|\leq \text{tol}.$</p></blockquote><p data-raw='$$
+\begin{align}
+x - u_i  & = \Delta t A \left(1 - \frac{x}{B} \right) x \
+& = \Delta t A x - \Delta t \frac{A}{B} x^2 \'>$$
 \begin{align}
 x - u_i & = \Delta t A \left(1 - \frac{x}{B} \right) x \
-& = \Delta t A x - \Delta t \frac{A}{B} x^2 \</p><p>\Longrightarrow \quad x - u_{i}-\Delta t A x + \Delta t \frac{A}{B} x^{2}&=0
+& = \Delta t A x - \Delta t \frac{A}{B} x^2 \</p><p data-raw='\Longrightarrow \quad x - u_{i}-\Delta t A x + \Delta t \frac{A}{B} x^{2}&=0
+\end{align}
+$$
+Define a function $g(x)$ from above:
+$$
+\begin{align}
+g(x)  & = x - u_i - \Delta t A x + \Delta t \frac{A}{B} x^{2}\
+\end{align}
+$$
+Taking the derivative:
+$$
+\begin{align}
+g&rsquo;(x) &= \frac{d}{dx} \left( x - u_i - \Delta t A x + \Delta t \frac{A}{B} x^2 \right) \
+&= 1 - \Delta t \left(A - \frac{2A}{B} x \right) \
+&= 1 - \Delta t f&rsquo;(x).
+\end{align}
+$$
+For $f^{\prime}(x)=A-\frac{2 A}{B} x$.'>\Longrightarrow \quad x - u_{i}-\Delta t A x + \Delta t \frac{A}{B} x^{2}&=0
 \end{align}
 $$
 Define a function $g(x)$ from above:
@@ -81,7 +114,7 @@ g&rsquo;(x) &= \frac{d}{dx} \left( x - u_i - \Delta t A x + \Delta t \frac{A}{B}
 \end{align}
 $$
 For $f^{\prime}(x)=A-\frac{2 A}{B} x$.</p><hr><h2 id=2-approximate-fracd-yd-x-using-a-three-point-backward-differentiation-formula-bdf>2. Approximate $\frac{d y}{d x}$ Using a Three-Point Backward Differentiation Formula (BDF)
-<a class=anchor href=#2-approximate-fracd-yd-x-using-a-three-point-backward-differentiation-formula-bdf>#</a></h2><blockquote><p>tracing back to last lecture on determination of coefficients $A, B, C$</p></blockquote><p>$$
+<a class=anchor href=#2-approximate-fracd-yd-x-using-a-three-point-backward-differentiation-formula-bdf>#</a></h2><blockquote><p data-raw='tracing back to last lecture on determination of coefficients $A, B, C$'>tracing back to last lecture on determination of coefficients $A, B, C$</p></blockquote><p data-raw='$$
 \begin{aligned}
 f(t_{i},y_{i})=\left. \frac{dy}{dx} \right|<em>{x_i} &\approx \frac{3}{2 \Delta x} y_i - \frac{4}{2 \Delta x} y</em>{i-1} + \frac{1}{2 \Delta x} y_{i-2} \ \
 \text{Taylor Expansion}\Longrightarrow\quad
@@ -97,7 +130,34 @@ $$
 \begin{align}
 \frac{3}{2 \Delta x} u_i&-\frac{4}{2 \Delta x} u</em>{i-1}+\frac{1}{2 \Delta x} u_{i-2}=f\left(t_i , u_i\right)\
 \end{align}
-$$</p><p><strong>Implicit formula:</strong>
+$$'>$$
+\begin{aligned}
+f(t_{i},y_{i})=\left. \frac{dy}{dx} \right|<em>{x_i} &\approx \frac{3}{2 \Delta x} y_i - \frac{4}{2 \Delta x} y</em>{i-1} + \frac{1}{2 \Delta x} y_{i-2} \ \
+\text{Taylor Expansion}\Longrightarrow\quad
+&\left{
+\begin{aligned}
+y_{i-1} &= y_i - \left. \frac{dy}{dx} \right|<em>{x_i} \Delta x \dots \
+y</em>{i-2} &= y_i - \left. \frac{dy}{dx} \right|<em>{x_i} 2 \Delta x \dots
+\end{aligned}
+\right.
+\end{aligned}$$
+we yield:
+$$
+\begin{align}
+\frac{3}{2 \Delta x} u_i&-\frac{4}{2 \Delta x} u</em>{i-1}+\frac{1}{2 \Delta x} u_{i-2}=f\left(t_i , u_i\right)\
+\end{align}
+$$</p><p data-raw='<strong>Implicit formula:</strong>
+$$
+u_i=\frac{4}{3} u_{i-1}-\frac{1}{3} u_{i-2}+\frac{2}{3} \Delta x\left(t_i, u_i\right)
+$$
+we substitute $f(t_{i},u_{i})=\lambda u_{i}$ to derive explicitly:<br>
+$$\begin{align}
+u_i - \frac{4}{3} u_{i-1} + \frac{1}{3} u_{i-2} - &\frac{2}{3} \Delta x f(t_i, u_i) = 0 \
+u_i - \frac{4}{3} u_{i-1} + \frac{1}{3} u_{i-2} - &\frac{2}{3} \Delta x \lambda u_{i} = 0 \
+\end{align}
+$$
+<strong>Explicit formula:</strong>
+$$'><strong>Implicit formula:</strong>
 $$
 u_i=\frac{4}{3} u_{i-1}-\frac{1}{3} u_{i-2}+\frac{2}{3} \Delta x\left(t_i, u_i\right)
 $$
@@ -107,7 +167,9 @@ u_i - \frac{4}{3} u_{i-1} + \frac{1}{3} u_{i-2} - &\frac{2}{3} \Delta x \lambda 
 \end{align}
 $$
 <strong>Explicit formula:</strong>
-$$</p><p>\boxed{u_i = \frac{1}{1 - \frac{2}{3} \Delta x\lambda} \left( \frac{4}{3} u_{i-1} - \frac{1}{3} u_{i-2} \right) }</p><p>$$</p><blockquote><p>[!definition|*] Generalized p-step BDF Form
+$$</p><p data-raw='\boxed{u_i = \frac{1}{1 - \frac{2}{3} \Delta x\lambda} \left( \frac{4}{3} u_{i-1} - \frac{1}{3} u_{i-2} \right) }'>\boxed{u_i = \frac{1}{1 - \frac{2}{3} \Delta x\lambda} \left( \frac{4}{3} u_{i-1} - \frac{1}{3} u_{i-2} \right) }</p><p data-raw=$$>$$</p><blockquote><p data-raw='[!definition|*] Generalized p-step BDF Form
+$$\boxed{u_i-\sum_{j=1}^{p} \alpha_j u_{i-j}=\Delta x \beta_{-1} f\left(t_i, u_i\right)} $$
+Generalized Implicit Multistep Method: $$\boxed{u_{i+1}-\sum_{j=1}^p \alpha_j u_{i-j}=\Delta x \sum_{j={-1}}^p \beta_j f\left(t_{i-j}, u_{i+1-j}\right)}$$'>[!definition|*] Generalized p-step BDF Form
 $$\boxed{u_i-\sum_{j=1}^{p} \alpha_j u_{i-j}=\Delta x \beta_{-1} f\left(t_i, u_i\right)} $$
 Generalized Implicit Multistep Method: $$\boxed{u_{i+1}-\sum_{j=1}^p \alpha_j u_{i-j}=\Delta x \sum_{j={-1}}^p \beta_j f\left(t_{i-j}, u_{i+1-j}\right)}$$</p></blockquote></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/EriseHe/notebook/edit/main//content.en/docs/%e6%95%b0%e5%ad%a6/MATH%20351%20&amp;amp;%20352/MATH%20352%20PDE%20in%20Action/02%20Three-Point%20Backward%20Differentiation%20Formula.md target=_blank rel=noopener><img src=/notebook/svg/edit.svg class=book-icon alt>
 <span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside id=book-toc class="book-toc hidden"><div class=book-toc-content><div class=button-prev></div><div class=toc-entries><nav id=TableOfContents><ul><li><ul><li><a href=#1-ok-honestly-i-have-no-idea-where-he-started>1. Ok Honestly I Have No Idea Where He Started</a></li><li><a href=#heading>$$
@@ -119,5 +181,4 @@ $$</a></li><li><a href=#2-approximate-fracd-yd-x-using-a-three-point-backward-di
 <img src=/notebook/toc-icon.svg alt="Toggle TOC"></button><div class=font-size-control><button id=font-toggle class=font-size-btn>
 A</button><div class=font-size-buttons><button id=font-increase class=font-control-btn>+</button>
 <button id=font-reset class=font-control-btn>A</button>
-<button id=font-decrease class=font-control-btn>−</button></div></div></aside><script>document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("book-toc"),t=!0;t?e.classList.remove("hidden"):e.classList.add("hidden"),document.getElementById("toc-toggle").addEventListener("click",function(){e.classList.toggle("hidden")})})</script><script src=/notebook/font-size.min.js></script><script src=/notebook/toolbar.min.js></script><script src=/notebook/toc-animation.min.js></script><script src=/notebook/menu-autohide.min.js></script></main><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("theme-toggle");if(!e)return;e.onclick=()=>{const s=e.getBoundingClientRect(),o=s.left+s.width/2,i=s.top+s.height/2,l=document.documentElement.getAttribute("data-theme"),r=l||"auto";let n;r==="auto"?n=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":n=r;const a=n==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",a),localStorage.setItem("theme",a);const c=n==="dark"?"#0b031c":"white",t=document.createElement("div");t.style.position="fixed",t.style.top="0",t.style.left="0",t.style.width="100vw",t.style.height="100vh",t.style.zIndex="9999",t.style.pointerEvents="none",t.style.setProperty("--cx",`${o}px`),t.style.setProperty("--cy",`${i}px`),t.style.setProperty("--r","0px"),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${c} calc(var(--r) + 1px))`,document.body.appendChild(t);const u=window.innerWidth,h=window.innerHeight,m=Math.hypot(Math.max(o,u-o),Math.max(i,h-i)),f=600,p=performance.now();function d(e){const o=e-p,s=Math.min(o/f,1),n=s*m;if(t.style.setProperty("--r",`${n}px`),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${n}px, ${c} ${n+1}px)`,s<1)requestAnimationFrame(d);else{t.remove();const e=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",e)}}requestAnimationFrame(d)}})</script><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0,packages:{"[+]":["base","ams","bbox","boldsymbol","color","newcommand","noerrors"]}},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"],ignoreHtmlClass:"tex2jax_ignore",processHtmlClass:"tex2jax_process"},svg:{fontCache:"global"},startup:{ready:function(){MathJax.startup.defaultReady()}}}</script><script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js id=MathJax-script async></script><script>window.__tikzjax_injected||(window.__tikzjax_injected=!0,fetch("/content.en/docs/.obsidian/plugins/obsidian-tikzjax/main.js").then(e=>e.text()).then(e=>{const t=e.match(/var tikzjax_default = `([\s\S]*?)`;?/);if(t){const n=t[1],e=document.createElement("script");e.id="tikzjax",e.type="text/javascript",e.innerHTML=n,document.head.appendChild(e)}else{const e=document.createElement("script");e.src="https://tikzjax.com/v1/tikzjax.js",e.defer=!0,document.head.appendChild(e)}}).catch(()=>{const e=document.createElement("script");e.src="https://tikzjax.com/v1/tikzjax.js",e.defer=!0,document.head.appendChild(e)}))</script><script>window.processTheoremBlocks=function(){document.querySelectorAll("blockquote").forEach(function(e){const t=e.querySelector("p");if(!t)return;const n=(t.innerText||"").trim();for(const s of["definition","proposition","lemma","theorem","assumption","claim"]){const i=new RegExp(`^\\s*\\[!${s}\\|(\\*|[\\w\\.\\-]+)\\]\\s*`,"i"),o=n.match(i);if(o){console.log(`Found ${s} with label: ${o[1]}`);const r=o[1]!=="*",u=r?o[1]:"",h=t.innerText||"",m=h.split(/\n/)[0],c=m.replace(i,"").trim();if(e.classList.contains("math-theorem"))break;const f=Array.from(e.childNodes);e.innerHTML="",e.classList.add("math-theorem",s);const n=document.createElement("div");n.className="theorem-header";const l=s.charAt(0).toUpperCase()+s.slice(1),d=document.createElement("span");if(d.textContent=r?`${l} ${u}`:l,n.appendChild(d),c){const e=document.createElement("span");e.className="theorem-subtitle",e.textContent=` (${c})`,n.appendChild(e)}e.appendChild(n);const a=document.createElement("div");a.className="theorem-content",e.appendChild(a),f.forEach(function(e){let n=e.cloneNode(!0);if(e===t&&n.nodeType===1){const e=(n.innerText||"").split(/\n/);if(e.length>1){e.shift();const t=e.join(`
-`).trim();n.innerHTML="",n.appendChild(document.createTextNode(t))}else n.innerText=(n.innerText||"").replace(i,"").trim()}a.appendChild(n)});break}}})},document.addEventListener("DOMContentLoaded",function(){try{window.processTheoremBlocks()}catch(e){console.error(e)}})</script><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script><script defer src=/notebook/partial-load.min.229dc70291b4c666ebc20a65d92bc3027b36401a9d280a928581e8aaf77d7b22.js integrity="sha256-Ip3HApG0xmbrwgpl2SvDAns2QBqdKAqShYHoqvd9eyI=" crossorigin=anonymous></script><script defer src=/notebook/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin=anonymous></script></body></html>
+<button id=font-decrease class=font-control-btn>−</button></div></div></aside><script>document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("book-toc"),t=!0;t?e.classList.remove("hidden"):e.classList.add("hidden"),document.getElementById("toc-toggle").addEventListener("click",function(){e.classList.toggle("hidden")})})</script><script src=/notebook/font-size.min.js></script><script src=/notebook/toolbar.min.js></script><script src=/notebook/toc-animation.min.js></script><script src=/notebook/menu-autohide.min.js></script></main><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("theme-toggle");if(!e)return;e.onclick=()=>{const s=e.getBoundingClientRect(),o=s.left+s.width/2,i=s.top+s.height/2,l=document.documentElement.getAttribute("data-theme"),r=l||"auto";let n;r==="auto"?n=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":n=r;const a=n==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",a),localStorage.setItem("theme",a);const c=n==="dark"?"#0b031c":"white",t=document.createElement("div");t.style.position="fixed",t.style.top="0",t.style.left="0",t.style.width="100vw",t.style.height="100vh",t.style.zIndex="9999",t.style.pointerEvents="none",t.style.setProperty("--cx",`${o}px`),t.style.setProperty("--cy",`${i}px`),t.style.setProperty("--r","0px"),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${c} calc(var(--r) + 1px))`,document.body.appendChild(t);const u=window.innerWidth,h=window.innerHeight,m=Math.hypot(Math.max(o,u-o),Math.max(i,h-i)),f=600,p=performance.now();function d(e){const o=e-p,s=Math.min(o/f,1),n=s*m;if(t.style.setProperty("--r",`${n}px`),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${n}px, ${c} ${n+1}px)`,s<1)requestAnimationFrame(d);else{t.remove();const e=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",e)}}requestAnimationFrame(d)}})</script><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0,packages:{"[+]":["base","ams","bbox","boldsymbol","color","newcommand","noerrors"]}},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"],ignoreHtmlClass:"tex2jax_ignore",processHtmlClass:"tex2jax_process"},svg:{fontCache:"global"},startup:{ready:function(){MathJax.startup.defaultReady()}}}</script><script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js id=MathJax-script async></script><script>window.__tikzjax_injected||(window.__tikzjax_injected=!0,fetch("/content.en/docs/.obsidian/plugins/obsidian-tikzjax/main.js").then(e=>e.text()).then(e=>{const t=e.match(/var tikzjax_default = `([\s\S]*?)`;?/);if(t){const n=t[1],e=document.createElement("script");e.id="tikzjax",e.type="text/javascript",e.innerHTML=n,document.head.appendChild(e)}else{const e=document.createElement("script");e.src="https://tikzjax.com/v1/tikzjax.js",e.defer=!0,document.head.appendChild(e)}}).catch(()=>{const e=document.createElement("script");e.src="https://tikzjax.com/v1/tikzjax.js",e.defer=!0,document.head.appendChild(e)}))</script><script>window.processTheoremBlocks=function(){document.querySelectorAll("blockquote").forEach(function(e){const t=e.querySelector("p");if(!t)return;const n=t.getAttribute("data-raw")||t.innerHTML,s=n.replace(/<[^>]*>/g,"").trim();for(const o of["definition","proposition","lemma","theorem","assumption","claim"]){const a=new RegExp(`^\\s*\\[!${o}\\|(\\*|[\\w\\.\\-]+)\\]\\s*`,"i"),i=s.match(a);if(i){console.log(`Found ${o} with label: ${i[1]}`);const l=i[1]!=="*",m=l?i[1]:"",r=n.split(/<br\s*\/?\s*>/i),f=(r[0]||"").replace(/<[^>]*>/g,""),p=f.split(/\n/)[0],d=p.replace(a,"").trim();if(e.classList.contains("math-theorem"))break;const g=Array.from(e.childNodes);e.innerHTML="",e.classList.add("math-theorem",o);const s=document.createElement("div");s.className="theorem-header";const u=o.charAt(0).toUpperCase()+o.slice(1),h=document.createElement("span");if(h.textContent=l?`${u} ${m}`:u,s.appendChild(h),d){const e=document.createElement("span");e.className="theorem-subtitle",e.textContent=` (${d})`,s.appendChild(e)}e.appendChild(s);const c=document.createElement("div");c.className="theorem-content",e.appendChild(c),g.forEach(function(e){let s=e.cloneNode(!0);if(e===t&&s.nodeType===1)if(r.length>1){const e=r.slice(1).join("<br>");s.innerHTML=e}else s.innerHTML=n.replace(a,"").trim();c.appendChild(s)});break}}})},document.addEventListener("DOMContentLoaded",function(){try{window.processTheoremBlocks()}catch(e){console.error(e)}})</script><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script><script defer src=/notebook/partial-load.min.6b14bff963746e8ce83087045335ec7a6533e1157905e46f88d952cb415b7418.js integrity="sha256-axS/+WN0bozoMIcEUzXsemUz4RV5BeRviNlSy0FbdBg=" crossorigin=anonymous></script><script defer src=/notebook/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin=anonymous></script></body></html>

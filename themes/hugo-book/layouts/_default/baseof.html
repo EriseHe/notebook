@@ -117,8 +117,11 @@
     {{ if default true .Params.ShowTitle }}
     <h1 style="text-align: center; font-size: 1.8em; font-family: 'Computer Modern', 'CMU Serif', serif;">{{ .Title }}</h1>
     {{ end }}
-    <div class="markdown posts">
-      {{- .Content -}}
+    <div class="markdown posts" x-data>
+      {{- /* Preserve original paragraph HTML for reliable post-processing */ -}}
+      {{- $content := .Content -}}
+      {{- $content = replaceRE "<p>([\\s\\S]*?)</p>" "<p data-raw='$1'>$1</p>" $content -}}
+      {{- $content | safeHTML -}}
     </div>
   </article>
 {{ end }}

@@ -7,7 +7,9 @@
       const firstParagraph = blockquote.querySelector('p');
       if (!firstParagraph) return;
       
-      const text = (firstParagraph.innerText || '').trim();
+      // Use the raw original HTML before MathJax transforms
+      const originalHTML = firstParagraph.getAttribute('data-raw') || firstParagraph.innerHTML;
+      const text = originalHTML.replace(/<[^>]*>/g, '').trim();
       
       // More flexible pattern matching for theorem types with optional numbering
       // Match patterns like [!theorem|*] or [!theorem|7.1.1]
@@ -25,8 +27,10 @@
           const hasNumber = match[1] !== '*';
           const number = hasNumber ? match[1] : '';
           // Extract subtitle from the first visual line
-          const paraPlain = firstParagraph.innerText || '';
-          const headerPlain = paraPlain.split(/\n/)[0];
+          // Determine subtitle from original HTML by cutting at the first real <br> or newline we emitted
+          const split = originalHTML.split(/<br\s*\/?\s*>/i);
+          const headerHTML = (split[0] || '').replace(/<[^>]*>/g, '');
+          const headerPlain = headerHTML.split(/\n/)[0];
           const subtitle = headerPlain.replace(markerRe, '').trim();
           
           // Skip if already processed
@@ -69,15 +73,13 @@
             let toAppend = node.cloneNode(true);
             if (node === firstParagraph && toAppend.nodeType === 1) {
               // Keep only text after the first real newline in the quoted paragraph
-              const lines = (toAppend.innerText || '').split(/\n/);
-              if (lines.length > 1) {
-                lines.shift();
-                const rest = lines.join('\n').trim();
-                toAppend.innerHTML = '';
-                toAppend.appendChild(document.createTextNode(rest));
+              // If we had a <br> we can keep only the content after it
+              if (split.length > 1) {
+                const restHTML = split.slice(1).join('<br>');
+                toAppend.innerHTML = restHTML;
               } else {
-                // Fallback: just strip the marker
-                toAppend.innerText = (toAppend.innerText || '').replace(markerRe, '').trim();
+                // Fallback: strip marker from original html
+                toAppend.innerHTML = originalHTML.replace(markerRe, '').trim();
               }
             }
             content.appendChild(toAppend);
