@@ -32,17 +32,6 @@
       "beginProof": "\\begin{proof}",
       "endProof": "\\end{proof}",
       "insertSpace": true
-    },
-    "MATH 412 Real Analysis II/Homework/Homework 6.md": {
-      "profile": "Solution",
-      "theoremCalloutStyle": "Framed",
-      "theoremCalloutFontInherit": true
-    },
-    "Mathematics/MATH 412 Real Analysis II/Homework/Homework 8.md": {
-      "profile": "Solution"
-    },
-    "Mathematics/MATH 412 Real Analysis II/Homework/Homework 10.md": {
-      "profile": "Solution"
     }
   },
   "extraSettings": {
@@ -69,7 +58,7 @@
             "assumption": "Assumption",
             "example": "Example",
             "exercise": "Exercise",
-            "conjecture": "Solution",
+            "conjecture": "Conjecture",
             "hypothesis": "Hypothesis",
             "remark": "Remark"
           },
@@ -109,52 +98,6 @@
             "end": "□",
             "linkedBeginPrefix": "",
             "linkedBeginSuffix": "の証明."
-          }
-        }
-      },
-      "Solution": {
-        "id": "Solution",
-        "meta": {
-          "tags": []
-        },
-        "body": {
-          "theorem": {
-            "axiom": "",
-            "definition": "Solution",
-            "lemma": "",
-            "proposition": "",
-            "theorem": "Solution",
-            "corollary": "",
-            "claim": "Claim",
-            "assumption": "",
-            "example": "",
-            "exercise": "",
-            "conjecture": "",
-            "hypothesis": "",
-            "remark": ""
-          }
-        }
-      },
-      "Copy of Solution": {
-        "id": "Copy of Solution",
-        "meta": {
-          "tags": []
-        },
-        "body": {
-          "theorem": {
-            "axiom": "",
-            "definition": "Solution",
-            "lemma": "",
-            "proposition": "",
-            "theorem": "Solution",
-            "corollary": "",
-            "claim": "Claim",
-            "assumption": "",
-            "example": "",
-            "exercise": "",
-            "conjecture": "",
-            "hypothesis": "",
-            "remark": ""
           }
         }
       }
@@ -208,11 +151,5 @@
     "searchModalRange": "recent",
     "searchModalDvQuery": ""
   },
-  "excludedFiles": [
-    "Philosophy/Commentary on Foucault's The Order of Things.md",
-    "Mathematics/MATH 412 Real Analysis II/第八章/8.5 Lebesgue Convergence Theorem.md",
-    "Mathematics/MATH 412 Real Analysis II/第八章/8.1 度量理论.md",
-    "Mathematics/MATH 412 Real Analysis II/Homework/Homework 8.md",
-    "Mathematics/MATH 412 Real Analysis II/Homework/Homework 10.md"
-  ]
+  "excludedFiles": []
 }

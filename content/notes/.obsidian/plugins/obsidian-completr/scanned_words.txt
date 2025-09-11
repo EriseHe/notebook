@@ -336,6 +336,7 @@ Collected
 Charts
 Curve
 Correction
+Commutation
 font
 for
 functions
@@ -710,6 +711,7 @@ fg
 factorizations
 faithful
 filling
+futile
 color
 curve
 can
@@ -1551,6 +1553,12 @@ convert
 cd
 circuitikz
 chemfig
+commute
+commutator
+cyclic
+constructing
+commuting
+commutes
 Problem
 Partial
 Putting
@@ -2035,6 +2043,7 @@ Iwm
 Inference
 Intuition
 Implication
+Incompatible
 the
 terms
 that
@@ -3290,6 +3299,8 @@ sphere
 singularities
 save
 skipping
+simultaneous
+somewhere
 discuss
 determine
 described
@@ -4430,6 +4441,7 @@ inline
 immersion
 inverses
 intersecting
+inadvertently
 of
 our
 out
@@ -4728,6 +4740,7 @@ optionally
 osculating
 obtains
 obsidian
+orbital
 near
 neighborhood
 necessary
@@ -5923,6 +5936,7 @@ hypotheses
 homeomorphic
 homeomorphisms
 headings
+hermitian
 local
 limit
 lim
@@ -8321,6 +8335,8 @@ ambient
 arclength
 axioms
 abbreviation
+azimuthal
+appropriately
 you
 yields
 yF
@@ -8605,6 +8621,7 @@ Nucleus
 NLL
 Normalizing
 Needed
+Numbers
 Recall
 Rigorous
 Respect
@@ -8830,6 +8847,7 @@ Random
 Riemannian
 Reference
 Reparametrization
+Relations
 requirement
 respect
 rule
@@ -9371,6 +9389,9 @@ rescale
 restrict
 renormalize
 reusable
+rung
+rungs
+ranges
 partials
 partial
 point
@@ -10046,6 +10067,7 @@ plugin
 packages
 plain
 paste
+prescription
 Ex
 Evaluate
 Evaluating
@@ -12322,6 +12344,7 @@ germ
 geodesic
 gpt
 generationPerfect
+generalized
 Moreover
 Matrix
 Maximum
