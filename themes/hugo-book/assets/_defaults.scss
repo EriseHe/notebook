@@ -66,6 +66,10 @@ $hint-colors: (
   --theorem-background: #f8f9fa;
   --theorem-border: #a3a3a3;
   
+  //emphasis (bold) styling
+  --strong-bg: #fff6cc;           // soft yellow pill background
+  --strong-border: #f0d98c;       // matching border
+  
   //code
   --code-background: rgb(234, 234, 234);
   --code-border: 1px solid #cccccc;
@@ -130,6 +134,10 @@ $hint-colors: (
   //theorem
   --theorem-background: #1f1f1f;
   --theorem-border: black;
+  
+  //emphasis (bold) styling
+  --strong-bg: rgba(255, 255, 255, 0.08); // subtle light pill in dark theme
+  --strong-border: #5a4ca3;              // muted violet border
   
   //code
   --code-background: black;

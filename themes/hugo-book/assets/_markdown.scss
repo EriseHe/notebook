@@ -119,8 +119,12 @@
   b,
   optgroup,
   strong {
-    font-weight: bolder;
-    color: #e83e3e;
+    font-weight: 700;
+    color: inherit; /* remove red */
+    background-color: var(--strong-bg);
+    border: 1px solid var(--strong-border);
+    border-radius: 0.35rem;
+    padding: 0.05rem 0.35rem;
   }
 
   a {
