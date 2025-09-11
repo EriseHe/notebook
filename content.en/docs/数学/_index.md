@@ -1,5 +1,5 @@
 ---
 bookFlatSection: true
-title: Mathematics
+title: 数学
 weight: 1
 ---

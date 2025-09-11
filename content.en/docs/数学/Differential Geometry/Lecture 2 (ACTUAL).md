@@ -2,13 +2,33 @@
 date: 2025-09-03
 lecture: "2"
 ---
-# 1. Parametrized Curves in $\mathbb{R}^3$
+# Parametrized Curves in $\mathbb{R}^3$
+
 
 Let $I\subset \mathbb{R}$ be an open interval. A **(smooth) curve** is a map
 $$
 \gamma:I\to\mathbb{R}^3,\qquad \gamma\in C^\infty,
 $$
-Therefore, $\gamma(t)$ is a *parametrization*, as the position of a moving point in space at time $t$, that is $t \mapsto \gamma(t)=(x(t), y(t), z(t))$. we write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its **velocity**. 
+Therefore, $\gamma(t)$ is a *parametrization*, as the position of a moving point in space at time $t$, that is:
+$$t \mapsto \gamma(t)=(x(t), y(t), z(t))$$
+We write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its **velocity**. 
+
+```tikz
+\begin{document}
+\begin{tikzpicture}[line cap=round,line join=round,>=stealth,thick,scale=2.5]
+  % curve with arrowhead at the end
+  \draw[->] plot[smooth, tension=0.8] coordinates {(0,0.2) (1.2,0.8) (2.6,0.3) (4.0,0.7)};
+  % marked point on the curve
+  \fill[black] (1.2,0.8) circle (0.7pt);
+  \draw (1.2,0.8) circle (0.4pt);
+  % tangent/velocity arrow starting at the marked point
+  \draw[->] (1.2,0.8) -- (2.1,0.8);
+  % labels
+  \node[above] at (2.15,0.9) {\large $\dot{\gamma}$};
+  \node[right] at (2.4,1) {\large (velocity)};
+\end{tikzpicture}
+\end{document}
+```
 
 > [!definition|1.1] regular curve
 > $\gamma$ is **regular** if
@@ -16,25 +36,24 @@ Therefore, $\gamma(t)$ is a *parametrization*, as the position of a moving point
 > \dot\gamma(t)\neq 0 \quad\text{for all } t\in I.
 > $$
 
-That is, any regular curve can not be a zero vector.
+Note: any regular curve cannot be a zero vector.
 ## 1.1 Arc-Length
 
 > [!definition|1.1.1] Arc-length function
 > Fix $t_0\in I$. The arc-length from $t_0$ to $t\in I$ is
 > $$
-> s(t)=\int_{t_0}^{t}\bigl\lVert \dot\gamma(u)\bigr\rVert\,du.
+> s(t)=\int_{t_0}^{t}\bigl\lVert \dot\gamma(\tau)\bigr\rVert\,d\tau
 > $$
+> for fixed $t_{0} \in I$.
 
 If a vector is nonzero, its norm should be strictly positive. From the Fundamental Theorem of Calculus,
 $$
 \frac{ds}{dt}=\|\dot{\gamma}(t)\| \quad\text{(speed)}>0\ \text{for regular curves}.
 $$
-Hence, by the Inverse Function Theorem, $s(t)$ admits a smooth local inverse $t=t(s)$.
+For a regular curve, since$\dfrac{ds}{dt}>0$, $s(t)$ is strictly increasing and smooth.
 
-For a regular curve, $\dfrac{ds}{dt}>0$; hence $s(t)$ is strictly increasing and smooth.
-
-## 1.2 Reparametrization by Arc Length
-By the Inverse Function Theorem the monotone smooth map $s:I\to s(I)$ has a smooth inverse $t=t(s)$. Define the **unit-speed reparametrization**
+## 1.2 Re-parametrization by Arc-Length
+By the *Inverse Function Theorem*, the monotone smooth map $s:I\to s(I)$ has a $C^\infty$ inverse function $t=t(s)$. Define the **unit-speed reparametrization**
 $$
 \widetilde\gamma(s)=\gamma\!\bigl(t(s)\bigr),\qquad s\in s(I).
 $$
@@ -42,15 +61,16 @@ Then
 $$
 \begin{aligned}
 \frac{d\widetilde\gamma}{ds}
-&=\dot\gamma\!\bigl(t(s)\bigr)\,\frac{dt}{ds}
-=\dot\gamma\!\bigl(t(s)\bigr)\,\frac{1}{\lVert \dot\gamma\!\bigl(t(s)\bigr)\rVert},
+&=\dot\gamma\bigl(t(s)\bigr)\,\frac{dt}{ds}
+=\dot\gamma\bigl(t(s)\bigr)\,\frac{1}{\lVert \dot\gamma\bigl(t(s)\bigr)\rVert},
 \end{aligned}
 $$
-so $\lVert \widetilde\gamma'(s)\rVert=1$ for all $s$.
+so $\lVert \widetilde\gamma(s)\rVert=1$ for all $s$.
 
-> [!lemma|1.2.1]
-> **Unit-speed reparametrization exists**  
-> Every regular curve admits a reparametrization by arc length (i.e., a unit-speed parametrization).
+> [!Lemma|1.2.1] unit-speed reparametrization
+> Every regular curve admits a reparametrization by arclength, writing $\gamma(s):=\gamma\big(t(s)\big)$ so that $\|\dot{\gamma}(s)\|=1$ (unit-speed)
+
+
 
 ## 1.3 Example: Circle of radius $r$ and angular velocity $\omega$
 Let

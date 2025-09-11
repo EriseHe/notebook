@@ -1548,6 +1548,9 @@ correction
 cleanly
 calculus
 convert
+cd
+circuitikz
+chemfig
 Problem
 Partial
 Putting
@@ -2464,6 +2467,9 @@ trailer
 tensor
 transcription
 tractable
+tikz
+tikzpicture
+tikzcd
 system
 solvability
 such
@@ -7097,6 +7103,8 @@ estimator
 encodes
 extrinsic
 explained
+ending
+exp
 whether
 written
 which
@@ -7663,6 +7671,7 @@ blackboards
 branching
 bland
 bend
+blocks
 allow
 and
 as
@@ -9361,6 +9370,7 @@ raster
 rescale
 restrict
 renormalize
+reusable
 partials
 partial
 point
@@ -10032,6 +10042,10 @@ principal
 pictures
 professor
 pinpoint
+plugin
+packages
+plain
+paste
 Ex
 Evaluate
 Evaluating
@@ -10666,6 +10680,7 @@ Token
 Theorema
 Tensor
 Tangent
+TikZJax
 Hence
 Here
 Hypotheses
@@ -11642,6 +11657,7 @@ Area
 Around
 Angle
 Arclength
+Always
 via
 variables
 view
@@ -12084,6 +12100,7 @@ uiC
 uVd
 uFG
 uvb
+usepackage
 guarantees
 gives
 give
@@ -12304,6 +12321,7 @@ gRc
 germ
 geodesic
 gpt
+generationPerfect
 Moreover
 Matrix
 Maximum
@@ -13156,6 +13174,7 @@ Leibler
 Last
 Leibniz
 Locally
+Load
 Value
 Verifying
 Verify
@@ -13719,6 +13738,7 @@ OlP
 Orthogonality
 Output
 Often
+Obsidian
 Given
 Get
 Guessing

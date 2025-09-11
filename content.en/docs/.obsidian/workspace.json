@@ -52,7 +52,7 @@
               "state": {
                 "file": "Main Plug-in.md",
                 "mode": "source",
-                "source": false,
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
@@ -188,13 +188,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数学/Differential Geometry/Lecture 2.md",
+                "file": "Main Plug-in.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Lecture 2"
+              "title": "Outline of Main Plug-in"
             }
           }
         ],
@@ -240,13 +240,13 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "数学/Differential Geometry/Lecture 2.md",
+                    "file": "数学/Differential Geometry/Lecture 2 (ACTUAL).md",
                     "mode": "source",
                     "source": false,
                     "backlinks": false
                   },
                   "icon": "lucide-file",
-                  "title": "Lecture 2"
+                  "title": "Lecture 2 (ACTUAL)"
                 }
               }
             ]
@@ -296,13 +296,14 @@
       }
     ]
   },
-  "active": "0b7aa7cafc40821c",
+  "active": "4d6552b64147e4c8",
   "lastOpenFiles": [
+    "数学/Differential Geometry/_index.md",
+    "数学/Differential Geometry/Lecture 2 (ACTUAL).md",
     "数学/Differential Geometry/2. Parametrized Curves and Surfaces.md",
     "Main Plug-in.md",
     "Untitled.canvas",
     "image.png",
-    "数学/Differential Geometry/Lecture 2.md",
     "2025-09-02.md",
     "image-1.png",
     "数学/Differential Geometry/1. Overview of Differential Geometry.md",
