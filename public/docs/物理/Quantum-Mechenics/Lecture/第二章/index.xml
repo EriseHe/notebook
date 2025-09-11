@@ -2,32 +2,32 @@
  Music: Harmonics
  &lt;a class="anchor" href="#music-harmonics">#&lt;/a>
 &lt;/h2>
-&lt;p>$$
-\begin{align}
-C_{1}:f_{1}&amp;amp;=f_{0} \
-C_{2}:f_{1}&amp;amp;=2f_{0} \
-G:f_{1}&amp;amp;=3f_{0} \
-C_{3}:f_{1}&amp;amp;=4f_{0}
-\end{align}
+&lt;p>$$&lt;br>
+\begin{align}&lt;br>
+C_{1}:f_{1}&amp;amp;=f_{0} \&lt;br>
+C_{2}:f_{1}&amp;amp;=2f_{0} \&lt;br>
+G:f_{1}&amp;amp;=3f_{0} \&lt;br>
+C_{3}:f_{1}&amp;amp;=4f_{0}&lt;br>
+\end{align}&lt;br>
 $$&lt;/p>
 &lt;h2 id="separation-of-variables">
  Separation of variables
  &lt;a class="anchor" href="#separation-of-variables">#&lt;/a>
 &lt;/h2>
-&lt;p>$$
-\begin{equation}
-i\hbar \frac{ \partial \Psi}{ \partial t}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2}\Psi}{ \partial x^{2} }+V_{x} \Psi
-\end{equation}
-$$
-where
-$V(x)$: time independent potential
-$\hat{H}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2} }{ \partial x^{2} }+V(x)$.
-$$
-H\Psi=i\hbar \frac{ \partial }{ \partial t } \Psi
-$$
-We begin by= separate the variables, and set
-$$
-\begin{equation}
-\Psi(x,t)=\psi(x) \phi(t)
+&lt;p>$$&lt;br>
+\begin{equation}&lt;br>
+i\hbar \frac{ \partial \Psi}{ \partial t}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2}\Psi}{ \partial x^{2} }+V_{x} \Psi&lt;br>
+\end{equation}&lt;br>
+$$&lt;br>
+where&lt;br>
+$V(x)$: time independent potential&lt;br>
+$\hat{H}=-\frac{\hbar^{2}}{2m}\frac{ \partial^{2} }{ \partial x^{2} }+V(x)$.&lt;br>
+$$&lt;br>
+H\Psi=i\hbar \frac{ \partial }{ \partial t } \Psi&lt;br>
+$$&lt;br>
+We begin by= separate the variables, and set&lt;br>
+$$&lt;br>
+\begin{equation}&lt;br>
+\Psi(x,t)=\psi(x) \phi(t)&lt;br>
 \end{equation}&lt;/p>
 &lt;p>$$&lt;/p></description></item></channel></rss>

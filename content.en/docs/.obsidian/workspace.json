@@ -188,13 +188,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数学/Differential Geometry/1. Overview of Differential Geometry.md",
+                "file": "数学/Differential Geometry/2. Parametrized Curves and Surfaces.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 1. Overview of Differential Geometry"
+              "title": "Outline of 2. Parametrized Curves and Surfaces"
             }
           }
         ],
@@ -296,8 +296,9 @@
       }
     ]
   },
-  "active": "4d6552b64147e4c8",
+  "active": "3bd87d031d757acc",
   "lastOpenFiles": [
+    "数学/Differential Geometry/1. Overview of Differential Geometry.md",
     "Main Plug-in.md",
     "数学/Differential Geometry/_index.md",
     "数学/Differential Geometry/Lecture 2 (ACTUAL).md",
@@ -306,7 +307,6 @@
     "image.png",
     "2025-09-02.md",
     "image-1.png",
-    "数学/Differential Geometry/1. Overview of Differential Geometry.md",
     "物理/_index.md",
     "数学/hidden.md",
     "数学/PS.md",
