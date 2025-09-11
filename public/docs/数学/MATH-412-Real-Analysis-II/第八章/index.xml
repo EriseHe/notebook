@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第八章 度量理论 on 学习笔记</title><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/</link><description>Recent content in 第八章 度量理论 on 学习笔记</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 27 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>8.6 勒贝格收敛定理</title><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/</link><pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/</guid><description>&lt;h2 id="main-question">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第八章 度量理论 on 学习笔记</title><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/</link><description>Recent content in 第八章 度量理论 on 学习笔记</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 27 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>8.6 勒贝格收敛定理</title><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/</link><pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/</guid><description>&lt;h2 id="main-question">
  Main Question
  &lt;a class="anchor" href="#main-question">#&lt;/a>
 &lt;/h2>
@@ -24,7 +24,7 @@ $$\lim_{n\to\infty}\int_0^1 g_n(x)dx = \int_0^1 0 dx = 0$$&lt;/p>
 &lt;li>$f_n(x) \leq f_{n+1}(x) \leq f(x)$ $\forall x$&lt;/li>
 &lt;li>$f_n(x) \to f(x)$, $\forall x$&lt;/li>
 &lt;/ol>
-&lt;p>This implies: $f_n(x) \uparrow f(x)$&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</guid><description>&lt;p>第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质。&lt;/p>
+&lt;p>This implies: $f_n(x) \uparrow f(x)$&lt;/p></description></item><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</guid><description>&lt;p>第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质。&lt;/p>
 &lt;p>我们主要看以下这几个方面：&lt;/p>
 &lt;ol>
 &lt;li>积分的定义&lt;/li>
@@ -62,7 +62,7 @@ $$\lim_{n\to\infty}\int_0^1 g_n(x)dx = \int_0^1 0 dx = 0$$&lt;/p>
 &lt;/ol>
 &lt;/li>
 &lt;li>
-&lt;p>当我们让分割变得越来越细时，上和会减小，下和会增大。它们的极限值就定义了上积分和下积分。当这两个极限值相等时，我们就说这个函数是&lt;strong>可积的（integrable）&lt;/strong>。&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/</guid><description>&lt;h2 id="criterion-for-integrability">
+&lt;p>当我们让分割变得越来越细时，上和会减小，下和会增大。它们的极限值就定义了上积分和下积分。当这两个极限值相等时，我们就说这个函数是&lt;strong>可积的（integrable）&lt;/strong>。&lt;/p></description></item><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/</guid><description>&lt;h2 id="criterion-for-integrability">
  Criterion for Integrability
  &lt;a class="anchor" href="#criterion-for-integrability">#&lt;/a>
 &lt;/h2>
@@ -84,7 +84,7 @@ $$1_A(x) =
 0, &amp;amp; x \notin A
 \end{cases} $$
 is integrable:&lt;/p>&lt;/blockquote>
-&lt;p>$$V(A) = \int_A 1_A(x), dx$$&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</guid><description>&lt;blockquote>
+&lt;p>$$V(A) = \int_A 1_A(x), dx$$&lt;/p></description></item><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</guid><description>&lt;blockquote>
 &lt;p>[!theorem|8.?.?]
 Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded set $A$. Then $f$ is integrable on $A$ &lt;strong>if and only if&lt;/strong> the set of discontinuities for the extended $f(x)$ has measure zero.&lt;/p>&lt;/blockquote>
 &lt;h2 id="proof-of-the-theorem">
@@ -135,7 +135,7 @@ $$O(h, x_0) = \inf { \sup \left{ h(x) - h(y) : x, y \in U } : U \text{ is a neig
 &lt;ul>
 &lt;li>Will show $g$ satisfying Riemann&amp;rsquo;s Condition.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>(a) Setup:&lt;/strong>&lt;/p></description></item><item><title>8.5 不定积分</title><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/</guid><description>&lt;h2 id="83-反常积分-improper-integrals">
+&lt;p>&lt;strong>(a) Setup:&lt;/strong>&lt;/p></description></item><item><title>8.5 不定积分</title><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/</guid><description>&lt;h2 id="83-反常积分-improper-integrals">
  8.3 反常积分 (Improper Integrals)
  &lt;a class="anchor" href="#83-%e5%8f%8d%e5%b8%b8%e7%a7%af%e5%88%86-improper-integrals">#&lt;/a>
 &lt;/h2>
