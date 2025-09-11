@@ -2,7 +2,6 @@
   "obsidian-focus-mode",
   "obsidian-linter",
   "copy-as-latex",
-  "math-booster",
   "obsidian-latex-environments",
   "custom-font-loader",
   "obsidian-tikzjax",
@@ -35,5 +34,6 @@
   "auto-card-link",
   "obsidian-annotator",
   "mcp-tools",
-  "obsidian-git"
+  "obsidian-git",
+  "inline-math"
 ]
