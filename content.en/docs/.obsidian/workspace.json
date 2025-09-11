@@ -13,13 +13,50 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "数学/Differential Geometry/Lecture 3 Tangent Vectors on a Surface.md",
+                "file": "数学/Differential Geometry/2. Parametrized Curves and Surfaces.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Lecture 3 Tangent Vectors on a Surface"
+              "title": "2. Parametrized Curves and Surfaces"
+            }
+          },
+          {
+            "id": "f99cf3ff83a53da2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "数学/Differential Geometry/2. Parametrized Curves and Surfaces.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "2. Parametrized Curves and Surfaces"
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "79b0a71e2017fe25",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4d6552b64147e4c8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Main Plug-in.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Main Plug-in"
             }
           }
         ]
@@ -42,7 +79,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -151,13 +188,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "数学/Differential Geometry/Lecture 3 Tangent Vectors on a Surface.md",
+                "file": "数学/Differential Geometry/Lecture 2.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Lecture 3 Tangent Vectors on a Surface"
+              "title": "Outline of Lecture 2"
             }
           }
         ],
@@ -165,7 +202,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 291.5
+    "width": 291.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -184,43 +222,116 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1e5141ce25141718",
+  "floating": {
+    "id": "dd92eca0bdc1aafd",
+    "type": "floating",
+    "children": [
+      {
+        "id": "ce19c19ae396538d",
+        "type": "window",
+        "children": [
+          {
+            "id": "5141455263cb2897",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0b7aa7cafc40821c",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "数学/Differential Geometry/Lecture 2.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "Lecture 2"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 0,
+        "y": 36,
+        "width": 1470,
+        "height": 920,
+        "maximize": false,
+        "zoom": 0
+      },
+      {
+        "id": "24bf5f7e94cc7a55",
+        "type": "window",
+        "children": [
+          {
+            "id": "b7ddc0651702f0b8",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "3bd87d031d757acc",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "数学/Differential Geometry/2. Parametrized Curves and Surfaces.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "2. Parametrized Curves and Surfaces"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 0,
+        "y": 36,
+        "width": 1470,
+        "height": 920,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "0b7aa7cafc40821c",
   "lastOpenFiles": [
-    "数学/Differential Geometry/Lecture 2.md",
-    "数学/Differential Geometry/Lecture 3 Tangent Vectors on a Surface.md",
-    "数学/Machine Learning/自回归模型（Autoregressive模型） 2.md",
-    "数学/Machine Learning/自回归模型（Autoregressive模型）.md",
-    "数学/Machine Learning/_index.md",
-    "2025-09-02.md",
-    "数学/MATH 351 & 352/Heat Equation/Heat Equation Solution.md",
+    "数学/Differential Geometry/2. Parametrized Curves and Surfaces.md",
     "Main Plug-in.md",
-    "Clippings/Psychoanalysis/Artificial intelligence and psychoanalysis is it time for psychoanalyst.AI - PMC.md",
-    "数学/MATH 412 Real Analysis II/_index.md",
-    "数学/人工主体/Towards a Artificial Lacanian Subject - Subjector-0.md",
-    "数学/Differential Geometry",
-    "Clippings/Psychoanalysis/(PDF) Circling the Void Using Heidegger and Lacan to think about Large Language Models.md",
-    "Clippings/Psychoanalysis/From Hallucination to Suture Insights from Language Philosophy to Enhance Large Language Models.md",
-    "数学/拓扑学/T-n分离公理.md",
-    "数学/MATH 412 Real Analysis II/第七章/7.1 Inverse Function Theorem.md",
-    "Clippings/LLM/Attention Is All You Need.md",
-    "数学/PS.md",
     "Untitled.canvas",
+    "image.png",
+    "数学/Differential Geometry/Lecture 2.md",
+    "2025-09-02.md",
+    "image-1.png",
+    "数学/Differential Geometry/1. Overview of Differential Geometry.md",
+    "物理/_index.md",
+    "数学/hidden.md",
+    "数学/PS.md",
+    "数学/Probabilistic Machine Learning/_index.md",
+    "数学/Differential Geometry/Tangent Vectors on a Surface.md",
+    "数学/Differential Geometry/Lecture 1.md",
+    "数学/MATH 412 Real Analysis II/第六章/6.9 Taylor Higher Dimentions.md",
+    "数学/MATH 412 Real Analysis II/第六章/6.6 Product Rule and Gradients.md",
+    "数学/MATH 412 Real Analysis II/第六章/6.4 Sufficient Conditions for Differentiability.md",
+    "数学/MATH 412 Real Analysis II/第八章/8.6 Lebesgue Convergence Theorem.md",
+    "数学/MATH 412 Real Analysis II/第八章/8.5 Improper Integral.md",
+    "数学/MATH 412 Real Analysis II/第八章/8.3 Proof of Lebesgue's Theorem.md",
+    "数学/MATH 412 Real Analysis II/第八章/8.2 Criterion for Integrability.md",
+    "数学/MATH 412 Real Analysis II/第六章/6.5 The Chain Rule.md",
+    "数学/MATH 412 Real Analysis II/第六章/_index.md",
+    "数学/MATH 412 Real Analysis II/第八章/_index.md",
+    "数学/MATH 412 Real Analysis II/第七章/7.1 Inverse Function Theorem.md",
+    "数学/MATH 412 Real Analysis II/第七章/7.1.1 Inverse FT (Proof).md",
+    "数学/MATH 412 Real Analysis II/第七章/7.2 Implicit Function Theorem.md",
+    "数学/MATH 412 Real Analysis II/第七章/7.6 Morse Lemma.md",
+    "数学/Differential Geometry",
     "Graduate Application/Xudong He SS Card back.pdf",
     "Graduate Application/Resume.pdf",
-    "Clippings/LLM/FinTextSim Enhancing Financial Text Analysis with BERTopic.md",
-    "Clippings/Deep Learning/Geometric Deep Learning Grids, Groups, Graphs, Geodesics, and Gauges.md",
-    "Clippings/Psychoanalysis/The extimate core of understanding absolute metaphors, psychosis and large language models - AI & SOCIETY.md",
-    "Clippings/Psychoanalysis/Structured like a language model Analysing AI as an automated subject - Liam Magee, Vanicka Arora, Luke Munn, 2023.md",
-    "Clippings/Psychoanalysis/Algorithmic unconscious why psychoanalysis helps in understanding AI - Humanities and Social Sciences Communications.md",
     "Clippings/Deep Learning",
     "Clippings/LLM",
     "Clippings/Psychoanalysis",
-    "随笔/Create Graph Using LaTex Code.md",
-    "数学/拓扑学/_index.md",
-    "copilot-custom-prompts/Explain like I am 5.md",
-    "GPT Conversion.md",
-    "image-1.png",
-    "image.png",
     "copilot-custom-prompts",
     "Clippings",
     "数学/拓扑学",
