@@ -68,21 +68,17 @@
           content.className = 'theorem-content';
           blockquote.appendChild(content);
           
-          // Add all children back to the content div, but remove marker (and header line) from the first paragraph
+          // Add children back:
+          // 1) If header line had trailing text after the marker, prepend it as a new paragraph
+          if (split.length > 1) {
+            const p = document.createElement('p');
+            p.innerHTML = split.slice(1).join('<br>');
+            content.appendChild(p);
+          }
+          // 2) Append all original children except the first paragraph node
           childNodes.forEach(function(node) {
-            let toAppend = node.cloneNode(true);
-            if (node === firstParagraph && toAppend.nodeType === 1) {
-              // Keep only text after the first real newline in the quoted paragraph
-              // If we had a <br> we can keep only the content after it
-              if (split.length > 1) {
-                const restHTML = split.slice(1).join('<br>');
-                toAppend.innerHTML = restHTML;
-              } else {
-                // Fallback: strip marker from original html
-                toAppend.innerHTML = originalHTML.replace(markerRe, '').trim();
-              }
-            }
-            content.appendChild(toAppend);
+            if (node === firstParagraph) return; // skip to avoid duplication
+            content.appendChild(node.cloneNode(true));
           });
           
           break; // Stop after finding the first match

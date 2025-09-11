@@ -1,23 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Font size control for body content only
-  var defaultFontSize = 18; // Increased from 16 to 17 for larger default text
-  var currentSize = parseInt(localStorage.getItem('bodyFontSize')) || defaultFontSize;
+  var defaultFontSize = 16; // stable default
+  var raw = localStorage.getItem('bodyFontSize');
+  var currentSize = raw ? parseInt(raw, 10) : defaultFontSize;
   
   // Set initial font size from localStorage
   setFontSize(currentSize);
   
   // Font size buttons
-  document.getElementById('font-decrease').addEventListener('click', function() {
+  var dec = document.getElementById('font-decrease');
+  if (dec) dec.addEventListener('click', function() {
     if (currentSize > 12) { // Minimum size
       setFontSize(currentSize - 1);
     }
   });
   
-  document.getElementById('font-reset').addEventListener('click', function() {
+  var reset = document.getElementById('font-reset');
+  if (reset) reset.addEventListener('click', function() {
     setFontSize(defaultFontSize);
   });
   
-  document.getElementById('font-increase').addEventListener('click', function() {
+  var inc = document.getElementById('font-increase');
+  if (inc) inc.addEventListener('click', function() {
     if (currentSize < 24) { // Maximum size
       setFontSize(currentSize + 1);
     }
