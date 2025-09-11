@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on 学习笔记</title><link>http://localhost:1313/posts/</link><description>Recent content in Blog on 学习笔记</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 17 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1313/posts/Short-Cut-for-GIST/</link><pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/Short-Cut-for-GIST/</guid><description>&lt;p>Enter&lt;/p>
-&lt;div class="code-block">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on 学习笔记</title><link>http://localhost:1314/posts/</link><description>Recent content in Blog on 学习笔记</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 17 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1314/posts/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1314/posts/Short-Cut-for-GIST/</link><pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate><guid>http://localhost:1314/posts/Short-Cut-for-GIST/</guid><description>&lt;p>Enter&lt;/p>
+&lt;pre>&lt;code class="language-">ssh astrogroup@170.140.162.12&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>ssh astrogroup@170.140.162.12&lt;/code>
  &lt;/pre>
@@ -9,7 +9,7 @@
 &lt;/div>
 
 &lt;p>Password:&lt;/p>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">NGC6814&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>NGC6814&lt;/code>
  &lt;/pre>
@@ -22,7 +22,7 @@
  &lt;strong>Running&lt;/strong>
  &lt;a class="anchor" href="#running">#&lt;/a>
 &lt;/h3>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">gistPipeline --config configFiles/MasterConfig --default-dir configFiles/defaultDir&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>gistPipeline --config configFiles/MasterConfig --default-dir configFiles/defaultDir&lt;/code>
  &lt;/pre>
@@ -35,7 +35,7 @@
  Upload directly from PowerShell
  &lt;a class="anchor" href="#upload-directly-from-powershell">#&lt;/a>
 &lt;/h3>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">scp &amp;amp;#34;C:\\Users\\19175\\Desktop\\TNG Research\\GIST\\gistTutorial.tar.gz&amp;amp;#34; astrogroup@170.140.162.12:~/Erise/&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>scp "C:\\Users\\19175\\Desktop\\TNG Research\\GIST\\gistTutorial.tar.gz" astrogroup@170.140.162.12:~/Erise/&lt;/code>
  &lt;/pre>
@@ -49,7 +49,7 @@
 &lt;p>scp &amp;ldquo;D:\illustrateTNG Files\SLOAN_LR.py” 
  &lt;a href="mailto:astrogroup@170.140.162.12">astrogroup@170.140.162.12&lt;/a>:~/miniconda3/envs/gist/lib/python3.6/site-packages/gistPipeline/readData&lt;/p>
 &lt;p>The Directory for Read-File&lt;/p>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">~/miniconda3/envs/gist/lib/python3.6/site-packages/gistPipeline/readData&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>~/miniconda3/envs/gist/lib/python3.6/site-packages/gistPipeline/readData&lt;/code>
  &lt;/pre>
@@ -62,7 +62,7 @@
 &lt;ul>
 &lt;li>Go to gistTutorial&lt;/li>
 &lt;/ul>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">cd ~/Erise/gistTutorial&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>cd ~/Erise/gistTutorial&lt;/code>
  &lt;/pre>
@@ -71,27 +71,7 @@
  &lt;/button>
 &lt;/div>
 
-&lt;p>Open LogFile&lt;/p>
-&lt;div class="code-block">
- &lt;pre>
-&lt;code>nano ~/Erise/gistTutorial/results/Test/LOGFILE&lt;/code>
- &lt;/pre>
- &lt;button class="copy-button">
- &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
- &lt;/button>
-&lt;/div>
-
-&lt;p>Open masterConfig&lt;/p>
-&lt;div class="code-block">
- &lt;pre>
-&lt;code>nano ~/Erise/gistTutorial/configFiles/MasterConfig&lt;/code>
- &lt;/pre>
- &lt;button class="copy-button">
- &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
- &lt;/button>
-&lt;/div>
-
-&lt;p>Extract at your folder in Linux server:&lt;/p></description></item><item><title/><link>http://localhost:1313/posts/Integrate-DeepL-Translation-Instruction/</link><pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/Integrate-DeepL-Translation-Instruction/</guid><description>&lt;h3 id="1-install-r-and-babeldown">
+&lt;p>Open LogFile&lt;/p></description></item><item><title/><link>http://localhost:1314/posts/Integrate-DeepL-Translation-Instruction/</link><pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate><guid>http://localhost:1314/posts/Integrate-DeepL-Translation-Instruction/</guid><description>&lt;h3 id="1-install-r-and-babeldown">
  1. Install R and Babeldown
  &lt;a class="anchor" href="#1-install-r-and-babeldown">#&lt;/a>
 &lt;/h3>
@@ -109,7 +89,9 @@
 &lt;p>More specific instruction, check here: 
  &lt;a href="https://docs.ropensci.org/babeldown/">https://docs.ropensci.org/babeldown/&lt;/a>&lt;/p>
 &lt;p>1.2.1 This command install &amp;lsquo;remotes&amp;rsquo; from CRAN if not already installed:&lt;/p>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">if (!requireNamespace(&amp;amp;#34;remotes&amp;amp;#34;, quietly = TRUE)) {
+	install.packages(&amp;amp;#34;remotes&amp;amp;#34;)
+}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>if (!requireNamespace("remotes", quietly = TRUE)) {
 	install.packages("remotes")
@@ -120,34 +102,12 @@
  &lt;/button>
 &lt;/div>
 
-&lt;p>1.2.2 Uses the ‘remotes’ package to install the ‘babeldown’ package from its GitHub repo:&lt;/p>
-&lt;div class="code-block">
- &lt;pre>
-&lt;code>install.packages('babeldown', repos = c('https://ropensci.r-universe.dev', 'https://cloud.r-project.org'))&lt;/code>
- &lt;/pre>
- &lt;button class="copy-button">
- &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
- &lt;/button>
-&lt;/div>
-
-&lt;h4 id="2--set-up-deepl-api-inside-of-r-console">
- 2. Set up DeepL API (Inside of R console)
- &lt;a class="anchor" href="#2--set-up-deepl-api-inside-of-r-console">#&lt;/a>
-&lt;/h4>
-&lt;ul>
-&lt;li>Go to DeepL&amp;rsquo;s website and get an API key: 
- &lt;a href="https://www.deepl.com/en/your-account/keys">https://www.deepl.com/en/your-account/keys&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="3-connect-babeldown-to-deepl-api">
- 3. Connect Babeldown to DeepL API
- &lt;a class="anchor" href="#3-connect-babeldown-to-deepl-api">#&lt;/a>
-&lt;/h4>
-&lt;p>Babeldown uses the DeepL &lt;em>free&lt;/em> API URL &lt;strong>by default&lt;/strong> (no need to set up unless &lt;em>pro&lt;/em> API).&lt;/p></description></item><item><title>Creating a New Theme</title><link>http://localhost:1313/posts/creating-a-new-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/creating-a-new-theme/</guid><description>&lt;h2 id="introduction">
+&lt;p>1.2.2 Uses the ‘remotes’ package to install the ‘babeldown’ package from its GitHub repo:&lt;/p></description></item><item><title>Creating a New Theme</title><link>http://localhost:1314/posts/creating-a-new-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>http://localhost:1314/posts/creating-a-new-theme/</guid><description>&lt;h2 id="introduction">
  Introduction
  &lt;a class="anchor" href="#introduction">#&lt;/a>
 &lt;/h2>
 &lt;p>This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p>
-&lt;p>We&amp;rsquo;ll start with creating a new site with a very basic template. Then we&amp;rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.&lt;/p></description></item><item><title>Migrate to Hugo from Jekyll</title><link>http://localhost:1313/posts/migrate-from-jekyll/</link><pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/migrate-from-jekyll/</guid><description>&lt;h2 id="move-static-content-to-static">
+&lt;p>We&amp;rsquo;ll start with creating a new site with a very basic template. Then we&amp;rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.&lt;/p></description></item><item><title>Migrate to Hugo from Jekyll</title><link>http://localhost:1314/posts/migrate-from-jekyll/</link><pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate><guid>http://localhost:1314/posts/migrate-from-jekyll/</guid><description>&lt;h2 id="move-static-content-to-static">
  Move static content to &lt;code>static&lt;/code>
  &lt;a class="anchor" href="#move-static-content-to-static">#&lt;/a>
 &lt;/h2>
@@ -163,7 +123,7 @@ With Jekyll, something that looked like&lt;/p>
  ▾ images/
  logo.png
 &lt;/code>&lt;/pre>
-&lt;p>Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as &lt;code>CNAME&lt;/code>) to be moved to &lt;code>static&lt;/code>.&lt;/p></description></item><item><title/><link>http://localhost:1313/posts/2025-Topology-Summer-Research/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/2025-Topology-Summer-Research/</guid><description>&lt;h4 id="summer-application">
+&lt;p>Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as &lt;code>CNAME&lt;/code>) to be moved to &lt;code>static&lt;/code>.&lt;/p></description></item><item><title/><link>http://localhost:1314/posts/2025-Topology-Summer-Research/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/posts/2025-Topology-Summer-Research/</guid><description>&lt;h4 id="summer-application">
  Summer Application:
  &lt;a class="anchor" href="#summer-application">#&lt;/a>
 &lt;/h4>
@@ -186,7 +146,7 @@ With Jekyll, something that looked like&lt;/p>
  &lt;a class="anchor" href="#past-year">#&lt;/a>
 &lt;/h4>
 &lt;p>
- &lt;a href="https://sites.google.com/view/princetonrtg2023/mini-conferences">https://sites.google.com/view/princetonrtg2023/mini-conferences&lt;/a>&lt;/p></description></item><item><title/><link>http://localhost:1313/posts/Image-to-3D-Model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/Image-to-3D-Model/</guid><description>&lt;h1 id="converting-2d-anime-style-clothing-to-3d-tools--workflow">
+ &lt;a href="https://sites.google.com/view/princetonrtg2023/mini-conferences">https://sites.google.com/view/princetonrtg2023/mini-conferences&lt;/a>&lt;/p></description></item><item><title/><link>http://localhost:1314/posts/Image-to-3D-Model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/posts/Image-to-3D-Model/</guid><description>&lt;h1 id="converting-2d-anime-style-clothing-to-3d-tools--workflow">
  Converting 2D Anime-Style Clothing to 3D: Tools &amp;amp; Workflow
  &lt;a class="anchor" href="#converting-2d-anime-style-clothing-to-3d-tools--workflow">#&lt;/a>
 &lt;/h1>

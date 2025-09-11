@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>微分几何 on 学习笔记</title><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/</link><description>Recent content in 微分几何 on 学习笔记</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Tangent-Vectors-on-a-Surface/</link><pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Tangent-Vectors-on-a-Surface/</guid><description>&lt;h1 id="0-recap-from-last-lecture">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>微分几何 on 学习笔记</title><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/</link><description>Recent content in 微分几何 on 学习笔记</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Tangent-Vectors-on-a-Surface/</link><pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Tangent-Vectors-on-a-Surface/</guid><description>&lt;h1 id="0-recap-from-last-lecture">
  0. Recap from Last lecture
  &lt;a class="anchor" href="#0-recap-from-last-lecture">#&lt;/a>
 &lt;/h1>
@@ -18,7 +18,7 @@ meaning:&lt;/p>
 &lt;li>$X(fg) = f(p),X(g) + g(p),X(f)$.
 &lt;em>(Leibniz / derivation rule at $p$.)&lt;/em>&lt;/li>
 &lt;/ol>
-&lt;p>&lt;em>(Intuition: a tangent vector acts like a directional derivative at the point $p$; it is a derivation on smooth functions.)&lt;/em>&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</guid><description>&lt;h2 id="1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">
+&lt;p>&lt;em>(Intuition: a tangent vector acts like a directional derivative at the point $p$; it is a derivation on smooth functions.)&lt;/em>&lt;/p></description></item><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</guid><description>&lt;h2 id="1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">
  1. Parametrized curves in $\mathbb{R}^3$ (plane curves as a special case)
  &lt;a class="anchor" href="#1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">#&lt;/a>
 &lt;/h2>
@@ -36,7 +36,7 @@ $$&lt;/p>&lt;/blockquote>
 $$
 \frac{ds}{dt}=|\dot{\gamma}(t)| \quad\text{(speed)}&amp;gt;0\ \text{for regular curves}.
 $$
-Hence, by the Inverse Function Theorem, $s(t)$ admits a smooth local inverse $t=t(s)$.&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Lecture-2-ACTUAL/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Lecture-2-ACTUAL/</guid><description>&lt;h1 id="parametrized-curves-in-mathbbr3">
+Hence, by the Inverse Function Theorem, $s(t)$ admits a smooth local inverse $t=t(s)$.&lt;/p></description></item><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Lecture-2-ACTUAL/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Lecture-2-ACTUAL/</guid><description>&lt;h1 id="parametrized-curves-in-mathbbr3">
  Parametrized Curves in $\mathbb{R}^3$
  &lt;a class="anchor" href="#parametrized-curves-in-mathbbr3">#&lt;/a>
 &lt;/h1>
@@ -47,7 +47,20 @@ $$
 Therefore, $\gamma(t)$ is a &lt;em>parametrization&lt;/em>, as the position of a moving point in space at time $t$, that is:
 $$t \mapsto \gamma(t)=(x(t), y(t), z(t))$$
 We write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its &lt;strong>velocity&lt;/strong>.&lt;/p>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">\begin{document}
+\begin{tikzpicture}[line cap=round,line join=round,&amp;amp;gt;=stealth,thick,scale=2.5]
+ % curve with arrowhead at the end
+ \draw[-&amp;amp;gt;] plot[smooth, tension=0.8] coordinates {(0,0.2) (1.2,0.8) (2.6,0.3) (4.0,0.7)};
+ % marked point on the curve
+ \fill[black] (1.2,0.8) circle (0.7pt);
+ \draw (1.2,0.8) circle (0.4pt);
+ % tangent/velocity arrow starting at the marked point
+ \draw[-&amp;amp;gt;] (1.2,0.8) -- (2.1,0.8);
+ % labels
+ \node[above] at (2.15,0.9) {\large $\dot{\gamma}$};
+ \node[right] at (2.4,1) {\large (velocity)};
+\end{tikzpicture}
+\end{document}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>\begin{document}
 \begin{tikzpicture}[line cap=round,line join=round,>=stealth,thick,scale=2.5]
@@ -74,7 +87,7 @@ We write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its &lt;strong>velocity&lt;/
 $\gamma$ is &lt;strong>regular&lt;/strong> if
 $$
 \dot\gamma(t)\neq 0 \quad\text{for all } t\in I.
-$$&lt;/p></description></item><item><title/><link>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/</link><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/</guid><description>&lt;h2 id="1-from-calculus-to-manifolds">
+$$&lt;/p></description></item><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/</link><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/</guid><description>&lt;h2 id="1-from-calculus-to-manifolds">
  1. From Calculus to Manifolds
  &lt;a class="anchor" href="#1-from-calculus-to-manifolds">#&lt;/a>
 &lt;/h2>

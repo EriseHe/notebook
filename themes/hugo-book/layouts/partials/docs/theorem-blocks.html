@@ -11,7 +11,8 @@
       
       // More flexible pattern matching for theorem types with optional numbering
       // Match patterns like [!theorem|*] or [!theorem|7.1.1]
-      for (const type of ['lemma', 'theorem', 'assumption', 'claim']) {
+      // Support Obsidian-style: definition, proposition, lemma, theorem, assumption, claim
+      for (const type of ['definition', 'proposition', 'lemma', 'theorem', 'assumption', 'claim']) {
         // Check for pattern with or without numbering
         const regex = new RegExp(`\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
         const match = text.match(regex);
