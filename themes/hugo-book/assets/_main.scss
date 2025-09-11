@@ -144,15 +144,18 @@ h2.book-brand a {
     opacity: 0;
     overflow: hidden;
     visibility: hidden;
-    transition: max-height 0.25s ease-in-out, 
-                opacity 0.25s ease-in-out,
-                visibility 0.25s;
+    transition: max-height 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 input.toggle:checked + label + ul {
     max-height: 1000px; // Expanded state with enough space for content
     opacity: 1;
     visibility: visible;
+    transition: max-height 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                visibility 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 input.toggle + label::after {
@@ -193,13 +196,15 @@ body[dir="rtl"] .book-menu {
     top: -$padding-8;
     left: -$padding-16 * 1.01; /* Wider left extension */
     right: -$padding-16 * 1.01; /* Wider right extension */
-    bottom: 0;
+    bottom: -$padding-8;
     background-color: transparent;
     opacity: 0.5;
     border-radius: 12px;
     z-index: -1;
     outline: 1px solid transparent;
-    transition: box-shadow 0.5s ease, opacity 0.5s ease, outline 0.5s ease;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                outline 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   > a,
@@ -348,7 +353,7 @@ input.toggle:checked + label + ul .book-section-flat::before,
 .book-page,
 .book-header aside,
 .markdown {
-  transition: 0.2s ease-in-out;
+  transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: transform, margin, opacity, visibility;
   will-change: transform, margin, opacity;
 }
