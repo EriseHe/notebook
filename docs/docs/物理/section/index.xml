@@ -7,7 +7,8 @@
  Example
  &lt;a class="anchor" href="#example">#&lt;/a>
 &lt;/h2>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">{{&amp;amp;lt; button relref=&amp;amp;#34;/&amp;amp;#34; [class=&amp;amp;#34;...&amp;amp;#34;] &amp;amp;gt;}}Get Home{{&amp;amp;lt; /button &amp;amp;gt;}}
+{{&amp;amp;lt; button href=&amp;amp;#34;https://github.com/alex-shpak/hugo-book&amp;amp;#34; &amp;amp;gt;}}Contribute{{&amp;amp;lt; /button &amp;amp;gt;}}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>{{&lt; button relref="/" [class="..."] >}}Get Home{{&lt; /button >}}
 {{&lt; button href="https://github.com/alex-shpak/hugo-book" >}}Contribute{{&lt; /button >}}&lt;/code>
