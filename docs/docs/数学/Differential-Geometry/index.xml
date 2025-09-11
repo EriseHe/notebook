@@ -47,7 +47,20 @@ $$
 Therefore, $\gamma(t)$ is a &lt;em>parametrization&lt;/em>, as the position of a moving point in space at time $t$, that is:
 $$t \mapsto \gamma(t)=(x(t), y(t), z(t))$$
 We write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its &lt;strong>velocity&lt;/strong>.&lt;/p>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">\begin{document}
+\begin{tikzpicture}[line cap=round,line join=round,&amp;amp;gt;=stealth,thick,scale=2.5]
+ % curve with arrowhead at the end
+ \draw[-&amp;amp;gt;] plot[smooth, tension=0.8] coordinates {(0,0.2) (1.2,0.8) (2.6,0.3) (4.0,0.7)};
+ % marked point on the curve
+ \fill[black] (1.2,0.8) circle (0.7pt);
+ \draw (1.2,0.8) circle (0.4pt);
+ % tangent/velocity arrow starting at the marked point
+ \draw[-&amp;amp;gt;] (1.2,0.8) -- (2.1,0.8);
+ % labels
+ \node[above] at (2.15,0.9) {\large $\dot{\gamma}$};
+ \node[right] at (2.4,1) {\large (velocity)};
+\end{tikzpicture}
+\end{document}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>\begin{document}
 \begin{tikzpicture}[line cap=round,line join=round,>=stealth,thick,scale=2.5]

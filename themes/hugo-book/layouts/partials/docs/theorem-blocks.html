@@ -13,8 +13,9 @@
       // Match patterns like [!theorem|*] or [!theorem|7.1.1]
       // Support Obsidian-style: definition, proposition, lemma, theorem, assumption, claim
       for (const type of ['definition', 'proposition', 'lemma', 'theorem', 'assumption', 'claim']) {
-        // Check for pattern with or without numbering
-        const regex = new RegExp(`\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]`, 'i');
+        // Accept optional inline title after the marker, e.g.:
+        // > [!definition|1.1] regular curve
+        const regex = new RegExp(`^\\s*\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]\\s*([^<]*)`, 'i');
         const match = text.match(regex);
         
         if (match) {
@@ -23,6 +24,7 @@
           // Determine if we have a number or just a wildcard
           const hasNumber = match[1] !== '*';
           const number = hasNumber ? match[1] : '';
+          const subtitle = (match[2] || '').trim();
           
           // Skip if already processed
           if (blockquote.classList.contains('math-theorem')) {
@@ -40,9 +42,17 @@
           const header = document.createElement('div');
           header.className = 'theorem-header';
           
-          // Display the type and number if present
+          // Build header content
           const typeText = type.charAt(0).toUpperCase() + type.slice(1);
-          header.textContent = hasNumber ? `${typeText} ${number}` : typeText;
+          const left = document.createElement('span');
+          left.textContent = hasNumber ? `${typeText} ${number}` : typeText;
+          header.appendChild(left);
+          if (subtitle) {
+            const right = document.createElement('span');
+            right.className = 'theorem-subtitle';
+            right.textContent = ` (${subtitle})`;
+            header.appendChild(right);
+          }
           
           blockquote.appendChild(header);
           
@@ -55,7 +65,13 @@
           childNodes.forEach(function(node) {
             let toAppend = node.cloneNode(true);
             if (node === firstParagraph && toAppend.nodeType === 1) {
-              toAppend.innerHTML = (toAppend.innerHTML || '').replace(match[0], '');
+              // Remove the full marker and any extracted subtitle text from the first paragraph
+              let repl = (toAppend.innerHTML || '').replace(match[0], '');
+              if (subtitle) {
+                // Remove a leading subtitle if it still remains
+                repl = repl.replace(new RegExp(`^\\s*${subtitle.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}\\s*`), '');
+              }
+              toAppend.innerHTML = repl;
             }
             content.appendChild(toAppend);
           });

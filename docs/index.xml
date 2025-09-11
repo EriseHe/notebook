@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Introduction on 学习笔记</title><link>https://erisehe.github.io/notebook/</link><description>Recent content in Introduction on 学习笔记</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/notebook/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/notebook/posts/Short-Cut-for-GIST/</link><pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/posts/Short-Cut-for-GIST/</guid><description>&lt;p>Enter&lt;/p>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">ssh astrogroup@170.140.162.12&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>ssh astrogroup@170.140.162.12&lt;/code>
  &lt;/pre>
@@ -9,7 +9,7 @@
 &lt;/div>
 
 &lt;p>Password:&lt;/p>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">NGC6814&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>NGC6814&lt;/code>
  &lt;/pre>
@@ -22,7 +22,7 @@
  &lt;strong>Running&lt;/strong>
  &lt;a class="anchor" href="#running">#&lt;/a>
 &lt;/h3>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">gistPipeline --config configFiles/MasterConfig --default-dir configFiles/defaultDir&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>gistPipeline --config configFiles/MasterConfig --default-dir configFiles/defaultDir&lt;/code>
  &lt;/pre>
@@ -35,7 +35,7 @@
  Upload directly from PowerShell
  &lt;a class="anchor" href="#upload-directly-from-powershell">#&lt;/a>
 &lt;/h3>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">scp &amp;amp;#34;C:\\Users\\19175\\Desktop\\TNG Research\\GIST\\gistTutorial.tar.gz&amp;amp;#34; astrogroup@170.140.162.12:~/Erise/&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>scp "C:\\Users\\19175\\Desktop\\TNG Research\\GIST\\gistTutorial.tar.gz" astrogroup@170.140.162.12:~/Erise/&lt;/code>
  &lt;/pre>
@@ -49,7 +49,7 @@
 &lt;p>scp &amp;ldquo;D:\illustrateTNG Files\SLOAN_LR.py” 
  &lt;a href="mailto:astrogroup@170.140.162.12">astrogroup@170.140.162.12&lt;/a>:~/miniconda3/envs/gist/lib/python3.6/site-packages/gistPipeline/readData&lt;/p>
 &lt;p>The Directory for Read-File&lt;/p>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">~/miniconda3/envs/gist/lib/python3.6/site-packages/gistPipeline/readData&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>~/miniconda3/envs/gist/lib/python3.6/site-packages/gistPipeline/readData&lt;/code>
  &lt;/pre>
@@ -62,7 +62,7 @@
 &lt;ul>
 &lt;li>Go to gistTutorial&lt;/li>
 &lt;/ul>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">cd ~/Erise/gistTutorial&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>cd ~/Erise/gistTutorial&lt;/code>
  &lt;/pre>
@@ -71,27 +71,7 @@
  &lt;/button>
 &lt;/div>
 
-&lt;p>Open LogFile&lt;/p>
-&lt;div class="code-block">
- &lt;pre>
-&lt;code>nano ~/Erise/gistTutorial/results/Test/LOGFILE&lt;/code>
- &lt;/pre>
- &lt;button class="copy-button">
- &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
- &lt;/button>
-&lt;/div>
-
-&lt;p>Open masterConfig&lt;/p>
-&lt;div class="code-block">
- &lt;pre>
-&lt;code>nano ~/Erise/gistTutorial/configFiles/MasterConfig&lt;/code>
- &lt;/pre>
- &lt;button class="copy-button">
- &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
- &lt;/button>
-&lt;/div>
-
-&lt;p>Extract at your folder in Linux server:&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/</guid><description>&lt;h2 id="formula-derivation">
+&lt;p>Open LogFile&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/</guid><description>&lt;h2 id="formula-derivation">
  Formula Derivation
  &lt;a class="anchor" href="#formula-derivation">#&lt;/a>
 &lt;/h2>
@@ -147,7 +127,9 @@ $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/note
 &lt;p>More specific instruction, check here: 
  &lt;a href="https://docs.ropensci.org/babeldown/">https://docs.ropensci.org/babeldown/&lt;/a>&lt;/p>
 &lt;p>1.2.1 This command install &amp;lsquo;remotes&amp;rsquo; from CRAN if not already installed:&lt;/p>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">if (!requireNamespace(&amp;amp;#34;remotes&amp;amp;#34;, quietly = TRUE)) {
+	install.packages(&amp;amp;#34;remotes&amp;amp;#34;)
+}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>if (!requireNamespace("remotes", quietly = TRUE)) {
 	install.packages("remotes")
@@ -158,29 +140,7 @@ $$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/note
  &lt;/button>
 &lt;/div>
 
-&lt;p>1.2.2 Uses the ‘remotes’ package to install the ‘babeldown’ package from its GitHub repo:&lt;/p>
-&lt;div class="code-block">
- &lt;pre>
-&lt;code>install.packages('babeldown', repos = c('https://ropensci.r-universe.dev', 'https://cloud.r-project.org'))&lt;/code>
- &lt;/pre>
- &lt;button class="copy-button">
- &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
- &lt;/button>
-&lt;/div>
-
-&lt;h4 id="2--set-up-deepl-api-inside-of-r-console">
- 2. Set up DeepL API (Inside of R console)
- &lt;a class="anchor" href="#2--set-up-deepl-api-inside-of-r-console">#&lt;/a>
-&lt;/h4>
-&lt;ul>
-&lt;li>Go to DeepL&amp;rsquo;s website and get an API key: 
- &lt;a href="https://www.deepl.com/en/your-account/keys">https://www.deepl.com/en/your-account/keys&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="3-connect-babeldown-to-deepl-api">
- 3. Connect Babeldown to DeepL API
- &lt;a class="anchor" href="#3-connect-babeldown-to-deepl-api">#&lt;/a>
-&lt;/h4>
-&lt;p>Babeldown uses the DeepL &lt;em>free&lt;/em> API URL &lt;strong>by default&lt;/strong> (no need to set up unless &lt;em>pro&lt;/em> API).&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/</guid><description>&lt;h2 id="1-ok-honestly-i-have-no-idea-where-he-started">
+&lt;p>1.2.2 Uses the ‘remotes’ package to install the ‘babeldown’ package from its GitHub repo:&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/</guid><description>&lt;h2 id="1-ok-honestly-i-have-no-idea-where-he-started">
  1. Ok Honestly I Have No Idea Where He Started
  &lt;a class="anchor" href="#1-ok-honestly-i-have-no-idea-where-he-started">#&lt;/a>
 &lt;/h2>
@@ -320,7 +280,20 @@ $$
 Therefore, $\gamma(t)$ is a &lt;em>parametrization&lt;/em>, as the position of a moving point in space at time $t$, that is:
 $$t \mapsto \gamma(t)=(x(t), y(t), z(t))$$
 We write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its &lt;strong>velocity&lt;/strong>.&lt;/p>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">\begin{document}
+\begin{tikzpicture}[line cap=round,line join=round,&amp;amp;gt;=stealth,thick,scale=2.5]
+ % curve with arrowhead at the end
+ \draw[-&amp;amp;gt;] plot[smooth, tension=0.8] coordinates {(0,0.2) (1.2,0.8) (2.6,0.3) (4.0,0.7)};
+ % marked point on the curve
+ \fill[black] (1.2,0.8) circle (0.7pt);
+ \draw (1.2,0.8) circle (0.4pt);
+ % tangent/velocity arrow starting at the marked point
+ \draw[-&amp;amp;gt;] (1.2,0.8) -- (2.1,0.8);
+ % labels
+ \node[above] at (2.15,0.9) {\large $\dot{\gamma}$};
+ \node[right] at (2.4,1) {\large (velocity)};
+\end{tikzpicture}
+\end{document}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>\begin{document}
 \begin{tikzpicture}[line cap=round,line join=round,>=stealth,thick,scale=2.5]
@@ -1053,7 +1026,8 @@ $$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]
  Example
  &lt;a class="anchor" href="#example">#&lt;/a>
 &lt;/h2>
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">{{&amp;amp;lt; button relref=&amp;amp;#34;/&amp;amp;#34; [class=&amp;amp;#34;...&amp;amp;#34;] &amp;amp;gt;}}Get Home{{&amp;amp;lt; /button &amp;amp;gt;}}
+{{&amp;amp;lt; button href=&amp;amp;#34;https://github.com/alex-shpak/hugo-book&amp;amp;#34; &amp;amp;gt;}}Contribute{{&amp;amp;lt; /button &amp;amp;gt;}}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>{{&lt; button relref="/" [class="..."] >}}Get Home{{&lt; /button >}}
 {{&lt; button href="https://github.com/alex-shpak/hugo-book" >}}Contribute{{&lt; /button >}}&lt;/code>
@@ -1071,7 +1045,48 @@ $$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]
  &lt;a class="anchor" href="#close-reading-commentary">#&lt;/a>
 &lt;/h1>
 &lt;p>The selected quote is from Foucault’s early-stage (1960s) intellectual project of philosophical &amp;ldquo;archaeology&amp;rdquo;, which was his first major methodological phase. He presents a radical historical analysis of knowledge in The Order of Things, intending to eliminate the assumption of unchanging criteria for knowledge.&lt;/p>
-&lt;p>This quote sits at the center of his archaeological method, in which he attempted &amp;ldquo;to bring to light&amp;rdquo; the underlying episteme of knowledge. This recursive long sentence, broken down into three main modifiers, describes the epistemological field, which almost, if not intentionally, resembles the idea of a &amp;ldquo;field&amp;rdquo; in physics - an invisible but structured influence that determines how objects behave within it. The traditional epistemological assumption that he challenged holds that knowledge is grounded by universal standards of rationality and objectivity, and the first modifier sets the stage for this argument. Foucault subverts this unchanging framework by treating it as historically contingent, or specifically, one of the possible conditions &amp;ldquo;having reference&amp;rdquo; to rationality and objectivity.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E9%9A%8F%E7%AC%94/Commentary-on-the-Collage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E9%9A%8F%E7%AC%94/Commentary-on-the-Collage/</guid><description>&lt;p>Language is the medium through which reason is articulated. The text I picked up was &amp;ldquo;outside of the language&amp;rdquo;, which naturally reminds me of an exteriority (the Real) with which the topology of the Lacanian model is most concerned. However, in the Foucauldian context, the concept of &amp;ldquo;outside&amp;rdquo; is still within the realm of sense, but strategically excluded. This collage exercise really pushed me to make an explicit distinction between how these frameworks would interpret such a phrase differently.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E9%9A%8F%E7%AC%94/Create-Graph-Using-LaTex-Code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E9%9A%8F%E7%AC%94/Create-Graph-Using-LaTex-Code/</guid><description>&lt;div class="code-block">
+&lt;p>This quote sits at the center of his archaeological method, in which he attempted &amp;ldquo;to bring to light&amp;rdquo; the underlying episteme of knowledge. This recursive long sentence, broken down into three main modifiers, describes the epistemological field, which almost, if not intentionally, resembles the idea of a &amp;ldquo;field&amp;rdquo; in physics - an invisible but structured influence that determines how objects behave within it. The traditional epistemological assumption that he challenged holds that knowledge is grounded by universal standards of rationality and objectivity, and the first modifier sets the stage for this argument. Foucault subverts this unchanging framework by treating it as historically contingent, or specifically, one of the possible conditions &amp;ldquo;having reference&amp;rdquo; to rationality and objectivity.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E9%9A%8F%E7%AC%94/Commentary-on-the-Collage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E9%9A%8F%E7%AC%94/Commentary-on-the-Collage/</guid><description>&lt;p>Language is the medium through which reason is articulated. The text I picked up was &amp;ldquo;outside of the language&amp;rdquo;, which naturally reminds me of an exteriority (the Real) with which the topology of the Lacanian model is most concerned. However, in the Foucauldian context, the concept of &amp;ldquo;outside&amp;rdquo; is still within the realm of sense, but strategically excluded. This collage exercise really pushed me to make an explicit distinction between how these frameworks would interpret such a phrase differently.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E9%9A%8F%E7%AC%94/Create-Graph-Using-LaTex-Code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E9%9A%8F%E7%AC%94/Create-Graph-Using-LaTex-Code/</guid><description>&lt;pre>&lt;code class="language-">\usetikzlibrary{arrows.meta, positioning}
+
+\tikzset{
+ ladder/.style = {draw, rounded corners, align=left, minimum width=9.8cm, inner sep=6pt},
+ arrow/.style = {-{Latex[length=3mm]}, thick}
+}
+
+\begin{document}
+\begin{tikzpicture}[node distance=8mm]
+ \small
+
+ % Nodes (top to bottom)
+ \node[ladder, fill=gray!10] (T5) {\bfseries $T_5$ \; Completely normal Hausdorff（完全正规豪斯多夫）\\
+ Disjoint closed sets separated by $f:X\to[0,1]$.};
+ \node[ladder, below=of T5] (T4) {\bfseries $T_4$ \; Normal Hausdorff（正规豪斯多夫）\\
+ Disjoint closed sets contained in disjoint open sets.};
+ \node[ladder, below=of T4] (T35) {\bfseries $T_{3.5}$ \; Tychonoff（完全正规豪斯多夫）\\
+ For $x\notin A$ (closed) $\exists f:X\to[0,1]$ with $f(x)=0,\ f(A)=\{1\}$.};
+ \node[ladder, below=of T35] (T3) {\bfseries $T_3$ \; Regular Hausdorff（正规豪斯多夫）\\
+ For $x\notin A$ (closed) $\exists$ disjoint open $U,V$ with $x\in U,\ A\subset V$.};
+ \node[ladder, below=of T3] (T25) {\bfseries $T_{2.5}$ \; Urysohn（乌里松）\\
+ Distinct points have disjoint closed neighborhoods.};
+ \node[ladder, below=of T25] (T2) {\bfseries $T_2$ \; Hausdorff（豪斯多夫）\\
+ Distinct points lie in disjoint open sets.};
+ \node[ladder, below=of T2] (T1) {\bfseries $T_1$ \; Fréchet（Fréchet）\\
+ All singletons are closed.};
+ \node[ladder, below=of T1] (T0) {\bfseries $T_0$ \; Kolmogorov（Kolmogorov）\\
+ For $x\neq y$, some open set contains one but not the other.};
+
+ % Arrows
+ \draw[arrow] (T5) -- (T4);
+ \draw[arrow] (T4) -- (T35);
+ \draw[arrow] (T35) -- (T3);
+ \draw[arrow] (T3) -- (T25);
+ \draw[arrow] (T25) -- (T2);
+ \draw[arrow] (T2) -- (T1);
+ \draw[arrow] (T1) -- (T0);
+
+ % Caption
+ \node[below=6mm of T0, align=center] {\footnotesize Implications downward; reverse implications generally fail.};
+\end{tikzpicture}
+\end{document}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>\usetikzlibrary{arrows.meta, positioning}
 
@@ -1121,7 +1136,7 @@ $$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]
  &lt;/button>
 &lt;/div>
 
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>&lt;/code>
  &lt;/pre>
@@ -1130,7 +1145,23 @@ $$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]
  &lt;/button>
 &lt;/div>
 
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[colormap/viridis]
+\addplot3[
+	surf,
+	samples=18,
+	domain=-3:3
+]
+{exp(-x^2-y^2)*x};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>\usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
@@ -1155,7 +1186,36 @@ $$\langle f | f \rangle = 0 \iff f(x) = 0 \quad\text{in the interval}\quad [a,b]
  &lt;/button>
 &lt;/div>
 
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">\usepackage{tikz-cd}
+
+\begin{document}
+\begin{tikzcd}
+
+ T
+ \arrow[drr, bend left, &amp;amp;#34;x&amp;amp;#34;]
+ \arrow[ddr, bend right, &amp;amp;#34;y&amp;amp;#34;]
+ \arrow[dr, dotted, &amp;amp;#34;{(x,y)}&amp;amp;#34; description] &amp;amp;amp; &amp;amp;amp; \\
+ K &amp;amp;amp; X \times_Z Y \arrow[r, &amp;amp;#34;p&amp;amp;#34;] \arrow[d, &amp;amp;#34;q&amp;amp;#34;]
+ &amp;amp;amp; X \arrow[d, &amp;amp;#34;f&amp;amp;#34;] \\
+ &amp;amp;amp; Y \arrow[r, &amp;amp;#34;g&amp;amp;#34;]
+ &amp;amp;amp; Z
+
+\end{tikzcd}
+
+\quad \quad
+
+\begin{tikzcd}[row sep=2.5em]
+
+A&amp;amp;#39; \arrow[rr,&amp;amp;#34;f&amp;amp;#39;&amp;amp;#34;] \arrow[dr,swap,&amp;amp;#34;a&amp;amp;#34;] \arrow[dd,swap,&amp;amp;#34;g&amp;amp;#39;&amp;amp;#34;] &amp;amp;amp;&amp;amp;amp;
+ B&amp;amp;#39; \arrow[dd,swap,&amp;amp;#34;h&amp;amp;#39;&amp;amp;#34; near start] \arrow[dr,&amp;amp;#34;b&amp;amp;#34;] \\
+&amp;amp;amp; A \arrow[rr,crossing over,&amp;amp;#34;f&amp;amp;#34; near start] &amp;amp;amp;&amp;amp;amp;
+ B \arrow[dd,&amp;amp;#34;h&amp;amp;#34;] \\
+C&amp;amp;#39; \arrow[rr,&amp;amp;#34;k&amp;amp;#39;&amp;amp;#34; near end] \arrow[dr,swap,&amp;amp;#34;c&amp;amp;#34;] &amp;amp;amp;&amp;amp;amp; D&amp;amp;#39; \arrow[dr,swap,&amp;amp;#34;d&amp;amp;#34;] \\
+&amp;amp;amp; C \arrow[rr,&amp;amp;#34;k&amp;amp;#34;] \arrow[uu,&amp;amp;lt;-,crossing over,&amp;amp;#34;g&amp;amp;#34; near end]&amp;amp;amp;&amp;amp;amp; D
+
+\end{tikzcd}
+
+\end{document}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>\usepackage{tikz-cd}
 
@@ -1193,7 +1253,12 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] &amp;&amp; D' \arrow[dr,swap,"d"
  &lt;/button>
 &lt;/div>
 
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">\usepackage{chemfig}
+\begin{document}
+
+\chemfig{[:-90]HN(-[::-45](-[::-45]R)=[::&amp;#43;45]O)&amp;amp;gt;[::&amp;#43;45]*4(-(=O)-N*5(-(&amp;amp;lt;:(=[::-60]O)-[::&amp;#43;60]OH)-(&amp;amp;lt;[::&amp;#43;0])(&amp;amp;lt;:[::-108])-S&amp;amp;gt;)--)}
+
+\end{document}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>\usepackage{chemfig}
 \begin{document}
@@ -1207,7 +1272,29 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] &amp;&amp; D' \arrow[dr,swap,"d"
  &lt;/button>
 &lt;/div>
 
-&lt;div class="code-block">
+&lt;pre>&lt;code class="language-">\usepackage{chemfig}
+\begin{document}
+
+\definesubmol\fragment1{
+
+ (-[:#1,0.85,,,draw=none]
+ -[::126]-[::-54](=_#(2pt,2pt)[::180])
+ -[::-70](-[::-56.2,1.07]=^#(2pt,2pt)[::180,1.07])
+ -[::110,0.6](-[::-148,0.60](=^[::180,0.35])-[::-18,1.1])
+ -[::50,1.1](-[::18,0.60]=_[::180,0.35])
+ -[::50,0.6]
+ -[::110])
+ }
+
+\chemfig{
+!\fragment{18}
+!\fragment{90}
+!\fragment{162}
+!\fragment{234}
+!\fragment{306}
+}
+
+\end{document}&lt;/code>&lt;/pre>&lt;div class="code-block">
  &lt;pre>
 &lt;code>\usepackage{chemfig}
 \begin{document}
