@@ -119,12 +119,12 @@
   b,
   optgroup,
   strong {
-    font-weight: 700;
-    color: inherit; /* remove red */
-    background-color: var(--strong-bg);
+    font-weight: 500;
+    color: purple; /* remove red */
+    background-color: transparent;
     border: 1px solid var(--strong-border);
-    border-radius: 0.35rem;
-    padding: 0.05rem 0.35rem;
+    border-radius: 0.2rem;
+    padding: 0.05rem 0.25rem;
   }
 
   a {

@@ -67,8 +67,8 @@ $hint-colors: (
   --theorem-border: #a3a3a3;
   
   //emphasis (bold) styling
-  --strong-bg: #fff6cc;           // soft yellow pill background
-  --strong-border: #f0d98c;       // matching border
+  --strong-bg: #ffd8cc;           // soft yellow pill background
+  --strong-border: rgba(128, 128, 128, 0.417);       // matching border
   
   //code
   --code-background: rgb(234, 234, 234);
