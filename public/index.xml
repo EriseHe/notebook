@@ -251,11 +251,8 @@ $$P\left(w_{1: T}\right)=\prod_{t=1}^T P\left(w_t \mid w_{&amp;lt;t}\right)$$&lt
 &lt;p>Choose the most likely token:
 $$
 w_t = \arg\max_{w} p_\theta(w \mid w_{&amp;lt;t})
-$$&lt;/p></description></item><item><title/><link>http://localhost:1319/notes/%E7%90%86%E8%AE%BA/Differential-Geometry/2.-Lecture-2-ACTUAL/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1319/notes/%E7%90%86%E8%AE%BA/Differential-Geometry/2.-Lecture-2-ACTUAL/</guid><description>&lt;h1 id="parametrized-curves-in-mathbbr3">
- Parametrized Curves in $\mathbb{R}^3$
- &lt;a class="anchor" href="#parametrized-curves-in-mathbbr3">#&lt;/a>
-&lt;/h1>
-&lt;p>Let $I\subset \mathbb{R}$ be an open interval. A &lt;strong>(smooth) curve&lt;/strong> is a map
+$$&lt;/p></description></item><item><title/><link>http://localhost:1319/notes/%E7%90%86%E8%AE%BA/Differential-Geometry/2.-Lecture-2-ACTUAL/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1319/notes/%E7%90%86%E8%AE%BA/Differential-Geometry/2.-Lecture-2-ACTUAL/</guid><description>&lt;p>*******# Parametrized Curves in $\mathbb{R}^3$
+Let $I\subset \mathbb{R}$ be an open interval. A &lt;strong>(smooth) curve&lt;/strong> is a map
 $$
 \gamma:I\to\mathbb{R}^3,\qquad \gamma\in C^\infty,
 $$
@@ -299,7 +296,7 @@ We write $\dot\gamma(t)=\dfrac{d\gamma}{dt}(t)$ for its &lt;strong>velocity&lt;/
 
 &lt;blockquote>
 &lt;p>[!definition|1.1] regular curve
-$\gamma$ is &lt;strong>regular&lt;/strong> if
+$\gamma$ is &lt;em>regular&lt;/em> if
 $$
 \dot\gamma(t)\neq 0 \quad\text{for all } t\in I.
 $$&lt;/p></description></item><item><title/><link>http://localhost:1319/notes/%E7%90%86%E8%AE%BA/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><guid>http://localhost:1319/notes/%E7%90%86%E8%AE%BA/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/</guid><description>&lt;h2 id="1-parametrized-curves-in-mathbbr3-plane-curves-as-a-special-case">
