@@ -12,6 +12,7 @@ enableGitInfo = false
 [markup]
 [markup.goldmark.renderer]
   unsafe = true
+  hardWraps = true
 
 [markup.tableOfContents]
   startLevel = 1

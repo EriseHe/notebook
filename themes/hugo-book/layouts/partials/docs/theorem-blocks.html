@@ -7,16 +7,16 @@
       const firstParagraph = blockquote.querySelector('p');
       if (!firstParagraph) return;
       
-      const text = firstParagraph.textContent || '';
+      const text = firstParagraph.innerHTML || '';
       
       // More flexible pattern matching for theorem types with optional numbering
       // Match patterns like [!theorem|*] or [!theorem|7.1.1]
       // Support Obsidian-style: definition, proposition, lemma, theorem, assumption, claim
       for (const type of ['definition', 'proposition', 'lemma', 'theorem', 'assumption', 'claim']) {
-        // Accept optional inline title after the marker, e.g.:
-        // > [!definition|1.1] regular curve
-        const regex = new RegExp(`^\\s*\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]\\s*`, 'i');
-        const match = text.match(regex);
+        // Extract: marker + optional title on the same quoted line (ends at real line break) 
+        // We only want the remainder of that quoted line as the subtitle
+        const markerRe = new RegExp(`^\\s*\\[!${type}\\|(\\*|[\\w\\.\\-]+)\\]\\s*`, 'i');
+        const match = text.match(markerRe);
         
         if (match) {
           console.log(`Found ${type} with label: ${match[1]}`);
@@ -24,24 +24,11 @@
           // Determine if we have a number or just a wildcard
           const hasNumber = match[1] !== '*';
           const number = hasNumber ? match[1] : '';
-          // Substring after marker in raw text
-          const afterMarker = text.replace(regex, '');
-          // Heuristic: take subtitle as the shortest of (
-          //   up to first punctuation .,;: — ( , up to the first " is/are ",
-          //   or 48 chars max, trimmed to word boundary)
-          let cut = afterMarker.length;
-          const candidates = [];
-          const pushIdx = (i) => { if (i > 0) candidates.push(i); };
-          pushIdx(afterMarker.search(/[\.;:—–\(]/));
-          const isIdx = afterMarker.search(/\s(is|are)\s/i); pushIdx(isIdx);
-          const twoSpace = afterMarker.search(/\s{2,}/); pushIdx(twoSpace);
-          if (candidates.length) cut = Math.min(...candidates);
-          if (!candidates.length && afterMarker.length > 48) {
-            const slice = afterMarker.slice(0, 48);
-            const lastSpace = slice.lastIndexOf(' ');
-            cut = lastSpace > 0 ? lastSpace : 48;
-          }
-          const subtitle = afterMarker.slice(0, cut).trim();
+          // Extract subtitle: read only the remainder of the firstParagraph text node up to the first real line break
+          // Use textContent to ignore inline math HTML and get plain text
+          const paraPlain = firstParagraph.textContent || '';
+          const headerPlain = paraPlain.split(/\n/)[0];
+          const subtitle = headerPlain.replace(markerRe, '').trim();
           
           // Skip if already processed
           if (blockquote.classList.contains('math-theorem')) {
@@ -78,13 +65,23 @@
           content.className = 'theorem-content';
           blockquote.appendChild(content);
           
-          // Add all children back to the content div, but remove marker + subtitle from the first paragraph (text-only safe approach)
+          // Add all children back to the content div, but remove marker (and header line) from the first paragraph
           childNodes.forEach(function(node) {
             let toAppend = node.cloneNode(true);
             if (node === firstParagraph && toAppend.nodeType === 1) {
-              const originalText = toAppend.textContent || '';
-              const remainder = originalText.replace(regex, '').slice(subtitle.length).trimStart();
-              toAppend.textContent = remainder;
+              // Keep only text after the first real newline in the quoted paragraph
+              const lines = (toAppend.textContent || '').split(/\n/);
+              if (lines.length > 1) {
+                lines.shift();
+                const rest = lines.join('\n').trim();
+                // Preserve inline HTML by replacing the whole paragraph with a text node containing the rest;
+                // MathJax will typeset later.
+                toAppend.innerHTML = '';
+                toAppend.appendChild(document.createTextNode(rest));
+              } else {
+                // Fallback: just strip the marker
+                toAppend.textContent = (toAppend.textContent || '').replace(markerRe, '').trim();
+              }
             }
             content.appendChild(toAppend);
           });
