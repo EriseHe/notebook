@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数值方法 on 学习笔记</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/</link><description>Recent content in 数值方法 on 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/</guid><description>&lt;h2 id="formula-derivation">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数值方法 on 学习笔记</title><link>http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/</link><description>Recent content in 数值方法 on 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/</guid><description>&lt;h2 id="formula-derivation">
  Formula Derivation
  &lt;a class="anchor" href="#formula-derivation">#&lt;/a>
 &lt;/h2>
@@ -36,7 +36,7 @@ $$&lt;/p>
 u_1^* &amp;amp;= y_0 + \Delta t f(t_0, y_0), \
 u_1 &amp;amp;= y_0 + \frac{\Delta t}{2} (f(t_0, y_0) + f(t_1, u_1^*))
 \end{aligned}
-$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/</guid><description>&lt;h2 id="1-ok-honestly-i-have-no-idea-where-he-started">
+$$&lt;/p></description></item><item><title/><link>http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/</guid><description>&lt;h2 id="1-ok-honestly-i-have-no-idea-where-he-started">
  1. Ok Honestly I Have No Idea Where He Started
  &lt;a class="anchor" href="#1-ok-honestly-i-have-no-idea-where-he-started">#&lt;/a>
 &lt;/h2>
@@ -60,7 +60,7 @@ $$
 x - u_i &amp;amp;= A \left(1 - \frac{x}{B} \right) x \
 &amp;amp;= A x - \frac{A}{B} x^2
 \end{align}
-$$&lt;/p></description></item><item><title>常微分方程的数值解</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/</guid><description>&lt;h2 id="introduction">
+$$&lt;/p></description></item><item><title>常微分方程的数值解</title><link>http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/</guid><description>&lt;h2 id="introduction">
  Introduction
  &lt;a class="anchor" href="#introduction">#&lt;/a>
 &lt;/h2>
@@ -72,7 +72,7 @@ $$y(0) = y_0 \text{ given}.$$&lt;/p>
 &lt;p>$$(2) \quad \frac{d\mathbf{y}}{dt} = \mathbf{f}(t,\mathbf{y}) \quad \text{in } t &amp;gt; 0$$&lt;/p>
 &lt;p>with
 $$\mathbf{y}(0) = \mathbf{y}_0.$$&lt;/p>
-&lt;p>Let&amp;rsquo;s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &amp;gt; 0$ s.t.&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Finite-Element-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Finite-Element-Method/</guid><description>&lt;h2 id="order-of-convergence-in-finite-elements">
+&lt;p>Let&amp;rsquo;s recall some basic results on the function $f$. It is said to be Lipschitz continuous in an interval $I$ if there exists a positive $L &amp;gt; 0$ s.t.&lt;/p></description></item><item><title/><link>http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Finite-Element-Method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Finite-Element-Method/</guid><description>&lt;h2 id="order-of-convergence-in-finite-elements">
  Order of Convergence in Finite Elements
  &lt;a class="anchor" href="#order-of-convergence-in-finite-elements">#&lt;/a>
 &lt;/h2>
@@ -117,7 +117,7 @@ $$\mathbf{y}(0) = \mathbf{y}_0.$$&lt;/p>
  Error Estimation
  &lt;a class="anchor" href="#error-estimation">#&lt;/a>
 &lt;/h2>
-&lt;p>We have:&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Quiz-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Quiz-4/</guid><description>&lt;h1 id="solutions-for-quiz-4">
+&lt;p>We have:&lt;/p></description></item><item><title/><link>http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Quiz-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1316/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Quiz-4/</guid><description>&lt;h1 id="solutions-for-quiz-4">
  Solutions for Quiz 4
  &lt;a class="anchor" href="#solutions-for-quiz-4">#&lt;/a>
 &lt;/h1>

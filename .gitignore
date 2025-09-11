@@ -1,0 +1,23 @@
+# Hugo build files
+/public/
+/docs/
+/resources/_gen/
+
+# Node modules
+node_modules/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Hugo cache
+.hugo_build.lock
