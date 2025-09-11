@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第八章 度量理论 on 学习笔记</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/</link><description>Recent content in 第八章 度量理论 on 学习笔记</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 27 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>8.6 勒贝格收敛定理</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/</link><pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/</guid><description>&lt;h2 id="main-question">
+ Main Question
+ &lt;a class="anchor" href="#main-question">#&lt;/a>
+&lt;/h2>
+&lt;p>When do we have:
+$$\lim_{n\to\infty}\int_A f_n(x)dx = \int_A(\lim_{n\to\infty}f_n(x))dx?$$&lt;/p>
+&lt;h2 id="lebesgue-monotone-convergence-theorem-theorem-861">
+ Lebesgue Monotone Convergence Theorem (Theorem 8.6.1)
+ &lt;a class="anchor" href="#lebesgue-monotone-convergence-theorem-theorem-861">#&lt;/a>
+&lt;/h2>
+&lt;p>Let $g_n: [0,1] \to \mathbb{R}$ be a sequence of non-negative measurable functions such that:&lt;/p>
+&lt;ol>
+&lt;li>$g_{n+1}(x) \leq g_n(x)$ $\forall x$ (decreasing sequence)&lt;/li>
+&lt;li>$\lim_{n\to\infty} g_n(x) = 0$ $\forall x \in [0,1]$&lt;/li>
+&lt;/ol>
+&lt;p>Then:
+$$\lim_{n\to\infty}\int_0^1 g_n(x)dx = \int_0^1 0 dx = 0$$&lt;/p>
+&lt;h2 id="proof-details">
+ Proof Details
+ &lt;a class="anchor" href="#proof-details">#&lt;/a>
+&lt;/h2>
+&lt;p>For LMCT to hold, we only need:&lt;/p>
+&lt;ol>
+&lt;li>$f_n(x) \leq f_{n+1}(x) \leq f(x)$ $\forall x$&lt;/li>
+&lt;li>$f_n(x) \to f(x)$, $\forall x$&lt;/li>
+&lt;/ol>
+&lt;p>This implies: $f_n(x) \uparrow f(x)$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/</guid><description>&lt;p>第八章的研究对象是Lebesgue积分。我们将要推导的是度量理论（measure theory）的核心内容：集合的测度（measure）和覆盖性质。&lt;/p>
+&lt;p>我们主要看以下这几个方面：&lt;/p>
+&lt;ol>
+&lt;li>积分的定义&lt;/li>
+&lt;li>可积性的判据（必要条件和充分条件）&lt;/li>
+&lt;li>性质与收敛性&lt;/li>
+&lt;li>计算和估计积分&lt;/li>
+&lt;/ol>
+&lt;h2 id="11-积分的定义">
+ 1.1 积分的定义
+ &lt;a class="anchor" href="#11-%e7%a7%af%e5%88%86%e7%9a%84%e5%ae%9a%e4%b9%89">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="111-几何动机">
+ 1.1.1 几何动机
+ &lt;a class="anchor" href="#111-%e5%87%a0%e4%bd%95%e5%8a%a8%e6%9c%ba">#&lt;/a>
+&lt;/h3>
+&lt;p>积分本质上是计算函数下方区域的「体积（volume）」。如何定义这种「体积」会直接改变到积分的性质。我们的目的是为了计算任意曲线 $y = f(x)$ 从 $a$ 到 $b$ 下方区域的面积&lt;/p>
+&lt;p>Lebesgue积分定义的逻辑步骤如下：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>定义&lt;/strong>：任意有界函数$f$于在高维空间中的有界区域 $A$ （bounded）上。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>简化问题&lt;/strong>：由于曲线下方区域通常不是规则形状，我们需要用近似方法来计算。我们可以将区间 $[a,b]$ 分成若干小区间，然后用矩形来近似。将区域 $A$ 嵌入到一个矩形区域 $B$ 中，并将函数 $f$ 扩展为函数 $f̃$，使其在 $A$ 之外的 $B$ 上取值为零&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>分割&lt;/strong>：划分矩形 $B$ 为更小的矩形，来创建一个&lt;strong>分割结构&lt;/strong>（partition）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>构造上下近似&lt;/strong>：对每个小矩形，通过这种方式，我们可以获得两种近似：一种是偏大的（上和），一种是偏小的（下和）。&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>上和&lt;/strong>: $U(f, P) = \sum_{i=1}^{n} (\sup f(x)) \cdot \ell(I_i)$&lt;/li>
+&lt;li>对每个小区间 $I_i$，我们找出函数在该区间上的最大值 $\sup f(x)$，然后乘以区间长度 $\ell(I_i)$。这样形成的矩形面积之和总是大于或等于真实面积。&lt;/li>
+&lt;li>&lt;strong>下和&lt;/strong>: $L(f, P) = \sum_{i=1}^{n} (\inf f(x)) \cdot \ell(I_i)$&lt;/li>
+&lt;li>对每个小区间 $I_i$，我们找出函数在该区间上的最小值 $\inf f(x)$，然后乘以区间长度 $\ell(I_i)$。这样形成的矩形面积之和总是小于或等于真实面积。&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>当我们让分割变得越来越细时，上和会减小，下和会增大。它们的极限值就定义了上积分和下积分。当这两个极限值相等时，我们就说这个函数是&lt;strong>可积的（integrable）&lt;/strong>。&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/</guid><description>&lt;h2 id="criterion-for-integrability">
+ Criterion for Integrability
+ &lt;a class="anchor" href="#criterion-for-integrability">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>Q:&lt;/strong> When is $f$ integrable?&lt;/p>
+&lt;p>&lt;strong>A:&lt;/strong> $f$ is integrable when the set of discontinuity is &lt;em>small&lt;/em>.&lt;/p>
+&lt;h3 id="1-how-to-measure-the-size-of-a">
+ 1. How to measure the size of $A$
+ &lt;a class="anchor" href="#1-how-to-measure-the-size-of-a">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Volume of $A$&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!definition|8.2.2]
+A bounded set $A \subset \mathbb{R}^n$ has &lt;em>volume&lt;/em> (or is Jordan measurable) if its characteristic function:
+$$1_A(x) =
+\begin{cases}
+1, &amp;amp; x \in A \
+0, &amp;amp; x \notin A
+\end{cases} $$
+is integrable:&lt;/p>&lt;/blockquote>
+&lt;p>$$V(A) = \int_A 1_A(x), dx$$&lt;/p></description></item><item><title/><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/</guid><description>&lt;blockquote>
+&lt;p>[!theorem|8.?.?]
+Let $f : A \subset \mathbb{R} \to \mathbb{R}$ be a bounded function on a bounded set $A$. Then $f$ is integrable on $A$ &lt;strong>if and only if&lt;/strong> the set of discontinuities for the extended $f(x)$ has measure zero.&lt;/p>&lt;/blockquote>
+&lt;h2 id="proof-of-the-theorem">
+ Proof of the Theorem
+ &lt;a class="anchor" href="#proof-of-the-theorem">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="step-1-preparation">
+ Step 1: Preparation
+ &lt;a class="anchor" href="#step-1-preparation">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Diagram: a set $A$ enclosed in set $B$.&lt;/li>
+&lt;/ul>
+&lt;h4 id="a-set-up">
+ (a): Set Up
+ &lt;a class="anchor" href="#a-set-up">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Fix rectangle $B$ with $\overline{A} \subset \text{int}(B)$ and let:
+$$
+g(x) = \begin{cases}&lt;br>
+f(x) &amp;amp; \text{if } x \in A \&lt;br>
+0 &amp;amp; \text{if } x \notin A&lt;br>
+\end{cases}
+$$&lt;/li>
+&lt;li>Define:
+$$
+D = { x \in B \mid g \text{ is not continuous at } x }
+$$&lt;/li>
+&lt;li>Need to show:
+$$
+f \text{ integrable } \Leftrightarrow m(D) = 0
+$$&lt;/li>
+&lt;/ul>
+&lt;h4 id="b-how-to-measure-discontinuity">
+ (b): How to Measure Discontinuity
+ &lt;a class="anchor" href="#b-how-to-measure-discontinuity">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Oscillation of a function $h$ at a point $x_0$:
+$$O(h, x_0) = \inf { \sup \left{ h(x) - h(y) : x, y \in U } : U \text{ is a neighborhood of } x_0 \right}$$&lt;/li>
+&lt;li>&lt;strong>Fact:&lt;/strong> $h$ is continuous at $x_0$ if and only if $O(h, x_0) = 0$.&lt;/li>
+&lt;/ul>
+&lt;h3 id="step-2-assume-md--0-prove-f-integrable">
+ Step 2: Assume $m(D) = 0$. Prove $f$ integrable
+ &lt;a class="anchor" href="#step-2-assume-md--0-prove-f-integrable">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Will show $g$ satisfying Riemann&amp;rsquo;s Condition.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>(a) Setup:&lt;/strong>&lt;/p></description></item><item><title>8.5 不定积分</title><link>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://erisehe.github.io/notebook/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/</guid><description>&lt;h2 id="83-反常积分-improper-integrals">
+ 8.3 反常积分 (Improper Integrals)
+ &lt;a class="anchor" href="#83-%e5%8f%8d%e5%b8%b8%e7%a7%af%e5%88%86-improper-integrals">#&lt;/a>
+&lt;/h2>
+&lt;p>WTS: Study integral of the form $\int_A f(x)$, where $f : A \subset \mathbb{R}^n \rightarrow \mathbb{R}$ is an arbitrary function and $A \subset \mathbb{R}^n$ is an arbitrary set.&lt;/p>
+&lt;h3 id="定义-831-integral">
+ 定义 8.3.1 (Integral)
+ &lt;a class="anchor" href="#%e5%ae%9a%e4%b9%89-831-integral">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>If $A \subset \mathbb{R}^n$ is bounded and $f$ is bounded, then
+$$\int_A f(x) = \int_{\overline{A}} f(x) = \underline{\int_{A}} f(x) \quad \text{(Riemann Condition)}$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$f(x) \geq 0$ bounded and $A$ is arbitrary, then
+$$\int_A f(x) = \lim_{a\to\infty} \int_{A_a} f(x)$$&lt;/p></description></item></channel></rss>
