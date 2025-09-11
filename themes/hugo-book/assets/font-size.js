@@ -77,10 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
   function setFontSize(size) {
     currentSize = size;
     
-    // Only target content elements for font size changes
-    document.querySelectorAll('.markdown, .posts').forEach(function(element) {
-      element.style.fontSize = size + 'px';
-    });
+    // Update the CSS custom property instead of individual elements
+    document.documentElement.style.setProperty('--markdown-font-size', size + 'px');
     
     localStorage.setItem('bodyFontSize', size);
   }
