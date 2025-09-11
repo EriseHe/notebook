@@ -1,13 +1,13 @@
 <!-- Theorem Blocks -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Process all blockquotes
+  // Idempotent processor so it can be called on initial load and after partial loads
+  window.processTheoremBlocks = function() {
     document.querySelectorAll('blockquote').forEach(function(blockquote) {
       // Get the first paragraph
       const firstParagraph = blockquote.querySelector('p');
       if (!firstParagraph) return;
       
-      const text = firstParagraph.innerHTML;
+      const text = firstParagraph.innerHTML || '';
       
       // More flexible pattern matching for theorem types with optional numbering
       // Match patterns like [!theorem|*] or [!theorem|7.1.1]
@@ -24,6 +24,11 @@
           const hasNumber = match[1] !== '*';
           const number = hasNumber ? match[1] : '';
           
+          // Skip if already processed
+          if (blockquote.classList.contains('math-theorem')) {
+            break;
+          }
+
           // Remove all children temporarily
           const childNodes = Array.from(blockquote.childNodes);
           blockquote.innerHTML = '';
@@ -46,17 +51,22 @@
           content.className = 'theorem-content';
           blockquote.appendChild(content);
           
-          // Modify the first paragraph to remove the marker
-          firstParagraph.innerHTML = firstParagraph.innerHTML.replace(match[0], '');
-          
-          // Add all children back to the content div
+          // Add all children back to the content div, but remove marker from the first paragraph
           childNodes.forEach(function(node) {
-            content.appendChild(node.cloneNode(true));
+            let toAppend = node.cloneNode(true);
+            if (node === firstParagraph && toAppend.nodeType === 1) {
+              toAppend.innerHTML = (toAppend.innerHTML || '').replace(match[0], '');
+            }
+            content.appendChild(toAppend);
           });
           
           break; // Stop after finding the first match
         }
       }
     });
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    try { window.processTheoremBlocks(); } catch (e) { console.error(e); }
   });
 </script> 

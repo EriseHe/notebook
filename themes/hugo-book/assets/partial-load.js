@@ -4,6 +4,10 @@ function initializeComponents() {
   if (window.MathJax) {
     window.MathJax.typeset();
   }
+  // Re-run theorem block processor if available
+  if (typeof window.processTheoremBlocks === 'function') {
+    try { window.processTheoremBlocks(); } catch (e) { console.error(e); }
+  }
   
   // Reinitialize copy code buttons
   const codeBlocks = document.querySelectorAll('.book-page pre > code');
