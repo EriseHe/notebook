@@ -1,18 +1,5 @@
 Goal: construct an algorithms for computing decision policies, where more iteration $\to$ monotonically improve the decision policy.
 # 1. Markov Reward Processes (MRPs)
-
-> [!definition]
-> A Markov Decision Process (MDP) is a 5 -tuple
->$$
-(\mathcal{S}, \mathcal{A}, P, R, \gamma)
->$$
->where
-> - $S$ is the state space
-> - $\mathcal{A}$ is the action space
-> - $P\left(s^{\prime} \mid s, a\right)$ is the transition kernel (the probability of moving from ${} (s, \text{action }a \text{ taken})  \to s' {}$)
-> - $R(s, a)$  is the reward function
-> - $\gamma \in[0,1]$ is the discount factor
-
 ## 1.1 Return
 The **return**, denoted as $G_{t}$,  is the (*discounted*) sum of rewards received from time $t$ to horizon $H$.
 ### 1.1.1 Discount Factor
@@ -50,17 +37,19 @@ V(s)&=\mathbb{E}\left[\sum_{k=0}^{H-1} \gamma^k r_{t+k} \mid s_t=s\right] \\
 \end{aligned}
 $$
 
-### 1.2.1 Value of an Infinite Horizon Markov Reward Process
+### 1.2.1 Value of an Infinite Horizon MRP (Bellman)
 $$
 \begin{aligned}
 V(s) & =\mathbb{E}\left[\sum_{k=0}^{\infty} \gamma^k r_{t+k} \mid s_t=s\right] \\
 & =\mathbb{E}\left[r_t \mid s_t=s\right]+\gamma \mathbb{E}\left[\sum_{k=0}^{\infty} \gamma^k r_{t+1+k} \mid s_t=s\right] \\
 & =R(s)+\gamma \mathbb{E}\left[V\left(s_{t+1}\right) \mid s_t=s\right] \\
-& =R(s)+\gamma \sum_{s^{\prime}} P\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right) .
+& =R(s)+\gamma \sum_{s^{\prime}} P\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right) 
 \end{aligned}
 $$
 where $R(s)=\mathbb{E}[r_{t}|s_{t}=s]$. Therefore, in this formulation, we have:
-$$V(s)=\underbrace{R(s)}_{\text {Immediate reward }}+\underbrace{\gamma \sum_{s^{\prime} \in S} P\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right)}_{\text {Discounted sum of future rewards }}$$
+>[!theorem] Bellman Expectation Equation
+>The state-value function $V: \mathcal{S} \rightarrow \mathbb{R}$ is the unique function satisfying, for every $s \in \mathcal{S}$,
+>$$V(s)=\underbrace{R(s)}_{\text {Immediate reward }}+\underbrace{\gamma \sum_{s^{\prime} \in S} P\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right)}_{\text {Discounted sum of future rewards }}$$
 
 ### 1.2.2 Value of an finite Horizon V(s) using matrix equation
 $$
@@ -85,15 +74,28 @@ V_k(s)&=R+\gamma PV_{k-1}\\
 $$
 Computational complexity: $O\left(|S|^2\right)$ for each iteration $(|S|=N)$
 
+# 2. Markov Decision Processes (MDPs)
+> [!definition]
+> A Markov Decision Process (MDP) is a 5 -tuple
+>$$
+(\mathcal{S}, \mathcal{A}, P, R, \gamma)
+>$$
+>where
+> - $S$ is the state space
+> - $\mathcal{A}$ is the action space
+> - $P\left(s^{\prime} \mid s, a\right)$ is the transition kernel (the probability of moving from $(s, \text{action }a \text{ taken})  \to s'$)
+> - $R(s, a)$  is the reward function
+> - $\gamma \in[0,1]$ is the discount factor
+
+## 2.1
 
 
 
-#### Stochastic
+### Stochastic
 
-#### Deterministic case: $s \to a$
+### Deterministic case: $s \to a$
 
 
-## 2. Markov Decision Processes (MDPs)
 ## 3. MDP Control & Evaluation 
 
 optimal policy: not necessarily
