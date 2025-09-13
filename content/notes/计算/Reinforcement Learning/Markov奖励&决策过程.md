@@ -15,6 +15,7 @@ G_t &= r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \cdots + \gamma^{H-1} r_{t+H-1}
 \end{aligned}
 $$
 > Horizon → determines which rewards you sum → defines the return
+
 **Infinite-horizon**
 $$
 \begin{aligned}
@@ -88,7 +89,8 @@ Computational complexity: $O\left(|S|^2\right)$ for each iteration $(|S|=N)$
 > - $R(s, a)$  is the reward function
 > - $\gamma \in[0,1]$ is the discount factor
 
-## 2.1
+## 2.1 Policy
+Policy
 
 
 
