@@ -52,6 +52,7 @@ where $R(s)=\mathbb{E}[r_{t}|s_{t}=s]$. Therefore, in this formulation, we have:
 >$$V(s)=\underbrace{R(s)}_{\text {Immediate reward }}+\underbrace{\gamma \sum_{s^{\prime} \in S} P\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right)}_{\text {Discounted sum of future rewards }}$$
 
 ### 1.2.2 Value of an finite Horizon V(s) using matrix equation
+We can solve this equation explicitly:
 $$
 \begin{aligned}
 V & =R+\gamma P V \\
@@ -60,7 +61,7 @@ V-\gamma P V & =R \\
 V & =(I-\gamma P)^{-1} R
 \end{aligned}
 $$
-Computing inverse requires $O(N^3)$ + *invertible*, so we use iterative algorithm (**fixed point method**) for computing value of a MRP:
+However, computing inverse requires $O(N^3)$ + *invertible*, so we use iterative algorithm (**fixed point method**) for computing value of a MRP:
 
 - Initialize $V_0(s)=0$ for all $s$
 - For $k=1$ until convergence
