@@ -247,15 +247,10 @@
                 "id": "6c8169702e300e49",
                 "type": "leaf",
                 "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "计算/Reinforcement Learning/2. Markov奖励&决策过程.md",
-                    "mode": "source",
-                    "source": true,
-                    "backlinks": false
-                  },
+                  "type": "empty",
+                  "state": {},
                   "icon": "lucide-file",
-                  "title": "2. Markov奖励&决策过程"
+                  "title": "New tab"
                 },
                 "group": "930fed5f9299b6cb"
               }
@@ -269,15 +264,10 @@
                 "id": "1725e88f963b537a",
                 "type": "leaf",
                 "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "计算/Reinforcement Learning/2. Markov奖励&决策过程.md",
-                    "mode": "preview",
-                    "source": false,
-                    "backlinks": false
-                  },
+                  "type": "empty",
+                  "state": {},
                   "icon": "lucide-file",
-                  "title": "2. Markov奖励&决策过程"
+                  "title": "New tab"
                 },
                 "group": "930fed5f9299b6cb"
               }
@@ -294,16 +284,17 @@
       }
     ]
   },
-  "active": "6c8169702e300e49",
+  "active": "6d397bde64002848",
   "lastOpenFiles": [
     "image-6.png",
     "image-5.png",
-    "image-4.png",
-    "image-3.png",
     "image-2.png",
+    "image-3.png",
+    "image-4.png",
+    "image-1.png",
+    "计算/Reinforcement Learning/2. Markov奖励&决策过程.md",
     "计算/section/buttons.md",
     "计算/section/_index.md",
-    "计算/Reinforcement Learning/2. Markov奖励&决策过程.md",
     "计算/Reinforcement Learning/_index.md",
     "计算/Quantum Mechenics/薛定谔方程的傅立叶变换.md",
     "计算/Julia科学计算笔记/2. Variables, primitive types, and functions.md",
@@ -338,7 +329,6 @@
     "理论/PDE/Heat Equation",
     "Untitled.canvas",
     "image.png",
-    "image-1.png",
     "Fourier Series.png",
     "L-space.png",
     "L-space-1.png",
