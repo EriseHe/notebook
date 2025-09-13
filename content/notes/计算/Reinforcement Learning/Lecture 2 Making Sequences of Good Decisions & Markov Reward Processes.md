@@ -1,27 +1,30 @@
 Goal: construct an algorithms for computing decision policies, where more iteration $\to$ monotonically improve the decision policy.
 ## 1. Markov Reward Processes (MRPs)
-
-### 1. 1. Return
--  $G_t$ as **return**, which is the (discounted) sum of rewards received from time $t$ onward.
-### 1.1.1 Horizon
- - $H$ as **horizon**: how many steps into the future you include in the return (episode length or remaining steps).
-
-> Horizon → determines which rewards you sum → defines the return
-
+### 1.1 Return
+The **return**, denoted as $G_{t}$,  is the (*discounted*) sum of rewards received from time $t$ to horizon $H$.
+### 1.1.1 Discount Factor
+The primary purpose of discount factor $\gamma\in[0,1]$ is to weights future rewards:
+- ensures convergence for infinite sum
+- controls immediate rewards ($\gamma=0$) vs. delayed rewards ($\gamma \to 1$)
+### 1.1.1 Horizon 
+For $H$ steps included, we compute return $G_{t}$:
 **Finite-horizon** (episode length $H$) 
 $$\begin{aligned}
 G_t &= r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \cdots + \gamma^{H-1} r_{t+H-1} \\
     &= \sum_{k=0}^{H-1} \gamma^k r_{t+k}.
 \end{aligned}
 $$
-**Infinite-horizon** (discounted)
+> Horizon → determines which rewards you sum → defines the return
+
+**Infinite-horizon**
 $$
 \begin{aligned}
 G_t &= \sum_{k=0}^{\infty} \gamma^k r_{t+k},
 \end{aligned}
-
 $$
-### 1.2 State Value function
+### 1.2 State Value function $V(s)$
+
+
 $$
 \begin{align}
 V(s)&=\mathbb{E}\left[G_t \mid s_t=s\right] \\
