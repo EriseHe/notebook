@@ -50,7 +50,7 @@ V(s) & =\mathbb{E}\left[\sum_{k=0}^{\infty} \gamma^k r_{t+k} \mid s_t=s\right] \
 \end{aligned}
 $$
 where $R(s)=\mathbb{E}[r_{t}|s_{t}=s]$. Therefore, in this formulation, we have:
->[!theorem] Bellman Expectation Equation
+> [!theorem] Bellman Expectation Equation
 >The state-value function $V: \mathcal{S} \rightarrow \mathbb{R}$ is the unique function satisfying, for every $s \in \mathcal{S}$,
 >$$V(s)=\underbrace{R(s)}_{\text {Immediate reward }}+\underbrace{\gamma \sum_{s^{\prime} \in S} P\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right)}_{\text {Discounted sum of future rewards }}$$
 
