@@ -2483,6 +2483,7 @@ tractable
 tikz
 tikzpicture
 tikzcd
+tuple
 system
 solvability
 such
@@ -8471,7 +8472,6 @@ ynoG
 Necessary
 Now
 Near
-Note
 No
 Normalization
 Next
@@ -11102,6 +11102,7 @@ Bahdanau
 Blackboard
 Beam
 Bits
+Bellman
 Function
 For
 FT
