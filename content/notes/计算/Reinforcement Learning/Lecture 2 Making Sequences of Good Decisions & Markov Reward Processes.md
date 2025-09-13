@@ -1,4 +1,4 @@
-We want to an algorithms (for computing decision policies) to monotonically improve the decision policy for more iteration
+Goal: construct an algorithms for computing decision policies, where more iteration $\to$ monotonically improve the decision policy.
 ## 1. Markov Reward Processes (MRPs)
 
 ### 1. 1. Return
