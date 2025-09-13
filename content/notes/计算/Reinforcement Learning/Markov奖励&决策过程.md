@@ -7,8 +7,15 @@ The primary purpose of discount factor $\gamma\in[0,1]$ is to weights future rew
 - ensures *convergence* for infinite sum
 - controls *immediate* rewards ($\gamma=0$) vs. *delayed* rewards ($\gamma \to 1$)
 ### 1.1.1 Horizon 
-For $H$ steps included, we compute return $G_{t}$:
-**Finite-horizon** (episode length $H$) 
+**Infinite-horizon**:
+$$
+\begin{aligned}
+G_t &= \sum_{k=0}^{\infty} \gamma^k r_{t+k}
+\end{aligned}
+$$
+**Finite-horizon** (episode length $H$):
+
+For $H$ steps included, we have:
 $$\begin{aligned}
 G_t &= r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \cdots + \gamma^{H-1} r_{t+H-1} \\
     &= \sum_{k=0}^{H-1} \gamma^k r_{t+k}.
@@ -16,12 +23,7 @@ G_t &= r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \cdots + \gamma^{H-1} r_{t+H-1}
 $$
 > Horizon → determines which rewards you sum → defines the return
 
-**Infinite-horizon**
-$$
-\begin{aligned}
-G_t &= \sum_{k=0}^{\infty} \gamma^k r_{t+k}
-\end{aligned}
-$$
+
 ## 1.2 State Value function $V(s)$
 >[!definition|1.2] State Value Function
 >The **state-value function** under policy ${} \pi(a|s) {}$ is the *expected return* starting from state $s$ :
