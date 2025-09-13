@@ -1833,6 +1833,8 @@ Parametrized
 Proposition
 Perplexity
 Patches
+Process
+Policy
 In
 Implicit
 Invertibility
@@ -2044,6 +2046,7 @@ Inference
 Intuition
 Implication
 Incompatible
+Initialize
 the
 terms
 that
@@ -3851,6 +3854,7 @@ derivations
 dull
 displacements
 direciton
+discounted
 in
 inverse
 implicit
@@ -4741,6 +4745,7 @@ osculating
 obtains
 obsidian
 orbital
+onward
 near
 neighborhood
 necessary
@@ -5937,6 +5942,7 @@ homeomorphic
 homeomorphisms
 headings
 hermitian
+horizon
 local
 limit
 lim
@@ -6577,6 +6583,7 @@ Slides
 Surface
 Sphere
 Symbols
+Stochastic
 equations
 equation
 exists
@@ -7119,6 +7126,7 @@ extrinsic
 explained
 ending
 exp
+episode
 whether
 written
 which
@@ -10889,6 +10897,7 @@ HE
 HrLJv
 HZF
 Hgo
+Horizon
 By
 Because
 Below
@@ -12622,6 +12631,9 @@ MLE
 Minimal
 Minimization
 Manifolds
+MRPs
+MRP
+MDP
 Using
 Up
 Ut
