@@ -16,5 +16,6 @@
   "readableLineLength": true,
   "foldIndent": false,
   "tabSize": 4,
-  "vimMode": false
+  "vimMode": false,
+  "defaultViewMode": "source"
 }

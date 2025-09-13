@@ -1559,6 +1559,7 @@ cyclic
 constructing
 commuting
 commutes
+controls
 Problem
 Partial
 Putting
@@ -5230,6 +5231,8 @@ Distributions
 Decoding
 Deterministic
 Derivations
+Discount
+Decision
 map
 matrix
 mapping
@@ -11309,6 +11312,7 @@ FNW
 Feed
 Families
 FAITHFUL
+Factor
 Jacobian
 Jobcobian
 John
@@ -12634,6 +12638,7 @@ Manifolds
 MRPs
 MRP
 MDP
+MDPs
 Using
 Up
 Ut
