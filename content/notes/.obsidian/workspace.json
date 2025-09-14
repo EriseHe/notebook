@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算/Reinforcement Learning/2. Markov奖励&决策过程.md",
+                "file": "理论/Probabilistic Machine Learning/3. Autoregressive模型 2.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2. Markov奖励&决策过程"
+              "title": "3. Autoregressive模型 2"
             },
             "group": "930fed5f9299b6cb"
           }
@@ -286,13 +286,17 @@
   },
   "active": "6d397bde64002848",
   "lastOpenFiles": [
+    "理论/Probabilistic Machine Learning/3.1 Matrix Calculus.md",
+    "理论/Probabilistic Machine Learning/3. Autoregressive模型 2.md",
+    "理论/General Relativity/_index.md",
+    "计算/Reinforcement Learning/Agent.md",
+    "计算/Reinforcement Learning/2. Markov奖励&决策过程.md",
     "image-6.png",
     "image-5.png",
     "image-2.png",
     "image-3.png",
     "image-4.png",
     "image-1.png",
-    "计算/Reinforcement Learning/2. Markov奖励&决策过程.md",
     "计算/section/buttons.md",
     "计算/section/_index.md",
     "计算/Reinforcement Learning/_index.md",
@@ -317,9 +321,6 @@
     "理论/Topology/T-n分离公理.md",
     "理论/_index.md",
     "理论/hidden.md",
-    "理论/PS.md",
-    "理论/PDE/MATH 352 PDE in Action/第四章/_index.md",
-    "理论/PDE/MATH 352 PDE in Action/第四章/4.1 有限元.md",
     "理论/PDE/MATH 352 PDE in Action/第四章",
     "理论/PDE/MATH 352 PDE in Action/第十章",
     "理论/PDE/MATH 352 PDE in Action/第九章",
