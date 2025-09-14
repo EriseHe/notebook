@@ -2079,6 +2079,7 @@ IGO
 IWR
 IUuj
 IUG
+Indicator
 the
 terms
 that
@@ -2525,6 +2526,7 @@ tzk
 tRC
 tRw
 tCd
+trade
 system
 solvability
 such
@@ -3354,6 +3356,7 @@ sLA
 sYlfr
 sNJ
 siu
+samplong
 discuss
 determine
 described
@@ -3909,6 +3912,7 @@ dWI
 dT
 dTu
 dpr
+deciiosn
 in
 inverse
 implicit
@@ -5792,6 +5796,9 @@ mVVh
 mGm
 mGwO
 meq
+maximise
+maximuise
+minimise
 have
 holds
 has
@@ -6686,6 +6693,7 @@ Stochastic
 SVk
 ST
 Szy
+Sampled
 equations
 equation
 exists
@@ -7232,6 +7240,7 @@ episode
 eXIfMM
 ePy
 eY
+enevironement
 whether
 written
 which
@@ -7813,6 +7822,7 @@ bAFf
 bEy
 bz
 backup
+bandit
 allow
 and
 as
@@ -8466,6 +8476,8 @@ azimuthal
 appropriately
 aCY
 abd
+agenet
+armed
 you
 yields
 yF
@@ -8990,6 +9002,7 @@ Rvq
 Rog
 Roo
 Rqwy
+Regret
 requirement
 respect
 rule
@@ -9542,6 +9555,7 @@ rlNA
 rZC
 rUkv
 rwzl
+regret
 partials
 partial
 point
@@ -10225,6 +10239,7 @@ pmi
 pS
 pbh
 po
+peprformance
 Ex
 Evaluate
 Evaluating
@@ -10481,6 +10496,9 @@ Eqc
 ElV
 EUz
 ES
+Environement
+Exploration
+Exploitation
 We
 What
 With
@@ -10880,6 +10898,7 @@ ToX
 TG
 Tuv
 Tud
+Thomspson
 Hence
 Here
 Hypotheses
@@ -11274,6 +11293,7 @@ Bits
 Bellman
 Bvem
 ByO
+Bandit
 Function
 For
 FT
@@ -11878,6 +11898,7 @@ AOh
 AWJP
 Aygo
 AzO
+Armed
 via
 variables
 view
@@ -12988,6 +13009,7 @@ UmOR
 UXw
 UP
 Uzo
+UCB
 quotient
 question
 quickly
@@ -13862,6 +13884,7 @@ kDs
 kkW
 kYg
 kF
+knolwedge
 One
 Olympo
 Oculis
@@ -14255,6 +14278,7 @@ GcwX
 GSP
 GAvl
 GSO
+Gradients
 xF
 xxii
 xmp
