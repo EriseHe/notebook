@@ -100,7 +100,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "contactgeome",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -233,9 +233,9 @@
   },
   "active": "6d397bde64002848",
   "lastOpenFiles": [
-    "Main Plug-in.md",
-    "理论/Differential Geometry/5. Pushforward, Pullback, and Local Isometries.md",
     "理论/Differential Geometry/3. Tangent Vectors on a Surface.md",
+    "理论/Differential Geometry/5. Pushforward, Pullback, and Local Isometries.md",
+    "Main Plug-in.md",
     "理论/Differential Geometry/2. Parametrized Curves and Surfaces.md",
     "理论/Probabilistic Machine Learning/4. Transformer.md",
     "理论/Probabilistic Machine Learning/3. Autoregressive模型 & Recurrent Neural Networks (RNN).md",

@@ -342,6 +342,7 @@ CO
 CS
 CUW
 Catenoid
+Cylinder
 font
 for
 functions
@@ -1576,6 +1577,8 @@ cwu
 cwv
 cww
 catenoid
+cylindrical
+cylinder
 Problem
 Partial
 Putting
@@ -1865,6 +1868,8 @@ PmMS
 Pullback
 Parametrizations
 Pull
+Parameterize
+Principal
 In
 Implicit
 Invertibility
@@ -3362,6 +3367,7 @@ sYlfr
 sNJ
 siu
 samplong
+signed
 discuss
 determine
 described
@@ -3918,6 +3924,7 @@ dT
 dTu
 dpr
 deciiosn
+departs
 in
 inverse
 implicit
@@ -4828,6 +4835,7 @@ olO
 oKjz
 onW
 ocG
+offset
 near
 neighborhood
 necessary
@@ -5806,6 +5814,7 @@ meq
 maximise
 maximuise
 minimise
+measuring
 have
 holds
 has
@@ -6702,6 +6711,7 @@ SVk
 ST
 Szy
 Sampled
+Shape
 equations
 equation
 exists
@@ -10692,6 +10702,7 @@ Wno
 Wwo
 WJH
 Wkp
+Worked
 Thus
 Theorem
 These
@@ -11911,6 +11922,7 @@ AWJP
 Aygo
 AzO
 Armed
+Archimedes
 via
 variables
 view
