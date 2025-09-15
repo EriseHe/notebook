@@ -341,6 +341,7 @@ CkN
 CO
 CS
 CUW
+Catenoid
 font
 for
 functions
@@ -1574,6 +1575,7 @@ cZ
 cwu
 cwv
 cww
+catenoid
 Problem
 Partial
 Putting
@@ -1860,6 +1862,9 @@ PzjP
 Pv
 PZA
 PmMS
+Pullback
+Parametrizations
+Pull
 In
 Implicit
 Invertibility
@@ -4513,6 +4518,8 @@ iyZ
 iZL
 iV
 iwg
+isometry
+identities
 of
 our
 out
@@ -6045,6 +6052,7 @@ horizon
 hti
 hTI
 hY
+helicoid
 local
 limit
 lim
@@ -10240,6 +10248,8 @@ pS
 pbh
 po
 peprformance
+pushforward
+pullback
 Ex
 Evaluate
 Evaluating
@@ -10499,6 +10509,7 @@ ES
 Environement
 Exploration
 Exploitation
+Expressing
 We
 What
 With
@@ -11089,6 +11100,7 @@ Horizon
 Hj
 HS
 HUO
+Helicoid
 By
 Because
 Below
@@ -13010,6 +13022,8 @@ UXw
 UP
 Uzo
 UCB
+Useful
+Under
 quotient
 question
 quickly
@@ -13621,6 +13635,7 @@ Vlz
 VgA
 VLC
 VUz
+Viewing
 Yes
 You
 YX
