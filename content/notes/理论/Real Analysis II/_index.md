@@ -1,6 +1,6 @@
 ---
 bookFlatSection: true
-title: 数学分析
+title: 实分析
 bookCollapseSection: true
 weight: 5
 ---
