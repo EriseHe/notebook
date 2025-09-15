@@ -1,14 +1,6 @@
 ---
 ~
 ---
-prompt for graph generationPerfect, I understand what you want: a **system-style instruction prompt** to teach GPT how to generate diagrams in Obsidian using the TikZJax plugin. This prompt will tell GPT:
-
-* Use ` ```tikz ... ``` ` blocks.
-* Always include `\begin{document} ... \end{document}`.
-* Load packages with `\usepackage{}` at the top of the block if needed.
-* Use the appropriate environments (`tikzpicture`, `circuitikz`, `tikzcd`, `chemfig`, `pgfplots`, etc.).
-* Output only the code inside a **plain markdown code block**, so you can paste it directly into Obsidian.
-
 Here’s the full reusable prompt for you:
 
 ````text
@@ -147,7 +139,6 @@ Chemistry example:
 \end{document}
 ```
 
-6. General Rule
-
+General Rule:
 * Always generate diagrams ready to paste into Obsidian without modification.
 * No text outside the \`\`\`tikz code block.

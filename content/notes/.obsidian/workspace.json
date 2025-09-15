@@ -233,8 +233,9 @@
   },
   "active": "6d397bde64002848",
   "lastOpenFiles": [
-    "理论/Differential Geometry/3. Tangent Vectors on a Surface.md",
+    "Main Plug-in.md",
     "理论/Differential Geometry/5. Pushforward, Pullback, and Local Isometries.md",
+    "理论/Differential Geometry/3. Tangent Vectors on a Surface.md",
     "理论/Differential Geometry/2. Parametrized Curves and Surfaces.md",
     "理论/Probabilistic Machine Learning/4. Transformer.md",
     "理论/Probabilistic Machine Learning/3. Autoregressive模型 & Recurrent Neural Networks (RNN).md",
@@ -266,7 +267,6 @@
     "理论/Probabilistic Machine Learning/_index.md",
     "理论/Differential Geometry/_index.md",
     "理论/Topology/_index.md",
-    "计算/Julia科学计算笔记.md",
     "计算/Julia科学计算笔记",
     "理论/PDE/MATH 352 PDE in Action/第四章",
     "理论/PDE/MATH 352 PDE in Action/第十章",
