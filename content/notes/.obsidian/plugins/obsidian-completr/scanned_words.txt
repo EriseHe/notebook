@@ -5332,6 +5332,7 @@ Decision
 Dcw
 DR
 Dmae
+Dot
 map
 matrix
 mapping
@@ -6712,6 +6713,7 @@ ST
 Szy
 Sampled
 Shape
+Sanity
 equations
 equation
 exists
@@ -14094,6 +14096,7 @@ OXo
 OCW
 OOR
 Optimality
+Orthonormality
 Given
 Get
 Guessing
