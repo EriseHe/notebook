@@ -343,6 +343,10 @@ CS
 CUW
 Catenoid
 Cylinder
+Covariant
+Cartesian
+Covector
+Caveat
 font
 for
 functions
@@ -724,6 +728,7 @@ fok
 foK
 fAv
 fP
+frames
 color
 curve
 can
@@ -1579,6 +1584,10 @@ cww
 catenoid
 cylindrical
 cylinder
+covector
+covariant
+curved
+coordination
 Problem
 Partial
 Putting
@@ -2090,6 +2099,9 @@ IWR
 IUuj
 IUG
 Indicator
+Indices
+Invariant
+IRF
 the
 terms
 that
@@ -2537,6 +2549,9 @@ tRC
 tRw
 tCd
 trade
+tensors
+tensorial
+tensorially
 system
 solvability
 such
@@ -3368,6 +3383,10 @@ sNJ
 siu
 samplong
 signed
+superscripts
+subscripts
+sanity
+spacetime
 discuss
 determine
 described
@@ -4527,6 +4546,7 @@ iV
 iwg
 isometry
 identities
+inhomogeneous
 of
 our
 out
@@ -4836,6 +4856,7 @@ oKjz
 onW
 ocG
 offset
+ordinary
 near
 neighborhood
 necessary
@@ -5108,6 +5129,7 @@ nrC
 ng
 nCU
 ngq
+naive
 Does
 Determine
 Differentiability
@@ -5333,6 +5355,7 @@ Dcw
 DR
 Dmae
 Dot
+Demand
 map
 matrix
 mapping
@@ -5816,6 +5839,7 @@ maximise
 maximuise
 minimise
 measuring
+manifestly
 have
 holds
 has
@@ -6371,6 +6395,7 @@ lh
 lJVX
 lHh
 lg
+lowers
 Show
 Sufficient
 Substitute
@@ -6714,6 +6739,11 @@ Szy
 Sampled
 Shape
 Sanity
+Scalar
+Subtlety
+Scalars
+Sec
+Special
 equations
 equation
 exists
@@ -8498,6 +8528,8 @@ aCY
 abd
 agenet
 armed
+aka
+algebra
 you
 yields
 yF
@@ -9023,6 +9055,8 @@ Rog
 Roo
 Rqwy
 Regret
+Rank
+Raise
 requirement
 respect
 rule
@@ -9576,6 +9610,8 @@ rZC
 rUkv
 rwzl
 regret
+relativity
+repair
 partials
 partial
 point
@@ -10262,6 +10298,8 @@ po
 peprformance
 pushforward
 pullback
+prescribed
+pairing
 Ex
 Evaluate
 Evaluating
@@ -10923,6 +10961,7 @@ TG
 Tuv
 Tud
 Thomspson
+Tensors
 Hence
 Here
 Hypotheses
@@ -11532,6 +11571,7 @@ FAITHFUL
 Factor
 FqP
 FB
+Flat
 Jacobian
 Jobcobian
 John
@@ -11650,6 +11690,7 @@ Jml
 JAo
 Joint
 Jxy
+Jacobians
 At
 And
 Again
@@ -12899,6 +12940,9 @@ MgDjW
 MUW
 MVX
 MKP
+Micro
+Memorize
+Minkowski
 Using
 Up
 Ut
@@ -13504,6 +13548,7 @@ Lpw
 LpL
 LKe
 LROh
+Lowering
 Value
 Verifying
 Verify
@@ -14097,6 +14142,7 @@ OCW
 OOR
 Optimality
 Orthonormality
+Old
 Given
 Get
 Guessing
@@ -14560,6 +14606,7 @@ Quadratic
 QqQ
 Qv
 QXE
+Quantities
 jpeg
 json
 joystick
