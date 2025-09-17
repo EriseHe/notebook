@@ -1,5 +1,5 @@
 ---
-title: 广义相对论
+title: 广义相对论理论
 bookFlatSection: true
 bookCollapseSection: true
 ---
