@@ -1,0 +1,370 @@
+html {
+  --root-font-size: #{$font-size-base};
+  font-size: var(--root-font-size);
+  scroll-behavior: smooth;
+  touch-action: manipulation;
+}
+
+body {
+  min-width: $body-min-width;
+  
+  color: var(--body-font-color);
+  background: var(--body-background);
+
+  // letter-spacing: 0.33px;
+  font-weight: $body-font-weight;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  box-sizing: border-box;
+  * {
+    box-sizing: inherit;
+  }
+}
+
+a {
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: var(--color-link);
+}
+
+img {
+  vertical-align: baseline;
+}
+
+:focus {
+  @include outline;
+}
+
+aside nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    margin: 1em 0;
+    position: relative;
+  }
+
+  a {
+    display: block;
+  }
+
+  a:hover {
+    transform: scale(1.02);
+    transition: transform 0.1s ease;
+  }
+
+  ul {
+    padding-inline-start: $padding-16;
+  }
+}
+
+ul.pagination {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding-inline-start: 0px;
+
+  .page-item a {
+    padding: $padding-16;
+  }
+}
+
+// Container styling is now in _layout.scss
+
+.book-icon {
+  filter: var(--icon-filter);
+}
+
+a .book-icon {
+  height: 1em;
+  width: 1em;
+  margin-inline-end: .5em;
+}
+
+/* Override any animations or effects for the brand */
+h2.book-brand a {
+  background-color: transparent !important;
+}
+
+.book-brand {
+  font-family: 'Century Schoolbook';
+
+  margin-top: 0;
+  margin-right: 2rem;
+  margin-bottom: $padding-16;
+  color: var(--body-font-color);
+  font-weight: 400;
+  img {
+    height: 1.5em;
+    width: 1.5em;
+    margin-inline-end: $padding-8;
+  }
+}
+
+.book-menu {
+  font-size: $font-size-14;
+
+  .book-menu-content {
+    padding: $padding-16;
+  }
+
+  a,
+  label {
+    color: inherit;
+    cursor: pointer;
+    word-wrap: break-word;
+  }
+
+  a.active:not(.book-brand a) {
+    display: block;
+    position: relative;
+    color: var(--color-link);
+    text-decoration: bold;
+    font-weight: bold;
+  }
+  
+  a.active:not(.book-brand a)::before {
+    content: "";
+    position: absolute;
+    top: -0.3rem;
+    bottom: -0.3rem;
+    left: -0.5rem;
+    right: 0; /* extends background to the right edge of the container */
+    background-color: transparent;
+    border-left: 3px solid var(--color-link);
+    border-radius: 0;
+    z-index: -1;
+  }
+
+  input.toggle + label + ul {
+    max-height: 0; // Collapsed state
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input.toggle:checked + label + ul {
+    max-height: 1000px; // Expanded state with enough space for content
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                visibility 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+input.toggle + label::after {
+    content: ""; // Remove triangle icon
+    display: none; // Hide completely
+}
+
+input.toggle:checked + label::after {
+    content: ""; // Remove triangle icon  
+    display: none; // Hide completely
+}
+
+
+}
+
+// for RTL support
+body[dir="rtl"] .book-menu {
+
+  input.toggle + label::after {
+    content: ""; // Remove triangle icon
+    display: none; // Hide completely
+  }
+
+  input.toggle:checked + label::after {
+    content: ""; // Remove triangle icon
+    display: none; // Hide completely
+  }
+}
+
+.book-section-flat {
+  margin: $padding-16 * 2 0;
+  border-radius: 12px;
+  position: relative;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: -$padding-8;
+    left: -$padding-16 * 1.01; /* Wider left extension */
+    right: -$padding-16 * 1.01; /* Wider right extension */
+    bottom: -$padding-8;
+    background-color: transparent;
+    opacity: 0.5;
+    border-radius: 12px;
+    z-index: -1;
+    outline: 1px solid transparent;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                outline 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  > a,
+  > span,
+  > label {
+    font-weight: bolder;
+  }
+
+  > ul {
+    padding-inline-start: 0;
+  }
+}
+
+// Add shadow effect for book-section-flat within active toggles
+input.toggle:checked ~ .book-section-flat::before,
+input.toggle:checked + label + ul .book-section-flat::before,
+.book-section-flat:has(input.toggle:checked)::before {
+  box-shadow: none;
+  opacity: 1;
+  outline: 1px solid var(--gray-300);
+}
+
+.book-page {
+  min-width: $body-min-width;
+  flex-grow: 1;
+  padding: $padding-16;
+}
+
+.book-post {
+  margin-bottom: $padding-16 * 2;
+
+  .book-post-date img {
+    height: 1em;
+    width: 1em;
+    margin-inline-end: .5em;
+  }
+
+  .book-post-content > :first-child {
+    margin-top: $padding-16;
+  }
+}
+
+.book-header {
+  display: none;
+  margin-bottom: $padding-16;
+
+  label {
+    line-height: 0;
+  }
+
+  h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 $padding-16;
+  }
+
+  img.book-icon {
+    height: 1.5em;
+    width: 1.5em;
+  }
+}
+
+.book-search {
+  position: relative;
+  margin: $padding-16 0;
+  margin-right: 1rem;
+  border-bottom: 1px solid transparent;
+
+  input {
+    width: 100%;
+    padding: $padding-8;
+
+    border: 0;
+    border-radius: $border-radius;
+
+    background: var(--gray-200);
+    color: var(--body-font-color);
+
+    &:required + .book-search-spinner {
+      display: block;
+    }
+  }
+
+  .book-search-spinner {
+    position: absolute;
+    top: 0;
+    margin: $padding-8;
+    margin-inline-start: calc(100% - #{$padding-16 + $padding-8});
+
+    width: $padding-16;
+    height: $padding-16;
+
+    border: $padding-1 solid transparent;
+    border-top-color: var(--body-font-color);
+    border-radius: 50%;
+
+    @include spin(1s);
+  }
+
+  small {
+    opacity: 0.5;
+  }
+}
+
+.book-toc {
+  font-size: $font-size-12;
+
+  .book-toc-content {
+    width: $toc-width;
+    padding: $padding-16;
+    padding-right: 0;
+  }
+
+  img {
+    height: 1em;
+    width: 1em;
+  }
+
+  nav > ul > li:first-child {
+    margin-top: 0;
+  }
+}
+
+.book-footer {
+  padding-top: $padding-16;
+  font-size: $font-size-14;
+}
+
+.book-comments {
+  margin-top: $padding-16;
+}
+
+.book-languages {
+  margin-block-end: $padding-16 * 2 ;
+  margin-right: 1rem;
+  
+
+  ul {
+    padding-inline-start: 1.5em;
+  }
+}
+
+// Responsive styles
+.book-menu-content,
+.book-toc-content,
+.book-page,
+.book-header aside,
+.markdown {
+  transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: transform, margin, opacity, visibility;
+  will-change: transform, margin, opacity;
+}
+
+// Mobile responsiveness is now handled in _layout.scss
+
+// Extra space for big screens
+@media screen and (min-width: $container-max-width) {
+  .book-page,
+  .book-menu .book-menu-content,
+  .book-toc .book-toc-content {
+    padding: $padding-16 * 2 $padding-16;
+  }
+}

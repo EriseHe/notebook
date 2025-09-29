@@ -1,0 +1,192 @@
+/*-----------------ToolBar styling-----------------*/
+.toolbar {
+  position: fixed;
+  top: 50%; /* Position at middle of page */
+  transform: translateY(-50%); /* Center it vertically */
+  right: -3.5rem; /* Start hidden off-screen */
+  width: auto; /* adjust as needed */
+  outline: none; /* Removed outline */
+  background-color: var(--color-btn);
+  border-radius: 6px;
+  padding: 0.4rem;
+  z-index: 999;
+
+  /* Vertical stacking: */
+  display: flex;
+  flex-direction: column;  /* Stack children vertically */
+  justify-content: flex-start; /* Start stacking at the top */
+  align-items: center;    /* Center children horizontally, or use flex-end if preferred */
+  gap: 0.5rem;  /* Adds a gap between each button */
+  
+  /* Add transition for sliding effect */
+  transition: right 0.3s ease, opacity 0.3s ease;
+  
+  /* When shown via JavaScript */
+  &.visible {
+    right: 1.2rem;
+  }
+}
+
+/* Add a sentinel element that will trigger the toolbar */
+.toolbar-trigger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 150px; /* Width of the trigger area */
+  height: 100vh; /* Full height of the viewport */
+  z-index: 998;
+  background: transparent;
+}
+
+/*theme toggle button styling*/
+.toc-toggle-btn img,
+.theme-toggle-btn img {
+  width: 1.2rem;  // adjust the size as needed
+  height: 1.2rem; // adjust the size as needed
+}
+
+.toc-toggle-btn,
+.theme-toggle-btn{
+  background: white; /* Light gray background */
+  outline: none;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 18rem;
+  transition: all 0.3s ease;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* customized btn */
+.toc-toggle-btn img{
+  filter: var(--icon-filter);
+}
+
+.toc-toggle-btn {
+  background: var(--color-toc-hover);
+}
+
+.toc-toggle-btn:hover,
+.theme-toggle-btn:hover {
+  background: white; /* Light gray background */
+  border: none;
+  border-radius: 3px;
+  transform: scale(1.4);
+  transition: all 0.1s ease;
+}
+
+/* Remove focus outline from buttons */
+.font-size-btn:focus,
+.font-control-btn:focus,
+.toolbar button:focus {
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+/* Font size control button styling */
+.font-size-btn {
+  background: transparent; 
+  color: var(--color-link);
+  outline: none;
+  border: none;
+  border-radius: 18rem;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform; /* Optimize animation performance */
+  
+  &:hover {
+    background: white;
+    border: none;
+    border-radius: 3px;
+    transform: scale(1.4);
+    transition: all 0.1s ease;
+  }
+}
+
+/* Font size control dropdown */
+.font-size-control {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  
+  /* Create an invisible area that extends around the dropdown */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 200px; /* Enough height to cover the dropdown and a bit more */
+    pointer-events: none; /* Allow interaction with elements beneath */
+    z-index: -1;
+  }
+  
+  .font-size-buttons {
+    position: absolute; /* Take it out of the normal flow */
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 100%; /* Position it below the button */
+    margin-top: 1rem; /* Gap between button and dropdown */
+    padding: 0rem 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    background: var(--color-btn);
+    border-radius: 6px;
+    outline: none;
+    transform: translateY(-10px); /* Start slightly above final position */
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease; /* Quick, subtle animation */
+  }
+  
+  /* Show dropdown immediately on hover with a subtle animation */
+  &:hover .font-size-buttons,
+  &.hovering .font-size-buttons {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Move to final position */
+  }
+  
+  /* Add a longer hover area to detect movement toward the dropdown */
+  &:hover::after,
+  &.hovering::after {
+    pointer-events: auto; /* Capture hover events in this area */
+  }
+  
+  .font-control-btn {
+    color: var(--font-color);
+    background: var(--color-btn);
+    border: none;
+    padding: 0.3rem 0;
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+    font-weight: bold;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.061);
+    }
+    
+    &:hover {
+      background: var(--color-btn-hover);
+    }
+  }
+} 

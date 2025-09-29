@@ -1,0 +1,21 @@
+{
+  "promptDelete": false,
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 80
+  },
+  "showLineNumber": false,
+  "rightToLeft": false,
+  "strictLineBreaks": true,
+  "livePreview": true,
+  "autoConvertHtml": false,
+  "showInlineTitle": true,
+  "readableLineLength": true,
+  "foldIndent": false,
+  "tabSize": 4,
+  "vimMode": false,
+  "defaultViewMode": "source"
+}

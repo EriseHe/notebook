@@ -1,0 +1,10 @@
+@import "../styles/book";
+
+:root,
+html {
+  color-scheme: light;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
