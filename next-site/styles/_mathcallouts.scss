@@ -1,0 +1,114 @@
+.math-theorem {
+  margin: 0.5em 0 1.5em 0;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--theorem-background);
+  font-family: 'Computer Modern', 'CMU Serif', serif;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Use a pseudo-element for the border to prevent clipping */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid var(--theorem-border);
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  /* Remove any default blockquote styling */
+  border-left: none !important;
+  border-inline-start: none !important;
+  &:after {
+    display: none !important;
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .math-theorem {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  
+  &:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Override the default blockquote styling from _markdown.scss */
+.markdown blockquote.math-theorem {
+  border-inline-start: none;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.theorem-header {
+  padding: 15px 30px 5px;
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: var(--theorem-background);
+  border-bottom: none;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  color: #cc0000;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.theorem-content {
+  padding: 0px 30px 20px;
+  background-color: var(--theorem-background);
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  
+  /* Make math display better in centered content */
+  .katex-display {
+    margin: 0.5em 0;
+  }
+}
+
+.theorem-subtitle {
+  color: #666;
+  font-weight: normal;
+  font-size: 0.95em;
+}
+
+/* Special styling for different theorem types - simplified with just different text colors */
+.lemma .theorem-header {
+  color: #cc0000;
+}
+
+.theorem .theorem-header {
+  color: #cc0000;
+}
+
+.assumption .theorem-header {
+  color: #cc0000;
+}
+
+.claim .theorem-header {
+  color: #cc0000;
+}
+
+.definition .theorem-header {
+  color: #cc0000;
+}

@@ -1,0 +1,52 @@
+/*-------------TOC styling--------------*/
+
+/* TOC content container */
+.book-toc-content {
+  display: flex;
+  margin-top: 0.2rem;
+  flex-direction: column;
+  gap: 1rem;  /* Controls vertical space between all children */
+  
+  /* Hide scrollbars but allow scrolling */
+  // For IE and Edge
+  -ms-overflow-style: none;
+  
+  // For Firefox
+  scrollbar-width: none;
+
+  // For Chrome, Safari, and Opera
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* TOC entries container */
+.toc-entries {
+  background: linear-gradient(to right, var(--body-gray) 50%, transparent 100%);
+  border-radius: 6px;  
+  padding: 1rem;
+  padding-right: 0rem;
+  transition: all 0.3s ease;
+  position: relative;
+  
+  &:hover {
+    background: linear-gradient(to right, var(--body-gray) 15%, transparent 100%);
+    transform: scale(1.01);
+  }
+}
+
+/* TOC navigation */
+.book-toc nav {
+  width: 100%;
+}
+
+/* TOC links */
+.book-toc a {
+  display: block;
+  color: var(--toc-font-color);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateX(3px);
+  }
+}

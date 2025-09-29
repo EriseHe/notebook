@@ -1,0 +1,35 @@
+/*-------------Typography styling--------------*/
+
+/* Content typography */
+.markdown { 
+  background-color: transparent;
+  font-family: "Computer Modern", Georgia, Times, serif;
+  font-size: var(--markdown-font-size); /* Use centralized font size variable */
+  
+  p {
+    font-weight: normal;
+  }
+
+  padding: 2rem;
+  padding-top: 2rem; 
+  border-radius: 12px; 
+  text-align: justify;
+  text-justify: inter-word; /* Helps with proper spacing */
+}
+
+/* Posts typography */
+.posts { 
+  background-color: transparent;
+  font-family: "Computer Modern", Georgia, Times, serif;
+  font-size: var(--markdown-font-size); /* Use centralized font size variable */
+  padding: 2rem;
+  padding-top: 1rem; 
+  border-radius: 12px; 
+  text-align: justify;
+  text-justify: inter-word; /* Helps with proper spacing */
+}
+
+/* Code typography */
+code {
+  font-size: 0.8rem !important;
+}
