@@ -2,6 +2,7 @@
 date: 2025-03-17
 weight: 1
 ---
+
 Enter
 
 ```python
@@ -95,7 +96,7 @@ scp "C:\Users\19175\Desktop\TNG Research\YinziyuanResults\TNG50-reds-0.06-angle-
 
 C:\Users\19175\Desktop\TNG Research\YinziyuanResults\TNG50-reds-0.06-angle-010-FOV-61-re_kpc-15-snap-98-460756.cube.fits.gz
 
----
+***
 
 Upload SAURON_LR
 

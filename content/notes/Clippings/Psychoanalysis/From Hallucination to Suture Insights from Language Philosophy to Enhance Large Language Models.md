@@ -3,13 +3,14 @@ title: 'From "Hallucination" to "Suture": Insights from Language Philosophy to E
 source: https://arxiv.org/abs/2503.14392
 author:
   - "[[Qiantong Wang]]"
-published: 
+published: ""
 created: 2025-08-05
 description: 'Abstract page for arXiv paper 2503.14392: From "Hallucination" to "Suture": Insights from Language Philosophy to Enhance Large Language Models'
 tags:
   - clippings
   - psychoanalysis
 ---
+
 \[Submitted on 18 Mar 2025\]
 
 ## Title:From "Hallucination" to "Suture": Insights from Language Philosophy to Enhance Large Language Models

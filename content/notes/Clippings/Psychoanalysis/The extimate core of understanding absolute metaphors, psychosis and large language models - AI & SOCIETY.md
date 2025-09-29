@@ -11,6 +11,7 @@ tags:
   - clippings
   - psychoanalysis
 ---
+
 Advertisement
 
 ## The extimate core of understanding: absolute metaphors, psychosis and large language models

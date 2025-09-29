@@ -10,7 +10,7 @@ author:
   - "[[Aidan N. Gomez]]"
   - "[[Lukasz Kaiser]]"
   - "[[Illia Polosukhin]]"
-published: 
+published: ""
 created: 2025-08-04
 description: "Abstract page for arXiv paper 1706.03762: Attention Is All You Need"
 tags:
@@ -19,6 +19,7 @@ tags:
   - Transformer
   - CNN
 ---
+
 \[Submitted on 12 Jun 2017 ([v1](https://arxiv.org/abs/1706.03762v1)), last revised 2 Aug 2023 (this version, v7)\]
 
 ## Title:Attention Is All You Need
@@ -67,6 +68,5 @@ similar, but with an extra attention over encoder outputs and causal masking to 
 #### 2.1.6 Feed-forward and residual connections
 - Position-wise feed-forward layers after attention.
 - Residual + layer norm stabilize deep training.
-
 
 

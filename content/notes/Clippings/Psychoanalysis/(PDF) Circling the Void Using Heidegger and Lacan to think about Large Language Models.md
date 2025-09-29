@@ -11,6 +11,7 @@ tags:
   - clippings
   - psychoanalysis
 ---
+
 ## Abstract
 
 The paper aims to unite two currently distinct ways of thinking about and working with language. Large language models and continental philosophy, especially Martin Heidegger's thinking about language and, building on Sigmund Freud, Jacques Lacan's structural psychoanalysis. We show that the concept of language that Heidegger, Freud, and Lacan discussed and utilized in clinical frameworks is quite well matched by modern LLMs. This allows us to discuss a problem of negation and negativity that is central to continental discourse but absent from current LLM research. This also means that we offer a radically different approach than is usual in the philosophy of artificial intelligence, since we base our concepts on thinkers who are often neglected in the discourse of analytic philosophy that is closer to AI research. To this end, we also indicate where the ontological differences of the proposed approach lie. Our aim, however, is to address both AI researchers and continental philosophers.
