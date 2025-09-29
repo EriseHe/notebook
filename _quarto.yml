@@ -1,0 +1,57 @@
+project:
+  type: website
+  resources:
+  - scripts/site-behavior.js
+  output-dir: docs
+  render:
+  - index.md
+  - content/notes/**/*.md
+  - content/posts/**/*.md
+  - '!**/_index.md'
+website:
+  title: Erise's Study Note
+  navbar:
+    left:
+    - text: Notes
+      href: content/notes/index.md
+    - text: Posts
+      href: content/posts/index.md
+    right:
+    - text: GitHub
+      href: https://github.com/EriseHe/notebook
+  search:
+    location: navbar
+    type: textbox
+  sidebar:
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - index.md
+    - section: 笔记
+      contents:
+      - content/notes/index.md
+      - auto: content/notes/**
+    - section: 文章
+      contents:
+      - content/posts/index.md
+      - auto: content/posts/**/*.md
+format:
+  html:
+    theme:
+      light: cosmo
+    css: styles.css
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    code-link: true
+    smooth-scroll: true
+    mathjax: default
+    lang: zh
+    page-layout: full
+    include-after-body:
+    - scripts/site-behavior.html
+execute:
+  echo: false
+  warning: false
+  message: false

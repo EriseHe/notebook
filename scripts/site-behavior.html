@@ -1,0 +1,82 @@
+<script>
+(function () {
+  const STORAGE_KEY = 'quarto-sidebar-state';
+
+  function loadState() {
+    try {
+      return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '{}');
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function saveState(state) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch {}
+  }
+
+  function applyState(state) {
+    const collapseEls = document.querySelectorAll('#quarto-sidebar .collapse');
+    collapseEls.forEach((el) => {
+      const id = el.id;
+      if (!id) return;
+      const shouldOpen = state[id];
+      const toggle = document.querySelector(`[data-bs-target="#${CSS.escape(id)}"]`);
+      if (shouldOpen === undefined) return;
+      if (shouldOpen) {
+        el.classList.add('show');
+        if (toggle) {
+          toggle.classList.remove('collapsed');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      } else {
+        el.classList.remove('show');
+        if (toggle) {
+          toggle.classList.add('collapsed');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  }
+
+  function registerStateHandlers(state) {
+    const sidebar = document.querySelector('#quarto-sidebar');
+    if (!sidebar) return;
+    sidebar.addEventListener('shown.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = true;
+        saveState(state);
+      }
+    });
+    sidebar.addEventListener('hidden.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = false;
+        saveState(state);
+      }
+    });
+  }
+
+  function disableHeadroom() {
+    const header = document.getElementById('quarto-header');
+    if (!header) return;
+    header.classList.add('headroom--disable');
+    if (header.headroom && typeof header.headroom.destroy === 'function') {
+      header.headroom.destroy();
+    }
+    if (window.quartoToggleHeadroom) {
+      window.quartoToggleHeadroom = function () {};
+    }
+  }
+
+  window.document.addEventListener('DOMContentLoaded', function () {
+    const state = loadState();
+    disableHeadroom();
+    applyState(state);
+    registerStateHandlers(state);
+  });
+})();
+</script>
+

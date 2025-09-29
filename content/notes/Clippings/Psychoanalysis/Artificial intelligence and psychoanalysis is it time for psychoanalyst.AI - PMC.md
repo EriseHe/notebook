@@ -3,13 +3,14 @@ title: "Artificial intelligence and psychoanalysis: is it time for psychoanalyst
 source: https://pmc.ncbi.nlm.nih.gov/articles/PMC12009934/?utm_source=chatgpt.com
 author:
   - "[[Google Scholar]]"
-published: 
+published: ""
 created: 2025-08-05
 description: The current development of artificial intelligences (AI) is leading to major transformations within society. In this context, we observe how some of these AIs are spontaneously used by individuals as confidants, and even as romantic partners. The ...
 tags:
   - clippings
   - psychoanalysis
 ---
+
 ![Frontiers in Psychiatry logo](https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-frontpsychiat.gif) 
 
 . 2025 Apr 7;16:1558513. doi: [10.3389/fpsyt.2025.1558513](https://doi.org/10.3389/fpsyt.2025.1558513)

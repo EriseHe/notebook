@@ -3,11 +3,10 @@
   "private": true,
   "scripts": {
     "render-tikz": "node scripts/render-tikz.js",
-    "build": "npm run render-tikz && hugo --minify"
+    "build": "quarto render --output-dir docs",
+    "preview": "quarto preview"
   },
   "dependencies": {
     "puppeteer": "22.10.0"
   }
 }
-
-

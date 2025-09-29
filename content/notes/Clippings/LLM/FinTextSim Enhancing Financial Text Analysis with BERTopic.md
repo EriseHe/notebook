@@ -5,14 +5,15 @@ author:
   - Simon Jehnen
   - Javier Villalba-Díez
   - Joaquín Ordieres-Meré
-published: 
+published: ""
 created: 2025-08-04
-description: 
+description: ""
 tags:
   - clippings
   - BERTopic
   - Clustering
 ---
+
 arXiv:2504.15683v1 \[cs.CL\] 22 Apr 2025
 
 Simon Jehnen Javier Villalba-Díez Joaquín Ordieres-Meré

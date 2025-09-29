@@ -14,7 +14,7 @@ When there is no *outside*, what does it mean to have transgression?
 power-knowledge-pleasure
  - greatest pleasure is the pleasure of the analysis
 
----
+***
 p.154
 
 (It is apparent that the deployment of sexuality, with its differ­ ent strategies, was what established this notion of "sex"; and in the four major forms of hysteria, onanism, fetishism, and interrupted coition, it showed this sex to be governed by the interplay of whole and part, principle and lack, absence and presence, excess and deficiency, by the function of instinct, finality, and meaning, of reality and pleasure.)
@@ -30,7 +30,7 @@ p.156
 (we have arrived at the point where we expect our intelligibility to come from what was for many centuries thought of as madness; the plenitude of our body from what was long considered its stigma and likened to a wound)
 
 
----
+***
 HOS Vol.1:
 **p.144**
 
