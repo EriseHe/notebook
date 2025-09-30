@@ -1,6 +1,6 @@
 -- Auto Title Filter
 -- Set title/pagetitle when not provided in YAML
--- Priority: explicit title > first H1 header > filename
+-- Rule: use the source filename (via output_file basename) when metadata title is missing
 
 local function filename_without_extension(path)
   if not path then return nil end
@@ -11,11 +11,13 @@ local function filename_without_extension(path)
 end
 
 local function resolve_doc_name()
-  if PANDOC_STATE and PANDOC_STATE.input_files and #PANDOC_STATE.input_files > 0 then
-    return filename_without_extension(PANDOC_STATE.input_files[1])
-  end
+  -- Prefer the output filename Quarto derives from the original source path
   if PANDOC_STATE and PANDOC_STATE.output_file then
     return filename_without_extension(PANDOC_STATE.output_file)
+  end
+  -- Fallback to input file (may be a temporary 'quarto-input*')
+  if PANDOC_STATE and PANDOC_STATE.input_files and #PANDOC_STATE.input_files > 0 then
+    return filename_without_extension(PANDOC_STATE.input_files[1])
   end
   return nil
 end
@@ -38,18 +40,9 @@ function Pandoc(doc)
   local need_pagetitle = is_nil_or_empty(meta.pagetitle)
 
   if need_title or need_pagetitle then
-    -- Try first H1 header
-    local h1_text = nil
-    for _, blk in ipairs(doc.blocks) do
-      if blk.t == "Header" and blk.level == 1 then
-        h1_text = pandoc.utils.stringify(blk.content)
-        if h1_text and h1_text ~= "" then break end
-      end
-    end
-
-    local fallback = h1_text or resolve_doc_name() or "Untitled"
-    if need_title then meta.title = pandoc.MetaString(fallback) end
-    if need_pagetitle then meta.pagetitle = pandoc.MetaString(fallback) end
+    local name = resolve_doc_name() or "Untitled"
+    if need_title then meta.title = pandoc.MetaString(name) end
+    if need_pagetitle then meta.pagetitle = pandoc.MetaString(name) end
   end
 
   return pandoc.Pandoc(doc.blocks, meta)
