@@ -29,13 +29,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何/1. Overview of Differential Geometry.md",
+                "file": "理论/微分几何/S1 有关曲面的基础概念/4..md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "1. Overview of Differential Geometry"
+              "title": "4."
             }
           }
         ],
@@ -190,13 +190,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何/1. Overview of Differential Geometry.md",
+                "file": "理论/微分几何/S1 有关曲面的基础概念/4..md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 1. Overview of Differential Geometry"
+              "title": "Outline of 4."
             }
           }
         ],
@@ -225,22 +225,22 @@
   },
   "active": "829f54a31a6b8d4d",
   "lastOpenFiles": [
+    "理论/微分几何/S1 有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
+    "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
+    "理论/微分几何/S1 有关曲面的基础概念/1. Overview of Differential Geometry.md",
     "理论/微分几何/Untitled",
-    "理论/微分几何/黎曼几何",
-    "理论/微分几何/三维中的曲面",
-    "理论/微分几何/2. Lecture 2 (ACTUAL).md",
-    "理论/微分几何/1. Overview of Differential Geometry.md",
-    "理论/微分几何/9..md",
-    "理论/微分几何/8..md",
-    "理论/微分几何/7..md",
-    "理论/微分几何/6..md",
-    "理论/微分几何/5. Pushforward, Pullback, and Local Isometries.md",
+    "理论/微分几何/S2 黎曼几何",
+    "理论/微分几何/S1 有关曲面的基础概念",
+    "理论/微分几何/S1 有关曲面的基础概念/2. Lecture 2 (ACTUAL).md",
+    "理论/微分几何/S1 有关曲面的基础概念/9..md",
+    "理论/微分几何/S1 有关曲面的基础概念/8..md",
+    "理论/微分几何/S1 有关曲面的基础概念/7..md",
+    "理论/微分几何/S1 有关曲面的基础概念/6..md",
+    "理论/微分几何/S1 有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometries.md",
     "理论/微分几何/index.md",
     "理论/拓扑学/T-n分离公理.md",
-    "理论/微分几何/4..md",
-    "理论/微分几何/3. Tangent Vectors on a Surface.md",
+    "理论/微分几何/S1 有关曲面的基础概念/4..md",
     "理论/微分几何/Untitled.md",
-    "理论/微分几何/2. Parametrized Curves and Surfaces.md",
     "index.md",
     "理论/微分几何/_index.md",
     "Main Plug-in.md",
@@ -261,7 +261,6 @@
     "计算/Quantum Mechenics/Lecture",
     "计算/Quantum Mechenics",
     "理论/Topology",
-    "理论/Real Analysis II/第十章",
     "image-1.png",
     "image-6.png",
     "image-5.png",
