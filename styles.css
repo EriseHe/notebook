@@ -75,6 +75,35 @@ h1, h2, h3, h4, h5, h6 {
   color: #6b7280;
 }
 
+/* Special styling for root category items: 理论 and 计算 */
+#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/理论/index.html"],
+#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/计算/index.html"] {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  margin: 0.35rem 0.25rem 0.5rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #eef6ff 0%, #f7fbff 100%);
+  border: 1px solid #e5eefc;
+  font-weight: 700;
+  color: #1b4f82;
+}
+#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/理论/index.html"]::before,
+#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/计算/index.html"]::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #276fb4;
+  margin-right: 8px;
+}
+#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/理论/index.html"]:hover,
+#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/计算/index.html"]:hover {
+  border-color: #c9ddfb;
+  box-shadow: 0 4px 14px rgba(39,111,180,0.12);
+  transform: translateY(-1px);
+}
+
 .page-columns { max-width: var(--page-max-width) !important; margin: 0 auto; }
 
 main.content { padding: 2rem 2rem; }
@@ -372,9 +401,19 @@ pre.sourceCode.css::before { content: "CSS"; }
   /* Increase main content width (override Quarto defaults) */
   .content { max-width: var(--content-max-width) !important; }
 
-  /* Make top-level folder names bold */
-  #quarto-sidebar .sidebar-item.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text {
+  /* First-level folder styling: bold only depth1, add vertical spacing */
+  #quarto-sidebar .sidebar-section.depth1 > li.sidebar-item-section {
+    margin-bottom: 0.4rem;
+  }
+  #quarto-sidebar .sidebar-section.depth1 > li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text {
     font-weight: 700;
+  }
+
+  /* Deeper folders (depth >= 2): normal weight */
+  #quarto-sidebar .sidebar-section.depth2 .sidebar-item-text,
+  #quarto-sidebar .sidebar-section.depth3 .sidebar-item-text,
+  #quarto-sidebar .sidebar-section.depth4 .sidebar-item-text {
+    font-weight: 500;
   }
 
   /* Increase indentation for nested levels */
