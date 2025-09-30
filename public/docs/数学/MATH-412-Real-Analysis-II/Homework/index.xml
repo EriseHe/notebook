@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Real Analysis II on 学习笔记</title><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/</link><description>Recent content in Real Analysis II on 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-10/</guid><description>&lt;p>8.6: [1, 3]; Chapter 8: [24, 36, 39]&lt;/p>
+&lt;p>&lt;strong>Problem 8.6.1&lt;/strong> Show that Theorem 8.6.1 can be proved using the methods of Chapter 5 if the $g_n$ are continuous.&lt;/p>
+&lt;p>Theorem 8.6.1 (Lebesgue&amp;rsquo;s Monotone Convergence Theorem) Let $g_n : [0, 1] \to \mathbb{R}$ be a sequence of nonnegative functions such that each improper integral $\int_0^1 g_n(x) dx$ exists and is finite. Suppose that $0 \leq g_{n+1}(x) \leq g_n(x)$
+and that $g_n(x) \to 0$ for each $x \in [0, 1]$. Then $$\lim_{n\to\infty} \int_0^1 g_n(x) dx = 0.$$&lt;/p></description></item><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-11/</guid><description>&lt;p>HW 11: 9.2: 1, [2], 3, 4; 9.3: [5]; 9.4: 1, [2], 3; 9.5: 1, [2], 3, 4, [5]; Chapter 9: 1, 3, 5(a,b,c, [d]), 7, 10.&lt;/p></description></item><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-6/</guid><description>&lt;p>7.2: 1, 2, [3,4]; Chapter 7: [4], 5, [6], 9, [12].&lt;/p>
+&lt;p>&lt;strong>&lt;font color="#c00000">Problem 7.2.3&lt;/font>&lt;/strong> In the system
+$$\begin{array}{r}
+3 x+2 y+z^2+u+v^2=0 \
+4 x+3 y+z+u^2+v+w+2=0 \
+x+z+w+u^2+2=0
+\end{array}
+$$
+discuss the solvability for $u, v, w$ in terms of $x, y, z$ near $x=y=z=0, u=$ $v=0, w=-2$.&lt;/p>
+&lt;blockquote>
+&lt;p>[!theorem|*]
+We first define three functions:
+$$
+\begin{aligned}
+F_1(x,y,z,u,v,w) ;&amp;amp;=; 3x + 2y + z^2 + u + v^2,\
+F_2(x,y,z,u,v,w) ;&amp;amp;=; 4x + 3y + z + u^2 + v + w + 2,\
+F_3(x,y,z,u,v,w) ;&amp;amp;=; x + z + w + u^2 + 2.
+\end{aligned}
+$$&lt;/p></description></item><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-7/</guid><description>&lt;p>HW 7:
+7.6: 1, 2, 3, [4,5]; 7.7: 1, 2, 3, [4], 5, [6];
+Chapter 7: [25], 36, [38], 39.&lt;/p>
+&lt;p>&lt;font color="#ff0000">Problem 7.6.4&lt;/font>
+Let $f(x,y) = x^2 + y^2 + 3y^3 + 8x^4 + x^2e^x \sin x + 6$. Show that there exist new coordinates $\xi, \eta$, where
+$$\xi = \xi(x,y), \quad \eta = \eta(x,y),$$
+for which
+$$f(x,y) = \xi^2 + \eta^2 + 6$$
+in a neighborhood of $(0, 0)$.&lt;/p>
+&lt;p>&lt;font color="#ff0000">Problem 7.6.5&lt;/font>
+(a).
+If $f$ has a nondegenerate critical point at $x_0 \in \mathbb{R}^n$, show that there is a neighborhood of $x_0$ containing no other critical points.&lt;/p></description></item><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-8/</guid><description>&lt;p>8.1: 1, [2, 6]; 8.2: [2], 3, 4, 5, [6]; 8.3: [2], 5, 6;
+Chapter 8: [12].&lt;/p>
+&lt;p>&lt;strong>Problem 8.1.2&lt;/strong> Let $f:[0,2] \rightarrow \mathbb{R}$ be defined by $f(x)=0$ for $0 \leq x \leq 1$, and by $f(x)=1$ for $1&amp;lt;x \leq 2$. Compute, using the definition, $\int_0^2 f(x) d x$.&lt;/p>
+&lt;blockquote>
+&lt;p>[!definition]
+We first define a partition $P_{n}$ on $[0,2]$ into $n$ equal subintervals $\Delta x=\frac{2}{n}$, s.t.
+$$\left[ 0, \frac{2}{n} \right], \left[ \frac{2}{n} , \frac{4}{n} \right],\dots,\left[ \frac{2(n-1)}{n},2 \right]$$
+Then, each subinterval, we have $[x_{i-1},x_{i}]=\left[ \frac{2(i-1)}{n}, \frac{2i}{n} \right]$. Consider Riemman sum $S_n$ for this partition with any choice of sample points $k_{i} \in [x_{i-1},x_i]$:
+$$
+S_n ;=;\sum_{k=1}^{n} f(k_{i}),\Delta x
+;=;\sum_{k=1}^{n} f(k_{i}) \cdot \frac{2}{n}.
+$$
+For $[x_{i-1},,x_i]\subset [0,1]$, then $f(x)=0$ by definition. Hence $f(k_{i}) = 0$; for $[x_{i-1},,x_i]\subset (1,2]$, then $f(x)=1$. Hence $f(k_{i}) = 1$. Then, notice one subinterval, say $[x_{j-1},,x_j]$, must include $x=1$, and $f$ = 0 or 1 depending on $k_{j}\le 1$ or $k_{j}&amp;gt;1$. Hence, we have:
+$$
+\inf {f(x): x\in [x_{j-1},x_j]} ;=; 0,
+\quad
+\sup {f(x): x\in [x_{j-1},x_j]} ;=; 1.
+$$
+Next, we find a lower bound and an upper bound for $S_n$. For lower bound, suppose subinterval $[x_{j-1},x_j]$ contains 1, and we pick $j$ so that $f(k_j)=0$. Let $m$ be the number of intervals inside fully in $(1,2]$. Then for those $m$ intervals, we have
+$$
+\begin{align}
+S_n ;\ge; L(P) = &amp;amp; (1)m\cdot\Delta x +(0)(n-m)\cdot\Delta x
+; \
+= &amp;amp; ; m \cdot \frac{2}{n}
+\end{align}
+$$
+Since $[x_{j},x_{j+1}]$ begins once $x &amp;gt; 1$, notice that $m\approx \frac{n}{2}$ for large $n$. More precisely, we have $m \ge \frac{n}{2}-1$. Hence:
+$$
+m ;\ge; \frac{n}{2} -1
+\quad\Longrightarrow\quad
+S_n
+;\ge; \Bigl(\frac{n}{2}-1\Bigr),\frac{2}{n}
+;=;
+1 - \frac{2}{n}.
+$$
+Similarly, for upper bound, we pick $k_j$ such that $f(k_{j})=1$. The the number of intervals $m$ entirely in $(1,2]$ each contribute 1, so we in total have $m+1$ subintervals to contribute $\Delta x$. Thus
+$$
+\begin{align}
+S_n
+; &amp;amp; \le; U(P)= (1)(m+1)\cdot \Delta x \
+; &amp;amp; =; (m+1),\frac{2}{n}.
+\end{align}
+$$
+But $m \le \frac{n}{2}$ for this case. Hence,
+$$
+m+1 ;\le; \frac{n}{2} + 1
+\quad\Longrightarrow\quad
+S_n
+;\le; \Bigl(\frac{n}{2}+1\Bigr),\frac{2}{n}
+;=;
+1 + \frac{2}{n}.
+$$
+Therefore, for every Riemann sum $S_n$:
+$$
+1 - \frac{2}{n}
+;;\le;;
+S_n
+;;\le;;
+1 + \frac{2}{n}.
+$$
+As $n$ grows, the Squeeze Theorem forces each Riemann sum $S_n$ to converge to 1. More precisely, for any $\varepsilon&amp;gt;0$, choose $N$ large enough s.t. $\forall n \ge N$,
+$$
+-\frac{2}{n} &amp;gt; -\varepsilon
+\quad\text{and}\quad
+\frac{2}{n} &amp;lt; \varepsilon,
+$$
+which gives $\bigl|S_n - 1\bigr| &amp;lt; \varepsilon$. This shows that $\lim_{n\to\infty} S_n = 1$, so by definition of the Riemann integral, we have
+$$
+\int_{0}^{2} f(x),dx = 1.
+$$&lt;/p></description></item><item><title/><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-9/</guid><description>&lt;p>8.5: 1, [2, 3], 4, [5]; Chapter 8: [21, 22].&lt;/p>
+&lt;p>&lt;strong>Problem 8.5.2&lt;/strong> Establish formula $\mathbf{c}$ of Example 8.5.7 as follows. Prove that $e^{-x} x^{p+2} \rightarrow 0$ as $x \rightarrow \infty$, and then compare the integral with $\int_1^{\infty}\left(1 / x^2\right) d x$.&lt;/p>
+&lt;blockquote>
+&lt;p>[!definition|*]&lt;/p>&lt;/blockquote>
+&lt;p>Let $\epsilon &amp;gt; 0$ be arbitrary. We want to show that $\exists N &amp;gt; 0$ such that for all $x &amp;gt; N$,&lt;br>
+$$\left|e^{-x}x^{p+2} - 0\right| = e^{-x}x^{p+2} &amp;lt; \epsilon.$$
+Since $e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr)$, and $\displaystyle\lim_{x\to\infty}\frac{(p+2)\ln x}{x} = 0,$ there exists a number $N_1&amp;gt;0$ such that for all $x &amp;gt; N_1$ we have&lt;br>
+$$\frac{(p+2)\ln x}{x} &amp;lt; \frac{1}{2}\Longrightarrow (p+2)\ln x &amp;lt; \frac{x}{2}$$
+It follows that for all $x &amp;gt; N_1$,&lt;br>
+$$-x + (p+2)\ln x &amp;lt; -\frac{x}{2}.$$
+Taking exponentials to get:&lt;br>
+$$e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr) &amp;lt; \exp\Bigl(-\frac{x}{2}\Bigr) = e^{-x/2}.$$
+For $e^{-x/2} &amp;lt; \epsilon,$ we simply need $-\frac{x}{2} &amp;lt; \ln \epsilon$, which is $x &amp;gt; -2\ln \epsilon$. We define $N_2 = -2\ln \epsilon$. Let $N = \max{N_1, N_2}$. Then, $\forall x &amp;gt; N$ we have both&lt;br>
+$$e^{-x}x^{p+2} &amp;lt; e^{-x/2} \quad \text{and} \quad e^{-x/2} &amp;lt; \epsilon,$$
+so that $e^{-x}x^{p+2} &amp;lt; \epsilon$. By the definition of the limit we have:
+$$\lim_{x\to\infty} e^{-x}x^{p+2} = 0.$$
+Next, we use this to compare the integral $\int_1^\infty e^{-x}x^p,dx$ with the convergent integral $\int_1^\infty \frac{1}{x^2},dx$. Note that for $x \ge 1$ and a fixed $p$, it is always true that
+$$x^{p} \le x^{p+2}\Longrightarrow e^{-x}x^p \le e^{-x}x^{p+2}$$
+As already demonstrated above, for sufficiently large $x$ , we can have
+$$0 \leq e^{-x} x^p \leq e^{-x} x^{p+2}&amp;lt;\frac{1}{x^2}$$
+Hence, there exists some $M$ such that for all $x &amp;gt; M$,
+$$0 \le e^{-x}x^p \le \frac{1}{x^2}.$$
+Given that the tail integral
+$$\int_1^{\infty} e^{-x} x^p d x=\int_1^M e^{-x} x^p d x+\int_M^{\infty} e^{-x} x^p d x$$
+converges, so $\int_M^{\infty} e^{-x} x^p d x$ converges. By the Comparison Test, the integral
+$$\int_{M}^\infty e^{-x}x^p,dx$$
+must also converges. Finally, note that integral over any finite interval $[1,M]$ is finite, so the entire integral
+$$\int_{1}^\infty e^{-x}x^p,dx$$
+converges.&lt;/p></description></item></channel></rss>

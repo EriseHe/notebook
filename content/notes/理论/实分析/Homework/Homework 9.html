@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>homework-9 – Erise Note</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../">
+<script src="../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../site_libs/bootstrap/bootstrap-29a19b5acbeac218a8c860e48340d4df.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../../../index.html">
+    <span class="navbar-title">Erise Note</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="搜索"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="展开或折叠导航栏" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../content/notes/index.md"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../content/posts/index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/EriseHe/notebook"> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/实分析/index.html">实分析</a></li><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/实分析/Homework/index.html">Real Analysis II</a></li><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/实分析/Homework/Homework 9.html">Homework 9</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../../../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">理论</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/点集拓扑学基础/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">点集拓扑学基础</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏微分方程</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/Laplace Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">拉普拉斯方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/Wave Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">波方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/Heat Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">热方程</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/Heat Equation/Heat Equation Solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Heat Equation Solution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/Heat Equation/The Fourier Series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">傅立叶级数</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">数值方法</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/01 Mid-Point Method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formula Derivation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/02 Three-Point Backward Differentiation Formula.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Ok Honestly I Have No Idea Where He Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/03 Numerical Solution of Ordinary Differential Equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">常微分方程的数值解</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第九章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.1 Boundary Value Problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.1 边值问题的近似</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.2 Finite Difference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.2 有限差分法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.3 Advection-Diffusion Equation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.3 对流-扩散方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.4 2D Problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.4 4.1 二维（2D）偏微分方程问题</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/Exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">习题</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第十章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Finite Element Method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Order of Convergence in Finite Elements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Quiz 4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions for Quiz 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第四章 有限元分析</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/4.1 有限元.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 有限元</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">实分析</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/Homework/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Real Analysis II</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 9.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Homework 9</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/第七章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第七章 逆函数和隐函数定理</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第七章/7.1 Inverse Function Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1 反函数定理</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第七章/7.1.1 Inverse FT (Proof).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1.1 反函数定理（证明）</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第七章/7.2 Implicit Function Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 隐函数定理</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第七章/7.6 Morse Lemma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6 莫尔斯引理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/第九章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第九章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第九章/9.1 Computing Integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">积分计算</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/第八章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第八章 度量理论</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第八章/8.1 度量理论.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 积分的定义</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第八章/8.2 Criterion for Integrability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Criterion for Integrability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第八章/8.3 Proof of Lebesgue's Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proof of the Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第八章/8.5 Improper Integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.5 不定积分</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第八章/8.6 Lebesgue Convergence Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.6 勒贝格收敛定理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/第六章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第六章 可微映射</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第六章/6.4 Sufficient Conditions for Differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.4 可微分性的必要条件</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第六章/6.5 The Chain Rule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.5 链式法则</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第六章/6.6 Product Rule and Gradients.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.6 乘积法则与梯度</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第六章/6.9 Taylor Higher Dimentions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.9 泰勒公式的高维形式</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/第十章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第十章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第十章/10.1 Fourier Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian Integral Computation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/广义相对论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">广义相对论</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/广义相对论/几何基础/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">几何基础</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/广义相对论/几何基础/1. Topological Space.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Topological Space</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/广义相对论/广义相对论理论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">广义相对论理论</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/广义相对论/广义相对论理论/1. Four-Vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">四维向量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/广义相对论/广义相对论理论/2. Einstein Summation Convention.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einstein求和约定</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/广义相对论/广义相对论理论/3. Index Notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">指标</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/广义相对论/广义相对论理论/6. Tensor Equation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">张量方程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/微分几何/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">微分几何</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/1. Overview of Differential Geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. From Calculus to Manifolds</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/2. Lecture 2 (ACTUAL).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parametrized Curves in <span class="math inline">\(\mathbb{R}^3\)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/2. Parametrized Curves and Surfaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Parametrized curves in <span class="math inline">\(\mathbb{R}^3\)</span> (plane curves as a special case)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/3. Tangent Vectors on a Surface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Recap from Last lecture</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/5. Pushforward, Pullback, and Local Isometries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Smooth map and its differential (push-forward)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/T-n分离公理.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T-n Levels of Separation Axiom</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/概率机器学习/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">概率机器学习</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/1..html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/2. Autoregressive模型.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Probability Distributions (recap)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/3. Autoregressive模型 &amp; Recurrent Neural Networks (RNN).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Model (Continue)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/4. Transformer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/概率机器学习/强化学习（RL）/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">强化学习</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/强化学习（RL）/2. Markov奖励&amp;决策过程.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markov奖励&amp;决策过程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/强化学习（RL）/Agent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Physics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/计算/Julia科学计算笔记/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Julia科学计算笔记</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/Julia科学计算笔记/1. 基本语法.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary of Key Julia Codes and Algorithms by Chapter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/Julia科学计算笔记/2. Variables, primitive types, and functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture Review: **Julia &amp; Git**</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/计算/量子力学讲义/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">量子力学讲义</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/波函数存在于在Hilbert空间中.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">波函数存在于Hilbert空间中</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/薛定谔方程的傅立叶变换.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">薛定谔方程的傅立叶变换</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第一章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第一章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第一章/1.1 The Wave Function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Three quantum indeterminacy position:</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第四章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.1 经典氢原子.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1.1 经典氢原子 (Classical Hydrogen Atom)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.2 Hydrogen Atom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">氢原子</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.3 角动量 (Angular Momentum).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3.1 量子数 (Quantum Numbers)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.4 Spin Spin Spin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">量子自旋态与算符讲义（Quantum Spin States and Operators Lecture Notes）</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/第四章.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 三维空间的薛定谔方程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/实分析/index.html">实分析</a></li><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/实分析/Homework/index.html">Real Analysis II</a></li><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/实分析/Homework/Homework 9.html">Homework 9</a></li></ol></nav></header>
+
+
+
+
+<p>8.5: 1, [2, 3], 4, [5]; Chapter 8: [21, 22].</p>
+<p><strong>Problem 8.5.2</strong> Establish formula <span class="math inline">\(\mathbf{c}\)</span> of Example 8.5.7 as follows. Prove that <span class="math inline">\(e^{-x} x^{p+2} \rightarrow 0\)</span> as <span class="math inline">\(x \rightarrow \infty\)</span>, and then compare the integral with <span class="math inline">\(\int_1^{\infty}\left(1 / x^2\right) d x\)</span>.</p>
+<blockquote class="blockquote">
+<p>[!definition|*]</p>
+<p>Let <span class="math inline">\(\epsilon &gt; 0\)</span> be arbitrary. We want to show that <span class="math inline">\(\exists N &gt; 0\)</span> such that for all <span class="math inline">\(x &gt; N\)</span>,<br>
+<span class="math display">\[\left|e^{-x}x^{p+2} - 0\right| = e^{-x}x^{p+2} &lt; \epsilon.\]</span> Since <span class="math inline">\(e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr)\)</span>, and <span class="math inline">\(\displaystyle\lim_{x\to\infty}\frac{(p+2)\ln x}{x} = 0,\)</span> there exists a number <span class="math inline">\(N_1&gt;0\)</span> such that for all <span class="math inline">\(x &gt; N_1\)</span> we have<br>
+<span class="math display">\[\frac{(p+2)\ln x}{x} &lt; \frac{1}{2}\Longrightarrow (p+2)\ln x &lt; \frac{x}{2}\]</span> It follows that for all <span class="math inline">\(x &gt; N_1\)</span>,<br>
+<span class="math display">\[-x + (p+2)\ln x &lt; -\frac{x}{2}.\]</span> Taking exponentials to get:<br>
+<span class="math display">\[e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr) &lt; \exp\Bigl(-\frac{x}{2}\Bigr) = e^{-x/2}.\]</span> For <span class="math inline">\(e^{-x/2} &lt; \epsilon,\)</span> we simply need <span class="math inline">\(-\frac{x}{2}  &lt; \ln \epsilon\)</span>, which is <span class="math inline">\(x  &gt; -2\ln \epsilon\)</span>. We define <span class="math inline">\(N_2 = -2\ln \epsilon\)</span>. Let <span class="math inline">\(N = \max\{N_1, N_2\}\)</span>. Then, <span class="math inline">\(\forall x &gt; N\)</span> we have both<br>
+<span class="math display">\[e^{-x}x^{p+2} &lt; e^{-x/2} \quad \text{and} \quad e^{-x/2} &lt; \epsilon,\]</span> so that <span class="math inline">\(e^{-x}x^{p+2} &lt; \epsilon\)</span>. By the definition of the limit we have: <span class="math display">\[\lim_{x\to\infty} e^{-x}x^{p+2} = 0.\]</span> Next, we use this to compare the integral <span class="math inline">\(\int_1^\infty e^{-x}x^p\,dx\)</span> with the convergent integral <span class="math inline">\(\int_1^\infty \frac{1}{x^2}\,dx\)</span>. Note that for <span class="math inline">\(x \ge 1\)</span> and a fixed <span class="math inline">\(p\)</span>, it is always true that <span class="math display">\[x^{p} \le x^{p+2}\Longrightarrow e^{-x}x^p \le e^{-x}x^{p+2}\]</span> As already demonstrated above, for sufficiently large <span class="math inline">\(x\)</span> , we can have <span class="math display">\[0 \leq e^{-x} x^p \leq e^{-x} x^{p+2}&lt;\frac{1}{x^2}\]</span> Hence, there exists some <span class="math inline">\(M\)</span> such that for all <span class="math inline">\(x &gt; M\)</span>, <span class="math display">\[0 \le e^{-x}x^p \le \frac{1}{x^2}.\]</span> Given that the tail integral <span class="math display">\[\int_1^{\infty} e^{-x} x^p d x=\int_1^M e^{-x} x^p d x+\int_M^{\infty} e^{-x} x^p d x\]</span> converges, so <span class="math inline">\(\int_M^{\infty} e^{-x} x^p d x\)</span> converges. By the Comparison Test, the integral <span class="math display">\[\int_{M}^\infty e^{-x}x^p\,dx\]</span> must also converges. Finally, note that integral over any finite interval <span class="math inline">\([1,M]\)</span> is finite, so the entire integral <span class="math display">\[\int_{1}^\infty e^{-x}x^p\,dx\]</span> converges.</p>
+</blockquote>
+<p><strong>Problem 8.5.3</strong> Let <span class="math inline">\(f:[a, \infty[\rightarrow \mathbb{R}\)</span> be Riemann integrable on bounded intervals. Show that <span class="math inline">\(\int_a^{\infty} f\)</span> (conditional convergence) exists iff for every <span class="math inline">\(\varepsilon&gt;0\)</span>, there is a <span class="math inline">\(T\)</span> such that <span class="math inline">\(t_1, t_2 \geq T\)</span> implies</p>
+<p><span class="math display">\[
+\left|\int_{t_1}^{t_2} f(x) d x\right|&lt;\varepsilon
+\]</span></p>
+<blockquote class="blockquote">
+<p>[!definition|*]</p>
+<p>Let <span class="math inline">\(f : [a,\infty) \to \mathbb{R}\)</span> be a such function, we say the improper integral <span class="math display">\[\int_a^\infty f(x)\,dx\]</span> exists (or converges) if the limit <span class="math display">\[\lim_{t \to \infty} \int_a^t f(x)\,dx\]</span> exists for some number <span class="math inline">\(L\)</span>. We want to show that this is equivalent to this Cauchy condition: For every <span class="math inline">\(\varepsilon &gt; 0\)</span>, there exists <span class="math inline">\(T \ge a\)</span> such that for all <span class="math inline">\(t_1, t_2 \ge T,\)</span> we have <span class="math inline">\(\left|\int_{t_1}^{t_2} f(x)\,dx\right| &lt; \varepsilon\)</span>.</p>
+<p><strong>(<span class="math inline">\(\implies\)</span>)</strong> First, by assumption, the improper integral <span class="math inline">\(\int_a^\infty f(x)\,dx\)</span> converges a <span class="math inline">\(L\in \mathbb{R}\)</span> s.t: <span class="math display">\[\lim_{t \to \infty} \int_a^t f(x)\,dx = L\]</span> By definition of the limit, this means for any given <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(T\)</span> s.t. for all <span class="math inline">\(t \ge T,\)</span> we can have <span class="math display">\[\left|\int_a^t f(x)\,dx - L\right| &lt; \frac{\varepsilon}{2}.\]</span>Let <span class="math inline">\(t_1, t_2 \ge T\)</span>. Without loss of generality, assume <span class="math inline">\(t_1 &lt; t_2\)</span>, then we can write: <span class="math display">\[
+\int_{t_1}^{t_2} f(x) d x=\left(\int_a^{t_2} f(x) d x-L\right)-\left(\int_a^{t_1} f(x) d x-L\right)
+\]</span> By the triangle inequality: <span class="math display">\[
+\left|\int_{t_1}^{t_2} f(x) d x\right| \leq\left|\int_a^{t_2} f(x) d x-L\right|+\left|\int_a^{t_1} f(x) d x-L\right|
+\]</span> By our choice of <span class="math inline">\(T\)</span>, for both <span class="math inline">\(t_1, t_2 \ge T\)</span>, <span class="math display">\[\left|\int_a^{t_i} f(x)\,dx - L\right| &lt; \frac{\varepsilon}{2}\quad \]</span> Hence, <span class="math display">\[
+\left|\int_{t_1}^{t_2} f(x) d x\right| \leq \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+\]</span> Thus, for every <span class="math inline">\(\varepsilon&gt;0\)</span>, we always have a <span class="math inline">\(T\)</span> such that the integral is less than <span class="math inline">\(\varepsilon\)</span> whenever <span class="math inline">\(t_1,t_2 \ge T\)</span>.</p>
+<p><strong>(<span class="math inline">\(\Longleftarrow\)</span>)</strong> Conversely, suppose that for every <span class="math inline">\(\varepsilon &gt; 0\)</span>, there is a <span class="math inline">\(T\)</span> such that for all <span class="math inline">\(t_1,t_2 \ge T\)</span>, <span class="math display">\[\left|\int_{t_1}^{t_2} f(x)\,dx\right| &lt; \varepsilon\]</span>We want to prove that limit <span class="math inline">\(\lim_{t\to\infty}\int_a^t f(x)\,dx\)</span> exists as a real number. For convenience, we set <span class="math display">\[I(t)=\int_a^t f(x)\,dx\]</span> Then, by the given standard Cauchy condition, <span class="math inline">\(\forall\varepsilon&gt;0\)</span>, <span class="math inline">\(\exists \,T\ge a\)</span> s.t. whenever <span class="math inline">\(t_1,t_2\ge T\)</span>, we have <span class="math display">\[|I(t_2)-I(t_1)|&lt;\varepsilon.\]</span> Fix any <span class="math inline">\(t \geq T\)</span>. Then, for every <span class="math inline">\(t_{0} \geq T\)</span>, we always have <span class="math inline">\(|I(t_{0})-I(t)|&lt;\varepsilon\)</span>, so this mean that implies that <span class="math inline">\(I(t_{0})\in (I(t)-\varepsilon, I(t)+\varepsilon)\)</span> for any <span class="math inline">\(t_{0} \geq T\)</span>. We set upper and lower limits of the function <span class="math inline">\(I(t)\)</span> as <span class="math inline">\(t\to\infty\)</span>: <span class="math display">\[L_{\text {sup }}=\lim _{T \rightarrow \infty} \sup \{I(t_{0}): t_{0}\geq T\}\quad \text{and} \quad L_{\mathrm{inf}}=\lim _{T \rightarrow \infty} \inf \{I(t_{0}): t_{0} \geq T\}\]</span> This, by definition, gives us: <span class="math display">\[I(t)-\varepsilon \leq L_{\inf}\leq L_{\sup}\leq I(t)+\varepsilon.\]</span> In particular, choosing any <span class="math inline">\(t\ge T\)</span> and writing these two inequalities together, we get: <span class="math display">\[ L_{\sup}-L_{\inf}\leq  (I(t)+\varepsilon) - (I(t)-\varepsilon)=2\varepsilon.\]</span> Because <span class="math inline">\(\varepsilon&gt;0\)</span> is arbitrary, it shows it is indeed in fact <span class="math display">\[L_{\sup}-L_{\inf}=0\,\Longrightarrow L_{\sup}=L_{\inf}=L\]</span> Now, by the definitions of <span class="math inline">\(\limsup\)</span> and <span class="math inline">\(\liminf\)</span>, it follows that for every <span class="math inline">\(\epsilon_{1}&gt;0\)</span> there exists some <span class="math inline">\(T_{1}\ge a\)</span> such that for all <span class="math inline">\(t\ge T_{1}\)</span>, <span class="math display">\[L-\epsilon &lt; I(t) &lt; L+\epsilon\]</span> which is the definition of the limit. We have shown that <span class="math inline">\(\epsilon_{1}&gt;0\)</span> there exists <span class="math inline">\(T_{1}\)</span> s.t for all <span class="math inline">\(t\ge T_{1}\)</span>, <span class="math display">\[|I(t)-L|&lt;\epsilon.\]</span> Thus, we conclude that <span class="math display">\[\lim_{t\to\infty} I(t)=L,\]</span> which, by definition, means that the improper integral <span class="math display">\[\int_a^\infty f(x)\,dx = \lim_{t\to\infty}\int_a^t f(x)\,dx\]</span>exists.</p>
+</blockquote>
+<p><strong>Problem 8.5.5</strong> For what <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(\int_0^{\infty} \frac{x^\alpha}{1+x^\alpha} d x\)</span> convergent?</p>
+<blockquote class="blockquote">
+<p>[!definition|*] To fine <span class="math inline">\(\alpha\)</span>, notice that <span class="math display">\[\int_0^{\infty} \frac{x^\alpha}{1+x^\alpha} d x=\int_0^1 \frac{x^\alpha}{1+x^\alpha} d x+\int_1^{\infty} \frac{x^\alpha}{1+x^\alpha} d x\]</span> can be split into two regions separately: interval <span class="math inline">\((0,1]\)</span>) and <span class="math inline">\([1,\infty)\)</span>. So, first, we examine the behavior near <span class="math inline">\(x=0\)</span>. We consider <span class="math display">\[\int_{0}^{1} \frac{x^{\alpha}}{1 + x^{\alpha}}\,dx.\]</span> We must check whether the integrand create any problems as <span class="math inline">\(x\to0\)</span>. 1. <span class="math inline">\(\alpha &gt; 0\)</span>: As <span class="math inline">\(x \to 0\)</span>, <span class="math inline">\(x^{\alpha}\)</span> becomes very small, so <span class="math display">\[\frac{x^{\alpha}}{1 + x^{\alpha}} \;\approx\; x^{\alpha}\]</span>Since <span class="math inline">\(x^{\alpha}\)</span> near <span class="math inline">\(0\)</span> is integrable if <span class="math inline">\(\alpha &gt; -1\)</span>, and here <span class="math inline">\(\alpha &gt; 0\)</span> definitely satisfies <span class="math inline">\(\alpha &gt; -1\)</span>, there is no divergence issue at <span class="math inline">\(0\)</span> in this case. 2. <span class="math inline">\(\alpha = 0\)</span>: Since <span class="math inline">\(x^{\alpha} = x^0 = 1\)</span>, and the integrand becomes <span class="math inline">\(\tfrac12\)</span>, which is a constant. 3. <span class="math inline">\(\alpha &lt; 0\)</span>: As <span class="math inline">\(x \to 0\)</span>, <span class="math inline">\(x^{\alpha}  =\frac{1}{x^{|\alpha|}}\to \infty\)</span>. Thus, <span class="math display">\[\frac{x^{\alpha}}{1 + x^{\alpha}} \approx1\]</span>which is integrable. Therefore, near <span class="math inline">\(x=0\)</span>, the integrand is always integrable for every real <span class="math inline">\(\alpha\)</span>.</p>
+<p>Next, we check behavior near <span class="math inline">\(x=\infty\)</span>. We examine the behavior for <span class="math inline">\(\int_1^{\infty} \frac{x^\alpha}{1+x^\alpha} d x\)</span> as <span class="math inline">\(x\to\infty\)</span>:</p>
+<ol start="4" type="1">
+<li><span class="math inline">\(\alpha &gt; 0\)</span>: As <span class="math inline">\(x \to \infty\)</span>, <span class="math inline">\(x^{\alpha}\)</span> is very large, so <span class="math inline">\(\frac{x^{\alpha}}{1 + x^{\alpha}} \;\approx\; 1\)</span>. This means that <span class="math inline">\(\int_{1}^{\infty} 1\,dx\)</span> diverges for all <span class="math inline">\(\alpha &gt; 0\)</span>.</li>
+<li><span class="math inline">\(\alpha = 0\)</span>: similarly, <span class="math inline">\(x^{\alpha} = x^{0} = 1\)</span> implies that the integrand is <span class="math inline">\(\frac{1}{2}\)</span>, and <span class="math inline">\(\int_{1}^{\infty} \tfrac12 \,dx\)</span> also diverges. So it fails to converge for <span class="math inline">\(\alpha=0\)</span>.</li>
+<li><span class="math inline">\(\alpha &lt; 0\)</span>: As <span class="math inline">\(x\to\infty\)</span>, <span class="math inline">\(x^\alpha\)</span> tends to <span class="math inline">\(0\)</span>. So <span class="math display">\[\frac{x^{\alpha}}{1 + x^{\alpha}} \;\approx\; x^{\alpha}.\]</span> By example 8.5.7(a), we know <span class="math inline">\(\int_{1}^{\infty} x^{p}\,dx\)</span> converges if and only if <span class="math inline">\(p &lt; -1\)</span>. Therefore, if <span class="math inline">\(\alpha &lt; -1\)</span>, then <span class="math inline">\(\int_{1}^{\infty} x^{\alpha}\,dx\)</span> converges, and consequently <span class="math display">\[\int_{1}^{\infty} \frac{x^{\alpha}}{1 + x^{\alpha}}\,dx\;\text{converges}\]</span> by comparison test. Hence, the only way to have convergence at <span class="math inline">\(x = \infty\)</span> is to require alpha to be less that <span class="math inline">\(-1\)</span>. We have shown that the integral is finite if and only if <span class="math inline">\(\alpha &lt; -1\)</span>.</li>
+</ol>
+</blockquote>
+<p><strong>Chatper 8.21</strong> Show that <span class="math inline">\(\int_1^{\infty} x^{-p} \sin x d x\)</span> converges if <span class="math inline">\(p&gt;1\)</span>. Show that if <span class="math inline">\(0&lt;p \leq 1\)</span>, then the convergence is conditional.</p>
+<blockquote class="blockquote">
+<p>[!definition|*] <strong>Absolute Convergence for <span class="math inline">\(p&gt;1\)</span></strong> To show that the integral converges absolutely when <span class="math inline">\(p&gt;1\)</span>, we consider the absolute value of the integrand: <span class="math display">\[\int_{1}^{\infty} \bigl| x^{-p}\sin x \bigr|\,dx.\]</span> Since <span class="math inline">\(| \sin x| \le 1,\)</span> for all <span class="math inline">\(x\ge 1\)</span> we have <span class="math display">\[\bigl| x^{-p}\sin x \bigr| \le x^{-p}.\]</span> Thus, by the Comparison Test we know: <span class="math display">\[\int_{1}^{\infty} \bigl| x^{-p}\sin x \bigr|\,dx \le \int_{1}^{\infty} x^{-p}\,dx.\]</span> We now compute or recall the convergence of this integral. 1. For <span class="math inline">\(p\neq 1\)</span>, <span class="math display">\[\int_{1}^{a} x^{-p}\,dx = \left[\frac{x^{1-p}}{1-p}\right]_{x=1}^{x=a}
+=\frac{a^{1-p}-1}{1-p}\]</span> 2. For <span class="math inline">\(p&gt;1\)</span>, then <span class="math inline">\(1-p&lt;0\)</span> and therefore <span class="math display">\[\lim_{a\to\infty} a^{1-p} = 0\]</span> which means: <span class="math display">\[\int_{1}^{\infty} x^{-p}\,dx = \frac{0-1}{1-p}=\frac{1}{p-1}&lt;\infty\]</span> and we further conclude that: <span class="math display">\[\int_{1}^{\infty} \bigl| x^{-p}\sin x \bigr|\,dx &lt; \infty\]</span> and hence the integral <span class="math inline">\(I(p)\)</span> converges absolutely when <span class="math inline">\(p&gt;1\)</span>.</p>
+<p><strong>Conditional Convergence for <span class="math inline">\(0 &lt; p\le 1\)</span></strong> To show that the integral converges conditionally, we use integration by parts to show that it converges conditionally. Let <span class="math display">\[I(b)=\int_{1}^{b} x^{-p}\sin x\,dx\]</span> By the integration by parts formula, we obtain: <span class="math display">\[I(b) = \left[-x^{-p}\cos x\right]_{1}^{b} -\left( -\int_{1}^{b} (-\cos x)(p\,x^{-p-1})\,dx\right)\]</span> Then, evaluate the boundary term, we have <span class="math display">\[\left[-x^{-p}\cos x\right]_{1}^{b} = -b^{-p}\cos b + 1^{-p}\cos 1 = -b^{-p}\cos b + \cos 1\]</span>Since <span class="math inline">\(p&gt;0\)</span>, as <span class="math inline">\(b\to\infty\)</span> we have <span class="math inline">\(b^{-p}\to 0\)</span>, and so <span class="math inline">\(\lim_{b\to\infty} \left(-b^{-p}\cos b\right)=0\)</span>. Hence, the boundary contribution tends to <span class="math inline">\(\cos 1\)</span>. Then, the remaining term becomes <span class="math display">\[I(b) = \cos 1 + p\int_1^b x^{-p-1}\cos x\,dx=\cos 1 + pI_{1}(b)\]</span>where we define <span class="math inline">\(I_{1}(b)=\int_{1}^{b} x^{-p-1}\cos x\,dx\)</span>. Note that, again we have: <span class="math display">\[\bigl|x^{-p-1}\cos x\bigr|\le x^{-p-1}\]</span>since <span class="math inline">\(p&gt;0\)</span> by the assumption, we know <span class="math inline">\(-p-1&lt;-1\)</span>. Therefore, <span class="math inline">\(I_{1}(b)\)</span> converges absolutely as <span class="math inline">\(b\to\infty\)</span>. Let’s denote it as <span class="math inline">\(\lim_{b\to\infty} I_{1}(b)=L\)</span>. Then, as <span class="math inline">\(b\to\infty\)</span>, we obtain: <span class="math display">\[\lim_{b\to\infty} I(b)= \cos 1 + p\,L.\]</span> Here the integral <span class="math inline">\(I(b)\)</span> converges to the finite value <span class="math inline">\(\cos 1 + p\,L\)</span> while the absolute integral diverges for <span class="math inline">\(0&lt;p\le1\)</span>. Hence, the original integral <span class="math display">\[\int_{1}^{\infty} x^{-p}\sin x\,dx\]</span> converges conditionally for <span class="math inline">\(0&lt;p\leq1\)</span></p>
+</blockquote>
+<p><strong>Chapter 8.22</strong> The gamma function is defined to be the function given by the improper integral <span class="math inline">\(\Gamma(p)=\int_1^{\infty} e^{-x} x^{p-1} d x\)</span>. Show that the integral is convergent for <span class="math inline">\(p&gt;0\)</span>.</p>
+<blockquote class="blockquote">
+<p>[!definition|*] We want to show that the improper integral <span class="math display">\[\Gamma(p)=\int_1^{\infty} e^{-x}x^{p-1}\,dx\]</span> converges for <span class="math inline">\(p&gt;0\)</span>. Observe that <span class="math display">\[e^{-x}x^{p-1} \Longrightarrow \lim_{x\to\infty} \frac{x^{p-1}}{e^x} =\lim_{x\to\infty} \frac{x^q}{e^x}= 0.\]</span> where <span class="math inline">\(q=p-1\)</span> (with <span class="math inline">\(p&gt;0\)</span>). And since we know that for <span class="math inline">\(n\ge1\)</span> and <span class="math inline">\(x&gt;0\)</span>, we always have <span class="math display">\[e^x \ge \frac{x^n}{n!}\]</span> so, for any integer <span class="math inline">\(n\)</span> s.t. <span class="math inline">\(n&gt;p\)</span>, <span class="math inline">\(\forall x\ge1\)</span>, we can have <span class="math display">\[e^{-x} = \frac{1}{e^{x}} \le \frac{n!}{x^{n}}\Longrightarrow e^{-x}x^{p-1} \le n! \, x^{p-1-n}\]</span> Then, we verify the convergence of the this integral: <span class="math display">\[I=\int_1^\infty x^{p-1-n}\,dx=\int_1^\infty x^{r}\,dx\]</span> where <span class="math inline">\(r=p-1-n\)</span>. We know such integral converges if and only if <span class="math inline">\(r&lt;-1\)</span>. Since we have chosen <span class="math inline">\(n&gt;p\)</span>, it follows that <span class="math display">\[p-1-n &lt; -1 \quad \]</span> Thus, the exponent <span class="math inline">\(r\)</span> satisfies the convergence criterion. Consequently, <span class="math display">\[I= \int_1^\infty x^{p-1-n}\,dx &lt; \infty.\]</span> Next, since for all <span class="math inline">\(x\ge1\)</span> we have <span class="math display">\[0 \le e^{-x}x^{p-1} \le n!\,x^{p-1-n},\]</span> and integral <span class="math inline">\(I\)</span> converges, so the Comparison Test implies that <span class="math display">\[\int_1^{\infty} e^{-x}x^{p-1}\,dx \;\;\text{ also converges}\]</span> Thus, we have shown that the gamma function integral <span class="math display">\[\Gamma(p)=\int_1^\infty e^{-x} x^{p-1}\,dx\]</span> converges for every <span class="math inline">\(p&gt;0\)</span>.</p>
+</blockquote>
+
+
+
+</main> <!-- /main -->
+<script>
+(function () {
+  const STORAGE_KEY = 'quarto-sidebar-state';
+
+  function loadState() {
+    try {
+      return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '{}');
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function saveState(state) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch {}
+  }
+
+  function applyState(state) {
+    const collapseEls = document.querySelectorAll('#quarto-sidebar .collapse');
+    collapseEls.forEach((el) => {
+      const id = el.id;
+      if (!id) return;
+      const shouldOpen = state[id];
+      const toggle = document.querySelector(`[data-bs-target="#${CSS.escape(id)}"]`);
+      if (shouldOpen === undefined) return;
+      if (shouldOpen) {
+        el.classList.add('show');
+        if (toggle) {
+          toggle.classList.remove('collapsed');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      } else {
+        el.classList.remove('show');
+        if (toggle) {
+          toggle.classList.add('collapsed');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  }
+
+  function registerStateHandlers(state) {
+    const sidebar = document.querySelector('#quarto-sidebar');
+    if (!sidebar) return;
+    sidebar.addEventListener('shown.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = true;
+        saveState(state);
+      }
+    });
+    sidebar.addEventListener('hidden.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = false;
+        saveState(state);
+      }
+    });
+  }
+
+  function setupNavbarTransparency() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // At top or scrolling up: opaque
+      if (currentScroll <= 50 || currentScroll < lastScroll) {
+        navbar.classList.remove('navbar-transparent');
+      }
+      // Scrolling down: transparent
+      else if (currentScroll > lastScroll && currentScroll > 50) {
+        navbar.classList.add('navbar-transparent');
+      }
+      
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    }, { passive: true });
+  }
+
+  window.document.addEventListener('DOMContentLoaded', function () {
+    const state = loadState();
+    
+    // Disable Quarto's headroom
+    const header = document.getElementById('quarto-header');
+    if (header?.headroom?.destroy) header.headroom.destroy();
+    
+    setupNavbarTransparency();
+    applyState(state);
+    registerStateHandlers(state);
+  });
+})();
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

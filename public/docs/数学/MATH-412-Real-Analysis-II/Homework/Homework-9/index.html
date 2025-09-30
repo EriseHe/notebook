@@ -1,0 +1,265 @@
+<!doctype html><html lang=en dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1314&amp;path=livereload" data-no-instant defer></script><script>(function(){const e=localStorage.getItem("theme");e&&document.documentElement.setAttribute("data-theme",e)})()</script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="8.5: 1, [2, 3], 4, [5]; Chapter 8: [21, 22].
+Problem 8.5.2 Establish formula $\mathbf{c}$ of Example 8.5.7 as follows. Prove that $e^{-x} x^{p+2} \rightarrow 0$ as $x \rightarrow \infty$, and then compare the integral with $\int_1^{\infty}\left(1 / x^2\right) d x$.
+
+[!definition|*]
+Let $\epsilon > 0$ be arbitrary. We want to show that $\exists N > 0$ such that for all $x > N$,
+$$\left|e^{-x}x^{p+2} - 0\right| = e^{-x}x^{p+2} < \epsilon.$$
+Since $e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr)$, and $\displaystyle\lim_{x\to\infty}\frac{(p+2)\ln x}{x} = 0,$ there exists a number $N_1>0$ such that for all $x > N_1$ we have
+$$\frac{(p+2)\ln x}{x} < \frac{1}{2}\Longrightarrow (p+2)\ln x < \frac{x}{2}$$
+It follows that for all $x > N_1$,
+$$-x + (p+2)\ln x < -\frac{x}{2}.$$
+Taking exponentials to get:
+$$e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr) < \exp\Bigl(-\frac{x}{2}\Bigr) = e^{-x/2}.$$
+For $e^{-x/2} < \epsilon,$ we simply need $-\frac{x}{2}  < \ln \epsilon$, which is $x  > -2\ln \epsilon$. We define $N_2 = -2\ln \epsilon$. Let $N = \max{N_1, N_2}$. Then, $\forall x > N$ we have both
+$$e^{-x}x^{p+2} < e^{-x/2} \quad \text{and} \quad e^{-x/2} < \epsilon,$$
+so that $e^{-x}x^{p+2} < \epsilon$. By the definition of the limit we have:
+$$\lim_{x\to\infty} e^{-x}x^{p+2} = 0.$$
+Next, we use this to compare the integral $\int_1^\infty e^{-x}x^p,dx$ with the convergent integral $\int_1^\infty \frac{1}{x^2},dx$. Note that for $x \ge 1$ and a fixed $p$, it is always true that
+$$x^{p} \le x^{p+2}\Longrightarrow e^{-x}x^p \le e^{-x}x^{p+2}$$
+As already demonstrated above, for sufficiently large $x$ , we can have
+$$0 \leq e^{-x} x^p \leq e^{-x} x^{p+2}<\frac{1}{x^2}$$
+Hence, there exists some $M$ such that for all $x > M$,
+$$0 \le e^{-x}x^p \le \frac{1}{x^2}.$$
+Given that the tail integral
+$$\int_1^{\infty} e^{-x} x^p d x=\int_1^M e^{-x} x^p d x+\int_M^{\infty} e^{-x} x^p d x$$
+converges, so $\int_M^{\infty} e^{-x} x^p d x$ converges. By the Comparison Test, the integral
+$$\int_{M}^\infty e^{-x}x^p,dx$$
+must also converges. Finally, note that integral over any finite interval $[1,M]$ is finite, so the entire integral
+$$\int_{1}^\infty e^{-x}x^p,dx$$
+converges."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-9/"><meta property="og:site_name" content="学习笔记"><meta property="og:title" content="学习笔记"><meta property="og:description" content="8.5: 1, [2, 3], 4, [5]; Chapter 8: [21, 22].
+Problem 8.5.2 Establish formula $\mathbf{c}$ of Example 8.5.7 as follows. Prove that $e^{-x} x^{p+2} \rightarrow 0$ as $x \rightarrow \infty$, and then compare the integral with $\int_1^{\infty}\left(1 / x^2\right) d x$.
+[!definition|*]
+Let $\epsilon > 0$ be arbitrary. We want to show that $\exists N > 0$ such that for all $x > N$,
+$$\left|e^{-x}x^{p+2} - 0\right| = e^{-x}x^{p+2} < \epsilon.$$ Since $e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr)$, and $\displaystyle\lim_{x\to\infty}\frac{(p+2)\ln x}{x} = 0,$ there exists a number $N_1>0$ such that for all $x > N_1$ we have
+$$\frac{(p+2)\ln x}{x} < \frac{1}{2}\Longrightarrow (p+2)\ln x < \frac{x}{2}$$ It follows that for all $x > N_1$,
+$$-x + (p+2)\ln x < -\frac{x}{2}.$$ Taking exponentials to get:
+$$e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr) < \exp\Bigl(-\frac{x}{2}\Bigr) = e^{-x/2}.$$ For $e^{-x/2} < \epsilon,$ we simply need $-\frac{x}{2} < \ln \epsilon$, which is $x > -2\ln \epsilon$. We define $N_2 = -2\ln \epsilon$. Let $N = \max{N_1, N_2}$. Then, $\forall x > N$ we have both
+$$e^{-x}x^{p+2} < e^{-x/2} \quad \text{and} \quad e^{-x/2} < \epsilon,$$ so that $e^{-x}x^{p+2} < \epsilon$. By the definition of the limit we have: $$\lim_{x\to\infty} e^{-x}x^{p+2} = 0.$$ Next, we use this to compare the integral $\int_1^\infty e^{-x}x^p,dx$ with the convergent integral $\int_1^\infty \frac{1}{x^2},dx$. Note that for $x \ge 1$ and a fixed $p$, it is always true that $$x^{p} \le x^{p+2}\Longrightarrow e^{-x}x^p \le e^{-x}x^{p+2}$$ As already demonstrated above, for sufficiently large $x$ , we can have $$0 \leq e^{-x} x^p \leq e^{-x} x^{p+2}<\frac{1}{x^2}$$ Hence, there exists some $M$ such that for all $x > M$, $$0 \le e^{-x}x^p \le \frac{1}{x^2}.$$ Given that the tail integral $$\int_1^{\infty} e^{-x} x^p d x=\int_1^M e^{-x} x^p d x+\int_M^{\infty} e^{-x} x^p d x$$ converges, so $\int_M^{\infty} e^{-x} x^p d x$ converges. By the Comparison Test, the integral $$\int_{M}^\infty e^{-x}x^p,dx$$ must also converges. Finally, note that integral over any finite interval $[1,M]$ is finite, so the entire integral $$\int_{1}^\infty e^{-x}x^p,dx$$ converges."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>Homework 9 | 学习笔记</title>
+<link rel=icon href=/topo.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/Homework/Homework-9/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/computer-modern-font@1.0.1/index.min.css><link rel=stylesheet href=/book.min.b3dea21ef7167d137d5c3d91df2df1ae008874baa457a6eb3fa1217af8da3509.css integrity="sha256-s96iHvcWfRN9XD2R3y3xrgCIdLqkV6brP6EhevjaNQk=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.02146d62883b84f93e0524565edbcf1e9c978da904f495247ceef863dda858c9.js integrity="sha256-AhRtYog7hPk+BSRWXtvPHpyXjakE9JUkfO74Y92oWMk=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class=container><div class=book-layout><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center justify-center" href=http://localhost:1314/><span>学习笔记</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><nav class=subject-menu><div class=subject-tabs><button class="subject-tab active" data-subject=数学>数学</button>
+<button class=subject-tab data-subject=物理>物理</button></div><div class=subject-content><div class=subject-panel data-subject=数学><ul><li class=book-section-flat><span>点集拓扑学基础</span><ul><li><a href=/docs/%E6%95%B0%E5%AD%A6/%E6%8B%93%E6%89%91%E5%AD%A6/T-n%E5%88%86%E7%A6%BB%E5%85%AC%E7%90%86/>T N分离公理</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-2626c0c7c40e5ba289bbf96779ed7be9 class=toggle>
+<label for=section-2626c0c7c40e5ba289bbf96779ed7be9 class="flex justify-between"><a role=button>微分几何</a></label><ul><li><a href=/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/1.-Overview-of-Differential-Geometry/>1. Overview of Differential Geometry</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Lecture-2-ACTUAL/>2. Lecture 2 ( Actual)</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/2.-Parametrized-Curves-and-Surfaces/>2. Parametrized Curves and Surfaces</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/Differential-Geometry/Tangent-Vectors-on-a-Surface/>Tangent Vectors on a Surface</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-6e5f2db787427bb8bccbb3c3eafa6cb6 class=toggle>
+<label for=section-6e5f2db787427bb8bccbb3c3eafa6cb6 class="flex justify-between"><a role=button>概率机器学习</a></label><ul><li><a href=/docs/%E6%95%B0%E5%AD%A6/Probabilistic-Machine-Learning/2.-Autoregressive%E6%A8%A1%E5%9E%8B/>2. Autoregressive模型</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/Probabilistic-Machine-Learning/3.-Autoregressive%E6%A8%A1%E5%9E%8B-2/>3. Autoregressive模型 2</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-e9a29b9c49921437d6f50841fa0b7a2c class=toggle checked>
+<label for=section-e9a29b9c49921437d6f50841fa0b7a2c class="flex justify-between"><a role=button>实分析 II</a></label><ul><li><input type=checkbox id=section-e63b59f3907b6b5c0ca40a1419c50fbe class=toggle>
+<label for=section-e63b59f3907b6b5c0ca40a1419c50fbe class="flex justify-between"><a role=button>第六章 可微映射</a></label><ul><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/>6.4 可微分性的必要条件</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/>6.6 乘积法则与梯度</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/>6.9 泰勒公式的高维形式</a></li></ul></li><li><input type=checkbox id=section-516b62a4eda22b0c44d32f044080ba6a class=toggle>
+<label for=section-516b62a4eda22b0c44d32f044080ba6a class="flex justify-between"><a role=button>第七章 逆函数和隐函数定理</a></label><ul><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1-Inverse-Function-Theorem/>7.1 反函数定理</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.1.1-Inverse-FT-Proof/>7.1.1 反函数定理（证明）</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.2-Implicit-Function-Theorem/>7.2 隐函数定理</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B8%83%E7%AB%A0/7.6-Morse-Lemma/>7.6 莫尔斯引理</a></li></ul></li><li><input type=checkbox id=section-7be78291145a12f96f25aeffb3b16554 class=toggle>
+<label for=section-7be78291145a12f96f25aeffb3b16554 class="flex justify-between"><a role=button>第八章 度量理论</a></label><ul><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.1-%E5%BA%A6%E9%87%8F%E7%90%86%E8%AE%BA/>8.1 度量理论</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.2-Criterion-for-Integrability/>8.2 Criterion for Integrability</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.3-Proof-of-Lebesgues-Theorem/>8.3 Proof of Lebesgue's Theorem</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.5-Improper-Integral/>8.5 不定积分</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AB%E7%AB%A0/8.6-Lebesgue-Convergence-Theorem/>8.6 勒贝格收敛定理</a></li></ul></li><li><input type=checkbox id=section-56e664b694094194eea41293621edc8e class=toggle>
+<label for=section-56e664b694094194eea41293621edc8e class="flex justify-between"><a role=button>第九章</a></label><ul><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Computing-Integrals/>积分计算</a></li></ul></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%8D%81%E7%AB%A0/10.1-Fourier-Analysis/>10.1 Fourier Analysis</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-358a11d2cd962ab8fdb9c9ba7faf532a class=toggle>
+<label for=section-358a11d2cd962ab8fdb9c9ba7faf532a class="flex justify-between"><a role=button>偏微分方程</a></label><ul><li><input type=checkbox id=section-7097c8722aa477fcc3c6ccc5730510d5 class=toggle>
+<label for=section-7097c8722aa477fcc3c6ccc5730510d5 class="flex justify-between"><a role=button>数值方法</a></label><ul><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/01-Mid-Point-Method/>01 Mid Point Method</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/02-Three-Point-Backward-Differentiation-Formula/>02 Three Point Backward Differentiation Formula</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/03-Numerical-Solution-of-Ordinary-Differential-Equations/>常微分方程的数值解</a></li><li><input type=checkbox id=section-039c2604ef8d15d0cdd62911e85f20cb class=toggle>
+<label for=section-039c2604ef8d15d0cdd62911e85f20cb class="flex justify-between"><a role=button>第四章 有限元分析</a></label><ul></ul></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Finite-Element-Method/>Finite Element Method</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E5%8D%81%E7%AB%A0/Quiz-4/>Quiz 4</a></li><li><input type=checkbox id=section-24cf0d34881526d98bfa6ff3655d07cb class=toggle>
+<label for=section-24cf0d34881526d98bfa6ff3655d07cb class="flex justify-between"><a role=button>第九章</a></label><ul><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.1-Boundary-Value-Problems/>9.1 边值问题的近似</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.2-Finite-Difference/>9.2 有限差分法</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.3-Advection-Diffusion-Equation/>9.3 对流-扩散方程</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/9.4-2D-Problem/>9.4 4.1 二维（2D）偏微分方程问题</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/MATH-352-PDE-in-Action/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Exercise/>习题</a></li></ul></li></ul></li><li><input type=checkbox id=section-2e9d41360137a1ae6194db40069654e3 class=toggle>
+<label for=section-2e9d41360137a1ae6194db40069654e3 class="flex justify-between"><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/Heat-Equation/>热方程</a></label><ul><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/Heat-Equation/Heat-Equation-Solution/>Heat Equation Solution</a></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/MATH-351-352/Heat-Equation/The-Fourier-Series/>傅立叶级数</a></li></ul></li><li><input type=checkbox id=section-7f42ebdf414be775241761c5b3262618 class=toggle>
+<label for=section-7f42ebdf414be775241761c5b3262618 class="flex justify-between"><a role=button>波方程</a></label><ul></ul></li><li><input type=checkbox id=section-3cdad47fb9156c74a9aac21d7840334d class=toggle>
+<label for=section-3cdad47fb9156c74a9aac21d7840334d class="flex justify-between"><a role=button>拉普拉斯方程</a></label><ul></ul></li></ul></li><li><a href=/docs/%E6%95%B0%E5%AD%A6/PS/>Ps</a></li></ul></div><div class="subject-panel hidden" data-subject=物理></div></div></nav><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".subject-tab"),s=document.querySelectorAll(".subject-panel");function t(t){e.forEach(e=>e.classList.remove("active")),s.forEach(e=>e.classList.add("hidden"));const n=document.querySelector(`.subject-tab[data-subject="${t}"]`);n&&n.classList.add("active");const o=document.querySelector(`.subject-panel[data-subject="${t}"]`);o&&o.classList.remove("hidden"),localStorage.setItem("activeSubjectTab",t)}const n=localStorage.getItem("activeSubjectTab");n&&t(n),e.forEach(e=>{e.addEventListener("click",function(){const n=e.getAttribute("data-subject");t(n)})})})</script><div class=after-menu-offset><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/EriseHe/notebook target=_blank rel=noopener>Github</a></li><li><a href=https://themes.gohugo.io/themes/hugo-book/ target=_blank rel=noopener>Hugo Themes</a></li></ul></div></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>Homework 9</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents></nav></aside></header><article class=book-article><h1 style="text-align:center;font-family:computer modern,cmu serif,serif"></h1><div class="markdown posts" x-data><p data-raw='8.5: 1, [2, 3], 4, [5]; Chapter 8: [21, 22].'>8.5: 1, [2, 3], 4, [5]; Chapter 8: [21, 22].</p><p data-raw='<strong>Problem 8.5.2</strong> Establish formula $\mathbf{c}$ of Example 8.5.7 as follows. Prove that $e^{-x} x^{p+2} \rightarrow 0$ as $x \rightarrow \infty$, and then compare the integral with $\int_1^{\infty}\left(1 / x^2\right) d x$.'><strong>Problem 8.5.2</strong> Establish formula $\mathbf{c}$ of Example 8.5.7 as follows. Prove that $e^{-x} x^{p+2} \rightarrow 0$ as $x \rightarrow \infty$, and then compare the integral with $\int_1^{\infty}\left(1 / x^2\right) d x$.</p><blockquote><p data-raw=[!definition|*]>[!definition|*]</p></blockquote><p data-raw='Let $\epsilon > 0$ be arbitrary. We want to show that $\exists N > 0$ such that for all $x > N$,<br>
+$$\left|e^{-x}x^{p+2} - 0\right| = e^{-x}x^{p+2} < \epsilon.$$
+Since $e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr)$, and $\displaystyle\lim_{x\to\infty}\frac{(p+2)\ln x}{x} = 0,$ there exists a number $N_1>0$ such that for all $x > N_1$ we have<br>
+$$\frac{(p+2)\ln x}{x} < \frac{1}{2}\Longrightarrow (p+2)\ln x < \frac{x}{2}$$
+It follows that for all $x > N_1$,<br>
+$$-x + (p+2)\ln x < -\frac{x}{2}.$$
+Taking exponentials to get:<br>
+$$e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr) < \exp\Bigl(-\frac{x}{2}\Bigr) = e^{-x/2}.$$
+For $e^{-x/2} < \epsilon,$ we simply need $-\frac{x}{2}  < \ln \epsilon$, which is $x  > -2\ln \epsilon$. We define $N_2 = -2\ln \epsilon$. Let $N = \max{N_1, N_2}$. Then, $\forall x > N$ we have both<br>
+$$e^{-x}x^{p+2} < e^{-x/2} \quad \text{and} \quad e^{-x/2} < \epsilon,$$
+so that $e^{-x}x^{p+2} < \epsilon$. By the definition of the limit we have:
+$$\lim_{x\to\infty} e^{-x}x^{p+2} = 0.$$
+Next, we use this to compare the integral $\int_1^\infty e^{-x}x^p,dx$ with the convergent integral $\int_1^\infty \frac{1}{x^2},dx$. Note that for $x \ge 1$ and a fixed $p$, it is always true that
+$$x^{p} \le x^{p+2}\Longrightarrow e^{-x}x^p \le e^{-x}x^{p+2}$$
+As already demonstrated above, for sufficiently large $x$ , we can have
+$$0 \leq e^{-x} x^p \leq e^{-x} x^{p+2}<\frac{1}{x^2}$$
+Hence, there exists some $M$ such that for all $x > M$,
+$$0 \le e^{-x}x^p \le \frac{1}{x^2}.$$
+Given that the tail integral
+$$\int_1^{\infty} e^{-x} x^p d x=\int_1^M e^{-x} x^p d x+\int_M^{\infty} e^{-x} x^p d x$$
+converges, so $\int_M^{\infty} e^{-x} x^p d x$ converges. By the Comparison Test, the integral
+$$\int_{M}^\infty e^{-x}x^p,dx$$
+must also converges. Finally, note that integral over any finite interval $[1,M]$ is finite, so the entire integral
+$$\int_{1}^\infty e^{-x}x^p,dx$$
+converges.'>Let $\epsilon > 0$ be arbitrary. We want to show that $\exists N > 0$ such that for all $x > N$,<br>$$\left|e^{-x}x^{p+2} - 0\right| = e^{-x}x^{p+2} &lt; \epsilon.$$
+Since $e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr)$, and $\displaystyle\lim_{x\to\infty}\frac{(p+2)\ln x}{x} = 0,$ there exists a number $N_1>0$ such that for all $x > N_1$ we have<br>$$\frac{(p+2)\ln x}{x} &lt; \frac{1}{2}\Longrightarrow (p+2)\ln x &lt; \frac{x}{2}$$
+It follows that for all $x > N_1$,<br>$$-x + (p+2)\ln x &lt; -\frac{x}{2}.$$
+Taking exponentials to get:<br>$$e^{-x}x^{p+2} = \exp\Bigl(-x + (p+2)\ln x\Bigr) &lt; \exp\Bigl(-\frac{x}{2}\Bigr) = e^{-x/2}.$$
+For $e^{-x/2} &lt; \epsilon,$ we simply need $-\frac{x}{2} &lt; \ln \epsilon$, which is $x > -2\ln \epsilon$. We define $N_2 = -2\ln \epsilon$. Let $N = \max{N_1, N_2}$. Then, $\forall x > N$ we have both<br>$$e^{-x}x^{p+2} &lt; e^{-x/2} \quad \text{and} \quad e^{-x/2} &lt; \epsilon,$$
+so that $e^{-x}x^{p+2} &lt; \epsilon$. By the definition of the limit we have:
+$$\lim_{x\to\infty} e^{-x}x^{p+2} = 0.$$
+Next, we use this to compare the integral $\int_1^\infty e^{-x}x^p,dx$ with the convergent integral $\int_1^\infty \frac{1}{x^2},dx$. Note that for $x \ge 1$ and a fixed $p$, it is always true that
+$$x^{p} \le x^{p+2}\Longrightarrow e^{-x}x^p \le e^{-x}x^{p+2}$$
+As already demonstrated above, for sufficiently large $x$ , we can have
+$$0 \leq e^{-x} x^p \leq e^{-x} x^{p+2}&lt;\frac{1}{x^2}$$
+Hence, there exists some $M$ such that for all $x > M$,
+$$0 \le e^{-x}x^p \le \frac{1}{x^2}.$$
+Given that the tail integral
+$$\int_1^{\infty} e^{-x} x^p d x=\int_1^M e^{-x} x^p d x+\int_M^{\infty} e^{-x} x^p d x$$
+converges, so $\int_M^{\infty} e^{-x} x^p d x$ converges. By the Comparison Test, the integral
+$$\int_{M}^\infty e^{-x}x^p,dx$$
+must also converges. Finally, note that integral over any finite interval $[1,M]$ is finite, so the entire integral
+$$\int_{1}^\infty e^{-x}x^p,dx$$
+converges.</p><p data-raw='<strong>Problem 8.5.3</strong> Let $f:[a, \infty[\rightarrow \mathbb{R}$ be Riemann integrable on bounded intervals. Show that $\int_a^{\infty} f$ (conditional convergence) exists iff for every $\varepsilon>0$, there is a $T$ such that $t_1, t_2 \geq T$ implies'><strong>Problem 8.5.3</strong> Let $f:[a, \infty[\rightarrow \mathbb{R}$ be Riemann integrable on bounded intervals. Show that $\int_a^{\infty} f$ (conditional convergence) exists iff for every $\varepsilon>0$, there is a $T$ such that $t_1, t_2 \geq T$ implies</p><p data-raw='$$
+\left|\int_{t_1}^{t_2} f(x) d x\right|<\varepsilon
+$$'>$$
+\left|\int_{t_1}^{t_2} f(x) d x\right|&lt;\varepsilon
+$$</p><blockquote><p data-raw=[!definition|*]>[!definition|*]</p></blockquote><p data-raw='Let $f : [a,\infty) \to \mathbb{R}$ be a such function, we say the improper integral
+$$\int_a^\infty f(x),dx$$
+exists (or converges) if the limit
+$$\lim_{t \to \infty} \int_a^t f(x),dx$$
+exists for some number $L$. We want to show that this is equivalent to this Cauchy condition: For every $\varepsilon > 0$, there exists $T \ge a$ such that for all $t_1, t_2 \ge T,$ we have $\left|\int_{t_1}^{t_2} f(x),dx\right| < \varepsilon$.'>Let $f : [a,\infty) \to \mathbb{R}$ be a such function, we say the improper integral
+$$\int_a^\infty f(x),dx$$
+exists (or converges) if the limit
+$$\lim_{t \to \infty} \int_a^t f(x),dx$$
+exists for some number $L$. We want to show that this is equivalent to this Cauchy condition: For every $\varepsilon > 0$, there exists $T \ge a$ such that for all $t_1, t_2 \ge T,$ we have $\left|\int_{t_1}^{t_2} f(x),dx\right| &lt; \varepsilon$.</p><blockquote></blockquote><p data-raw='<strong>($\implies$)</strong> First, by assumption, the improper integral $\int_a^\infty f(x),dx$ converges a $L\in \mathbb{R}$ s.t:
+$$\lim_{t \to \infty} \int_a^t f(x),dx = L$$
+By definition of the limit, this means for any given $\varepsilon>0$, there exists $T$ s.t. for all $t \ge T,$ we can have $$\left|\int_a^t f(x),dx - L\right| < \frac{\varepsilon}{2}.$$Let $t_1, t_2 \ge T$. Without loss of generality, assume $t_1 < t_2$, then we can write:'><strong>($\implies$)</strong> First, by assumption, the improper integral $\int_a^\infty f(x),dx$ converges a $L\in \mathbb{R}$ s.t:
+$$\lim_{t \to \infty} \int_a^t f(x),dx = L$$
+By definition of the limit, this means for any given $\varepsilon>0$, there exists $T$ s.t. for all $t \ge T,$ we can have $$\left|\int_a^t f(x),dx - L\right| &lt; \frac{\varepsilon}{2}.$$Let $t_1, t_2 \ge T$. Without loss of generality, assume $t_1 &lt; t_2$, then we can write:</p><blockquote><p data-raw='$$
+\int_{t_1}^{t_2} f(x) d x=\left(\int_a^{t_2} f(x) d x-L\right)-\left(\int_a^{t_1} f(x) d x-L\right)
+$$
+By the triangle inequality:
+$$
+\left|\int_{t_1}^{t_2} f(x) d x\right| \leq\left|\int_a^{t_2} f(x) d x-L\right|+\left|\int_a^{t_1} f(x) d x-L\right|
+$$
+By our choice of $T$, for both $t_1, t_2 \ge T$, $$\left|\int_a^{t_i} f(x),dx - L\right| < \frac{\varepsilon}{2}\quad $$ Hence,
+$$
+\left|\int_{t_1}^{t_2} f(x) d x\right| \leq \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+$$
+Thus, for every $\varepsilon>0$, we always have a $T$ such that the integral is less than $\varepsilon$ whenever $t_1,t_2 \ge T$.'>$$
+\int_{t_1}^{t_2} f(x) d x=\left(\int_a^{t_2} f(x) d x-L\right)-\left(\int_a^{t_1} f(x) d x-L\right)
+$$
+By the triangle inequality:
+$$
+\left|\int_{t_1}^{t_2} f(x) d x\right| \leq\left|\int_a^{t_2} f(x) d x-L\right|+\left|\int_a^{t_1} f(x) d x-L\right|
+$$
+By our choice of $T$, for both $t_1, t_2 \ge T$, $$\left|\int_a^{t_i} f(x),dx - L\right| &lt; \frac{\varepsilon}{2}\quad $$ Hence,
+$$
+\left|\int_{t_1}^{t_2} f(x) d x\right| \leq \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+$$
+Thus, for every $\varepsilon>0$, we always have a $T$ such that the integral is less than $\varepsilon$ whenever $t_1,t_2 \ge T$.</p><p data-raw='<strong>($\Longleftarrow$)</strong> Conversely, suppose that for every $\varepsilon > 0$, there is a $T$ such that for all $t_1,t_2 \ge T$, $$\left|\int_{t_1}^{t_2} f(x),dx\right| < \varepsilon$$We want to prove that limit $\lim_{t\to\infty}\int_a^t f(x),dx$ exists as a real number. For convenience, we set
+$$I(t)=\int_a^t f(x),dx$$
+Then, by the given standard Cauchy condition, $\forall\varepsilon>0$, $\exists ,T\ge a$ s.t. whenever $t_1,t_2\ge T$, we have
+$$|I(t_2)-I(t_1)|<\varepsilon.$$
+Fix any $t \geq T$. Then, for every $t_{0} \geq T$, we always have $|I(t_{0})-I(t)|<\varepsilon$, so this mean that implies that $I(t_{0})\in (I(t)-\varepsilon, I(t)+\varepsilon)$ for any $t_{0} \geq T$. We set upper and lower limits of the function $I(t)$ as $t\to\infty$:
+$$L_{\text {sup }}=\lim <em>{T \rightarrow \infty} \sup {I(t</em>{0}): t_{0}\geq T}\quad \text{and} \quad L_{\mathrm{inf}}=\lim <em>{T \rightarrow \infty} \inf {I(t</em>{0}): t_{0} \geq T}$$
+This, by definition, gives us:
+$$I(t)-\varepsilon \leq L_{\inf}\leq L_{\sup}\leq I(t)+\varepsilon.$$
+In particular, choosing any $t\ge T$ and writing these two inequalities together, we get:
+$$ L_{\sup}-L_{\inf}\leq  (I(t)+\varepsilon) - (I(t)-\varepsilon)=2\varepsilon.$$
+Because $\varepsilon>0$ is arbitrary, it shows it is indeed in fact
+$$L_{\sup}-L_{\inf}=0,\Longrightarrow L_{\sup}=L_{\inf}=L$$
+Now, by the definitions of $\limsup$ and $\liminf$, it follows that for every $\epsilon_{1}>0$ there exists some $T_{1}\ge a$ such that for all $t\ge T_{1}$,
+$$L-\epsilon < I(t) < L+\epsilon$$
+which is the definition of the limit. We have shown that $\epsilon_{1}>0$ there exists $T_{1}$ s.t for all $t\ge T_{1}$,
+$$|I(t)-L|<\epsilon.$$
+Thus, we conclude that
+$$\lim_{t\to\infty} I(t)=L,$$
+which, by definition, means that the improper integral
+$$\int_a^\infty f(x),dx = \lim_{t\to\infty}\int_a^t f(x),dx$$exists.'><strong>($\Longleftarrow$)</strong> Conversely, suppose that for every $\varepsilon > 0$, there is a $T$ such that for all $t_1,t_2 \ge T$, $$\left|\int_{t_1}^{t_2} f(x),dx\right| &lt; \varepsilon$$We want to prove that limit $\lim_{t\to\infty}\int_a^t f(x),dx$ exists as a real number. For convenience, we set
+$$I(t)=\int_a^t f(x),dx$$
+Then, by the given standard Cauchy condition, $\forall\varepsilon>0$, $\exists ,T\ge a$ s.t. whenever $t_1,t_2\ge T$, we have
+$$|I(t_2)-I(t_1)|&lt;\varepsilon.$$
+Fix any $t \geq T$. Then, for every $t_{0} \geq T$, we always have $|I(t_{0})-I(t)|&lt;\varepsilon$, so this mean that implies that $I(t_{0})\in (I(t)-\varepsilon, I(t)+\varepsilon)$ for any $t_{0} \geq T$. We set upper and lower limits of the function $I(t)$ as $t\to\infty$:
+$$L_{\text {sup }}=\lim <em>{T \rightarrow \infty} \sup {I(t</em>{0}): t_{0}\geq T}\quad \text{and} \quad L_{\mathrm{inf}}=\lim <em>{T \rightarrow \infty} \inf {I(t</em>{0}): t_{0} \geq T}$$
+This, by definition, gives us:
+$$I(t)-\varepsilon \leq L_{\inf}\leq L_{\sup}\leq I(t)+\varepsilon.$$
+In particular, choosing any $t\ge T$ and writing these two inequalities together, we get:
+$$ L_{\sup}-L_{\inf}\leq (I(t)+\varepsilon) - (I(t)-\varepsilon)=2\varepsilon.$$
+Because $\varepsilon>0$ is arbitrary, it shows it is indeed in fact
+$$L_{\sup}-L_{\inf}=0,\Longrightarrow L_{\sup}=L_{\inf}=L$$
+Now, by the definitions of $\limsup$ and $\liminf$, it follows that for every $\epsilon_{1}>0$ there exists some $T_{1}\ge a$ such that for all $t\ge T_{1}$,
+$$L-\epsilon &lt; I(t) &lt; L+\epsilon$$
+which is the definition of the limit. We have shown that $\epsilon_{1}>0$ there exists $T_{1}$ s.t for all $t\ge T_{1}$,
+$$|I(t)-L|&lt;\epsilon.$$
+Thus, we conclude that
+$$\lim_{t\to\infty} I(t)=L,$$
+which, by definition, means that the improper integral
+$$\int_a^\infty f(x),dx = \lim_{t\to\infty}\int_a^t f(x),dx$$exists.</p></blockquote><p data-raw='<strong>Problem 8.5.5</strong> For what $\alpha$ is $\int_0^{\infty} \frac{x^\alpha}{1+x^\alpha} d x$ convergent?'><strong>Problem 8.5.5</strong> For what $\alpha$ is $\int_0^{\infty} \frac{x^\alpha}{1+x^\alpha} d x$ convergent?</p><blockquote><p data-raw='[!definition|*]
+To fine $\alpha$, notice that
+$$\int_0^{\infty} \frac{x^\alpha}{1+x^\alpha} d x=\int_0^1 \frac{x^\alpha}{1+x^\alpha} d x+\int_1^{\infty} \frac{x^\alpha}{1+x^\alpha} d x$$
+can be split into two regions separately: interval $(0,1]$) and $[1,\infty)$. So, first, we examine the behavior near $x=0$. We consider
+$$\int_{0}^{1} \frac{x^{\alpha}}{1 + x^{\alpha}},dx.$$
+We must check whether the integrand create any problems as $x\to0$.'>[!definition|*]
+To fine $\alpha$, notice that
+$$\int_0^{\infty} \frac{x^\alpha}{1+x^\alpha} d x=\int_0^1 \frac{x^\alpha}{1+x^\alpha} d x+\int_1^{\infty} \frac{x^\alpha}{1+x^\alpha} d x$$
+can be split into two regions separately: interval $(0,1]$) and $[1,\infty)$. So, first, we examine the behavior near $x=0$. We consider
+$$\int_{0}^{1} \frac{x^{\alpha}}{1 + x^{\alpha}},dx.$$
+We must check whether the integrand create any problems as $x\to0$.</p><ol><li>$\alpha > 0$: As $x \to 0$, $x^{\alpha}$ becomes very small, so $$\frac{x^{\alpha}}{1 + x^{\alpha}} ;\approx; x^{\alpha}$$Since $x^{\alpha}$ near $0$ is integrable if $\alpha > -1$, and here $\alpha > 0$ definitely satisfies $\alpha > -1$, there is no divergence issue at $0$ in this case.</li><li>$\alpha = 0$: Since $x^{\alpha} = x^0 = 1$, and the integrand becomes $\tfrac12$, which is a constant.</li><li>$\alpha &lt; 0$: As $x \to 0$, $x^{\alpha} =\frac{1}{x^{|\alpha|}}\to \infty$. Thus, $$\frac{x^{\alpha}}{1 + x^{\alpha}} \approx1$$which is integrable. Therefore, near $x=0$, the integrand is always integrable for every real $\alpha$.</li></ol><p data-raw='Next, we check behavior near $x=\infty$. We examine the behavior for $\int_1^{\infty} \frac{x^\alpha}{1+x^\alpha} d x$ as $x\to\infty$:'>Next, we check behavior near $x=\infty$. We examine the behavior for $\int_1^{\infty} \frac{x^\alpha}{1+x^\alpha} d x$ as $x\to\infty$:</p><ol start=4><li>$\alpha > 0$: As $x \to \infty$, $x^{\alpha}$ is very large, so $\frac{x^{\alpha}}{1 + x^{\alpha}} ;\approx; 1$. This means that $\int_{1}^{\infty} 1,dx$ diverges for all $\alpha > 0$.</li><li>$\alpha = 0$: similarly, $x^{\alpha} = x^{0} = 1$ implies that the integrand is $\frac{1}{2}$, and $\int_{1}^{\infty} \tfrac12 ,dx$ also diverges. So it fails to converge for $\alpha=0$.</li><li>$\alpha &lt; 0$: As $x\to\infty$, $x^\alpha$ tends to $0$. So $$\frac{x^{\alpha}}{1 + x^{\alpha}} ;\approx; x^{\alpha}.$$
+By example 8.5.7(a), we know $\int_{1}^{\infty} x^{p},dx$ converges if and only if $p &lt; -1$. Therefore, if $\alpha &lt; -1$, then $\int_{1}^{\infty} x^{\alpha},dx$ converges, and consequently $$\int_{1}^{\infty} \frac{x^{\alpha}}{1 + x^{\alpha}},dx;\text{converges}$$ by comparison test. Hence, the only way to have convergence at $x = \infty$ is to require alpha to be less that $-1$. We have shown that the integral is finite if and only if $\alpha &lt; -1$.</li></ol></blockquote><p data-raw='<strong>Chatper 8.21</strong> Show that $\int_1^{\infty} x^{-p} \sin x d x$ converges if $p>1$. Show that if $0<p \leq 1$, then the convergence is conditional.'><strong>Chatper 8.21</strong> Show that $\int_1^{\infty} x^{-p} \sin x d x$ converges if $p>1$. Show that if $0&lt;p \leq 1$, then the convergence is conditional.</p><blockquote><p data-raw='[!definition|*]
+<strong>Absolute Convergence for $p>1$</strong>
+To show that the integral converges absolutely when $p>1$, we consider the absolute value of the integrand:
+$$\int_{1}^{\infty} \bigl| x^{-p}\sin x \bigr|,dx.$$
+Since $| \sin x| \le 1,$ for all $x\ge 1$ we have
+$$\bigl| x^{-p}\sin x \bigr| \le x^{-p}.$$
+Thus, by the Comparison Test we know:
+$$\int_{1}^{\infty} \bigl| x^{-p}\sin x \bigr|,dx \le \int_{1}^{\infty} x^{-p},dx.$$
+We now compute or recall the convergence of this integral.'>[!definition|*]
+<strong>Absolute Convergence for $p>1$</strong>
+To show that the integral converges absolutely when $p>1$, we consider the absolute value of the integrand:
+$$\int_{1}^{\infty} \bigl| x^{-p}\sin x \bigr|,dx.$$
+Since $| \sin x| \le 1,$ for all $x\ge 1$ we have
+$$\bigl| x^{-p}\sin x \bigr| \le x^{-p}.$$
+Thus, by the Comparison Test we know:
+$$\int_{1}^{\infty} \bigl| x^{-p}\sin x \bigr|,dx \le \int_{1}^{\infty} x^{-p},dx.$$
+We now compute or recall the convergence of this integral.</p><ol><li>For $p\neq 1$,
+$$\int_{1}^{a} x^{-p},dx = \left[\frac{x^{1-p}}{1-p}\right]_{x=1}^{x=a}
+=\frac{a^{1-p}-1}{1-p}$$</li><li>For $p>1$, then $1-p&lt;0$ and therefore $$\lim_{a\to\infty} a^{1-p} = 0$$ which means: $$\int_{1}^{\infty} x^{-p},dx = \frac{0-1}{1-p}=\frac{1}{p-1}&lt;\infty$$ and we further conclude that: $$\int_{1}^{\infty} \bigl| x^{-p}\sin x \bigr|,dx &lt; \infty$$ and hence the integral $I(p)$ converges absolutely when $p>1$.</li></ol><p data-raw='<strong>Conditional Convergence for $0 < p\le 1$</strong>
+To show that the integral converges conditionally, we use integration by parts to show that it converges conditionally.
+Let
+$$I(b)=\int_{1}^{b} x^{-p}\sin x,dx$$
+By the integration by parts formula, we obtain:
+$$I(b) = \left[-x^{-p}\cos x\right]<em>{1}^{b} -\left( -\int</em>{1}^{b} (-\cos x)(p,x^{-p-1}),dx\right)$$
+Then, evaluate the boundary term, we have $$\left[-x^{-p}\cos x\right]<em>{1}^{b} = -b^{-p}\cos b + 1^{-p}\cos 1 = -b^{-p}\cos b + \cos 1$$Since $p>0$, as $b\to\infty$ we have $b^{-p}\to 0$, and so $\lim</em>{b\to\infty} \left(-b^{-p}\cos b\right)=0$. Hence, the boundary contribution tends to $\cos 1$. Then, the remaining term becomes $$I(b) = \cos 1 + p\int_1^b x^{-p-1}\cos x,dx=\cos 1 + pI_{1}(b)$$where we define $I_{1}(b)=\int_{1}^{b} x^{-p-1}\cos x,dx$. Note that, again we have: $$\bigl|x^{-p-1}\cos x\bigr|\le x^{-p-1}$$since $p>0$ by the assumption, we know $-p-1<-1$. Therefore, $I_{1}(b)$ converges absolutely as $b\to\infty$. Let&rsquo;s denote it as $\lim_{b\to\infty} I_{1}(b)=L$. Then, as $b\to\infty$, we obtain: $$\lim_{b\to\infty} I(b)= \cos 1 + p,L.$$ Here the integral $I(b)$ converges to the finite value $\cos 1 + p,L$ while the absolute integral diverges for $0<p\le1$. Hence, the original integral
+$$\int_{1}^{\infty} x^{-p}\sin x,dx$$
+converges conditionally for $0<p\leq1$'><strong>Conditional Convergence for $0 &lt; p\le 1$</strong>
+To show that the integral converges conditionally, we use integration by parts to show that it converges conditionally.
+Let
+$$I(b)=\int_{1}^{b} x^{-p}\sin x,dx$$
+By the integration by parts formula, we obtain:
+$$I(b) = \left[-x^{-p}\cos x\right]<em>{1}^{b} -\left( -\int</em>{1}^{b} (-\cos x)(p,x^{-p-1}),dx\right)$$
+Then, evaluate the boundary term, we have $$\left[-x^{-p}\cos x\right]<em>{1}^{b} = -b^{-p}\cos b + 1^{-p}\cos 1 = -b^{-p}\cos b + \cos 1$$Since $p>0$, as $b\to\infty$ we have $b^{-p}\to 0$, and so $\lim</em>{b\to\infty} \left(-b^{-p}\cos b\right)=0$. Hence, the boundary contribution tends to $\cos 1$. Then, the remaining term becomes $$I(b) = \cos 1 + p\int_1^b x^{-p-1}\cos x,dx=\cos 1 + pI_{1}(b)$$where we define $I_{1}(b)=\int_{1}^{b} x^{-p-1}\cos x,dx$. Note that, again we have: $$\bigl|x^{-p-1}\cos x\bigr|\le x^{-p-1}$$since $p>0$ by the assumption, we know $-p-1&lt;-1$. Therefore, $I_{1}(b)$ converges absolutely as $b\to\infty$. Let&rsquo;s denote it as $\lim_{b\to\infty} I_{1}(b)=L$. Then, as $b\to\infty$, we obtain: $$\lim_{b\to\infty} I(b)= \cos 1 + p,L.$$ Here the integral $I(b)$ converges to the finite value $\cos 1 + p,L$ while the absolute integral diverges for $0&lt;p\le1$. Hence, the original integral
+$$\int_{1}^{\infty} x^{-p}\sin x,dx$$
+converges conditionally for $0&lt;p\leq1$</p></blockquote><p data-raw='<strong>Chapter 8.22</strong> The gamma function is defined to be the function given by the improper integral $\Gamma(p)=\int_1^{\infty} e^{-x} x^{p-1} d x$. Show that the integral is convergent for $p>0$.'><strong>Chapter 8.22</strong> The gamma function is defined to be the function given by the improper integral $\Gamma(p)=\int_1^{\infty} e^{-x} x^{p-1} d x$. Show that the integral is convergent for $p>0$.</p><blockquote><p data-raw='[!definition|*]
+We want to show that the improper integral $$\Gamma(p)=\int_1^{\infty} e^{-x}x^{p-1},dx$$ converges for $p>0$. Observe that
+$$e^{-x}x^{p-1} \Longrightarrow \lim_{x\to\infty} \frac{x^{p-1}}{e^x} =\lim_{x\to\infty} \frac{x^q}{e^x}= 0.$$
+where $q=p-1$ (with $p>0$). And since we know that for $n\ge1$ and $x>0$, we always have
+$$e^x \ge \frac{x^n}{n!}$$
+so, for any integer $n$ s.t. $n>p$, $\forall x\ge1$, we can have
+$$e^{-x} = \frac{1}{e^{x}} \le \frac{n!}{x^{n}}\Longrightarrow e^{-x}x^{p-1} \le n! , x^{p-1-n}$$
+Then, we verify the convergence of the this integral:
+$$I=\int_1^\infty x^{p-1-n},dx=\int_1^\infty x^{r},dx$$
+where $r=p-1-n$. We know such integral converges if and only if $r<-1$. Since we have chosen $n>p$, it follows that
+$$p-1-n < -1 \quad $$
+Thus, the exponent $r$ satisfies the convergence criterion. Consequently,
+$$I= \int_1^\infty x^{p-1-n},dx < \infty.$$
+Next, since for all $x\ge1$ we have
+$$0 \le e^{-x}x^{p-1} \le n!,x^{p-1-n},$$
+and integral $I$ converges, so the Comparison Test implies that
+$$\int_1^{\infty} e^{-x}x^{p-1},dx ;;\text{ also converges}$$
+Thus, we have shown that the gamma function integral
+$$\Gamma(p)=\int_1^\infty e^{-x} x^{p-1},dx$$
+converges for every $p>0$.'>[!definition|*]
+We want to show that the improper integral $$\Gamma(p)=\int_1^{\infty} e^{-x}x^{p-1},dx$$ converges for $p>0$. Observe that
+$$e^{-x}x^{p-1} \Longrightarrow \lim_{x\to\infty} \frac{x^{p-1}}{e^x} =\lim_{x\to\infty} \frac{x^q}{e^x}= 0.$$
+where $q=p-1$ (with $p>0$). And since we know that for $n\ge1$ and $x>0$, we always have
+$$e^x \ge \frac{x^n}{n!}$$
+so, for any integer $n$ s.t. $n>p$, $\forall x\ge1$, we can have
+$$e^{-x} = \frac{1}{e^{x}} \le \frac{n!}{x^{n}}\Longrightarrow e^{-x}x^{p-1} \le n! , x^{p-1-n}$$
+Then, we verify the convergence of the this integral:
+$$I=\int_1^\infty x^{p-1-n},dx=\int_1^\infty x^{r},dx$$
+where $r=p-1-n$. We know such integral converges if and only if $r&lt;-1$. Since we have chosen $n>p$, it follows that
+$$p-1-n &lt; -1 \quad $$
+Thus, the exponent $r$ satisfies the convergence criterion. Consequently,
+$$I= \int_1^\infty x^{p-1-n},dx &lt; \infty.$$
+Next, since for all $x\ge1$ we have
+$$0 \le e^{-x}x^{p-1} \le n!,x^{p-1-n},$$
+and integral $I$ converges, so the Comparison Test implies that
+$$\int_1^{\infty} e^{-x}x^{p-1},dx ;;\text{ also converges}$$
+Thus, we have shown that the gamma function integral
+$$\Gamma(p)=\int_1^\infty e^{-x} x^{p-1},dx$$
+converges for every $p>0$.</p></blockquote></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/EriseHe/notebook/edit/main//content.en/docs/%e6%95%b0%e5%ad%a6/MATH%20412%20Real%20Analysis%20II/Homework/Homework%209.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside id=book-toc class="book-toc hidden"><div class=book-toc-content><div class=button-prev></div><div class=button-next></div></div></aside></div><div class=toolbar-trigger></div><aside class=toolbar><button id=theme-toggle class=theme-toggle-btn>
+<img src=/blackhole2.png alt="Switch Theme">
+</button>
+<button id=toc-toggle class=toc-toggle-btn>
+<img src=/toc-icon.svg alt="Toggle TOC"></button><div class=font-size-control><button id=font-toggle class=font-size-btn>
+A</button><div class=font-size-buttons><button id=font-increase class=font-control-btn>+</button>
+<button id=font-reset class=font-control-btn>A</button>
+<button id=font-decrease class=font-control-btn>−</button></div></div></aside><script>document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("book-toc"),t=!0;t?e.classList.remove("hidden"):e.classList.add("hidden"),document.getElementById("toc-toggle").addEventListener("click",function(){e.classList.toggle("hidden")})})</script><script src=/font-size.min.js></script><script src=/toolbar.min.js></script><script src=/toc-animation.min.js></script><script src=/menu-autohide.min.js></script></main><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("theme-toggle");if(!e)return;e.onclick=()=>{const s=e.getBoundingClientRect(),o=s.left+s.width/2,i=s.top+s.height/2,l=document.documentElement.getAttribute("data-theme"),r=l||"auto";let n;r==="auto"?n=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":n=r;const a=n==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",a),localStorage.setItem("theme",a);const c=n==="dark"?"#0b031c":"white",t=document.createElement("div");t.style.position="fixed",t.style.top="0",t.style.left="0",t.style.width="100vw",t.style.height="100vh",t.style.zIndex="9999",t.style.pointerEvents="none",t.style.setProperty("--cx",`${o}px`),t.style.setProperty("--cy",`${i}px`),t.style.setProperty("--r","0px"),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent var(--r), ${c} calc(var(--r) + 1px))`,document.body.appendChild(t);const u=window.innerWidth,h=window.innerHeight,m=Math.hypot(Math.max(o,u-o),Math.max(i,h-i)),f=600,p=performance.now();function d(e){const o=e-p,s=Math.min(o/f,1),n=s*m;if(t.style.setProperty("--r",`${n}px`),t.style.backgroundImage=`radial-gradient(circle at var(--cx) var(--cy), transparent 0%, transparent ${n}px, ${c} ${n+1}px)`,s<1)requestAnimationFrame(d);else{t.remove();const e=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",e)}}requestAnimationFrame(d)}})</script><script>window.__tikzjax_injected||(window.__tikzjax_injected=!0,fetch("/content.en/docs/.obsidian/plugins/obsidian-tikzjax/main.js").then(e=>e.text()).then(e=>{const t=e.match(/var tikzjax_default = `([\s\S]*?)`;?/);if(t){const n=t[1],e=document.createElement("script");e.id="tikzjax",e.type="text/javascript",e.innerHTML=n,document.head.appendChild(e)}else{const e=document.createElement("script");e.src="https://tikzjax.com/v1/tikzjax.js",e.defer=!0,document.head.appendChild(e)}}).catch(()=>{const e=document.createElement("script");e.src="https://tikzjax.com/v1/tikzjax.js",e.defer=!0,document.head.appendChild(e)}))</script><script>window.processTheoremBlocks=function(){document.querySelectorAll("blockquote").forEach(function(e){const t=e.querySelector("p");if(!t)return;const n=t.getAttribute("data-raw")||t.innerHTML,s=n.replace(/<[^>]*>/g,"").trim();for(const o of["definition","proposition","lemma","theorem","assumption","claim"]){const a=new RegExp(`^\\s*\\[!${o}\\|(\\*|[\\w\\.\\-]+)\\]\\s*`,"i"),i=s.match(a);if(i){console.log(`Found ${o} with label: ${i[1]}`);const c=i[1]!=="*",m=c?i[1]:"",f=n.replace(/<[^>]*>/g,""),p=f.split(/\n/),g=p[0]||"",l=g,d=l.replace(a,"").trim();if(e.classList.contains("math-theorem"))break;const v=Array.from(e.childNodes);e.innerHTML="",e.classList.add("math-theorem",o);const s=document.createElement("div");s.className="theorem-header";const u=o.charAt(0).toUpperCase()+o.slice(1),h=document.createElement("span");if(h.textContent=c?`${u} ${m}`:u,s.appendChild(h),d){const e=document.createElement("span");e.className="theorem-subtitle",e.textContent=` (${d})`,s.appendChild(e)}e.appendChild(s);const r=document.createElement("div");r.className="theorem-content",e.appendChild(r),v.forEach(function(e){let s=e.cloneNode(!0);if(e===t&&s.nodeType===1){const t=n.replace(/<[^>]*>/g,""),e=t.split(/\n/);if(e.length>1){const n=e.slice(1),t=n.join(`
+`).trim();if(t)s.innerHTML="",s.appendChild(document.createTextNode(t));else return}else{const e=l.replace(a,"").trim();if(e)s.innerHTML="",s.appendChild(document.createTextNode(e));else return}}r.appendChild(s)});break}}})},document.addEventListener("DOMContentLoaded",function(){try{window.processTheoremBlocks()}catch(e){console.error(e)}})</script><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".copy-button");e.forEach(e=>{const t=e.innerHTML;e.addEventListener("click",function(){const n=this.parentElement.querySelector("pre code");if(!n)return;navigator.clipboard.writeText(n.innerText).then(()=>{e.textContent="Copied",setTimeout(()=>{e.innerHTML=t},1500)}).catch(n=>{console.error("Failed to copy code:",n),e.textContent="Error",setTimeout(()=>{e.innerHTML=t},1500)})})})})</script><script defer src=/partial-load.min.6b14bff963746e8ce83087045335ec7a6533e1157905e46f88d952cb415b7418.js integrity="sha256-axS/+WN0bozoMIcEUzXsemUz4RV5BeRviNlSy0FbdBg=" crossorigin=anonymous></script><script defer src=/menu-recursive-close.min.893276da918db977c98771d5746eab05ce5761bc6fa1ca400efe1db9be2ac1f3.js integrity="sha256-iTJ22pGNuXfJh3HVdG6rBc5XYbxvocpADv4dub4qwfM=" crossorigin=anonymous></script></body></html>

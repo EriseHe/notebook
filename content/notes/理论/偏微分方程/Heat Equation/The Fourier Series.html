@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>傅立叶级数 – Erise Note</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../">
+<script src="../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../site_libs/bootstrap/bootstrap-29a19b5acbeac218a8c860e48340d4df.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../../../index.html">
+    <span class="navbar-title">Erise Note</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="搜索"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="展开或折叠导航栏" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../content/notes/index.md"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../content/posts/index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/EriseHe/notebook"> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/偏微分方程/index.html">偏微分方程</a></li><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/偏微分方程/Heat Equation/index.html">热方程</a></li><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/偏微分方程/Heat Equation/The Fourier Series.html">傅立叶级数</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../../../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">理论</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/点集拓扑学基础/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">点集拓扑学基础</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏微分方程</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/Laplace Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">拉普拉斯方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/Wave Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">波方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/Heat Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">热方程</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/Heat Equation/Heat Equation Solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Heat Equation Solution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/Heat Equation/The Fourier Series.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">傅立叶级数</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">数值方法</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/01 Mid-Point Method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formula Derivation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/02 Three-Point Backward Differentiation Formula.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Ok Honestly I Have No Idea Where He Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/03 Numerical Solution of Ordinary Differential Equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">常微分方程的数值解</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第九章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.1 Boundary Value Problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.1 边值问题的近似</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.2 Finite Difference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.2 有限差分法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.3 Advection-Diffusion Equation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.3 对流-扩散方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.4 2D Problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.4 4.1 二维（2D）偏微分方程问题</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/Exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">习题</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第十章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Finite Element Method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Order of Convergence in Finite Elements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Quiz 4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions for Quiz 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第四章 有限元分析</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/4.1 有限元.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 有限元</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">实分析</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/Homework/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Real Analysis II</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/Homework/Homework 9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 9</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/第七章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第七章 逆函数和隐函数定理</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第七章/7.1 Inverse Function Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1 反函数定理</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第七章/7.1.1 Inverse FT (Proof).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1.1 反函数定理（证明）</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第七章/7.2 Implicit Function Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 隐函数定理</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第七章/7.6 Morse Lemma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6 莫尔斯引理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/第九章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第九章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第九章/9.1 Computing Integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">积分计算</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/第八章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第八章 度量理论</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第八章/8.1 度量理论.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 积分的定义</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第八章/8.2 Criterion for Integrability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Criterion for Integrability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第八章/8.3 Proof of Lebesgue's Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proof of the Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第八章/8.5 Improper Integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.5 不定积分</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第八章/8.6 Lebesgue Convergence Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.6 勒贝格收敛定理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/第六章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第六章 可微映射</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第六章/6.4 Sufficient Conditions for Differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.4 可微分性的必要条件</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第六章/6.5 The Chain Rule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.5 链式法则</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第六章/6.6 Product Rule and Gradients.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.6 乘积法则与梯度</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第六章/6.9 Taylor Higher Dimentions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.9 泰勒公式的高维形式</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/实分析/第十章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第十章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/实分析/第十章/10.1 Fourier Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian Integral Computation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/广义相对论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">广义相对论</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/广义相对论/几何基础/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">几何基础</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/广义相对论/几何基础/1. Topological Space.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Topological Space</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/广义相对论/广义相对论理论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">广义相对论理论</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/广义相对论/广义相对论理论/1. Four-Vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">四维向量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/广义相对论/广义相对论理论/2. Einstein Summation Convention.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einstein求和约定</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/广义相对论/广义相对论理论/3. Index Notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">指标</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/广义相对论/广义相对论理论/6. Tensor Equation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">张量方程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/微分几何/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">微分几何</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/1. Overview of Differential Geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. From Calculus to Manifolds</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/2. Lecture 2 (ACTUAL).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parametrized Curves in <span class="math inline">\(\mathbb{R}^3\)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/2. Parametrized Curves and Surfaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Parametrized curves in <span class="math inline">\(\mathbb{R}^3\)</span> (plane curves as a special case)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/3. Tangent Vectors on a Surface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Recap from Last lecture</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/5. Pushforward, Pullback, and Local Isometries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Smooth map and its differential (push-forward)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/微分几何/T-n分离公理.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T-n Levels of Separation Axiom</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/概率机器学习/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">概率机器学习</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/1..html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/2. Autoregressive模型.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Probability Distributions (recap)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/3. Autoregressive模型 &amp; Recurrent Neural Networks (RNN).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Model (Continue)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/4. Transformer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/理论/概率机器学习/强化学习（RL）/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">强化学习</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/强化学习（RL）/2. Markov奖励&amp;决策过程.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markov奖励&amp;决策过程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/理论/概率机器学习/强化学习（RL）/Agent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Physics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/计算/Julia科学计算笔记/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Julia科学计算笔记</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/Julia科学计算笔记/1. 基本语法.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary of Key Julia Codes and Algorithms by Chapter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/Julia科学计算笔记/2. Variables, primitive types, and functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture Review: **Julia &amp; Git**</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/计算/量子力学讲义/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">量子力学讲义</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/波函数存在于在Hilbert空间中.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">波函数存在于Hilbert空间中</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/薛定谔方程的傅立叶变换.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">薛定谔方程的傅立叶变换</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第一章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第一章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第一章/1.1 The Wave Function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Three quantum indeterminacy position:</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第四章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.1 经典氢原子.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1.1 经典氢原子 (Classical Hydrogen Atom)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.2 Hydrogen Atom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">氢原子</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.3 角动量 (Angular Momentum).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3.1 量子数 (Quantum Numbers)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.4 Spin Spin Spin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">量子自旋态与算符讲义（Quantum Spin States and Operators Lecture Notes）</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/第四章.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 三维空间的薛定谔方程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#傅立叶级数的基本形态" id="toc-傅立叶级数的基本形态" class="nav-link active" data-scroll-target="#傅立叶级数的基本形态">1. 傅立叶级数的基本形态</a>
+  <ul class="collapse">
+  <li><a href="#周期" id="toc-周期" class="nav-link" data-scroll-target="#周期">1.1 周期</a></li>
+  <li><a href="#正弦型量" id="toc-正弦型量" class="nav-link" data-scroll-target="#正弦型量">1.2 正弦型量</a></li>
+  <li><a href="#三角级数---varphit函数" id="toc-三角级数---varphit函数" class="nav-link" data-scroll-target="#三角级数---varphit函数">1.3.1 三角级数 - <span class="math inline">\(\varphi(t)\)</span>函数</a></li>
+  <li><a href="#三角级数---最终展开式" id="toc-三角级数---最终展开式" class="nav-link" data-scroll-target="#三角级数---最终展开式">1.3.2 三角级数 - 最终展开式</a></li>
+  </ul></li>
+  <li><a href="#傅立叶级数的系数" id="toc-傅立叶级数的系数" class="nav-link" data-scroll-target="#傅立叶级数的系数">2. 傅立叶级数的系数</a>
+  <ul class="collapse">
+  <li><a href="#欧拉-傅立叶公式euler-fourier-formula" id="toc-欧拉-傅立叶公式euler-fourier-formula" class="nav-link" data-scroll-target="#欧拉-傅立叶公式euler-fourier-formula">2.1 欧拉-傅立叶公式（Euler-Fourier formula）</a></li>
+  <li><a href="#狄利克雷积分dirichlet-integral" id="toc-狄利克雷积分dirichlet-integral" class="nav-link" data-scroll-target="#狄利克雷积分dirichlet-integral">2.2* 狄利克雷积分（<strong>Dirichlet integral</strong>）</a></li>
+  </ul></li>
+  <li><a href="#广义形态的傅立叶级数和系数公式" id="toc-广义形态的傅立叶级数和系数公式" class="nav-link" data-scroll-target="#广义形态的傅立叶级数和系数公式">3*. 广义形态的傅立叶级数和系数公式</a>
+  <ul class="collapse">
+  <li><a href="#任意区间的情况" id="toc-任意区间的情况" class="nav-link" data-scroll-target="#任意区间的情况">3.1 任意区间的情况</a></li>
+  <li><a href="#菜就多练给爷展" id="toc-菜就多练给爷展" class="nav-link" data-scroll-target="#菜就多练给爷展">3.2 菜就多练，给爷展</a></li>
+  </ul></li>
+  <li><a href="#傅里叶级数的拓扑空间" id="toc-傅里叶级数的拓扑空间" class="nav-link" data-scroll-target="#傅里叶级数的拓扑空间">4. 傅里叶级数的拓扑空间</a>
+  <ul class="collapse">
+  <li><a href="#infty维欧式空间---rinfty" id="toc-infty维欧式空间---rinfty" class="nav-link" data-scroll-target="#infty维欧式空间---rinfty">4.1 <span class="math inline">\(\infty\)</span>维欧式空间 - <span class="math inline">\(\R^{\infty}\)</span></a>
+  <ul class="collapse">
+  <li><a href="#n维空间的定义--rn" id="toc-n维空间的定义--rn" class="nav-link" data-scroll-target="#n维空间的定义--rn">4.1.1 <span class="math inline">\(n\)</span>维空间的定义- <span class="math inline">\(\R^{n}\)</span></a></li>
+  <li><a href="#由此推出infty维空间---rinfty" id="toc-由此推出infty维空间---rinfty" class="nav-link" data-scroll-target="#由此推出infty维空间---rinfty">4.1.2 由此推出<span class="math inline">\(\infty\)</span>维空间 - <span class="math inline">\(\R^{\infty}\)</span></a></li>
+  </ul></li>
+  <li><a href="#hilbert空间" id="toc-hilbert空间" class="nav-link" data-scroll-target="#hilbert空间">4.2 Hilbert空间</a></li>
+  <li><a href="#lp-空间lebesgue-space" id="toc-lp-空间lebesgue-space" class="nav-link" data-scroll-target="#lp-空间lebesgue-space">4.3 <span class="math inline">\(L^p\)</span> 空间（<strong>Lebesgue Space</strong>）</a>
+  <ul class="collapse">
+  <li><a href="#正交函数系-orthogonal-functions" id="toc-正交函数系-orthogonal-functions" class="nav-link" data-scroll-target="#正交函数系-orthogonal-functions">4.4.1 正交函数系 (orthogonal functions)</a></li>
+  <li><a href="#规范正交函数系-orthonormal-functions" id="toc-规范正交函数系-orthonormal-functions" class="nav-link" data-scroll-target="#规范正交函数系-orthonormal-functions">4.4.2 规范正交函数系 (orthonormal functions)</a></li>
+  </ul></li>
+  <li><a href="#傅里叶级数在l2-空间的基函数" id="toc-傅里叶级数在l2-空间的基函数" class="nav-link" data-scroll-target="#傅里叶级数在l2-空间的基函数">4.5 傅里叶级数在<span class="math inline">\(L^2\)</span> 空间的基函数</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/偏微分方程/index.html">偏微分方程</a></li><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/偏微分方程/Heat Equation/index.html">热方程</a></li><li class="breadcrumb-item"><a href="../../../../../content/notes/理论/偏微分方程/Heat Equation/The Fourier Series.html">傅立叶级数</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">傅立叶级数</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="傅立叶级数的基本形态" class="level1 page-columns page-full">
+<h1>1. 傅立叶级数的基本形态</h1>
+<section id="周期" class="level2">
+<h2 class="anchored" data-anchor-id="周期">1.1 周期</h2>
+<p>在经历了周期<span class="math inline">\(T\)</span>后，重新获得原值的函数为<strong>周期函数：</strong></p>
+<p><span class="math display">\[
+\varphi(t+T)=\varphi
+\]</span></p>
+</section>
+<section id="正弦型量" class="level2">
+<h2 class="anchored" data-anchor-id="正弦型量">1.2 正弦型量</h2>
+<p>正弦型量形如：</p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(y(t)=Asin(\omega t+\alpha)\)</span> where <span class="math inline">\(\omega = \cfrac{2\pi}{T}\)</span> is the <strong>frequency.</strong></p>
+</blockquote>
+<p>Notice that for values <span class="math inline">\(s.t.\)</span>:</p>
+<p><span class="math display">\[
+y_0 = A_0, \ y_1=A_1\sin(\omega t + \alpha_1), \  y_2=A_2\sin(2\omega t + \alpha_2), \ y_3=A_3\sin(3\omega t + \alpha_3) ...
+\]</span></p>
+<p>we have frequency as the multiple of the smallest frequency with their period:</p>
+<p><span class="math inline">\(\omega\)</span>, <span class="math inline">\(2\omega\)</span>, <span class="math inline">\(3\omega\)</span>…</p>
+<p><span class="math inline">\(T\)</span>, <span class="math inline">\(\frac{1}{2}T\)</span>, <span class="math inline">\(\frac{1}{3}T\)</span>…</p>
+<p>![[Fourier Series.png]]</p>
+<p>If we add them together, we get…</p>
+</section>
+<section id="三角级数---varphit函数" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="三角级数---varphit函数">1.3.1 三角级数 - <span class="math inline">\(\varphi(t)\)</span>函数</h2>
+<aside>
+<p>💡 <strong>It is possible to represent any periodic function with finite or infinite summations of sin functions:</strong></p>
+<p><span class="math display">\[
+\varphi(t)=A_0 + \sum_{n=1}^{\infty}A_n\sin(n\omega t+ \alpha_n)
+\]</span></p>
+<p>where <span class="math inline">\(A_n, \alpha_n\)</span> are constants</p>
+<ul>
+<li><span class="math inline">\(\varphi(t)\)</span>可以被分解成无数个<strong>调和震动</strong></li>
+<li>每一项称之为<strong>调和素</strong></li>
+<li>对<span class="math inline">\(\varphi(t)\)</span>进行分解的手法被称之为<strong>调和分析</strong></li>
+</ul>
+</aside>
+</section>
+<section id="三角级数---最终展开式" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="三角级数---最终展开式">1.3.2 三角级数 - 最终展开式</h2>
+<blockquote class="blockquote">
+<p>注意ppt里的公式是不一样的换元，<span class="math inline">\(x=\frac{2Lt}{T}\)</span>，所以<span class="math inline">\(\frac{\pi}{L}\)</span>被抽出来了。这里我们会用正常的逻辑换元推导，等到后面需要计算generic interval，才重新换一个<span class="math inline">\(L\)</span>进去***</p>
+</blockquote>
+<p>当我们用<span class="math inline">\(x=\omega t = \frac{2\pi t}{T}\)</span> 来<strong>换元</strong> <span class="math inline">\(s.t.\)</span> <span class="math inline">\(f(x)=\varphi(t) = \varphi(\frac{x}{\omega})\)</span> ，我们用三角正弦公式展开：</p>
+<p><span class="math display">\[
+\begin{align}f(x)&amp;= A_0 + \sum_{n=1}^{\infty}A_n\sin(nx+ \alpha_n)\\  &amp;=A_0 + \sum_{n=1}^{\infty}A_n(\cos nx\sin \alpha_n+ \sin nx \cos \alpha_n) \\\end{align}
+\]</span></p>
+<blockquote class="blockquote">
+<p>正弦公式：<span class="math inline">\(\sin(a+b)=\cos a\sin b + \sin a\cos b\)</span> 展开</p>
+</blockquote>
+<p><span class="math display">\[
+f(x)=A_0+\sum_{n=1}^{\infty}[(A_n\sin \alpha_n)\cos nx+ (A_n \cos \alpha_n)\sin nx )]
+\]</span></p>
+<p>并令 <span class="math inline">\(A_0=a_0, \ A_n\sin\alpha_n = b_n, \  A_n\cos\alpha_n = b_n\)</span></p>
+<aside>
+<p>💡 于是我们就有了会有三角级数的<strong>最终展开形态</strong>：</p>
+<p><span class="math display">\[
+f(x)=a_0 + \sum_{n=1}^{\infty}(a_n\cos nx+ b_n\sin nx)
+\]</span></p>
+<ul>
+<li><strong>the period for <span class="math inline">\(f\)</span> is <span class="math inline">\(2\pi\)</span></strong> due to our definition of new independent variable <span class="math inline">\(x\)</span></li>
+</ul>
+</aside>
+</section>
+</section>
+<section id="傅立叶级数的系数" class="level1">
+<h1>2. 傅立叶级数的系数</h1>
+<section id="欧拉-傅立叶公式euler-fourier-formula" class="level2">
+<h2 class="anchored" data-anchor-id="欧拉-傅立叶公式euler-fourier-formula">2.1 欧拉-傅立叶公式（Euler-Fourier formula）</h2>
+<blockquote class="blockquote">
+<p>这个是一个18世纪初欧拉使用的系数确定法。后面我们还学了泛函分析的inner product算系数的方法。</p>
+</blockquote>
+<p>Assuming <span class="math inline">\(f(x)\)</span> under <span class="math inline">\([-\pi,\pi]\)</span> is an integrable function, if we assume Fourier Expansion for <span class="math inline">\(f(x)\)</span> is <strong>true</strong>, then directly we have:</p>
+<p><span class="math display">\[
+\begin{align}\int_{-\pi}^{\pi} f(x) \, dx = 2\pi a_0 + \sum_{n=1}^{\infty} \left[ a_n \int_{-\pi}^{\pi} \cos nx \, dx + b_n \int_{-\pi}^{\pi} \sin nx \, dx \right]\end{align}
+\]</span></p>
+<p>obviously, the integration for <span class="math inline">\(\cos\)</span> and <span class="math inline">\(\sin\)</span> for <span class="math inline">\([-\pi,\pi]\)</span> is 0 regardless of the values, so we only left with:</p>
+<p><span class="math display">\[
+a_0= \frac{1}{2\pi}\int_{-\pi}^{\pi} f(x) \, dx
+\]</span></p>
+<p>next, if to find the specific value for arbitrary <span class="math inline">\(a_m\)</span> (<span class="math inline">\(m=1,2,3...\)</span>), we multiply <span class="math inline">\((3)\)</span> by <span class="math inline">\(\cos (ma)\)</span> so that the terms we needed wouldn’t cancel out, eventually we reached at:</p>
+<p><span class="math display">\[
+a_m= \frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \cos(ma) \, dx
+\]</span></p>
+<p>Similarly, multiply by <span class="math inline">\(\sin(ma)\)</span>, we derive:</p>
+<p><span class="math display">\[
+b_m= \frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \sin(ma) \, dx
+\]</span></p>
+<p>这些公式被称之为<strong>欧拉-傅立叶公式（Euler-Fourier formula），</strong>而他们算出来的数值被称为已给函数的<strong>傅立叶系数（Fourier Coefficient）。</strong></p>
+</section>
+<section id="狄利克雷积分dirichlet-integral" class="level2">
+<h2 class="anchored" data-anchor-id="狄利克雷积分dirichlet-integral">2.2* 狄利克雷积分（<strong>Dirichlet integral</strong>）</h2>
+<blockquote class="blockquote">
+<p>通过傅立叶展开的一个定点<span class="math inline">\(x=x_0\)</span>的性质，获得的重要积分：</p>
+</blockquote>
+<p>$$ s_n(x_0) = _{0}^{} , dt</p>
+<p>$$</p>
+<p>e.x. <a href="https://www.bilibili.com/video/BV1XE411p7ZN/">https://www.bilibili.com/video/BV1XE411p7ZN/</a></p>
+</section>
+</section>
+<section id="广义形态的傅立叶级数和系数公式" class="level1 page-columns page-full">
+<h1>3*. 广义形态的傅立叶级数和系数公式</h1>
+<section id="任意区间的情况" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="任意区间的情况">3.1 任意区间的情况</h2>
+<aside>
+<p>💡 We can separate out a <span class="math inline">\(\frac{1}{2}\)</span> from the original <span class="math inline">\(a_0\)</span> coefficient, so the first term becomes a special case for <span class="math inline">\(n=0\)</span>.</p>
+</aside>
+<p>在任意<span class="math inline">\(2L\)</span>大小的区间 <span class="math inline">\((-L,L]\)</span> 上，我们可以使用变换：<span class="math inline">\(x=\frac{Ly}{\pi} (-\pi&lt;y\leq\pi)\)</span> 使得<span class="math inline">\(f(x)\rightarrow f(\frac{Ly}{\pi})\)</span> 。于是，我们根据公式获得：</p>
+<p><span class="math display">\[
+f\left( \frac{Ly}{\pi} \right) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos ny + b_n \sin ny \right)
+\]</span></p>
+<p>以及其系数：</p>
+<p><span class="math display">\[
+a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f\left( \frac{y}{\pi} \right) \cos ny \, dy \quad (n = 0, 1, 2, \ldots)
+\]</span></p>
+<p>$$</p>
+<p>b_n = _{-}^{} f( ) ny , dy (n = 1, 2, ) $$</p>
+<p>当我们重新变换回去，即使得<span class="math inline">\(y = \cfrac{\pi x}{L}\)</span>，那么我们就会获得一个广义上的傅立叶展开！</p>
+<aside>
+<p>💡 The general form of <strong>Fourier Expansion</strong>:</p>
+<p><span class="math display">\[
+\begin{align}f(x)=\frac{A_0}{2} + \sum_{n=1}^{\infty} \left( A_n \cos \frac{n\pi x}{L} + B_n \sin \frac{n\pi x}{L} \right) \end{align}
+\]</span></p>
+<p>Here, <span class="math inline">\(x\)</span> is no longer the angle, but the integer multiples of <span class="math inline">\(\frac{\pi x}{L}\)</span>, such that the <strong>Fourier Coefficient</strong> for generic interval <span class="math inline">\([-L,L]\)</span> are:</p>
+<p>$$ <span class="math display">\[\begin{align} A_n \equiv \frac{1}{L} \int_{-L}^{L} f(x) \cos\left(\frac{n\pi x}{L}\right) dx, \quad n = 0, 1, 2, \ldots
+\\
+B_n \equiv \frac{1}{L} \int_{-L}^{L} f(x) \sin\left(\frac{n\pi x}{L}\right) dx, \quad n = 1, 2, 3, \ldots \end{align}\]</span></p>
+<p>$$</p>
+</aside>
+</section>
+<section id="菜就多练给爷展" class="level2">
+<h2 class="anchored" data-anchor-id="菜就多练给爷展">3.2 菜就多练，给爷展</h2>
+<ol type="1">
+<li><p><span class="math inline">\(f(x)=e^{ax}\)</span>, <span class="math inline">\(a\neq0\)</span> on the interval of <span class="math inline">\((-\pi,\pi)\)</span></p>
+<p><a href="https://www.notion.so/2988450b6855433fb47610ada51a5416?pvs=21">答案</a></p></li>
+<li><p><span class="math inline">\(f(x)=\frac{\pi-x}{2}\)</span> on the interval of <span class="math inline">\((0,2\pi)\)</span></p>
+<p><a href="https://www.notion.so/a8c1447c44eb4ae8aab63f06f5f1740d?pvs=21">答案</a></p></li>
+<li><p><span class="math inline">\(f(x)=x^2\)</span> on the interval of <span class="math inline">\([-\pi,\pi]\)</span>, expand as cosine series.</p>
+<p><a href="https://www.notion.so/e29abaeb6f4c46068da6808500da7285?pvs=21">答案</a></p></li>
+<li><p>Two functions (<span class="math inline">\(a\)</span> is assumed to be non-integers):</p>
+<ol type="1">
+<li><p><span class="math inline">\(f_1(x)=\cos(ax)\)</span> on the interval of <span class="math inline">\([-\pi,\pi]\)</span>, expand as cosine series.</p>
+<p><a href="https://www.notion.so/c043984df343431387116d06e0cafb93?pvs=21">答案</a></p></li>
+<li><p><span class="math inline">\(f_2(x)=\sin(ax)\)</span> on the interval of <span class="math inline">\((-\pi,\pi)\)</span>, expand as sine series.</p>
+<p><a href="https://www.notion.so/8d0eb06f0b394286b1156568923bc95b?pvs=21">答案</a></p></li>
+</ol></li>
+<li><p><span class="math inline">\(f(x)=e^{ax}\)</span>, <span class="math inline">\(a\neq0\)</span> on the interval of <span class="math inline">\((0,\pi)\)</span>:</p>
+<ol type="1">
+<li>expand as cosine series</li>
+<li>expand as sine series</li>
+</ol>
+<p><a href="https://www.notion.so/4b81490b681f426cab8c726e7b93f8a3?pvs=21">答案</a></p></li>
+</ol>
+</section>
+</section>
+<section id="傅里叶级数的拓扑空间" class="level1 page-columns page-full">
+<h1>4. 傅里叶级数的拓扑空间</h1>
+<aside>
+<p>💡 理解傅里叶级数变换的拓扑空间的逻辑是：</p>
+<p><strong>三维空间——&nbsp;<span class="math inline">\(n\)</span>维空间——<span class="math inline">\(\infty\)</span>维空间——希尔伯特空间（<span class="math inline">\(L^2\)</span>空间）——傅立叶级数——傅立叶变换</strong></p>
+</aside>
+<section id="infty维欧式空间---rinfty" class="level2">
+<h2 class="anchored" data-anchor-id="infty维欧式空间---rinfty">4.1 <span class="math inline">\(\infty\)</span>维欧式空间 - <span class="math inline">\(\R^{\infty}\)</span></h2>
+<section id="n维空间的定义--rn" class="level3">
+<h3 class="anchored" data-anchor-id="n维空间的定义--rn">4.1.1 <span class="math inline">\(n\)</span>维空间的定义- <span class="math inline">\(\R^{n}\)</span></h3>
+<p>范数（Norm）:</p>
+<p><span class="math display">\[
+N_p(x) = \| x \|_p = \left( |x_1|^p + |x_2|^p + \cdots + |x_n|^p \right)^{\frac{1}{p}}
+\]</span></p>
+<p>单位正交向量基（standard orthogonal basis）:</p>
+<p><span class="math display">\[
+\left\{&nbsp;\begin{aligned}\vec{e}_1 &amp;= (1, 0, \ldots, 0), \\\vec{e}_2 &amp;= (0, 1, \ldots, 0), \\&amp; \vdots \\\vec{e}_n &amp;= (0, 0, \ldots, 1)\end{aligned}\right.
+\]</span></p>
+<p>因此<span class="math inline">\(n\)</span>维欧式空间的任何向量可以被直接表达成：</p>
+<p><span class="math display">\[
+\vec{a} = \sum_{i=1}^{n} a_i \vec{e}_i
+\]</span></p>
+</section>
+<section id="由此推出infty维空间---rinfty" class="level3">
+<h3 class="anchored" data-anchor-id="由此推出infty维空间---rinfty">4.1.2 由此推出<span class="math inline">\(\infty\)</span>维空间 - <span class="math inline">\(\R^{\infty}\)</span></h3>
+<p>同理，当我们有无数个标准基，<span class="math inline">\(\{ \vec{e}_1 , \vec{e}_2 , \vec{e}_3 \ldots\}\)</span>，的时候，向量变成了</p>
+<p><span class="math display">\[
+\vec{a} = \sum_{i=1}^{\infty} a_i \vec{e}_i
+\]</span></p>
+<ul>
+<li>但是他们依然是<strong>离散的元素</strong></li>
+</ul>
+</section>
+</section>
+<section id="hilbert空间" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="hilbert空间">4.2 Hilbert空间</h2>
+<p>我们需要把离散的元素过度到连续的函数，Hilbert空间：</p>
+<ol type="1">
+<li><p>设定一个向量函数<span class="math inline">\(\vec{f}(x)\)</span></p></li>
+<li><p>并且存在一组基函数（standard orthogonal functions）</p>
+<p><span class="math inline">\(\{ \vec{\varphi}_1 , \vec{\varphi}_2 , \vec{\varphi}_3 \ldots\}\)</span> <span class="math inline">\(s.t.\)</span> we have</p>
+<p><span class="math display">\[
+\vec{f}(x) = \sum_{i=1}^{\infty} a_i \vec{\varphi_i}(x)
+\]</span></p></li>
+</ol>
+<p>因此，我们在Hilbert空间就有了这样的性质：</p>
+<aside>
+<p>💡 1. 函数在区间<span class="math inline">\([a,b]\)</span>上的模（norm）：</p>
+<p><span class="math display">\[
+| f(x) | = \sqrt{\int_a^b f^2(x) \, dx} ;
+\]</span></p>
+<ol type="1">
+<li>如果两个函数的正交条件（orthogonality）为其内积（inner product）为零：</li>
+</ol>
+<p><span class="math display">\[
+\int_{a}^{b} f(x) g(x) \, dx = 0
+\]</span></p>
+<ol type="1">
+<li>两者的角的余弦为</li>
+</ol>
+<p><span class="math display">\[
+\cos(\theta) = \frac{\langle f(x), g(x) \rangle}{| f(x) | \cdot | g(x) |} = \frac{\int f(x)g(x) \, dx}{\sqrt{\int f^2(x) \, dx} \sqrt{\int g^2(x) \, dx}} ;
+\]</span></p>
+</aside>
+</section>
+<section id="lp-空间lebesgue-space" class="level2">
+<h2 class="anchored" data-anchor-id="lp-空间lebesgue-space">4.3 <span class="math inline">\(L^p\)</span> 空间（<strong>Lebesgue Space</strong>）</h2>
+<blockquote class="blockquote">
+<p>定义：Suppose <span class="math inline">\(f(x)\)</span> is measurable functions on <span class="math inline">\(E\subset R^n\)</span>.</p>
+<p>For <span class="math inline">\(0&lt;p&lt;\infty\)</span>, we denote:</p>
+<p><span class="math display">\[
+||f||_p=(\int_E|f(x)|^pdx)^{1/p}
+\]</span></p>
+</blockquote>
+<p>我们用<span class="math inline">\(L^p(E)\)</span>来表示<span class="math inline">\(||f||_p&lt;\infty\)</span>的全体函数，称其为<span class="math inline">\(L^p\)</span>空间。</p>
+<p>其范数（norm）为：</p>
+<p><span class="math display">\[
+L_p = \| \varphi \|_p = \left( \sum_{i=1}^{n} |\varphi_i|^p \right)^{\frac{1}{p}}, \quad x = (x_1, x_2, \ldots, x_n)
+\]</span></p>
+<hr>
+<p><span class="math inline">\(L^p\)</span>空间的一些基础属性：</p>
+<ul>
+<li><span class="math inline">\(L\)</span>空间里的每一个函数都是<strong>Lebesgue可积的</strong></li>
+<li>空间维度是无穷而且不可数的度量空间（Metric Space）</li>
+<li>Banach空间，或者完备赋范向量空间 (complete normed vector space)</li>
+<li><strong>当<span class="math inline">\(p=2\)</span>，<span class="math inline">\(L^2\)</span>变成了一个Hilbert空间，</strong>一个带有<strong>内积</strong>的Banach空间</li>
+</ul>
+<blockquote class="blockquote">
+<p>A&nbsp;<em>Hilbert space</em>&nbsp;is a&nbsp;real&nbsp;or&nbsp;complex&nbsp;inner product space&nbsp;that is also a&nbsp;complete metric space&nbsp;with respect to the distance function&nbsp;induced&nbsp;by the inner product. In every Hilbert Space, we have functions that</p>
+<p><span class="math display">\[
+\langle x, y \rangle = \sum_{k=1}^{n} \overline{x_k} y_k
+\]</span></p>
+</blockquote>
+<p><span class="math inline">\(L^2\)</span>空间的范数<strong>（norm）</strong>，根据之前的公式，我们可以得知：</p>
+<p><span class="math display">\[
+\| \varphi \|_2 = \sqrt{ \sum_{i=1}^{n} |\varphi_i|^2 }, \quad x = (x_1, x_2, \ldots, x_n)
+\]</span></p>
+<p>p.s. 以（p=2）为例，空间中到原点的欧氏距离为1的点构成了一个球面。</p>
+<p>![[L-space-1.png]] ## 4.4 傅里叶级数的正交函数系与规范系</p>
+<blockquote class="blockquote">
+<p>定义：if <span class="math inline">\(\int_{a}^{b} \varphi(x) \psi(x) \, dx = 0\)</span> for interval <span class="math inline">\([a,b]\)</span>, then <span class="math inline">\(\varphi(x), \psi(x)\)</span> are orthogonal.</p>
+</blockquote>
+<section id="正交函数系-orthogonal-functions" class="level3">
+<h3 class="anchored" data-anchor-id="正交函数系-orthogonal-functions">4.4.1 正交函数系 (orthogonal functions)</h3>
+<p>当每对双函数<span class="math inline">\(\varphi_n(x), \ \varphi_m(x)\)</span> 都符合定义以下，我们称这样的函数群体为<strong>正交函数系 （orthogonal group）</strong>：</p>
+<p><span class="math display">\[
+\int_{a}^{b} \varphi_n(x) \varphi_m(x) \, dx = 0 \space \space\space\space\space\space\space\space \{n,m\in \N\ | \ n\neq m \}
+\]</span></p>
+</section>
+<section id="规范正交函数系-orthonormal-functions" class="level3">
+<h3 class="anchored" data-anchor-id="规范正交函数系-orthonormal-functions">4.4.2 规范正交函数系 (orthonormal functions)</h3>
+<p>若函数的 <span class="math inline">\(\lambda_n=1\)</span> <span class="math inline">\((n=1,2,3...)\)</span>, 那么这便是<strong>规范系（orthonormal group）：</strong></p>
+<p><span class="math display">\[
+\int_{a}^{b} \varphi_n^2(x) \, dx = \lambda_n
+\]</span></p>
+<p>若不是orthogonal，则我们可以通过<span class="math inline">\(\left\{ \cfrac{\varphi_n(x)}{\sqrt{\lambda_n}} \right\}\)</span> 来进行换取新的orthogonal functions。</p>
+</section>
+</section>
+<section id="傅里叶级数在l2-空间的基函数" class="level2">
+<h2 class="anchored" data-anchor-id="傅里叶级数在l2-空间的基函数">4.5 傅里叶级数在<span class="math inline">\(L^2\)</span> 空间的基函数</h2>
+<p>Notice back to this set of functions inside the interval <span class="math inline">\([-\pi,\pi]\)</span>:</p>
+<p><span class="math display">\[1, \cos(x), \sin(x), \cos(2x), \sin(2x),...\cos(nx), \sin(nx),...\]</span></p>
+<p>These are <strong>orthogonal basis functions</strong> for their vector space because we see for any two functions in this set <span class="math inline">\(\int_{-\pi}^{\pi} \cos(mx) \cdot \sin(nx) \, dx = 0.\)</span></p>
+<p>However, they are not standard, or normed, because <span class="math inline">\(\lambda_n \neq1\)</span>.</p>
+<p>我们可以通过模（norm）的定义获得他们的normalizing coefficient：</p>
+<p><span class="math display">\[\|1\| = \sqrt{\int_{-\pi}^{\pi} 1^2 \, dx} = \sqrt{2\pi}\]</span></p>
+<p><span class="math display">\[\|\cos(nx)\| = \sqrt{\int_{-\pi}^{\pi} \cos^2(nx) \, dx} = \sqrt{\pi}\]</span></p>
+<p><span class="math display">\[\|\sin(nx)\| = \sqrt{\int_{-\pi}^{\pi} \sin^2(nx) \, dx} = \sqrt{\pi}\]</span> Then, we would have a <strong>standard orthonormal functions:</strong> <span class="math display">\[\frac{1}{\sqrt{2\pi}}, \ldots, \, \frac{\cos nx}{\sqrt{\pi}}, \, \frac{\sin nx}{\sqrt{\pi}}, \, \ldots\]</span></p>
+<p>Let’s define them:</p>
+<p><span class="math display">\[\psi_0=\frac{1}{\sqrt{2\pi}}, \psi_j=\frac{1}{\sqrt{\pi}}\cos(jx),  \varphi_j=\frac{1}{\sqrt{\pi}}\sin(jx)\]</span></p>
+<p><span class="math display">\[\psi_0\equiv\sqrt L\quad \psi_j\equiv\sqrt L\cos\left ( \frac{j\pi}{L}x
+\right )\quad \varphi_j\equiv\sqrt L\sin\left ( \frac{j\pi}{L}x
+\right) \]</span></p>
+<p>such that, we obtain the coefficient for each standard basis functions needed:</p>
+<p><span class="math display">\[\begin{align} a_0 &amp;= \langle f,\psi_0\rangle=\frac{1}{\sqrt{2\pi}} \int_{-\pi}^{\pi} f(x) \, dx\\a_j &amp;=\langle f,\psi_k\rangle=\frac{1}{\sqrt{\pi}} \int_{-\pi}^{\pi} f(x) \cos(jx) \, dx\\ b_j &amp;=\langle f,\varphi_k\rangle =\frac{1}{\sqrt{\pi}} \int_{-\pi}^{\pi} f(x) \sin(kx) \, dx \end{align} \]</span></p>
+<p>Then, for the function <span class="math inline">\(\mathcal X\)</span> and its coffecient <span class="math inline">\(C_k\)</span> defined as</p>
+<p><span class="math display">\[
+\mathcal X_k=(
+\psi_k ,\varphi_k
+), \quad C_k=(a_j,b_j)
+\]</span></p>
+<p>we have a function space:</p>
+<p><span class="math display">\[
+\mathcal F(f)=\sum_{k=0}^\infty C_k \cdot \mathcal X_k
+\]</span></p>
+<hr>
+<p>如同<span class="math inline">\(\vec{a} = \sum_{i=1}^{n} a_i \vec{e}_i \quad\)</span>一样，我们有<span class="math inline">\(f(x) = a_0 \frac{1}{\sqrt{2\pi}} + a_1 \frac{\cos x}{\sqrt{\pi}} + b_1 \frac{\sin x}{\sqrt{\pi}} + a_2 \frac{\cos 2x}{\sqrt{\pi}} + b_2 \frac{\sin 2x}{\sqrt{\pi}} + \cdots\)</span>，或者</p>
+<p>$$</p>
+<p>f(x) = a_0 + <em>{k=1}^{} a_k + </em>{k=1}^{} b_k $$</p>
+<p>代入<span class="math inline">\(a_0,a_k,b_k\)</span>到上式中，我们获得：</p>
+<p><span class="math display">\[
+f(x) =  \frac{1}{\sqrt{2\pi}} \int_{-\pi}^{\pi} f(x) \, dx  \frac{1}{\sqrt{2\pi}} + \sum_{k=1}^{\infty} \frac{\cos kx}{\sqrt{\pi}}\frac{1}{\sqrt{\pi}} \int_{-\pi}^{\pi} f(x) \cos kx \, dx + \sum_{k=1}^{\infty} \frac{\sin kx}{\sqrt{\pi}} \frac{1}{\sqrt{\pi}} \int_{-\pi}^{\pi} f(x) \sin kx \, dx
+\]</span></p>
+<p>当我们简化之后，并且将系数项更新，我们最终有了现在的傅里叶展开式：</p>
+<p><span class="math display">\[
+f(x)=A_0 + \sum_{n=1}^{\infty}(A_n\cos nx+ B_n\sin nx)
+\]</span></p>
+<p><span class="math display">\[
+\begin{align} A_0 &amp;= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) \, dx\\A_n &amp;= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos(nx) \, dx\\ B_n &amp;= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin(nx) \, dx \end{align}
+\]</span></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  const STORAGE_KEY = 'quarto-sidebar-state';
+
+  function loadState() {
+    try {
+      return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '{}');
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function saveState(state) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch {}
+  }
+
+  function applyState(state) {
+    const collapseEls = document.querySelectorAll('#quarto-sidebar .collapse');
+    collapseEls.forEach((el) => {
+      const id = el.id;
+      if (!id) return;
+      const shouldOpen = state[id];
+      const toggle = document.querySelector(`[data-bs-target="#${CSS.escape(id)}"]`);
+      if (shouldOpen === undefined) return;
+      if (shouldOpen) {
+        el.classList.add('show');
+        if (toggle) {
+          toggle.classList.remove('collapsed');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      } else {
+        el.classList.remove('show');
+        if (toggle) {
+          toggle.classList.add('collapsed');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  }
+
+  function registerStateHandlers(state) {
+    const sidebar = document.querySelector('#quarto-sidebar');
+    if (!sidebar) return;
+    sidebar.addEventListener('shown.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = true;
+        saveState(state);
+      }
+    });
+    sidebar.addEventListener('hidden.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = false;
+        saveState(state);
+      }
+    });
+  }
+
+  function setupNavbarTransparency() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // At top or scrolling up: opaque
+      if (currentScroll <= 50 || currentScroll < lastScroll) {
+        navbar.classList.remove('navbar-transparent');
+      }
+      // Scrolling down: transparent
+      else if (currentScroll > lastScroll && currentScroll > 50) {
+        navbar.classList.add('navbar-transparent');
+      }
+      
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    }, { passive: true });
+  }
+
+  window.document.addEventListener('DOMContentLoaded', function () {
+    const state = loadState();
+    
+    // Disable Quarto's headroom
+    const header = document.getElementById('quarto-header');
+    if (header?.headroom?.destroy) header.headroom.destroy();
+    
+    setupNavbarTransparency();
+    applyState(state);
+    registerStateHandlers(state);
+  });
+})();
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

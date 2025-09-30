@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>学习笔记</title><link>http://localhost:1314/docs/%E7%89%A9%E7%90%86/section/</link><description>Recent content on 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="http://localhost:1314/docs/%E7%89%A9%E7%90%86/section/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1314/docs/%E7%89%A9%E7%90%86/section/buttons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E7%89%A9%E7%90%86/section/buttons/</guid><description>&lt;h1 id="buttons">
+ Buttons
+ &lt;a class="anchor" href="#buttons">#&lt;/a>
+&lt;/h1>
+&lt;p>Buttons are styled links that can lead to local page or external link.&lt;/p>
+&lt;h2 id="example">
+ Example
+ &lt;a class="anchor" href="#example">#&lt;/a>
+&lt;/h2>
+&lt;pre>&lt;code class="language-">{{&amp;amp;lt; button relref=&amp;amp;#34;/&amp;amp;#34; [class=&amp;amp;#34;...&amp;amp;#34;] &amp;amp;gt;}}Get Home{{&amp;amp;lt; /button &amp;amp;gt;}}
+{{&amp;amp;lt; button href=&amp;amp;#34;https://github.com/alex-shpak/hugo-book&amp;amp;#34; &amp;amp;gt;}}Contribute{{&amp;amp;lt; /button &amp;amp;gt;}}&lt;/code>&lt;/pre>&lt;div class="code-block">
+ &lt;pre>
+&lt;code>{{&lt; button relref="/" [class="..."] >}}Get Home{{&lt; /button >}}
+{{&lt; button href="https://github.com/alex-shpak/hugo-book" >}}Contribute{{&lt; /button >}}&lt;/code>
+ &lt;/pre>
+ &lt;button class="copy-button">
+ &lt;img src="https://systemuicons.com/images/icons/replicate.svg" alt="copy the code" />
+ &lt;/button>
+&lt;/div>
+
+&lt;p>&lt;a href="http://localhost:1314/" class="book-btn">Get Home&lt;/a>
+
+&lt;a href="https://github.com/alex-shpak/hugo-book" target="_blank" rel="noopener" class="book-btn">Contribute&lt;/a>
+&lt;/p></description></item></channel></rss>

@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>理论 – Erise Note</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-29a19b5acbeac218a8c860e48340d4df.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 25,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Erise Note</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="搜索"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="展开或折叠导航栏" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/notes/index.md"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/posts/index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/EriseHe/notebook"> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../content/notes/理论/index.html">理论</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">理论</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/点集拓扑学基础/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">点集拓扑学基础</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/偏微分方程/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏微分方程</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/Laplace Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">拉普拉斯方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/Wave Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">波方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/偏微分方程/Heat Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">热方程</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/Heat Equation/Heat Equation Solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Heat Equation Solution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/Heat Equation/The Fourier Series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">傅立叶级数</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">数值方法</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/01 Mid-Point Method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formula Derivation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/02 Three-Point Backward Differentiation Formula.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Ok Honestly I Have No Idea Where He Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/03 Numerical Solution of Ordinary Differential Equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">常微分方程的数值解</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第九章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.1 Boundary Value Problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.1 边值问题的近似</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.2 Finite Difference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.2 有限差分法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.3 Advection-Diffusion Equation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.3 对流-扩散方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.4 2D Problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.4 4.1 二维（2D）偏微分方程问题</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/Exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">习题</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第十章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Finite Element Method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Order of Convergence in Finite Elements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Quiz 4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions for Quiz 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第四章 有限元分析</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/4.1 有限元.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 有限元</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/实分析/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">实分析</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/实分析/Homework/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Real Analysis II</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/Homework/Homework 10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/Homework/Homework 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/Homework/Homework 6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/Homework/Homework 7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/Homework/Homework 8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/Homework/Homework 9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 9</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/实分析/第七章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第七章 逆函数和隐函数定理</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第七章/7.1 Inverse Function Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1 反函数定理</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第七章/7.1.1 Inverse FT (Proof).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1.1 反函数定理（证明）</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第七章/7.2 Implicit Function Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 隐函数定理</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第七章/7.6 Morse Lemma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6 莫尔斯引理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/实分析/第九章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第九章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第九章/9.1 Computing Integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">积分计算</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/实分析/第八章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第八章 度量理论</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第八章/8.1 度量理论.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 积分的定义</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第八章/8.2 Criterion for Integrability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Criterion for Integrability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第八章/8.3 Proof of Lebesgue's Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proof of the Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第八章/8.5 Improper Integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.5 不定积分</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第八章/8.6 Lebesgue Convergence Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.6 勒贝格收敛定理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/实分析/第六章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第六章 可微映射</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第六章/6.4 Sufficient Conditions for Differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.4 可微分性的必要条件</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第六章/6.5 The Chain Rule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.5 链式法则</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第六章/6.6 Product Rule and Gradients.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.6 乘积法则与梯度</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第六章/6.9 Taylor Higher Dimentions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.9 泰勒公式的高维形式</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/实分析/第十章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第十章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/实分析/第十章/10.1 Fourier Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian Integral Computation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/广义相对论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">广义相对论</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/广义相对论/几何基础/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">几何基础</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/广义相对论/几何基础/1. Topological Space.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Topological Space</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/广义相对论/广义相对论理论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">广义相对论理论</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/广义相对论/广义相对论理论/1. Four-Vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">四维向量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/广义相对论/广义相对论理论/2. Einstein Summation Convention.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einstein求和约定</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/广义相对论/广义相对论理论/3. Index Notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">指标</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/广义相对论/广义相对论理论/6. Tensor Equation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">张量方程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/微分几何/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">微分几何</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/微分几何/1. Overview of Differential Geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. From Calculus to Manifolds</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/微分几何/2. Lecture 2 (ACTUAL).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parametrized Curves in <span class="math inline">\(\mathbb{R}^3\)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/微分几何/2. Parametrized Curves and Surfaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Parametrized curves in <span class="math inline">\(\mathbb{R}^3\)</span> (plane curves as a special case)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/微分几何/3. Tangent Vectors on a Surface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Recap from Last lecture</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/微分几何/5. Pushforward, Pullback, and Local Isometries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Smooth map and its differential (push-forward)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/微分几何/T-n分离公理.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T-n Levels of Separation Axiom</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/概率机器学习/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">概率机器学习</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/概率机器学习/1..html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/概率机器学习/2. Autoregressive模型.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Probability Distributions (recap)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/概率机器学习/3. Autoregressive模型 &amp; Recurrent Neural Networks (RNN).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Model (Continue)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/概率机器学习/4. Transformer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/理论/概率机器学习/强化学习（RL）/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">强化学习</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/概率机器学习/强化学习（RL）/2. Markov奖励&amp;决策过程.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markov奖励&amp;决策过程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/理论/概率机器学习/强化学习（RL）/Agent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/计算/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Physics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/计算/Julia科学计算笔记/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Julia科学计算笔记</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/计算/Julia科学计算笔记/1. 基本语法.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary of Key Julia Codes and Algorithms by Chapter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/计算/Julia科学计算笔记/2. Variables, primitive types, and functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture Review: **Julia &amp; Git**</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/计算/量子力学讲义/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">量子力学讲义</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/计算/量子力学讲义/波函数存在于在Hilbert空间中.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">波函数存在于Hilbert空间中</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/计算/量子力学讲义/薛定谔方程的傅立叶变换.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">薛定谔方程的傅立叶变换</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/计算/量子力学讲义/Lecture/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/计算/量子力学讲义/Lecture/第一章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第一章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/计算/量子力学讲义/Lecture/第一章/1.1 The Wave Function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Three quantum indeterminacy position:</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../content/notes/计算/量子力学讲义/Lecture/第四章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第四章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.1 经典氢原子.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1.1 经典氢原子 (Classical Hydrogen Atom)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.2 Hydrogen Atom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">氢原子</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.3 角动量 (Angular Momentum).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3.1 量子数 (Quantum Numbers)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.4 Spin Spin Spin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">量子自旋态与算符讲义（Quantum Spin States and Operators Lecture Notes）</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/notes/计算/量子力学讲义/Lecture/第四章/第四章.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 三维空间的薛定谔方程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">理论</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1756857600000" data-listing-file-modified-sort="1759245810638" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="942">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/概率机器学习/2. Autoregressive模型.html" class="no-external">0. Probability Distributions (recap)</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/概率机器学习/2. Autoregressive模型.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1757289600000" data-listing-file-modified-sort="1759245810638" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="435">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/微分几何/3. Tangent Vectors on a Surface.html" class="no-external">0. Recap from Last lecture</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/微分几何/3. Tangent Vectors on a Surface.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1756252800000" data-listing-file-modified-sort="1759245810638" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="398">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/微分几何/1. Overview of Differential Geometry.html" class="no-external">1. From Calculus to Manifolds</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/微分几何/1. Overview of Differential Geometry.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="2" data-listing-word-count-sort="359">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/02 Three-Point Backward Differentiation Formula.html" class="no-external">1. Ok Honestly I Have No Idea Where He Started</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/02 Three-Point Backward Differentiation Formula.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1756857600000" data-listing-file-modified-sort="1759245810638" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="401">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/微分几何/2. Parametrized Curves and Surfaces.html" class="no-external">1. Parametrized curves in <span class="math inline">\(\mathbb{R}^3\)</span> (plane curves as a special case)</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/微分几何/2. Parametrized Curves and Surfaces.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1757894400000" data-listing-file-modified-sort="1759245810638" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="673">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/微分几何/5. Pushforward, Pullback, and Local Isometries.html" class="no-external">1.1 Smooth map and its differential (push-forward)</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/微分几何/5. Pushforward, Pullback, and Local Isometries.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="4" data-listing-word-count-sort="694">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第八章/8.1 度量理论.html" class="no-external">1.1 积分的定义</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第八章/8.1 度量理论.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="101">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第六章/6.4 Sufficient Conditions for Differentiability.html" class="no-external">6.4 可微分性的必要条件</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第六章/6.4 Sufficient Conditions for Differentiability.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第六章/6.5 The Chain Rule.html" class="no-external">6.5 链式法则</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第六章/6.5 The Chain Rule.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第六章/6.6 Product Rule and Gradients.html" class="no-external">6.6 乘积法则与梯度</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第六章/6.6 Product Rule and Gradients.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="3" data-listing-word-count-sort="526">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第六章/6.9 Taylor Higher Dimentions.html" class="no-external">6.9 泰勒公式的高维形式</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第六章/6.9 Taylor Higher Dimentions.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="5" data-listing-word-count-sort="901">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第七章/7.1 Inverse Function Theorem.html" class="no-external">7.1 反函数定理</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第七章/7.1 Inverse Function Theorem.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="3" data-listing-word-count-sort="573">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第七章/7.1.1 Inverse FT (Proof).html" class="no-external">7.1.1 反函数定理（证明）</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第七章/7.1.1 Inverse FT (Proof).html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第七章/7.2 Implicit Function Theorem.html" class="no-external">7.2 隐函数定理</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第七章/7.2 Implicit Function Theorem.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-listing-date-sort="1742601600000" data-listing-file-modified-sort="1759245810637" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1011">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第七章/7.6 Morse Lemma.html" class="no-external">7.6 莫尔斯引理</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第七章/7.6 Morse Lemma.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="15" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="5" data-listing-word-count-sort="857">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第八章/8.5 Improper Integral.html" class="no-external">8.5 不定积分</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第八章/8.5 Improper Integral.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="16" data-listing-date-sort="1743033600000" data-listing-file-modified-sort="1759245810637" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="501">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第八章/8.6 Lebesgue Convergence Theorem.html" class="no-external">8.6 勒贝格收敛定理</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第八章/8.6 Lebesgue Convergence Theorem.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="17" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="3" data-listing-word-count-sort="539">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.1 Boundary Value Problems.html" class="no-external">9.1 边值问题的近似</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.1 Boundary Value Problems.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="18" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="3" data-listing-word-count-sort="405">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.2 Finite Difference.html" class="no-external">9.2 有限差分法</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.2 Finite Difference.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="19" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="5" data-listing-word-count-sort="823">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.3 Advection-Diffusion Equation.html" class="no-external">9.3 对流-扩散方程</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.3 Advection-Diffusion Equation.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="20" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="7" data-listing-word-count-sort="1359">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.4 2D Problem.html" class="no-external">9.4 4.1 二维（2D）偏微分方程问题</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.4 2D Problem.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="21" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="1" data-listing-word-count-sort="128">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/概率机器学习/强化学习（RL）/Agent.html" class="no-external">Agent</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/概率机器学习/强化学习（RL）/Agent.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="22" data-listing-date-sort="1757289600000" data-listing-file-modified-sort="1759245810638" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="551">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/概率机器学习/3. Autoregressive模型 &amp; Recurrent Neural Networks (RNN).html" class="no-external">Autoregressive Model (Continue)</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/概率机器学习/3. Autoregressive模型 &amp; Recurrent Neural Networks (RNN).html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="23" data-listing-date-sort="1757894400000" data-listing-file-modified-sort="1759245810638" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="196">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/概率机器学习/4. Transformer.html" class="no-external">Autoregressive Models</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/概率机器学习/4. Transformer.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="24" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="3" data-listing-word-count-sort="524">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第八章/8.2 Criterion for Integrability.html" class="no-external">Criterion for Integrability</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第八章/8.2 Criterion for Integrability.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="25" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="2" data-listing-word-count-sort="222">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/广义相对论/广义相对论理论/2. Einstein Summation Convention.html" class="no-external">Einstein求和约定</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/广义相对论/广义相对论理论/2. Einstein Summation Convention.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="26" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="3" data-listing-word-count-sort="503">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/01 Mid-Point Method.html" class="no-external">Formula Derivation</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/01 Mid-Point Method.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="27" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="3" data-listing-word-count-sort="600">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第十章/10.1 Fourier Analysis.html" class="no-external">Gaussian Integral Computation</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第十章/10.1 Fourier Analysis.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="28" data-listing-file-modified-sort="1759245810635" data-listing-reading-time-sort="2" data-listing-word-count-sort="325">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/Heat Equation/Heat Equation Solution.html" class="no-external">Heat Equation Solution</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/Heat Equation/Heat Equation Solution.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="29" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="3" data-listing-word-count-sort="554">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/概率机器学习/强化学习（RL）/2. Markov奖励&amp;决策过程.html" class="no-external">Markov奖励&amp;决策过程</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/概率机器学习/强化学习（RL）/2. Markov奖励&amp;决策过程.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="30" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="6" data-listing-word-count-sort="1002">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Finite Element Method.html" class="no-external">Order of Convergence in Finite Elements</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Finite Element Method.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="31" data-listing-date-sort="1756857600000" data-listing-file-modified-sort="1759245810638" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="518">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/微分几何/2. Lecture 2 (ACTUAL).html" class="no-external">Parametrized Curves in <span class="math inline">\(\mathbb{R}^3\)</span></a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/微分几何/2. Lecture 2 (ACTUAL).html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="32" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="3" data-listing-word-count-sort="463">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第八章/8.3 Proof of Lebesgue's Theorem.html" class="no-external">Proof of the Theorem</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第八章/8.3 Proof of Lebesgue's Theorem.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="33" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/Homework/index.html" class="no-external">Real Analysis II</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/Homework/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="34" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="4" data-listing-word-count-sort="644">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Quiz 4.html" class="no-external">Solutions for Quiz 4</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Quiz 4.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="35" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="2" data-listing-word-count-sort="307">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/微分几何/T-n分离公理.html" class="no-external">T-n Levels of Separation Axiom</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/微分几何/T-n分离公理.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="36" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="10" data-listing-word-count-sort="1869">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/Exercise.html" class="no-external">习题</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/Exercise.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="37" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/index.html" class="no-external">偏微分方程</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="38" data-listing-file-modified-sort="1759245810635" data-listing-reading-time-sort="7" data-listing-word-count-sort="1252">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/Heat Equation/The Fourier Series.html" class="no-external">傅立叶级数</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/Heat Equation/The Fourier Series.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="39" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/广义相对论/几何基础/index.html" class="no-external">几何基础</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/广义相对论/几何基础/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="40" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/广义相对论/广义相对论理论/1. Four-Vectors.html" class="no-external">四维向量</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/广义相对论/广义相对论理论/1. Four-Vectors.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="41" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/index.html" class="no-external">实分析</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="42" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="28" data-listing-word-count-sort="5475">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/03 Numerical Solution of Ordinary Differential Equations.html" class="no-external">常微分方程的数值解</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/03 Numerical Solution of Ordinary Differential Equations.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="43" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/广义相对论/index.html" class="no-external">广义相对论</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/广义相对论/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="44" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/广义相对论/广义相对论理论/index.html" class="no-external">广义相对论理论</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/广义相对论/广义相对论理论/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="45" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="5" data-listing-word-count-sort="836">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/广义相对论/广义相对论理论/6. Tensor Equation.html" class="no-external">张量方程</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/广义相对论/广义相对论理论/6. Tensor Equation.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="46" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/概率机器学习/强化学习（RL）/index.html" class="no-external">强化学习</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/概率机器学习/强化学习（RL）/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="47" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/微分几何/index.html" class="no-external">微分几何</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/微分几何/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="48" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/Laplace Equation/index.html" class="no-external">拉普拉斯方程</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/Laplace Equation/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="49" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="1" data-listing-word-count-sort="39">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/广义相对论/广义相对论理论/3. Index Notation.html" class="no-external">指标</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/广义相对论/广义相对论理论/3. Index Notation.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="50" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/index.html" class="no-external">数值方法</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="51" data-listing-file-modified-sort="1759245810638" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/概率机器学习/index.html" class="no-external">概率机器学习</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/概率机器学习/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="52" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/Wave Equation/index.html" class="no-external">波方程</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/Wave Equation/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="53" data-listing-file-modified-sort="1759245810650" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/点集拓扑学基础/index.html" class="no-external">点集拓扑学基础</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/点集拓扑学基础/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="54" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="1" data-listing-word-count-sort="168">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/Heat Equation/index.html" class="no-external">热方程</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/Heat Equation/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="55" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="5" data-listing-word-count-sort="813">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第九章/9.1 Computing Integrals.html" class="no-external">积分计算</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第九章/9.1 Computing Integrals.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="56" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第七章/index.html" class="no-external">第七章 逆函数和隐函数定理</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第七章/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="57" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/index.html" class="no-external">第九章</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="58" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第九章/index.html" class="no-external">第九章</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第九章/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="59" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第八章/index.html" class="no-external">第八章 度量理论</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第八章/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="60" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第六章/index.html" class="no-external">第六章 可微映射</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第六章/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="61" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/index.html" class="no-external">第十章</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="62" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/第十章/index.html" class="no-external">第十章</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/第十章/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="63" data-listing-file-modified-sort="1759245810636" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/index.html" class="no-external">第四章 有限元分析</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="64" data-listing-file-modified-sort="1759245810636">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/4.1 有限元.html" class="no-external"></a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/4.1 有限元.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="65" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="6" data-listing-word-count-sort="1097">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 10.html" class="no-external"></a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 10.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="66" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="1" data-listing-word-count-sort="30">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 11.html" class="no-external"></a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 11.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="67" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="8" data-listing-word-count-sort="1419">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 6.html" class="no-external"></a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 6.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="68" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="2" data-listing-word-count-sort="266">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 7.html" class="no-external"></a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 7.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="69" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="8" data-listing-word-count-sort="1486">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 8.html" class="no-external"></a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 8.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="70" data-listing-file-modified-sort="1759245810637" data-listing-reading-time-sort="8" data-listing-word-count-sort="1547">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 9.html" class="no-external"></a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/实分析/Homework/Homework 9.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="71" data-listing-file-modified-sort="1759245810638">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/广义相对论/几何基础/1. Topological Space.html" class="no-external"></a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/广义相对论/几何基础/1. Topological Space.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="72" data-listing-file-modified-sort="1759245810638">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../content/notes/理论/概率机器学习/1..html" class="no-external"></a>
+</h3>
+</div>
+<div class="metadata">
+<a href="../../../content/notes/理论/概率机器学习/1..html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">无匹配项</div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div></main> <!-- /main -->
+<script>
+(function () {
+  const STORAGE_KEY = 'quarto-sidebar-state';
+
+  function loadState() {
+    try {
+      return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '{}');
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function saveState(state) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch {}
+  }
+
+  function applyState(state) {
+    const collapseEls = document.querySelectorAll('#quarto-sidebar .collapse');
+    collapseEls.forEach((el) => {
+      const id = el.id;
+      if (!id) return;
+      const shouldOpen = state[id];
+      const toggle = document.querySelector(`[data-bs-target="#${CSS.escape(id)}"]`);
+      if (shouldOpen === undefined) return;
+      if (shouldOpen) {
+        el.classList.add('show');
+        if (toggle) {
+          toggle.classList.remove('collapsed');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      } else {
+        el.classList.remove('show');
+        if (toggle) {
+          toggle.classList.add('collapsed');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  }
+
+  function registerStateHandlers(state) {
+    const sidebar = document.querySelector('#quarto-sidebar');
+    if (!sidebar) return;
+    sidebar.addEventListener('shown.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = true;
+        saveState(state);
+      }
+    });
+    sidebar.addEventListener('hidden.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = false;
+        saveState(state);
+      }
+    });
+  }
+
+  function setupNavbarTransparency() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // At top or scrolling up: opaque
+      if (currentScroll <= 50 || currentScroll < lastScroll) {
+        navbar.classList.remove('navbar-transparent');
+      }
+      // Scrolling down: transparent
+      else if (currentScroll > lastScroll && currentScroll > 50) {
+        navbar.classList.add('navbar-transparent');
+      }
+      
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    }, { passive: true });
+  }
+
+  window.document.addEventListener('DOMContentLoaded', function () {
+    const state = loadState();
+    
+    // Disable Quarto's headroom
+    const header = document.getElementById('quarto-header');
+    if (header?.headroom?.destroy) header.headroom.destroy();
+    
+    setupNavbarTransparency();
+    applyState(state);
+    registerStateHandlers(state);
+  });
+})();
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
