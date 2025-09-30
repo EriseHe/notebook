@@ -15,6 +15,20 @@ body {
   color: #1e1e24;
 }
 
+/* Main container accounts for fixed navbar */
+#quarto-content {
+  padding-top: 56px; /* Just navbar height, no extra margin */
+}
+
+/* Smooth scroll behavior for all scrollable elements */
+html {
+  scroll-behavior: smooth;
+}
+
+.quarto-margin-sidebar, .sidebar {
+  scroll-behavior: smooth;
+}
+
 .quarto-title-block .title {
   font-family: var(--heading-font);
   font-weight: 600;
@@ -66,8 +80,33 @@ main.content { padding: 2rem 2rem; }
   color: #1a1a1d;
 }
 
-.navbar { border-bottom: 1px solid #e5e7eb; background: transparent; backdrop-filter: none; }
-.headroom, .headroom--pinned, .headroom--unpinned { transform: none !important; transition: none !important; }
+/* ========================================
+   NAVBAR STYLING - Modify here for navbar appearance
+   ======================================== */
+.navbar { 
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.3); 
+  background: rgba(255, 255, 255, 0.95); 
+  backdrop-filter: blur(10px);
+  transition: opacity 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Transparent state when scrolling down - EVERYTHING fades out */
+.navbar.navbar-transparent {
+  opacity: 0;
+  pointer-events: none; /* Can't click on invisible navbar */
+}
+
+/* Disable Quarto's default headroom behavior */
+.headroom, .headroom--pinned, .headroom--unpinned { 
+  transform: none !important; 
+  transition: none !important; 
+  position: fixed !important;
+}
 
 
 .navbar .navbar-brand {
@@ -92,15 +131,95 @@ main.content { padding: 2rem 2rem; }
 
 pre code, code {
   font-family: var(--code-font);
-  font-size: 0.95rem;
+  font-size: 0.84rem;
 }
 
-pre {
-  background: #f1f3f5;
-  border-radius: 10px;
-  padding: 1rem;
-  border: 1px solid #e0e0e5;
+/* ========================================
+   CODE BLOCKS - Unified styling for all fenced code
+   Works for both plain fenced blocks and Quarto-highlighted blocks
+   ======================================== */
+/* Base variables */
+:root {
+  --code-bg: #f7f7f9;
+  --code-border: #e5e7eb;
+  --code-accent: #276fb4; /* default if language not mapped below */
 }
+
+/* Base style for any pre (plain) and highlighted blocks */
+pre,
+pre.sourceCode {
+  position: relative;
+  background: var(--code-bg);
+  border-radius: 10px;
+  padding: 1rem 1.25rem 1.75rem; /* extra bottom space for copy button */
+  border: 1px solid var(--code-border);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+
+/* Accent bar on the left, color varies per language via --code-accent */
+pre,
+pre.sourceCode {
+  border-left: 4px solid var(--code-accent);
+}
+
+/* Small language pill label (shown when we know the language) */
+pre.sourceCode::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  line-height: 1.1;
+  color: #374151;
+  background: rgba(0,0,0,0.06);
+}
+
+/* Map common languages to accent colors and label text */
+pre.sourceCode.bash { --code-accent: #3e4349; }
+pre.sourceCode.bash::before { content: "Bash"; }
+
+pre.sourceCode.sh { --code-accent: #3e4349; }
+pre.sourceCode.sh::before { content: "Shell"; }
+
+pre.sourceCode.python { --code-accent: #3776ab; }
+pre.sourceCode.python::before { content: "Python"; }
+
+pre.sourceCode.julia { --code-accent: #9558b2; }
+pre.sourceCode.julia::before { content: "Julia"; }
+
+pre.sourceCode.r { --code-accent: #198ce7; }
+pre.sourceCode.r::before { content: "R"; }
+
+pre.sourceCode.js, pre.sourceCode.javascript { --code-accent: #f0db4f; }
+pre.sourceCode.js::before, pre.sourceCode.javascript::before { content: "JavaScript"; }
+
+pre.sourceCode.ts, pre.sourceCode.typescript { --code-accent: #3178c6; }
+pre.sourceCode.ts::before, pre.sourceCode.typescript::before { content: "TypeScript"; }
+
+pre.sourceCode.yaml, pre.sourceCode.yml { --code-accent: #cb8a00; }
+pre.sourceCode.yaml::before, pre.sourceCode.yml::before { content: "YAML"; }
+
+pre.sourceCode.json { --code-accent: #9c27b0; }
+pre.sourceCode.json::before { content: "JSON"; }
+
+pre.sourceCode.html { --code-accent: #e34c26; }
+pre.sourceCode.html::before { content: "HTML"; }
+
+pre.sourceCode.css { --code-accent: #563d7c; }
+pre.sourceCode.css::before { content: "CSS"; }
+
+/* Place the Quarto copy button at right-bottom to avoid label overlap */
+.code-copy-button { position: absolute; bottom: 8px; right: 10px; z-index: 2; }
+
+/* Ensure the wrapper is the positioning context for the copy button */
+.code-copy-outer-scaffold { position: relative; }
+
+/* Ensure Quarto sets language class and we backfill label from class name */
+/* The pandoc/quarto HTML already sets classes like pre.sourceCode.python.
+   The rules above set the accent color and label via ::before per language. */
+
 
 blockquote {
   font-style: italic;
@@ -137,15 +256,167 @@ img {
   }
 }
 
-/* Move right margin (ToC) closer to edge and keep sticky */
-.quarto-margin-sidebar { position: sticky; top: 5rem; max-height: calc(100vh - 5rem); overflow: auto; margin-right: 1rem; background: transparent; border-left: none; }
+/* ========================================
+   TABLE OF CONTENTS (TOC) STYLING - Right sidebar
+   Modify here for TOC appearance
+   ======================================== */
+/* Use both class and id to ensure override across Quarto versions */
+.quarto-margin-sidebar, #quarto-margin-sidebar, aside.margin-sidebar { 
+  position: sticky !important; 
+  top: 100px !important; /* space for navbar while sticky */
+  max-height: calc(100vh - 100px) !important; 
+  overflow-y: auto; 
+  background: transparent; 
+  border-left: none !important; /* remove framework vertical line */
+  width: clamp(220px, 22vw, 360px);
+  /* Smart right push: on wide screens push to viewport edge, else 0 */
+  margin-right: min(calc((100vw - var(--page-max-width)) / -2 + 1rem), 0px) !important;
+}
 
-/* Push left sidebar outward a bit, free central column */
-.sidebar { padding-left: 0.75rem; background: transparent; }
+/* remove any residual borders/lines inside the TOC */
+#quarto-margin-sidebar nav, 
+#quarto-margin-sidebar .nav, 
+#quarto-margin-sidebar .toc-actions, 
+.quarto-margin-sidebar nav {
+  border: transparent !important;
+}
+
+/* TOC links styling */
+.quarto-margin-sidebar .toc-actions a,
+.quarto-margin-sidebar nav a {
+  color: inherit;              /* use theme/default text color */
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.quarto-margin-sidebar .toc-actions a:hover,
+.quarto-margin-sidebar nav a:hover {
+  color: #111827;
+  background: transparent !important;  /* no hover background for toc */
+}
+
+.quarto-margin-sidebar nav a.active {
+  color: #276fb4;                               /* blue text like theme */
+  background: rgba(0,0,0,0.06) !important;      /* gray active bg */
+  font-weight: 600;
+}
+
+/* TOC item styling: remove blue left shadow/pill, make items fully transparent */
+#quarto-margin-sidebar nav a,
+#quarto-margin-sidebar .nav-link,
+.quarto-margin-sidebar nav a {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;      /* remove any inset left glow */
+  border-radius: 0 !important;      /* remove rounded pill */
+}
+
+#quarto-margin-sidebar nav a.active,
+#quarto-margin-sidebar .nav .active > .nav-link,
+.quarto-margin-sidebar nav a.active {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* remove any decorative left bars used by themes */
+#quarto-margin-sidebar nav a::before,
+#quarto-margin-sidebar .nav-link::before,
+.quarto-margin-sidebar nav a::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* ensure no list borders leak through */
+#quarto-margin-sidebar li,
+.quarto-margin-sidebar li {
+  border: none !important;
+}
+
+/* ========================================
+   LEFT SIDEBAR (MENU) STYLING
+   Modify here for menu appearance
+   ======================================== */
+.sidebar { 
+  padding-left: 0.25rem;             /* shift items slightly left */
+  background: transparent;
+  position: sticky;
+  top: 5rem;                         /* reduce default top margin by half */
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  will-change: auto; /* Smooth scrolling performance */
+}
 
 /* Slightly widen body column on wide screens */
 @media (min-width: 1200px) {
   .page-columns .content {
     padding-right: 2.25rem;
   }
+}
+
+/* ========================================
+   TOC ACTIVE/HOVER – FORCE GRAY BG, NO BLUE LEFT SHADOW
+   High-specificity rules placed at end to win cascade
+   ======================================== */
+#quarto-margin-sidebar .nav.nav-pills .nav-link {
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important; /* remove blue inset/left glow */
+}
+
+#quarto-margin-sidebar .nav.nav-pills .nav-link:hover {
+  background-color: transparent !important; /* no hover background for toc */
+  box-shadow: none !important;
+}
+
+#quarto-margin-sidebar .nav.nav-pills .nav-link.active,
+#quarto-margin-sidebar .nav.nav-pills .show > .nav-link,
+#quarto-margin-sidebar .toc-active > .nav-link {
+  background-color: rgba(0,0,0,0.06) !important; /* gray active */
+  color: #276fb4 !important;                   /* restore blue active text */
+  box-shadow: none !important;                 /* remove blue shadow */
+  border-left: none !important;
+}
+
+#quarto-margin-sidebar .nav.nav-pills .nav-link.active::before,
+#quarto-margin-sidebar .nav.nav-pills .nav-link::before {
+  content: none !important; /* remove decorative left bar if present */
+}
+
+/* Ultra-specific fallback to ensure active item shows gray bg on all markups */
+#quarto-margin-sidebar .active,
+#quarto-margin-sidebar .active > a,
+#quarto-margin-sidebar .nav .active > .nav-link,
+#quarto-margin-sidebar .toc-active,
+#quarto-margin-sidebar .toc-active > a,
+#quarto-margin-sidebar .toc-active > .nav-link {
+  background-color: rgba(0,0,0,0.06) !important; /* force gray bg */
+  border-radius: 4px !important;
+  box-shadow: none !important; /* remove blue shadow */
+  border: none !important;
+}
+
+/* Hover fallback */
+#quarto-margin-sidebar a.nav-link:hover,
+#quarto-margin-sidebar .nav-link:hover,
+#quarto-margin-sidebar .nav .nav-link:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Ensure active ToC link is blue regardless of fallbacks */
+#quarto-margin-sidebar nav a.nav-link.active,
+#quarto-margin-sidebar nav a.active,
+#quarto-margin-sidebar #TOC a.nav-link.active {
+  color: #3a27b4 !important;
+}
+
+/* ========================================
+   TOC CONTAINER GRAY BACKGROUND FIX
+   Remove any background on the overall ToC panel and title while
+   preserving the active item highlight set above.
+   ======================================== */
+#quarto-margin-sidebar #TOC,
+#quarto-margin-sidebar #toc-title,
+#quarto-margin-sidebar #TOC ul,
+#quarto-margin-sidebar #TOC li {
+  background: transparent !important;
 }

@@ -2,3 +2,4 @@ page-layout: full
 format:
   html:
     toc: true
+sidebar: posts

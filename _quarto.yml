@@ -2,14 +2,16 @@ project:
   type: website
   resources:
   - scripts/site-behavior.js
+  - public/**
   output-dir: docs
   render:
   - index.md
-  - content/notes/**/*.md
-  - content/posts/**/*.md
+  - "content/notes/**/*.md"
+  - "content/posts/**/*.md"
   - '!**/_index.md'
+  - '!**/*.ipynb'  # Exclude notebooks from rendering for speed
 website:
-  title: Erise's Study Note
+  title: Erise Note
   navbar:
     left:
     - text: Notes
@@ -23,19 +25,23 @@ website:
     location: navbar
     type: textbox
   sidebar:
-    style: docked
-    search: true
-    collapse-level: 2
-    contents:
-    - index.md
-    - section: 笔记
+    # Define two named sidebars as a list (correct Quarto syntax)
+    - id: notes
+      style: docked
+      search: true
+      collapse-level: 2
       contents:
-      - content/notes/index.md
-      - auto: content/notes/**
-    - section: 文章
+      - content/notes/理论/index.md
+      - auto: "content/notes/理论/**/*.md"
+      - content/notes/计算/index.md
+      - auto: "content/notes/计算/**/*.md"
+    - id: posts
+      style: docked
+      search: true
+      collapse-level: 2
       contents:
       - content/posts/index.md
-      - auto: content/posts/**/*.md
+      - auto: "content/posts/**/*.md"
 format:
   html:
     theme:
@@ -55,3 +61,6 @@ execute:
   echo: false
   warning: false
   message: false
+  freeze: true  # Don't re-execute code, use cached results
+  daemon: false  # Disable daemon for faster rendering
+  cache: true

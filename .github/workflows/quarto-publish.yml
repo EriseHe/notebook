@@ -1,0 +1,39 @@
+name: Publish Quarto site
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  render-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      # Optional: Setup Pandoc is bundled with Quarto; add languages here if needed
+
+      - name: Render site
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          to: html
+
+      - name: Publish to GitHub Pages (gh-pages)
+        uses: quarto-dev/quarto-actions/publish@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target: gh-pages
+          path: docs
+
+

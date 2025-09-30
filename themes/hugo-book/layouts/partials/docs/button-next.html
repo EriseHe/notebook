@@ -1,8 +1,0 @@
-<!-- Next Button -->
-<div class="button-next">
-  {{ if and .Prev (ne .Prev.Title "") }}
-    <a class="btn-next" href="{{ .Prev.RelPermalink }}">
-      <strong>Next:</strong> {{ .Prev.Title }}
-    </a>
-  {{ end }}
-</div>

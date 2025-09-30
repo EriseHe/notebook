@@ -1,7 +1,7 @@
 ---
-title: "随笔"
+title: 随笔
 page-layout: article
 listing:
-  contents: "*"
+  contents: '*'
   sort: title
 ---
