@@ -29,13 +29,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何/S1 有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
+                "file": "理论/微分几何/S1 有关曲面的基础概念/2. Lecture 2 (ACTUAL).md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3. Tangent Vectors on a Surface"
+              "title": "2. Lecture 2 (ACTUAL)"
             }
           }
         ],
@@ -190,13 +190,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何/S1 有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
+                "file": "理论/微分几何/S1 有关曲面的基础概念/2. Lecture 2 (ACTUAL).md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 3. Tangent Vectors on a Surface"
+              "title": "Outline of 2. Lecture 2 (ACTUAL)"
             }
           }
         ],
@@ -225,6 +225,7 @@
   },
   "active": "985f3b666bedac8d",
   "lastOpenFiles": [
+    "理论/微分几何/S1 有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
@@ -235,7 +236,6 @@
     "计算/量子力学讲义/index.html",
     "计算/量子力学讲义/index_files/mediabag",
     "计算/量子力学讲义/index_files",
-    "计算/量子力学讲义/Lecture/第四章/第四章.html",
     "理论/微分几何/S1 有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometries.md",
     "理论/微分几何/S1 有关曲面的基础概念/1. Overview of Differential Geometry.md",
     "理论/微分几何/_index.md",
@@ -250,7 +250,6 @@
     "理论/微分几何/广义相对论/广义相对论理论/_index.md",
     "理论/微分几何/广义相对论/几何基础/index.md",
     "理论/微分几何/广义相对论/几何基础/1. Topological Space.md",
-    "理论/微分几何/S1 有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
     "理论/微分几何/S1 有关曲面的基础概念/9..md",
     "理论/微分几何/S1 有关曲面的基础概念/8..md",
     "理论/微分几何/S1 有关曲面的基础概念/7..md",

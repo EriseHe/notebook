@@ -630,3 +630,146 @@ img {
 #quarto-margin-sidebar #TOC li {
   background: transparent !important;
 }
+
+/* --- Mathematical Callouts (Definition/Theorem/etc.) --- */
+.math-callout {
+  --callout-accent: #2563eb;
+  --callout-bg: rgba(37, 99, 235, 0.08);
+  --callout-title-color: #0f172a;
+  margin: 1.75rem 0;
+  padding: 1.45rem 1.6rem;
+  border-radius: 18px;
+  border-left: 4px solid var(--callout-accent);
+  background: linear-gradient(140deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.7) 55%, var(--callout-bg) 100%);
+  box-shadow: 0 18px 45px -28px rgba(15, 23, 42, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.math-callout::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(110% 140% at 120% -10%, rgba(255,255,255,0.3), transparent 55%);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.math-callout-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+.math-callout-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.9rem 0.25rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--callout-accent);
+  color: #fff;
+  box-shadow: 0 10px 25px -18px rgba(37, 99, 235, 0.75);
+  line-height: 1.1;
+}
+
+.math-callout-title {
+  font-weight: 650;
+  font-size: 1.02rem;
+  color: var(--callout-title-color);
+  letter-spacing: 0.01em;
+}
+
+.math-callout-body {
+  position: relative;
+  z-index: 1;
+  color: #0f172a;
+}
+
+.math-callout-body > :first-child { margin-top: 0; }
+.math-callout-body > :last-child { margin-bottom: 0; }
+
+.math-callout.callout-theorem {
+  --callout-accent: #7c3aed;
+  --callout-bg: rgba(124, 58, 237, 0.09);
+  --callout-title-color: #2a1065;
+}
+
+.math-callout.callout-lemma {
+  --callout-accent: #0f766e;
+  --callout-bg: rgba(15, 118, 110, 0.08);
+  --callout-title-color: #064e3b;
+}
+
+.math-callout.callout-proposition {
+  --callout-accent: #4c1d95;
+  --callout-bg: rgba(76, 29, 149, 0.08);
+  --callout-title-color: #2e1065;
+}
+
+.math-callout.callout-corollary {
+  --callout-accent: #f97316;
+  --callout-bg: rgba(249, 115, 22, 0.12);
+  --callout-title-color: #7c2d12;
+}
+
+.math-callout.callout-definition {
+  --callout-accent: #2563eb;
+  --callout-bg: rgba(37, 99, 235, 0.1);
+  --callout-title-color: #0f172a;
+}
+
+.math-callout.callout-example {
+  --callout-accent: #059669;
+  --callout-bg: rgba(5, 150, 105, 0.12);
+  --callout-title-color: #065f46;
+}
+
+.math-callout.callout-remark,
+.math-callout.callout-note {
+  --callout-accent: #0891b2;
+  --callout-bg: rgba(8, 145, 178, 0.12);
+  --callout-title-color: #0c4a6e;
+}
+
+.math-callout.callout-proof {
+  --callout-accent: #475569;
+  --callout-bg: rgba(71, 85, 105, 0.13);
+  --callout-title-color: #111827;
+}
+
+.math-callout.callout-warning,
+.math-callout.callout-caution {
+  --callout-accent: #eab308;
+  --callout-bg: rgba(234, 179, 8, 0.18);
+  --callout-title-color: #713f12;
+}
+
+@media (prefers-color-scheme: dark) {
+  .math-callout {
+    background: linear-gradient(140deg, rgba(17, 24, 39, 0.85) 0%, rgba(17, 24, 39, 0.75) 60%, rgba(148, 163, 184, 0.12) 100%);
+    color: #e2e8f0;
+    box-shadow: 0 22px 40px -30px rgba(15, 23, 42, 0.65);
+  }
+  .math-callout-title {
+    color: rgba(226, 232, 240, 0.95);
+  }
+  .math-callout-body {
+    color: rgba(226, 232, 240, 0.92);
+  }
+}
+
+.math-callout-body p:first-child > strong:first-child {
+  display: inline-block;
+  font-size: 1.02rem;
+  color: var(--callout-title-color);
+  margin-bottom: 0.35rem;
+}
