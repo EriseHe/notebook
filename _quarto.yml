@@ -60,6 +60,8 @@ format:
     page-layout: full
     include-after-body:
     - scripts/site-behavior.html
+    filters:
+      - filters/auto-title.lua
 execute:
   echo: false
   warning: false
