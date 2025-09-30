@@ -235,18 +235,11 @@ pre.sourceCode.css::before { content: "CSS"; }
   list-style: none;
 }
 
-/* Make listing items span full available width and avoid centered narrow cards */
+/* Ensure listing cards don't squeeze to center */
 .quarto-listing-default .quarto-post { 
   display: block; 
   max-width: none; 
 }
-
-/* Show only titles by default (no auto excerpts or meta) */
-.quarto-listing-default .thumbnail,
-.quarto-listing-default .listing-description,
-.quarto-listing-default .metadata { display: none; }
-
-.quarto-listing-default .listing-title { margin: 0; }
 
 .quarto-listing-default .list > div {
   background: #fafafa;
@@ -350,10 +343,16 @@ pre.sourceCode.css::before { content: "CSS"; }
     padding-right: 1rem; /* space for toggle icon before the divider */
   }
 
-  /* Extend the left edge slightly without moving the divider (right edge) */
+  /* Extend the left edge and make sidebar much wider */
   #quarto-sidebar {
-    margin-left: -12px;  /* move the whole sidebar 12px to the left */
-    padding-left: 12px;  /* keep internal content aligned; divider stays put */
+    margin-left: -40px;  /* move the whole sidebar 40px to the left */
+    padding-left: 40px;  /* keep internal content aligned; divider stays put */
+    width: calc(280px + 40px); /* widen sidebar */
+  }
+
+  /* Increase main content width */
+  .content {
+    max-width: 900px;
   }
 
   /* Make top-level folder names bold */
@@ -364,15 +363,15 @@ pre.sourceCode.css::before { content: "CSS"; }
   /* Increase indentation for nested levels */
   #quarto-sidebar .sidebar-section.depth1 .sidebar-item-container,
   #quarto-sidebar .sidebar-section.depth1 > li > .sidebar-item-container,
-  #quarto-sidebar .sidebar-section.depth1 > li > a.sidebar-item-toggle { padding-left: 0.5rem; }
+  #quarto-sidebar .sidebar-section.depth1 > li > a.sidebar-item-toggle { padding-left: 0.75rem; }
 
   #quarto-sidebar .sidebar-section.depth2 .sidebar-item-container,
   #quarto-sidebar .sidebar-section.depth2 > li > .sidebar-item-container,
-  #quarto-sidebar .sidebar-section.depth2 > li > a.sidebar-item-toggle { padding-left: 1rem; }
+  #quarto-sidebar .sidebar-section.depth2 > li > a.sidebar-item-toggle { padding-left: 1.5rem; }
 
   #quarto-sidebar .sidebar-section.depth3 .sidebar-item-container,
   #quarto-sidebar .sidebar-section.depth3 > li > .sidebar-item-container,
-  #quarto-sidebar .sidebar-section.depth3 > li > a.sidebar-item-toggle { padding-left: 1.5rem; }
+  #quarto-sidebar .sidebar-section.depth3 > li > a.sidebar-item-toggle { padding-left: 2.25rem; }
 }
 
 /* Ensure Quarto sets language class and we backfill label from class name */
