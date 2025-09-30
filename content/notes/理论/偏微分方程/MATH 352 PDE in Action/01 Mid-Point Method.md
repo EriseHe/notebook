@@ -1,4 +1,5 @@
 ---
+title: "01 Mid-Point Method"
 weight: "01"
 ---
 

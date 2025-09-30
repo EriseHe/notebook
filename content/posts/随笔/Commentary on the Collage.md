@@ -1,3 +1,7 @@
+---
+title: "Commentary on the Collage"
+---
+
 
 Language is the medium through which reason is articulated. The text I picked up was "outside of the language", which naturally reminds me of an exteriority (the Real) with which the topology of the Lacanian model is most concerned. However, in the Foucauldian context, the concept of "outside" is still within the realm of sense, but strategically excluded. This collage exercise really pushed me to make an explicit distinction between how these frameworks would interpret such a phrase differently.
 

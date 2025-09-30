@@ -1,4 +1,5 @@
 ---
+title: "Short Cut for GIST"
 date: 2025-03-17
 weight: 1
 ---

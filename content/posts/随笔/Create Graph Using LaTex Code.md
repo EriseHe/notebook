@@ -1,3 +1,7 @@
+---
+title: "Create Graph Using LaTex Code"
+---
+
 
 
 ```tikz

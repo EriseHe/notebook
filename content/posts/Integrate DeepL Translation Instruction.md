@@ -1,4 +1,5 @@
 ---
+title: "Integrate DeepL Translation Instruction"
 date: 2025-03-16
 weight: 2
 author: Erise.He

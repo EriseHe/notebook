@@ -1,3 +1,7 @@
+---
+title: "Homework 10"
+---
+
 8.6: [1, 3]; Chapter 8: [24, 36, 39]
 
 **Problem 8.6.1** Show that Theorem 8.6.1 can be proved using the methods of Chapter 5 if the $g_n$ are continuous.

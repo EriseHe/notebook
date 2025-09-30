@@ -1,3 +1,7 @@
+---
+title: "Heat Equation Solution"
+---
+
 # Heat Equation Solution
 ## **Scale Invariance Property**
 
