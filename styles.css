@@ -336,6 +336,30 @@ pre.sourceCode.css::before { content: "CSS"; }
   #quarto-sidebar .sidebar-item-container {
     padding-right: 1rem; /* space for toggle icon before the divider */
   }
+
+  /* Extend the left edge slightly without moving the divider (right edge) */
+  #quarto-sidebar {
+    margin-left: -12px;  /* move the whole sidebar 12px to the left */
+    padding-left: 12px;  /* keep internal content aligned; divider stays put */
+  }
+
+  /* Make top-level folder names bold */
+  #quarto-sidebar .sidebar-item.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text {
+    font-weight: 700;
+  }
+
+  /* Increase indentation for nested levels */
+  #quarto-sidebar .sidebar-section.depth1 .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth1 > li > .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth1 > li > a.sidebar-item-toggle { padding-left: 0.5rem; }
+
+  #quarto-sidebar .sidebar-section.depth2 .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth2 > li > .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth2 > li > a.sidebar-item-toggle { padding-left: 1rem; }
+
+  #quarto-sidebar .sidebar-section.depth3 .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth3 > li > .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth3 > li > a.sidebar-item-toggle { padding-left: 1.5rem; }
 }
 
 /* Ensure Quarto sets language class and we backfill label from class name */
