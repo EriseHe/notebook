@@ -9,7 +9,7 @@ jobs:
   render-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       pages: write
       id-token: write
     steps:
@@ -21,18 +21,22 @@ jobs:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      # Optional: Setup Pandoc is bundled with Quarto; add languages here if needed
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
 
       - name: Render site
         uses: quarto-dev/quarto-actions/render@v2
         with:
           to: html
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          publish_branch: gh-pages
+          path: ./docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
 
