@@ -190,13 +190,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何/index.md",
+                "file": "理论/微分几何/Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of index"
+              "title": "Outline of Untitled"
             }
           }
         ],
@@ -223,8 +223,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "985f3b666bedac8d",
+  "active": "829f54a31a6b8d4d",
   "lastOpenFiles": [
+    "理论/微分几何/index.md",
     "理论/微分几何/_index.md",
     "理论/微分几何/广义相对论/index.md",
     "理论/微分几何/广义相对论/1. Four-Vectors.md",
@@ -245,7 +246,6 @@
     "理论/微分几何/S1 有关曲面的基础概念/7..md",
     "理论/微分几何/S1 有关曲面的基础概念/6..md",
     "理论/微分几何/S1 有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometries.md",
-    "理论/微分几何/index.md",
     "理论/拓扑学/T-n分离公理.md",
     "理论/微分几何/Untitled.md",
     "index.md",
