@@ -8,13 +8,13 @@ project:
   - node scripts/fix-empty-titles.js
   render:
   - index.md
-  - "content/notes/理论/**/*.md"
-  - "content/notes/计算/**/*.md"
-  - "content/posts/**/*.md"
+  - content/notes/理论/**/*.md
+  - content/notes/计算/**/*.md
+  - content/posts/**/*.md
   - '!**/_index.md'
-  - '!**/*.ipynb'  # Exclude notebooks from rendering for speed
-  - '!**/*.html'   # Exclude HTML files to prevent infinite loops
-  - '!docs/**'     # Exclude output directory
+  - '!**/*.ipynb'
+  - '!**/*.html'
+  - '!docs/**'
 website:
   title: Erise Note
   navbar:
@@ -30,23 +30,22 @@ website:
     location: navbar
     type: textbox
   sidebar:
-    # Define two named sidebars as a list (correct Quarto syntax)
-    - id: notes
-      style: docked
-      search: true
-      collapse-level: 2
-      contents:
-      - content/notes/理论/index.md
-      - auto: "content/notes/理论/**/*.md"
-      - content/notes/计算/index.md
-      - auto: "content/notes/计算/**/*.md"
-    - id: posts
-      style: docked
-      search: true
-      collapse-level: 2
-      contents:
-      - content/posts/index.md
-      - auto: "content/posts/**/*.md"
+  - id: notes
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - content/notes/理论/index.md
+    - auto: content/notes/理论/**/*.md
+    - content/notes/计算/index.md
+    - auto: content/notes/计算/**/*.md
+  - id: posts
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - content/posts/index.md
+    - auto: content/posts/**/*.md
 format:
   html:
     theme:
@@ -63,13 +62,12 @@ format:
     include-after-body:
     - scripts/site-behavior.html
     filters:
-      - filters/auto-title.lua
+    - filters/auto-title.lua
+    - filters/obsidian-callouts.lua
 execute:
   echo: false
   warning: false
   message: false
-  freeze: true  # Don't re-execute code, use cached results
-  daemon: false  # Disable daemon for faster rendering
+  freeze: true
+  daemon: false
   cache: true
-filters:
-  - filters/auto-title.lua
