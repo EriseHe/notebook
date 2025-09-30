@@ -6723,6 +6723,8 @@ linearization
 latitude
 luminosity
 load
+layout
+listing
 Show
 Sufficient
 Substitute

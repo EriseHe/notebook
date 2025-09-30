@@ -3,13 +3,9 @@ title: "计算"
 page-layout: article
 listing:
   contents: "**/*.md"
-  type: grid
-  grid-columns: 1
+  type: default
   sort: title
-  fields: [title, description]
-  field-display-names:
-    title: "Title"
-    description: "Description"
+  fields: [title]
 ---
 
 物理学与计算笔记。
