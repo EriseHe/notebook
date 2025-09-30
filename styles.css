@@ -131,7 +131,8 @@ main.content { padding: 2rem 2rem; }
 
 pre code, code {
   font-family: var(--code-font);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
 }
 
 /* ========================================
@@ -150,27 +151,24 @@ pre,
 pre.sourceCode {
   position: relative;
   background: var(--code-bg);
-  border-radius: 10px;
-  padding: 1rem 1.25rem 1.75rem; /* extra bottom space for copy button */
+  border-radius: 8px;
+  padding: 0.75rem 1rem 1.5rem; /* scaled down padding, extra bottom for copy button */
   border: 1px solid var(--code-border);
   box-shadow: 0 1px 0 rgba(0,0,0,0.02);
-}
-
-/* Accent bar on the left, color varies per language via --code-accent */
-pre,
-pre.sourceCode {
-  border-left: 4px solid var(--code-accent);
+  border-left: 3px solid var(--code-accent);
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 /* Small language pill label (shown when we know the language) */
 pre.sourceCode::before {
   content: attr(data-lang);
   position: absolute;
-  top: 8px;
-  right: 10px;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 0.72rem;
+  top: 6px;
+  right: 8px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.65rem;
   line-height: 1.1;
   color: #374151;
   background: rgba(0,0,0,0.06);
@@ -211,7 +209,14 @@ pre.sourceCode.css { --code-accent: #563d7c; }
 pre.sourceCode.css::before { content: "CSS"; }
 
 /* Place the Quarto copy button at right-bottom to avoid label overlap */
-.code-copy-button { position: absolute; bottom: 8px; right: 10px; z-index: 2; }
+.code-copy-button { 
+  position: absolute; 
+  bottom: 6px; 
+  right: 8px; 
+  z-index: 2;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
 
 /* Ensure the wrapper is the positioning context for the copy button */
 .code-copy-outer-scaffold { position: relative; }
