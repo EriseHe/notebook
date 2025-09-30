@@ -1,5 +1,5 @@
 ---
-title:
+title: "波函数存在于Hilbert空间中"
 ---
 
 

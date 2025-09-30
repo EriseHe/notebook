@@ -1,5 +1,5 @@
 ---
 bookFlatSection: true
-title:
+title: "理论"
 weight: 1
 ---

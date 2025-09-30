@@ -61,21 +61,36 @@
     });
   }
 
-  function disableHeadroom() {
-    const header = document.getElementById('quarto-header');
-    if (!header) return;
-    header.classList.add('headroom--disable');
-    if (header.headroom && typeof header.headroom.destroy === 'function') {
-      header.headroom.destroy();
-    }
-    if (window.quartoToggleHeadroom) {
-      window.quartoToggleHeadroom = function () {};
-    }
+  function setupNavbarTransparency() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // At top or scrolling up: opaque
+      if (currentScroll <= 50 || currentScroll < lastScroll) {
+        navbar.classList.remove('navbar-transparent');
+      }
+      // Scrolling down: transparent
+      else if (currentScroll > lastScroll && currentScroll > 50) {
+        navbar.classList.add('navbar-transparent');
+      }
+      
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    }, { passive: true });
   }
 
   window.document.addEventListener('DOMContentLoaded', function () {
     const state = loadState();
-    disableHeadroom();
+    
+    // Disable Quarto's headroom
+    const header = document.getElementById('quarto-header');
+    if (header?.headroom?.destroy) header.headroom.destroy();
+    
+    setupNavbarTransparency();
     applyState(state);
     registerStateHandlers(state);
   });
