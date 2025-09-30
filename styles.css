@@ -343,23 +343,17 @@ pre.sourceCode.css::before { content: "CSS"; }
     padding-right: 1rem; /* space for toggle icon before the divider */
   }
 
-  /* Extend the left edge and make sidebar much wider - force override */
+  /* Extend the left edge and keep the right edge fixed */
   #quarto-sidebar {
-    margin-left: -40px !important;  /* move the whole sidebar 40px to the left */
-    padding-left: 40px !important;  /* keep internal content aligned; divider stays put */
-    width: calc(280px + 40px) !important; /* widen sidebar */
+    width: 320px;                 /* widen by 40px */
+    transform: translateX(-40px); /* shift left by 40px */
   }
 
-  /* Also adjust the sidebar container if Quarto wraps it */
-  .sidebar-navigation.docked {
-    margin-left: -40px !important;
-    width: calc(280px + 40px) !important;
-  }
+  /* Ensure parent containers don't clip the shift */
+  #quarto-content, .sidebar-navigation.docked { overflow: visible; }
 
   /* Increase main content width */
-  .content {
-    max-width: 900px;
-  }
+  .content { max-width: 1040px; }
 
   /* Make top-level folder names bold */
   #quarto-sidebar .sidebar-item.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text {
