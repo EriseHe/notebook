@@ -29,13 +29,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何/index.md",
+                "file": "理论/微分几何/S1 有关曲面的基础概念/4..md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "4."
             }
           }
         ],
@@ -190,13 +190,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何/Untitled.md",
+                "file": "理论/微分几何/S1 有关曲面的基础概念/4..md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Untitled"
+              "title": "Outline of 4."
             }
           }
         ],
@@ -223,8 +223,22 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "829f54a31a6b8d4d",
+  "active": "985f3b666bedac8d",
   "lastOpenFiles": [
+    "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
+    "理论/微分几何/S1 有关曲面的基础概念/2. Lecture 2 (ACTUAL).md",
+    "理论/微分几何/S1 有关曲面的基础概念/1. Overview of Differential Geometry.md",
+    "理论/微分几何/Untitled.md",
+    "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
+    "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
+    "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
+    "计算/量子力学讲义/波函数存在于在Hilbert空间中.html",
+    "计算/量子力学讲义/波函数存在于在Hilbert空间中_files/mediabag",
+    "计算/量子力学讲义/波函数存在于在Hilbert空间中_files",
+    "计算/量子力学讲义/index-listing.json",
+    "计算/量子力学讲义/index.html",
+    "计算/量子力学讲义/index_files/mediabag",
+    "计算/量子力学讲义/index_files",
     "理论/微分几何/index.md",
     "理论/微分几何/_index.md",
     "理论/微分几何/广义相对论/index.md",
@@ -235,33 +249,18 @@
     "理论/微分几何/广义相对论/几何基础/1. Topological Space.md",
     "理论/微分几何/S1 有关曲面的基础概念/4..md",
     "理论/微分几何/S1 有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
-    "理论/微分几何/S1 有关曲面的基础概念/2. Lecture 2 (ACTUAL).md",
-    "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
-    "理论/微分几何/S1 有关曲面的基础概念/1. Overview of Differential Geometry.md",
-    "理论/微分几何/Untitled",
-    "理论/微分几何/S2 黎曼几何",
-    "理论/微分几何/S1 有关曲面的基础概念",
     "理论/微分几何/S1 有关曲面的基础概念/9..md",
     "理论/微分几何/S1 有关曲面的基础概念/8..md",
     "理论/微分几何/S1 有关曲面的基础概念/7..md",
     "理论/微分几何/S1 有关曲面的基础概念/6..md",
     "理论/微分几何/S1 有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometries.md",
     "理论/拓扑学/T-n分离公理.md",
-    "理论/微分几何/Untitled.md",
     "index.md",
     "Main Plug-in.md",
     "image.png",
     "随笔/福柯视角下的物理学转变以及新范式的可能.md",
     "随笔/家庭式生命权力：通过儒家的家国体系重读福柯的生命政治理论在东亚的实践.md",
     "随笔/_index.md",
-    "随笔/Sex & Sexuality.md",
-    "随笔",
-    "计算/Reinforcement Learning",
-    "计算/Quantum Mechenics/Lecture/第四章",
-    "计算/Quantum Mechenics/Lecture/第一章",
-    "计算/Quantum Mechenics/Lecture",
-    "计算/Quantum Mechenics",
-    "理论/Topology",
     "image-1.png",
     "image-6.png",
     "image-5.png",
