@@ -67,3 +67,5 @@ execute:
   freeze: true  # Don't re-execute code, use cached results
   daemon: false  # Disable daemon for faster rendering
   cache: true
+filters:
+  - filters/auto-title.lua
