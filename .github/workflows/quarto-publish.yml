@@ -2,7 +2,7 @@ name: Publish Quarto site
 
 on:
   push:
-    branches: [ main, master, next.js ]
+    branches: [ quarto ]
   workflow_dispatch:
 
 jobs:
