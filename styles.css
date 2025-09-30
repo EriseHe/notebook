@@ -42,7 +42,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar {
   background: transparent;
-  border-right: none; /* Remove vertical divider */
+  border-right: none !important; /* Remove vertical divider */
+  box-shadow: none !important;   /* Remove inset divider if theme uses it */
   font-size: 0.95rem;
 }
 
@@ -52,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar .nav-link.active { background-color: rgba(27,31,35,.08); color: #111827; font-weight: 600; }
 
-#quarto-sidebar { background: transparent; border-right: none; /* Remove vertical divider */ }
+#quarto-sidebar { background: transparent; border-right: none !important; box-shadow: none !important; /* Remove vertical divider */ }
 #quarto-sidebar .sidebar-menu-container { padding-right: 0.5rem; }
 #quarto-sidebar .sidebar-section { margin-bottom: 0.6rem; }
 #quarto-sidebar .collapse, #quarto-sidebar .collapsing { transition: none !important; }
@@ -76,6 +77,13 @@ h1, h2, h3, h4, h5, h6 {
 .page-columns { max-width: var(--page-max-width); margin: 0 auto; }
 
 main.content { padding: 2rem 2rem; }
+
+/* Some themes draw the divider on the content column instead of the sidebar */
+.page-columns .content,
+main.content {
+  border-left: none !important;
+  box-shadow: none !important;
+}
 
 .page-brand {
   font-family: var(--heading-font);
@@ -247,19 +255,21 @@ pre.sourceCode.css::before { content: "CSS"; }
   max-width: none; 
 }
 
-.quarto-listing-default .list > div {
-  background: #fafafa;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+.quarto-listing-default .list > div,
+.quarto-listing-default .quarto-post {
+  background: #fafafa !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  padding: 1.25rem 1.5rem !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04) !important;
 }
 
-.quarto-listing-default .list > div:hover {
-  border-color: #276fb4;
-  box-shadow: 0 4px 12px rgba(39, 111, 180, 0.1);
-  transform: translateY(-1px);
+.quarto-listing-default .list > div:hover,
+.quarto-listing-default .quarto-post:hover {
+  border-color: #276fb4 !important;
+  box-shadow: 0 4px 12px rgba(39, 111, 180, 0.1) !important;
+  transform: translateY(-1px) !important;
 }
 
 .quarto-listing-default .listing-title {
