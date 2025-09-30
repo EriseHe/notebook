@@ -24,18 +24,18 @@
             "group": "3fc9f11126a08b41"
           },
           {
-            "id": "6edd06cd85668939",
+            "id": "985f3b666bedac8d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何/S1 有关曲面的基础概念/4..md",
+                "file": "理论/微分几何/index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "4."
+              "title": "index"
             }
           }
         ],
@@ -190,13 +190,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何/S1 有关曲面的基础概念/4..md",
+                "file": "理论/微分几何/index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 4."
+              "title": "Outline of index"
             }
           }
         ],
@@ -223,15 +223,23 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "829f54a31a6b8d4d",
+  "active": "985f3b666bedac8d",
   "lastOpenFiles": [
+    "理论/微分几何/_index.md",
+    "理论/微分几何/广义相对论/index.md",
+    "理论/微分几何/广义相对论/1. Four-Vectors.md",
+    "理论/微分几何/广义相对论/广义相对论理论/index.md",
+    "理论/微分几何/广义相对论/广义相对论理论/_index.md",
+    "理论/微分几何/广义相对论/几何基础/index.md",
+    "理论/微分几何/广义相对论/几何基础/1. Topological Space.md",
+    "理论/微分几何/S1 有关曲面的基础概念/4..md",
     "理论/微分几何/S1 有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
+    "理论/微分几何/S1 有关曲面的基础概念/2. Lecture 2 (ACTUAL).md",
     "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
     "理论/微分几何/S1 有关曲面的基础概念/1. Overview of Differential Geometry.md",
     "理论/微分几何/Untitled",
     "理论/微分几何/S2 黎曼几何",
     "理论/微分几何/S1 有关曲面的基础概念",
-    "理论/微分几何/S1 有关曲面的基础概念/2. Lecture 2 (ACTUAL).md",
     "理论/微分几何/S1 有关曲面的基础概念/9..md",
     "理论/微分几何/S1 有关曲面的基础概念/8..md",
     "理论/微分几何/S1 有关曲面的基础概念/7..md",
@@ -239,22 +247,15 @@
     "理论/微分几何/S1 有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometries.md",
     "理论/微分几何/index.md",
     "理论/拓扑学/T-n分离公理.md",
-    "理论/微分几何/S1 有关曲面的基础概念/4..md",
     "理论/微分几何/Untitled.md",
     "index.md",
-    "理论/微分几何/_index.md",
     "Main Plug-in.md",
     "image.png",
     "随笔/福柯视角下的物理学转变以及新范式的可能.md",
     "随笔/家庭式生命权力：通过儒家的家国体系重读福柯的生命政治理论在东亚的实践.md",
     "随笔/_index.md",
     "随笔/Sex & Sexuality.md",
-    "随笔/Lacanian AI.md",
-    "随笔/Create Graph Using LaTex Code.md",
-    "随笔/Commentary on the Collage.md",
-    "随笔/Commentary on Foucault's The Order of Things.md",
     "随笔",
-    "计算/Reinforcement Learning/_index.md",
     "计算/Reinforcement Learning",
     "计算/Quantum Mechenics/Lecture/第四章",
     "计算/Quantum Mechenics/Lecture/第一章",
