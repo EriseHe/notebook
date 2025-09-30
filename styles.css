@@ -323,12 +323,8 @@ pre.sourceCode.css::before { content: "CSS"; }
 /* ========================================
    TOC CUSTOMIZATION
    ======================================== */
-/* Hide ToC title "On this page" / "该页面内容" */
-#TOC > ul > li:first-child > a,
-#toc-title,
-.sidebar-title {
-  display: none !important;
-}
+/* Hide ToC title only (localized). Do NOT hide first heading */
+#toc-title { display: none !important; }
 
 /* Ensure Quarto sets language class and we backfill label from class name */
 /* The pandoc/quarto HTML already sets classes like pre.sourceCode.python.
