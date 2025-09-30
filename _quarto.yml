@@ -11,6 +11,8 @@ project:
   - "content/posts/**/*.md"
   - '!**/_index.md'
   - '!**/*.ipynb'  # Exclude notebooks from rendering for speed
+  - '!**/*.html'   # Exclude HTML files to prevent infinite loops
+  - '!docs/**'     # Exclude output directory
 website:
   title: Erise Note
   navbar:
