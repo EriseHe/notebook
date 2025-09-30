@@ -326,6 +326,18 @@ pre.sourceCode.css::before { content: "CSS"; }
 /* Hide ToC title only (localized). Do NOT hide first heading */
 #toc-title { display: none !important; }
 
+/* ========================================
+   SIDEBAR SPACING - add room before divider
+   ======================================== */
+@media (min-width: 992px) {
+  /* Give breathing space between items/toggles and the vertical divider */
+  #quarto-sidebar .sidebar-header,
+  #quarto-sidebar .sidebar-menu-container,
+  #quarto-sidebar .sidebar-item-container {
+    padding-right: 1rem; /* space for toggle icon before the divider */
+  }
+}
+
 /* Ensure Quarto sets language class and we backfill label from class name */
 /* The pandoc/quarto HTML already sets classes like pre.sourceCode.python.
    The rules above set the accent color and label via ::before per language. */
