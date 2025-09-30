@@ -348,8 +348,6 @@ pre.sourceCode.css::before { content: "CSS"; }
     margin-left: -40px !important;  /* move the whole sidebar 40px to the left */
     padding-left: 40px !important;  /* keep internal content aligned; divider stays put */
     width: calc(280px + 40px) !important; /* widen sidebar */
-    left: -40px !important; /* force position shift */
-    position: relative !important;
   }
 
   /* Also adjust the sidebar container if Quarto wraps it */
