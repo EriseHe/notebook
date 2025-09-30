@@ -8,6 +8,5 @@ page-layout: article
 
 - [理论](理论/index.md)
 - [计算](计算/index.md)
-- [随笔](随笔/index.md)
 
 > 所有子页面都会自动出现在侧边导航中。
