@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>spin-spin-spin – Erise Note</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../../">
+<script src="../../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../../site_libs/bootstrap/bootstrap-29a19b5acbeac218a8c860e48340d4df.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../../../../index.html">
+    <span class="navbar-title">Erise Note</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="搜索"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="展开或折叠导航栏" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../../content/notes/index.md"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../../content/posts/index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/EriseHe/notebook"> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../../content/notes/计算/量子力学讲义/index.html">量子力学讲义</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/index.html">Lecture</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/index.html">第四章</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.4 Spin Spin Spin.html">量子自旋态与算符讲义（Quantum Spin States and Operators Lecture Notes）</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../../../../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">理论</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/点集拓扑学基础/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">点集拓扑学基础</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏微分方程</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/Laplace Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">拉普拉斯方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/Wave Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">波方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/Heat Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">热方程</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/Heat Equation/Heat Equation Solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Heat Equation Solution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/Heat Equation/The Fourier Series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">傅立叶级数</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">数值方法</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/01 Mid-Point Method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formula Derivation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/02 Three-Point Backward Differentiation Formula.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Ok Honestly I Have No Idea Where He Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/03 Numerical Solution of Ordinary Differential Equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">常微分方程的数值解</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第九章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.1 Boundary Value Problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.1 边值问题的近似</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.2 Finite Difference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.2 有限差分法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.3 Advection-Diffusion Equation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.3 对流-扩散方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.4 2D Problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.4 4.1 二维（2D）偏微分方程问题</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/Exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">习题</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第十章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Finite Element Method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Order of Convergence in Finite Elements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Quiz 4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions for Quiz 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第四章 有限元分析</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/4.1 有限元.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 有限元</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">实分析</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/Homework/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Real Analysis II</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 9</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/第七章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第七章 逆函数和隐函数定理</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第七章/7.1 Inverse Function Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1 反函数定理</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第七章/7.1.1 Inverse FT (Proof).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1.1 反函数定理（证明）</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第七章/7.2 Implicit Function Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 隐函数定理</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第七章/7.6 Morse Lemma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6 莫尔斯引理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/第九章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第九章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第九章/9.1 Computing Integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">积分计算</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/第八章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第八章 度量理论</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第八章/8.1 度量理论.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 积分的定义</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第八章/8.2 Criterion for Integrability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Criterion for Integrability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第八章/8.3 Proof of Lebesgue's Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proof of the Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第八章/8.5 Improper Integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.5 不定积分</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第八章/8.6 Lebesgue Convergence Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.6 勒贝格收敛定理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/第六章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第六章 可微映射</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第六章/6.4 Sufficient Conditions for Differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.4 可微分性的必要条件</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第六章/6.5 The Chain Rule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.5 链式法则</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第六章/6.6 Product Rule and Gradients.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.6 乘积法则与梯度</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第六章/6.9 Taylor Higher Dimentions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.9 泰勒公式的高维形式</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/第十章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第十章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第十章/10.1 Fourier Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian Integral Computation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/广义相对论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">广义相对论</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/广义相对论/几何基础/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">几何基础</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/广义相对论/几何基础/1. Topological Space.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Topological Space</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/广义相对论/广义相对论理论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">广义相对论理论</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/广义相对论/广义相对论理论/1. Four-Vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">四维向量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/广义相对论/广义相对论理论/2. Einstein Summation Convention.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einstein求和约定</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/广义相对论/广义相对论理论/3. Index Notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">指标</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/广义相对论/广义相对论理论/6. Tensor Equation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">张量方程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/微分几何/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">微分几何</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/1. Overview of Differential Geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. From Calculus to Manifolds</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/2. Lecture 2 (ACTUAL).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parametrized Curves in <span class="math inline">\(\mathbb{R}^3\)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/2. Parametrized Curves and Surfaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Parametrized curves in <span class="math inline">\(\mathbb{R}^3\)</span> (plane curves as a special case)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/3. Tangent Vectors on a Surface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Recap from Last lecture</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/5. Pushforward, Pullback, and Local Isometries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Smooth map and its differential (push-forward)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/T-n分离公理.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T-n Levels of Separation Axiom</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/概率机器学习/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">概率机器学习</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/1..html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/2. Autoregressive模型.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Probability Distributions (recap)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/3. Autoregressive模型 &amp; Recurrent Neural Networks (RNN).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Model (Continue)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/4. Transformer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/概率机器学习/强化学习（RL）/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">强化学习</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/强化学习（RL）/2. Markov奖励&amp;决策过程.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markov奖励&amp;决策过程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/强化学习（RL）/Agent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Physics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/计算/Julia科学计算笔记/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Julia科学计算笔记</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/Julia科学计算笔记/1. 基本语法.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary of Key Julia Codes and Algorithms by Chapter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/Julia科学计算笔记/2. Variables, primitive types, and functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture Review: **Julia &amp; Git**</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/计算/量子力学讲义/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">量子力学讲义</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/波函数存在于在Hilbert空间中.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">波函数存在于Hilbert空间中</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/薛定谔方程的傅立叶变换.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">薛定谔方程的傅立叶变换</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第一章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第一章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第一章/1.1 The Wave Function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Three quantum indeterminacy position:</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第四章</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.1 经典氢原子.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1.1 经典氢原子 (Classical Hydrogen Atom)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.2 Hydrogen Atom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">氢原子</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.3 角动量 (Angular Momentum).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3.1 量子数 (Quantum Numbers)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.4 Spin Spin Spin.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">量子自旋态与算符讲义（Quantum Spin States and Operators Lecture Notes）</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/第四章.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 三维空间的薛定谔方程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#量子自旋态与算符讲义quantum-spin-states-and-operators-lecture-notes" id="toc-量子自旋态与算符讲义quantum-spin-states-and-operators-lecture-notes" class="nav-link active" data-scroll-target="#量子自旋态与算符讲义quantum-spin-states-and-operators-lecture-notes">量子自旋态与算符讲义（Quantum Spin States and Operators Lecture Notes）</a>
+  <ul class="collapse">
+  <li><a href="#单自旋态one-spin-states" id="toc-单自旋态one-spin-states" class="nav-link" data-scroll-target="#单自旋态one-spin-states">单自旋态（One Spin States）：</a></li>
+  <li><a href="#从uparrowrangleuparrowrangle开始计算start-with-uparrowrangleuparrowrangle" id="toc-从uparrowrangleuparrowrangle开始计算start-with-uparrowrangleuparrowrangle" class="nav-link" data-scroll-target="#从uparrowrangleuparrowrangle开始计算start-with-uparrowrangleuparrowrangle">从<span class="math inline">\(|\uparrow\rangle|\uparrow\rangle\)</span>开始计算（Start with <span class="math inline">\(|\uparrow\rangle|\uparrow\rangle\)</span>）：</a></li>
+  </ul></li>
+  <li><a href="#量子自旋相互作用的探讨继续" id="toc-量子自旋相互作用的探讨继续" class="nav-link" data-scroll-target="#量子自旋相互作用的探讨继续">量子自旋相互作用的探讨（继续）</a>
+  <ul class="collapse">
+  <li><a href="#focus-on-2-spins-h-j-vecs_1-cdot-vecs_2" id="toc-focus-on-2-spins-h-j-vecs_1-cdot-vecs_2" class="nav-link" data-scroll-target="#focus-on-2-spins-h-j-vecs_1-cdot-vecs_2">Focus on 2 Spins: <span class="math inline">\(H = J \vec{S}_1 \cdot \vec{S}_2\)</span></a></li>
+  <li><a href="#is-uparrowrangledownarrowrangle-also-an-eigenstate" id="toc-is-uparrowrangledownarrowrangle-also-an-eigenstate" class="nav-link" data-scroll-target="#is-uparrowrangledownarrowrangle-also-an-eigenstate">Is <span class="math inline">\(|\uparrow\rangle|\downarrow\rangle\)</span> also an eigenstate?</a></li>
+  <li><a href="#likewise" id="toc-likewise" class="nav-link" data-scroll-target="#likewise">Likewise</a></li>
+  </ul></li>
+  <li><a href="#继续量子自旋相互作用讲义" id="toc-继续量子自旋相互作用讲义" class="nav-link" data-scroll-target="#继续量子自旋相互作用讲义">继续量子自旋相互作用讲义</a>
+  <ul class="collapse">
+  <li><a href="#use-symmetry" id="toc-use-symmetry" class="nav-link" data-scroll-target="#use-symmetry">Use symmetry…</a></li>
+  <li><a href="#consider" id="toc-consider" class="nav-link" data-scroll-target="#consider">Consider…</a></li>
+  <li><a href="#is-this-an-eigenstate-yes-add-a-b" id="toc-is-this-an-eigenstate-yes-add-a-b" class="nav-link" data-scroll-target="#is-this-an-eigenstate-yes-add-a-b">Is this an eigenstate? Yes! (Add (A) &amp; (B))</a></li>
+  </ul></li>
+  <li><a href="#量子自旋系统讲义" id="toc-量子自旋系统讲义" class="nav-link" data-scroll-target="#量子自旋系统讲义">量子自旋系统讲义</a>
+  <ul class="collapse">
+  <li><a href="#第一部分基本自旋态表示" id="toc-第一部分基本自旋态表示" class="nav-link" data-scroll-target="#第一部分基本自旋态表示">第一部分：基本自旋态表示</a>
+  <ul class="collapse">
+  <li><a href="#单自旋态的定义" id="toc-单自旋态的定义" class="nav-link" data-scroll-target="#单自旋态的定义">单自旋态的定义</a></li>
+  <li><a href="#自旋算符作用于基态" id="toc-自旋算符作用于基态" class="nav-link" data-scroll-target="#自旋算符作用于基态">自旋算符作用于基态</a></li>
+  <li><a href="#自旋算符的矩阵表示" id="toc-自旋算符的矩阵表示" class="nav-link" data-scroll-target="#自旋算符的矩阵表示">自旋算符的矩阵表示</a></li>
+  <li><a href="#升降算符" id="toc-升降算符" class="nav-link" data-scroll-target="#升降算符">升降算符</a></li>
+  <li><a href="#升降算符的作用" id="toc-升降算符的作用" class="nav-link" data-scroll-target="#升降算符的作用">升降算符的作用</a></li>
+  </ul></li>
+  <li><a href="#第二部分两自旋系统分析" id="toc-第二部分两自旋系统分析" class="nav-link" data-scroll-target="#第二部分两自旋系统分析">第二部分：两自旋系统分析</a>
+  <ul class="collapse">
+  <li><a href="#自旋-自旋相互作用哈密顿量" id="toc-自旋-自旋相互作用哈密顿量" class="nav-link" data-scroll-target="#自旋-自旋相互作用哈密顿量">自旋-自旋相互作用哈密顿量</a></li>
+  <li><a href="#两自旋系统的基态" id="toc-两自旋系统的基态" class="nav-link" data-scroll-target="#两自旋系统的基态">两自旋系统的基态</a></li>
+  <li><a href="#计算算符作用于downarrowrangledownarrowrangle" id="toc-计算算符作用于downarrowrangledownarrowrangle" class="nav-link" data-scroll-target="#计算算符作用于downarrowrangledownarrowrangle">计算算符作用于<span class="math inline">\(|\downarrow\rangle|\downarrow\rangle\)</span></a></li>
+  <li><a href="#uparrowrangledownarrowrangle是否为本征态" id="toc-uparrowrangledownarrowrangle是否为本征态" class="nav-link" data-scroll-target="#uparrowrangledownarrowrangle是否为本征态"><span class="math inline">\(|\uparrow\rangle|\downarrow\rangle\)</span>是否为本征态？</a></li>
+  <li><a href="#对downarrowrangleuparrowrangle的类似计算" id="toc-对downarrowrangleuparrowrangle的类似计算" class="nav-link" data-scroll-target="#对downarrowrangleuparrowrangle的类似计算">对<span class="math inline">\(|\downarrow\rangle|\uparrow\rangle\)</span>的类似计算</a></li>
+  </ul></li>
+  <li><a href="#第三部分利用对称性寻找本征态" id="toc-第三部分利用对称性寻找本征态" class="nav-link" data-scroll-target="#第三部分利用对称性寻找本征态">第三部分：利用对称性寻找本征态</a>
+  <ul class="collapse">
+  <li><a href="#对称性分析" id="toc-对称性分析" class="nav-link" data-scroll-target="#对称性分析">对称性分析</a></li>
+  <li><a href="#对称线性组合态" id="toc-对称线性组合态" class="nav-link" data-scroll-target="#对称线性组合态">对称线性组合态</a></li>
+  <li><a href="#验证是否为本征态" id="toc-验证是否为本征态" class="nav-link" data-scroll-target="#验证是否为本征态">验证是否为本征态</a></li>
+  <li><a href="#反对称线性组合态" id="toc-反对称线性组合态" class="nav-link" data-scroll-target="#反对称线性组合态">反对称线性组合态</a></li>
+  <li><a href="#验证是否为本征态-1" id="toc-验证是否为本征态-1" class="nav-link" data-scroll-target="#验证是否为本征态-1">验证是否为本征态</a></li>
+  </ul></li>
+  <li><a href="#第四部分自旋三重态与单重态" id="toc-第四部分自旋三重态与单重态" class="nav-link" data-scroll-target="#第四部分自旋三重态与单重态">第四部分：自旋三重态与单重态</a>
+  <ul class="collapse">
+  <li><a href="#三重态与单重态的分类" id="toc-三重态与单重态的分类" class="nav-link" data-scroll-target="#三重态与单重态的分类">三重态与单重态的分类</a></li>
+  <li><a href="#哈密顿量作用" id="toc-哈密顿量作用" class="nav-link" data-scroll-target="#哈密顿量作用">哈密顿量作用</a></li>
+  </ul></li>
+  <li><a href="#第五部分交换耦合常数j的物理意义" id="toc-第五部分交换耦合常数j的物理意义" class="nav-link" data-scroll-target="#第五部分交换耦合常数j的物理意义">第五部分：交换耦合常数J的物理意义</a>
+  <ul class="collapse">
+  <li><a href="#j-0-情况铁磁耦合" id="toc-j-0-情况铁磁耦合" class="nav-link" data-scroll-target="#j-0-情况铁磁耦合">J &gt; 0 情况（铁磁耦合）</a></li>
+  <li><a href="#j-0-情况反铁磁耦合" id="toc-j-0-情况反铁磁耦合" class="nav-link" data-scroll-target="#j-0-情况反铁磁耦合">J &lt; 0 情况（反铁磁耦合）</a></li>
+  </ul></li>
+  <li><a href="#第六部分量子态的纠缠特性" id="toc-第六部分量子态的纠缠特性" class="nav-link" data-scroll-target="#第六部分量子态的纠缠特性">第六部分：量子态的纠缠特性</a>
+  <ul class="collapse">
+  <li><a href="#重要观察" id="toc-重要观察" class="nav-link" data-scroll-target="#重要观察">重要观察</a></li>
+  <li><a href="#张量积表示" id="toc-张量积表示" class="nav-link" data-scroll-target="#张量积表示">张量积表示</a></li>
+  </ul></li>
+  <li><a href="#附录量子自旋系统的重要概念解释" id="toc-附录量子自旋系统的重要概念解释" class="nav-link" data-scroll-target="#附录量子自旋系统的重要概念解释">附录：量子自旋系统的重要概念解释</a>
+  <ul class="collapse">
+  <li><a href="#自旋三重态与单重态的物理意义" id="toc-自旋三重态与单重态的物理意义" class="nav-link" data-scroll-target="#自旋三重态与单重态的物理意义">自旋三重态与单重态的物理意义</a></li>
+  <li><a href="#交换相互作用的物理解释" id="toc-交换相互作用的物理解释" class="nav-link" data-scroll-target="#交换相互作用的物理解释">交换相互作用的物理解释</a></li>
+  <li><a href="#自旋算符与泡利矩阵的关系" id="toc-自旋算符与泡利矩阵的关系" class="nav-link" data-scroll-target="#自旋算符与泡利矩阵的关系">自旋算符与泡利矩阵的关系</a></li>
+  <li><a href="#量子纠缠的意义" id="toc-量子纠缠的意义" class="nav-link" data-scroll-target="#量子纠缠的意义">量子纠缠的意义</a></li>
+  <li><a href="#实际应用" id="toc-实际应用" class="nav-link" data-scroll-target="#实际应用">实际应用</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../../content/notes/计算/量子力学讲义/index.html">量子力学讲义</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/index.html">Lecture</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/index.html">第四章</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.4 Spin Spin Spin.html">量子自旋态与算符讲义（Quantum Spin States and Operators Lecture Notes）</a></li></ol></nav></header>
+
+
+
+
+<section id="量子自旋态与算符讲义quantum-spin-states-and-operators-lecture-notes" class="level1">
+<h1>量子自旋态与算符讲义（Quantum Spin States and Operators Lecture Notes）</h1>
+<section id="单自旋态one-spin-states" class="level2">
+<h2 class="anchored" data-anchor-id="单自旋态one-spin-states">单自旋态（One Spin States）：</h2>
+<p>这里定义了基本的<strong>自旋向上</strong>和<strong>自旋向下</strong>态的矢量表示： <span class="math inline">\(|\uparrow\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}\)</span>, <span class="math inline">\(|\downarrow\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}\)</span> <span class="math inline">\(S_z\)</span>算符作用于自旋态，得到对应的本征值</p>
+<p><span class="math inline">\(S_z|\uparrow\rangle = \frac{\hbar}{2}|\uparrow\rangle\)</span></p>
+<p><span class="math inline">\(S_z|\downarrow\rangle = -\frac{\hbar}{2}|\downarrow\rangle\)</span></p>
+<p>这些是三个方向上自旋算符的矩阵表示形式</p>
+<p><span class="math inline">\(S_x = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}\)</span>, <span class="math inline">\(S_y = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; -i \\ i &amp; 0 \end{pmatrix}\)</span>, <span class="math inline">\(S_z = \frac{\hbar}{2}\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix}\)</span></p>
+<p>重要工具：定义升降算符</p>
+<p><span class="math inline">\(S_+ = S_x + iS_y = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}\)</span></p>
+<p><span class="math inline">\(S_- = S_x - iS_y = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\)</span></p>
+<p>这部分计算展示了升降算符如何改变自旋态，<span class="math inline">\(S_+\)</span>将自旋向下变为向上，<span class="math inline">\(S_-\)</span>将自旋向上变为向下</p>
+<p><span class="math inline">\(S_+|\uparrow\rangle = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = 0\)</span></p>
+<p><span class="math inline">\(S_+|\downarrow\rangle = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \frac{\hbar}{2}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \frac{\hbar}{2}|\uparrow\rangle\)</span></p>
+<p><span class="math inline">\(S_-|\uparrow\rangle = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \frac{\hbar}{2}\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \frac{\hbar}{2}|\downarrow\rangle\)</span></p>
+<p><span class="math inline">\(S_-|\downarrow\rangle = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\begin{pmatrix} 0 \\ 1 \end{pmatrix} = 0\)</span></p>
+</section>
+<section id="从uparrowrangleuparrowrangle开始计算start-with-uparrowrangleuparrowrangle" class="level2">
+<h2 class="anchored" data-anchor-id="从uparrowrangleuparrowrangle开始计算start-with-uparrowrangleuparrowrangle">从<span class="math inline">\(|\uparrow\rangle|\uparrow\rangle\)</span>开始计算（Start with <span class="math inline">\(|\uparrow\rangle|\uparrow\rangle\)</span>）：</h2>
+<p>这里开始计算<strong>两个自旋之间的相互作用</strong>，即点积算符作用于两个自旋均向上的态</p>
+<p><span class="math display">\[
+\begin{align}
+\vec{S}_1 \cdot \vec{S}_2 |\uparrow\rangle|\uparrow\rangle = &amp;  (S_{1x}S_{2x} + S_{1y}S_{2y} + S_{1z}S_{2z})|\uparrow\rangle|\uparrow\rangle \\
+= &amp;  \left[\frac{1}{2}(S_{1+}S_{2-} + S_{1-}S_{2+}) + S_{1z}S_{2z}\right]|\uparrow\rangle|\uparrow\rangle \\
+=  &amp; S_{1z}S_{2z}|\uparrow\rangle|\uparrow\rangle \\
+=  &amp;  (S_{1z}|\uparrow\rangle)(S_{2z}|\uparrow\rangle) \\
+=  &amp; \left(\frac{\hbar}{2}|\uparrow\rangle\right)\left(\frac{\hbar}{2}|\uparrow\rangle\right) \\
+=  &amp; \frac{\hbar^2}{4}|\uparrow\rangle|\uparrow\rangle
+\end{align}
+\]</span></p>
+<p><span class="math inline">\(|\uparrow\rangle|\uparrow\rangle\)</span> 是 <span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2\)</span> 的eigenstate，对应的的eigenvalue为 <span class="math inline">\(\frac{\hbar^2}{4}\)</span></p>
+<p>这个结论表明两个自旋向上的复合态是自旋-自旋相互作用算符的本征态，这在量子磁学中非常重要</p>
+</section>
+</section>
+<section id="量子自旋相互作用的探讨继续" class="level1">
+<h1>量子自旋相互作用的探讨（继续）</h1>
+<section id="focus-on-2-spins-h-j-vecs_1-cdot-vecs_2" class="level2">
+<h2 class="anchored" data-anchor-id="focus-on-2-spins-h-j-vecs_1-cdot-vecs_2">Focus on 2 Spins: <span class="math inline">\(H = J \vec{S}_1 \cdot \vec{S}_2\)</span></h2>
+<p><em>关注两个自旋系统，哈密顿量由自旋-自旋相互作用给出，其中<span class="math inline">\(J\)</span>是耦合常数</em></p>
+<p><em>spin-1/2 quantum mechanical operators</em> <em>自旋-1/2量子力学算符</em></p>
+<p><span class="math inline">\((|\uparrow\rangle|\uparrow\rangle, |\uparrow\rangle|\downarrow\rangle, |\downarrow\rangle|\uparrow\rangle, |\downarrow\rangle|\downarrow\rangle)\)</span></p>
+<p><em>这是两个自旋-1/2系统的四个可能基态</em></p>
+<p><span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2 |\downarrow\rangle|\downarrow\rangle = \left(\frac{1}{2}(S_{1+}S_{2-} + S_{1-}S_{2+}) + S_{1z}S_{2z}\right)|\downarrow\rangle|\downarrow\rangle = S_{1z}S_{2z}|\downarrow\rangle|\downarrow\rangle\)</span></p>
+<p><span class="math inline">\(= (S_{1z}|\downarrow\rangle)(S_{2z}|\downarrow\rangle)\)</span></p>
+<p><span class="math inline">\(= \left(-\frac{\hbar}{2}|\downarrow\rangle\right)\left(-\frac{\hbar}{2}|\downarrow\rangle\right)\)</span></p>
+<p><span class="math inline">\(= \frac{\hbar^2}{4}|\downarrow\rangle|\downarrow\rangle\)</span></p>
+<p><em>计算自旋-自旋相互作用算符作用于两个自旋向下态的结果</em></p>
+</section>
+<section id="is-uparrowrangledownarrowrangle-also-an-eigenstate" class="level2">
+<h2 class="anchored" data-anchor-id="is-uparrowrangledownarrowrangle-also-an-eigenstate">Is <span class="math inline">\(|\uparrow\rangle|\downarrow\rangle\)</span> also an eigenstate?</h2>
+<p><em><span class="math inline">\(|\uparrow\rangle|\downarrow\rangle\)</span>是否也是本征态？</em></p>
+<p><span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2 |\uparrow\rangle|\downarrow\rangle = \left[\frac{1}{2}(S_{1+}S_{2-} + S_{1-}S_{2+}) + S_{1z}S_{2z}\right]|\uparrow\rangle|\downarrow\rangle\)</span></p>
+<p><span class="math inline">\(= \frac{1}{2}(S_{1+}|\uparrow\rangle)(S_{2-}|\downarrow\rangle) + \frac{1}{2}(S_{1-}|\uparrow\rangle)(S_{2+}|\downarrow\rangle) + (S_{1z}|\uparrow\rangle)(S_{2z}|\downarrow\rangle)\)</span></p>
+<p><span class="math inline">\(= \frac{1}{2}(0)(\frac{\hbar}{2}|\uparrow\rangle) + \frac{1}{2}(\frac{\hbar}{2}|\downarrow\rangle)(0) + (\frac{\hbar}{2}|\uparrow\rangle)(-\frac{\hbar}{2}|\downarrow\rangle)\)</span></p>
+<p><em>分步计算每一项的结果</em></p>
+<p><span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2 |\uparrow\rangle|\downarrow\rangle = \frac{\hbar^2}{2}|\downarrow\rangle|\uparrow\rangle - \frac{\hbar^2}{4}|\uparrow\rangle|\downarrow\rangle\)</span></p>
+<p><em>结果表明<span class="math inline">\(|\uparrow\rangle|\downarrow\rangle\)</span>不是本征态，因为结果包含不同的量子态</em></p>
+</section>
+<section id="likewise" class="level2">
+<h2 class="anchored" data-anchor-id="likewise">Likewise</h2>
+<p><em>类似地计算另一种混合态</em></p>
+<p><span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2 |\downarrow\rangle|\uparrow\rangle = \frac{\hbar^2}{2}|\uparrow\rangle|\downarrow\rangle - \frac{\hbar^2}{4}|\downarrow\rangle|\uparrow\rangle\)</span></p>
+<p><em>同样，<span class="math inline">\(|\downarrow\rangle|\uparrow\rangle\)</span>也不是本征态</em></p>
+<p><span class="math inline">\(|\downarrow\rangle|\downarrow\rangle\)</span> is an eigenstate of <span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2\)</span> with the eigenvalue <span class="math inline">\(\frac{\hbar^2}{4}\)</span></p>
+<p><em><span class="math inline">\(|\downarrow\rangle|\downarrow\rangle\)</span>是<span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2\)</span>的本征态，对应本征值<span class="math inline">\(\frac{\hbar^2}{4}\)</span></em></p>
+<p>neither <span class="math inline">\(|\uparrow\rangle|\downarrow\rangle\)</span> nor <span class="math inline">\(|\downarrow\rangle|\uparrow\rangle\)</span> are eigenstates of <span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2\)</span>.</p>
+<p><em><span class="math inline">\(|\uparrow\rangle|\downarrow\rangle\)</span>和<span class="math inline">\(|\downarrow\rangle|\uparrow\rangle\)</span>都不是<span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2\)</span>的本征态</em></p>
+<p>.. there must be linear combinations that produce eigenstates!</p>
+<p>因此，必须通过线性组合才能得到本征态!</p>
+</section>
+</section>
+<section id="继续量子自旋相互作用讲义" class="level1">
+<h1>继续量子自旋相互作用讲义</h1>
+<section id="use-symmetry" class="level2">
+<h2 class="anchored" data-anchor-id="use-symmetry">Use symmetry…</h2>
+<p><em>利用对称性…</em></p>
+<p><span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2\)</span> is invariant under permutation of spin 1 and spin 2.</p>
+<p><em>自旋-自旋相互作用算符在交换自旋1和自旋2时是不变的（具有交换对称性）。</em></p>
+</section>
+<section id="consider" class="level2">
+<h2 class="anchored" data-anchor-id="consider">Consider…</h2>
+<p><span class="math inline">\(\frac{1}{\sqrt{2}}(|\uparrow\rangle|\downarrow\rangle + |\downarrow\rangle|\uparrow\rangle)\)</span></p>
+<p><em>考虑这个归一化的量子态，它是两个混合自旋态的对称叠加</em></p>
+<p>↑ normalization. <em>上面的系数是归一化因子</em></p>
+</section>
+<section id="is-this-an-eigenstate-yes-add-a-b" class="level2">
+<h2 class="anchored" data-anchor-id="is-this-an-eigenstate-yes-add-a-b">Is this an eigenstate? Yes! (Add (A) &amp; (B))</h2>
+<p><em>这是否为本征态？是的！（将(A)和(B)相加）</em></p>
+<p><span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2 \left(\frac{|\uparrow\rangle|\downarrow\rangle + |\downarrow\rangle|\uparrow\rangle}{\sqrt{2}}\right) =\)</span></p>
+<p><span class="math inline">\(\left(\frac{\hbar^2}{2}-\frac{\hbar^2}{4}\right) \frac{|\uparrow\rangle|\downarrow\rangle}{\sqrt{2}} + \left(\frac{\hbar^2}{2}-\frac{\hbar^2}{4}\right) \frac{|\downarrow\rangle|\uparrow\rangle}{\sqrt{2}}\)</span></p>
+<p><em>将自旋-自旋相互作用算符作用于这个对称态，代入之前计算的结果</em></p>
+<p><span class="math inline">\(= \frac{\hbar^2}{4}\left(\frac{|\uparrow\rangle|\downarrow\rangle + |\downarrow\rangle|\uparrow\rangle}{\sqrt{2}}\right)\)</span></p>
+<p><em>化简得到</em></p>
+<p><span class="math inline">\(\Rightarrow \frac{1}{\sqrt{2}}(|\uparrow\rangle|\downarrow\rangle + |\downarrow\rangle|\uparrow\rangle)\)</span> is an eigenstate of <span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2\)</span> with eigenvalue <span class="math inline">\(\frac{\hbar^2}{4}\)</span></p>
+<p><em>因此，这个对称叠加态确实是<span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2\)</span>的本征态，其本征值为<span class="math inline">\(\frac{\hbar^2}{4}\)</span></em></p>
+<p>这部分推导表明，尽管单个混合态<span class="math inline">\(|\uparrow\rangle|\downarrow\rangle\)</span>和<span class="math inline">\(|\downarrow\rangle|\uparrow\rangle\)</span>不是自旋-自旋相互作用算符的本征态，但它们的对称线性组合<span class="math inline">\(\frac{1}{\sqrt{2}}(|\uparrow\rangle|\downarrow\rangle + |\downarrow\rangle|\uparrow\rangle)\)</span>却是本征态。这个对称态在物理上有特殊意义，它是一个总自旋为1的自旋三重态的一个分量，具有与<span class="math inline">\(|\uparrow\rangle|\uparrow\rangle\)</span>和<span class="math inline">\(|\downarrow\rangle|\downarrow\rangle\)</span>相同的本征值<span class="math inline">\(\frac{\hbar^2}{4}\)</span>。</p>
+<p>这种通过对称性原理构造本征态的方法在量子力学中非常常见且实用。上述计算展示了对称性在量子系统中的强大作用。</p>
+<hr>
+</section>
+</section>
+<section id="量子自旋系统讲义" class="level1">
+<h1>量子自旋系统讲义</h1>
+<section id="第一部分基本自旋态表示" class="level2">
+<h2 class="anchored" data-anchor-id="第一部分基本自旋态表示">第一部分：基本自旋态表示</h2>
+<section id="单自旋态的定义" class="level3">
+<h3 class="anchored" data-anchor-id="单自旋态的定义">单自旋态的定义</h3>
+<p><span class="math display">\[ |\uparrow\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad |\downarrow\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix} \]</span></p>
+</section>
+<section id="自旋算符作用于基态" class="level3">
+<h3 class="anchored" data-anchor-id="自旋算符作用于基态">自旋算符作用于基态</h3>
+<p><span class="math display">\[ S_z|\uparrow\rangle = \frac{\hbar}{2}|\uparrow\rangle \]</span></p>
+<p><span class="math display">\[ S_z|\downarrow\rangle = -\frac{\hbar}{2}|\downarrow\rangle \]</span></p>
+</section>
+<section id="自旋算符的矩阵表示" class="level3">
+<h3 class="anchored" data-anchor-id="自旋算符的矩阵表示">自旋算符的矩阵表示</h3>
+<p><span class="math display">\[ S_x = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}, \quad S_y = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; -i \\ i &amp; 0 \end{pmatrix}, \quad S_z = \frac{\hbar}{2}\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} \]</span></p>
+</section>
+<section id="升降算符" class="level3">
+<h3 class="anchored" data-anchor-id="升降算符">升降算符</h3>
+<p><span class="math display">\[ S_+ = S_x + iS_y = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix} \]</span></p>
+<p><span class="math display">\[ S_- = S_x - iS_y = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix} \]</span></p>
+</section>
+<section id="升降算符的作用" class="level3">
+<h3 class="anchored" data-anchor-id="升降算符的作用">升降算符的作用</h3>
+<p><span class="math display">\[ S_+|\uparrow\rangle = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = 0 \]</span></p>
+<p><span class="math display">\[ S_+|\downarrow\rangle = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \frac{\hbar}{2}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \frac{\hbar}{2}|\uparrow\rangle \]</span></p>
+<p><span class="math display">\[ S_-|\uparrow\rangle = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \frac{\hbar}{2}\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \frac{\hbar}{2}|\downarrow\rangle \]</span></p>
+<p><span class="math display">\[ S_-|\downarrow\rangle = \frac{\hbar}{2}\begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\begin{pmatrix} 0 \\ 1 \end{pmatrix} = 0 \]</span></p>
+</section>
+</section>
+<section id="第二部分两自旋系统分析" class="level2">
+<h2 class="anchored" data-anchor-id="第二部分两自旋系统分析">第二部分：两自旋系统分析</h2>
+<section id="自旋-自旋相互作用哈密顿量" class="level3">
+<h3 class="anchored" data-anchor-id="自旋-自旋相互作用哈密顿量">自旋-自旋相互作用哈密顿量</h3>
+<p><span class="math display">\[ H = J \vec{S}_1 \cdot \vec{S}_2 \]</span></p>
+<p>其中<span class="math inline">\(J\)</span>是交换耦合常数，<span class="math inline">\(\vec{S}_1\)</span>和<span class="math inline">\(\vec{S}_2\)</span>是自旋-1/2量子力学算符</p>
+</section>
+<section id="两自旋系统的基态" class="level3">
+<h3 class="anchored" data-anchor-id="两自旋系统的基态">两自旋系统的基态</h3>
+<p><span class="math display">\[ (|\uparrow\rangle|\uparrow\rangle, |\uparrow\rangle|\downarrow\rangle, |\downarrow\rangle|\uparrow\rangle, |\downarrow\rangle|\downarrow\rangle) \]</span></p>
+</section>
+<section id="计算算符作用于downarrowrangledownarrowrangle" class="level3">
+<h3 class="anchored" data-anchor-id="计算算符作用于downarrowrangledownarrowrangle">计算算符作用于<span class="math inline">\(|\downarrow\rangle|\downarrow\rangle\)</span></h3>
+<p><span class="math display">\[ \vec{S}_1 \cdot \vec{S}_2 |\downarrow\rangle|\downarrow\rangle = \left(\frac{1}{2}(S_{1+}S_{2-} + S_{1-}S_{2+}) + S_{1z}S_{2z}\right)|\downarrow\rangle|\downarrow\rangle = S_{1z}S_{2z}|\downarrow\rangle|\downarrow\rangle \]</span></p>
+<p><span class="math display">\[ = (S_{1z}|\downarrow\rangle)(S_{2z}|\downarrow\rangle) \]</span></p>
+<p><span class="math display">\[ = \left(-\frac{\hbar}{2}|\downarrow\rangle\right)\left(-\frac{\hbar}{2}|\downarrow\rangle\right) \]</span></p>
+<p><span class="math display">\[ = \frac{\hbar^2}{4}|\downarrow\rangle|\downarrow\rangle \]</span></p>
+</section>
+<section id="uparrowrangledownarrowrangle是否为本征态" class="level3">
+<h3 class="anchored" data-anchor-id="uparrowrangledownarrowrangle是否为本征态"><span class="math inline">\(|\uparrow\rangle|\downarrow\rangle\)</span>是否为本征态？</h3>
+<p><span class="math display">\[ \vec{S}_1 \cdot \vec{S}_2 |\uparrow\rangle|\downarrow\rangle = \left[\frac{1}{2}(S_{1+}S_{2-} + S_{1-}S_{2+}) + S_{1z}S_{2z}\right]|\uparrow\rangle|\downarrow\rangle \]</span></p>
+<p><span class="math display">\[ = \frac{1}{2}(S_{1+}|\uparrow\rangle)(S_{2-}|\downarrow\rangle) + \frac{1}{2}(S_{1-}|\uparrow\rangle)(S_{2+}|\downarrow\rangle) + (S_{1z}|\uparrow\rangle)(S_{2z}|\downarrow\rangle) \]</span></p>
+<p><span class="math display">\[ = \frac{1}{2}(0)(\frac{\hbar}{2}|\uparrow\rangle) + \frac{1}{2}(\frac{\hbar}{2}|\downarrow\rangle)(0) + (\frac{\hbar}{2}|\uparrow\rangle)(-\frac{\hbar}{2}|\downarrow\rangle) \]</span></p>
+<p><span class="math display">\[ \vec{S}_1 \cdot \vec{S}_2 |\uparrow\rangle|\downarrow\rangle = \frac{\hbar^2}{2}|\downarrow\rangle|\uparrow\rangle - \frac{\hbar^2}{4}|\uparrow\rangle|\downarrow\rangle \]</span></p>
+</section>
+<section id="对downarrowrangleuparrowrangle的类似计算" class="level3">
+<h3 class="anchored" data-anchor-id="对downarrowrangleuparrowrangle的类似计算">对<span class="math inline">\(|\downarrow\rangle|\uparrow\rangle\)</span>的类似计算</h3>
+<p><span class="math display">\[ \vec{S}_1 \cdot \vec{S}_2 |\downarrow\rangle|\uparrow\rangle = \frac{\hbar^2}{2}|\uparrow\rangle|\downarrow\rangle - \frac{\hbar^2}{4}|\downarrow\rangle|\uparrow\rangle \]</span></p>
+</section>
+</section>
+<section id="第三部分利用对称性寻找本征态" class="level2">
+<h2 class="anchored" data-anchor-id="第三部分利用对称性寻找本征态">第三部分：利用对称性寻找本征态</h2>
+<section id="对称性分析" class="level3">
+<h3 class="anchored" data-anchor-id="对称性分析">对称性分析</h3>
+<p><span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2\)</span> 在交换自旋1和自旋2时是不变的</p>
+</section>
+<section id="对称线性组合态" class="level3">
+<h3 class="anchored" data-anchor-id="对称线性组合态">对称线性组合态</h3>
+<p><span class="math display">\[ \frac{1}{\sqrt{2}}(|\uparrow\rangle|\downarrow\rangle + |\downarrow\rangle|\uparrow\rangle) \]</span></p>
+</section>
+<section id="验证是否为本征态" class="level3">
+<h3 class="anchored" data-anchor-id="验证是否为本征态">验证是否为本征态</h3>
+<p><span class="math display">\[ \vec{S}_1 \cdot \vec{S}_2 \left(\frac{|\uparrow\rangle|\downarrow\rangle + |\downarrow\rangle|\uparrow\rangle}{\sqrt{2}}\right) = \]</span></p>
+<p><span class="math display">\[ \left(\frac{\hbar^2}{2}-\frac{\hbar^2}{4}\right) \frac{|\uparrow\rangle|\downarrow\rangle}{\sqrt{2}} + \left(\frac{\hbar^2}{2}-\frac{\hbar^2}{4}\right) \frac{|\downarrow\rangle|\uparrow\rangle}{\sqrt{2}} \]</span></p>
+<p><span class="math display">\[ = \frac{\hbar^2}{4}\left(\frac{|\uparrow\rangle|\downarrow\rangle + |\downarrow\rangle|\uparrow\rangle}{\sqrt{2}}\right) \]</span></p>
+<p>确认：<span class="math inline">\(\frac{1}{\sqrt{2}}(|\uparrow\rangle|\downarrow\rangle + |\downarrow\rangle|\uparrow\rangle)\)</span> 是 <span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2\)</span> 的本征态，本征值为 <span class="math inline">\(\frac{\hbar^2}{4}\)</span></p>
+</section>
+<section id="反对称线性组合态" class="level3">
+<h3 class="anchored" data-anchor-id="反对称线性组合态">反对称线性组合态</h3>
+<p><span class="math display">\[ \frac{1}{\sqrt{2}}(|\uparrow\rangle|\downarrow\rangle - |\downarrow\rangle|\uparrow\rangle) \]</span></p>
+</section>
+<section id="验证是否为本征态-1" class="level3">
+<h3 class="anchored" data-anchor-id="验证是否为本征态-1">验证是否为本征态</h3>
+<p><span class="math display">\[ \vec{S}_1 \cdot \vec{S}_2 \left(\frac{|\uparrow\rangle|\downarrow\rangle - |\downarrow\rangle|\uparrow\rangle}{\sqrt{2}}\right) \]</span></p>
+<p><span class="math display">\[ = \left(\frac{\hbar^2}{2}-\frac{\hbar^2}{4}\right) \frac{|\uparrow\rangle|\downarrow\rangle}{\sqrt{2}} - \left(\frac{\hbar^2}{2}-\frac{\hbar^2}{4}\right) \frac{|\downarrow\rangle|\uparrow\rangle}{\sqrt{2}} \]</span></p>
+<p><span class="math display">\[ = -\frac{3\hbar^2}{4}\left(\frac{|\uparrow\rangle|\downarrow\rangle - |\downarrow\rangle|\uparrow\rangle}{\sqrt{2}}\right) \]</span></p>
+<p>确认：<span class="math inline">\(\frac{1}{\sqrt{2}}(|\uparrow\rangle|\downarrow\rangle - |\downarrow\rangle|\uparrow\rangle)\)</span> 是 <span class="math inline">\(\vec{S}_1 \cdot \vec{S}_2\)</span> 的本征态，本征值为 <span class="math inline">\(-\frac{3\hbar^2}{4}\)</span></p>
+</section>
+</section>
+<section id="第四部分自旋三重态与单重态" class="level2">
+<h2 class="anchored" data-anchor-id="第四部分自旋三重态与单重态">第四部分：自旋三重态与单重态</h2>
+<section id="三重态与单重态的分类" class="level3">
+<h3 class="anchored" data-anchor-id="三重态与单重态的分类">三重态与单重态的分类</h3>
+<p><span class="math display">\[ |t_+\rangle = |\uparrow\rangle|\uparrow\rangle \]</span> <span class="math display">\[ |t_0\rangle = \frac{|\uparrow\rangle|\downarrow\rangle + |\downarrow\rangle|\uparrow\rangle}{\sqrt{2}} \]</span> <span class="math display">\[ |t_-\rangle = |\downarrow\rangle|\downarrow\rangle \]</span></p>
+<p>这三个态构成三重态(triplet)</p>
+<p><span class="math display">\[ |s\rangle = \frac{1}{\sqrt{2}}(|\uparrow\rangle|\downarrow\rangle - |\downarrow\rangle|\uparrow\rangle) \]</span></p>
+<p>这是单重态(singlet)</p>
+</section>
+<section id="哈密顿量作用" class="level3">
+<h3 class="anchored" data-anchor-id="哈密顿量作用">哈密顿量作用</h3>
+<p><span class="math display">\[ H|triplet\rangle = J\frac{\hbar^2}{4}|triplet\rangle \]</span></p>
+<p><span class="math display">\[ H|singlet\rangle = -J\frac{3\hbar^2}{4}|singlet\rangle \]</span></p>
+</section>
+</section>
+<section id="第五部分交换耦合常数j的物理意义" class="level2">
+<h2 class="anchored" data-anchor-id="第五部分交换耦合常数j的物理意义">第五部分：交换耦合常数J的物理意义</h2>
+<section id="j-0-情况铁磁耦合" class="level3">
+<h3 class="anchored" data-anchor-id="j-0-情况铁磁耦合">J &gt; 0 情况（铁磁耦合）</h3>
+<p><span class="math display">\[ J &gt; 0 \]</span></p>
+<p><span class="math display">\[ \begin{array}{cc}
+\uparrow &amp; \text{triplet} \\
+\hbar^2J/4 &amp; \\
+&amp; \\
+-3\hbar^2J/4 &amp; \downarrow |singlet\rangle
+\end{array} \]</span></p>
+</section>
+<section id="j-0-情况反铁磁耦合" class="level3">
+<h3 class="anchored" data-anchor-id="j-0-情况反铁磁耦合">J &lt; 0 情况（反铁磁耦合）</h3>
+<p><span class="math display">\[ J &lt; 0, \quad J = -|J| \]</span></p>
+<p><span class="math display">\[ \begin{array}{cc}
+\uparrow &amp; \text{singlet} \\
+-3\hbar^2|J|/4 &amp; \\
+&amp; \\
+-\hbar^2|J|/4 &amp; \downarrow \text{triplet}
+\end{array} \]</span></p>
+</section>
+</section>
+<section id="第六部分量子态的纠缠特性" class="level2">
+<h2 class="anchored" data-anchor-id="第六部分量子态的纠缠特性">第六部分：量子态的纠缠特性</h2>
+<section id="重要观察" class="level3">
+<h3 class="anchored" data-anchor-id="重要观察">重要观察</h3>
+<p><span class="math display">\[ |singlet\rangle = \frac{1}{\sqrt{2}}(|\uparrow\rangle|\downarrow\rangle - |\downarrow\rangle|\uparrow\rangle) \neq |\uparrow\rangle|\downarrow\rangle \]</span></p>
+</section>
+<section id="张量积表示" class="level3">
+<h3 class="anchored" data-anchor-id="张量积表示">张量积表示</h3>
+<p><span class="math display">\[ |A\otimes B\rangle \quad |\psi\rangle = \sum_{a,b}c_{ab}|a\rangle|b\rangle \]</span></p>
+</section>
+</section>
+<section id="附录量子自旋系统的重要概念解释" class="level2">
+<h2 class="anchored" data-anchor-id="附录量子自旋系统的重要概念解释">附录：量子自旋系统的重要概念解释</h2>
+<section id="自旋三重态与单重态的物理意义" class="level3">
+<h3 class="anchored" data-anchor-id="自旋三重态与单重态的物理意义">自旋三重态与单重态的物理意义</h3>
+<p><strong>三重态</strong>（triplet）包含三个量子态，具有相同的本征值<span class="math inline">\(\frac{\hbar^2}{4}\)</span>。三重态表现为总自旋为1的状态，<span class="math inline">\(|t_+\rangle\)</span>、<span class="math inline">\(|t_0\rangle\)</span>和<span class="math inline">\(|t_-\rangle\)</span>分别对应总自旋z分量为+1、0和-1。</p>
+<p><strong>单重态</strong>（singlet）只包含一个量子态<span class="math inline">\(|s\rangle\)</span>，本征值为<span class="math inline">\(-\frac{3\hbar^2}{4}\)</span>。单重态表现为总自旋为0的状态，两个自旋相互抵消。</p>
+</section>
+<section id="交换相互作用的物理解释" class="level3">
+<h3 class="anchored" data-anchor-id="交换相互作用的物理解释">交换相互作用的物理解释</h3>
+<p>交换常数<span class="math inline">\(J\)</span>确定了自旋之间的相互作用类型： - 当<span class="math inline">\(J &gt; 0\)</span>时，系统倾向于铁磁排列（自旋平行），三重态能量较低 - 当<span class="math inline">\(J &lt; 0\)</span>时，系统倾向于反铁磁排列（自旋反平行），单重态能量较低</p>
+</section>
+<section id="自旋算符与泡利矩阵的关系" class="level3">
+<h3 class="anchored" data-anchor-id="自旋算符与泡利矩阵的关系">自旋算符与泡利矩阵的关系</h3>
+<p>自旋算符与泡利矩阵的关系可以用以下数学表达式表示：</p>
+<p><span class="math display">\[ S_x = \frac{\hbar}{2}\sigma_x \]</span> <span class="math display">\[ S_y = \frac{\hbar}{2}\sigma_y \]</span> <span class="math display">\[ S_z = \frac{\hbar}{2}\sigma_z \]</span></p>
+<p>其中<span class="math inline">\(\sigma_x\)</span>、<span class="math inline">\(\sigma_y\)</span>和<span class="math inline">\(\sigma_z\)</span>是泡利矩阵：</p>
+<p><span class="math display">\[ \sigma_x = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix} \]</span> <span class="math display">\[ \sigma_y = \begin{pmatrix} 0 &amp; -i \\ i &amp; 0 \end{pmatrix} \]</span> <span class="math display">\[ \sigma_z = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} \]</span></p>
+<p>这种关系反映了量子力学中抽象数学与物理观测量之间的深刻联系： - 泡利矩阵是无量纲的数学工具 - 自旋算符有角动量的物理单位（由<span class="math inline">\(\frac{\hbar}{2}\)</span>提供） - 系数<span class="math inline">\(\frac{\hbar}{2}\)</span>表明我们在处理自旋-1/2粒子</p>
+</section>
+<section id="量子纠缠的意义" class="level3">
+<h3 class="anchored" data-anchor-id="量子纠缠的意义">量子纠缠的意义</h3>
+<p>单重态<span class="math inline">\(|s\rangle\)</span>和三重态<span class="math inline">\(|t_0\rangle\)</span>都是纠缠态，无法写成单个粒子态的直积。这种量子纠缠是量子力学的核心特性，表现为一个粒子的测量会立即影响另一个粒子的状态，不论它们相距多远。</p>
+</section>
+<section id="实际应用" class="level3">
+<h3 class="anchored" data-anchor-id="实际应用">实际应用</h3>
+<p>海森堡模型在凝聚态物理中有广泛应用，特别是在理解磁性材料、高温超导体和量子计算中的量子比特设计方面。</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  const STORAGE_KEY = 'quarto-sidebar-state';
+
+  function loadState() {
+    try {
+      return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '{}');
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function saveState(state) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch {}
+  }
+
+  function applyState(state) {
+    const collapseEls = document.querySelectorAll('#quarto-sidebar .collapse');
+    collapseEls.forEach((el) => {
+      const id = el.id;
+      if (!id) return;
+      const shouldOpen = state[id];
+      const toggle = document.querySelector(`[data-bs-target="#${CSS.escape(id)}"]`);
+      if (shouldOpen === undefined) return;
+      if (shouldOpen) {
+        el.classList.add('show');
+        if (toggle) {
+          toggle.classList.remove('collapsed');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      } else {
+        el.classList.remove('show');
+        if (toggle) {
+          toggle.classList.add('collapsed');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  }
+
+  function registerStateHandlers(state) {
+    const sidebar = document.querySelector('#quarto-sidebar');
+    if (!sidebar) return;
+    sidebar.addEventListener('shown.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = true;
+        saveState(state);
+      }
+    });
+    sidebar.addEventListener('hidden.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = false;
+        saveState(state);
+      }
+    });
+  }
+
+  function setupNavbarTransparency() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // At top or scrolling up: opaque
+      if (currentScroll <= 50 || currentScroll < lastScroll) {
+        navbar.classList.remove('navbar-transparent');
+      }
+      // Scrolling down: transparent
+      else if (currentScroll > lastScroll && currentScroll > 50) {
+        navbar.classList.add('navbar-transparent');
+      }
+      
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    }, { passive: true });
+  }
+
+  window.document.addEventListener('DOMContentLoaded', function () {
+    const state = loadState();
+    
+    // Disable Quarto's headroom
+    const header = document.getElementById('quarto-header');
+    if (header?.headroom?.destroy) header.headroom.destroy();
+    
+    setupNavbarTransparency();
+    applyState(state);
+    registerStateHandlers(state);
+  });
+})();
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../../../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

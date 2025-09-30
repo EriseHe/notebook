@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>习题 – Erise Note</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../../">
+<script src="../../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../../site_libs/bootstrap/bootstrap-29a19b5acbeac218a8c860e48340d4df.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../../../../index.html">
+    <span class="navbar-title">Erise Note</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="搜索"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="展开或折叠导航栏" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../../content/notes/index.md"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../../content/posts/index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/EriseHe/notebook"> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../../content/notes/理论/偏微分方程/index.html">偏微分方程</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/index.html">数值方法</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/index.html">第九章</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/Exercise.html">习题</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../../../../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">理论</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/点集拓扑学基础/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">点集拓扑学基础</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏微分方程</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/Laplace Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">拉普拉斯方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/Wave Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">波方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/Heat Equation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">热方程</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/Heat Equation/Heat Equation Solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Heat Equation Solution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/Heat Equation/The Fourier Series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">傅立叶级数</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">数值方法</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/01 Mid-Point Method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formula Derivation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/02 Three-Point Backward Differentiation Formula.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Ok Honestly I Have No Idea Where He Started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/03 Numerical Solution of Ordinary Differential Equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">常微分方程的数值解</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第九章</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.1 Boundary Value Problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.1 边值问题的近似</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.2 Finite Difference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.2 有限差分法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.3 Advection-Diffusion Equation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.3 对流-扩散方程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/9.4 2D Problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9.4 4.1 二维（2D）偏微分方程问题</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/Exercise.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">习题</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第十章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Finite Element Method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Order of Convergence in Finite Elements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第十章/Quiz 4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions for Quiz 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第四章 有限元分析</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第四章/4.1 有限元.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 有限元</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">实分析</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/Homework/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Real Analysis II</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/Homework/Homework 9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework 9</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/第七章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第七章 逆函数和隐函数定理</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第七章/7.1 Inverse Function Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1 反函数定理</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第七章/7.1.1 Inverse FT (Proof).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1.1 反函数定理（证明）</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第七章/7.2 Implicit Function Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 隐函数定理</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第七章/7.6 Morse Lemma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6 莫尔斯引理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/第九章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第九章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第九章/9.1 Computing Integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">积分计算</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/第八章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第八章 度量理论</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第八章/8.1 度量理论.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 积分的定义</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第八章/8.2 Criterion for Integrability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Criterion for Integrability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第八章/8.3 Proof of Lebesgue's Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proof of the Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第八章/8.5 Improper Integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.5 不定积分</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第八章/8.6 Lebesgue Convergence Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.6 勒贝格收敛定理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/第六章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第六章 可微映射</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第六章/6.4 Sufficient Conditions for Differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.4 可微分性的必要条件</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第六章/6.5 The Chain Rule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.5 链式法则</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第六章/6.6 Product Rule and Gradients.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.6 乘积法则与梯度</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第六章/6.9 Taylor Higher Dimentions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.9 泰勒公式的高维形式</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/实分析/第十章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第十章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/实分析/第十章/10.1 Fourier Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian Integral Computation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/广义相对论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">广义相对论</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/广义相对论/几何基础/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">几何基础</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/广义相对论/几何基础/1. Topological Space.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Topological Space</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/广义相对论/广义相对论理论/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">广义相对论理论</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/广义相对论/广义相对论理论/1. Four-Vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">四维向量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/广义相对论/广义相对论理论/2. Einstein Summation Convention.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einstein求和约定</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/广义相对论/广义相对论理论/3. Index Notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">指标</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/广义相对论/广义相对论理论/6. Tensor Equation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">张量方程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/微分几何/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">微分几何</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/1. Overview of Differential Geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. From Calculus to Manifolds</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/2. Lecture 2 (ACTUAL).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parametrized Curves in <span class="math inline">\(\mathbb{R}^3\)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/2. Parametrized Curves and Surfaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Parametrized curves in <span class="math inline">\(\mathbb{R}^3\)</span> (plane curves as a special case)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/3. Tangent Vectors on a Surface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Recap from Last lecture</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/5. Pushforward, Pullback, and Local Isometries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Smooth map and its differential (push-forward)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/微分几何/T-n分离公理.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T-n Levels of Separation Axiom</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/概率机器学习/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">概率机器学习</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/1..html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/2. Autoregressive模型.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Probability Distributions (recap)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/3. Autoregressive模型 &amp; Recurrent Neural Networks (RNN).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Model (Continue)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/4. Transformer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/理论/概率机器学习/强化学习（RL）/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">强化学习</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/强化学习（RL）/2. Markov奖励&amp;决策过程.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markov奖励&amp;决策过程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/理论/概率机器学习/强化学习（RL）/Agent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Physics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/计算/Julia科学计算笔记/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Julia科学计算笔记</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/Julia科学计算笔记/1. 基本语法.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary of Key Julia Codes and Algorithms by Chapter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/Julia科学计算笔记/2. Variables, primitive types, and functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture Review: **Julia &amp; Git**</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/计算/量子力学讲义/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">量子力学讲义</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/波函数存在于在Hilbert空间中.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">波函数存在于Hilbert空间中</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/薛定谔方程的傅立叶变换.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">薛定谔方程的傅立叶变换</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第一章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第一章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第一章/1.1 The Wave Function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Three quantum indeterminacy position:</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第四章</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.1 经典氢原子.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1.1 经典氢原子 (Classical Hydrogen Atom)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.2 Hydrogen Atom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">氢原子</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.3 角动量 (Angular Momentum).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3.1 量子数 (Quantum Numbers)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/4.4 Spin Spin Spin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">量子自旋态与算符讲义（Quantum Spin States and Operators Lecture Notes）</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../../content/notes/计算/量子力学讲义/Lecture/第四章/第四章.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 三维空间的薛定谔方程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#problem-1-finite-difference-solution" id="toc-problem-1-finite-difference-solution" class="nav-link active" data-scroll-target="#problem-1-finite-difference-solution">Problem 1: Finite-Difference Solution</a>
+  <ul class="collapse">
+  <li><a href="#finite-difference-discretization" id="toc-finite-difference-discretization" class="nav-link" data-scroll-target="#finite-difference-discretization">1. Finite-Difference Discretization</a>
+  <ul class="collapse">
+  <li><a href="#central-difference-scheme-for-the-interior-points" id="toc-central-difference-scheme-for-the-interior-points" class="nav-link" data-scroll-target="#central-difference-scheme-for-the-interior-points">1.1 Central Difference Scheme (for the interior points)</a></li>
+  </ul></li>
+  <li><a href="#local-truncation-error" id="toc-local-truncation-error" class="nav-link" data-scroll-target="#local-truncation-error">2. Local Truncation Error</a></li>
+  <li><a href="#matrix-form" id="toc-matrix-form" class="nav-link" data-scroll-target="#matrix-form">3. Matrix Form</a></li>
+  <li><a href="#quality-of-the-solution-vs.-betamu" id="toc-quality-of-the-solution-vs.-betamu" class="nav-link" data-scroll-target="#quality-of-the-solution-vs.-betamu">4. Quality of the Solution vs.&nbsp;<span class="math inline">\(\beta/\mu\)</span></a></li>
+  <li><a href="#upwind-method-first-order-for-beta0" id="toc-upwind-method-first-order-for-beta0" class="nav-link" data-scroll-target="#upwind-method-first-order-for-beta0">5. Upwind Method (First Order) for <span class="math inline">\(\beta&lt;0\)</span></a>
+  <ul class="collapse">
+  <li><a href="#no-spurious-oscillations" id="toc-no-spurious-oscillations" class="nav-link" data-scroll-target="#no-spurious-oscillations">5.1 No Spurious Oscillations</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">6. Summary</a></li>
+  </ul></li>
+  <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem 2</a>
+  <ul class="collapse">
+  <li><a href="#derivation-of-the-laxwendroff-scheme" id="toc-derivation-of-the-laxwendroff-scheme" class="nav-link" data-scroll-target="#derivation-of-the-laxwendroff-scheme">1) Derivation of the Lax–Wendroff Scheme</a>
+  <ul class="collapse">
+  <li><a href="#discretizing-the-spatial-derivatives" id="toc-discretizing-the-spatial-derivatives" class="nav-link" data-scroll-target="#discretizing-the-spatial-derivatives">Discretizing the spatial derivatives</a></li>
+  </ul></li>
+  <li><a href="#the-cfl-stability-condition" id="toc-the-cfl-stability-condition" class="nav-link" data-scroll-target="#the-cfl-stability-condition">2) The CFL Stability Condition</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">3) Motivation</a></li>
+  </ul></li>
+  <li><a href="#problem-3" id="toc-problem-3" class="nav-link" data-scroll-target="#problem-3">Problem 3</a>
+  <ul class="collapse">
+  <li><a href="#the-cranknicolson-discretization" id="toc-the-cranknicolson-discretization" class="nav-link" data-scroll-target="#the-cranknicolson-discretization">1. The Crank–Nicolson Discretization</a>
+  <ul class="collapse">
+  <li><a href="#boundary-conditions" id="toc-boundary-conditions" class="nav-link" data-scroll-target="#boundary-conditions">Boundary Conditions</a></li>
+  <li><a href="#summary-of-the-cn-update" id="toc-summary-of-the-cn-update" class="nav-link" data-scroll-target="#summary-of-the-cn-update">Summary of the CN Update</a></li>
+  </ul></li>
+  <li><a href="#properties-stability-accuracy" id="toc-properties-stability-accuracy" class="nav-link" data-scroll-target="#properties-stability-accuracy">2. Properties: Stability &amp; Accuracy</a></li>
+  <li><a href="#bonus-discontinuous-initial-condition" id="toc-bonus-discontinuous-initial-condition" class="nav-link" data-scroll-target="#bonus-discontinuous-initial-condition">3. BONUS: Discontinuous Initial Condition</a></li>
+  </ul></li>
+  <li><a href="#problem-4-求解二维拉普拉斯方程的五点差分格式" id="toc-problem-4-求解二维拉普拉斯方程的五点差分格式" class="nav-link" data-scroll-target="#problem-4-求解二维拉普拉斯方程的五点差分格式">Problem 4 求解二维拉普拉斯方程的五点差分格式</a>
+  <ul class="collapse">
+  <li><a href="#建立网格" id="toc-建立网格" class="nav-link" data-scroll-target="#建立网格">1. 建立网格</a></li>
+  <li><a href="#五点差分格式" id="toc-五点差分格式" class="nav-link" data-scroll-target="#五点差分格式">2. 五点差分格式</a></li>
+  <li><a href="#精度阶次" id="toc-精度阶次" class="nav-link" data-scroll-target="#精度阶次">3. 精度阶次</a></li>
+  <li><a href="#最终形成的线性方程组" id="toc-最终形成的线性方程组" class="nav-link" data-scroll-target="#最终形成的线性方程组">4. 最终形成的线性方程组</a></li>
+  <li><a href="#总结" id="toc-总结" class="nav-link" data-scroll-target="#总结">5. 总结</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../../content/notes/理论/偏微分方程/index.html">偏微分方程</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/index.html">数值方法</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/index.html">第九章</a></li><li class="breadcrumb-item"><a href="../../../../../../content/notes/理论/偏微分方程/MATH 352 PDE in Action/第九章/Exercise.html">习题</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">习题</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="problem-1-finite-difference-solution" class="level1">
+<h1>Problem 1: Finite-Difference Solution</h1>
+<p>We wish to discretize and solve the boundary-value problem</p>
+<p><span class="math display">\[-\mu\frac{d^2u}{dx^2} + \beta\frac{du}{dx} = f(x),\quad x\in(0,1),\quad u(0)=u(1)=0\]</span></p>
+<p>Or equivalently:</p>
+<p><span class="math display">\[\begin{cases}
+-\mu u''(x) + \beta u'(x) = f(x), &amp; 0&lt;x&lt;1,\\
+u(0)=0,\; u(1)=0.
+\end{cases}\]</span></p>
+<p>Where <span class="math inline">\(\mu&gt;0\)</span> and <span class="math inline">\(\beta\)</span> is a constant (possibly negative), and <span class="math inline">\(f\in C^0(0,1)\)</span>.</p>
+<section id="finite-difference-discretization" class="level2">
+<h2 class="anchored" data-anchor-id="finite-difference-discretization">1. Finite-Difference Discretization</h2>
+<p>Divide <span class="math inline">\([0,1]\)</span> into <span class="math inline">\(N\)</span> equal subintervals so that <span class="math inline">\(\Delta x = \frac{1}{N}\)</span>. Let</p>
+<p><span class="math display">\[x_j = j\Delta x,\quad j=0,1,2,\dots,N,\]</span></p>
+<p>so that <span class="math inline">\(x_0=0\)</span> and <span class="math inline">\(x_N=1\)</span>. We approximate <span class="math inline">\(u(x_j)\approx u_j\)</span>. The boundary conditions become <span class="math inline">\(u_0=0\)</span> and <span class="math inline">\(u_N=0\)</span>.</p>
+<section id="central-difference-scheme-for-the-interior-points" class="level3">
+<h3 class="anchored" data-anchor-id="central-difference-scheme-for-the-interior-points">1.1 Central Difference Scheme (for the interior points)</h3>
+<p>A standard <strong>centered second-difference</strong> for <span class="math inline">\(u''(x)\)</span> at <span class="math inline">\(x_j\)</span> is:</p>
+<p><span class="math display">\[u''(x_j) \approx \frac{u_{j+1} - 2u_j + u_{j-1}}{(\Delta x)^2}.\]</span></p>
+<p>A standard <strong>centered first-difference</strong> for <span class="math inline">\(u'(x)\)</span> at <span class="math inline">\(x_j\)</span> is:</p>
+<p><span class="math display">\[u'(x_j) \approx \frac{u_{j+1} - u_{j-1}}{2\Delta x}.\]</span></p>
+<p>Hence, the PDE <span class="math inline">\(-\mu u''(x) + \beta u'(x)=f(x)\)</span> becomes for <span class="math inline">\(j=1,\dots,N-1\)</span>:</p>
+<p><span class="math display">\[-\mu\frac{u_{j+1} - 2u_j + u_{j-1}}{(\Delta x)^2} + \beta\frac{u_{j+1} - u_{j-1}}{2\Delta x} = f(x_j).\]</span></p>
+<p>We impose <span class="math inline">\(u_0 = 0\)</span> and <span class="math inline">\(u_N=0\)</span>.</p>
+</section>
+</section>
+<section id="local-truncation-error" class="level2">
+<h2 class="anchored" data-anchor-id="local-truncation-error">2. Local Truncation Error</h2>
+<ul>
+<li>The second-order central difference for <span class="math inline">\(u''\)</span> is <span class="math inline">\(O((\Delta x)^2)\)</span> accurate.</li>
+<li>The central difference for <span class="math inline">\(u'\)</span> is also <span class="math inline">\(O((\Delta x)^2)\)</span> accurate.</li>
+</ul>
+<p>Hence the <strong>local truncation error</strong> of the combined scheme is <span class="math inline">\(O((\Delta x)^2)\)</span>.</p>
+</section>
+<section id="matrix-form" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-form">3. Matrix Form</h2>
+<p>Collect unknowns <span class="math inline">\(u_1,u_2,\dots,u_{N-1}\)</span> into a vector <span class="math inline">\(\mathbf{u}=(u_1,\dots,u_{N-1})^T\)</span>. The boundary values <span class="math inline">\(u_0=0\)</span> and <span class="math inline">\(u_N=0\)</span> are known.</p>
+<p>Rewrite the finite-difference equation for an interior index <span class="math inline">\(j\)</span>:</p>
+<p><span class="math display">\[-\mu\frac{u_{j+1} - 2u_j + u_{j-1}}{(\Delta x)^2} + \beta\frac{u_{j+1} - u_{j-1}}{2\Delta x} = f(x_j).\]</span></p>
+<p>We can factor out coefficients: - Let <span class="math inline">\(\alpha \equiv \frac{\mu}{(\Delta x)^2}\)</span>. - Let <span class="math inline">\(\gamma \equiv \frac{\beta}{2\Delta x}\)</span>.</p>
+<p>Then the coefficient of <span class="math inline">\(u_j\)</span> is <span class="math inline">\(2\alpha\)</span>, the coefficient of <span class="math inline">\(u_{j+1}\)</span> is <span class="math inline">\(-\alpha + \gamma\)</span>, and the coefficient of <span class="math inline">\(u_{j-1}\)</span> is <span class="math inline">\(-\alpha - \gamma\)</span>. Thus, in matrix form:</p>
+<p><span class="math display">\[\begin{pmatrix}
+2\alpha &amp; -\alpha+\gamma &amp; 0 &amp; \cdots &amp; 0\\
+-\alpha-\gamma &amp; 2\alpha &amp; -\alpha+\gamma &amp; \cdots &amp; 0\\
+0 &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots\\
+\vdots &amp; &amp; -\alpha-\gamma &amp; 2\alpha &amp; -\alpha+\gamma\\
+0 &amp; \cdots &amp; 0 &amp; -\alpha-\gamma &amp; 2\alpha
+\end{pmatrix}
+\begin{pmatrix}
+u_1\\ u_2\\ \vdots \\ u_{N-2}\\ u_{N-1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+f(x_1)\\ f(x_2)\\ \vdots \\ f(x_{N-2})\\ f(x_{N-1})
+\end{pmatrix}.\]</span></p>
+<p>This is a tridiagonal linear system, solvable by standard methods (e.g., Thomas algorithm).</p>
+</section>
+<section id="quality-of-the-solution-vs.-betamu" class="level2">
+<h2 class="anchored" data-anchor-id="quality-of-the-solution-vs.-betamu">4. Quality of the Solution vs.&nbsp;<span class="math inline">\(\beta/\mu\)</span></h2>
+<p>The ratio <span class="math inline">\(\frac{\beta}{\mu}\)</span> often plays the role of a <strong>Péclet-type number</strong> in advection-diffusion problems.</p>
+<ul>
+<li>If <span class="math inline">\(\frac{\beta}{\mu}\)</span> is small (diffusion-dominated), the solution is usually smooth and well-behaved under central differencing.</li>
+<li>If <span class="math inline">\(\frac{\beta}{\mu}\)</span> is large (advection-dominated), pure central differences may produce <strong>spurious oscillations</strong> unless <span class="math inline">\(\Delta x\)</span> is refined or <strong>upwinding</strong> techniques are used to stabilize the discrete solution.</li>
+</ul>
+</section>
+<section id="upwind-method-first-order-for-beta0" class="level2">
+<h2 class="anchored" data-anchor-id="upwind-method-first-order-for-beta0">5. Upwind Method (First Order) for <span class="math inline">\(\beta&lt;0\)</span></h2>
+<p>When <span class="math inline">\(\beta&lt;0\)</span>, the “flow” is from right to left, so an <strong>upwind difference</strong> for the first derivative <span class="math inline">\(\beta u'(x)\)</span> uses values on the “right” side at each <span class="math inline">\(j\)</span>. Concretely, for <span class="math inline">\(\beta&lt;0\)</span>, we replace:</p>
+<p><span class="math display">\[u'(x_j) \approx \frac{u_{j+1} - u_j}{\Delta x} \quad \text{(a "backward" upwind if flow is leftward)}.\]</span></p>
+<p>Hence, the difference equation becomes:</p>
+<p><span class="math display">\[-\mu\frac{u_{j+1} - 2u_j + u_{j-1}}{(\Delta x)^2} + \beta\frac{u_{j+1} - u_j}{\Delta x} = f(x_j), \quad j=1,\dots,N-1.\]</span></p>
+<p>(This replaces the central difference in the advective term by a one-sided upwind difference.)</p>
+<section id="no-spurious-oscillations" class="level3">
+<h3 class="anchored" data-anchor-id="no-spurious-oscillations">5.1 No Spurious Oscillations</h3>
+<p>The first-order upwind scheme for linear advection-diffusion is known to be <strong>monotone</strong> for any <span class="math inline">\(\Delta x&gt;0\)</span> when <span class="math inline">\(\beta&lt;0\)</span> (or, more generally, for any sign of <span class="math inline">\(\beta\)</span> if we choose the correct upwind direction). Monotonicity prevents nonphysical oscillations. In short:</p>
+<ul>
+<li>Central difference can oscillate if <span class="math inline">\(|\beta|\)</span> is large relative to <span class="math inline">\(\mu\)</span>.</li>
+<li>Upwind difference sacrifices some accuracy (only first order in <span class="math inline">\(\Delta x\)</span> for the advective term) but <strong>remains stable</strong> and <strong>nonoscillatory</strong> for any step size <span class="math inline">\(\Delta x\)</span>.</li>
+</ul>
+<p>Thus, with <span class="math inline">\(\beta&lt;0\)</span>, the upwind approach <span class="math inline">\(u'(x_j)\approx (u_{j+1}-u_j)/\Delta x\)</span> ensures a stable, physically plausible solution without oscillations.</p>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">6. Summary</h2>
+<ol type="1">
+<li><p><strong>Equation &amp; Discretization</strong><br>
+<span class="math display">\[-\mu u'' + \beta u' = f(x), \quad u(0)=u(1)=0 \longrightarrow \begin{cases}
+-\mu\frac{u_{j+1}-2u_j+u_{j-1}}{(\Delta x)^2} +\beta\frac{u_{j+1}-u_{j-1}}{2\Delta x} = f(x_j),\\
+u_0=0,\;u_N=0.
+\end{cases}\]</span></p></li>
+<li><p><strong>Local Truncation Error</strong> is <span class="math inline">\(O((\Delta x)^2)\)</span> for the centered scheme.</p></li>
+<li><p><strong>Matrix Form</strong>: A standard tridiagonal system with bands <span class="math inline">\(-\alpha\mp \gamma\)</span>, <span class="math inline">\(2\alpha\)</span>, <span class="math inline">\(-\alpha\pm \gamma\)</span>.</p></li>
+<li><p><strong>Effect of <span class="math inline">\(\beta/\mu\)</span></strong>: If <span class="math inline">\(|\beta|\)</span> is large relative to <span class="math inline">\(\mu\)</span>, central differences can produce oscillatory solutions; upwind methods help.</p></li>
+<li><p><strong>Upwind Method</strong> (for <span class="math inline">\(\beta&lt;0\)</span>): <span class="math display">\[-\mu\frac{u_{j+1}-2u_j+u_{j-1}}{(\Delta x)^2} + \beta\frac{u_{j+1}-u_j}{\Delta x} = f(x_j)\]</span> prevents oscillations for any <span class="math inline">\(\Delta x\)</span>.</p></li>
+</ol>
+</section>
+</section>
+<section id="problem-2" class="level1">
+<h1>Problem 2</h1>
+<p><strong>Solution Outline</strong></p>
+<p>We have the linear advection equation</p>
+<p><span class="math display">\[\frac{\partial u}{\partial t} \;+\; a\,\frac{\partial u}{\partial x} \;=\; 0,\quad x\in \mathbb{R},\;t&gt;0,\]</span> with initial condition <span class="math inline">\(u(x,0) = u_0(x)\)</span>. We wish to:</p>
+<ol type="1">
+<li><strong>Derive the Lax–Wendroff scheme</strong> for this PDE.</li>
+<li><strong>Determine the CFL condition</strong> for stability, i.e.&nbsp;find the condition on <span class="math inline">\(\displaystyle \frac{|a|\Delta t}{\Delta x}\)</span>.</li>
+</ol>
+<hr>
+<section id="derivation-of-the-laxwendroff-scheme" class="level2">
+<h2 class="anchored" data-anchor-id="derivation-of-the-laxwendroff-scheme">1) Derivation of the Lax–Wendroff Scheme</h2>
+<p>A succinct way to derive Lax–Wendroff is via a <strong>second-order Taylor expansion</strong> in time about <span class="math inline">\(t^n\)</span>:</p>
+<p><span class="math display">\[u^{n+1}_i \;\approx\; u(x_i,\,t_n + \Delta t)
+\;=\;
+u(x_i,t_n)
+\;+\;\Delta t\,\frac{\partial u}{\partial t}
+\;+\;\tfrac{(\Delta t)^2}{2}\,\frac{\partial^2 u}{\partial t^2}\;\bigg|_{(x_i,t_n)}.\]</span></p>
+<p>From the PDE <span class="math inline">\(\partial_t u = -\,a\,\partial_x u\)</span>, we can replace time-derivatives by spatial derivatives:</p>
+<ul>
+<li><p>First derivative in time: <span class="math display">\[\frac{\partial u}{\partial t}
+\;=\;
+-\,a\,\frac{\partial u}{\partial x}.\]</span></p></li>
+<li><p>Second derivative in time: <span class="math display">\[\frac{\partial^2 u}{\partial t^2}
+\;=\;
+\frac{\partial}{\partial t}\Bigl(-\,a\,\frac{\partial u}{\partial x}\Bigr)
+\;=\;
+-\,a\,\frac{\partial}{\partial x}\Bigl(\frac{\partial u}{\partial t}\Bigr)
+\;=\;
+-\,a\,\frac{\partial}{\partial x}\Bigl(-\,a\,\frac{\partial u}{\partial x}\Bigr)
+\;=\;
+a^2\,\frac{\partial^2 u}{\partial x^2}.\]</span></p></li>
+</ul>
+<p>Hence,</p>
+<p><span class="math display">\[u^{n+1}_i
+\;\approx\;
+u^{n}_i
+\;-\;
+a\,\Delta t \,\frac{\partial u}{\partial x}
+\;+\;
+\frac{a^2(\Delta t)^2}{2}\,\frac{\partial^2 u}{\partial x^2}
+\;\Bigg|_{(x_i,t_n)}.\]</span></p>
+<section id="discretizing-the-spatial-derivatives" class="level3">
+<h3 class="anchored" data-anchor-id="discretizing-the-spatial-derivatives">Discretizing the spatial derivatives</h3>
+<p>We replace the first and second spatial derivatives by standard centered finite differences:</p>
+<p><span class="math display">\[\frac{\partial u}{\partial x}\bigg|_{x_i}
+\approx
+\frac{u_{i+1}^n - u_{i-1}^n}{2\,\Delta x},
+\qquad
+\frac{\partial^2 u}{\partial x^2}\bigg|_{x_i}
+\approx
+\frac{u_{i+1}^n - 2\,u_i^n + u_{i-1}^n}{(\Delta x)^2}.\]</span></p>
+<p>Putting this all together:</p>
+<p><span class="math display">\[u_{i}^{n+1}
+\;=\;
+u_{i}^{n}
+\;-\;
+a\,\Delta t \,\frac{u_{i+1}^{n} - u_{i-1}^{n}}{2\,\Delta x}
+\;+\;
+\frac{a^2\,(\Delta t)^2}{2}\,
+\frac{u_{i+1}^{n} - 2\,u_{i}^{n} + u_{i-1}^{n}}{(\Delta x)^2}.\]</span></p>
+<p>It is common to set <span class="math inline">\(\displaystyle \nu \;=\;\frac{a\,\Delta t}{\Delta x}\)</span>. Then the scheme reads</p>
+<p><span class="math display">\[\boxed{
+u_{i}^{n+1}
+\;=\;
+u_{i}^{n}
+\;-\;\frac{\nu}{2}\,\bigl(u_{i+1}^{n} - u_{i-1}^{n}\bigr)
+\;+\;\frac{\nu^{2}}{2}\,
+\bigl(u_{i+1}^{n} \;-\;2\,u_{i}^{n} \;+\;u_{i-1}^{n}\bigr).
+}\]</span></p>
+<p>This is the <strong>Lax–Wendroff scheme</strong> for the linear advection equation.</p>
+<hr>
+</section>
+</section>
+<section id="the-cfl-stability-condition" class="level2">
+<h2 class="anchored" data-anchor-id="the-cfl-stability-condition">2) The CFL Stability Condition</h2>
+<p>A standard von Neumann (Fourier) stability analysis, or the usual Lax–Richtmyer theory for hyperbolic PDEs, shows that <strong>Lax–Wendroff is stable if and only if</strong> the Courant number satisfies</p>
+<p><span class="math display">\[\bigl|\,\nu\,\bigr|
+\;=\;
+\biggl|\frac{a\,\Delta t}{\Delta x}\biggr|
+\;\le\;
+1.\]</span></p>
+<p>Therefore among the multiple-choice options, the correct condition is</p>
+<p><span class="math display">\[\boxed{\;\; \bigl|\tfrac{a\,\Delta t}{\Delta x}\bigr| \;\le\; 1.}\]</span></p>
+<hr>
+</section>
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">3) Motivation</h2>
+<ul>
+<li><p><strong>Domain of dependence argument.</strong> For the PDE <span class="math inline">\(\partial_t u + a\,\partial_x u = 0,\)</span> characteristics travel with speed <span class="math inline">\(a\)</span>. Numerically, we must ensure that information from these characteristics is captured on the grid from one time step to the next; that is the essence of the CFL condition. If <span class="math inline">\(|a|\Delta t &gt; \Delta x\)</span>, the method “jumps over” grid cells and fails to remain stable.</p></li>
+<li><p><strong>Von Neumann analysis.</strong> Substituting <span class="math inline">\(u_i^n = \lambda^n e^{ikx_i}\)</span> into the scheme shows that the amplification factor <span class="math inline">\(|\lambda|\)</span> is <span class="math inline">\(\le 1\)</span> if and only if <span class="math inline">\(\bigl|\frac{a\Delta t}{\Delta x}\bigr|\le 1.\)</span></p></li>
+</ul>
+<p>Hence the short answer is: 1. Lax–Wendroff has the form <span class="math display">\[u_{i}^{n+1}
+   =
+   u_{i}^{n}
+   -
+   \frac{\nu}{2}\,(u_{i+1}^{n} - u_{i-1}^{n})
+   +
+   \frac{\nu^{2}}{2}\,(u_{i+1}^{n}-2u_{i}^{n}+u_{i-1}^{n}),\]</span> 2. The method is stable <strong>if and only if</strong> <span class="math inline">\(\displaystyle \bigl|\frac{a\Delta t}{\Delta x}\bigr|\le 1.\)</span> 3. This condition is exactly the usual CFL requirement ensuring the numerical domain of dependence covers the PDE’s domain of dependence.</p>
+</section>
+</section>
+<section id="problem-3" class="level1">
+<h1>Problem 3</h1>
+<p>Below is a fairly detailed derivation and discussion of the Crank–Nicolson (CN) method (the <span class="math inline">\(\theta\)</span>-method with <span class="math inline">\(\theta = \tfrac12\)</span>) for the heat equation</p>
+<p><span class="math display">\[\frac{\partial u}{\partial t}\;-\;\frac{\partial^2 u}{\partial x^2}\;=\;f,
+\quad x\in(0,1),\;t&gt;0,
+\quad
+u(0,t) \;=\;u(1,t)\;=\;0,
+\quad
+u(x,0)\;=\;u_0(x).\]</span></p>
+<p>Since the PDE can be written as <span class="math display">\[u_t \;=\; u_{xx} + f,\]</span> we will discretize in both space and time.</p>
+<hr>
+<section id="the-cranknicolson-discretization" class="level2">
+<h2 class="anchored" data-anchor-id="the-cranknicolson-discretization">1. The Crank–Nicolson Discretization</h2>
+<p>Let <span class="math inline">\(\Delta x = \frac{1}{M}\)</span> partition <span class="math inline">\([0,1]\)</span> into <span class="math inline">\(M+1\)</span> grid points <span class="math inline">\(x_i = i\,\Delta x\)</span>, <span class="math inline">\(i=0,\dots,M\)</span>, and let <span class="math inline">\(\Delta t\)</span> be a time step, so <span class="math inline">\(t^n = n\,\Delta t\)</span>. We write <span class="math inline">\(u_i^n\approx u(x_i,t^n)\)</span>. The standard second‐order central difference for <span class="math inline">\(u_{xx}\)</span> is</p>
+<p><span class="math display">\[u_{xx}(x_i,t^n)
+\;\approx\;
+\frac{u_{i+1}^n - 2\,u_i^n + u_{i-1}^n}{(\Delta x)^2}.\]</span></p>
+<p>A <span class="math inline">\(\theta\)</span>‐method (also called the <span class="math inline">\(\theta\)</span>-scheme) for <span class="math inline">\(u_t = u_{xx} + f\)</span> in time is:</p>
+<p><span class="math display">\[\frac{u_i^{n+1} - u_i^n}{\Delta t}
+\;=\;
+\theta\Bigl[\underbrace{\tfrac{u_{i+1}^{n+1} - 2u_i^{n+1} + u_{i-1}^{n+1}}{(\Delta x)^2} \;+\; f_i^{n+1}}_{\text{“implicit” part}}\Bigr]
+\;+\;
+\bigl(1-\theta\bigr)\Bigl[\underbrace{\tfrac{u_{i+1}^{n} - 2u_i^{n} + u_{i-1}^{n}}{(\Delta x)^2}\;+\; f_i^{n}}_{\text{“explicit” part}}\Bigr].\]</span></p>
+<p><strong>Crank–Nicolson</strong> is the special case <span class="math inline">\(\theta = \tfrac12\)</span>. Substituting <span class="math inline">\(\theta=\tfrac12\)</span>, we get</p>
+<p><span class="math display">\[\frac{u_i^{n+1} - u_i^n}{\Delta t}
+\;=\;
+\tfrac12\Bigl[\tfrac{u_{i+1}^{n+1} - 2u_i^{n+1} + u_{i-1}^{n+1}}{(\Delta x)^2} + f_i^{n+1}\Bigr]
+\;+\;
+\tfrac12\Bigl[\tfrac{u_{i+1}^{n} - 2u_i^{n} + u_{i-1}^{n}}{(\Delta x)^2} + f_i^n\Bigr].\]</span></p>
+<p>Rearranging terms gives <span class="math display">\[u_i^{n+1}
+\;-\;
+\frac{\Delta t}{2\,(\Delta x)^2}\,\bigl(u_{i+1}^{n+1} - 2u_i^{n+1} + u_{i-1}^{n+1}\bigr)
+\;=\;
+u_i^{n}
+\;+\;
+\frac{\Delta t}{2\,(\Delta x)^2}\,\bigl(u_{i+1}^{n} - 2u_i^n + u_{i-1}^{n}\bigr)
+\;+\;
+\frac{\Delta t}{2}\,\bigl(f_i^{n+1} + f_i^n\bigr).\]</span> One may think of this as the linear system <span class="math display">\[\bigl[I + \tfrac{\Delta t}{2\,(\Delta x)^2}\,A\bigr]\,\mathbf{u}^{n+1}
+\;=\;
+\bigl[I - \tfrac{\Delta t}{2\,(\Delta x)^2}\,A\bigr]\,\mathbf{u}^{n}
+\;+\;\frac{\Delta t}{2}\,\bigl(\mathbf{f}^{n+1} + \mathbf{f}^n\bigr),\]</span> where <span class="math inline">\(A\)</span> is the usual tridiagonal matrix corresponding to the second‐difference operator (and where <span class="math inline">\(\mathbf{u}^n\)</span> is the vector of <span class="math inline">\(u_i^n\)</span>). After applying boundary conditions <span class="math inline">\(u_0^n = u_M^n = 0\)</span>, one solves this tridiagonal system at each time step.</p>
+<section id="boundary-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="boundary-conditions">Boundary Conditions</h3>
+<p>Because <span class="math inline">\(u(0,t)=u(1,t)=0\)</span>, we set <span class="math inline">\(u_0^n=0\)</span> and <span class="math inline">\(u_M^n=0\)</span> for all <span class="math inline">\(n\)</span>. The updates are applied only for <span class="math inline">\(i=1,\dots,M-1\)</span>.</p>
+</section>
+<section id="summary-of-the-cn-update" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-the-cn-update">Summary of the CN Update</h3>
+<p>In “index form,” the Crank–Nicolson scheme is: <span class="math display">\[\boxed{
+\begin{aligned}
+&amp;\text{For }i=1,\dots,M-1:\quad
+u_i^{n+1}
+\;-\;
+\tfrac{\Delta t}{2\,(\Delta x)^2}\,\bigl(u_{i+1}^{n+1} - 2u_i^{n+1} + u_{i-1}^{n+1}\bigr)
+\\
+&amp;\qquad\quad\;=\;
+u_i^{n}
+\;+\;
+\tfrac{\Delta t}{2\,(\Delta x)^2}\,\bigl(u_{i+1}^{n} - 2u_i^n + u_{i-1}^{n}\bigr)
+\;+\;\frac{\Delta t}{2}\,\bigl(f_i^{n+1} + f_i^n\bigr).
+\end{aligned}
+}\]</span> This is solved simultaneously for all <span class="math inline">\(i\)</span>, respecting <span class="math inline">\(u_0^{n+1}=u_M^{n+1}=0\)</span>.</p>
+<hr>
+</section>
+</section>
+<section id="properties-stability-accuracy" class="level2">
+<h2 class="anchored" data-anchor-id="properties-stability-accuracy">2. Properties: Stability &amp; Accuracy</h2>
+<ol type="1">
+<li><strong>Stability</strong>:
+<ul>
+<li><strong>Unconditional stability</strong> for the heat equation. In other words, there is no restriction on <span class="math inline">\(\Delta t\)</span> relative to <span class="math inline">\(\Delta x\)</span> needed <em>solely</em> for stability (unlike the explicit forward‐Euler method, which requires <span class="math inline">\(\Delta t \le \tfrac12 (\Delta x)^2\)</span>).<br>
+</li>
+<li>More precisely, CN is <strong>A‐stable</strong> as an ODE solver applied to the linear diffusion operator. One can show by a von Neumann analysis or standard Lax–Richtmyer theory that errors do not grow unboundedly for any <span class="math inline">\(\Delta t&gt;0\)</span>.</li>
+</ul></li>
+<li><strong>Accuracy</strong>:
+<ul>
+<li>In <strong>time</strong>, Crank–Nicolson is <strong>second‐order accurate</strong>, because it is essentially the trapezoidal rule in time (it uses <span class="math inline">\(\frac12\)</span> of the “new” time‐level’s spatial derivative plus <span class="math inline">\(\frac12\)</span> of the “old” time‐level’s spatial derivative).<br>
+</li>
+<li>In <strong>space</strong>, if we use the standard second‐difference approximation, the scheme is also <strong>second‐order</strong> in <span class="math inline">\(\Delta x\)</span>.<br>
+</li>
+<li>Overall, we often say “CN is second‐order in both space and time (for sufficiently smooth solutions).”</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="bonus-discontinuous-initial-condition" class="level2">
+<h2 class="anchored" data-anchor-id="bonus-discontinuous-initial-condition">3. BONUS: Discontinuous Initial Condition</h2>
+<p>Even if <span class="math inline">\(u_0(x)\)</span> is not continuous, the <strong>heat equation</strong> itself is <em>smoothing</em>: for <span class="math inline">\(t&gt;0\)</span>, the exact solution becomes infinitely differentiable in <span class="math inline">\(x\)</span>. Numerically:</p>
+<ul>
+<li>The scheme remains stable and convergent.<br>
+</li>
+<li>Because it is a diffusion‐type PDE, any jump discontinuity in the initial data gets smoothed out instantly as <span class="math inline">\(t\)</span> increases.<br>
+</li>
+<li>Crank–Nicolson will faithfully capture that smoothing. You may see large gradients at early time steps near the discontinuity, but the method will not become unstable.</li>
+</ul>
+<p>Hence <strong>having a discontinuous initial condition does not cause instability</strong> for the heat equation with Crank–Nicolson. The scheme still converges (second‐order in both space and time) to the <em>unique smooth</em> solution that the parabolic PDE defines for <span class="math inline">\(t&gt;0\)</span>.</p>
+</section>
+</section>
+<section id="problem-4-求解二维拉普拉斯方程的五点差分格式" class="level1">
+<h1>Problem 4 求解二维拉普拉斯方程的五点差分格式</h1>
+<p>我们考虑如下的椭圆方程（Poisson 型）： <span class="math display">\[-\,\Delta u \;=\; f,
+\quad (x,y)\in [0,1] \times [0,1].\]</span></p>
+<p>其中 <span class="math display">\[\Delta \;=\;\frac{\partial^2}{\partial x^2} \;+\;\frac{\partial^2}{\partial y^2}\]</span> 是二维拉普拉斯算子，<span class="math inline">\(f\)</span> 是已知的函数。</p>
+<section id="建立网格" class="level2">
+<h2 class="anchored" data-anchor-id="建立网格">1. 建立网格</h2>
+<p>令 <span class="math inline">\(N_x\)</span> 和 <span class="math inline">\(N_y\)</span> 分别表示在 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 方向上的网格划分数目（仅指内部节点数，不含边界），则步长为 <span class="math display">\[\delta x \;=\;\frac{1}{N_x+1},
+\quad
+\delta y \;=\;\frac{1}{N_y+1}.\]</span> 我们在区间 <span class="math inline">\([0,1]\times[0,1]\)</span> 内取离散网格点 <span class="math display">\[x_i \;=\; i\,\delta x,
+\quad
+y_j \;=\; j\,\delta y,\]</span> 其中 <span class="math inline">\(i=0,1,2,\dots,N_x+1\)</span>, <span class="math inline">\(j=0,1,2,\dots,N_y+1\)</span>。</p>
+<p>在内部节点 <span class="math inline">\((x_i,y_j)\)</span> 上，我们用 <span class="math inline">\(u_{i,j}\)</span> 表示对真解 <span class="math inline">\(u(x_i,y_j)\)</span> 的数值近似。</p>
+<hr>
+</section>
+<section id="五点差分格式" class="level2">
+<h2 class="anchored" data-anchor-id="五点差分格式">2. 五点差分格式</h2>
+<p>方程 <span class="math inline">\(-\Delta u = f\)</span> 可写成 <span class="math display">\[-\left(
+\frac{\partial^2 u}{\partial x^2}
+\;+\;
+\frac{\partial^2 u}{\partial y^2}
+\right)
+\;=\;
+f,\]</span> 即 <span class="math display">\[\frac{\partial^2 u}{\partial x^2}
+\;+\;
+\frac{\partial^2 u}{\partial y^2}
+\;=\;
+-\,f.\]</span></p>
+<p>在网格上，二阶导数的<strong>中心差分</strong>近似分别为：</p>
+<ul>
+<li>在 <span class="math inline">\(x\)</span> 方向： <span class="math display">\[\frac{\partial^2 u}{\partial x^2}\bigg|_{(x_i,y_j)}
+\;\approx\;
+\frac{u_{i+1,j} - 2u_{i,j} + u_{i-1,j}}{(\delta x)^2},\]</span></li>
+<li>在 <span class="math inline">\(y\)</span> 方向： <span class="math display">\[\frac{\partial^2 u}{\partial y^2}\bigg|_{(x_i,y_j)}
+\;\approx\;
+\frac{u_{i,j+1} - 2u_{i,j} + u_{i,j-1}}{(\delta y)^2}.\]</span></li>
+</ul>
+<p>因此，<span class="math inline">\(\Delta u\)</span> 在离散化后可写为 <span class="math display">\[\Delta u_{i,j}
+\;=\;
+\frac{u_{i+1,j} - 2u_{i,j} + u_{i-1,j}}{(\delta x)^2}
+\;+\;
+\frac{u_{i,j+1} - 2u_{i,j} + u_{i,j-1}}{(\delta y)^2}.\]</span></p>
+<p>由于方程是 <span class="math inline">\(-\Delta u = f\)</span>，则对应的五点差分格式为</p>
+<p><span class="math display">\[-\left[\,
+\frac{u_{i+1,j} - 2u_{i,j} + u_{i-1,j}}{(\delta x)^2}
+\;+\;
+\frac{u_{i,j+1} - 2u_{i,j} + u_{i,j-1}}{(\delta y)^2}
+\right]
+\;=\;
+f_{i,j},\]</span> 或等价地写成 <span class="math display">\[\frac{u_{i+1,j} - 2u_{i,j} + u_{i-1,j}}{(\delta x)^2}
+\;+\;
+\frac{u_{i,j+1} - 2u_{i,j} + u_{i,j-1}}{(\delta y)^2}
+\;=\;
+-\,f_{i,j}.\]</span></p>
+<p>这里 <span class="math inline">\(f_{i,j} = f(x_i,y_j)\)</span> 表示在网格点处的函数取值。</p>
+<hr>
+</section>
+<section id="精度阶次" class="level2">
+<h2 class="anchored" data-anchor-id="精度阶次">3. 精度阶次</h2>
+<p>上述中心差分格式对二阶导数在空间步长上具有 <strong>二阶精度</strong>。也就是说，如果我们将 <span class="math inline">\(\delta x\)</span> 和 <span class="math inline">\(\delta y\)</span> 同步缩小（假设网格等距），则离散解相对于真解的误差在 <span class="math inline">\(\delta x, \delta y \to 0\)</span> 时满足 <span class="math display">\[\mathcal{O}\bigl((\delta x)^2 + (\delta y)^2\bigr).\]</span></p>
+<p>简而言之，对拉普拉斯方程采用这种五点中心差分格式，<strong>在均匀网格下是二阶精度</strong>。</p>
+<hr>
+</section>
+<section id="最终形成的线性方程组" class="level2">
+<h2 class="anchored" data-anchor-id="最终形成的线性方程组">4. 最终形成的线性方程组</h2>
+<p>对所有内部节点 <span class="math inline">\((i,j)\)</span>（即 <span class="math inline">\(1\le i\le N_x\)</span>, <span class="math inline">\(1\le j\le N_y\)</span>）应用上述离散方程，我们便得到一个关于所有未知量 <span class="math inline">\(\{u_{i,j}\}\)</span> 的线性方程组。若再结合边界条件（例如已知边界上的 <span class="math inline">\(u_{0,j},u_{N_x+1,j},u_{i,0},u_{i,N_y+1}\)</span>），即可完全求解。</p>
+<p>在实际应用中，可以用各种<strong>迭代法</strong>（如 Jacobi、Gauss-Seidel、SOR 等）或<strong>直接法</strong>（如 LU 分解等）来求解这个离散方程组。</p>
+<hr>
+</section>
+<section id="总结" class="level2">
+<h2 class="anchored" data-anchor-id="总结">5. 总结</h2>
+<ol type="1">
+<li><strong>五点差分格式</strong>的离散方程（在二维情况下）是： <span class="math display">\[\frac{u_{i+1,j} - 2u_{i,j} + u_{i-1,j}}{(\delta x)^2}
+\;+\;
+\frac{u_{i,j+1} - 2u_{i,j} + u_{i,j-1}}{(\delta y)^2}
+\;=\;
+-\,f_{i,j}.\]</span></li>
+<li>在标准的（均匀）网格下，该方法的<strong>空间离散精度是二阶</strong>。</li>
+</ol>
+<hr>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  const STORAGE_KEY = 'quarto-sidebar-state';
+
+  function loadState() {
+    try {
+      return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '{}');
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function saveState(state) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch {}
+  }
+
+  function applyState(state) {
+    const collapseEls = document.querySelectorAll('#quarto-sidebar .collapse');
+    collapseEls.forEach((el) => {
+      const id = el.id;
+      if (!id) return;
+      const shouldOpen = state[id];
+      const toggle = document.querySelector(`[data-bs-target="#${CSS.escape(id)}"]`);
+      if (shouldOpen === undefined) return;
+      if (shouldOpen) {
+        el.classList.add('show');
+        if (toggle) {
+          toggle.classList.remove('collapsed');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      } else {
+        el.classList.remove('show');
+        if (toggle) {
+          toggle.classList.add('collapsed');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  }
+
+  function registerStateHandlers(state) {
+    const sidebar = document.querySelector('#quarto-sidebar');
+    if (!sidebar) return;
+    sidebar.addEventListener('shown.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = true;
+        saveState(state);
+      }
+    });
+    sidebar.addEventListener('hidden.bs.collapse', (event) => {
+      const target = event.target;
+      if (target && target.id) {
+        state[target.id] = false;
+        saveState(state);
+      }
+    });
+  }
+
+  function setupNavbarTransparency() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // At top or scrolling up: opaque
+      if (currentScroll <= 50 || currentScroll < lastScroll) {
+        navbar.classList.remove('navbar-transparent');
+      }
+      // Scrolling down: transparent
+      else if (currentScroll > lastScroll && currentScroll > 50) {
+        navbar.classList.add('navbar-transparent');
+      }
+      
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    }, { passive: true });
+  }
+
+  window.document.addEventListener('DOMContentLoaded', function () {
+    const state = loadState();
+    
+    // Disable Quarto's headroom
+    const header = document.getElementById('quarto-header');
+    if (header?.headroom?.destroy) header.headroom.destroy();
+    
+    setupNavbarTransparency();
+    applyState(state);
+    registerStateHandlers(state);
+  });
+})();
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../../../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第六章 可微映射 on 学习笔记</title><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/</link><description>Recent content in 第六章 可微映射 on 学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>6.4 可微分性的必要条件</title><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.4-Sufficient-Conditions-for-Differentiability/</guid><description>&lt;h2 id="1-necessary-condition-for-differentiability">
+ &lt;strong>1. Necessary Condition for Differentiability&lt;/strong>
+ &lt;a class="anchor" href="#1-necessary-condition-for-differentiability">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Recall: A necessary condition for differentiability:
+$$
+\boxed{ f \text{ differentiable} \Rightarrow f \text{ is continuous} }
+$$&lt;/li>
+&lt;li>&lt;strong>Continuity&lt;/strong> is a requirement.&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-sufficient-conditions-for-differentiability">
+ &lt;strong>2. Sufficient Conditions for Differentiability&lt;/strong>
+ &lt;a class="anchor" href="#2-sufficient-conditions-for-differentiability">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>(a) Partial derivatives and differentiability&lt;/strong>
+f differentiable $\Rightarrow$ continuity + partials exists
+conditions + partials exists $\Rightarrow f$ differentiable &lt;strong>(?)&lt;/strong>&lt;/p>
+&lt;hr>
+&lt;h3 id="ex-1">
+ &lt;strong>Ex. 1&lt;/strong>
+ &lt;a class="anchor" href="#ex-1">#&lt;/a>
+&lt;/h3>
+&lt;p>Consider the function defined as:&lt;/p>
+&lt;p>$$
+f(x,y) =
+\begin{cases}
+\frac{xy}{x^2 + y^2}, &amp;amp; (x,y) \neq (0,0) \
+0, &amp;amp; (x,y) = (0,0)
+\end{cases}
+$$&lt;/p></description></item><item><title>6.5 链式法则</title><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.5-The-Chain-Rule/</guid><description/></item><item><title>6.6 乘积法则与梯度</title><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.6-Product-Rule-and-Gradients/</guid><description>&lt;p>[ ]&lt;/p></description></item><item><title>6.9 泰勒公式的高维形式</title><link>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1314/docs/%E6%95%B0%E5%AD%A6/MATH-412-Real-Analysis-II/%E7%AC%AC%E5%85%AD%E7%AB%A0/6.9-Taylor-Higher-Dimentions/</guid><description>&lt;p>$$
+R_{r-1} = \frac{1}{r!} D^{(r)} f(\xi) (x-x_0, \dots, x-x_0)
+$$
+And satisfying
+$$
+\frac{R_{r-1}(x_0)}{|x - x_0|^{r-1}} \to 0 \quad \text{as} \quad x \to x_0.
+$$
+&lt;code>\begin{proof}&lt;/code>
+Consider 1-variable function:
+$$
+g(t) = f(x_0 + t(x - x_0)), \quad (a, b) \to \mathbb{R}
+$$
+for $t\in (a, b)$ with $[0, 1] \subset (a, b)$.&lt;/p>
+&lt;hr>
+&lt;p>Applying Taylor&amp;rsquo;s theorem to $g(t)$:
+$$
+\begin{align}
+g(1) &amp;amp;= g(0) + g&amp;rsquo;(0)(1-0) + \frac{g&amp;rsquo;&amp;rsquo;(0)}{2!} (1-0)^2 + \dots + \frac{g^{(r-1)}(0)}{(r-1)!} (1-0)^{r-1} + R_{r-1}\
+f(x) &amp;amp;= f(x_0) + \sum_{k=1}^{r-1} \frac{g^{(k)}(0)}{k!} + \frac{1}{r!} g^{(r)}(\tilde{c}), \quad \tilde{c} \in [0,1]
+\end{align}
+$$
+By chain rule,
+$$ g&amp;rsquo;(t) = Df(\varphi(t)) \cdot \varphi&amp;rsquo;(t) $$
+$$g&amp;rsquo;(0) = Df(x_0) (x - x_0) $$
+&lt;code>\end{proof}&lt;/code>&lt;/p></description></item></channel></rss>
