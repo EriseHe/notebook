@@ -28,12 +28,11 @@ jobs:
         with:
           to: html
 
-      - name: Publish to GitHub Pages (gh-pages)
-        uses: quarto-dev/quarto-actions/publish@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          target: gh-pages
-          path: docs
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
 
 
