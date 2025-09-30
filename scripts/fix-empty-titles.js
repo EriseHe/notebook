@@ -3,79 +3,69 @@ const path = require('path');
 
 function findMarkdownFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir);
-  
-  files.forEach(file => {
+  for (const file of files) {
     const filePath = path.join(dir, file);
     const stat = fs.statSync(filePath);
-    
-    if (stat.isDirectory() && !filePath.includes('node_modules')) {
+    if (stat.isDirectory() && !filePath.includes('node_modules') && !filePath.includes('docs')) {
       findMarkdownFiles(filePath, fileList);
     } else if (file.endsWith('.md')) {
       fileList.push(filePath);
     }
-  });
-  
+  }
   return fileList;
 }
 
-function extractFirstHeading(content) {
-  const lines = content.split('\n');
-  for (const line of lines) {
-    const match = line.match(/^#\s+(.+)$/);
-    if (match) {
-      return match[1].trim();
-    }
-  }
-  return null;
+function yamlEscape(str) {
+  // Escape quotes properly for YAML
+  if (str.includes('"')) return `'${str.replace(/'/g, "''")}'`;
+  return `"${str}"`;
 }
 
-function fixEmptyTitles(filePath) {
-  const content = fs.readFileSync(filePath, 'utf8');
-  
-  // Check if file has frontmatter with empty title
-  const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!frontmatterMatch) return false;
-  
-  const frontmatter = frontmatterMatch[1];
-  
-  // Check for empty title field
-  if (!frontmatter.match(/^title:\s*$/m)) return false;
-  
-  console.log(`Found empty title in: ${filePath}`);
-  
-  // Try to extract title from first heading
-  const contentAfterFrontmatter = content.substring(frontmatterMatch[0].length);
-  let newTitle = extractFirstHeading(contentAfterFrontmatter);
-  
-  // If no heading found, use filename
-  if (!newTitle) {
-    newTitle = path.basename(filePath, '.md');
+function setTitleToFilename(filePath) {
+  const raw = fs.readFileSync(filePath, 'utf8');
+  const filename = path.basename(filePath, '.md');
+  const safeTitle = yamlEscape(filename);
+
+  const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n?/);
+
+  if (!fmMatch) {
+    // No frontmatter; create one with title
+    const newContent = `---\ntitle: ${safeTitle}\n---\n\n${raw}`;
+    fs.writeFileSync(filePath, newContent, 'utf8');
+    return true;
   }
-  
-  // Replace empty title with new title
-  const newContent = content.replace(
-    /^(---\n[\s\S]*?)^title:\s*$/m,
-    `$1title: "${newTitle}"`
-  );
-  
-  fs.writeFileSync(filePath, newContent, 'utf8');
-  console.log(`  ✓ Set title to: "${newTitle}"`);
-  
-  return true;
+
+  const fm = fmMatch[1];
+  const hasTitleLine = /^title:\s*(.*)$/m.test(fm);
+  if (!hasTitleLine) {
+    // Insert title at top of frontmatter
+    const updatedFm = `title: ${safeTitle}\n` + fm;
+    const newContent = raw.replace(/^---\n([\s\S]*?)\n---/, `---\n${updatedFm}\n---`);
+    fs.writeFileSync(filePath, newContent, 'utf8');
+    return true;
+  }
+
+  // Has title line: replace only if empty
+  const titleLine = fm.match(/^title:\s*(.*)$/m);
+  const current = titleLine ? titleLine[1].trim() : '';
+  if (current === '' || current === '""' || current === "''") {
+    const newFm = fm.replace(/^title:\s*(.*)$/m, `title: ${safeTitle}`);
+    const newContent = raw.replace(/^---\n([\s\S]*?)\n---/, `---\n${newFm}\n---`);
+    fs.writeFileSync(filePath, newContent, 'utf8');
+    return true;
+  }
+
+  return false;
 }
 
-// Main execution
+// Execute
 const contentDir = path.join(__dirname, '..', 'content');
-const markdownFiles = findMarkdownFiles(contentDir);
-
-let fixedCount = 0;
-markdownFiles.forEach(file => {
-  if (fixEmptyTitles(file)) {
-    fixedCount++;
-  }
-});
-
-console.log(`\n✓ Fixed ${fixedCount} file(s) with empty titles`);
+const files = findMarkdownFiles(contentDir);
+let changed = 0;
+for (const f of files) {
+  if (setTitleToFilename(f)) changed++;
+}
+console.log(`Fixed titles for ${changed} file(s).`);
 
 
 
