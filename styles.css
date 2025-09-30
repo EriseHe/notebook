@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar {
   background: transparent;
-  border-right: 1px solid rgba(0,0,0,0.06);
+  border-right: none; /* Remove vertical divider */
   font-size: 0.95rem;
 }
 
@@ -52,11 +52,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar .nav-link.active { background-color: rgba(27,31,35,.08); color: #111827; font-weight: 600; }
 
-#quarto-sidebar { background: transparent; border-right: 1px solid rgba(0,0,0,0.06); }
+#quarto-sidebar { background: transparent; border-right: none; /* Remove vertical divider */ }
 #quarto-sidebar .sidebar-menu-container { padding-right: 0.5rem; }
 #quarto-sidebar .sidebar-section { margin-bottom: 0.6rem; }
 #quarto-sidebar .collapse, #quarto-sidebar .collapsing { transition: none !important; }
 #quarto-sidebar .collapse.show { transition: none !important; }
+
+/* Hide toggle icons - make folder names clickable to expand */
+#quarto-sidebar .sidebar-item-toggle { display: none !important; }
+
+/* Make the entire folder item clickable for accordion behavior */
+#quarto-sidebar .sidebar-item { cursor: pointer; }
 
 
 .sidebar-title {
