@@ -315,6 +315,16 @@ pre.sourceCode.css::before { content: "CSS"; }
   margin-bottom: 0.75rem;
 }
 
+/* ========================================
+   TOC CUSTOMIZATION
+   ======================================== */
+/* Hide ToC title "On this page" / "该页面内容" */
+#TOC > ul > li:first-child > a,
+#toc-title,
+.sidebar-title {
+  display: none !important;
+}
+
 /* Ensure Quarto sets language class and we backfill label from class name */
 /* The pandoc/quarto HTML already sets classes like pre.sourceCode.python.
    The rules above set the accent color and label via ::before per language. */
