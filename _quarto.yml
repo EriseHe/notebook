@@ -6,7 +6,8 @@ project:
   output-dir: docs
   render:
   - index.md
-  - "content/notes/**/*.md"
+  - "content/notes/理论/**/*.md"
+  - "content/notes/计算/**/*.md"
   - "content/posts/**/*.md"
   - '!**/_index.md'
   - '!**/*.ipynb'  # Exclude notebooks from rendering for speed
