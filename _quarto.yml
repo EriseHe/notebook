@@ -4,6 +4,8 @@ project:
   - scripts/site-behavior.js
   - public/**
   output-dir: docs
+  pre-render:
+  - node scripts/fix-empty-titles.js
   render:
   - index.md
   - "content/notes/理论/**/*.md"
