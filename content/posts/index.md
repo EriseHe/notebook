@@ -2,9 +2,10 @@
 title: "文章 Posts"
 page-layout: article
 listing:
-  contents: "*.md"
+  contents: "**/*.md"
   sort: "date desc"
   type: table
+  fields: [title, date]
 ---
 
 
