@@ -76,8 +76,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Special styling for root category items: 理论 and 计算 */
-#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/理论/index.html"],
-#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/计算/index.html"] {
+#quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/理论/index.html"],
+#quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/计算/index.html"] {
   display: block;
   padding: 0.6rem 0.75rem;
   margin: 0.35rem 0.25rem 0.5rem;
@@ -87,8 +87,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: #1b4f82;
 }
-#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/理论/index.html"]::before,
-#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/计算/index.html"]::before {
+#quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/理论/index.html"]::before,
+#quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/计算/index.html"]::before {
   content: "";
   display: inline-block;
   width: 8px;
@@ -97,8 +97,8 @@ h1, h2, h3, h4, h5, h6 {
   background: #276fb4;
   margin-right: 8px;
 }
-#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/理论/index.html"]:hover,
-#quarto-sidebar .sidebar-menu-container .sidebar-item > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/计算/index.html"]:hover {
+#quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/理论/index.html"]:hover,
+#quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li > .sidebar-item-container > a.sidebar-item-text[href$="/content/notes/计算/index.html"]:hover {
   border-color: #c9ddfb;
   box-shadow: 0 4px 14px rgba(39,111,180,0.12);
   transform: translateY(-1px);
@@ -401,19 +401,17 @@ pre.sourceCode.css::before { content: "CSS"; }
   /* Increase main content width (override Quarto defaults) */
   .content { max-width: var(--content-max-width) !important; }
 
-  /* First-level folder styling: bold only depth1, add vertical spacing */
-  #quarto-sidebar .sidebar-section.depth1 > li.sidebar-item-section {
-    margin-bottom: 0.4rem;
+  /* First-level folders (direct children of root list): spacing + bold */
+  #quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li.sidebar-item-section {
+    margin-bottom: 0.5rem;
   }
-  #quarto-sidebar .sidebar-section.depth1 > li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text {
-    font-weight: 700;
+  #quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text {
+    font-weight: 700 !important;
   }
 
-  /* Deeper folders (depth >= 2): normal weight */
-  #quarto-sidebar .sidebar-section.depth2 .sidebar-item-text,
-  #quarto-sidebar .sidebar-section.depth3 .sidebar-item-text,
-  #quarto-sidebar .sidebar-section.depth4 .sidebar-item-text {
-    font-weight: 500;
+  /* Nested folders (any depth under a section): normal weight */
+  #quarto-sidebar ul.sidebar-section .sidebar-item-text {
+    font-weight: 500 !important;
   }
 
   /* Increase indentation for nested levels */
