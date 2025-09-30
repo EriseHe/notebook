@@ -2,7 +2,14 @@
 title: "理论"
 page-layout: article
 listing:
-  contents: "**/*.md"   # only source markdown files
+  contents: "**/*.md"
+  type: grid
+  grid-columns: 1
   sort: title
-  fields: [title]        # avoid parsing descriptions from generated HTML
+  fields: [title, description]
+  field-display-names:
+    title: "Title"
+    description: "Description"
 ---
+
+探索数学理论的笔记集合。

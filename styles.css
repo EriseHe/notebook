@@ -216,6 +216,105 @@ pre.sourceCode.css::before { content: "CSS"; }
 /* Ensure the wrapper is the positioning context for the copy button */
 .code-copy-outer-scaffold { position: relative; }
 
+/* ========================================
+   LISTING PAGES - Beautiful folder index design
+   ======================================== */
+.quarto-listing {
+  margin-top: 2rem;
+}
+
+.quarto-listing-default .list {
+  display: grid;
+  gap: 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.quarto-listing-default .list > div {
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.quarto-listing-default .list > div:hover {
+  border-color: #276fb4;
+  box-shadow: 0 4px 12px rgba(39, 111, 180, 0.1);
+  transform: translateY(-1px);
+}
+
+.quarto-listing-default .listing-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #1f2937;
+}
+
+.quarto-listing-default .listing-title a {
+  color: #276fb4;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.quarto-listing-default .listing-title a:hover {
+  color: #1e5a8f;
+  text-decoration: underline;
+}
+
+.quarto-listing-default .listing-subtitle,
+.quarto-listing-default .listing-description {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0.25rem 0;
+  line-height: 1.6;
+}
+
+.quarto-listing-default .listing-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.quarto-listing-default .listing-category {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* List layout improvements */
+.quarto-listing-default.quarto-listing-cols-1 .list {
+  grid-template-columns: 1fr;
+}
+
+.quarto-listing-default.quarto-listing-cols-2 .list {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+/* Nested section headings in listings */
+.quarto-listing h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.quarto-listing h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
 /* Ensure Quarto sets language class and we backfill label from class name */
 /* The pandoc/quarto HTML already sets classes like pre.sourceCode.python.
    The rules above set the accent color and label via ::before per language. */
