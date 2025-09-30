@@ -3,10 +3,9 @@ title: "偏微分方程"
 page-layout: article
 listing:
   contents: "**/*.md"
-  type: grid
-  grid-columns: 1
+  type: default
   sort: title
-  fields: [title, description]
+  fields: [title]
 ---
 
 偏微分方程（Partial Differential Equations）相关笔记。

@@ -235,6 +235,19 @@ pre.sourceCode.css::before { content: "CSS"; }
   list-style: none;
 }
 
+/* Make listing items span full available width and avoid centered narrow cards */
+.quarto-listing-default .quarto-post { 
+  display: block; 
+  max-width: none; 
+}
+
+/* Show only titles by default (no auto excerpts or meta) */
+.quarto-listing-default .thumbnail,
+.quarto-listing-default .listing-description,
+.quarto-listing-default .metadata { display: none; }
+
+.quarto-listing-default .listing-title { margin: 0; }
+
 .quarto-listing-default .list > div {
   background: #fafafa;
   border: 1px solid #e5e7eb;
