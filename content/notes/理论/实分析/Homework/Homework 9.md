@@ -1,3 +1,7 @@
+---
+title: "Homework 9"
+---
+
 8.5: 1, [2, 3], 4, [5]; Chapter 8: [21, 22].
 
 **Problem 8.5.2** Establish formula $\mathbf{c}$ of Example 8.5.7 as follows. Prove that $e^{-x} x^{p+2} \rightarrow 0$ as $x \rightarrow \infty$, and then compare the integral with $\int_1^{\infty}\left(1 / x^2\right) d x$.

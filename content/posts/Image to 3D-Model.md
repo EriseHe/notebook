@@ -1,3 +1,7 @@
+---
+title: "Image to 3D-Model"
+---
+
 
 # Converting 2D Anime-Style Clothing to 3D: Tools & Workflow
 

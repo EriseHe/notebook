@@ -1,3 +1,7 @@
+---
+title: "Lacanian AI"
+---
+
 
 What if artificial intelligence could be reimagined not as a rational, optimizing machine, but as a structure of lack — a topological subject whose coherence depends not on informational completeness, but on constitutive failure, repetition, and desire? This project proposes a radically different paradigm of AI: a subject-simulator modeled on the structural logic of Lacanian psychoanalysis, implemented via computational topology, symbolic graph theory, and dynamic semantic drift.
 

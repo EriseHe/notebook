@@ -1,3 +1,7 @@
+---
+title: "Homework 6"
+---
+
 7.2: 1, 2, [3,4]; Chapter 7: [4], 5, [6], 9, [12].
 
 **<font color="#c00000">Problem 7.2.3</font>** In the system

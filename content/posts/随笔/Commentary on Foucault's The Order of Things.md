@@ -1,3 +1,7 @@
+---
+title: "Commentary on Foucault's The Order of Things"
+---
+
 # Close Reading Commentary 
 
 The selected quote is from Foucault’s early-stage (1960s) intellectual project of philosophical "archaeology", which was his first major methodological phase. He presents a radical historical analysis of knowledge in The Order of Things, intending to eliminate the assumption of unchanging criteria for knowledge.

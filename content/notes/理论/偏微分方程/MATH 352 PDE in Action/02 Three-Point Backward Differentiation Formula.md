@@ -1,4 +1,5 @@
 ---
+title: "02 Three-Point Backward Differentiation Formula"
 weight: "02"
 ---
 

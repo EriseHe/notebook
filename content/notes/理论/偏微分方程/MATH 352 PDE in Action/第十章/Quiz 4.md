@@ -1,3 +1,7 @@
+---
+title: "Quiz 4"
+---
+
 # Solutions for Quiz 4
 
 ## Question 1

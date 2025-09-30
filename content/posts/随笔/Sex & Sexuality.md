@@ -1,3 +1,7 @@
+---
+title: "Sex & Sexuality"
+---
+
 ### Can you imagine sexuality without gender?
 
 For Foucault
