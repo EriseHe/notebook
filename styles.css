@@ -57,9 +57,14 @@ h1, h2, h3, h4, h5, h6 {
 #quarto-sidebar { background: transparent; border-right: none !important; box-shadow: none !important; /* Remove vertical divider */ }
 #quarto-sidebar .sidebar-menu-container { padding-right: 0.5rem; }
 #quarto-sidebar .sidebar-section { margin-bottom: 0.6rem; }
-#quarto-sidebar .collapse, #quarto-sidebar .collapsing { transition: none !important; }
-#quarto-sidebar .collapse.show { transition: none !important; }
-#quarto-sidebar .collapse:not(.show) { display: none; }
+#quarto-sidebar .collapse,
+#quarto-sidebar .collapsing {
+  display: none;
+}
+
+#quarto-sidebar .collapse.show {
+  display: block;
+}
 
 /* Hide toggle icons - make folder names clickable to expand */
 #quarto-sidebar .sidebar-item-toggle { display: none !important; }
