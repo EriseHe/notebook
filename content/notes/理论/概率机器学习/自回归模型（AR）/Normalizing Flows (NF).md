@@ -1,3 +1,7 @@
+---
+title: "Normalizing Flows (NF)"
+---
+
 # 1 Change of Variables Theorem
 
 We want to compute the density of a transformed variable:
