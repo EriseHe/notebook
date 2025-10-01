@@ -51,13 +51,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何/有关曲面的基础概念/6..md",
+                "file": "理论/微分几何/有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "6."
+              "title": "2. Parametrized Curves and Surfaces"
             }
           }
         ]
@@ -211,13 +211,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何/有关曲面的基础概念/6..md",
+                "file": "理论/微分几何/有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 6."
+              "title": "Outline of 2. Parametrized Curves and Surfaces"
             }
           }
         ],
@@ -246,6 +246,7 @@
   },
   "active": "1405ee11109281ac",
   "lastOpenFiles": [
+    "理论/微分几何/有关曲面的基础概念/6..md",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
@@ -256,7 +257,6 @@
     "计算/量子力学讲义/index.html",
     "计算/量子力学讲义/index_files/mediabag",
     "计算/量子力学讲义/index_files",
-    "计算/量子力学讲义/Lecture/第四章/第四章.html",
     "理论/微分几何/有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometries.md",
     "理论/微分几何/有关曲面的基础概念/4. First Fundamental Form & Local Isometries.md",
     "理论/微分几何/有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
@@ -264,7 +264,6 @@
     "理论/微分几何/有关曲面的基础概念/9..md",
     "理论/微分几何/有关曲面的基础概念/8..md",
     "理论/微分几何/有关曲面的基础概念/7..md",
-    "理论/微分几何/有关曲面的基础概念/6..md",
     "理论/微分几何/有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
     "理论/微分几何/有关曲面的基础概念/1. Overview of Differential Geometry.md",
     "理论/微分几何/S1 有关曲面的基础概念/4..md",
