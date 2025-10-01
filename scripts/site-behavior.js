@@ -61,7 +61,55 @@
     });
   }
 
-  function setupNavbarTransparency() {
+  
+  function syncActiveSections(state) {
+    const sections = document.querySelectorAll('#quarto-sidebar .sidebar-item-section');
+    sections.forEach(section => {
+      const collapse = section.querySelector('.collapse');
+      const toggle = section.querySelector('.sidebar-item-toggle');
+      if (!collapse || !toggle || !collapse.id) return;
+
+      const hasActive = collapse.querySelector('.active');
+      const stored = state[collapse.id];
+
+      if (hasActive || stored) {
+        collapse.classList.add('show');
+        toggle.classList.remove('collapsed');
+        toggle.setAttribute('aria-expanded', 'true');
+        if (hasActive) {
+          state[collapse.id] = true;
+        }
+      } else {
+        collapse.classList.remove('show');
+        toggle.classList.add('collapsed');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  function interceptSectionLinks() {
+    const sectionLinks = document.querySelectorAll('#quarto-sidebar .sidebar-item-section .sidebar-item-text.sidebar-link');
+    sectionLinks.forEach(link => {
+      const section = link.closest('.sidebar-item-section');
+      if (!section) return;
+      const toggle = section.querySelector('.sidebar-item-toggle');
+      const targetId = toggle?.getAttribute('data-bs-target');
+      if (!toggle || !targetId) return;
+
+      const collapse = document.querySelector(targetId);
+      if (!collapse) return;
+
+      link.addEventListener('click', (event) => {
+        const isExpanded = collapse.classList.contains('show');
+        if (!isExpanded) {
+          event.preventDefault();
+          toggle.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+        }
+      });
+    });
+  }
+
+function setupNavbarTransparency() {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
 
@@ -86,12 +134,13 @@
   window.document.addEventListener('DOMContentLoaded', function () {
     const state = loadState();
     
-    // Disable Quarto's headroom
     const header = document.getElementById('quarto-header');
     if (header?.headroom?.destroy) header.headroom.destroy();
     
     setupNavbarTransparency();
+    syncActiveSections(state);
     applyState(state);
     registerStateHandlers(state);
+    interceptSectionLinks();
   });
 })();
