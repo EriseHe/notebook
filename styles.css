@@ -640,13 +640,13 @@ img {
 /* --- Mathematical Callouts (Theorem Blocks) --- */
 .math-theorem {
   --theorem-accent: #c81e1e;
-  --theorem-surface: rgba(255, 255, 255, 0.82);
+  --theorem-bg: #f5f5f7;
   --theorem-border: rgba(200, 30, 30, 0.28);
   position: relative;
   margin: 2.25rem 0;
   border-radius: 18px;
-  background: #343b4a;
-  box-shadow: 0 26px 45px -34px rgba(15, 23, 42, 0.55);
+  background: var(--theorem-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   border: 1px solid var(--theorem-border);
@@ -657,16 +657,7 @@ img {
 }
 
 .math-theorem::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 20px;
-  border: 2px solid rgba(255,255,255,0.35);
-  mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 0.4;
-  transition: opacity 0.25s ease;
+  display: none;
 }
 
 .math-theorem:hover {
@@ -778,10 +769,10 @@ img {
 
 @media (prefers-color-scheme: dark) {
   .math-theorem {
-    --theorem-surface: rgba(15, 23, 42, 0.82);
-    background: linear-gradient(140deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.76) 55%, rgba(255,255,255,0.06) 100%);
+    --theorem-bg: #2a2d35;
+    background: var(--theorem-bg);
     color: rgba(226, 232, 240, 0.95);
-    box-shadow: 0 32px 60px -40px rgba(2, 6, 23, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
 
   .theorem-title {
