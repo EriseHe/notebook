@@ -816,6 +816,8 @@ fSE
 fPhg
 fXf
 fvA
+flattened
+flag
 color
 curve
 can
@@ -2114,6 +2116,7 @@ PIB
 Pbu
 PEN
 PgI
+Parametrize
 In
 Implicit
 Invertibility
@@ -3794,6 +3797,7 @@ smp
 sdv
 stretches
 stretched
+sheeted
 discuss
 determine
 described
@@ -5042,6 +5046,7 @@ iOw
 idtHo
 isE
 iDQ
+isometries
 of
 our
 out
@@ -5963,6 +5968,7 @@ DGg
 DC
 DCh
 DNl
+Differentials
 map
 matrix
 mapping
@@ -10099,6 +10105,7 @@ Rnp
 Ra
 RNfI
 Rubinstein
+Ruled
 requirement
 respect
 rule
@@ -10707,6 +10714,10 @@ rHwv
 rt
 rCmS
 rGi
+reparametrized
+ruled
+rulings
+recorded
 partials
 partial
 point
@@ -11463,6 +11474,7 @@ pAV
 pkL
 plol
 pwdT
+parametrizations
 Ex
 Evaluate
 Evaluating
@@ -12945,6 +12957,7 @@ FWdb
 Fjm
 FgE
 FID
+Flatten
 Jacobian
 Jobcobian
 John
