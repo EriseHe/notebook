@@ -640,6 +640,7 @@ img {
 /* --- Mathematical Callouts (Theorem Blocks) --- */
 .math-theorem {
   --theorem-accent: #c81e1e;
+  --theorem-accent-rgb: 200, 30, 30;
   --theorem-bg: #f5f5f7;
   --theorem-border: rgba(200, 30, 30, 0.28);
   position: relative;
@@ -694,21 +695,22 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem 0.9rem 0.3rem;
+  padding: 0.2rem 0.7rem 0.25rem;
   border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 650;
+  font-size: 0.68rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   font-family: "Computer Modern", "CMU Serif", "IBM Plex Serif", serif;
-  background: var(--theorem-accent);
-  color: #fff;
-  box-shadow: 0 16px 30px -20px var(--theorem-accent);
+  background: rgba(var(--theorem-accent-rgb), 0.15);
+  color: var(--theorem-accent);
+  border: 1px solid rgba(var(--theorem-accent-rgb), 0.3);
+  box-shadow: none;
 }
 
 .theorem-title {
   display: block;
-  font-weight: 640;
+  font-weight: 700;
   font-size: 1.06rem;
   font-family: "Computer Modern", "CMU Serif", "IBM Plex Serif", serif;
   color: #172554 !important;
@@ -739,42 +741,50 @@ img {
 
 .math-theorem.definition {
   --theorem-accent: #2563eb;
+  --theorem-accent-rgb: 37, 99, 235;
   --theorem-border: rgba(37, 99, 235, 0.28);
 }
 
 .math-theorem.theorem {
   --theorem-accent: #9333ea;
+  --theorem-accent-rgb: 147, 51, 234;
   --theorem-border: rgba(147, 51, 234, 0.28);
 }
 
 .math-theorem.lemma {
   --theorem-accent: #0ea5e9;
+  --theorem-accent-rgb: 14, 165, 233;
   --theorem-border: rgba(14, 165, 233, 0.28);
 }
 
 .math-theorem.proposition {
   --theorem-accent: #e11d48;
+  --theorem-accent-rgb: 225, 29, 72;
   --theorem-border: rgba(225, 29, 72, 0.28);
 }
 
 .math-theorem.corollary {
   --theorem-accent: #f97316;
+  --theorem-accent-rgb: 249, 115, 22;
   --theorem-border: rgba(249, 115, 22, 0.28);
 }
 
 .math-theorem.note,
 .math-theorem.remark {
   --theorem-accent: #0891b2;
+  --theorem-accent-rgb: 8, 145, 178;
   --theorem-border: rgba(8, 145, 178, 0.28);
 }
 
 .math-theorem.example {
   --theorem-accent: #059669;
+  --theorem-accent-rgb: 5, 150, 105;
   --theorem-border: rgba(5, 150, 105, 0.24);
 }
 
 .math-theorem.proof {
   --theorem-accent: #4b5563;
+  --theorem-accent-rgb: 75, 85, 99;
   --theorem-border: rgba(75, 85, 99, 0.24);
 }
 
@@ -800,11 +810,13 @@ img {
 }
 .math-theorem.assumption {
   --theorem-accent: #e11d48;
+  --theorem-accent-rgb: 225, 29, 72;
   --theorem-border: rgba(225, 29, 72, 0.28);
 }
 
 .math-theorem.claim {
   --theorem-accent: #1d4ed8;
+  --theorem-accent-rgb: 29, 78, 216;
   --theorem-border: rgba(29, 78, 216, 0.28);
 }
 .theorem-title {
