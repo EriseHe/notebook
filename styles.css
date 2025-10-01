@@ -59,11 +59,11 @@ h1, h2, h3, h4, h5, h6 {
 #quarto-sidebar .sidebar-section { margin-bottom: 0.6rem; }
 #quarto-sidebar .collapse,
 #quarto-sidebar .collapsing {
-  display: none;
+  display: none !important;
 }
 
 #quarto-sidebar .collapse.show {
-  display: block;
+  display: block !important;
 }
 
 /* Hide toggle icons - make folder names clickable to expand */
