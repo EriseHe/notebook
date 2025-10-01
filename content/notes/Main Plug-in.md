@@ -1,6 +1,5 @@
 ---
 title: "Main Plug-in"
-~
 ---
 
 Here’s the full reusable prompt for you:
