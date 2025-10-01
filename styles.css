@@ -699,7 +699,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-family: "Computer Modern", "CMU Serif", "IBM Plex Serif", serif;
-  background: rgba(var(--theorem-accent-rgb), 0.15);
+  background: transparent !important;
   color: var(--theorem-accent);
   border: 1px solid transparent;
   box-shadow: none;
