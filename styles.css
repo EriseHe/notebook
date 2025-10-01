@@ -633,43 +633,45 @@ img {
 
 /* --- Mathematical Callouts (Theorem Blocks) --- */
 .math-theorem {
-  --theorem-accent: #2151ff;
-  --theorem-border: rgba(255, 255, 255, 0.18);
+  --theorem-accent: #c81e1e;
+  --theorem-surface: rgba(255, 255, 255, 0.82);
+  --theorem-border: rgba(200, 30, 30, 0.28);
   position: relative;
-  margin: 2rem 0;
-  border-radius: 28px;
-  background: linear-gradient(135deg, #2f3546 0%, #3a455c 35%, #6f7a95 72%, #b6bccb 100%);
-  box-shadow: 0 24px 55px -32px rgba(26, 32, 44, 0.55);
+  margin: 2.25rem 0;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(253,253,255,0.6) 55%, rgba(255,255,255,0.35) 100%);
+  box-shadow: 0 26px 45px -34px rgba(15, 23, 42, 0.55);
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #d8dde8;
+  border: 1px solid var(--theorem-border);
 }
 
 .math-theorem::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(140% 120% at 120% -15%, rgba(255,255,255,0.35), transparent 60%);
+  background: radial-gradient(120% 115% at 105% -10%, rgba(255,255,255,0.45), transparent 60%);
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.9;
   transition: opacity 0.25s ease;
 }
 
 .math-theorem::after {
   content: "";
   position: absolute;
-  inset: 1.5px;
-  border-radius: 26px;
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  inset: -2px;
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.35);
+  mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+  mask-composite: exclude;
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 0.4;
   transition: opacity 0.25s ease;
 }
 
 .math-theorem:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 32px 72px -38px rgba(17, 25, 40, 0.65);
+  transform: translateY(-3px);
+  box-shadow: 0 32px 60px -36px rgba(15, 23, 42, 0.65);
 }
 
 .math-theorem:hover::before {
@@ -677,7 +679,7 @@ img {
 }
 
 .math-theorem:hover::after {
-  opacity: 0.65;
+  opacity: 0.6;
 }
 
 .theorem-header {
@@ -685,49 +687,44 @@ img {
   z-index: 1;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 1rem 1.6rem 0.2rem;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding: 1.1rem 1.75rem 0.35rem;
   font-family: "Computer Modern", "CMU Serif", "IBM Plex Serif", serif;
-  color: rgba(238, 242, 255, 0.95);
+  letter-spacing: 0.01em;
 }
 
 .theorem-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.32rem 1.2rem 0.36rem;
+  padding: 0.25rem 0.9rem 0.3rem;
   border-radius: 999px;
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 650;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  background: linear-gradient(135deg, var(--theorem-accent) 0%, #3c7bff 100%);
-  color: #fdfdff;
-  font-family: "IBM Plex Sans", "SF Pro Display", sans-serif;
-  margin-right: 0.35rem;
-  box-shadow: 0 18px 30px -22px rgba(33, 81, 255, 0.9);
+  letter-spacing: 0.14em;
+  background: var(--theorem-accent);
+  color: #fff;
+  box-shadow: 0 16px 30px -20px var(--theorem-accent);
 }
 
 .theorem-title {
-  font-family: "Computer Modern", "CMU Serif", serif;
-  font-weight: 600;
-  font-size: 1.04rem;
-  font-style: italic;
-  color: rgba(236, 240, 255, 0.96);
-  margin-left: 0.1rem;
+  font-weight: 640;
+  font-size: 1.06rem;
+  color: #172554;
 }
 
 .theorem-content {
   position: relative;
   z-index: 1;
-  padding: 0.25rem 1.6rem 1.25rem;
-  color: rgba(224, 231, 255, 0.9);
-  line-height: 1.58;
+  padding: 0.35rem 1.75rem 1.6rem;
+  color: #0f172a;
+  line-height: 1.62;
 }
 
 .theorem-content > :first-child {
-  margin-top: 0.1rem;
+  margin-top: 0.25rem;
 }
 
 .theorem-content > :last-child {
@@ -735,38 +732,67 @@ img {
 }
 
 .theorem-content .katex-display {
-  margin: 0.6rem 0;
+  margin: 0.75rem 0;
 }
 
-.math-theorem.definition { --theorem-accent: #2151ff; }
-.math-theorem.theorem { --theorem-accent: #5c4dff; }
-.math-theorem.lemma { --theorem-accent: #2fb2ff; }
-.math-theorem.proposition { --theorem-accent: #ff4d93; }
-.math-theorem.corollary { --theorem-accent: #ff8c3d; }
+.math-theorem.definition {
+  --theorem-accent: #2563eb;
+  --theorem-border: rgba(37, 99, 235, 0.28);
+}
+
+.math-theorem.theorem {
+  --theorem-accent: #9333ea;
+  --theorem-border: rgba(147, 51, 234, 0.28);
+}
+
+.math-theorem.lemma {
+  --theorem-accent: #0ea5e9;
+  --theorem-border: rgba(14, 165, 233, 0.28);
+}
+
+.math-theorem.proposition {
+  --theorem-accent: #e11d48;
+  --theorem-border: rgba(225, 29, 72, 0.28);
+}
+
+.math-theorem.corollary {
+  --theorem-accent: #f97316;
+  --theorem-border: rgba(249, 115, 22, 0.28);
+}
+
 .math-theorem.note,
-.math-theorem.remark { --theorem-accent: #24b7d9; }
-.math-theorem.example { --theorem-accent: #1abc9c; }
-.math-theorem.proof { --theorem-accent: #80889b; }
-.math-theorem.assumption { --theorem-accent: #ff5a5f; }
-.math-theorem.claim { --theorem-accent: #4a67ff; }
+.math-theorem.remark {
+  --theorem-accent: #0891b2;
+  --theorem-border: rgba(8, 145, 178, 0.28);
+}
+
+.math-theorem.example {
+  --theorem-accent: #059669;
+  --theorem-border: rgba(5, 150, 105, 0.24);
+}
+
+.math-theorem.proof {
+  --theorem-accent: #4b5563;
+  --theorem-border: rgba(75, 85, 99, 0.24);
+}
 
 @media (prefers-color-scheme: dark) {
   .math-theorem {
-    background: linear-gradient(140deg, rgba(31, 41, 55, 0.92) 0%, rgba(44, 55, 75, 0.82) 55%, rgba(110, 125, 153, 0.4) 100%);
-    box-shadow: 0 34px 74px -38px rgba(5, 8, 22, 0.85);
-    color: rgba(226, 232, 240, 0.92);
+    --theorem-surface: rgba(15, 23, 42, 0.82);
+    background: linear-gradient(140deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.76) 55%, rgba(255,255,255,0.06) 100%);
+    color: rgba(226, 232, 240, 0.95);
+    box-shadow: 0 32px 60px -40px rgba(2, 6, 23, 0.9);
   }
 
   .theorem-title {
-    color: rgba(240, 243, 255, 0.94);
+    color: rgba(226, 232, 240, 0.92);
   }
 
   .theorem-content {
-    color: rgba(220, 228, 245, 0.88);
+    color: rgba(226, 232, 240, 0.9);
   }
 }
-
-.theorem-title:empty { display: none; }
+.theorem-title:empty {
   display: none;
 }
 .math-theorem.assumption {
