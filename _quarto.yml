@@ -57,7 +57,6 @@ format:
     code-link: true
     smooth-scroll: true
     mathjax: default
-    lang: zh
     page-layout: full
     include-after-body:
     - scripts/site-behavior.html
