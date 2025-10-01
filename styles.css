@@ -639,7 +639,7 @@ img {
   position: relative;
   margin: 2.25rem 0;
   border-radius: 18px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(253,253,255,0.6) 55%, rgba(255,255,255,0.35) 100%);
+  background: #343b4a;
   box-shadow: 0 26px 45px -34px rgba(15, 23, 42, 0.55);
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -647,13 +647,7 @@ img {
 }
 
 .math-theorem::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(120% 115% at 105% -10%, rgba(255,255,255,0.45), transparent 60%);
-  pointer-events: none;
-  opacity: 0.9;
-  transition: opacity 0.25s ease;
+  display: none;
 }
 
 .math-theorem::after {

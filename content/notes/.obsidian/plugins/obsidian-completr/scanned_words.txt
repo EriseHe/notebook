@@ -1770,6 +1770,10 @@ cXt
 chh
 coU
 clmlnV
+cGAN
+critic
+collapse
+compresses
 Problem
 Partial
 Putting
@@ -2373,6 +2377,7 @@ IHYZ
 IDATd
 IDYu
 IRvP
+IPM
 the
 terms
 that
@@ -3787,6 +3792,8 @@ sOQ
 soHEk
 smp
 sdv
+stretches
+stretched
 discuss
 determine
 described
@@ -6492,6 +6499,7 @@ mphs
 mobm
 mrz
 mDi
+minibatch
 have
 holds
 has
@@ -7505,6 +7513,8 @@ SFW
 Sio
 Sed
 SiIZ
+Shannon
+StyleGAN
 equations
 equation
 exists
@@ -10088,6 +10098,7 @@ Rwx
 Rnp
 Ra
 RNfI
+Rubinstein
 requirement
 respect
 rule
@@ -11974,6 +11985,8 @@ WpM
 Wbku
 WPJ
 WYb
+Wasserstein
+WGAN
 Thus
 Theorem
 These
@@ -12220,6 +12233,9 @@ TeA
 TxuY
 TRzb
 Tnt
+Together
+Transformed
+Transformation
 Hence
 Here
 Hypotheses
@@ -12669,6 +12685,9 @@ BNPj
 BqEi
 BFiE
 BVpML
+BiGAN
+BigGAN
+Base
 Function
 For
 FT
@@ -12925,6 +12944,7 @@ Faw
 FWdb
 Fjm
 FgE
+FID
 Jacobian
 Jobcobian
 John
@@ -13068,6 +13088,7 @@ JHx
 JnRh
 JJS
 JOw
+JSD
 At
 And
 Again
@@ -13384,6 +13405,7 @@ AnY
 AkyK
 Aa
 AgLz
+ALI
 via
 variables
 view
@@ -14516,6 +14538,7 @@ Mot
 MUjx
 Mec
 MvH
+Minimax
 Using
 Up
 Ut
@@ -15924,6 +15947,7 @@ OCe
 Ogw
 ONy
 OaRNy
+Objective
 Given
 Get
 Guessing
@@ -16782,6 +16806,7 @@ Kkl
 Kgm
 Kgg
 KZ
+Kantorovich
 ZH
 ZCjHR
 ZY
