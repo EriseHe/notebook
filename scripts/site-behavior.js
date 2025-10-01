@@ -103,7 +103,7 @@
         const isExpanded = collapse.classList.contains('show');
         if (!isExpanded) {
           event.preventDefault();
-          toggle.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+          toggle.click();
         }
       });
     });

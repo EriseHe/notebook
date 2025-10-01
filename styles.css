@@ -59,6 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 #quarto-sidebar .sidebar-section { margin-bottom: 0.6rem; }
 #quarto-sidebar .collapse, #quarto-sidebar .collapsing { transition: none !important; }
 #quarto-sidebar .collapse.show { transition: none !important; }
+#quarto-sidebar .collapse:not(.show) { display: none; }
 
 /* Hide toggle icons - make folder names clickable to expand */
 #quarto-sidebar .sidebar-item-toggle { display: none !important; }
