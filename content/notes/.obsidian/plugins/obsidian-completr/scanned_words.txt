@@ -380,6 +380,8 @@ Codes
 Composite
 Comprehensions
 CairoMakie
+Computations
+Considering
 font
 for
 functions
@@ -1692,6 +1694,7 @@ collide
 collision
 colliding
 collisions
+cos
 Problem
 Partial
 Putting
@@ -4177,6 +4180,7 @@ docstrings
 darkorange
 delegating
 documentation
+ddot
 in
 inverse
 implicit
@@ -5121,6 +5125,7 @@ omitted
 obstacles
 obstacle
 official
+omega
 near
 neighborhood
 necessary
