@@ -5,7 +5,6 @@
     try {
       return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '{}');
     } catch (err) {
-      console.warn('Unable to read sidebar state', err);
       return {};
     }
   }
@@ -13,72 +12,24 @@
   function saveState(state) {
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    } catch (err) {
-      console.warn('Unable to persist sidebar state', err);
-    }
+    } catch {}
   }
 
-  function applyState(state) {
-    const collapseEls = document.querySelectorAll('#quarto-sidebar .collapse');
-    collapseEls.forEach((el) => {
-      const id = el.id;
-      if (!id) return;
-      const shouldOpen = state[id];
-      const toggle = document.querySelector(`[data-bs-target="#${CSS.escape(id)}"]`);
-      if (shouldOpen === undefined) return;
-      if (shouldOpen) {
-        el.classList.add('show');
-        if (toggle) {
-          toggle.classList.remove('collapsed');
-          toggle.setAttribute('aria-expanded', 'true');
-        }
-      } else {
-        el.classList.remove('show');
-        if (toggle) {
-          toggle.classList.add('collapsed');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      }
-    });
-  }
-
-  function registerStateHandlers(state) {
-    const sidebar = document.querySelector('#quarto-sidebar');
-    if (!sidebar) return;
-    sidebar.addEventListener('shown.bs.collapse', (event) => {
-      const target = event.target;
-      if (target && target.id) {
-        state[target.id] = true;
-        saveState(state);
-      }
-    });
-    sidebar.addEventListener('hidden.bs.collapse', (event) => {
-      const target = event.target;
-      if (target && target.id) {
-        state[target.id] = false;
-        saveState(state);
-      }
-    });
-  }
-
-  
-  function syncActiveSections(state) {
+  function syncSections(state) {
     const sections = document.querySelectorAll('#quarto-sidebar .sidebar-item-section');
     sections.forEach(section => {
       const collapse = section.querySelector('.collapse');
       const toggle = section.querySelector('.sidebar-item-toggle');
       if (!collapse || !toggle || !collapse.id) return;
 
-      const hasActive = collapse.querySelector('.active');
       const stored = state[collapse.id];
+      const hasActive = collapse.querySelector('.active') || section.querySelector('.active');
 
       if (hasActive || stored) {
         collapse.classList.add('show');
         toggle.classList.remove('collapsed');
         toggle.setAttribute('aria-expanded', 'true');
-        if (hasActive) {
-          state[collapse.id] = true;
-        }
+        if (hasActive) state[collapse.id] = true;
       } else {
         collapse.classList.remove('show');
         toggle.classList.add('collapsed');
@@ -87,60 +38,78 @@
     });
   }
 
-  function interceptSectionLinks() {
-    const sectionLinks = document.querySelectorAll('#quarto-sidebar .sidebar-item-section .sidebar-item-text.sidebar-link');
-    sectionLinks.forEach(link => {
-      const section = link.closest('.sidebar-item-section');
-      if (!section) return;
-      const toggle = section.querySelector('.sidebar-item-toggle');
-      const targetId = toggle?.getAttribute('data-bs-target');
-      if (!toggle || !targetId) return;
+  function registerHandlers(state) {
+    const sidebar = document.querySelector('#quarto-sidebar');
+    if (!sidebar) return;
 
-      const collapse = document.querySelector(targetId);
-      if (!collapse) return;
+    sidebar.addEventListener('shown.bs.collapse', evt => {
+      if (evt.target?.id) {
+        state[evt.target.id] = true;
+        saveState(state);
+      }
+    });
 
-      link.addEventListener('click', (event) => {
-        const isExpanded = collapse.classList.contains('show');
-        if (!isExpanded) {
-          event.preventDefault();
+    sidebar.addEventListener('hidden.bs.collapse', evt => {
+      if (evt.target?.id) {
+        state[evt.target.id] = false;
+        saveState(state);
+      }
+    });
+  }
+
+  function setupToggleClicks() {
+    const toggles = document.querySelectorAll('#quarto-sidebar .sidebar-item-section .sidebar-item-toggle');
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', evt => {
+        evt.preventDefault();
+        const targetId = toggle.getAttribute('data-bs-target');
+        if (!targetId) return;
+        const collapse = document.querySelector(targetId);
+        if (!collapse) return;
+
+        const shouldShow = !collapse.classList.contains('show');
+        collapse.classList.toggle('show', shouldShow);
+        toggle.classList.toggle('collapsed', !shouldShow);
+        toggle.setAttribute('aria-expanded', shouldShow ? 'true' : 'false');
+
+        collapse.dispatchEvent(new Event(shouldShow ? 'shown.bs.collapse' : 'hidden.bs.collapse', { bubbles: true }));
+      });
+    });
+  }
+
+  function setupSectionLinks() {
+    const links = document.querySelectorAll('#quarto-sidebar .sidebar-item-section > .sidebar-item-container > .sidebar-item-text.sidebar-link');
+    links.forEach(link => {
+      link.addEventListener('click', evt => {
+        const section = link.closest('.sidebar-item-section');
+        if (!section) return;
+        const toggle = section.querySelector('.sidebar-item-toggle');
+        if (!toggle) return;
+        const targetId = toggle.getAttribute('data-bs-target');
+        const collapse = document.querySelector(targetId);
+        if (!collapse) return;
+
+        if (!collapse.classList.contains('show')) {
+          evt.preventDefault();
           toggle.click();
         }
       });
     });
   }
 
-function setupNavbarTransparency() {
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
-
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', function() {
-      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      
-      // At top or scrolling up: opaque
-      if (currentScroll <= 50 || currentScroll < lastScroll) {
-        navbar.classList.remove('navbar-transparent');
-      }
-      // Scrolling down: transparent
-      else if (currentScroll > lastScroll && currentScroll > 50) {
-        navbar.classList.add('navbar-transparent');
-      }
-      
-      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
-    }, { passive: true });
+  function disableHeadroom() {
+    const header = document.getElementById('quarto-header');
+    if (header?.headroom?.destroy) {
+      header.headroom.destroy();
+    }
   }
 
-  window.document.addEventListener('DOMContentLoaded', function () {
+  window.document.addEventListener('DOMContentLoaded', () => {
     const state = loadState();
-    
-    const header = document.getElementById('quarto-header');
-    if (header?.headroom?.destroy) header.headroom.destroy();
-    
-    setupNavbarTransparency();
-    syncActiveSections(state);
-    applyState(state);
-    registerStateHandlers(state);
-    interceptSectionLinks();
+    disableHeadroom();
+    syncSections(state);
+    registerHandlers(state);
+    setupToggleClicks();
+    setupSectionLinks();
   });
 })();
