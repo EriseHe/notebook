@@ -631,145 +631,179 @@ img {
   background: transparent !important;
 }
 
-/* --- Mathematical Callouts (Definition/Theorem/etc.) --- */
-.math-callout {
-  --callout-accent: #2563eb;
-  --callout-bg: rgba(37, 99, 235, 0.08);
-  --callout-title-color: #0f172a;
-  margin: 1.75rem 0;
-  padding: 1.45rem 1.6rem;
-  border-radius: 18px;
-  border-left: 4px solid var(--callout-accent);
-  background: linear-gradient(140deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.7) 55%, var(--callout-bg) 100%);
-  box-shadow: 0 18px 45px -28px rgba(15, 23, 42, 0.35);
+/* --- Mathematical Callouts (Theorem Blocks) --- */
+.math-theorem {
+  --theorem-accent: #c81e1e;
+  --theorem-surface: rgba(255, 255, 255, 0.82);
+  --theorem-border: rgba(200, 30, 30, 0.28);
   position: relative;
+  margin: 2.25rem 0;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(253,253,255,0.6) 55%, rgba(255,255,255,0.35) 100%);
+  box-shadow: 0 26px 45px -34px rgba(15, 23, 42, 0.55);
   overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid var(--theorem-border);
 }
 
-.math-callout::after {
+.math-theorem::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(110% 140% at 120% -10%, rgba(255,255,255,0.3), transparent 55%);
+  background: radial-gradient(120% 115% at 105% -10%, rgba(255,255,255,0.45), transparent 60%);
   pointer-events: none;
-  opacity: 0.7;
+  opacity: 0.9;
+  transition: opacity 0.25s ease;
 }
 
-.math-callout-header {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-bottom: 0.9rem;
+.math-theorem::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.35);
+  mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.4;
+  transition: opacity 0.25s ease;
+}
+
+.math-theorem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 32px 60px -36px rgba(15, 23, 42, 0.65);
+}
+
+.math-theorem:hover::before {
+  opacity: 1;
+}
+
+.math-theorem:hover::after {
+  opacity: 0.6;
+}
+
+.theorem-header {
   position: relative;
   z-index: 1;
-}
-
-.math-callout-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.2rem 0.9rem 0.25rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 650;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: var(--callout-accent);
-  color: #fff;
-  box-shadow: 0 10px 25px -18px rgba(37, 99, 235, 0.75);
-  line-height: 1.1;
-}
-
-.math-callout-title {
-  font-weight: 650;
-  font-size: 1.02rem;
-  color: var(--callout-title-color);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding: 1.1rem 1.75rem 0.35rem;
+  font-family: "Computer Modern", "CMU Serif", "IBM Plex Serif", serif;
   letter-spacing: 0.01em;
 }
 
-.math-callout-body {
+.theorem-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.9rem 0.3rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  background: var(--theorem-accent);
+  color: #fff;
+  box-shadow: 0 16px 30px -20px var(--theorem-accent);
+}
+
+.theorem-title {
+  font-weight: 640;
+  font-size: 1.06rem;
+  color: #172554;
+}
+
+.theorem-content {
   position: relative;
   z-index: 1;
+  padding: 0.35rem 1.75rem 1.6rem;
   color: #0f172a;
+  line-height: 1.62;
 }
 
-.math-callout-body > :first-child { margin-top: 0; }
-.math-callout-body > :last-child { margin-bottom: 0; }
-
-.math-callout.callout-theorem {
-  --callout-accent: #7c3aed;
-  --callout-bg: rgba(124, 58, 237, 0.09);
-  --callout-title-color: #2a1065;
+.theorem-content > :first-child {
+  margin-top: 0.25rem;
 }
 
-.math-callout.callout-lemma {
-  --callout-accent: #0f766e;
-  --callout-bg: rgba(15, 118, 110, 0.08);
-  --callout-title-color: #064e3b;
+.theorem-content > :last-child {
+  margin-bottom: 0;
 }
 
-.math-callout.callout-proposition {
-  --callout-accent: #4c1d95;
-  --callout-bg: rgba(76, 29, 149, 0.08);
-  --callout-title-color: #2e1065;
+.theorem-content .katex-display {
+  margin: 0.75rem 0;
 }
 
-.math-callout.callout-corollary {
-  --callout-accent: #f97316;
-  --callout-bg: rgba(249, 115, 22, 0.12);
-  --callout-title-color: #7c2d12;
+.math-theorem.definition {
+  --theorem-accent: #2563eb;
+  --theorem-border: rgba(37, 99, 235, 0.28);
 }
 
-.math-callout.callout-definition {
-  --callout-accent: #2563eb;
-  --callout-bg: rgba(37, 99, 235, 0.1);
-  --callout-title-color: #0f172a;
+.math-theorem.theorem {
+  --theorem-accent: #9333ea;
+  --theorem-border: rgba(147, 51, 234, 0.28);
 }
 
-.math-callout.callout-example {
-  --callout-accent: #059669;
-  --callout-bg: rgba(5, 150, 105, 0.12);
-  --callout-title-color: #065f46;
+.math-theorem.lemma {
+  --theorem-accent: #0ea5e9;
+  --theorem-border: rgba(14, 165, 233, 0.28);
 }
 
-.math-callout.callout-remark,
-.math-callout.callout-note {
-  --callout-accent: #0891b2;
-  --callout-bg: rgba(8, 145, 178, 0.12);
-  --callout-title-color: #0c4a6e;
+.math-theorem.proposition {
+  --theorem-accent: #e11d48;
+  --theorem-border: rgba(225, 29, 72, 0.28);
 }
 
-.math-callout.callout-proof {
-  --callout-accent: #475569;
-  --callout-bg: rgba(71, 85, 105, 0.13);
-  --callout-title-color: #111827;
+.math-theorem.corollary {
+  --theorem-accent: #f97316;
+  --theorem-border: rgba(249, 115, 22, 0.28);
 }
 
-.math-callout.callout-warning,
-.math-callout.callout-caution {
-  --callout-accent: #eab308;
-  --callout-bg: rgba(234, 179, 8, 0.18);
-  --callout-title-color: #713f12;
+.math-theorem.note,
+.math-theorem.remark {
+  --theorem-accent: #0891b2;
+  --theorem-border: rgba(8, 145, 178, 0.28);
+}
+
+.math-theorem.example {
+  --theorem-accent: #059669;
+  --theorem-border: rgba(5, 150, 105, 0.24);
+}
+
+.math-theorem.proof {
+  --theorem-accent: #4b5563;
+  --theorem-border: rgba(75, 85, 99, 0.24);
 }
 
 @media (prefers-color-scheme: dark) {
-  .math-callout {
-    background: linear-gradient(140deg, rgba(17, 24, 39, 0.85) 0%, rgba(17, 24, 39, 0.75) 60%, rgba(148, 163, 184, 0.12) 100%);
-    color: #e2e8f0;
-    box-shadow: 0 22px 40px -30px rgba(15, 23, 42, 0.65);
-  }
-  .math-callout-title {
+  .math-theorem {
+    --theorem-surface: rgba(15, 23, 42, 0.82);
+    background: linear-gradient(140deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.76) 55%, rgba(255,255,255,0.06) 100%);
     color: rgba(226, 232, 240, 0.95);
+    box-shadow: 0 32px 60px -40px rgba(2, 6, 23, 0.9);
   }
-  .math-callout-body {
+
+  .theorem-title {
     color: rgba(226, 232, 240, 0.92);
   }
+
+  .theorem-content {
+    color: rgba(226, 232, 240, 0.9);
+  }
+}
+.theorem-title:empty {
+  display: none;
+}
+.math-theorem.assumption {
+  --theorem-accent: #e11d48;
+  --theorem-border: rgba(225, 29, 72, 0.28);
 }
 
-.math-callout-body p:first-child > strong:first-child {
-  display: inline-block;
-  font-size: 1.02rem;
-  color: var(--callout-title-color);
-  margin-bottom: 0.35rem;
+.math-theorem.claim {
+  --theorem-accent: #1d4ed8;
+  --theorem-border: rgba(29, 78, 216, 0.28);
+}
+.theorem-title {
+  font-style: italic;
 }
