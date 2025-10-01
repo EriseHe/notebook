@@ -677,9 +677,14 @@ img {
 .theorem-header {
   position: relative;
   z-index: 1;
-  padding: 1.1rem 1.75rem 0.75rem;
+  padding: 1.1rem 1.75rem 0.5rem;
   font-family: "Computer Modern", "CMU Serif", "IBM Plex Serif", serif;
   letter-spacing: 0.01em;
+}
+
+.theorem-header p {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .theorem-badge {
@@ -714,7 +719,7 @@ img {
 .theorem-content {
   position: relative;
   z-index: 1;
-  padding: 0.35rem 1.75rem 1.6rem;
+  padding: 0 1.75rem 1.6rem;
   font-family: "Computer Modern", "CMU Serif", "IBM Plex Serif", serif;
   color: #0f172a !important;
   line-height: 1.62;
