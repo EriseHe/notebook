@@ -51,13 +51,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces in R.md",
+                "file": "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2. Parametrized Curves and Surfaces in R"
+              "title": "2. Parametrized Curves and Surfaces"
             }
           }
         ]
@@ -211,13 +211,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces in R.md",
+                "file": "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2. Parametrized Curves and Surfaces in R"
+              "title": "Outline of 2. Parametrized Curves and Surfaces"
             }
           }
         ],
@@ -249,15 +249,15 @@
     "type": "floating",
     "children": [
       {
-        "id": "a6c707c573620e4d",
+        "id": "246c483851099da9",
         "type": "window",
         "children": [
           {
-            "id": "00d34c417bf1a546",
+            "id": "b061c2c7ef10c7cb",
             "type": "tabs",
             "children": [
               {
-                "id": "738ec30dec0120c7",
+                "id": "5e218daccfabed14",
                 "type": "leaf",
                 "state": {
                   "type": "empty",
@@ -278,26 +278,21 @@
         "zoom": 0
       },
       {
-        "id": "246c483851099da9",
+        "id": "37570229f576a379",
         "type": "window",
         "children": [
           {
-            "id": "b061c2c7ef10c7cb",
+            "id": "5d7e12349887cd58",
             "type": "tabs",
             "children": [
               {
-                "id": "5e218daccfabed14",
+                "id": "c83dc41cc3f20b84",
                 "type": "leaf",
                 "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces (Notes).md",
-                    "mode": "source",
-                    "source": false,
-                    "backlinks": false
-                  },
+                  "type": "empty",
+                  "state": {},
                   "icon": "lucide-file",
-                  "title": "2. Parametrized Curves and Surfaces (Notes)"
+                  "title": "New tab"
                 }
               }
             ]
@@ -315,14 +310,16 @@
   },
   "active": "1405ee11109281ac",
   "lastOpenFiles": [
-    "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces (Notes).md",
-    "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces in R.md",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
+    "image.png",
+    "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
+    "理论/微分几何/S1 有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
+    "理论/微分几何/S1 有关曲面的基础概念/4..md",
+    "理论/微分几何/S1 有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometries.md",
+    "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces (Notes).md",
     "Ashish Vaswani.md",
     "理论/微分几何/S1 有关曲面的基础概念/1. Overview of Differential Geometry.md",
     "理论/微分几何/S1 有关曲面的基础概念/2. Lecture 2 (ACTUAL).md",
-    "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
-    "理论/微分几何/S1 有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
@@ -333,10 +330,8 @@
     "计算/量子力学讲义/index.html",
     "计算/量子力学讲义/index_files/mediabag",
     "计算/量子力学讲义/index_files",
-    "理论/微分几何/S1 有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometries.md",
     "理论/微分几何/_index.md",
     "理论/微分几何/广义相对论/index.md",
-    "理论/微分几何/S1 有关曲面的基础概念/4..md",
     "理论/微分几何/Untitled.md",
     "理论/微分几何/index.md",
     "理论/微分几何/广义相对论/1. Four-Vectors.md",
@@ -351,7 +346,6 @@
     "理论/拓扑学/T-n分离公理.md",
     "index.md",
     "Main Plug-in.md",
-    "image.png",
     "image-1.png",
     "image-6.png",
     "image-5.png",
