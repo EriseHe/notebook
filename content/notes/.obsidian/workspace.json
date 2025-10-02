@@ -65,13 +65,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算/Julia科学计算笔记/Module 1 Variables, primitive types, and functions.md",
+                "file": "计算/Julia科学计算笔记/Module 2 ODEs and Molecular Dynamics.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Module 1 Variables, primitive types, and functions"
+              "title": "Module 2 ODEs and Molecular Dynamics"
             }
           }
         ],
@@ -226,13 +226,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算/Julia科学计算笔记/Module 1 Variables, primitive types, and functions.md",
+                "file": "计算/Julia科学计算笔记/Module 2 ODEs and Molecular Dynamics.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Module 1 Variables, primitive types, and functions"
+              "title": "Outline of Module 2 ODEs and Molecular Dynamics"
             }
           }
         ],
@@ -261,12 +261,12 @@
   },
   "active": "19431b19722c501e",
   "lastOpenFiles": [
+    "计算/Julia科学计算笔记/Module 1 Variables, primitive types, and functions.md",
     "计算/Julia科学计算笔记/Module 0 基本语法.md",
     "计算/量子力学讲义/波函数存在于在Hilbert空间中.md",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换.md",
     "计算/量子力学讲义/Lecture/Lecture.md",
-    "计算/Julia科学计算笔记/Module 2 Ordinary Differential Equations and Molecular Dynamics.md",
-    "计算/Julia科学计算笔记/Module 1 Variables, primitive types, and functions.md",
+    "计算/Julia科学计算笔记/Module 2 ODEs and Molecular Dynamics.md",
     "理论/微分几何笔记/有关曲面的基础概念/6..md",
     "理论/微分几何笔记/有关曲面的基础概念/5. 前推，回拉，以及和局部等距.md",
     "理论/微分几何笔记/有关曲面的基础概念/4. 第一基本形式.md",

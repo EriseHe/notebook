@@ -20,7 +20,7 @@ $$
 
 which has a local truncation error of $O\left(\Delta t^{2}\right)$. A direct implementation of this idea for the solar system stores each body in a list and loops over bodies to compute pairwise forces and then updates positions and velocities. Although concise, this monolithic script mixes data, physics and numerical method in one loop and is hard to extend or test.
 
-```
+``` julia
 # Pseudocode of the naïve N-body solver (simplified)
 for n in 1:Nsteps
     # compute accelerations
@@ -30,7 +30,7 @@ for n in 1:Nsteps
             if i f j
 ```
 
-```
+``` julia
                 r = positions[i] - positions[j]
                 a[i] += G * masses[j] * r / norm(r)^3
             end
@@ -54,7 +54,7 @@ end
 
 To build robust simulations one should separate concerns. The notes propose a high-level function run_simulation! that takes a system, a force calculator and an integrator as separate objects, along with a time step and number of steps. An optional callback allows data to be recorded periodically.
 
-```
+``` julia
 function run_simulation!(system, force_calc, integrator,
                 \Deltat, Nsteps; callback=(sys, step)->nothing,
                 callback_interval=1)
@@ -73,7 +73,7 @@ The separation of the state (positions, velocities, masses), the force law and t
 
 A stateful system of particles can be represented either as an array of structs (AoS)-each particle stores its own position, velocity and mass-or as a struct of arrays (SoA)-separate arrays for positions, velocities and masses. The AoS pattern is intuitive, whereas the SoA layout often offers better cache locality and vectorization. The notes introduce a Particle type and a System type (AoS) using static vectors for fixed-dimension positions and velocities:
 
-```
+``` julia
 struct Particle{D,T}
     position::SVector{D,T}
     velocity::SVector{D,T}
@@ -90,7 +90,7 @@ Units matter: one should choose units so that numbers are $O(1)$. The solar-syst
 
 Using Julia's multiple dispatch, we create an abstract integrator type and concrete types for each algorithm. For the forward Euler method, an integrator stores a pre-allocated vector of accelerations. The integrator is stateful so that scratch space is reused and no allocations occur inside the inner loop. The code is:
 
-```
+``` julia
 abstract type AbstractIntegrator end
 struct ForwardEuler{D,T} <: AbstractIntegrator
     accelerations::Vector{SVector{D,T}}
@@ -116,7 +116,7 @@ This design isolates the integrator logic: the integrator does not need to know 
 
 A similar pattern yields a force-calculator hierarchy. For example, a brute-force calculator stores a user-provided pairwise force function. A helper _apply_force_pair! updates the accelerations of particles $i$ and $j$ using Newton's third law. The main compute_acceleration! function loops over all unique pairs and calls the helper. These abstractions allow alternative force algorithms (e.g. Barnes-Hut tree codes) to be used without changing the integrator.
 
-```
+``` julia
 abstract type AbstractForceCalculator end
 struct BruteForceCalculator{F} <: AbstractForceCalculator
     pairwise_force::F
