@@ -641,7 +641,7 @@ img {
 .math-theorem {
   --theorem-accent: #c81e1e;
   --theorem-accent-rgb: 200, 30, 30;
-  --theorem-bg: #ececee;
+  --theorem-bg: #f5f5f7;
   --theorem-border: rgba(200, 30, 30, 0.28);
   position: relative;
   margin: 2.25rem 0;
@@ -678,7 +678,7 @@ img {
 .theorem-header {
   position: relative;
   z-index: 1;
-  padding: 1.1rem 1.75rem 0.3rem;
+  padding: 1.1rem 1.75rem 0.5rem;
   font-family: "Computer Modern", "CMU Serif", "IBM Plex Serif", serif;
   letter-spacing: 0.01em;
 }
@@ -686,25 +686,25 @@ img {
 .theorem-header p {
   margin: 0 !important;
   padding: 0 !important;
-  display: flex;
-  align-items: baseline;
-  gap: 0.65rem;
 }
 
-.math-theorem .theorem-badge {
+.theorem-badge {
   display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0;
-  font-size: 0.78rem;
-  font-weight: 650;
+  justify-content: center;
+  padding: 0; /* no pill padding since badge has no background */
+  border-radius: 0;
+  font-size: 1.06rem; /* match title size */
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-family: "Computer Modern", "CMU Serif", "IBM Plex Serif", serif !important;
+  letter-spacing: 0.06em;
+  font-family: "Computer Modern", "CMU Serif", "IBM Plex Serif", serif;
   background: transparent !important;
-  color: var(--theorem-accent) !important;
-  border: none;
+  color: var(--theorem-accent);
+  border: 1px solid transparent;
   box-shadow: none;
+  margin: 0 0.5rem 0 0; /* stick to left; keep small gap before title */
+  line-height: 1.05; /* tighten vertical space to reduce header height */
 }
 
 .theorem-title {
