@@ -57,8 +57,8 @@ h1, h2, h3, h4, h5, h6 {
 #quarto-sidebar { background: transparent; border-right: none !important; box-shadow: none !important; /* Remove vertical divider */ }
 #quarto-sidebar .sidebar-menu-container { padding-right: 0.5rem; }
 #quarto-sidebar .sidebar-section { margin-bottom: 0.6rem; }
-#quarto-sidebar .collapse,
-#quarto-sidebar .collapsing {
+/* Collapsed by default: hide all nested sections unless explicitly opened by user click */
+#quarto-sidebar .collapse {
   display: none !important;
 }
 
@@ -693,7 +693,7 @@ img {
   justify-content: center;
   padding: 0; /* no pill padding since badge has no background */
   border-radius: 0;
-  font-size: 0.95rem; /* slightly smaller than title */
+  font-size: 0.82rem; /* smaller than title for subtle emphasis */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -743,9 +743,9 @@ img {
 }
 
 .math-theorem.theorem {
-  --theorem-accent: #9333ea;
-  --theorem-accent-rgb: 147, 51, 234;
-  --theorem-border: rgba(147, 51, 234, 0.28);
+  --theorem-accent: #dc2626; /* bright red for theorems */
+  --theorem-accent-rgb: 220, 38, 38;
+  --theorem-border: rgba(220, 38, 38, 0.28);
 }
 
 .math-theorem.lemma {
