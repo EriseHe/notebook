@@ -25,11 +25,17 @@
       const stored = state[collapse.id];
       const hasActive = collapse.querySelector('.active') || section.querySelector('.active');
 
-      if (hasActive || stored) {
+      // Only expand if explicitly stored as open OR contains active page
+      // Do NOT auto-expand on first visit (no stored state)
+      if (hasActive && stored !== false) {
         collapse.classList.add('show');
         toggle.classList.remove('collapsed');
         toggle.setAttribute('aria-expanded', 'true');
-        if (hasActive) state[collapse.id] = true;
+        state[collapse.id] = true;
+      } else if (stored === true) {
+        collapse.classList.add('show');
+        toggle.classList.remove('collapsed');
+        toggle.setAttribute('aria-expanded', 'true');
       } else {
         collapse.classList.remove('show');
         toggle.classList.add('collapsed');
