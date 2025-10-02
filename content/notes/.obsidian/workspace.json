@@ -53,7 +53,7 @@
               "state": {
                 "file": "理论/微分几何笔记/有关曲面的基础概念/5. 前推，回拉，以及和局部等距.md",
                 "mode": "source",
-                "source": false,
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
