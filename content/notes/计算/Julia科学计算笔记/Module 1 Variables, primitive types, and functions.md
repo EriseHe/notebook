@@ -1,5 +1,4 @@
 ---
-title: "2. Variables, primitive types, and functions"
 lecture:
 ---
 

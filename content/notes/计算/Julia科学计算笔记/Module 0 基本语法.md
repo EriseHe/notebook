@@ -1,5 +1,4 @@
 ---
-title: "1. 基本语法"
 lecture:
 ---
 This document summarizes the main ideas, codes, and algorithms from the provided PDF. Each section begins with the high-level purpose of the chapter and ends with code snippets and algorithmic highlights.
