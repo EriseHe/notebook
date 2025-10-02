@@ -2,7 +2,8 @@
 title: "T-n分离公理"
 bookHidden: true
 ---
-# $T_n$ 分离公理体系（Separation Axiom Hierarchy）
+## $T_n$ Separation Axioms
+
 
 > [!axiom] **$T_{0}$ — Kolmogorov Space**  
 > $\forall x \neq y \in X,\, \exists$ open $U$ s.t. $x \in U,\, y \notin U$ or $y \in U,\, x \notin U$.
@@ -29,7 +30,7 @@ bookHidden: true
 > [!axiom] **$T_{5}$ — Completely Normal $T_1$ Space（完全正规 $T_1$ 空间）  
 > $\forall$ disjoint closed $A, B,\, \exists f:X \to [0,1]$ continuous with $f(A)=\{0\},\, f(B)=\{1\}$.
 
-# 逻辑链
+## 逻辑链
 
 纵向箭头代表“蕴含”关系：
 
