@@ -51,13 +51,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何/有关曲面的基础概念/1. Overview of Differential Geometry.md",
+                "file": "理论/微分几何笔记/有关曲面的基础概念/1. 概述.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "1. Overview of Differential Geometry"
+              "title": "1. 概述"
             }
           }
         ]
@@ -211,13 +211,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何/有关曲面的基础概念/1. Overview of Differential Geometry.md",
+                "file": "理论/微分几何笔记/有关曲面的基础概念/1. 概述.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 1. Overview of Differential Geometry"
+              "title": "Outline of 1. 概述"
             }
           }
         ],
@@ -246,9 +246,12 @@
   },
   "active": "1405ee11109281ac",
   "lastOpenFiles": [
-    "理论/微分几何/有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometries.md",
+    "理论/微分几何笔记/有关曲面的基础概念/3. 曲面上的切向量.md",
+    "理论/微分几何笔记/有关曲面的基础概念/2. 参数化曲线与曲面.md",
+    "理论/微分几何笔记/有关曲面的基础概念/1. 概述.md",
+    "理论/微分几何笔记/有关曲面的基础概念/4. 第一基本形式和局部等距.md",
+    "理论/微分几何笔记/有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometries.md",
     "理论/拓扑学/T-n分离公理.md",
-    "理论/微分几何/有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
@@ -259,7 +262,6 @@
     "计算/量子力学讲义/index.html",
     "计算/量子力学讲义/index_files/mediabag",
     "计算/量子力学讲义/index_files",
-    "理论/微分几何/有关曲面的基础概念/1. Overview of Differential Geometry.md",
     "Main Plug-in.md",
     "index.md",
     "image.png",
@@ -281,8 +283,6 @@
     "理论/实分析/第九章/_index.md",
     "理论/实分析/第七章/_index.md",
     "理论/实分析/第八章/_index.md",
-    "理论/实分析/index.md",
-    "理论/index.md",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
     "image-1.png",
     "image-6.png",
