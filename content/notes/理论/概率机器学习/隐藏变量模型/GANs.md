@@ -1,5 +1,7 @@
 ---
-title: "GANs"
+title: GANs
+tags:
+  - GAN
 ---
 
 # 1 Lecture 6 · 从 VAE 到 GAN：生成模型的数学脉络（教学版讲义）

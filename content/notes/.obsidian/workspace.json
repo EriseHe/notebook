@@ -51,13 +51,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/实分析/第六章/_index.md",
+                "file": "理论/拓扑学/T-n分离公理.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "_index"
+              "title": "T-n分离公理"
             }
           }
         ]
@@ -211,13 +211,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/实分析/第六章/_index.md",
+                "file": "理论/拓扑学/T-n分离公理.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of _index"
+              "title": "Outline of T-n分离公理"
             }
           }
         ],
@@ -246,13 +246,25 @@
   },
   "active": "1405ee11109281ac",
   "lastOpenFiles": [
-    "理论/实分析/第九章/_index.md",
-    "理论/实分析/第七章/_index.md",
-    "理论/实分析/第八章/_index.md",
-    "理论/实分析/index.md",
-    "理论/index.md",
-    "理论/偏微分方程/index.md",
+    "Main Plug-in.md",
+    "index.md",
+    "image.png",
+    "理论/拓扑学/T-n分离公理.md",
+    "理论/拓扑学/_index.md",
+    "理论/拓扑学/index.md",
+    "理论/概率机器学习/隐藏变量模型/VAE.md",
+    "理论/概率机器学习/隐藏变量模型/Normalizing Flows (NF).md",
+    "理论/概率机器学习/隐藏变量模型/GANs.md",
+    "理论/概率机器学习/自回归模型（AR）/Transformer.md",
+    "理论/概率机器学习/自回归模型（AR）/Recurrent Neural Networks (RNN).md",
     "理论/概率机器学习/自回归模型（AR）/index.md",
+    "理论/概率机器学习/自回归模型（AR）/Autoregressive模型.md",
+    "理论/概率机器学习/自回归模型（AR）/1..md",
+    "计算/_index.md",
+    "计算/index.md",
+    "计算/Julia科学计算笔记/index.md",
+    "计算/Julia科学计算笔记/_index.md",
+    "理论/实分析/第六章/_index.md",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
@@ -263,27 +275,15 @@
     "计算/量子力学讲义/index.html",
     "计算/量子力学讲义/index_files/mediabag",
     "计算/量子力学讲义/index_files",
-    "理论/概率机器学习/自回归模型（AR）/Recurrent Neural Networks (RNN).md",
-    "理论/概率机器学习/自回归模型（AR）/Autoregressive模型.md",
-    "理论/概率机器学习/自回归模型（AR）/1..md",
-    "理论/概率机器学习/index.md",
+    "理论/实分析/第九章/_index.md",
+    "理论/实分析/第七章/_index.md",
+    "理论/实分析/第八章/_index.md",
+    "理论/实分析/index.md",
+    "理论/index.md",
+    "理论/偏微分方程/index.md",
     "理论/微分几何/index.md",
     "理论/微分几何/_index.md",
-    "理论/微分几何/有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
-    "理论/微分几何/有关曲面的基础概念/6..md",
-    "理论/微分几何/有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometries.md",
-    "理论/微分几何/有关曲面的基础概念/4. First Fundamental Form & Local Isometries.md",
-    "理论/微分几何/有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
-    "理论/微分几何/S1 有关曲面的基础概念/3. Tangent Vectors on a Surface.md",
-    "理论/微分几何/有关曲面的基础概念/9..md",
-    "理论/微分几何/有关曲面的基础概念/8..md",
-    "理论/微分几何/有关曲面的基础概念/7..md",
-    "理论/微分几何/有关曲面的基础概念/1. Overview of Differential Geometry.md",
-    "理论/微分几何/S1 有关曲面的基础概念/4..md",
-    "理论/微分几何/S1 有关曲面的基础概念/6..md",
-    "理论/微分几何/S1 有关曲面的基础概念/2. Parametrized Curves and Surfaces.md",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
-    "image.png",
     "image-1.png",
     "image-6.png",
     "image-5.png",
