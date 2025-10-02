@@ -28,9 +28,6 @@ for n in 1:Nsteps
         a[i] = 0
         for j in 1:N
             if i f j
-```
-
-``` julia
                 r = positions[i] - positions[j]
                 a[i] += G * masses[j] * r / norm(r)^3
             end
