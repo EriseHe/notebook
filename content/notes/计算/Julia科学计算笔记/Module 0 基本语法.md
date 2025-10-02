@@ -2,10 +2,7 @@
 title: "1. 基本语法"
 lecture:
 ---
-
-# Summary of Key Julia Codes and Algorithms by Chapter
-
-This document summarizes the main ideas, codes, and algorithms from the provided PDF. Each section begins with the high-level purpose of the chapter and ends with code snippets and algorithmic highlights. Citations point back to the relevant parts of the PDF for further reading.
+This document summarizes the main ideas, codes, and algorithms from the provided PDF. Each section begins with the high-level purpose of the chapter and ends with code snippets and algorithmic highlights.
 
 # 0. Hello, $\pi$ ! Julia as a second programming language
 
