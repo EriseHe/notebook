@@ -696,10 +696,10 @@ img {
   align-items: center;
   justify-content: flex-start;
   padding: 0;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 650;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   font-family: "Computer Modern", "CMU Serif", "IBM Plex Serif", serif !important;
   background: transparent !important;
   color: var(--theorem-accent) !important;
