@@ -1,4 +1,6 @@
 ---
-title: "VAE"
+title: VAE
+tags:
+  - VAE
 ---
 

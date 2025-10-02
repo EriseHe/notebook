@@ -405,6 +405,11 @@ CWMu
 CQd
 Cri
 CMmQ
+Compression
+Collapse
+Constraint
+Clipping
+Cons
 font
 for
 functions
@@ -818,6 +823,7 @@ fXf
 fvA
 flattened
 flag
+fixing
 color
 curve
 can
@@ -1776,6 +1782,7 @@ cGAN
 critic
 collapse
 compresses
+clip
 Problem
 Partial
 Putting
@@ -2117,6 +2124,8 @@ Pbu
 PEN
 PgI
 Parametrize
+Penalize
+Pros
 In
 Implicit
 Invertibility
@@ -2381,6 +2390,9 @@ IDATd
 IDYu
 IRvP
 IPM
+Interpreting
+Issues
+Improvement
 the
 terms
 that
@@ -2892,6 +2904,10 @@ tUXmeF
 tJr
 tKW
 tLml
+taller
+thins
+thickens
+transport
 system
 solvability
 such
@@ -3798,6 +3814,10 @@ sdv
 stretches
 stretched
 sheeted
+shrinks
+squeezed
+steep
+sampled
 discuss
 determine
 described
@@ -4396,6 +4416,7 @@ dtg
 dta
 dnS
 djDZ
+discrimiator
 in
 inverse
 implicit
@@ -5969,6 +5990,11 @@ DC
 DCh
 DNl
 Differentials
+Densities
+Distribution
+Discriminator
+Diagrammatically
+Directly
 map
 matrix
 mapping
@@ -6506,6 +6532,7 @@ mobm
 mrz
 mDi
 minibatch
+minmax
 have
 holds
 has
@@ -6782,6 +6809,7 @@ hOI
 hxB
 hOG
 hgc
+hurt
 local
 limit
 lim
@@ -7521,6 +7549,8 @@ Sed
 SiIZ
 Shannon
 StyleGAN
+Symmetric
+Slightly
 equations
 equation
 exists
@@ -8118,6 +8148,8 @@ eckZe
 ezT
 eumk
 eVNWyl
+enforce
+enforcing
 whether
 written
 which
@@ -8766,6 +8798,7 @@ bnu
 bvR
 btQg
 boK
+blurring
 allow
 and
 as
@@ -10106,6 +10139,7 @@ Ra
 RNfI
 Rubinstein
 Ruled
+Referred
 requirement
 respect
 rule
@@ -11773,6 +11807,10 @@ ELh
 EeU
 Etf
 Ecb
+EMD
+Enforcing
+Ensures
+Encourages
 We
 What
 With
@@ -11999,6 +12037,8 @@ WPJ
 WYb
 Wasserstein
 WGAN
+WGANs
+Weight
 Thus
 Theorem
 These
@@ -12248,6 +12288,8 @@ Tnt
 Together
 Transformed
 Transformation
+Transform
+Thumb
 Hence
 Here
 Hypotheses
@@ -12958,6 +13000,7 @@ Fjm
 FgE
 FID
 Flatten
+Flows
 Jacobian
 Jobcobian
 John
@@ -13419,6 +13462,7 @@ AkyK
 Aa
 AgLz
 ALI
+Average
 via
 variables
 view
@@ -13950,6 +13994,7 @@ udf
 uiHm
 udNUV
 uqq
+underuse
 guarantees
 gives
 give
@@ -14552,6 +14597,7 @@ MUjx
 Mec
 MvH
 Minimax
+Mover
 Using
 Up
 Ut
@@ -15266,6 +15312,7 @@ LOW
 LbD
 LvCG
 LxB
+Leads
 Value
 Verifying
 Verify
@@ -16205,6 +16252,7 @@ GyhK
 GbMv
 Grp
 GfMV
+Generator
 xF
 xxii
 xmp

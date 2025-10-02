@@ -1,5 +1,7 @@
 ---
-title: "Normalizing Flows (NF)"
+title: Normalizing Flows (NF)
+tags:
+  - NF
 ---
 
 # 1 Change of Variables Theorem

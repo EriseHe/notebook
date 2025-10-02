@@ -1,7 +1,10 @@
 ---
-title: "3. Autoregressive模型 & Recurrent Neural Networks (RNN)"
+title: 3. Autoregressive模型 & Recurrent Neural Networks (RNN)
 date: 2025-09-08
 lecture: "3"
+tags:
+  - AR
+  - RNN
 ---
 
 # Autoregressive Model (Continue)

@@ -1,7 +1,9 @@
 ---
-title: "4. Transformer"
+title: 4. Transformer
 date: 2025-09-15
 lecture: "4"
+tags:
+  - Transformer
 ---
 
 ## Autoregressive Models
