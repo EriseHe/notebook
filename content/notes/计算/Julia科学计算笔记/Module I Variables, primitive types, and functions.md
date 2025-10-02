@@ -19,6 +19,24 @@ lecture:
 * Abstract: `Real`, `Integer`, `Signed`, `Unsigned`
 * Concrete: `Int64`, `Float64`, `Bool`, `Complex{T}`, `Rational{T}`, `Char`, `String`, `Symbol`
 
+
+The Julia number hierarchy looks like:
+```
+
+Number
+├─ Complex{T}      ← parametric, concrete once T is concrete
+└─ Real            ← abstract
+   ├─ AbstractFloat
+   │  └─ Float16 / Float32 / Float64  (concrete)
+   ├─ Rational{T}  ← parametric, concrete once T is concrete
+   └─ Integer      ← abstract
+      ├─ Signed    ← abstract
+      │  └─ Int8 / Int16 / Int32 / Int64 / Int128 (concrete)
+      └─ Unsigned  ← abstract
+         └─ UInt8 / UInt16 / UInt32 / UInt64 / UInt128 (concrete)
+
+```
+
 ```julia
 # Explore the type lattice (in REPL):
 subtypes(Real)
@@ -28,6 +46,7 @@ subtypes(Signed)
 # Type inspection:
 typeof(3), typeof(3.0), typeof(1//2), typeof(1 + 2im), typeof(:name)
 ```
+
 
 ### 1.2 Containers & Basic Literals
 
