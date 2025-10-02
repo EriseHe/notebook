@@ -641,12 +641,11 @@ img {
 .math-theorem {
   --theorem-accent: #c81e1e;
   --theorem-accent-rgb: 200, 30, 30;
-  --theorem-bg: #f5f5f7;
   --theorem-border: rgba(200, 30, 30, 0.28);
   position: relative;
   margin: 2.25rem 0;
   border-radius: 18px;
-  background: var(--theorem-bg) !important;
+  background: #f0f1f4 !important; /* slightly darker than page to increase contrast */
   color: #0f172a !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -694,7 +693,7 @@ img {
   justify-content: center;
   padding: 0; /* no pill padding since badge has no background */
   border-radius: 0;
-  font-size: 1.06rem; /* match title size */
+  font-size: 0.95rem; /* slightly smaller than title */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -756,9 +755,9 @@ img {
 }
 
 .math-theorem.proposition {
-  --theorem-accent: #e11d48;
-  --theorem-accent-rgb: 225, 29, 72;
-  --theorem-border: rgba(225, 29, 72, 0.28);
+  --theorem-accent: #7c3aed; /* purple */
+  --theorem-accent-rgb: 124, 58, 237;
+  --theorem-border: rgba(124, 58, 237, 0.28);
 }
 
 .math-theorem.corollary {
