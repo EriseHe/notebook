@@ -22,7 +22,6 @@ lecture:
 
 The Julia number hierarchy looks like:
 ```
-
 Number
 ├─ Complex{T}      ← parametric, concrete once T is concrete
 └─ Real            ← abstract
@@ -36,6 +35,7 @@ Number
          └─ UInt8 / UInt16 / UInt32 / UInt64 / UInt128 (concrete)
 
 ```
+
 
 ```julia
 # Explore the type lattice (in REPL):
