@@ -35,16 +35,13 @@ website:
     search: true
     collapse-level: 2
     contents:
-    - content/notes/理论/index.md
     - auto: content/notes/理论/**/*.md
-    - content/notes/计算/index.md
     - auto: content/notes/计算/**/*.md
   - id: posts
     style: docked
     search: true
     collapse-level: 2
     contents:
-    - content/posts/index.md
     - auto: content/posts/**/*.md
 format:
   html:
