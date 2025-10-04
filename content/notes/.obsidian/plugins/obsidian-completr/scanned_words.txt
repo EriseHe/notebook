@@ -826,6 +826,8 @@ flattened
 flag
 fixing
 favoured
+flags
+fallback
 color
 curve
 can
@@ -1789,6 +1791,14 @@ callback
 conserve
 conserving
 callbacks
+catalogs
+circ
+camera
+codebase
+centering
+cubes
+certainty
+contaminating
 Problem
 Partial
 Putting
@@ -2133,6 +2143,7 @@ Parametrize
 Penalize
 Pros
 Patch
+Paste
 In
 Implicit
 Invertibility
@@ -2922,6 +2933,8 @@ tangled
 tableau
 triangular
 tips
+theta
+triaxial
 system
 solvability
 such
@@ -3839,6 +3852,14 @@ stateful
 structs
 slows
 specify
+sim
+star
+strongly
+stars
+subhalo
+sqrt
+spheroid
+satellites
 discuss
 determine
 described
@@ -5095,6 +5116,7 @@ iDQ
 isometries
 integrators
 isolates
+inertia
 of
 our
 out
@@ -6026,6 +6048,7 @@ Discriminator
 Diagrammatically
 Directly
 Decreasing
+Diskiness
 map
 matrix
 mapping
@@ -6570,6 +6593,8 @@ masses
 millennium
 modular
 millennia
+mathbf
+merger
 have
 holds
 has
@@ -6847,6 +6872,9 @@ hxB
 hOG
 hgc
 hurt
+hat
+header
+halo
 local
 limit
 lim
@@ -7190,6 +7218,8 @@ lgW
 lUG
 lMB
 ljs
+lesssim
+logging
 Show
 Sufficient
 Substitute
@@ -8195,6 +8225,7 @@ enforce
 enforcing
 extensible
 euler
+eyeballing
 whether
 written
 which
@@ -8482,6 +8513,8 @@ wwzL
 wltQ
 wCi
 workhorse
+warped
+wrapper
 by
 be
 bijective
@@ -8846,6 +8879,7 @@ btQg
 boK
 blurring
 brute
+barred
 allow
 and
 as
@@ -9559,6 +9593,9 @@ accel
 alternating
 asymmetrically
 allocate
+arccos
+aligns
+aperture
 you
 yields
 yF
@@ -10815,6 +10852,8 @@ reversibility
 reversible
 running
 rmer
+roll
+rotate
 partials
 partial
 point
@@ -11573,6 +11612,8 @@ plol
 pwdT
 parametrizations
 planetary
+picking
+poorly
 Ex
 Evaluate
 Evaluating
@@ -11876,6 +11917,7 @@ Enforcing
 Ensures
 Encourages
 Easy
+Edge
 We
 What
 With
@@ -12356,6 +12398,8 @@ Transformation
 Transform
 Thumb
 Truncating
+TNG
+Thin
 Hence
 Here
 Hypotheses
@@ -12812,6 +12856,7 @@ BiGAN
 BigGAN
 Base
 Butcher
+Build
 Function
 For
 FT
@@ -13071,6 +13116,8 @@ FgE
 FID
 Flatten
 Flows
+FoF
+FITS
 Jacobian
 Jobcobian
 John
@@ -14342,6 +14389,9 @@ gSA
 geY
 gOB
 gOa
+galaxy
+gtrsim
+gotchas
 Moreover
 Matrix
 Maximum
@@ -15005,6 +15055,7 @@ quN
 qeH
 qlt
 qxj
+quenched
 zero
 zoom
 zG
@@ -15389,6 +15440,7 @@ LxB
 Leads
 Liouvillian
 Liouville
+LOS
 Value
 Verifying
 Verify
@@ -16947,6 +16999,7 @@ Kgm
 Kgg
 KZ
 Kantorovich
+Kinematic
 ZH
 ZCjHR
 ZY

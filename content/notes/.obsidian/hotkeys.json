@@ -71,5 +71,13 @@
   "obsidian-completr:completr-bypass-tab-key": [],
   "obsidian-completr:completr-bypass-enter-key": [],
   "obsidian-completr:completr-fake-enter": [],
-  "obsidian-completr:completr-jump-to-next-snippet-placeholder": []
+  "obsidian-completr:completr-jump-to-next-snippet-placeholder": [],
+  "transfer-latex-from-gpt:convert-latex-to-mathjax": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "J"
+    }
+  ]
 }
