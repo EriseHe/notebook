@@ -645,7 +645,7 @@ img {
   position: relative;
   margin: 2.25rem 0;
   border-radius: 18px;
-  background: #f0f1f4 !important; /* slightly darker than page to increase contrast */
+  background: #e0e1e4 !important; /* slightly darker than page to increase contrast */
   color: #0f172a !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   overflow: hidden;

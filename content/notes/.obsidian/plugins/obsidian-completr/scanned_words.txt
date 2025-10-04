@@ -2144,6 +2144,9 @@ Penalize
 Pros
 Patch
 Paste
+Planes
+Pythagorean
+Plane
 In
 Implicit
 Invertibility
@@ -5467,6 +5470,8 @@ oTe
 ota
 ordering
 orchestrate
+orientability
+orientable
 near
 neighborhood
 necessary
@@ -11614,6 +11619,7 @@ parametrizations
 planetary
 picking
 poorly
+patchwise
 Ex
 Evaluate
 Evaluating
@@ -13582,6 +13588,7 @@ ALI
 Average
 AoS
 APIs
+Ambient
 via
 variables
 view
@@ -14392,6 +14399,7 @@ gOa
 galaxy
 gtrsim
 gotchas
+gymnastics
 Moreover
 Matrix
 Maximum
@@ -15441,6 +15449,7 @@ Leads
 Liouvillian
 Liouville
 LOS
+Locality
 Value
 Verifying
 Verify
@@ -15915,6 +15924,7 @@ klLL
 kKoF
 kvBs
 kick
+kills
 One
 Olympo
 Oculis
