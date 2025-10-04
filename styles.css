@@ -14,6 +14,7 @@ body {
   font-family: var(--body-font);
   background-color: #fafafa;
   color: #1e1e24;
+  zoom: 0.90; /* Scale down entire page by 10% to fit wider layout */
 }
 
 /* Main container accounts for fixed navbar */
