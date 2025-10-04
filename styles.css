@@ -1,7 +1,7 @@
 /* Quarto theme adjustments inspired by the original Hugo Book styling */
 :root {
-  --page-max-width: 1340px;        /* widen overall centered container */
-  --content-max-width: 1160px;     /* widen body markdown column */
+  --page-max-width: 1280px;        /* original centered container width */
+  --content-max-width: 1040px;     /* original body markdown column width */
   --sidebar-bg: #f5f5f7;
   --sidebar-border: #e0e0e5;
   --heading-font: "IBM Plex Serif", "Times New Roman", "PingFang SC", serif;
@@ -14,7 +14,6 @@ body {
   font-family: var(--body-font);
   background-color: #fafafa;
   color: #1e1e24;
-  zoom: 0.95; /* Scale down entire page by 5% to fit wider layout */
 }
 
 /* Main container accounts for fixed navbar */
@@ -55,7 +54,26 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar .nav-link.active { background-color: rgba(27,31,35,.08); color: #111827; font-weight: 600; }
 
-#quarto-sidebar { background: transparent; border-right: none !important; box-shadow: none !important; /* Remove vertical divider */ }
+#quarto-sidebar { 
+  background: transparent; 
+  border-right: none !important; 
+  box-shadow: none !important; /* Remove vertical divider */
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+#quarto-sidebar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+#quarto-sidebar.sidebar-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 #quarto-sidebar .sidebar-menu-container { padding-right: 0.5rem; }
 #quarto-sidebar .sidebar-section { margin-bottom: 0.6rem; }
 /* Collapsed by default: hide all nested sections unless explicitly opened by user click */

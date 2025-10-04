@@ -110,6 +110,44 @@
     }
   }
 
+  function setupSidebarAutoHide() {
+    const sidebar = document.querySelector('#quarto-sidebar');
+    if (!sidebar) return;
+
+    let hideTimeout;
+    const HIDE_DELAY = 2000; // 2 seconds after cursor leaves
+
+    // Show sidebar when mouse enters left side of screen or sidebar itself
+    const showSidebar = () => {
+      clearTimeout(hideTimeout);
+      sidebar.classList.remove('sidebar-hidden');
+    };
+
+    // Hide sidebar after delay when mouse leaves
+    const scheduleSidebarHide = () => {
+      clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        sidebar.classList.add('sidebar-hidden');
+      }, HIDE_DELAY);
+    };
+
+    // Track mouse position for left edge detection
+    document.addEventListener('mousemove', (e) => {
+      if (e.clientX < 300) { // Left 300px of screen
+        showSidebar();
+      } else if (e.clientX > 400) { // Beyond sidebar area
+        scheduleSidebarHide();
+      }
+    });
+
+    // Keep sidebar visible when hovering over it
+    sidebar.addEventListener('mouseenter', showSidebar);
+    sidebar.addEventListener('mouseleave', scheduleSidebarHide);
+
+    // Start with sidebar visible, then auto-hide after initial delay
+    setTimeout(scheduleSidebarHide, 3000);
+  }
+
   window.document.addEventListener('DOMContentLoaded', () => {
     const state = loadState();
     disableHeadroom();
@@ -117,5 +155,6 @@
     registerHandlers(state);
     setupToggleClicks();
     setupSectionLinks();
+    setupSidebarAutoHide();
   });
 })();
