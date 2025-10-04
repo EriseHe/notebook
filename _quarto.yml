@@ -45,8 +45,7 @@ website:
     - auto: content/posts/**/*.md
 format:
   html:
-    theme:
-      light: cosmo
+    theme: cosmo
     css: styles.css
     toc: true
     toc-location: right

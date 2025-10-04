@@ -645,7 +645,7 @@ img {
   position: relative;
   margin: 2.25rem 0;
   border-radius: 18px;
-  background: #606060 !important; /* slightly darker than page to increase contrast */
+  background: #e8eaed !important; /* modern gray with subtle contrast */
   color: #0f172a !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -785,23 +785,6 @@ img {
   --theorem-border: rgba(75, 85, 99, 0.24);
 }
 
-/* Force light grey background even in dark mode */
-@media (prefers-color-scheme: dark) {
-  .math-theorem {
-    --theorem-bg: #f5f5f7;
-    background: var(--theorem-bg) !important;
-    color: #0f172a !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-
-  .theorem-title {
-    color: #172554 !important;
-  }
-
-  .theorem-content {
-    color: #0f172a !important;
-  }
-}
 .theorem-title:empty {
   display: none;
 }
