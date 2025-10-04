@@ -1,7 +1,7 @@
 /* Quarto theme adjustments inspired by the original Hugo Book styling */
 :root {
-  --page-max-width: 1400px;        /* widen overall centered container */
-  --content-max-width: 1200px;     /* widen body markdown column */
+  --page-max-width: 1280px;        /* widen overall centered container */
+  --content-max-width: 1120px;     /* widen body markdown column */
   --sidebar-bg: #f5f5f7;
   --sidebar-border: #e0e0e5;
   --heading-font: "IBM Plex Serif", "Times New Roman", "PingFang SC", serif;
