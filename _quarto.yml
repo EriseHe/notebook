@@ -24,8 +24,9 @@ website:
     - text: Posts
       href: content/posts/index.md
     right:
-    - text: GitHub
+    - icon: github
       href: https://github.com/EriseHe/notebook
+      aria-label: GitHub
   search:
     location: navbar
     type: textbox
