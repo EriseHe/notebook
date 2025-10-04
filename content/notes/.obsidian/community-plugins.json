@@ -25,7 +25,6 @@
   "obsidian-matrix",
   "math-in-callout",
   "fontsource",
-  "transfer-latex-from-gpt",
   "latex-exporter",
   "ai-latex-generator",
   "number-headings-obsidian",
@@ -35,5 +34,6 @@
   "obsidian-annotator",
   "mcp-tools",
   "obsidian-git",
-  "inline-math"
+  "inline-math",
+  "transfer-latex-from-gpt"
 ]
