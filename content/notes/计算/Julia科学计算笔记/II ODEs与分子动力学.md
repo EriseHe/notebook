@@ -1,3 +1,7 @@
+---
+title: "II ODEs与分子动力学"
+---
+
 This note summarizes Chapters 8 and 9 of Module II on ordinary differential equations (ODEs) and molecular dynamics. It distills the big-picture ideas, derivations, formulas and example code from the PDF into a structured teaching resource suitable for an applied mathematics or computational physics course.
 
 ## 8 Ordinary differential equations (ODEs)

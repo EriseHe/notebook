@@ -1,3 +1,7 @@
+---
+title: "Viewing Angle"
+---
+
 # 1) Big picture
 
 Yes—you can compute the viewing vector ((i,j,k)) automatically. The standard, robust way (and the one TNG’s value-added catalogs use) is:
