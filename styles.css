@@ -148,7 +148,9 @@ main.content {
 /* Additional selectors to ensure content width is applied */
 #quarto-content .content,
 .quarto-container > .page-columns > .content,
-div.page-columns div.content {
+div.page-columns div.content,
+.column-body,
+.content.column-body {
   max-width: var(--content-max-width) !important;
 }
 
