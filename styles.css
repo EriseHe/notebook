@@ -132,13 +132,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .page-columns { max-width: var(--page-max-width) !important; margin: 0 auto; }
 
-main.content { padding: 2rem 2rem; }
+main.content { 
+  padding: 2rem 2rem; 
+  max-width: var(--content-max-width) !important;
+}
 
 /* Some themes draw the divider on the content column instead of the sidebar */
 .page-columns .content,
 main.content {
   border-left: none !important;
   box-shadow: none !important;
+  max-width: var(--content-max-width) !important;
+}
+
+/* Additional selectors to ensure content width is applied */
+#quarto-content .content,
+.quarto-container > .page-columns > .content,
+div.page-columns div.content {
+  max-width: var(--content-max-width) !important;
 }
 
 .page-brand {
