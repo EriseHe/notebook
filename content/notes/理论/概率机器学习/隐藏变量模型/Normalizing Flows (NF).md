@@ -88,7 +88,7 @@ where $J_f(x_0)$ is the **Jacobian matrix** of $f$ at $x_0$.
 
 ## 2.3 Change of Variables
 
-> [!definition]
+> [!theorem|2.3.1] Change of Variables
 > If $z \sim p_Z(z)$ and $x = f(z)$, then
 > $$
 p_X(x) = p_Z(f^{-1}(x)) \cdot \left|\det J_{f^{-1}}(x)\right|.
@@ -102,7 +102,7 @@ p_X(x) = p_Z(f^{-1}(x)) \cdot \left|\det J_{f^{-1}}(x)\right|.
 
 The determinant of the Jacobian tells us **how volumes are scaled locally** by the transformation $f$. Since probability mass is preserved under transformation:
 
-> [!theorem|*] probability mass conservation
+> [!theorem|3.1] probability mass conservation
 >$$
 \quad p_Z(z)\,dz = p_X(x)\,dx
 > $$
@@ -146,13 +146,11 @@ The $\det J_f(x)$ is the **local volume scaling factor**:
 
 # 4 Normalizing Flows
 
-- **Definition:** A Normalizing Flow is a sequence of $K$ invertible transformations:  
-  $$
+- **Definition:** A Normalizing Flow is a sequence of $K$ invertible transformations:  $$
   f = f_K \circ f_{K-1} \circ \cdots \circ f_2 \circ f_1
   $$
 
-
-![NF](https://lilianweng.github.io/posts/2018-10-13-flow-models/normalizing-flow.png)
+![NF|](https://lilianweng.github.io/posts/2018-10-13-flow-models/normalizing-flow.png)
 
 - **Change of Variables (composition):**  
   If $x = f_\theta(z)$, then:
