@@ -65,13 +65,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何笔记/第一部分 曲线与曲面/3. Tangent Vector on Surface (from Lecture).md",
+                "file": "理论/概率机器学习/隐藏变量模型/GANs.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3. Tangent Vector on Surface (from Lecture)"
+              "title": "GANs"
             }
           }
         ],
@@ -226,13 +226,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何笔记/第一部分 曲线与曲面/3. Tangent Vector on Surface (from Lecture).md",
+                "file": "理论/概率机器学习/隐藏变量模型/GANs.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 3. Tangent Vector on Surface (from Lecture)"
+              "title": "Outline of GANs"
             }
           }
         ],
@@ -261,12 +261,12 @@
   },
   "active": "19431b19722c501e",
   "lastOpenFiles": [
+    "理论/微分几何笔记/第一部分 曲线与曲面/3. Tangent Vector on Surface (from Lecture).md",
     "理论/微分几何笔记/第一部分 曲线与曲面/1. Overview of Differential Geometry.md",
     "理论/微分几何笔记/第一部分 曲线与曲面/10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium.md",
     "理论/微分几何笔记/第一部分 曲线与曲面/9. Geodesic Normal Coordinates, Exponential Map.md",
     "理论/微分几何笔记/第一部分 曲线与曲面/6. Normal & Geodesic Curvature.md",
     "理论/微分几何笔记/第一部分 曲线与曲面/3. Tangent Vectors and Orientability (From Notes).md",
-    "理论/微分几何笔记/第一部分 曲线与曲面/3. Tangent Vector on Surface (from Lecture).md",
     "理论/微分几何笔记/第一部分 曲线与曲面/4. First Fundamental Form.md",
     "理论/微分几何笔记/第一部分 曲线与曲面/5. Pushforward, Pullback, and Local Isometry.md",
     "理论/微分几何笔记/第一部分 曲线与曲面/7. Gauss Map, Shape Operator, and Curvatures.md",
