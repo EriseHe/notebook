@@ -129,18 +129,18 @@ $$\begin{aligned}
 > **直觉**：$W_1$ 在分布几乎不重叠时仍给出**有意义且连续的梯度**，缓解训练不稳与模式崩塌。
 
 
-# Generative Adversarial Network (GAN)
+# 2 Generative Adversarial Network (GAN)
 
 ---
 
-## Motivation
+## 2.1 Motivation
 
 
 → This motivates **GAN**.
 
 ---
 
-## Forward Analysis
+## 2.2 Forward Analysis
 
 - **Generator**: $G_\theta(z)$  
   Input: latent vector $z \sim \mathcal{N}(0,I)$ (random noise).  
@@ -156,7 +156,7 @@ $$z \sim \mathcal{N}(0,I) \;\; \longrightarrow \;\; G_\theta(z) \;\; \longrighta
 
 ---
 
-## Training Objective
+## 2.3 Training Objective
 
 1. **Discriminator goal**: maximize
    $$\mathbb{E}_{x \sim P_{\text{data}}} \log D(x),$$
@@ -171,7 +171,7 @@ $$z \sim \mathcal{N}(0,I) \;\; \longrightarrow \;\; G_\theta(z) \;\; \longrighta
 
 ---
 
-## Overall Minimax Game
+## 2.4 Overall Minimax Game
 
 $$\min_G \max_D \Bigg[ \mathbb{E}_{x \sim P_{\text{data}}} \log D(x) \;+\; \mathbb{E}_{z \sim P_z} \log(1 - D(G(z))) \Bigg].$$
 
@@ -180,7 +180,7 @@ $$L = - \text{goal}.$$
 
 ---
 
-# Optimal Discriminator
+# 3 Optimal Discriminator
 
 When fixing the generator, the optimal discriminator is:
 
@@ -188,7 +188,7 @@ $$D^*(x) = \frac{P_{\text{data}}(x)}{P_{\text{data}}(x) + P_G(x)}.$$
 
 ---
 
-## Plug Back into GAN Objective
+## 3.1 Plug Back into GAN Objective
 
 $$\begin{aligned}
 &\mathbb{E}_{x \sim P_{\text{data}}} \log \frac{P_{\text{data}}(x)}{P_{\text{data}}(x) + P_G(x)} 
@@ -203,7 +203,7 @@ $$m = \tfrac{1}{2}\big(P_{\text{data}} + P_G\big).$$
 
 ---
 
-## Jensen–Shannon Divergence (JSD)
+## 3.2 Jensen–Shannon Divergence (JSD)
 
 - Symmetric divergence:
 $$JSD(P \,\|\, Q) = \tfrac{1}{2} KL(P \,\|\, m) + \tfrac{1}{2} KL(Q \,\|\, m).$$
@@ -213,7 +213,7 @@ $$L(G) = 2 \cdot JSD\!\left(P_{\text{data}} \,\|\, P_G\right) - \log 4.$$
 
 ---
 
-# Issues with GAN
+# 4 Issues with GAN
 
 - $P_{\text{data}}$ and $P_G$ often lie on **different manifolds**.  
 - JSD $\approx \log 2$ → gradient vanishes for the generator.  
@@ -221,9 +221,9 @@ $$L(G) = 2 \cdot JSD\!\left(P_{\text{data}} \,\|\, P_G\right) - \log 4.$$
 
 ---
 
-# Improvement: Better Metric (Wasserstein Distance)
+# 5 Improvement: Better Metric (Wasserstein Distance)
 
-### Wasserstein-1 Distance (WGAN)
+### 5.1.1 Wasserstein-1 Distance (WGAN)
 
 Defined as the minimal cost to transport mass from one distribution to another:
 
@@ -240,16 +240,16 @@ $$W(P, Q) = \inf_{\gamma \in \Pi(P,Q)} \mathbb{E}_{(x,y) \sim \gamma} \|x - y\|.
 
 
 
-## 1.5 Enforcing the 1-Lipschitz Constraint in WGANs
+## 5.2 Enforcing the 1-Lipschitz Constraint in WGANs
 
-### 1.5.1 Weight Clipping (Original WGAN)
+### 5.2.1 Weight Clipping (Original WGAN)
 
 - **Idea:** Directly clip critic weights to a fixed range after every update: $$
   w \; \leftarrow \; \text{clip}(w, -c, c)
   $$
 - Ensures the function doesn’t become too steep.  
 - **Problems:** Can lead to capacity underuse and poor critic performance.
-### 1.5.2 Gradient Penalty (WGAN-GP)
+### 5.2.2 Gradient Penalty (WGAN-GP)
 
 - **Idea:** Penalize the critic if its gradient norm deviates from 1.
 - Add a regularization term to the loss:
@@ -262,14 +262,14 @@ where:
 - $\lambda$ is a penalty coefficient
 - Encourages $\|\nabla f(\widehat{x})\|_2 \approx 1$, enforcing Lipschitz continuity.
 
-### 1.5.3 comparison 
+### 5.2.3 comparison 
 
 | Method            | Pros | Cons |
 |-------------------|------|------|
 | Weight Clipping   | Simple to implement | Can hurt capacity; unstable |
 | Gradient Penalty  | More stable; widely used | Slightly more computation |
 
-### 1.5.4 procedure
+### 5.2.4 procedure
 1. interpolation of $\widehat{x}$ between real and fake $x$
 2. compute gradient norm: $g=\nabla_{\hat{x}} f(\hat{x})$, then $\left(\|g\|_2-1\right)^2$
 3. auto-differentiation w.r.t. $\widehat{x}$
@@ -278,7 +278,7 @@ where:
 大多数现代 WGAN 实现都采用 WGAN-GP.
 
 
-## 1.6 Conditional GAN（cGAN）：在标签/条件下生成
+## 5.3 Conditional GAN（cGAN）：在标签/条件下生成
 
 引入条件 $y$（如类别/文本），把判别与生成都条件化：
 $$\begin{aligned}
@@ -287,34 +287,34 @@ $$\begin{aligned}
 \end{aligned}$$
 或在 WGAN 中加入条件，critic 学习条件下分布偏差。
 
-## 1.7 从 VAE 到 GAN：数学与理念的桥梁
+## 5.4 从 VAE 到 GAN：数学与理念的桥梁
 
-### 1.7.1 「likelihood」 vs. 「non-likelihood」
+### 5.4.1 「likelihood」 vs. 「non-likelihood」
 - **VAE**：最大化 $\log p_\theta(x)$，用 ELBO 下界，学习到**后验近似** $q_\phi(z\mid x)$。  
 - **GAN**：不写likelihood，直接**最小化分布差异**（JS、Wasserstein 等），通过discriminator/critic 提供信号。
 
-### 1.7.2 两者的互补视角
+### 5.4.2 两者的互补视角
 - **训练信号**：VAE 的重建损失在像素域，GAN 的信号在判别器特征域（往往更贴近感知质量）。  
 - **多样性 vs. 锐利度**：VAE 更多样但模糊；GAN 更锐利但易模式崩塌。  
 - **后验推断**：VAE 自带编码器；GAN 需借助额外网络（如 BiGAN/ALI）学习逆映射。
 
-## 1.8 训练细节与典型问题
+## 5.5 训练细节与典型问题
 
-### 1.8.1 模式崩塌（mode collapse）
+### 5.5.1 模式崩塌（mode collapse）
 - **症状**：生成样本缺乏多样性，集中到少数模式。  
 - **缓解**：WGAN/WGAN-GP；使用多判别器或小批次判别（minibatch discrimination）；加入噪声或正则。
 
-### 1.8.2 判别器过强/过弱
+### 5.5.2 判别器过强/过弱
 - **过强**：生成器几乎无梯度；**做法**：限制判别器训练步数或容量，加入 label smoothing。  
 - **过弱**：无法提供有信息的梯度；**做法**：提高判别器更新步、使用谱归一化等。
 
-### 1.8.3 损失选择与指标
+### 5.5.3 损失选择与指标
 - 原始 GAN 损失 vs 非饱和损失；Wasserstein 损失更稳定。  
 - 评估：FID、IS、Precision/Recall for GANs 等。
 
 
 
-## 1.9 参考要点（口袋卡）
+## 5.6 参考要点（口袋卡）
 
 - **VAE**：$\mathcal{L} = \mathbb{E}[\log p_\theta(x\mid z)] - \mathrm{KL}(q_\phi\|p)$。重建项 + 正则项。  
 - **GAN**：$\min_G\max_D \mathbb{E}\log D + \mathbb{E}\log(1-D)$；$D^*(x)=\frac{p_{\text{data}}}{p_{\text{data}}+p_G}$；$\!\!\Rightarrow$ 最小化 JS。  
