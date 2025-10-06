@@ -35,5 +35,7 @@
   "mcp-tools",
   "obsidian-git",
   "inline-math",
-  "transfer-latex-from-gpt"
+  "transfer-latex-from-gpt",
+  "quick-preview",
+  "math-booster"
 ]
