@@ -88,10 +88,12 @@ where $J_f(x_0)$ is the **Jacobian matrix** of $f$ at $x_0$.
 
 ## 2.3 Change of Variables
 
-If $z \sim p_Z(z)$ and $x = f(z)$, then
-$$
+> [!definition]
+> If $z \sim p_Z(z)$ and $x = f(z)$, then
+> $$
 p_X(x) = p_Z(f^{-1}(x)) \cdot \left|\det J_{f^{-1}}(x)\right|.
-$$
+> $$
+
 - $\det J_f > 1$: spreads probability mass (expansion).  
 - $0 < \det J_f < 1$: concentrates probability mass (compression).  
 - $\det J_f = 0$: collapses space → (not a valid density).  
@@ -100,10 +102,9 @@ $$
 
 The determinant of the Jacobian tells us **how volumes are scaled locally** by the transformation $f$. Since probability mass is preserved under transformation:
 
-> [!theorem|*]
-> 
+> [!theorem|*] probability mass conservation
 >$$
-\text{probability mass conservation: }\quad p_Z(z)\,dz = p_X(x)\,dx
+\quad p_Z(z)\,dz = p_X(x)\,dx
 > $$
 
 the density $p_X(x)$ must adjust according to the Jacobian determinant.
