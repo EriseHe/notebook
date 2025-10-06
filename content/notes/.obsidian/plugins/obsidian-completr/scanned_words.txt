@@ -2428,6 +2428,7 @@ Implementation
 Insert
 Intrinsic
 Interpreted
+Invertible
 the
 terms
 that
@@ -15521,6 +15522,7 @@ LOS
 Locality
 LOF
 Lagrangian
+Log
 Value
 Verifying
 Verify

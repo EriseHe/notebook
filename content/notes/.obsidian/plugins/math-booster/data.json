@@ -151,10 +151,5 @@
     "searchModalRange": "recent",
     "searchModalDvQuery": ""
   },
-  "excludedFiles": [
-    "理论/Topology/T-n分离公理.md",
-    "理论/Topology/_index.md",
-    "计算/Julia科学计算笔记/基本语法.md",
-    "计算/Julia科学计算笔记/_index.md"
-  ]
+  "excludedFiles": []
 }
