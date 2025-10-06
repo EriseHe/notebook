@@ -182,15 +182,15 @@ $$JSD(P \,\|\, Q) = \tfrac{1}{2} KL(P \,\|\, m) + \tfrac{1}{2} KL(Q \,\|\, m).$$
 Thus the GAN loss is:
 $$L(G) = 2 \cdot JSD\!\left(P_{\text{data}} \,\|\, P_G\right) - \log 4.$$
 
-## 4 Issues with GAN
+## 3.3 Issues with GAN
 
 - $P_{\text{data}}$ and $P_G$ often lie on **different manifolds**.  
 - JSD $\approx \log 2$ → gradient vanishes for the generator.  
 - Leads to **mode collapse** (many $z$ map to the same $G(z)$).
 
-# 5 Improvement: Better Metric (Wasserstein Distance)
+# 4 Improvement: Better Metric (Wasserstein Distance)
 
-### 5.1.1 Wasserstein-1 Distance (WGAN)
+### 4.1.1 Wasserstein-1 Distance (WGAN)
 
 > [!definition|*] Wasserstein Distance
 > We define the Wasserstein Distance as the minimal cost to transport mass from one distribution to another:
@@ -201,16 +201,16 @@ $$L(G) = 2 \cdot JSD\!\left(P_{\text{data}} \,\|\, P_G\right) - \log 4.$$
 - Referred to as Earth Mover’s Distance (EMD).  
 - In WGAN, enforce **1-Lipschitz constraint** on $D$.
 
-## 5.2 Enforcing the 1-Lipschitz Constraint in WGANs
+## 4.2 Enforcing the 1-Lipschitz Constraint in WGANs
 
-### 5.2.1 Weight Clipping (Original WGAN)
+### 4.2.1 Weight Clipping (Original WGAN)
 
 - **Idea:** Directly clip critic weights to a fixed range after every update: $$
   w \; \leftarrow \; \text{clip}(w, -c, c)
   $$
 - Ensures the function doesn’t become too steep.  
 - **Problems:** Can lead to capacity underuse and poor critic performance.
-### 5.2.2 Gradient Penalty (WGAN-GP)
+### 4.2.2 Gradient Penalty (WGAN-GP)
 
 - **Idea:** Penalize the critic if its gradient norm deviates from 1.
 - Add a regularization term to the loss:
@@ -223,7 +223,7 @@ where:
 - $\lambda$ is a penalty coefficient
 - Encourages $\|\nabla f(\widehat{x})\|_2 \approx 1$, enforcing Lipschitz continuity.
 
-### 5.2.3 comparison 
+### 4.2.3 comparison 
 
 
 
@@ -232,7 +232,7 @@ where:
 | Weight Clipping  | Simple to implement      | Can hurt capacity; unstable |
 | Gradient Penalty | More stable; widely used | Slightly more computation   |
 
-### 5.2.4 procedure
+### 4.2.4 procedure
 1. interpolation of $\widehat{x}$ between real and fake $x$
 2. compute gradient norm: $g=\nabla_{\hat{x}} f(\hat{x})$, then $\left(\|g\|_2-1\right)^2$
 3. auto-differentiation w.r.t. $\widehat{x}$
@@ -241,7 +241,7 @@ where:
 大多数现代 WGAN 实现都采用 WGAN-GP.
 
 
-## 5.3 Conditional GAN（cGAN）：在标签/条件下生成
+## 4.3 Conditional GAN（cGAN）：在标签/条件下生成
 
 引入条件 $y$（如类别/文本），把判别与生成都条件化：
 $$\begin{aligned}
@@ -250,27 +250,27 @@ $$\begin{aligned}
 \end{aligned}$$
 或在 WGAN 中加入条件，critic 学习条件下分布偏差。
 
-## 5.4 从 VAE 到 GAN的数学与理念的桥梁
+## 4.4 从 VAE 到 GAN的数学与理念的桥梁
 
-### 5.4.1 「likelihood」 vs. 「non-likelihood」
+### 4.4.1 「likelihood」 vs. 「non-likelihood」
 - **VAE**：最大化 $\log p_\theta(x)$，用 ELBO 下界，学习到**后验近似** $q_\phi(z\mid x)$。  
 - **GAN**：不写likelihood，直接**最小化分布差异**（JS、Wasserstein 等），通过discriminator/critic 提供信号。
 
-### 5.4.2 两者的互补视角
+### 4.4.2 两者的互补视角
 - **训练信号**：VAE 的重建损失在像素域，GAN 的信号在判别器特征域（往往更贴近感知质量）。  
 - **多样性 vs. 锐利度**：VAE 更多样但模糊；GAN 更锐利但易模式崩塌。  
 - **后验推断**：VAE 自带编码器；GAN 需借助额外网络（如 BiGAN/ALI）学习逆映射。
 
-## 5.5 训练细节与典型问题
+## 4.5 训练细节与典型问题
 
-### 5.5.1 模式崩塌（mode collapse）
+### 4.5.1 模式崩塌（mode collapse）
 - **症状**：生成样本缺乏多样性，集中到少数模式。  
 - **缓解**：WGAN/WGAN-GP；使用多判别器或小批次判别（minibatch discrimination）；加入噪声或正则。
 
-### 5.5.2 判别器过强/过弱
+### 4.5.2 判别器过强/过弱
 - **过强**：生成器几乎无梯度；**做法**：限制判别器训练步数或容量，加入 label smoothing。  
 - **过弱**：无法提供有信息的梯度；**做法**：提高判别器更新步、使用谱归一化等。
 
-### 5.5.3 损失选择与指标
+### 4.5.3 损失选择与指标
 - 原始 GAN 损失 vs 非饱和损失；Wasserstein 损失更稳定。  
 - 评估：FID、IS、Precision/Recall for GANs 等。
