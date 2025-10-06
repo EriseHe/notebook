@@ -154,8 +154,6 @@ Diagrammatically:
 
 $$z \sim \mathcal{N}(0,I) \;\; \longrightarrow \;\; G_\theta(z) \;\; \longrightarrow \;\; D_\phi(x) \in [0,1].$$
 
----
-
 ## 2.3 Training Objective
 
 1. **Discriminator goal**: maximize
@@ -169,8 +167,6 @@ $$z \sim \mathcal{N}(0,I) \;\; \longrightarrow \;\; G_\theta(z) \;\; \longrighta
    Equivalent alternative:
    $$\max_{G} \;\; \mathbb{E}_{z \sim P_z} \log D(G(z)).$$
 
----
-
 ## 2.4 Overall Minimax Game
 
 $$\min_G \max_D \Bigg[ \mathbb{E}_{x \sim P_{\text{data}}} \log D(x) \;+\; \mathbb{E}_{z \sim P_z} \log(1 - D(G(z))) \Bigg].$$
@@ -178,15 +174,11 @@ $$\min_G \max_D \Bigg[ \mathbb{E}_{x \sim P_{\text{data}}} \log D(x) \;+\; \math
 Define the loss as:
 $$L = - \text{goal}.$$
 
----
-
 # 3 Optimal Discriminator
 
 When fixing the generator, the optimal discriminator is:
 
 $$D^*(x) = \frac{P_{\text{data}}(x)}{P_{\text{data}}(x) + P_G(x)}.$$
-
----
 
 ## 3.1 Plug Back into GAN Objective
 
@@ -200,9 +192,6 @@ $$\begin{aligned}
 
 where
 $$m = \tfrac{1}{2}\big(P_{\text{data}} + P_G\big).$$
-
----
-
 ## 3.2 Jensen–Shannon Divergence (JSD)
 
 - Symmetric divergence:
@@ -210,17 +199,11 @@ $$JSD(P \,\|\, Q) = \tfrac{1}{2} KL(P \,\|\, m) + \tfrac{1}{2} KL(Q \,\|\, m).$$
 
 Thus the GAN loss is:
 $$L(G) = 2 \cdot JSD\!\left(P_{\text{data}} \,\|\, P_G\right) - \log 4.$$
-
----
-
 # 4 Issues with GAN
 
 - $P_{\text{data}}$ and $P_G$ often lie on **different manifolds**.  
 - JSD $\approx \log 2$ → gradient vanishes for the generator.  
 - Leads to **mode collapse** (many $z$ map to the same $G(z)$).
-
----
-
 # 5 Improvement: Better Metric (Wasserstein Distance)
 
 ### 5.1.1 Wasserstein-1 Distance (WGAN)
@@ -232,13 +215,6 @@ $$W(P, Q) = \inf_{\gamma \in \Pi(P,Q)} \mathbb{E}_{(x,y) \sim \gamma} \|x - y\|.
 - Symmetry: $W(P,Q) = W(Q,P).$  
 - Referred to as Earth Mover’s Distance (EMD).  
 - In WGAN, enforce **1-Lipschitz constraint** on $D$.
-
----
-
-
-
-
-
 
 ## 5.2 Enforcing the 1-Lipschitz Constraint in WGANs
 

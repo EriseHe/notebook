@@ -157,3 +157,48 @@ the density $p_X(x)$ must adjust according to the Jacobian determinant.
 - $|\det J_f| > 1$: expansion → density thins out.  
 - $0 < |\det J_f| < 1$: compression → density thickens.  
 - $|\det J_f| = 0$: collapse → not invertible, no density.
+
+# Normalizing Flows
+
+- **Definition:** A Normalizing Flow is a sequence of $K$ invertible transformations:  
+  $$
+  f = f_K \circ f_{K-1} \circ \cdots \circ f_2 \circ f_1
+  $$
+
+
+![NF](https://lilianweng.github.io/posts/2018-10-13-flow-models/normalizing-flow.png)
+
+- **Change of Variables (composition):**  
+  If $x = f_\theta(z)$, then:
+  $$
+  p_X(x;\theta) = p_Z\!\left(f_\theta^{-1}(x)\right)
+  \prod_{i=1}^K \left| \det \frac{\partial f_i^{-1}}{\partial z_i} \right|
+  $$
+
+  Equivalently:
+  $$
+  p_X(x;\theta) = p_Z\!\left(f_\theta^{-1}(x)\right)
+  \prod_{i=1}^K \left| \det \frac{\partial f_i}{\partial z_{i-1}} \right|^{-1}
+  $$
+
+- **Log-likelihood form (practical for training):**
+  $$
+  \log p_X(x;\theta)
+  = \log p_Z(z_K)
+  - \sum_{i=1}^K \log \left| \det \frac{\partial f_i}{\partial z_{i-1}} \right|
+  $$
+  where $z_K = f_\theta^{-1}(x)$.
+
+---
+
+### Key Points
+- Each transformation $f_i$ must be:
+  - **Invertible**
+  - Have a **tractable Jacobian determinant**
+
+- The **base distribution** $p_Z$ is usually simple (e.g. standard Gaussian).
+
+- Training maximizes the **exact log-likelihood** of data:
+  $$
+  \max_\theta \sum_{x \in {D}} \log p_X(x;\theta).
+  $$
