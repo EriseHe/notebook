@@ -50,13 +50,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/概率机器学习/隐藏变量模型/GANs.md",
+                "file": "理论/概率机器学习/隐藏变量模型/Normalizing Flows (NF).md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "GANs"
+              "title": "Normalizing Flows (NF)"
             }
           }
         ],
@@ -211,13 +211,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/概率机器学习/隐藏变量模型/GANs.md",
+                "file": "理论/概率机器学习/隐藏变量模型/Normalizing Flows (NF).md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of GANs"
+              "title": "Outline of Normalizing Flows (NF)"
             }
           }
         ],
@@ -246,8 +246,8 @@
   },
   "active": "f0ba71a8d6d2b24e",
   "lastOpenFiles": [
-    "理论/概率机器学习/隐藏变量模型/Normalizing Flows (NF).md",
     "理论/概率机器学习/隐藏变量模型/GANs.md",
+    "理论/概率机器学习/隐藏变量模型/Normalizing Flows (NF).md",
     "理论/概率机器学习/隐藏变量模型/VAE.md",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换.md",
     "理论/微分几何笔记/第一部分 曲线与曲面/3. Tangent Vector on Surface (from Lecture).md",
