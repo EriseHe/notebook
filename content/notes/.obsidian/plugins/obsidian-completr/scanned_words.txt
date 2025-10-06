@@ -415,6 +415,7 @@ Closer
 Changing
 Characterizations
 Circles
+CoV
 font
 for
 functions
@@ -4492,6 +4493,7 @@ drifting
 downarrow
 dfrac
 differentiating
+dimentaionl
 in
 inverse
 implicit
