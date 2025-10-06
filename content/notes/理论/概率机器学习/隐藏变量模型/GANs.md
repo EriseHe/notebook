@@ -250,27 +250,27 @@ $$\begin{aligned}
 \end{aligned}$$
 或在 WGAN 中加入条件，critic 学习条件下分布偏差。
 
-## 4.4 从 VAE 到 GAN的数学与理念的桥梁
+# 5 从 VAE 到 GAN的数学与理念的桥梁
 
-### 4.4.1 「likelihood」 vs. 「non-likelihood」
+### 5.1.1 「likelihood」 vs. 「non-likelihood」
 - **VAE**：最大化 $\log p_\theta(x)$，用 ELBO 下界，学习到**后验近似** $q_\phi(z\mid x)$。  
 - **GAN**：不写likelihood，直接**最小化分布差异**（JS、Wasserstein 等），通过discriminator/critic 提供信号。
 
-### 4.4.2 两者的互补视角
+### 5.1.2 两者的互补视角
 - **训练信号**：VAE 的重建损失在像素域，GAN 的信号在判别器特征域（往往更贴近感知质量）。  
 - **多样性 vs. 锐利度**：VAE 更多样但模糊；GAN 更锐利但易模式崩塌。  
 - **后验推断**：VAE 自带编码器；GAN 需借助额外网络（如 BiGAN/ALI）学习逆映射。
 
-## 4.5 训练细节与典型问题
+## 5.2 训练细节与典型问题
 
-### 4.5.1 模式崩塌（mode collapse）
+### 5.2.1 模式崩塌（mode collapse）
 - **症状**：生成样本缺乏多样性，集中到少数模式。  
 - **缓解**：WGAN/WGAN-GP；使用多判别器或小批次判别（minibatch discrimination）；加入噪声或正则。
 
-### 4.5.2 判别器过强/过弱
+### 5.2.2 判别器过强/过弱
 - **过强**：生成器几乎无梯度；**做法**：限制判别器训练步数或容量，加入 label smoothing。  
 - **过弱**：无法提供有信息的梯度；**做法**：提高判别器更新步、使用谱归一化等。
 
-### 4.5.3 损失选择与指标
+### 5.2.3 损失选择与指标
 - 原始 GAN 损失 vs 非饱和损失；Wasserstein 损失更稳定。  
 - 评估：FID、IS、Precision/Recall for GANs 等。
