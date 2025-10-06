@@ -193,8 +193,9 @@ $$L(G) = 2 \cdot JSD\!\left(P_{\text{data}} \,\|\, P_G\right) - \log 4.$$
 ### 4.1.1 Wasserstein-1 Distance (WGAN)
 
 > [!definition|*] Wasserstein Distance
-> We define the Wasserstein Distance as the minimal cost to transport mass from one distribution to another:
+> We define the minimal cost to transport mass from one distribution to another:
 > $$W(P, Q) = \inf_{\gamma \in \Pi(P,Q)} \mathbb{E}_{(x,y) \sim \gamma} \|x - y\|$$
+> as the Wasserstein Distance.
 
 
 - Symmetry: $W(P,Q) = W(Q,P).$  
