@@ -412,6 +412,9 @@ Clipping
 Cons
 Chapters
 Closer
+Changing
+Characterizations
+Circles
 font
 for
 functions
@@ -3880,6 +3883,8 @@ sky
 stays
 slight
 sigma
+shoot
+sweeps
 discuss
 determine
 described
@@ -5142,6 +5147,7 @@ isolates
 inertia
 inward
 ingoing
+isometric
 of
 our
 out
@@ -6080,6 +6086,7 @@ Diagrammatically
 Directly
 Decreasing
 Diskiness
+Distortion
 map
 matrix
 mapping
@@ -6627,6 +6634,7 @@ millennia
 mathbf
 merger
 mathrm
+meridian
 have
 holds
 has
@@ -9638,6 +9646,8 @@ allocate
 arccos
 aligns
 aperture
+adjointness
+asymptotics
 you
 yields
 yF
@@ -10277,6 +10287,7 @@ Ruled
 Referred
 RungeKutta
 Relative
+Round
 requirement
 respect
 rule
@@ -10902,6 +10913,9 @@ rays
 relate
 rearrange
 rangle
+record
+respectively
+reparametrize
 partials
 partial
 point
@@ -13172,6 +13186,7 @@ FoF
 FITS
 Frames
 Fate
+Fermi
 Jacobian
 Jobcobian
 John
@@ -14171,6 +14186,7 @@ udNUV
 uqq
 underuse
 underbrace
+uniqueness
 guarantees
 gives
 give
@@ -14781,6 +14797,7 @@ Mover
 Module
 Modular
 Measured
+Minimizers
 Using
 Up
 Ut
@@ -15503,6 +15520,7 @@ Liouville
 LOS
 Locality
 LOF
+Lagrangian
 Value
 Verifying
 Verify
