@@ -65,13 +65,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何笔记/有关曲面的基础概念/3. Tangent Vectors and Orientability (From Notes).md",
+                "file": "理论/微分几何笔记/有关曲面的基础概念/10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3. Tangent Vectors and Orientability (From Notes)"
+              "title": "10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium"
             }
           }
         ],
@@ -226,13 +226,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何笔记/有关曲面的基础概念/3. Tangent Vectors and Orientability (From Notes).md",
+                "file": "理论/微分几何笔记/有关曲面的基础概念/10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 3. Tangent Vectors and Orientability (From Notes)"
+              "title": "Outline of 10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium"
             }
           }
         ],
@@ -261,11 +261,11 @@
   },
   "active": "19431b19722c501e",
   "lastOpenFiles": [
-    "理论/微分几何笔记/有关曲面的基础概念/3. Tangent Vector on Surface (from Lecture).md",
+    "理论/微分几何笔记/有关曲面的基础概念/6. Normal & Geodesic Curvature.md",
     "理论/微分几何笔记/有关曲面的基础概念/3. Tangent Vectors and Orientability (From Notes).md",
+    "理论/微分几何笔记/有关曲面的基础概念/3. Tangent Vector on Surface (from Lecture).md",
     "理论/微分几何笔记/有关曲面的基础概念/4. First Fundamental Form.md",
     "理论/微分几何笔记/有关曲面的基础概念/5. Pushforward, Pullback, and Local Isometry.md",
-    "理论/微分几何笔记/有关曲面的基础概念/6. Normal & Geodesic Curvature.md",
     "理论/微分几何笔记/有关曲面的基础概念/7. Gauss Map, Shape Operator, and Curvatures.md",
     "理论/微分几何笔记/有关曲面的基础概念/8. Gauss Map Area, Principal Curvatures, Mean Curvature & Geodesics.md",
     "理论/微分几何笔记/有关曲面的基础概念/10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium.md",
