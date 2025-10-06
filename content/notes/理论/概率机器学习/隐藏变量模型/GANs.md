@@ -162,6 +162,7 @@ Define the loss as $L = - \text{goal}$.
 > When fixing the generator $G$, the optimal discriminator is:
 > $$D^*(x) = \frac{P_{\text{data}}(x)}{P_{\text{data}}(x) + P_G(x)}$$
 
+
 ## 3.1 Plug Back into GAN Objective
 
 $$\begin{aligned}
@@ -173,17 +174,20 @@ $$\begin{aligned}
 \end{aligned}$$
 where
 $$m = \tfrac{1}{2}\big(P_{\text{data}} + P_G\big).$$
+
 ## 3.2 Jensen–Shannon Divergence (JSD)
 
 Symmetric divergence:
 $$JSD(P \,\|\, Q) = \tfrac{1}{2} KL(P \,\|\, m) + \tfrac{1}{2} KL(Q \,\|\, m).$$
 Thus the GAN loss is:
 $$L(G) = 2 \cdot JSD\!\left(P_{\text{data}} \,\|\, P_G\right) - \log 4.$$
-# 4 Issues with GAN
+
+## 4 Issues with GAN
 
 - $P_{\text{data}}$ and $P_G$ often lie on **different manifolds**.  
 - JSD $\approx \log 2$ → gradient vanishes for the generator.  
 - Leads to **mode collapse** (many $z$ map to the same $G(z)$).
+
 # 5 Improvement: Better Metric (Wasserstein Distance)
 
 ### 5.1.1 Wasserstein-1 Distance (WGAN)
