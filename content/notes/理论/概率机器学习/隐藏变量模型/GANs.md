@@ -211,6 +211,7 @@ $$L(G) = 2 \cdot JSD\!\left(P_{\text{data}} \,\|\, P_G\right) - \log 4.$$
   $$
 - Ensures the function doesn’t become too steep.  
 - **Problems:** Can lead to capacity underuse and poor critic performance.
+
 ### 4.2.2 Gradient Penalty (WGAN-GP)
 
 - **Idea:** Penalize the critic if its gradient norm deviates from 1.
