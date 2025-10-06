@@ -3,10 +3,7 @@ title: GANs
 tags:
   - GAN
 ---
-
-# 1 Lecture 6 · 从 VAE 到 GAN：生成模型的数学脉络（教学版讲义）
-
-> 目标：从「有似然的潜变量模型」到「无似然的对抗学习」，系统梳理 VAE → GAN 的数学动机与推导
+# 1 从 VAE 到 GAN
 
 ## 1.1 大图景与动机
 
@@ -17,7 +14,7 @@ tags:
 
 - **GAN 路线（无log-likelihood）**：不写 $p(x\mid z)$ 的显式密度，直接通过「判别器 vs 生成器」的对抗来最小化两分布的差异。优点是生成锐利；挑战是训练不稳、模式崩塌。
 
-从VAE 与 ELBO我们有这些问题：
+VAE 与 ELBO中我们有这些问题：
 
   - $z$ has smaller dimension.
   - Distribution of $z$ does not guarantee matching the distribution of $x$.
@@ -120,7 +117,7 @@ WGAN 用一个 **1-Lipschitz** 的打分函数 $f_w$（discriminator $\to$ criti
 $$\begin{aligned}
 \max_{w:\|f_w\|_L\le 1}\; \mathbb{E}_{x\sim p_{\text{data}}}[f_w(x)] - \mathbb{E}_{z\sim p(z)}[f_w(G(z))].
 \end{aligned}$$
-生成器最小化该差值。实践中以**权重裁剪**或**梯度惩罚（WGAN-GP）**来约束 1-Lipschitz：
+生成器最小化该差值。实践中以**权重裁剪**或**梯度惩罚（WGAN-GP）** 来约束 1-Lipschitz：
 $$\begin{aligned}
 \min_G \max_w\;\; &\mathbb{E}_{x\sim p_{\text{data}}}[f_w(x)] - \mathbb{E}_{z}[f_w(G(z))] \\
 &\quad - \lambda \,\mathbb{E}_{\hat x\sim\mathbb{P}_{\hat x}}\big(\|\nabla_{\hat x} f_w(\hat x)\|_2 - 1\big)^2.
@@ -131,16 +128,7 @@ $$\begin{aligned}
 
 # 2 Generative Adversarial Network (GAN)
 
----
-
-## 2.1 Motivation
-
-
-→ This motivates **GAN**.
-
----
-
-## 2.2 Forward Analysis
+## 2.1 Forward Analysis
 
 - **Generator**: $G_\theta(z)$  
   Input: latent vector $z \sim \mathcal{N}(0,I)$ (random noise).  
@@ -151,52 +139,44 @@ $$\begin{aligned}
   Output: scalar in $[0,1]$, probability of being real.
 
 Diagrammatically:
-
 $$z \sim \mathcal{N}(0,I) \;\; \longrightarrow \;\; G_\theta(z) \;\; \longrightarrow \;\; D_\phi(x) \in [0,1].$$
 
-## 2.3 Training Objective
+## 2.2 Training Objective
 
 1. **Discriminator goal**: maximize
-   $$\mathbb{E}_{x \sim P_{\text{data}}} \log D(x),$$
-   i.e. maximize $D(x)$ to correctly classify real images.
+   $$\mathbb{E}_{x \sim P_{\text{data}}} \log D(x)$$
+   > maximize $D(x)$ to correctly classify real images.
 
 2. **Generator goal**: minimize
-   $$\mathbb{E}_{z \sim P_z} \log\big(1 - D(G(z))\big),$$
-   i.e. fool $D$ into recognizing fake images as real.
+   $$\mathbb{E}_{z \sim P_z} \log\big(1 - D(G(z))\big)$$
+   > fool $D$ into recognizing fake images as real.
 
-   Equivalent alternative:
-   $$\max_{G} \;\; \mathbb{E}_{z \sim P_z} \log D(G(z)).$$
+## 2.3 Overall Minimax Game
 
-## 2.4 Overall Minimax Game
-
-$$\min_G \max_D \Bigg[ \mathbb{E}_{x \sim P_{\text{data}}} \log D(x) \;+\; \mathbb{E}_{z \sim P_z} \log(1 - D(G(z))) \Bigg].$$
-
-Define the loss as:
-$$L = - \text{goal}.$$
+$$\min_G \max_D \Bigg[ \mathbb{E}_{x \sim P_{\text{data}}} \log D(x) \;+\; \mathbb{E}_{z \sim P_z} \log(1 - D(G(z))) \Bigg]$$
+Define the loss as $L = - \text{goal}$.
 
 # 3 Optimal Discriminator
 
-When fixing the generator, the optimal discriminator is:
-
-$$D^*(x) = \frac{P_{\text{data}}(x)}{P_{\text{data}}(x) + P_G(x)}.$$
+> [!definition] Optimal Discriminator
+> When fixing the generator $G$, the optimal discriminator is:
+> $$D^*(x) = \frac{P_{\text{data}}(x)}{P_{\text{data}}(x) + P_G(x)}$$
 
 ## 3.1 Plug Back into GAN Objective
 
 $$\begin{aligned}
-&\mathbb{E}_{x \sim P_{\text{data}}} \log \frac{P_{\text{data}}(x)}{P_{\text{data}}(x) + P_G(x)} 
+&\quad\,\mathbb{E}_{x \sim P_{\text{data}}} \log \frac{P_{\text{data}}(x)}{P_{\text{data}}(x) + P_G(x)} 
 + \mathbb{E}_{z \sim P_z} \log \frac{P_G(x)}{P_{\text{data}}(x) + P_G(x)} \\[6pt]
 &= \mathbb{E}_{x \sim P_{\text{data}}} \log \frac{P_{\text{data}}(x)}{2m(x)} 
 + \mathbb{E}_{z \sim P_z} \log \frac{P_G(x)}{2m(x)} \\[6pt]
-&= -\log 4 \;+\; KL\big(P_{\text{data}} \,\|\, m\big) + KL\big(P_G \,\|\, m\big),
+&= -\log 4 \;+\; KL\big(P_{\text{data}} \,\|\, m\big) + KL\big(P_G \,\|\, m\big)
 \end{aligned}$$
-
 where
 $$m = \tfrac{1}{2}\big(P_{\text{data}} + P_G\big).$$
 ## 3.2 Jensen–Shannon Divergence (JSD)
 
-- Symmetric divergence:
+Symmetric divergence:
 $$JSD(P \,\|\, Q) = \tfrac{1}{2} KL(P \,\|\, m) + \tfrac{1}{2} KL(Q \,\|\, m).$$
-
 Thus the GAN loss is:
 $$L(G) = 2 \cdot JSD\!\left(P_{\text{data}} \,\|\, P_G\right) - \log 4.$$
 # 4 Issues with GAN
@@ -208,9 +188,10 @@ $$L(G) = 2 \cdot JSD\!\left(P_{\text{data}} \,\|\, P_G\right) - \log 4.$$
 
 ### 5.1.1 Wasserstein-1 Distance (WGAN)
 
-Defined as the minimal cost to transport mass from one distribution to another:
+> [!definition|*] Wasserstein Distance
+> We define the Wasserstein Distance as the minimal cost to transport mass from one distribution to another:
+> $$W(P, Q) = \inf_{\gamma \in \Pi(P,Q)} \mathbb{E}_{(x,y) \sim \gamma} \|x - y\|$$
 
-$$W(P, Q) = \inf_{\gamma \in \Pi(P,Q)} \mathbb{E}_{(x,y) \sim \gamma} \|x - y\|.$$
 
 - Symmetry: $W(P,Q) = W(Q,P).$  
 - Referred to as Earth Mover’s Distance (EMD).  
@@ -240,10 +221,12 @@ where:
 
 ### 5.2.3 comparison 
 
-| Method            | Pros | Cons |
-|-------------------|------|------|
-| Weight Clipping   | Simple to implement | Can hurt capacity; unstable |
-| Gradient Penalty  | More stable; widely used | Slightly more computation |
+
+
+| Method           | Pros                     | Cons                        |
+| ---------------- | ------------------------ | --------------------------- |
+| Weight Clipping  | Simple to implement      | Can hurt capacity; unstable |
+| Gradient Penalty | More stable; widely used | Slightly more computation   |
 
 ### 5.2.4 procedure
 1. interpolation of $\widehat{x}$ between real and fake $x$
@@ -263,7 +246,7 @@ $$\begin{aligned}
 \end{aligned}$$
 或在 WGAN 中加入条件，critic 学习条件下分布偏差。
 
-## 5.4 从 VAE 到 GAN：数学与理念的桥梁
+## 5.4 从 VAE 到 GAN的数学与理念的桥梁
 
 ### 5.4.1 「likelihood」 vs. 「non-likelihood」
 - **VAE**：最大化 $\log p_\theta(x)$，用 ELBO 下界，学习到**后验近似** $q_\phi(z\mid x)$。  
@@ -287,14 +270,3 @@ $$\begin{aligned}
 ### 5.5.3 损失选择与指标
 - 原始 GAN 损失 vs 非饱和损失；Wasserstein 损失更稳定。  
 - 评估：FID、IS、Precision/Recall for GANs 等。
-
-
-
-## 5.6 参考要点（口袋卡）
-
-- **VAE**：$\mathcal{L} = \mathbb{E}[\log p_\theta(x\mid z)] - \mathrm{KL}(q_\phi\|p)$。重建项 + 正则项。  
-- **GAN**：$\min_G\max_D \mathbb{E}\log D + \mathbb{E}\log(1-D)$；$D^*(x)=\frac{p_{\text{data}}}{p_{\text{data}}+p_G}$；$\!\!\Rightarrow$ 最小化 JS。  
-- **WGAN**：对偶最大化 1-Lipschitz 函数期望差；梯度惩罚更稳。  
-- **cGAN**：在 $y$ 上条件化判别与生成。
-
-> 一句话：VAE 用**似然下界**学「可采样的后验」，GAN 用**对抗判别**学「可感知的分布差异」。二者互补，可融合（如 VAE-GAN、ALI/BiGAN）。
