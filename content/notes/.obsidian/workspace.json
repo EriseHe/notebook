@@ -65,13 +65,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何笔记/有关曲面的基础概念/9. Geodesic Normal Coordinates, Exponential Map.md",
+                "file": "理论/微分几何笔记/有关曲面的基础概念/10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "9. Geodesic Normal Coordinates, Exponential Map"
+              "title": "10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium"
             }
           }
         ],
@@ -226,13 +226,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何笔记/有关曲面的基础概念/9. Geodesic Normal Coordinates, Exponential Map.md",
+                "file": "理论/微分几何笔记/有关曲面的基础概念/10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 9. Geodesic Normal Coordinates, Exponential Map"
+              "title": "Outline of 10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium"
             }
           }
         ],
@@ -261,8 +261,8 @@
   },
   "active": "19431b19722c501e",
   "lastOpenFiles": [
-    "理论/微分几何笔记/有关曲面的基础概念/10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium.md",
     "理论/微分几何笔记/有关曲面的基础概念/9. Geodesic Normal Coordinates, Exponential Map.md",
+    "理论/微分几何笔记/有关曲面的基础概念/10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium.md",
     "理论/微分几何笔记/有关曲面的基础概念/6. Normal & Geodesic Curvature.md",
     "理论/微分几何笔记/有关曲面的基础概念/3. Tangent Vectors and Orientability (From Notes).md",
     "理论/微分几何笔记/有关曲面的基础概念/3. Tangent Vector on Surface (from Lecture).md",
