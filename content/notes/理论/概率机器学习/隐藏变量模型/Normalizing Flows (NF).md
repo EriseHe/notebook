@@ -17,7 +17,7 @@ p_X(x;\theta)
 \underbrace{\Bigl|\det\frac{\partial f_\theta^{-1}(x)}{\partial x}\Bigr|}_{\substack{\text{Jacobian det }\text{of the inverse }f_\theta^{-1}}}
 \end{aligned}
 $$
-Together, they define the density of $x$ under the flow
+Together, they define the density of $x$ under the flow.
 
 ### 1.1.1 **One-dimentaionl special case:** 
 
@@ -36,7 +36,7 @@ $$
 p_X(x) = p_Z(f^{-1}(x)) \cdot \left|\frac{d}{dx} f^{-1}(x)\right|
 $$
 
-We now plot **both distributions** to see how the transformation shifts and stretches the density.
+we now plot **both distributions** to see how the transformation shifts and stretches the density.
 
 ### 1.2.1 Change of Variables: Intuition
 
@@ -91,7 +91,7 @@ where $J_f(x_0)$ is the **Jacobian matrix** of $f$ at $x_0$.
 > [!theorem|2.3.1] Change of Variables
 > If $z \sim p_Z(z)$ and $x = f(z)$, then
 > $$
-p_X(x) = p_Z(f^{-1}(x)) \cdot \left|\det J_{f^{-1}}(x)\right|.
+p_X(x) = p_Z(f^{-1}(x)) \cdot \left|\det J_{f^{-1}}(x)\right|
 > $$
 
 - $\det J_f > 1$: spreads probability mass (expansion).  
