@@ -411,6 +411,7 @@ Constraint
 Clipping
 Cons
 Chapters
+Closer
 font
 for
 functions
@@ -1799,6 +1800,9 @@ centering
 cubes
 certainty
 contaminating
+calculable
+compatible
+colatitude
 Problem
 Partial
 Putting
@@ -2147,6 +2151,7 @@ Paste
 Planes
 Pythagorean
 Plane
+Photons
 In
 Implicit
 Invertibility
@@ -2417,6 +2422,9 @@ Improvement
 Isometry
 Implementing
 Implementation
+Insert
+Intrinsic
+Interpreted
 the
 terms
 that
@@ -2938,6 +2946,9 @@ triangular
 tips
 theta
 triaxial
+tagent
+tetrad
+tilt
 system
 solvability
 such
@@ -3863,6 +3874,12 @@ subhalo
 sqrt
 spheroid
 satellites
+scatters
+spirals
+sky
+stays
+slight
+sigma
 discuss
 determine
 described
@@ -4466,6 +4483,9 @@ distills
 drifts
 dispatches
 drifting
+downarrow
+dfrac
+differentiating
 in
 inverse
 implicit
@@ -5120,6 +5140,8 @@ isometries
 integrators
 isolates
 inertia
+inward
+ingoing
 of
 our
 out
@@ -5472,6 +5494,8 @@ ordering
 orchestrate
 orientability
 orientable
+outward
+obs
 near
 neighborhood
 necessary
@@ -5783,6 +5807,8 @@ nld
 nbR
 nOm
 nearby
+null
+north
 Does
 Determine
 Differentiability
@@ -6600,6 +6626,7 @@ modular
 millennia
 mathbf
 merger
+mathrm
 have
 holds
 has
@@ -7225,6 +7252,8 @@ lMB
 ljs
 lesssim
 logging
+langle
+leaves
 Show
 Sufficient
 Substitute
@@ -7629,6 +7658,8 @@ SymplecticEuler
 Shadow
 Separate
 Students
+Spacetime
+Static
 equations
 equation
 exists
@@ -8231,6 +8262,9 @@ enforcing
 extensible
 euler
 eyeballing
+emit
+equator
+endomorphism
 whether
 written
 which
@@ -8885,6 +8919,9 @@ boK
 blurring
 brute
 barred
+blueshift
+bending
+bilinearity
 allow
 and
 as
@@ -9960,6 +9997,7 @@ NBG
 NoGQ
 Ncf
 NlF
+Null
 Recall
 Rigorous
 Respect
@@ -10238,6 +10276,7 @@ Rubinstein
 Ruled
 Referred
 RungeKutta
+Relative
 requirement
 respect
 rule
@@ -10859,6 +10898,10 @@ running
 rmer
 roll
 rotate
+rays
+relate
+rearrange
+rangle
 partials
 partial
 point
@@ -11620,6 +11663,8 @@ planetary
 picking
 poorly
 patchwise
+photons
+pole
 Ex
 Evaluate
 Evaluating
@@ -12863,6 +12908,7 @@ BigGAN
 Base
 Butcher
 Build
+Blueshift
 Function
 For
 FT
@@ -13124,6 +13170,8 @@ Flatten
 Flows
 FoF
 FITS
+Frames
+Fate
 Jacobian
 Jobcobian
 John
@@ -13830,6 +13878,7 @@ vbt
 vxMAe
 vdO
 vDa
+varepsilon
 unknowns
 unique
 uniquely
@@ -14121,6 +14170,7 @@ uiHm
 udNUV
 uqq
 underuse
+underbrace
 guarantees
 gives
 give
@@ -14730,6 +14780,7 @@ Minimax
 Mover
 Module
 Modular
+Measured
 Using
 Up
 Ut
@@ -15064,6 +15115,7 @@ qeH
 qlt
 qxj
 quenched
+qquad
 zero
 zoom
 zG
@@ -15450,6 +15502,7 @@ Liouvillian
 Liouville
 LOS
 Locality
+LOF
 Value
 Verifying
 Verify
@@ -15618,6 +15671,7 @@ VlT
 VvO
 Verlet
 VerletIntegrator
+View
 Yes
 You
 YX
@@ -15925,6 +15979,7 @@ kKoF
 kvBs
 kick
 kills
+kappa
 One
 Olympo
 Oculis
@@ -16394,6 +16449,7 @@ GbMv
 Grp
 GfMV
 Generator
+Great
 xF
 xxii
 xmp
