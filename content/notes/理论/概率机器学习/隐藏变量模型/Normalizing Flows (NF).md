@@ -25,7 +25,9 @@ For 1D case, the determinant vanishes:
   $$
   p_X(x;\theta) = p_Z(f_\theta^{-1}(x)) \cdot \Big|\frac{d}{dx} f_\theta^{-1}(x)\Big|
   $$
-## 1.2 Comparing Base vs. Transformed Distributions
+
+ 
+ ## 1.2 Comparing Base vs. Transformed Distributions
 
 We start with a simple base distribution:
 $$z \sim {N}(0,1)$$

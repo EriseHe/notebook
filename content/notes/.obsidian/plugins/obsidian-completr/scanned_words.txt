@@ -416,6 +416,7 @@ Changing
 Characterizations
 Circles
 CoV
+CNFs
 font
 for
 functions
@@ -833,6 +834,8 @@ fixing
 favoured
 flags
 fallback
+flowing
+fluid
 color
 curve
 can
@@ -1807,6 +1810,8 @@ contaminating
 calculable
 compatible
 colatitude
+cloud
+continuously
 Problem
 Partial
 Putting
@@ -2430,6 +2435,7 @@ Insert
 Intrinsic
 Interpreted
 Invertible
+Implemented
 the
 terms
 that
@@ -2954,6 +2960,7 @@ triaxial
 tagent
 tetrad
 tilt
+torch
 system
 solvability
 such
@@ -3887,6 +3894,7 @@ slight
 sigma
 shoot
 sweeps
+specifying
 discuss
 determine
 described
@@ -4494,6 +4502,8 @@ downarrow
 dfrac
 differentiating
 dimentaionl
+divergences
+destroyed
 in
 inverse
 implicit
@@ -5151,6 +5161,8 @@ inertia
 inward
 ingoing
 isometric
+integrands
+incompressible
 of
 our
 out
@@ -5505,6 +5517,9 @@ orientability
 orientable
 outward
 obs
+outflows
+odeint
+odefunc
 near
 neighborhood
 necessary
@@ -6090,6 +6105,8 @@ Directly
 Decreasing
 Diskiness
 Distortion
+Direction
+Defines
 map
 matrix
 mapping
@@ -7265,6 +7282,8 @@ lesssim
 logging
 langle
 leaves
+leaving
+logp
 Show
 Sufficient
 Substitute
@@ -7671,6 +7690,7 @@ Separate
 Students
 Spacetime
 Static
+Solver
 equations
 equation
 exists
@@ -8276,6 +8296,7 @@ eyeballing
 emit
 equator
 endomorphism
+exits
 whether
 written
 which
@@ -9651,6 +9672,9 @@ aligns
 aperture
 adjointness
 asymptotics
+accumulate
+accumulator
+accumulated
 you
 yields
 yF
@@ -10011,6 +10035,8 @@ NoGQ
 Ncf
 NlF
 Null
+NFs
+Net
 Recall
 Rigorous
 Respect
@@ -10291,6 +10317,8 @@ Referred
 RungeKutta
 Relative
 Round
+Recognize
+Really
 requirement
 respect
 rule
@@ -11682,6 +11710,8 @@ poorly
 patchwise
 photons
 pole
+pushes
+pulls
 Ex
 Evaluate
 Evaluating
@@ -12468,6 +12498,9 @@ Thumb
 Truncating
 TNG
 Thin
+Tutorial
+Trajectory
+Trace
 Hence
 Here
 Hypotheses
@@ -12687,6 +12720,7 @@ HFC
 Hierarchy
 Hut
 Hamiltonians
+Hutchinson
 By
 Because
 Below
@@ -12926,6 +12960,7 @@ Base
 Butcher
 Build
 Blueshift
+Background
 Function
 For
 FT
@@ -13190,6 +13225,7 @@ FITS
 Frames
 Fate
 Fermi
+Flux
 Jacobian
 Jobcobian
 John
@@ -13655,6 +13691,7 @@ Average
 AoS
 APIs
 Ambient
+Across
 via
 variables
 view
@@ -14801,6 +14838,7 @@ Module
 Modular
 Measured
 Minimizers
+Matters
 Using
 Up
 Ut
@@ -15525,6 +15563,7 @@ Locality
 LOF
 Lagrangian
 Log
+Learn
 Value
 Verifying
 Verify
@@ -16769,6 +16808,7 @@ QqO
 QNqv
 QdF
 Qyz
+Quantity
 jpeg
 json
 joystick
@@ -16918,6 +16958,7 @@ jKS
 jJ
 jzc
 ju
+jacobian
 Kuhn
 Km
 KP
@@ -17088,6 +17129,7 @@ Kgg
 KZ
 Kantorovich
 Kinematic
+Known
 ZH
 ZCjHR
 ZY

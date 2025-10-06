@@ -1,0 +1,552 @@
+\documentclass[12pt]{article}
+
+% Adjusted page margins to reduce vertical space
+\usepackage[top=0.6in, bottom=1in,left=1in, right=1.2in]{geometry}
+
+% Formatting and layout packages
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{mathpazo} % Font package for aesthetics
+
+\usepackage{mdframed}
+
+\newmdenv[
+  topline=true, 
+  bottomline=true,
+  rightline=true, 
+  leftline=true, 
+  linecolor=black, 
+  linewidth=0.8pt,
+  backgroundcolor=white,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  skipabove=8pt,
+  skipbelow=8pt,
+  splitbottomskip=2pt,  % Ensures proper spacing when the box splits across pages
+  splittopskip=2pt,
+]{solutionbox}
+
+
+
+% Packages for figures and tables
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{svg}
+\usepackage{booktabs}
+\usepackage{float}
+
+% Math-related packages
+\usepackage{amsmath, amssymb, amsthm}
+
+% TikZ for spacetime diagram
+\usepackage{tikz}
+\usetikzlibrary{arrows,arrows.meta}
+
+% Declare supported graphic file types
+\DeclareGraphicsExtensions{.pdf,.jpg,.tif,.png}
+
+% Theorem and definition environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+% Reduce unnecessary vertical spacing
+\setlength{\parskip}{0pt}  % No extra space between paragraphs
+\setlength{\topsep}{2pt}   % Reduce spacing before lists/theorems
+\setlength{\partopsep}{0pt}
+\raggedbottom  % Prevents vertical stretching
+\pagenumbering{gobble}
+
+% Load hyperref last to apply hidelinks properly
+\usepackage[hidelinks]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\thispagestyle{plain}
+\vspace{-4ex}  % Less aggressive spacing reduction
+
+
+\begin{center}
+\begin{tabular}{*{3}{c}}
+    \parbox[t]{0.3\linewidth}{\centering\textbf{Homework 1\\September 12, 2025}}
+    & \parbox[t]{0.3\linewidth}{\centering\textbf{MATH 458\\General Relativity}}
+    & \parbox[t]{0.3\linewidth}{\centering\textbf{Erise He}}\\[1em]
+    \hline
+\end{tabular}
+\end{center}
+
+\bigskip
+
+
+\begin{enumerate}
+  \item[Question 1] [8 points] \textbf{P1.2} Imagine that a laser on the ceiling of a laboratory on the earth emits a flash of light directed toward a sensor on the floor a distance $d = 25 \,\mathrm{m}$ below (the laboratory is in a tower). This lab is equivalent (from the point of view of the gross effects of gravity) to an identical lab accelerating upward in deep space with a uniform acceleration of magnitude $g$. Imagine that we observe the flash being emitted and detected in an inertial lab surrounding the accelerating lab. For the sake of simplicity, imagine that the two labs are at rest with respect to each other at the instant the flash is emitted. In the time it takes the flash to reach the floor (as measured in the inertial lab), the accelerating lab attains a certain speed $v$ relative to the inertial lab. Thus (according to observers in the inertial lab) the floor detector in the accelerated lab is moving toward the laser with speed $v$ at the time the pulse is detected, so the floor detector measures the laser light’s wavelength to be blue-shifted to the value $\lambda$ given by the relativistic Doppler shift formula
+  \[
+    \lambda/\lambda_0 = \sqrt{(1 - v/c)/(1 + v/c)} ,
+  \]
+  where $\lambda_0$ is the wavelength of the light as emitted by the laser and $v$ is the detector’s speed relative to the laser at the time of detection.
+  \begin{enumerate}
+    \item[a.] Argue that the fractional shift in wavelength is
+    \[
+      \frac{\lambda_0 - \lambda}{\lambda_0} \approx \frac{g d}{c^2}
+    \]
+    when $g d/c^2 \ll 1$ and $v/c \ll 1$. (Hint: You will find the binomial approximation $(1+x)^n \approx 1 + nx$ helpful. This approximation is accurate to order $x^2$.)
+    \item[b.] What would be the fractional shift in wavelength in a lab on the earth’s surface?
+    \item[c.] What would be the fractional shift in wavelength if the lab were located on the surface of a neutron star having a mass of $M = 3.0 \times 10^{30} \,\mathrm{kg}$ ($\approx 1.5$ the mass of the sun) and a radius of $R = 12 \,\mathrm{km}$? (Hint: First estimate the magnitude of $\vec g$ using Newton’s law of universal gravitation. You can find the value of the universal gravitational constant $G$ on the inside front cover.)
+  \end{enumerate}
+  \item[(a)]
+  We want to show that the fractional wavelength shift satisfies
+  \[
+  \frac{\lambda_0 - \lambda}{\lambda_0} \approx \frac{g d}{c^2}.
+  \]
+  
+  In the inertial frame, light travels a distance $ct$ downward, and the floor shoudl rise by $\tfrac12 g t^2$, so we have the equation $ct + \tfrac12 g t^2 = d$. Solving for the arrival time:
+  
+  \[
+  \begin{aligned}
+  ct + \tfrac12 g t^2 &= d,\\
+  t &= \frac{-c + \sqrt{c^2 + 2 g d}}{g},\\
+  &= \frac{-c + c\sqrt{1 + \tfrac{2gd}{c^2}}}{g}.
+  \end{aligned}
+  \]
+  
+  Expanding the square root (small $gd/c^2$) gives
+  
+  \[
+  \begin{aligned}
+  t &\approx \frac{-c + c\left(1 + \frac{gd}{c^2} - \tfrac12 \frac{g^2 d^2}{c^4}\right)}{g},\\
+  &= \frac{d}{c} - \frac{g d^2}{2 c^3} + O\!\left(\frac{g^2 d^3}{c^5}\right).
+  \end{aligned}
+  \]
+  
+  The floor’s velocity at that moment is
+  \[
+  v = g t \approx \frac{g d}{c}, 
+  \qquad \beta \equiv \frac{v}{c} \approx \frac{g d}{c^2}.
+  \]
+  
+  Consider the relativistic Doppler formula for a detector provided above, and we expand for small $\beta$:
+  
+  \[
+  \begin{aligned}
+  \frac{\lambda}{\lambda_0} 
+  &= (1 - \beta)^{1/2}(1 + \beta)^{-1/2},\\
+  &\approx \left(1 - \tfrac12\beta\right)\!\left(1 - \tfrac12\beta\right),\\
+  &= 1 - \beta + O(\beta^2).
+  \end{aligned}
+  \]
+  
+  hence,
+  \[
+  \frac{\lambda_0 - \lambda}{\lambda_0} \approx \beta \approx \frac{g d}{c^2}.
+  \]
+
+  \item[(b)]
+  For Earth, with $d = 25\,\text{m}$ and $g = 9.8\,\text{m/s}^2$, we find
+
+  \[
+  \begin{aligned}
+  \frac{\lambda_0 - \lambda}{\lambda_0} 
+  &\approx \frac{g d}{c^2},\\
+  &= \frac{(9.8)(25)}{(2.998\times 10^8)^2},\\
+  &\approx 2.73\times 10^{-15}.
+  \end{aligned}
+  \]
+
+  This shift is very small.
+
+  \item[(c)]
+  For a neutron star of mass $M = 3.0\times 10^{30}\,\text{kg}$ and radius $R = 12\,\text{km}$, the surface gravity is
+
+\[
+\begin{aligned}
+g &= \frac{GM}{R^2},\\
+&= \frac{(6.674\times 10^{-11})(3.0\times 10^{30})}{(1.2\times 10^{4})^2},\\
+&\approx 1.39\times 10^{12}\,\text{m/s}^2.
+\end{aligned}
+\]
+
+Then
+
+\[
+\begin{aligned}
+\frac{\lambda_0 - \lambda}{\lambda_0}
+&\approx \frac{g d}{c^2},\\
+&= \frac{(1.39\times 10^{12})(25)}{(2.998\times 10^8)^2},\\
+&\approx 3.87\times 10^{-4},\\
+&\approx 0.039\%.
+\end{aligned}
+\]
+
+So we've shown that the blue shift is much larger and measurable compared to the Earth case.
+\newpage
+
+
+
+
+\item[Question 2] [8 points] \textbf{Lorentz transformation \& spacetime intervals.} Consider two space stations at rest with respect to each other, separated by 8 light years, and having synchronized clocks. At $t = t_0$, space station 1 begins observing (event A). One year later, space station 2 sends a light message (event B) to station 1 that they are sending a shuttle over, and the shuttle begins traveling toward A with speed $\beta = 3/5$. Let C be the event when the light message reaches station 1, and D the event when the shuttle reaches station 1.
+\begin{enumerate}
+  \item Draw an accurate spacetime diagram of the space stations, the light signal, and the shuttle path.
+  \item Consider all possible intervals between the events: A at $t_0$, B sends message \& shuttle leaves, C message arrives, D shuttle arrives. Which are spacelike, which timelike, and which null?
+  \item How much proper time elapsed on the shuttle between B and D?
+  \item How fast would an IRF have to be moving to measure B sending a message one year before $t_0$?
+  \item In this IRF, with what speed is the shuttle approaching Station 1?
+\end{enumerate}
+
+
+\item[(a)] We are in the rest frame \(S\) of the two space stations, where Station 1 is at \(x=0\) and Station 2 at \(x=8\). Let event \(A\) be at the origin \((t,x)=(0,0)\):
+\begin{center}
+  \includegraphics[width=0.85\linewidth]{\detokenize{Screenshot 2025-09-14 at 10.22.13 PM.png}}
+\end{center}
+  
+The light from \(B\) to \(x=0\) needs 8 years, so \(C=(t,x)=(9,0)\). The shuttle needs \(8/(3/5)=40/3\) years from \(B\), so \(D=(t,x)=\left(\frac{43}{3},0\right)\).  
+  Therefore
+  \[
+  A=(0,0),\quad B=(1,8),\quad C=(9,0),\quad D=\Bigl(\tfrac{43}{3},0\Bigr)
+  \]
+  
+\item[(b)] we can directly compute the invariant \(\Delta s^2=\Delta x^2-\Delta t^2\), so
+\[
+\begin{aligned}
+&\Delta s^2(A,B)=8^2-1^2=63>0,\quad
+\Delta s^2(B,C)=(-8)^2-8^2=0\\
+&\Delta s^2(A,C)=0^2-9^2=-81,\quad
+\Delta s^2(C,D)=0^2-\left(\tfrac{16}{3}\right)^2=-\tfrac{256}{9}\\
+&\Delta s^2(B,D)=(-8)^2-\left(\tfrac{40}{3}\right)^2=-\tfrac{1024}{9},\quad
+\Delta s^2(A,D)=0^2-\left(\tfrac{43}{3}\right)^2=-\tfrac{1849}{9}
+\end{aligned}
+\]
+Therefore, we have spacelike \{AB\}, null \{BC\}, timelike \{AC,AD,BD,CD\}.
+
+
+\item[(c)] Proper time on the shuttle between \(B\) and \(D\)
+The shuttle’s speed is \(v=3/5\), so \(\gamma=1/\sqrt{1-v^2}=1/\sqrt{1-9/25}=5/4\). The coordinate time in \(S\) between \(B\) and \(D\) is \(\Delta t=40/3\). Hence the shuttle’s proper time is
+\[
+\begin{aligned}
+\Delta\tau_{BD}
+&=\frac{\Delta t}{\gamma}
+= \frac{\frac{40}{3}}{5/4}
+= \frac{40}{3}\cdot\frac{4}{5}
+= \frac{32}{3}\ \text{years}\;\approx 10.67\ \text{y}
+\end{aligned}
+\]
+
+\item[(d)] For the IRF that makes \(B\) occur one year before \(t_0\), let \(S'\) move at speed \(u\) in the \(+x\) direction relative to \(S\). We choose origins so that \(A\) is at \(t'=0,\ x'=0\). By L.T., we have \(t'=\gamma\,(t-ux)\) with \(\gamma=1/\sqrt{1-u^2}\). For \(t'_B=-1\), and \(B=(t,x)=(1,8)\), we have
+\[
+\begin{aligned}
+t'_B=-1
+&=\gamma\,(1-8u)\\
+1-8u&=-\frac{1}{\gamma}=-\sqrt{1-u^2}\\
+(1-8u)^2&=1-u^2\\
+65u^2-16u&=0\\
+u=0\ &\text{or}\ u=\frac{16}{65}
+\end{aligned}
+\]
+Here \(u=0\) is the trivial solution. Thus the required speed is
+\[
+u=\frac{16}{65}\,c\ \approx 0.246\,c,
+\quad\text{and}\quad
+\gamma=\frac{1}{\sqrt{1-u^2}}=\frac{65}{63}
+\]
+
+\item[(e)] Use the 1D velocity addition formula \(v'=\dfrac{v-u}{1-uv}\) with \(v=-3/5\) (toward \(-x\)) and \(u=16/65\):
+\[
+\begin{aligned}
+v'
+&=\frac{-\frac{3}{5}-\frac{16}{65}}{1-\left(\frac{16}{65}\right)\left(-\frac{3}{5}\right)}
+=\frac{-\frac{55}{65}}{1+\frac{48}{325}}
+=\frac{-\frac{11}{13}}{\frac{373}{325}}
+=-\,\frac{275}{373}\,c
+\;\approx\; -0.737\,c
+\end{aligned}
+\]
+
+
+\newpage
+
+  \item[Question 3] \textbf{Four-vectors.} Book problem P3.5. An electron and a positron (anti-electron), each with mass $m$, approach each other along the lab frame's $x$ axis with equal speeds $v$. They collide and annihilate to form two photons with equal energies $E$ that move in opposite directions along the $x$ axis.
+  \begin{enumerate}
+    \item[(a)]
+    Show that four-momentum is conserved in the lab frame as long as $E=m / \sqrt{1-v^2}$.
+    \item[(b)]
+    Use the Einstein velocity transformation to find the positron's speed in the electron's frame in terms of $v$, and use the Lorentz transformation to find the photon energies in that frame in terms of $m$ and $v$. Then show that four-momentum is conserved in the electron's frame if it is conserved in the lab frame. [Hint: Remember that $1-v^2=(1+v)(1-v)$.]
+  \end{enumerate}
+  
+  \item[(a)] In the lab frame $S$, the electron moves in $+x$ with speed $v$ and the positron in $-x$ with speed $v$. The 4-momentum thus are
+  \[
+  p_{e^-}=(\gamma m,\;\gamma m v),\qquad
+  p_{e^+}=(\gamma m,\;-\gamma m v)
+  \]
+  so the total initial four-momentum added together is:
+  \[
+  P_{\text{in}}=(2\gamma m,0)
+  \]
+  After annihilation, the two photons (each with energy $E$) move along $\pm x$, so similarly:
+  \[
+  P_{\text{out}}=(2E,0)
+  \]
+  Four-momentum conservation requires $P_{\text{in}}=P_{\text{out}}$, so:
+  \[
+  2\gamma m = 2E \quad\Longrightarrow\quad
+  E=\gamma m=\frac{m}{\sqrt{1-v^2}}
+  \]
+  
+  \item[(b)] In the electron’s rest frame $S'$ ($+v$ relative to $S$):
+  
+Positron speed by velocity addition is 
+  \[
+  \begin{aligned}
+  u'&=\frac{u-v}{1-uv}\ \ \text{with}\ \ u=-v,\\
+  u'&=\frac{-v-v}{1-(-v)v}=\frac{-2v}{1+v^2},\qquad
+  |u'|=\frac{2v}{1+v^2}.
+  \end{aligned}
+  \]
+  
+Photon energies by $+v$, the Lorentz transform gives
+  \[
+  E'=\gamma(E-vp_x).
+  \]
+  Thus for the photons
+  \[
+  \begin{aligned}
+  E_+' &= \gamma\big(E-v(+E)\big)=\gamma E(1-v),\\
+  E_-' &= \gamma\big(E-v(-E)\big)=\gamma E(1+v).
+  \end{aligned}
+  \]
+  Since $E=\gamma m$ in $S$, we obtain
+  \[
+  E_+'=\frac{m}{1+v},\qquad
+  E_-'
+  =\frac{m}{1-v}.
+  \]
+  
+  Next, we check conservation. Total photon 4-momentum in $S'$:
+  \[
+  \begin{aligned}
+  E_+'+E_-'
+  &=\frac{m}{1+v}+\frac{m}{1-v}
+  =\frac{2m}{1-v^2}
+  =2\gamma^2 m,\\[4pt]
+  p_+'+p_-'
+  &=E_+'-E_-'
+  =\frac{m}{1+v}-\frac{m}{1-v}
+  =-\,\frac{2mv}{1-v^2}
+  =-\,2\gamma^2 m v.
+  \end{aligned}
+  \]
+  Initial energy-momentum in $S'$:
+  \[
+  \begin{aligned}
+  E'_{\!e^+}
+  &=\gamma(\gamma m - v(-\gamma m v))
+  =\gamma^2 m(1+v^2),\\
+  p'_{\!e^+}
+  &=\gamma(-\gamma m v - v\,\gamma m)
+  =-\,2\gamma^2 m v,\\
+  E'_{\text{in}}
+  &=m+E'_{\!e^+}
+  =m+\gamma^2 m(1+v^2)
+  =\frac{2m}{1-v^2}
+  =2\gamma^2 m,\\
+  p'_{\text{in}}
+  &=0+p'_{\!e^+}
+  =-\,2\gamma^2 m v.
+  \end{aligned}
+  \]
+  Hence $E'_{\text{in}}=E_+'+E_-'$ and $p'_{\text{in}}=p_+'+p_-'$, so four-momentum is conserved in the electron frame when it is conserved in the lab.
+  
+
+
+
+  \newpage
+
+  \item[Question 4] \textbf{Index notation.} Problems P4.1 \& P4.2.
+  \begin{enumerate}
+    \item[P4.1]
+    Show that $\left(\Lambda^{-1}\right)^\alpha{ }_\mu \eta_{\alpha \nu}=\eta_{\mu \beta} \Lambda^\beta{ }_\nu$.
+    \item[P4.2]
+    Prove (equation 4.19) $\eta_{\alpha \beta}=\eta_{\mu \nu}\left(\Lambda^{-1}\right)_\alpha^\mu\left(\Lambda^{-1}\right)_\beta^\nu$.
+  \end{enumerate}
+  
+  \item[(P4.1)] We start from interval invariance for all $dx$:  
+  \[
+  \begin{aligned}
+  \eta_{\alpha\beta}\,\Lambda^{\alpha}{}_{\mu}\Lambda^{\beta}{}_{\nu} &= \eta_{\mu\nu}
+  \end{aligned}
+  \]
+  
+  Now we left-multiply by $(\Lambda^{-1})^{\gamma}{}_{\mu}$ and contract on $\mu$:  
+  \[
+  \begin{aligned}
+  (\Lambda^{-1})^{\gamma}{}_{\mu}\,\eta_{\alpha\beta}\,\Lambda^{\alpha}{}_{\mu}\Lambda^{\beta}{}_{\nu}
+  &=(\Lambda^{-1})^{\gamma}{}_{\mu}\,\eta_{\mu\nu} \\[4pt]
+  \eta_{\alpha\beta}\,(\Lambda^{-1})^{\gamma}{}_{\mu}\Lambda^{\alpha}{}_{\mu}\,\Lambda^{\beta}{}_{\nu}
+  &=(\Lambda^{-1})^{\gamma}{}_{\mu}\,\eta_{\mu\nu} \\[4pt]
+  \eta_{\alpha\beta}\,\delta^{\gamma}{}_{\alpha}\,\Lambda^{\beta}{}_{\nu}
+  &=(\Lambda^{-1})^{\gamma}{}_{\mu}\,\eta_{\mu\nu} \\[4pt]
+  \eta_{\gamma\beta}\,\Lambda^{\beta}{}_{\nu}
+  &=(\Lambda^{-1})^{\gamma}{}_{\mu}\,\eta_{\mu\nu}
+  \end{aligned}
+  \]
+  
+  Finally we rename the free index $\gamma\to\mu$ to obtain
+  \[
+  \begin{aligned}
+  (\Lambda^{-1})^{\alpha}{}_{\mu}\,\eta_{\alpha\nu}
+  &=\eta_{\mu\beta}\,\Lambda^{\beta}{}_{\nu}.
+  \end{aligned}
+  \]
+  
+  \item[(P4.2)] We again start from
+  \[
+  \begin{aligned}
+  \eta_{\alpha\beta}\,\Lambda^{\alpha}{}_{\mu}\Lambda^{\beta}{}_{\nu} &= \eta_{\mu\nu}
+  \end{aligned}
+  \]
+  
+  Now we multiply by $(\Lambda^{-1})^{\mu}{}_{\rho}(\Lambda^{-1})^{\nu}{}_{\sigma}$ and contract on $\mu,\nu$:  
+  \[
+  \begin{aligned}
+  (\Lambda^{-1})^{\mu}{}_{\rho}(\Lambda^{-1})^{\nu}{}_{\sigma}\,\eta_{\alpha\beta}\,\Lambda^{\alpha}{}_{\mu}\Lambda^{\beta}{}_{\nu}
+  &=(\Lambda^{-1})^{\mu}{}_{\rho}(\Lambda^{-1})^{\nu}{}_{\sigma}\,\eta_{\mu\nu}\\[4pt]
+  \eta_{\alpha\beta}\,(\Lambda^{-1})^{\mu}{}_{\rho}\Lambda^{\alpha}{}_{\mu}\,
+  (\Lambda^{-1})^{\nu}{}_{\sigma}\Lambda^{\beta}{}_{\nu}
+  &=\eta_{\mu\nu}\,(\Lambda^{-1})^{\mu}{}_{\rho}\,(\Lambda^{-1})^{\nu}{}_{\sigma}\\[4pt]
+  \eta_{\alpha\beta}\,\delta^{\alpha}{}_{\rho}\,\delta^{\beta}{}_{\sigma}
+  &=\eta_{\mu\nu}\,(\Lambda^{-1})^{\mu}{}_{\rho}\,(\Lambda^{-1})^{\nu}{}_{\sigma}\\[4pt]
+  \eta_{\rho\sigma}
+  &=\eta_{\mu\nu}\,(\Lambda^{-1})^{\mu}{}_{\rho}\,(\Lambda^{-1})^{\nu}{}_{\sigma}
+  \end{aligned}
+  \]
+  
+  Finally we rename $\rho\to\alpha,\ \sigma\to\beta$ to match the statement:
+  \[
+  \begin{aligned}
+  \eta_{\alpha\beta}
+  &=\eta_{\mu\nu}\,(\Lambda^{-1})_{\alpha}{}^{\mu}\,(\Lambda^{-1})_{\beta}{}^{\nu}
+  \end{aligned}
+  \]
+  
+  
+
+
+
+  \newpage
+
+
+
+  \item[Question 5] \textbf{Index manipulation.} Use the Lorentz transformation of $F_{\mu\nu}$ to show that the scalar quantity
+  \[
+    \eta_{\mu\alpha}\eta_{\nu\beta}F'^{\mu\nu}F'^{\alpha\beta} = \eta_{\mu\alpha}\eta_{\nu\beta}F^{\mu\nu}F^{\alpha\beta}.
+  \]
+  (You may find the identity $(\Lambda^{-1})^{\alpha}{}_{\mu}\,\eta_{\alpha\nu}=\eta_{\mu\beta}\,\Lambda^{\beta}{}_{\nu}$ useful.) What is this frame-independent quantity in terms of $\vec E$ and $\vec B$?
+
+  
+  \item[(Solution)] We are given the two–index transformation rule (i changed the indices to avoid confusion):
+  \[
+  F'^{\mu\nu}=\Lambda^{\mu}{}_{\rho}\,\Lambda^{\nu}{}_{\sigma}\,F^{\rho\sigma}
+  \]
+  Insert this into $S'=\eta_{\mu\alpha}\eta_{\nu\beta}F'^{\mu\nu}F'^{\alpha\beta}$ and group the blocks:
+  \[
+  \begin{aligned}
+  S'
+  &=\eta_{\mu\alpha}\eta_{\nu\beta}
+  \bigl(\Lambda^{\mu}{}_{\rho}\Lambda^{\nu}{}_{\sigma}F^{\rho\sigma}\bigr)
+  \bigl(\Lambda^{\alpha}{}_{\lambda}\Lambda^{\beta}{}_{\kappa}F^{\lambda\kappa}\bigr)\\
+  &=\bigl(\eta_{\mu\alpha}\Lambda^{\mu}{}_{\rho}\Lambda^{\alpha}{}_{\lambda}\bigr)
+    \bigl(\eta_{\nu\beta}\Lambda^{\nu}{}_{\sigma}\Lambda^{\beta}{}_{\kappa}\bigr)
+    F^{\rho\sigma}F^{\lambda\kappa}
+  \end{aligned}
+  \]
+  
+  We use the identity:
+  \[
+  (\Lambda^{-1})^{\gamma}{}_{\mu}\,\eta_{\gamma\nu}=\eta_{\mu\beta}\,\Lambda^{\beta}{}_{\nu}.
+  \]
+  Then, multiplying this by $\Lambda^{\mu}{}_{\rho}$ and contracting on $\mu$ yields
+  \[
+  \begin{aligned}
+  \Lambda^{\mu}{}_{\rho}(\Lambda^{-1})^{\gamma}{}_{\mu}\,\eta_{\gamma\lambda}
+  &=\Lambda^{\mu}{}_{\rho}\eta_{\mu\beta}\Lambda^{\beta}{}_{\lambda}\\
+  \delta^{\gamma}{}_{\rho}\,\eta_{\gamma\lambda}
+  &=\Lambda^{\mu}{}_{\rho}\eta_{\mu\beta}\Lambda^{\beta}{}_{\lambda}\\
+  \eta_{\rho\lambda}
+  &=\Lambda^{\mu}{}_{\rho}\eta_{\mu\beta}\Lambda^{\beta}{}_{\lambda}
+  \end{aligned}
+  \]
+  Relabeling dummy indices gives the two contractions:
+  \[
+  \eta_{\mu\alpha}\Lambda^{\mu}{}_{\rho}\Lambda^{\alpha}{}_{\lambda}=\eta_{\rho\lambda},
+  \qquad
+  \eta_{\nu\beta}\Lambda^{\nu}{}_{\sigma}\Lambda^{\beta}{}_{\kappa}=\eta_{\sigma\kappa}.
+  \]
+  Therefore
+  \[
+  \begin{aligned}
+  S'
+  &=\eta_{\rho\lambda}\,\eta_{\sigma\kappa}\,F^{\rho\sigma}F^{\lambda\kappa}
+  =\eta_{\mu\alpha}\eta_{\nu\beta}F^{\mu\nu}F^{\alpha\beta}
+  \equiv S,
+  \end{aligned}
+  \]
+  so the scalar is Lorentz invariant.
+  
+  Finally we rewrite $S=\eta_{\mu\alpha}\eta_{\nu\beta}F^{\mu\nu}F^{\alpha\beta}$ as $S=F^{\mu\nu}F_{\mu\nu}$ and express it in terms of $\vec E$ and $\vec B$. 
+  With signature $(-,+,+,+)$ we use 
+  $F^{0i}=E^i$, $F^{ij}=-\epsilon^{ijk}B^k$, and lower indices with the metric. Then we expand the full and evaluate each piece:
+  \[
+  \begin{aligned}
+  F^{\mu\nu}F_{\mu\nu}
+  &=\sum_{\mu,\nu=0}^{3} F^{\mu\nu}F_{\mu\nu}
+  = \Big( F^{00}F_{00} + F^{0i}F_{0i} + F^{i0}F_{i0} + F^{ij}F_{ij} \Big) \\[2pt]
+  &= 2\sum_{i=1}^{3} F^{0i}F_{0i} \;+\; 2\sum_{1\le i<j\le 3} F^{ij}F_{ij}
+  \quad\\[4pt]
+  &= 2\sum_i E^i(-E^i) \;+\; 2\sum_{i<j} \bigl(-\epsilon^{ijk}B^k\bigr)\bigl(-\epsilon_{ij\ell}B^\ell\bigr) \\[2pt]
+  &= -\,2\,\vec E^{\,2} \;+\; 2\sum_{i<j}\epsilon^{ijk}\epsilon_{ij\ell}\,B^k B^\ell
+  \end{aligned}
+  \]
+  we use the standard identity 
+  $\epsilon^{ijk}\epsilon_{ij\ell}=2\,\delta^{k}{}_{\ell}$ when the sum runs over all $i,j$. Since our sum is over $i<j$, we pick up exactly half of that, therefore
+  \[
+  \begin{aligned}
+  F^{\mu\nu}F_{\mu\nu}
+  &= -\,2\,\vec E^{\,2} \;+\; 2\,\delta^{k}{}_{\ell}\,B^k B^\ell
+  = 2\bigl(\vec B^{\,2}-\vec E^{\,2}\bigr).
+  \end{aligned}
+  \]
+
+  
+  Hence the frame–independent quantity is
+  \[
+  \boxed{\;
+  \eta_{\mu\alpha}\eta_{\nu\beta}F'^{\mu\nu}F'^{\alpha\beta}
+  =\eta_{\mu\alpha}\eta_{\nu\beta}F^{\mu\nu}F^{\alpha\beta}
+  =F^{\mu\nu}F_{\mu\nu}
+  =2\bigl(\vec B^{\,2}-\vec E^{\,2}\bigr)\; }
+  \]
+  
+
+
+\end{enumerate}
+\null
+\newpage
+\null
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
