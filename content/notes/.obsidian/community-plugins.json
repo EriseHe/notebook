@@ -15,7 +15,6 @@
   "obsidian-pandoc",
   "obsidian-latex-suite",
   "obsidian-enhancing-export",
-  "obsidian-languagetool-plugin",
   "quick-latex",
   "image-converter",
   "folder-notes",
@@ -37,5 +36,6 @@
   "inline-math",
   "transfer-latex-from-gpt",
   "quick-preview",
-  "math-booster"
+  "math-booster",
+  "convert-katex-to-mathjax"
 ]
