@@ -417,6 +417,11 @@ Characterizations
 Circles
 CoV
 CNFs
+CORE
+Clarity
+Checks
+Connections
+Cases
 font
 for
 functions
@@ -836,6 +841,9 @@ flags
 fallback
 flowing
 fluid
+freeze
+fragmented
+fluff
 color
 curve
 can
@@ -1812,6 +1820,9 @@ compatible
 colatitude
 cloud
 continuously
+connective
+callouts
+conservatively
 Problem
 Partial
 Putting
@@ -2161,6 +2172,12 @@ Planes
 Pythagorean
 Plane
 Photons
+Pathologies
+PRINCIPLES
+Pedagogical
+Produce
+Preserve
+PDFs
 In
 Implicit
 Invertibility
@@ -2961,6 +2978,9 @@ tagent
 tetrad
 tilt
 torch
+tau
+teaches
+tissue
 system
 solvability
 such
@@ -3895,6 +3915,10 @@ sigma
 shoot
 sweeps
 specifying
+scans
+students
+seminar
+substance
 discuss
 determine
 described
@@ -4504,6 +4528,8 @@ differentiating
 dimentaionl
 divergences
 destroyed
+displaystyle
+didactic
 in
 inverse
 implicit
@@ -5163,6 +5189,8 @@ ingoing
 isometric
 integrands
 incompressible
+invent
+illegible
 of
 our
 out
@@ -5520,6 +5548,7 @@ obs
 outflows
 odeint
 odefunc
+originals
 near
 neighborhood
 necessary
@@ -5833,6 +5862,8 @@ nOm
 nearby
 null
 north
+naming
+numbering
 Does
 Determine
 Differentiability
@@ -6107,6 +6138,7 @@ Diskiness
 Distortion
 Direction
 Defines
+Disconnected
 map
 matrix
 mapping
@@ -6655,6 +6687,8 @@ mathbf
 merger
 mathrm
 meridian
+membrane
+motivate
 have
 holds
 has
@@ -6935,6 +6969,7 @@ hurt
 hat
 header
 halo
+hallucinated
 local
 limit
 lim
@@ -7691,6 +7726,10 @@ Students
 Spacetime
 Static
 Solver
+Szekeres
+STRUCTURE
+STYLE
+Skipping
 equations
 equation
 exists
@@ -8297,6 +8336,7 @@ emit
 equator
 endomorphism
 exits
+elegance
 whether
 written
 which
@@ -8586,6 +8626,7 @@ wCi
 workhorse
 warped
 wrapper
+warm
 by
 be
 bijective
@@ -9675,6 +9716,8 @@ asymptotics
 accumulate
 accumulator
 accumulated
+attributions
+adjacent
 you
 yields
 yF
@@ -10037,6 +10080,7 @@ NlF
 Null
 NFs
 Net
+Numbered
 Recall
 Rigorous
 Respect
@@ -10319,6 +10363,7 @@ Relative
 Round
 Recognize
 Really
+REQUIREMENTS
 requirement
 respect
 rule
@@ -10947,6 +10992,7 @@ rangle
 record
 respectively
 reparametrize
+reorganize
 partials
 partial
 point
@@ -11712,6 +11758,9 @@ photons
 pole
 pushes
 pulls
+pathology
+puzzle
+parse
 Ex
 Evaluate
 Evaluating
@@ -12016,6 +12065,7 @@ Ensures
 Encourages
 Easy
 Edge
+Eddington
 We
 What
 With
@@ -12501,6 +12551,9 @@ Thin
 Tutorial
 Trajectory
 Trace
+TEACHING
+Transparency
+Terminology
 Hence
 Here
 Hypotheses
@@ -13226,6 +13279,11 @@ Frames
 Fate
 Fermi
 Flux
+Finkelstein
+Feynman
+Faithfulness
+FOLLOW
+FAILURE
 Jacobian
 Jobcobian
 John
@@ -13692,6 +13750,7 @@ AoS
 APIs
 Ambient
 Across
+AVOID
 via
 variables
 view
@@ -13934,6 +13993,7 @@ vxMAe
 vdO
 vDa
 varepsilon
+verbosity
 unknowns
 unique
 uniquely
@@ -14506,6 +14566,8 @@ galaxy
 gtrsim
 gotchas
 gymnastics
+girder
+graduate
 Moreover
 Matrix
 Maximum
@@ -14839,6 +14901,8 @@ Modular
 Measured
 Minimizers
 Matters
+Motion
+MODES
 Using
 Up
 Ut
@@ -14999,6 +15063,7 @@ Uqk
 Ugd
 UBz
 Umq
+Undefined
 quotient
 question
 quickly
@@ -15174,6 +15239,7 @@ qlt
 qxj
 quenched
 qquad
+quirks
 zero
 zoom
 zG
@@ -15733,6 +15799,7 @@ VvO
 Verlet
 VerletIntegrator
 View
+Voice
 Yes
 You
 YX
@@ -16265,6 +16332,8 @@ Ogw
 ONy
 OaRNy
 Objective
+Orientability
+OUTPUT
 Given
 Get
 Guessing
@@ -17130,6 +17199,7 @@ KZ
 Kantorovich
 Kinematic
 Known
+Kruskal
 ZH
 ZCjHR
 ZY
