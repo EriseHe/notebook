@@ -3921,6 +3921,7 @@ scans
 students
 seminar
 substance
+spacelike
 discuss
 determine
 described
@@ -12068,6 +12069,7 @@ Encourages
 Easy
 Edge
 Eddington
+Event
 We
 What
 With
@@ -13286,6 +13288,7 @@ Feynman
 Faithfulness
 FOLLOW
 FAILURE
+Formulae
 Jacobian
 Jobcobian
 John
