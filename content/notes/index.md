@@ -35,7 +35,7 @@ OUTPUT REQUIREMENTS
   \end{aligned}
 
 - Preserve original notation consistently. Define symbols when they first appear.
-- Use callouts for key items:
+- Use callouts for key items, and you ALWAYS write in English for these special key item callouts:
   > [!definition|3.1] first fundamental form
   > [!theorem|3.2] name of the theorem …
   > [!lemma|3.3] name of the lemma …
