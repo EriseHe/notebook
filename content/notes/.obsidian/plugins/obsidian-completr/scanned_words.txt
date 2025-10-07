@@ -422,6 +422,7 @@ Clarity
 Checks
 Connections
 Cases
+Compilation
 font
 for
 functions
@@ -2178,6 +2179,7 @@ Pedagogical
 Produce
 Preserve
 PDFs
+Prompt
 In
 Implicit
 Invertibility
