@@ -845,6 +845,7 @@ fluid
 freeze
 fragmented
 fluff
+freezes
 color
 curve
 can
@@ -3922,6 +3923,7 @@ students
 seminar
 substance
 spacelike
+suppresses
 discuss
 determine
 described
@@ -5194,6 +5196,8 @@ integrands
 incompressible
 invent
 illegible
+infalling
+inevitably
 of
 our
 out
@@ -5867,6 +5871,7 @@ null
 north
 naming
 numbering
+none
 Does
 Determine
 Differentiability
@@ -6142,6 +6147,7 @@ Distortion
 Direction
 Defines
 Disconnected
+Diagnostic
 map
 matrix
 mapping
@@ -7322,6 +7328,7 @@ langle
 leaves
 leaving
 logp
+lightlike
 Show
 Sufficient
 Substitute
@@ -8630,6 +8637,8 @@ workhorse
 warped
 wrapper
 warm
+worldline
+worldlines
 by
 be
 bijective
@@ -8998,6 +9007,7 @@ barred
 blueshift
 bending
 bilinearity
+breakdown
 allow
 and
 as
@@ -10996,6 +11006,7 @@ record
 respectively
 reparametrize
 reorganize
+rip
 partials
 partial
 point
@@ -13289,6 +13300,7 @@ Faithfulness
 FOLLOW
 FAILURE
 Formulae
+Freezing
 Jacobian
 Jobcobian
 John
@@ -14292,6 +14304,7 @@ uqq
 underuse
 underbrace
 uniqueness
+unrealizable
 guarantees
 gives
 give
@@ -16339,6 +16352,7 @@ OaRNy
 Objective
 Orientability
 OUTPUT
+Observer
 Given
 Get
 Guessing
@@ -16585,6 +16599,7 @@ Grp
 GfMV
 Generator
 Great
+Girder
 xF
 xxii
 xmp
