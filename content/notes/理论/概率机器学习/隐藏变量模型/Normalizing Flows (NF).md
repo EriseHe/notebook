@@ -25,8 +25,6 @@ For 1D case, the determinant vanishes:
   $$
   p_X(x;\theta) = p_Z(f_\theta^{-1}(x)) \cdot \Big|\frac{d}{dx} f_\theta^{-1}(x)\Big|
   $$
-
- 
  ## 1.2 Comparing Base vs. Transformed Distributions
 
 We start with a simple base distribution:
@@ -37,7 +35,6 @@ By the Change of Variables Theorem:
 $$
 p_X(x) = p_Z(f^{-1}(x)) \cdot \left|\frac{d}{dx} f^{-1}(x)\right|
 $$
-
 we now plot **both distributions** to see how the transformation shifts and stretches the density.
 
 ### 1.2.1 Change of Variables: Intuition
@@ -119,17 +116,13 @@ The $\det J_f(x)$ is the **local volume scaling factor**:
 
 ## 3.2 Effect on Probability Densities
 
-- **Expansion ($\det J_f > 1$)**  
-  - Space is stretched.  
-  - Density becomes *smaller* (probability mass spread out).  
-
-- **Compression ($0 < \det J_f < 1$)**  
-  - Space is squeezed.  
-  - Density becomes *larger* (probability mass concentrated).  
-
-- **Collapse ($\det J_f = 0$)**  
-  - Space collapses onto a lower dimension.  
-  - No valid density can be defined in the same space.
+$$
+\begin{align}
+|\det J_f| > 1: \;\quad\text{expansion} →\qquad\; \text{stretch space} & → \text{density thins out}  \\
+0 < |\det J_f| < 1: \;\text{compression} →\qquad \text{squeeze space}  & → \text{density thickens} \\ 
+|\det J_f| = 0: \;\qquad\text{collapse} → \text{a lower dimension}  & → \text{no density defined}
+\end{align}
+$$
 
 ## 3.3 Example
 1. $z \sim {N}(0,1)$.  
@@ -141,19 +134,15 @@ The $\det J_f(x)$ is the **local volume scaling factor**:
    - $\det J_f = 0.5$.  
    - Distribution is narrower and taller (more concentrated).
 
-**Rule of Thumb**  
-- $|\det J_f| > 1$: expansion → density thins out.  
-- $0 < |\det J_f| < 1$: compression → density thickens.  
-- $|\det J_f| = 0$: collapse → not invertible, no density.
-
 # 4 Normalizing Flows
 
-- **Definition:** A Normalizing Flow is a sequence of $K$ invertible transformations:  $$\begin{align}
-  f = f_K \circ f_{K-1} \circ \cdots \circ f_2 \circ f_1
+**Definition:** A Normalizing Flow is a sequence of $K$ invertible transformations: 
+$$
+\begin{align}
+f = f_K \circ f_{K-1} \circ \cdots \circ f_2 \circ f_1
 \end{align}
-  $$
-  and the jacobian reads:
-
+$$
+and the jacobian reads:
 $$
 \begin{align}
 J_{f}(z) & =J_{f_{k}}(z_{k-1})J_{f_{k-1}}(z_{k-2})\dots J_{1}(z_{0}) \\ \\
@@ -211,7 +200,7 @@ so
 $$
 \begin{align}
 \det J_{f} & =\det I\det(\operatorname{diag}\exp(s(x_{1}))) \\
- &  = \det(diag \exp(s(x_{1}))\\ 
+ &  = \det(\operatorname{diag} \exp(s(x_{1}))\\ 
  &  = \Pi^{w_{2}}_{i=1} \exp(s(x_{1})|_{i})
 \end{align}
 
@@ -409,8 +398,6 @@ $$
 = -\operatorname{Tr}\!\left(\frac{\partial f_\theta}{\partial z_t}\right).
 $$
 
----
-
 ✅ **Final Result**
 
 $$
@@ -422,8 +409,6 @@ $$
 
 This equation tells us that the **log-density** decreases in proportion to how much the local flow **expands** (positive divergence) or **contracts** (negative divergence) the space.
 
----
-
 ### 6.7.1 💬 Interpretation
 
 - If $\nabla_z \cdot f_\theta > 0$: trajectories diverge → space expands → density decreases.  
@@ -432,14 +417,12 @@ This equation tells us that the **log-density** decreases in proportion to how m
 
 This is the continuous-time form of the **change of variables** formula used in **normalizing flows** and **probability flow ODEs** in diffusion models.
 
-
 ## 6.8 Setup
 - The latent variable evolves continuously by an ODE:
   $$
   \frac{dz}{dt} = f(z_t, t).
   $$
 - Here, $f$ is a **vector field**: it tells us how each point $z_t$ moves in space as time increases.
-
 
 ## 6.9 Jacobian of the Vector Field
 - The matrix
@@ -456,6 +439,7 @@ This is the continuous-time form of the **change of variables** formula used in 
   $$
   \mathrm{div}\,f(z_t) = \sum_{i=1}^d \frac{\partial f_i}{\partial z_i}.
   $$
+
 ## 6.10 Why the Trace Matters
 - In **discrete flows**, we use the Jacobian determinant to measure how much a transformation stretches or compresses volume.
 - In **continuous flows**, we look at the *instantaneous rate* of change of volume.
@@ -476,8 +460,6 @@ This is the continuous-time form of the **change of variables** formula used in 
     - Flow is volume-preserving.
     - Density stays constant.
 
----
-
 ## 6.12 Example in 1D
 Let
 $$
@@ -495,8 +477,6 @@ $$
 - If $a < 0$: the system contracts, so density grows.  
 - If $a = 0$: density is unchanged.
 
----
-
 ## 6.13 Summary
 - The formula
   $$
@@ -506,9 +486,8 @@ $$
 - Discrete flows: multiply Jacobian determinants across layers.  
 - Continuous flows: integrate the divergence of $f$ over time.  
 - This guarantees that **probability mass is preserved** as the distribution evolves.
-# 7 🧠 Continuous Normalizing Flows — What’s Really Implemented
 
----
+# 7 🧠 Continuous Normalizing Flows — What’s Really Implemented
 
 ## 7.1 The Core ODE System
 
@@ -536,8 +515,6 @@ while during sampling we start from the base and integrate **forward**.
 
 Continuous Normalizing Flows (CNFs) rely on a numerical **ODE solver** (e.g., `torchdiffeq.odeint`)  
 to integrate both the **state** $z_t$ and the **log-density** $\log p(z_t)$ over time.
-
----
 
 ### 7.3.1 🔹 Inputs to the ODE Solver
 
