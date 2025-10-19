@@ -428,6 +428,10 @@ Contrast
 Covectors
 Conventional
 Curved
+Compare
+Curvilinear
+Clock
+Clocks
 font
 for
 functions
@@ -854,6 +858,7 @@ freezes
 factoring
 formalizes
 formed
+futures
 color
 curve
 can
@@ -1838,6 +1843,14 @@ collects
 clash
 compress
 chapters
+comment
+cast
+completing
+catalog
+const
+climb
+crosses
+communicate
 Problem
 Partial
 Putting
@@ -2195,6 +2208,7 @@ Preserve
 PDFs
 Prompt
 Proofs
+Peak
 In
 Implicit
 Invertibility
@@ -3009,6 +3023,8 @@ tissue
 thumb
 tie
 tensoriality
+transverse
+trouble
 system
 solvability
 such
@@ -3958,6 +3974,11 @@ symmetrically
 switching
 spoils
 spacetimes
+spheres
+spiraling
+substitutions
+spaceship
+swap
 discuss
 determine
 described
@@ -4576,6 +4597,8 @@ distributing
 diag
 dots
 dictates
+discrepancy
+denominator
 in
 inverse
 implicit
@@ -5240,6 +5263,10 @@ illegible
 infalling
 inevitably
 illegal
+infall
+ill
+irrespective
+infaller
 of
 our
 out
@@ -5601,6 +5628,8 @@ originals
 oppositely
 operatorname
 obey
+observers
+orthonormality
 near
 neighborhood
 necessary
@@ -6198,6 +6227,7 @@ Diagnostic
 Doubt
 Describing
 Develop
+Diagnose
 map
 matrix
 mapping
@@ -6753,6 +6783,9 @@ mismatched
 manipulating
 mapsto
 magnitudes
+massless
+mathcal
+microscope
 have
 holds
 has
@@ -7034,6 +7067,9 @@ hat
 header
 halo
 hallucinated
+hspace
+heights
+handling
 local
 limit
 lim
@@ -7387,6 +7423,9 @@ lightlike
 legality
 lowered
 longitude
+longest
+luminosities
+lensing
 Show
 Sufficient
 Substitute
@@ -7802,6 +7841,7 @@ Summation
 Selector
 Still
 Specialization
+Signals
 equations
 equation
 exists
@@ -8415,6 +8455,10 @@ elegantly
 expresses
 equate
 equivalences
+eliminating
+equating
+elevator
+elapses
 whether
 written
 which
@@ -9079,6 +9123,8 @@ breakdown
 bmatrix
 bulky
 boldsymbol
+brace
+bracketed
 allow
 and
 as
@@ -9804,6 +9850,9 @@ attributions
 adjacent
 attach
 assert
+applicable
+approaching
+astrophysical
 you
 yields
 yF
@@ -10458,6 +10507,9 @@ Raising
 Recover
 Require
 Reverse
+Relabel
+Redshift
+Rotational
 requirement
 respect
 rule
@@ -11094,6 +11146,11 @@ renaming
 rename
 reappear
 ranks
+route
+reparameterization
+radially
+redshifted
+reminder
 partials
 partial
 point
@@ -11867,6 +11924,10 @@ placeholder
 prescribes
 parametrize
 prepares
+pathlength
+propto
+pathologies
+penetrating
 Ex
 Evaluate
 Evaluating
@@ -12176,6 +12237,8 @@ Event
 Electromagnetism
 Eqs
 EM
+Extremize
+Explanatory
 We
 What
 With
@@ -12666,6 +12729,7 @@ TEACHING
 Transparency
 Terminology
 Track
+Timelike
 Hence
 Here
 Hypotheses
@@ -13399,6 +13463,7 @@ FAILURE
 Formulae
 Freezing
 Frequently
+Fixing
 Jacobian
 Jobcobian
 John
@@ -13868,6 +13933,7 @@ Across
 AVOID
 Addition
 Analogous
+Analogy
 via
 variables
 view
@@ -14412,6 +14478,7 @@ unifies
 underlies
 unwieldy
 undefined
+underbraces
 guarantees
 gives
 give
@@ -15031,6 +15098,7 @@ Motion
 MODES
 Moore
 Magnetic
+Matches
 Using
 Up
 Ut
@@ -15192,6 +15260,7 @@ Ugd
 UBz
 Umq
 Undefined
+Underbraces
 quotient
 question
 quickly
@@ -15760,6 +15829,9 @@ Log
 Learn
 Lambda
 LHS
+Lightlike
+Light
+LOFs
 Value
 Verifying
 Verify
@@ -16238,6 +16310,7 @@ kvBs
 kick
 kills
 kappa
+kinematics
 One
 Olympo
 Oculis
@@ -16466,6 +16539,8 @@ Orientability
 OUTPUT
 Observer
 Out
+Omega
+Observed
 Given
 Get
 Guessing
@@ -16715,6 +16790,8 @@ Great
 Girder
 Greek
 Generalize
+Gamma
+GMQ
 xF
 xxii
 xmp
