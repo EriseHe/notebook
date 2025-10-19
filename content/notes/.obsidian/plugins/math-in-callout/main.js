@@ -54,13 +54,13 @@ var QuoteInfo = class extends import_state.RangeValue {
   }
   /** Remove ">"s that is misrecognized as inequality signs. */
   correctMath(math) {
-    if (!this.pattern)
-      return math;
+    if (!this.pattern) return math;
     const lines = math.split("\n");
-    return lines.map((line) => {
+    const corrected = lines.map((line) => {
       const match = line.match(this.pattern);
       return match ? line.slice(match[0].length) : line;
     }).join("\n");
+    return corrected;
   }
   getBlockquoteBorderPositions(state, from, to) {
     const positions = [];
@@ -71,8 +71,7 @@ var QuoteInfo = class extends import_state.RangeValue {
       let start = 0;
       for (let i2 = 0; i2 < this.level; i2++) {
         const index = line.text.indexOf(">", start);
-        if (index === -1)
-          continue;
+        if (index === -1) continue;
         positions.push({ pos: index + line.from, first: i2 === 0 });
         start = index + 1;
       }
@@ -118,11 +117,9 @@ function parseBlockquotes(state) {
 // src/utils.ts
 function getQuoteInfo(state, pos) {
   const field = state.field(quoteInfoField, false);
-  if (!field)
-    return null;
+  if (!field) return null;
   const { from, to, value } = field.iter(pos);
-  if (from <= pos && pos <= to)
-    return value;
+  if (from <= pos && pos <= to) return value;
   return null;
 }
 function hasOverlap(range, start, to) {
@@ -144,16 +141,14 @@ var createCalloutDecorator = (BuiltInMathWidget) => import_state2.StateField.def
   update(prev, tr) {
     const { state } = tr;
     const view = state.field(import_obsidian.editorEditorField);
-    if (view.composing)
-      return prev.map(tr.changes);
+    if (view.composing) return prev.map(tr.changes);
     const isSourceMode = !state.field(import_obsidian.editorLivePreviewField);
     const doc = state.doc;
     const ranges = view.hasFocus ? state.selection.ranges : [];
     const tree = (0, import_language2.syntaxTree)(state);
     const decorations = [];
     const makeDeco = (decorationSpec, from, to) => {
-      if (decorationSpec.block && to === doc.length)
-        decorationSpec.inclusiveEnd = false;
+      if (decorationSpec.block && to === doc.length) decorationSpec.inclusiveEnd = false;
       return import_view.Decoration.replace(decorationSpec);
     };
     let mathBegin = -1;
@@ -171,11 +166,9 @@ var createCalloutDecorator = (BuiltInMathWidget) => import_state2.StateField.def
             const mathEnd = node.to;
             let math = doc.sliceString(mathContentBegin, mathContentEnd);
             const quote = getQuoteInfo(state, mathContentBegin);
-            if (quote)
-              math = quote.correctMath(math);
+            if (quote) math = quote.correctMath(math);
             const widget = new BuiltInMathWidget(math, block);
-            if (quote)
-              widget.markAsCorrected();
+            if (quote) widget.markAsCorrected();
             widget.setPos(
               block && math.startsWith("\n") ? mathContentBegin + 1 : mathContentBegin,
               block && math.endsWith("\n") ? mathContentEnd - 1 : mathContentEnd
@@ -194,8 +187,7 @@ var createCalloutDecorator = (BuiltInMathWidget) => import_state2.StateField.def
                   let start = 0;
                   for (let i2 = 0; i2 < quote.level; i2++) {
                     const index = line.text.indexOf(">", start);
-                    if (index === -1)
-                      continue;
+                    if (index === -1) continue;
                     const pos = index + line.from;
                     if (i2 === 0) {
                       decorations.push(
@@ -253,7 +245,7 @@ var createCalloutDecorator = (BuiltInMathWidget) => import_state2.StateField.def
 var import_view2 = require("@codemirror/view");
 var import_view3 = require("@codemirror/view");
 
-// node_modules/monkey-around/mjs/index.js
+// node_modules/.pnpm/monkey-around@3.0.0/node_modules/monkey-around/dist/index.mjs
 function around(obj, factories) {
   const removers = Object.keys(factories).map((key) => around1(obj, key, factories[key]));
   return removers.length === 1 ? removers[0] : function() {
@@ -261,10 +253,12 @@ function around(obj, factories) {
   };
 }
 function around1(obj, method, createWrapper) {
-  const original = obj[method], hadOwn = obj.hasOwnProperty(method);
+  const inherited = obj[method], hadOwn = obj.hasOwnProperty(method), original = hadOwn ? inherited : function() {
+    return Object.getPrototypeOf(obj)[method].apply(this, arguments);
+  };
   let current = createWrapper(original);
-  if (original)
-    Object.setPrototypeOf(current, original);
+  if (inherited)
+    Object.setPrototypeOf(current, inherited);
   Object.setPrototypeOf(wrapper, current);
   obj[method] = wrapper;
   return remove;
@@ -283,7 +277,7 @@ function around1(obj, method, createWrapper) {
     if (current === original)
       return;
     current = original;
-    Object.setPrototypeOf(wrapper, original || Function);
+    Object.setPrototypeOf(wrapper, inherited || Function);
   }
 }
 
@@ -319,9 +313,7 @@ var patchDecoration = (plugin, onPatched) => {
 };
 function patchMathWidget(plugin, widget) {
   const proto = widget.constructor.prototype;
-  const superProto = Object.getPrototypeOf(proto);
-  const superSuperProto = Object.getPrototypeOf(superProto);
-  const isObsidianBuiltinMathWidget = Object.hasOwn(widget, "math") && Object.hasOwn(widget, "block") && Object.hasOwn(proto, "eq") && Object.hasOwn(proto, "initDOM") && Object.hasOwn(proto, "patchDOM") && Object.hasOwn(proto, "render") && !Object.hasOwn(proto, "toDOM") && !Object.hasOwn(proto, "updateDOM") && Object.hasOwn(superProto, "become") && Object.hasOwn(superProto, "updateDOM") && Object.hasOwn(superSuperProto, "addEditButton") && Object.hasOwn(superSuperProto, "hookClickHandler") && Object.hasOwn(superSuperProto, "resizeWidget") && Object.hasOwn(superSuperProto, "setOwner") && Object.hasOwn(superSuperProto, "setPos") && Object.hasOwn(superSuperProto, "toDOM") && Object.getPrototypeOf(superSuperProto) === import_view3.WidgetType.prototype;
+  const isObsidianBuiltinMathWidget = Object.hasOwn(widget, "math") && Object.hasOwn(widget, "block") && "initDOM" in proto && "render" in proto && "setPos" in proto && "hookClickHandler" in proto && "addEditButton" in proto && "resizeWidget" in proto;
   if (isObsidianBuiltinMathWidget) {
     plugin.register(around(proto, {
       /** Newly added by this plugin: Get a quote info for the position of this math widget. */
@@ -355,29 +347,23 @@ function patchMathWidget(plugin, widget) {
       eq(old) {
         return function(other) {
           if (this.block && other.block) {
-            if (this.view && !other.view)
-              other.view = this.view;
-            if (other.view && !this.view)
-              this.view = other.view;
-            if (!this.corrected)
-              this.correctIfNecessary();
-            if (!other.corrected)
-              other.correctIfNecessary();
+            if (this.view && !other.view) other.view = this.view;
+            if (other.view && !this.view) this.view = other.view;
+            if (!this.corrected) this.correctIfNecessary();
+            if (!other.corrected) other.correctIfNecessary();
           }
           return old.call(this, other);
         };
       },
       initDOM(old) {
         return function(view) {
-          if (!this.view)
-            this.view = view;
+          if (!this.view) this.view = view;
           return old.call(this, view);
         };
       },
       patchDOM(old) {
         return function(dom, view) {
-          if (!this.view)
-            this.view = view;
+          if (!this.view) this.view = view;
           return old.call(this, dom, view);
         };
       },

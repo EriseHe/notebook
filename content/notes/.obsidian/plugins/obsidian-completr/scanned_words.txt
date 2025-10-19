@@ -423,6 +423,9 @@ Checks
 Connections
 Cases
 Compilation
+Convention
+Contrast
+Covectors
 font
 for
 functions
@@ -846,6 +849,9 @@ freeze
 fragmented
 fluff
 freezes
+factoring
+formalizes
+formed
 color
 curve
 can
@@ -1825,6 +1831,11 @@ continuously
 connective
 callouts
 conservatively
+compiled
+collects
+clash
+compress
+chapters
 Problem
 Partial
 Putting
@@ -2181,6 +2192,7 @@ Produce
 Preserve
 PDFs
 Prompt
+Proofs
 In
 Implicit
 Invertibility
@@ -2456,6 +2468,14 @@ Intrinsic
 Interpreted
 Invertible
 Implemented
+Index
+Invalid
+Identities
+Interval
+Identity
+Introduce
+Invert
+IRFs
 the
 terms
 that
@@ -2984,6 +3004,9 @@ torch
 tau
 teaches
 tissue
+thumb
+tie
+tensoriality
 system
 solvability
 such
@@ -3924,6 +3947,15 @@ seminar
 substance
 spacelike
 suppresses
+superscript
+subscript
+stone
+swapping
+silent
+symmetrically
+switching
+spoils
+spacetimes
 discuss
 determine
 described
@@ -4535,6 +4567,12 @@ divergences
 destroyed
 displaystyle
 didactic
+decoration
+dummy
+doubt
+distributing
+diag
+dots
 in
 inverse
 implicit
@@ -5198,6 +5236,7 @@ invent
 illegible
 infalling
 inevitably
+illegal
 of
 our
 out
@@ -5556,6 +5595,9 @@ outflows
 odeint
 odefunc
 originals
+oppositely
+operatorname
+obey
 near
 neighborhood
 necessary
@@ -5872,6 +5914,8 @@ north
 naming
 numbering
 none
+normalizations
+nabla
 Does
 Determine
 Differentiability
@@ -6148,6 +6192,8 @@ Direction
 Defines
 Disconnected
 Diagnostic
+Doubt
+Describing
 map
 matrix
 mapping
@@ -6698,6 +6744,10 @@ mathrm
 meridian
 membrane
 motivate
+manipulations
+mismatched
+manipulating
+mapsto
 have
 holds
 has
@@ -7329,6 +7379,8 @@ leaves
 leaving
 logp
 lightlike
+legality
+lowered
 Show
 Sufficient
 Substitute
@@ -7740,6 +7792,9 @@ Szekeres
 STRUCTURE
 STYLE
 Skipping
+Summation
+Selector
+Still
 equations
 equation
 exists
@@ -8347,6 +8402,12 @@ equator
 endomorphism
 exits
 elegance
+eta
+electromagnetic
+elegantly
+expresses
+equate
+equivalences
 whether
 written
 which
@@ -9008,6 +9069,8 @@ blueshift
 bending
 bilinearity
 breakdown
+bmatrix
+bulky
 allow
 and
 as
@@ -10377,6 +10440,13 @@ Round
 Recognize
 Really
 REQUIREMENTS
+Relativity
+Rules
+Renaming
+Replace
+Raising
+Recover
+Require
 requirement
 respect
 rule
@@ -11007,6 +11077,10 @@ respectively
 reparametrize
 reorganize
 rip
+rho
+renamed
+renaming
+rename
 partials
 partial
 point
@@ -11775,6 +11849,10 @@ pulls
 pathology
 puzzle
 parse
+placement
+placeholder
+prescribes
+parametrize
 Ex
 Evaluate
 Evaluating
@@ -12081,6 +12159,9 @@ Easy
 Edge
 Eddington
 Event
+Electromagnetism
+Eqs
+EM
 We
 What
 With
@@ -12309,6 +12390,7 @@ Wasserstein
 WGAN
 WGANs
 Weight
+Workbook
 Thus
 Theorem
 These
@@ -12569,6 +12651,7 @@ Trace
 TEACHING
 Transparency
 Terminology
+Track
 Hence
 Here
 Hypotheses
@@ -13301,6 +13384,7 @@ FOLLOW
 FAILURE
 Formulae
 Freezing
+Frequently
 Jacobian
 Jobcobian
 John
@@ -13768,6 +13852,8 @@ APIs
 Ambient
 Across
 AVOID
+Addition
+Analogous
 via
 variables
 view
@@ -14011,6 +14097,7 @@ vdO
 vDa
 varepsilon
 verbosity
+variance
 unknowns
 unique
 uniquely
@@ -14305,6 +14392,12 @@ underuse
 underbrace
 uniqueness
 unrealizable
+unprimed
+unsure
+unifies
+underlies
+unwieldy
+undefined
 guarantees
 gives
 give
@@ -14586,6 +14679,7 @@ gotchas
 gymnastics
 girder
 graduate
+guardrails
 Moreover
 Matrix
 Maximum
@@ -14921,6 +15015,8 @@ Minimizers
 Matters
 Motion
 MODES
+Moore
+Magnetic
 Using
 Up
 Ut
@@ -15648,6 +15744,8 @@ LOF
 Lagrangian
 Log
 Learn
+Lambda
+LHS
 Value
 Verifying
 Verify
@@ -16353,6 +16451,7 @@ Objective
 Orientability
 OUTPUT
 Observer
+Out
 Given
 Get
 Guessing
@@ -16600,6 +16699,8 @@ GfMV
 Generator
 Great
 Girder
+Greek
+Generalize
 xF
 xxii
 xmp
@@ -17220,6 +17321,8 @@ Kantorovich
 Kinematic
 Known
 Kruskal
+Kronecker
+Kinetic
 ZH
 ZCjHR
 ZY
