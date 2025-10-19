@@ -426,6 +426,8 @@ Compilation
 Convention
 Contrast
 Covectors
+Conventional
+Curved
 font
 for
 functions
@@ -4573,6 +4575,7 @@ doubt
 distributing
 diag
 dots
+dictates
 in
 inverse
 implicit
@@ -6194,6 +6197,7 @@ Disconnected
 Diagnostic
 Doubt
 Describing
+Develop
 map
 matrix
 mapping
@@ -6748,6 +6752,7 @@ manipulations
 mismatched
 manipulating
 mapsto
+magnitudes
 have
 holds
 has
@@ -7381,6 +7386,7 @@ logp
 lightlike
 legality
 lowered
+longitude
 Show
 Sufficient
 Substitute
@@ -7795,6 +7801,7 @@ Skipping
 Summation
 Selector
 Still
+Specialization
 equations
 equation
 exists
@@ -9071,6 +9078,7 @@ bilinearity
 breakdown
 bmatrix
 bulky
+boldsymbol
 allow
 and
 as
@@ -9794,6 +9802,8 @@ accumulator
 accumulated
 attributions
 adjacent
+attach
+assert
 you
 yields
 yF
@@ -10447,6 +10457,7 @@ Replace
 Raising
 Recover
 Require
+Reverse
 requirement
 respect
 rule
@@ -11081,6 +11092,8 @@ rho
 renamed
 renaming
 rename
+reappear
+ranks
 partials
 partial
 point
@@ -11853,6 +11866,7 @@ placement
 placeholder
 prescribes
 parametrize
+prepares
 Ex
 Evaluate
 Evaluating

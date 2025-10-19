@@ -43,7 +43,7 @@ A'_\mu &= g'_{\mu\nu}\,A'^\nu
 \Big(\frac{\partial x'^\nu}{\partial x^{\gamma}}A^{\gamma}\Big)\\
 &=\frac{\partial x^{\alpha}}{\partial x'^\mu}\,\underbrace{\Big(\frac{\partial x^{\beta}}{\partial x'^\nu}\frac{\partial x'^\nu}{\partial x^{\gamma}}\Big)}_{\delta^{\beta}{}_{\gamma}}\,g_{\alpha\beta}\,A^{\gamma}
 =\frac{\partial x^{\alpha}}{\partial x'^\mu}\,g_{\alpha\gamma}A^{\gamma}\\
-&=\frac{\partial x^{\alpha}}{\partial x'^\mu}\,A_\alpha,\
+&=\frac{\partial x^{\alpha}}{\partial x'^\mu}\,A_\alpha\
 \end{aligned}\tag{6.6}$$
 which is exactly (6.2). Hence lowering an index yields a covector.
 
