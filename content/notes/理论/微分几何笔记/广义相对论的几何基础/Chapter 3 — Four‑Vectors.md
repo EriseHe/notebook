@@ -1,4 +1,3 @@
-# Chapter 3 — Four‑Vectors (Lecture Notes based on T. A. Moore, *A General Relativity Workbook*)
 
 > **Goal of this chapter.** Introduce four‑vectors as the natural objects in relativity, define the four‑velocity and four‑momentum, and show how inner products and energy–momentum relations become compact and frame‑independent in index notation. All formulas below match the chapter’s notation and numbering; added steps fill in derivations and interpretation.
 

@@ -1,4 +1,3 @@
-# Chapter 4 — Index Notation (Lecture Notes based on T. A. Moore, *A General Relativity Workbook*)
 
 > **Goal of this chapter.** Replace bulky matrix equations with a compact, precise index notation that scales to tensors and keeps track of how objects transform. We follow Moore’s notation **exactly** and highlight why each formula matters, where it’s used, and how to read/manipulate it safely.
 
