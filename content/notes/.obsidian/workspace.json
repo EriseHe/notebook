@@ -11,15 +11,10 @@
             "id": "cd6f012ad67a1bf4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "理论/Probabilistic Machine Learning/4. Transformer.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "4. Transformer"
+              "title": "New tab"
             },
             "group": "3fc9f11126a08b41"
           }
@@ -50,13 +45,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算/Julia科学计算笔记/III Random Numbers & Monte Carlo.md",
+                "file": "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_6_tensor_equations_lecture_notes.md",
                 "mode": "source",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "III Random Numbers & Monte Carlo"
+              "title": "moore_gr_chapter_6_tensor_equations_lecture_notes"
             }
           }
         ],
@@ -70,15 +65,10 @@
             "id": "5fbfaf9ecd5ba797",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "计算/Julia科学计算笔记/2. Variables, primitive types, and functions.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "2. Variables, primitive types, and functions"
+              "title": "New tab"
             },
             "group": "3fc9f11126a08b41"
           }
@@ -211,13 +201,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算/Julia科学计算笔记/III Random Numbers & Monte Carlo.md",
+                "file": "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_6_tensor_equations_lecture_notes.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of III Random Numbers & Monte Carlo"
+              "title": "Outline of moore_gr_chapter_6_tensor_equations_lecture_notes"
             }
           }
         ],
@@ -239,15 +229,30 @@
       "markdown-importer:Open format converter": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
       "obsidian-matrix:Obsidian Matrix": false,
-      "transfer-latex-from-gpt:Convert LaTeX to MathJax": false,
       "callout-manager:Insert Callout": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
   "active": "f0ba71a8d6d2b24e",
   "lastOpenFiles": [
-    "理论/微分几何笔记/广义相对论的几何基础/18. Geodesic Derivation.md",
+    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_7_maxwells_equations_lecture_notes.md",
+    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_6_tensor_equations_lecture_notes.md",
+    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_3_four_vectors_lecture_notes.md",
+    "理论/微分几何笔记/广义相对论的几何基础/index.md",
+    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_5_arbitrary_coordinates_lecture_notes.md",
+    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_4_index_notation_lecture_notes.log",
+    "理论/微分几何笔记/广义相对论的几何基础/4. Index Notation.md",
+    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_4_index_notation_lecture_notes.md",
+    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_4_index_notation_lecture_notes~.md",
+    "理论/微分几何笔记/广义相对论的几何基础/4. Index.md",
+    "理论/微分几何笔记/广义相对论的几何基础/6. Tensor Equation.md",
+    "理论/微分几何笔记/广义相对论的几何基础/3. Index Notation.md",
+    "理论/微分几何笔记/广义相对论的几何基础/2. Einstein Summation Convention.md",
+    "Graduate Application/Statement Of Purpose.md",
     "计算/Julia科学计算笔记/III Random Numbers & Monte Carlo.md",
+    "Graduate Application",
+    "理论/微分几何笔记/广义相对论的几何基础/18. Geodesic Derivation.md",
     "理论/概率机器学习/隐藏变量模型/Normalizing Flows (NF).md",
     "理论/概率机器学习/隐藏变量模型/VAE.md",
     "理论/概率机器学习/隐藏变量模型/GANs.md",
@@ -255,34 +260,19 @@
     "理论/微分几何笔记/广义相对论的几何基础/Frederic P Schuller讲义/第4讲 可微流形.md",
     "理论/微分几何笔记/第一部分 曲线与曲面/4. First Fundamental Form.md",
     "理论/微分几何笔记/第一部分 曲线与曲面/9. Geodesic Normal Coordinates, Exponential Map.md",
-    "理论/微分几何笔记/广义相对论的几何基础/2. Einstein Summation Convention.md",
     "理论/微分几何笔记/广义相对论的几何基础/Frederic P Schuller讲义",
     "理论/微分几何笔记/Untitled.md",
-    "理论/微分几何笔记/广义相对论的几何基础/6. Tensor Equation.md",
     "理论/微分几何笔记/广义相对论的几何基础/14. Event Horizon.md",
     "理论/微分几何笔记/广义相对论的基础（GR）/12.md",
-    "理论/微分几何笔记/广义相对论的几何基础/3. Index Notation.md",
     "理论/微分几何笔记/广义相对论的基础（GR）/1. Four-Vectors.md",
-    "index.md",
     "image.png",
-    "理论/微分几何笔记/第一部分 曲线与曲面/3. Tangent Vectors and Orientability (From Notes).md",
-    "理论/微分几何笔记/广义相对论的基础（GR）/hw.md",
-    "理论/微分几何笔记/第一部分 曲线与曲面/12. Geodesic Triangle and Euler's Characteristics.md",
     "理论/微分几何笔记/广义相对论的几何基础/习题集/HW 2.tex",
     "理论/微分几何笔记/广义相对论的几何基础/习题集/HW 1.tex",
     "理论/微分几何笔记/广义相对论的基础（GR）/习题集/HW2.tex",
     "理论/微分几何笔记/广义相对论的几何基础/习题集/HW 3.tex",
     "理论/微分几何笔记/广义相对论的几何基础/习题集",
     "理论/微分几何笔记/广义相对论的基础（GR）/untitled folder",
-    "理论/微分几何笔记/第一部分 曲线与曲面/10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium.md",
-    "计算/量子力学讲义/薛定谔方程的傅立叶变换.md",
-    "理论/微分几何笔记/第一部分 曲线与曲面/3. Tangent Vector on Surface (from Lecture).md",
-    "理论/微分几何笔记/第一部分 曲线与曲面/1. Overview of Differential Geometry.md",
-    "理论/微分几何笔记/第一部分 曲线与曲面/6. Normal & Geodesic Curvature.md",
-    "理论/微分几何笔记/第一部分 曲线与曲面/5. Pushforward, Pullback, and Local Isometry.md",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
-    "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
-    "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
     "image-1.png",
     "image-6.png",

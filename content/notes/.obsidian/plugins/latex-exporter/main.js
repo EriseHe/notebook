@@ -37,17 +37,19 @@ __export(main_exports, {
   default: () => ExportPaperPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var path2 = __toESM(require("path"));
+var path = __toESM(require("path"));
+var fs = __toESM(require("fs"));
 var import_obsidian4 = require("obsidian");
 
 // src/export_longform/utils.ts
 var import_obsidian = require("obsidian");
 function notice_and_warn(message) {
+  message = "Warning:\n" + message;
   new import_obsidian.Notice(message);
   console.warn(message);
 }
 function escape_latex(input) {
-  return input.replace(/\\/g, "\\textbackslash{}").replace(/%/g, "\\%").replace(/&/g, "\\&").replace(/#/g, "\\#").replace(/\$/g, "\\$").replace(/_/g, "\\_").replace(/\{/g, "\\{").replace(/\}/g, "\\}").replace(/\^/g, "\\^{}").replace(/~/g, "\\textasciitilde{}").replace(/</g, "\\textless{}").replace(/>/g, "\\textgreater{}").replace(/\|/g, "\\textbar{}").replace(/"/g, "''").replace(/'/g, "`");
+  return input.replace(/\\/g, "\\textbackslash").replace(/\{/g, "\\{").replace(/\}/g, "\\}").replace(/%/g, "\\%").replace(/&/g, "\\&").replace(/#/g, "\\#").replace(/\$/g, "\\$").replace(/_/g, "\\_").replace(/\^/g, "\\^{}").replace(/</g, "$<$").replace(/>/g, "$>$").replace(/\|/g, "$|$").replace(/∞/g, "$\\infty$").replace(/±/g, "$\\pm$").replace(/×/g, "$\\times$").replace(/÷/g, "$\\div$").replace(/≠/g, "$\\neq$").replace(/≤/g, "$\\leq$").replace(/≥/g, "$\\geq$").replace(/≈/g, "$\\approx$").replace(/√/g, "$\\sqrt{}$").replace(/∑/g, "$\\sum$").replace(/∏/g, "$\\prod$").replace(/∫/g, "$\\int$").replace(/α/g, "$\\alpha$").replace(/β/g, "$\\beta$").replace(/γ/g, "$\\gamma$").replace(/δ/g, "$\\delta$").replace(/ε/g, "$\\epsilon$").replace(/θ/g, "$\\theta$").replace(/λ/g, "$\\lambda$").replace(/μ/g, "$\\mu$").replace(/π/g, "$\\pi$").replace(/σ/g, "$\\sigma$").replace(/φ/g, "$\\phi$").replace(/ω/g, "$\\omega$").replace(/€/g, "\\euro{}").replace(/£/g, "\\pounds{}").replace(/¥/g, "\\yen{}").replace(/¢/g, "\\cent{}").replace(/©/g, "\\copyright{}").replace(/®/g, "\\textregistered{}").replace(/™/g, "\\texttrademark{}").replace(/…/g, "\\ldots{}").replace(/—/g, "---").replace(/–/g, "--").replace(/†/g, "\\dagger{}").replace(/‡/g, "\\ddagger{}").replace(/¶/g, "\\P{}").replace(/§/g, "\\S{}").replace(/•/g, "\\textbullet{}").replace(/✓/g, "\\checkmark{}").replace(/→/g, "$\\rightarrow$").replace(/←/g, "$\\leftarrow$").replace(/↑/g, "$\\uparrow$").replace(/↓/g, "$\\downarrow$").replace(/↔/g, "$\\leftrightarrow$").replace(/⇒/g, "$\\Rightarrow$").replace(/⇐/g, "$\\Leftarrow$").replace(/⇔/g, "$\\Leftrightarrow$").replace(/∀/g, "$\\forall$").replace(/∃/g, "$\\exists$").replace(/∅/g, "$\\emptyset$").replace(/∈/g, "$\\in$").replace(/∉/g, "$\\notin$").replace(/⊂/g, "$\\subset$").replace(/⊃/g, "$\\supset$").replace(/⊆/g, "$\\subseteq$").replace(/⊇/g, "$\\supseteq$").replace(/∩/g, "$\\cap$").replace(/∪/g, "$\\cup$").replace(/∆/g, "$\\Delta$").replace(/∇/g, "$\\nabla$").replace(/∂/g, "$\\partial$").replace(/ℕ/g, "$\\mathbb{N}$").replace(/ℤ/g, "$\\mathbb{Z}$").replace(/ℚ/g, "$\\mathbb{Q}$").replace(/ℝ/g, "$\\mathbb{R}$").replace(/ℂ/g, "$\\mathbb{C}$").replace(/°/g, "$^{\\circ}$").replace(/‰/g, "\\perthousand{}").replace(/‽/g, "\\textinterrobang{}").replace(/“/g, "``").replace(/”/g, "''").replace(/‘/g, "`").replace(/’/g, "'").replace(/\u00A0/g, "~").replace(/\u00AD/g, "-").replace(/\u200B/g, "").replace(/\u200C/g, "").replace(/\u200D/g, "").replace(/\uFEFF/g, "");
 }
 function find_image_file(find_file, address) {
   const matchExcalidraw = /^.*\.excalidraw$/.exec(address);
@@ -76,7 +78,11 @@ var DEFAULT_SETTINGS = {
   warn_before_overwrite: true,
   default_citation_command: "cite",
   overwrite_preamble: false,
-  display_result_names: false
+  display_env_titles: true,
+  default_env_name_to_file_name: false,
+  last_external_folder: "",
+  overwrite_figures: false,
+  overwrite_header: false
 };
 function init_data(longform_file, read_tfile, find_file) {
   return {
@@ -263,6 +269,15 @@ async function get_header_address(header, current_content, settings, built_addre
   } else {
     header_stack = [...header];
   }
+  if (header_stack.length == 1 && header_stack[0] == "") {
+    const statement_attempt = await get_header_address(
+      ["statement"],
+      current_content,
+      settings,
+      built_address
+    );
+    return statement_attempt === void 0 ? "" : statement_attempt;
+  }
   for (const elt of current_content) {
     if (elt instanceof Header) {
       const current_check = header_stack[header_stack.length - 1];
@@ -293,7 +308,7 @@ async function get_header_address(header, current_content, settings, built_addre
 
 // src/export_longform/labels.ts
 function format_label(label) {
-  return label.toLowerCase().trim().replace(/\\Cref{/g, "").replace(/}/g, "").replace(/ /g, "_").replace(/,/g, "").replace(/-/g, ":");
+  return label.toLowerCase().trim().replace(/\\Cref{/g, "").replace(/}/g, "").replace(/ /g, "_").replace(/,/g, "").replace(/-/g, ":").replace(/\$/g, "").replace(/\\/g, "");
 }
 function explicit_label(longform_file, current_file, label) {
   if (current_file !== longform_file) {
@@ -317,8 +332,8 @@ async function label_from_location(data, address, file_of_origin, settings, head
   if (address === "") {
     return "";
   }
-  if (header === "" || header === void 0) {
-    header = "statement";
+  if (header === void 0) {
+    header = "";
   }
   let resolved_head_label = await resolve_header_label(
     address,
@@ -337,7 +352,7 @@ async function label_from_location(data, address, file_of_origin, settings, head
   if (address === "" || address === data.longform_file.basename) {
     return format_label("loc:" + resolved_head_label);
   }
-  return format_label("loc:" + address + "." + resolved_head_label);
+  return resolved_head_label === "" ? format_label("loc:" + address) : format_label("loc:" + address + "." + resolved_head_label);
 }
 async function resolve_header_label(address, header, file_cache, find_file, file_of_origin, settings) {
   let file_content;
@@ -346,15 +361,6 @@ async function resolve_header_label(address, header, file_cache, find_file, file
     const file = find_file(address);
     if (file === void 0 || file_cache[file.basename] === void 0) {
       const header_string = typeof header === "string" ? header : header.join(".");
-      if (file !== void 0 && file_cache[file.basename] === void 0) {
-        notice_and_warn(
-          "address of reference '" + address + "' is referenced but was not embedded.\nIn note:\n" + file_of_origin.path
-        );
-      } else {
-        notice_and_warn(
-          "keeping the header address of " + address + ": " + header_string + " as-is\nIn note:\n" + file_of_origin.path
-        );
-      }
       return header_string;
     }
     file_content = file_cache[file.basename].body;
@@ -440,7 +446,7 @@ var Text = class {
     return [this];
   }
   async latex(buffer, buffer_offset, settings) {
-    return buffer_offset + buffer.write(this.content, buffer_offset);
+    return buffer_offset + buffer.write(escape_latex(this.content), buffer_offset);
   }
 };
 var Emphasis = class {
@@ -540,6 +546,26 @@ var InlineMath = class {
   }
   async latex(buffer, buffer_offset, settings) {
     return buffer_offset + buffer.write("$" + this.content + "$", buffer_offset);
+  }
+};
+var InlineCode = class {
+  static get_regexp() {
+    return /`(.*?)`/gs;
+  }
+  static build_from_match(match, settings) {
+    return new InlineCode(match[1]);
+  }
+  constructor(content) {
+    this.code = content;
+  }
+  async unroll() {
+    return [this];
+  }
+  async latex(buffer, buffer_offset, settings) {
+    return buffer_offset + buffer.write(
+      "\\texttt{" + this.code.replace("_", "_") + "}",
+      buffer_offset
+    );
   }
 };
 
@@ -846,12 +872,11 @@ var Comment = class {
 };
 
 // src/export_longform/wikilinks.ts
-var path = __toESM(require("path"));
 var import_obsidian2 = require("obsidian");
 var import_console = require("console");
 var EmbedWikilink = class {
   static get_regexp() {
-    return /(?:(\S*?)::)?!\[\[([\s\S]*?)(?:#([\s\S]+?))?(?:\|([\s\S]*?))?\]\]/g;
+    return /(?:(\S*?)::\s*\n?\s*)?!\[\[([\s\S]*?)(?:#([\s\S]+?))?(?:\|([\s\S]*?))?\]\]/g;
   }
   static build_from_match(args, settings) {
     return new EmbedWikilink(args[1], args[2], args[3], args[4]);
@@ -866,7 +891,7 @@ var EmbedWikilink = class {
     if (address_is_image_file(this.content)) {
       const file = find_image_file(data.find_file, this.content);
       if (file === void 0) {
-        const err_msg = "Content not found: Could not find the content of the plot with image '" + escape_latex(this.content) + "'";
+        const err_msg = "Content not found: Could not find the content of the plot with image '" + this.content + "'";
         notice_and_warn(err_msg);
         return [
           new BlankLine(),
@@ -875,7 +900,7 @@ var EmbedWikilink = class {
         ];
       } else {
         data.media_files.push(file);
-        const p = new Plot(file, this.display);
+        const p = new Plot(file, data.current_file, this.display);
         p.label = await label_from_location(
           data,
           file.name,
@@ -884,9 +909,6 @@ var EmbedWikilink = class {
         );
         return [p];
       }
-    }
-    if (this.display !== void 0) {
-      return [new Text(this.display)];
     }
     const return_data = await parse_embed_content(
       this.content,
@@ -898,8 +920,8 @@ var EmbedWikilink = class {
       this.header
     );
     if (return_data === void 0) {
-      const err_msg = "Content not found: Could not find the content of \\emph{" + escape_latex(this.content) + "} with header \\emph{" + this.header + "}";
-      const other_err_msg = "Content not found: Could not find the content of '" + escape_latex(this.content) + "' with header '" + this.header + "'";
+      const err_msg = "Content not found: Could not find the content of \\emph{" + this.content + "} with header \\emph{" + this.header + "}";
+      const other_err_msg = "Content not found: Could not find the content of '" + this.content + "' with header '" + this.header + "'";
       new import_obsidian2.Notice(other_err_msg);
       return [
         new BlankLine(),
@@ -907,7 +929,11 @@ var EmbedWikilink = class {
         new BlankLine()
       ];
     }
-    const [parsed_contents, level_of_header_being_embedded] = return_data;
+    const [
+      parsed_contents,
+      level_of_header_being_embedded,
+      embedded_file_yaml
+    ] = return_data;
     const ambient_header_level_outside = data.ambient_header_level;
     const ambient_header_offset_outside = data.headers_level_offset;
     const ambient_header_stack = data.header_stack;
@@ -947,7 +973,9 @@ var EmbedWikilink = class {
             settings,
             this.header
           ),
-          address
+          address,
+          embedded_file_yaml,
+          this.display
         )
       ];
     }
@@ -961,7 +989,8 @@ var EmbedWikilink = class {
   }
 };
 var Plot = class {
-  constructor(image, caption) {
+  constructor(image, current_file, caption) {
+    this.file_of_origin = current_file;
     this.image = image;
     this.caption = caption;
   }
@@ -973,13 +1002,14 @@ var Plot = class {
     buffer_offset += buffer.write(
       `\\begin{figure}[h]
 \\centering
-\\includegraphics[width=0.5\\textwidth]{` + path.join("Files", this.image.name) + "}\n",
+\\includegraphics[width=\\textwidth]{Files/` + this.image.name + "}\n",
+      // Cannot use path.join, because the path is a latex path.
       buffer_offset
     );
     let caption_text;
     if (this.caption === void 0) {
       caption_text = "";
-      const warning = "WARNING: Figure created from '" + this.image.name + "' has no caption.\nIn note:\n" + this.file_of_origin.path;
+      const warning = "WARNING: Figure created from '" + this.image.name + "' has no caption.\nYou may want to add one in the display part of the wikilink: for example,\n![[plot.png|my caption]]\nIn note:\n" + this.file_of_origin.path;
       notice_and_warn(warning);
     } else {
       caption_text = this.caption;
@@ -994,7 +1024,7 @@ var Plot = class {
 };
 var Wikilink = class {
   static get_regexp() {
-    return /(?:(\S*?)::)?\[\[([\s\S]*?)(?:\#([\s\S]*?))?(?:\|([\s\S]*?))?\]\]/g;
+    return /(?:(\S*?)::\s*\n?\s*)?\[\[([\s\S]*?)(?:\#([\s\S]*?))?(?:\|([\s\S]*?))?\]\]/g;
   }
   static build_from_match(args, settings) {
     return new Wikilink(args[1], args[2], args[3], args[4]);
@@ -1034,12 +1064,13 @@ var Environment = class {
   static get_regexp() {
     return /^(\w+?)::(?:\s*?{#([\S ]*?)})?(.*?)::\1/gms;
   }
-  // address_of_origin: string | undefined;
-  constructor(children, type, label, address_of_origin) {
+  constructor(children, type, label, address_of_origin, embedded_file_yaml, display_title) {
     this.children = children;
     this.type = type.toLowerCase().trim();
     this.label = label;
     this.address_of_origin = address_of_origin;
+    this.embedded_file_yaml = embedded_file_yaml;
+    this.display_title = display_title;
   }
   static build_from_match(match, settings) {
     let [_, body] = parse_display(strip_newlines(match[3]), settings);
@@ -1069,8 +1100,18 @@ var Environment = class {
     let start_env_string = "\\begin{" + this.type + "}";
     if (this.type === "proof" && this.label !== void 0) {
       start_env_string += "[\\hypertarget{" + this.label + "}Proof of \\Cref{" + this.label.replace("proof", "statement") + "}]";
-    } else if (settings.display_result_names && this.address_of_origin !== void 0) {
-      start_env_string += "[" + this.address_of_origin + "]";
+    } else if (this.type !== "remark" && settings.display_env_titles) {
+      if (this.display_title !== void 0) {
+        if (this.display_title !== "") {
+          start_env_string += "[" + this.display_title + "]";
+        }
+      } else if (this.embedded_file_yaml !== void 0 && this.embedded_file_yaml.env_title !== void 0) {
+        if (this.embedded_file_yaml.env_title !== "" && this.embedded_file_yaml.env_title !== null) {
+          start_env_string += "[" + this.embedded_file_yaml.env_title + "]";
+        }
+      } else if (settings.default_env_name_to_file_name && this.address_of_origin !== void 0) {
+        start_env_string += "[" + this.address_of_origin + "]";
+      }
     }
     buffer_offset += buffer.write(start_env_string + "\n", buffer_offset);
     if (this.label !== void 0 && this.type !== "proof") {
@@ -1089,6 +1130,27 @@ var Environment = class {
       buffer_offset
     );
     return buffer_offset;
+  }
+};
+var Hyperlink = class {
+  static get_regexp() {
+    return /\[([^\[\]]+?)\]\((https?:\/\/[^\s]+?)\)/g;
+  }
+  static build_from_match(args, settings) {
+    return new Hyperlink(args[1], args[2]);
+  }
+  constructor(label, address) {
+    this.label = label;
+    this.address = address;
+  }
+  async unroll() {
+    return [this];
+  }
+  async latex(buffer, buffer_offset, settings) {
+    return buffer_offset + buffer.write(
+      `\\href{${this.address}}{${this.label}}`,
+      buffer_offset
+    );
   }
 };
 var UnrolledWikilink = class {
@@ -1117,7 +1179,43 @@ var UnrolledWikilink = class {
     this.displayed = displayed;
   }
   async latex(buffer, buffer_offset, settings) {
-    var _a;
+    var _a, _b;
+    const hasBeenEmbedded = this.unroll_data.parsed_file_bundle[this.address] !== void 0;
+    const file = this.unroll_data.find_file(this.address);
+    if (!file) {
+      notice_and_warn(
+        "Wikilink with address '" + this.address + "' points to no file. Wikilink is in file: '" + this.unroll_data.current_file.path + "'"
+      );
+      return buffer_offset + buffer.write(
+        "FAILED TO RESOLVE:[[" + this.address + "]]",
+        buffer_offset
+      );
+    }
+    if (!hasBeenEmbedded && !address_is_image_file(this.address) && (!this.header || this.header.toLowerCase() === "statement")) {
+      const file_contents = await this.unroll_data.read_tfile(file);
+      const [yaml] = parse_yaml_header(file_contents);
+      const bib_key_match = (_a = yaml.source) == null ? void 0 : _a.match(
+        /@([a-zA-Z0-9\-_]+)|\[\[@([a-zA-Z0-9\-_]+)\]\]/
+      );
+      const bib_key = bib_key_match ? bib_key_match[1] || bib_key_match[2] : void 0;
+      const published_result_name = yaml.published_result_name;
+      if (bib_key && typeof published_result_name === "string") {
+        const citation = new Citation(
+          bib_key,
+          "std",
+          published_result_name || this.displayed
+        );
+        return citation.latex(buffer, buffer_offset, settings);
+      } else {
+        notice_and_warn(
+          "address of reference '" + this.address + "' is referenced but was not embedded.\nIn note:\n" + this.unroll_data.current_file.path
+        );
+        return buffer_offset + buffer.write(
+          "FAILED TO RESOLVE:[[" + this.address + "]]",
+          buffer_offset
+        );
+      }
+    }
     const label = await label_from_location(
       this.unroll_data,
       this.address,
@@ -1131,7 +1229,7 @@ var UnrolledWikilink = class {
         buffer_offset
       );
     }
-    if (((_a = this.header) == null ? void 0 : _a.toLowerCase().trim()) !== "proof") {
+    if (((_b = this.header) == null ? void 0 : _b.toLowerCase().trim()) !== "proof") {
       return buffer_offset + buffer.write("\\Cref{" + label + "}", buffer_offset);
     } else {
       return buffer_offset + buffer.write(
@@ -1144,52 +1242,114 @@ var UnrolledWikilink = class {
     return [this];
   }
 };
-var Citation = class {
+var PandocCitation = class {
   static get_regexp() {
-    return /(?:\[([^@\[]*?)\])?(?:(?:\[\[@([a-zA-Z0-9\.\-_]*)\]\])|(?:(\[\-)?@([a-zA-Z0-9\-_]*)\]?))(?:\[([^@\[]*?)\])?/g;
+    return /(?:(?:@([^,.;\[\] ]+))|(?:\[(-)?@([^,;.\[\]\- ]+)(?:, ?([^\]\[]*))?\]))(?:\[([^\]@]*)\])?/g;
+  }
+  constructor(id, type, suffix) {
+    this.id = id;
+    this.type = type;
+    this.result = suffix;
   }
   static build_from_match(args, settings) {
-    let captured_id = void 0;
-    if (args[2] !== void 0) {
-      captured_id = args[2];
-    } else if (args[4] !== void 0) {
-      captured_id = args[4];
+    let bibkey = void 0;
+    let enclosed_in_brackets;
+    if (args[1] != void 0) {
+      bibkey = args[1];
+      enclosed_in_brackets = false;
+    } else if (args[3] != void 0) {
+      bibkey = args[3];
+      enclosed_in_brackets = true;
     } else {
+      throw Error("Unexpected regex behaviour; no bibkey found");
+    }
+    let suffix = void 0;
+    if (args[4] !== void 0) {
+      suffix = args[4];
+    } else if (args[5] !== void 0) {
+      suffix = args[5];
+    }
+    const supressed = args[2] !== void 0;
+    let citation_type;
+    if (supressed) {
+      citation_type = "year";
+    } else if (enclosed_in_brackets) {
+      citation_type = "parenthesis";
+    } else {
+      citation_type = "txt";
+    }
+    if (suffix == "std" || suffix == "txt") {
+      citation_type = suffix;
+      suffix = void 0;
+    }
+    return new Citation(bibkey, citation_type, suffix);
+  }
+  async unroll() {
+    throw Error("Should not be unrolled.");
+  }
+  async latex(buffer, buffer_offset, settings) {
+    throw Error("Latex on this PandocCitation should not be called.");
+  }
+};
+var Citation = class {
+  static get_regexp() {
+    return /(?:\[([^@\[]*?)\])?(?:(?:\[\[@([a-zA-Z0-9\.\-_]*)\]\]))(?:\[([^@\[]*?)\])?/g;
+  }
+  static build_from_match(args, settings) {
+    let captured_id = args[2];
+    if (captured_id == "") {
       throw new Error("Unexpected: empty match for citation id.");
     }
+    let type = void 0;
     let result = void 0;
-    if (args[1] !== void 0 && args[5] === void 0) {
+    if (args[1] !== void 0) {
       result = args[1];
-    } else if (args[5] !== void 0) {
-      result = args[5];
-    } else if (args[3] !== void 0 && args[1] === void 0 && args[5] === void 0) {
-      result = "std";
+    } else if (args[3] !== void 0) {
+      result = args[3];
     }
-    return new Citation(captured_id, result);
+    if (result == "std" || result == "txt") {
+      type = result;
+      result = void 0;
+    }
+    return new Citation(captured_id, type, result);
   }
-  constructor(id, result) {
+  constructor(id, type, suffix) {
+    if (!(type == void 0 || type == "txt" || type == "std" || type == "year" || type == "parenthesis")) {
+      notice_and_warn(
+        "Invalid citation type: " + type + ". Reverting to default."
+      );
+      this.type = void 0;
+    } else {
+      this.type = type;
+    }
     this.id = id;
-    this.result = result;
+    this.result = suffix;
   }
   async unroll() {
     return [this];
   }
   async latex(buffer, buffer_offset, settings) {
-    if (this.result !== void 0) {
-      if (this.result === "std") {
-        return buffer_offset + buffer.write("\\cite{" + this.id + "}", buffer_offset);
-      } else if (this.result === "txt") {
-        return buffer_offset + buffer.write("\\textcite{" + this.id + "}", buffer_offset);
-      }
-      return buffer_offset + buffer.write(
-        "\\cite[" + this.result + "]{" + this.id + "}",
-        buffer_offset
-      );
+    let citestring = "\\";
+    let citeword;
+    if (this.type == "txt") {
+      citeword = "textcite";
+    } else if (this.type == "std") {
+      citeword = "cite";
+    } else if (this.type == "parenthesis") {
+      citeword = "parencite";
+    } else if (this.type == "year") {
+      citeword = "citeyear";
+    } else if (this.type == void 0) {
+      citeword = settings.default_citation_command;
+    } else {
+      throw Error("Invalid type: " + this.type);
     }
-    return buffer_offset + buffer.write(
-      "\\" + settings.default_citation_command + "{" + this.id + "}",
-      buffer_offset
-    );
+    citestring += citeword;
+    if (this.result !== void 0) {
+      citestring += "[" + this.result + "]";
+    }
+    citestring += "{" + this.id + "}";
+    return buffer_offset + buffer.write(citestring, buffer_offset);
   }
 };
 var MultiCitation = class {
@@ -1225,14 +1385,19 @@ var MultiCitation = class {
 };
 var PandocMultiCitation = class {
   static get_regexp() {
-    return /(?<!\[)\[?@([a-zA-Z0-9\-_]+);[ \t]*(?:@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?\]?/g;
+    return /(?<!\[)(\[)?@([a-zA-Z0-9\-_]+);[ \t]*(?:@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?(?:;[ \t]@([a-zA-Z0-9\-_]+))?\]?/g;
   }
   static build_from_match(args) {
     return new PandocMultiCitation(args);
   }
   constructor(args) {
     this.ids = [];
-    for (const id of args.slice(1)) {
+    if (args[1] !== void 0) {
+      this.type = "parenthesis";
+    } else {
+      this.type = "std";
+    }
+    for (const id of args.slice(2)) {
       if (id === void 0) {
         break;
       }
@@ -1243,7 +1408,11 @@ var PandocMultiCitation = class {
     return [this];
   }
   async latex(buffer, buffer_offset) {
-    buffer_offset += buffer.write("\\cite{", buffer_offset);
+    let citeword = "cite";
+    if (this.type == "parenthesis") {
+      citeword = "parencite";
+    }
+    buffer_offset += buffer.write("\\" + citeword + "{", buffer_offset);
     for (const id of this.ids.slice(0, -1)) {
       buffer_offset += buffer.write(id + ", ", buffer_offset);
     }
@@ -1258,9 +1427,6 @@ var PandocMultiCitation = class {
 // src/export_longform/parseMarkdown.ts
 var import_obsidian3 = require("obsidian");
 async function parse_longform(read_tfile, find_file, longform_file, settings, selection) {
-  if (longform_file === void 0) {
-    throw new Error(`File not found: ${longform_file}`);
-  }
   let file_contents;
   if (selection === void 0) {
     file_contents = await read_tfile(longform_file);
@@ -1440,7 +1606,7 @@ async function write_without_template(parsed_contents, output_file, modify, prea
 \\section{Appendix}
 ` + parsed_contents["appendix"];
   }
-  content += "\\end{document}";
+  content += "\\end{document}\n";
   await modify(output_file, content);
 }
 function traverse_tree_and_parse_display(md, settings) {
@@ -1503,7 +1669,7 @@ async function parse_embed_content(address, find_file, read_tfile, parsed_cache,
     return void 0;
   }
   if (header === void 0) {
-    return [content.body, 0];
+    return [content.body, 0, content.yaml];
   }
   const header_elt = await find_header(header, [content.body], settings);
   if (header_elt === void 0) {
@@ -1512,7 +1678,7 @@ async function parse_embed_content(address, find_file, read_tfile, parsed_cache,
     );
     return void 0;
   }
-  return [header_elt.children, header_elt.level];
+  return [header_elt.children, header_elt.level, content.yaml];
 }
 function parse_display(input, settings) {
   const parsed_yaml = parse_yaml_header(input);
@@ -1709,8 +1875,20 @@ function parse_inline(inline_arr, settings) {
   );
   inline_arr = split_inline(
     inline_arr,
+    PandocCitation.get_regexp(),
+    PandocCitation.build_from_match,
+    settings
+  );
+  inline_arr = split_inline(
+    inline_arr,
     Wikilink.get_regexp(),
     Wikilink.build_from_match,
+    settings
+  );
+  inline_arr = split_inline(
+    inline_arr,
+    Hyperlink.get_regexp(),
+    Hyperlink.build_from_match,
     settings
   );
   inline_arr = split_inline(
@@ -1743,6 +1921,12 @@ function parse_inline(inline_arr, settings) {
     Emphasis.build_from_match,
     settings
   );
+  inline_arr = split_inline(
+    inline_arr,
+    InlineCode.get_regexp(),
+    InlineCode.build_from_match,
+    settings
+  );
   return inline_arr;
 }
 
@@ -1771,6 +1955,7 @@ function get_header_tex() {
 }
 
 // src/main.ts
+var { remote } = require("electron");
 var ExportPaperPlugin = class extends import_obsidian4.Plugin {
   constructor() {
     super(...arguments);
@@ -1785,6 +1970,153 @@ var ExportPaperPlugin = class extends import_obsidian4.Plugin {
         return void 0;
       }
     };
+  }
+  // External export method with FileSystemAdapter
+  async export_to_external_folder(active_file, external_folder, skip_overwrite_check = false) {
+    var _a, _b, _c;
+    const parsed_contents = await parse_longform(
+      this.app.vault.cachedRead.bind(this.app.vault),
+      this.find_file,
+      active_file,
+      this.settings
+    );
+    const output_folder_name = active_file.basename.replace(/ /g, "_");
+    const output_folder_path = path.join(
+      external_folder,
+      output_folder_name
+    );
+    const output_file_name = `${active_file.basename}_output.tex`;
+    const output_path = path.join(output_folder_path, output_file_name);
+    if (fs.existsSync(output_path) && !skip_overwrite_check && this.settings.warn_before_overwrite) {
+      new WarningModal(
+        this.app,
+        this,
+        () => this.export_to_external_folder(
+          active_file,
+          external_folder,
+          true
+        ),
+        "It seems there is a previously exported file in the external folder. Overwrite it?"
+      ).open();
+      return;
+    }
+    if (!fs.existsSync(output_folder_path)) {
+      fs.mkdirSync(output_folder_path, { recursive: true });
+    }
+    let export_message = "SUCCESS!!\nExporting to external folder:\n";
+    const preamble_file = (_a = this.app.vault.getFileByPath(this.settings.preamble_file)) != null ? _a : void 0;
+    const new_preamble_path = path.join(output_folder_path, "preamble.sty");
+    if (preamble_file) {
+      const preamble_exists = fs.existsSync(new_preamble_path);
+      if (this.settings.overwrite_preamble && preamble_exists) {
+        fs.copyFileSync(
+          this.app.vault.adapter.getFullPath(
+            preamble_file.path
+          ),
+          new_preamble_path
+        );
+        export_message += "- Overwriting the preamble file\n";
+      } else if (!preamble_exists) {
+        fs.copyFileSync(
+          this.app.vault.adapter.getFullPath(
+            preamble_file.path
+          ),
+          new_preamble_path
+        );
+        export_message += "- Copying the preamble file\n";
+      } else {
+        export_message += "- Without overwriting the preamble file\n";
+      }
+    } else {
+      export_message += "- Without a preamble file (none found)\n";
+    }
+    const header_path = path.join(output_folder_path, "header.tex");
+    const header_exists = fs.existsSync(header_path);
+    if (this.settings.overwrite_header && header_exists) {
+      fs.writeFileSync(header_path, get_header_tex());
+      export_message += "- Overwriting the header file\n";
+    } else if (!header_exists) {
+      fs.writeFileSync(header_path, get_header_tex());
+      export_message += "- Creating the header file\n";
+    } else {
+      export_message += "- Without overwriting the header file\n";
+    }
+    const bib_file = (_b = this.app.vault.getFileByPath(this.settings.bib_file)) != null ? _b : void 0;
+    const new_bib_path = path.join(output_folder_path, "bibliography.bib");
+    if (bib_file) {
+      const bib_exists = fs.existsSync(new_bib_path);
+      if (!bib_exists) {
+        fs.copyFileSync(
+          this.app.vault.adapter.getFullPath(
+            bib_file.path
+          ),
+          new_bib_path
+        );
+        export_message += "- Copying the bib file\n";
+      } else {
+        export_message += "- Without overwriting the bib file\n";
+      }
+    } else {
+      export_message += "- Without a bib file (none found)\n";
+    }
+    const template_file = (_c = this.app.vault.getFileByPath(this.settings.template_path)) != null ? _c : void 0;
+    if (template_file) {
+      export_message += "- Using the specified template file,\n";
+      await write_with_template(
+        template_file,
+        parsed_contents,
+        { path: output_path },
+        async (_file, content) => fs.writeFileSync(output_path, content),
+        this.app.vault.cachedRead.bind(this.app.vault)
+      );
+    } else {
+      await write_without_template(
+        parsed_contents,
+        { path: output_path },
+        async (_file, content) => fs.writeFileSync(output_path, content),
+        preamble_file
+      );
+    }
+    if (parsed_contents.media_files.length > 0) {
+      const files_folder = path.join(output_folder_path, "Files");
+      if (!fs.existsSync(files_folder)) {
+        fs.mkdirSync(files_folder);
+      }
+      let copying_message_added = false;
+      let skipping_message_added = false;
+      for (const media_file of parsed_contents.media_files) {
+        const destination_path = path.join(
+          files_folder,
+          media_file.name
+        );
+        const file_exists = fs.existsSync(destination_path);
+        if (this.settings.overwrite_figures && file_exists) {
+          fs.copyFileSync(
+            this.app.vault.adapter.getFullPath(media_file.path),
+            destination_path
+          );
+          export_message += `- Overwriting figure file: ${media_file.name}
+`;
+        } else if (!file_exists) {
+          fs.copyFileSync(
+            this.app.vault.adapter.getFullPath(media_file.path),
+            destination_path
+          );
+          if (!copying_message_added) {
+            export_message += "- Copying figure files\n";
+            copying_message_added = true;
+          }
+        } else if (!skipping_message_added) {
+          export_message += "- Without overwriting figure files\n";
+          skipping_message_added = true;
+        }
+      }
+    }
+    this.settings.last_external_folder = external_folder;
+    await this.saveSettings();
+    new import_obsidian4.Notice(
+      `${export_message}To external folder: ${output_folder_path}`
+    );
   }
   async find_files_and_export(active_file, settings) {
     if (this.settings.base_output_folder === "") {
@@ -1815,7 +2147,7 @@ var ExportPaperPlugin = class extends import_obsidian4.Plugin {
       base_folder = this.app.vault.getRoot();
     }
     const output_file_name = active_file.basename + "_output.tex";
-    let output_folder_path = path2.join(
+    let output_folder_path = path.join(
       base_folder.path,
       active_file.basename.replace(/ /g, "_")
     );
@@ -1823,38 +2155,39 @@ var ExportPaperPlugin = class extends import_obsidian4.Plugin {
     if (output_folder_match) {
       output_folder_path = output_folder_match[1];
     }
-    let output_path = path2.join(output_folder_path, output_file_name);
+    let output_path = path.join(output_folder_path, output_file_name);
     await this.app.vault.createFolder(output_folder_path).catch((e) => e);
     const the_preamble_file = this.app.vault.getFileByPath(
       this.settings.preamble_file
     );
-    let export_message = "Exporting the current file:\n";
+    let export_message = "SUCCESS!!\nExporting the current file:\n";
     const preamble_file = the_preamble_file ? the_preamble_file : void 0;
     if (preamble_file !== void 0) {
-      const new_preamble = path2.join(output_folder_path, "preamble.sty");
+      const new_preamble = path.join(output_folder_path, "preamble.sty");
       const existing_preamble = this.app.vault.getFileByPath(new_preamble);
-      if (!existing_preamble) {
-        this.app.vault.copy(preamble_file, new_preamble);
-        export_message += "- Copying the preamble file\n";
-      } else if (this.settings.overwrite_preamble) {
-        this.app.vault.delete(existing_preamble);
-        this.app.vault.copy(preamble_file, new_preamble);
+      if (this.settings.overwrite_preamble && existing_preamble) {
+        await this.app.vault.delete(existing_preamble);
+        await this.app.vault.copy(preamble_file, new_preamble);
         export_message += "- Overwriting the preamble file\n";
+      } else if (!existing_preamble) {
+        await this.app.vault.copy(preamble_file, new_preamble);
+        export_message += "- Copying the preamble file\n";
       } else {
         export_message += "- Without overwriting the preamble file\n";
       }
     } else {
       export_message += " - Without a preamble file (none found)\n";
     }
-    const header_file = this.app.vault.getFileByPath(
-      path2.join(output_folder_path, "header.tex")
-    );
-    if (!header_file) {
-      export_message += "- Creating the header file\n";
-      await this.app.vault.create(
-        path2.join(output_folder_path, "header.tex"),
-        get_header_tex()
-      );
+    const header_path = path.join(output_folder_path, "header.tex");
+    const header_file = this.app.vault.getFileByPath(header_path);
+    if (this.settings.overwrite_header || !header_file) {
+      if (header_file) {
+        await this.app.vault.delete(header_file);
+        export_message += "- Overwriting the header file\n";
+      } else {
+        export_message += "- Creating the header file\n";
+      }
+      await this.app.vault.create(header_path, get_header_tex());
     } else {
       export_message += "- Without overwriting the header file\n";
     }
@@ -1863,15 +2196,16 @@ var ExportPaperPlugin = class extends import_obsidian4.Plugin {
     );
     const bib_file = the_bib_file ? the_bib_file : void 0;
     if (bib_file !== void 0) {
-      const new_bib = path2.join(output_folder_path, "bibliography.bib");
-      if (!this.app.vault.getFileByPath(new_bib)) {
+      const new_bib = path.join(output_folder_path, "bibliography.bib");
+      const existing_bib = this.app.vault.getFileByPath(new_bib);
+      if (!existing_bib) {
+        await this.app.vault.copy(bib_file, new_bib);
         export_message += "- Copying the bib file\n";
-        this.app.vault.copy(bib_file, new_bib);
       } else {
         export_message += "- Without overwriting the bib file\n";
       }
     } else {
-      export_message += "- Without a bib file (none found)";
+      export_message += "- Without a bib file (none found)\n";
     }
     const the_template_file = this.app.vault.getFileByPath(
       this.settings.template_path
@@ -1928,10 +2262,31 @@ var ExportPaperPlugin = class extends import_obsidian4.Plugin {
   async proceed_with_export(active_file, parsed_contents, settings, output_folder_path, template_file, out_file, preamble_file, partial_message = "") {
     const notes_dir = this.app.vault;
     if (parsed_contents.media_files.length > 0) {
-      const files_folder = path2.join(output_folder_path, "Files");
+      const files_folder = path.join(output_folder_path, "Files");
       await this.app.vault.createFolder(files_folder).catch((e) => e);
+      let copying_message_added = false;
+      let skipping_message_added = false;
       for (const media_file of parsed_contents.media_files) {
-        await this.app.vault.copy(media_file, path2.join(files_folder, media_file.name)).catch((e) => e);
+        const destination_path = path.join(
+          files_folder,
+          media_file.name
+        );
+        const existing_file = this.app.vault.getFileByPath(destination_path);
+        if (settings.overwrite_figures && existing_file) {
+          await this.app.vault.delete(existing_file);
+          await this.app.vault.copy(media_file, destination_path).catch((e) => e);
+          partial_message += `- Overwriting figure file: ${media_file.name}
+`;
+        } else if (!existing_file) {
+          await this.app.vault.copy(media_file, destination_path).catch((e) => e);
+          if (!copying_message_added) {
+            partial_message += "- Copying figure files\n";
+            copying_message_added = true;
+          }
+        } else if (!skipping_message_added) {
+          partial_message += "- Without overwriting figure files\n";
+          skipping_message_added = true;
+        }
       }
     }
     if (template_file !== void 0) {
@@ -1971,7 +2326,7 @@ var ExportPaperPlugin = class extends import_obsidian4.Plugin {
     await this.loadSettings();
     this.addCommand({
       id: "export-paper",
-      name: "Export current note",
+      name: "Export current note in-vault",
       checkCallback: (checking) => {
         const active_file = this.app.workspace.getActiveFile();
         if (!(active_file instanceof import_obsidian4.TFile)) {
@@ -1984,8 +2339,37 @@ var ExportPaperPlugin = class extends import_obsidian4.Plugin {
       }
     });
     this.addCommand({
+      id: "export-paper-external",
+      name: "Export current note to external folder",
+      checkCallback: (checking) => {
+        const active_file = this.app.workspace.getActiveFile();
+        if (!(active_file instanceof import_obsidian4.TFile)) {
+          return false;
+        } else if (checking) {
+          return true;
+        } else {
+          remote.dialog.showOpenDialog({
+            properties: ["openDirectory"]
+          }).then((result) => {
+            if (result.canceled || !result.filePaths || result.filePaths.length === 0) {
+              new import_obsidian4.Notice("External export cancelled");
+              return;
+            }
+            const selectedPath = result.filePaths[0];
+            this.export_to_external_folder(
+              active_file,
+              selectedPath
+            );
+          }).catch((err) => {
+            console.error("Error opening folder picker:", err);
+            new import_obsidian4.Notice("Failed to open folder picker");
+          });
+        }
+      }
+    });
+    this.addCommand({
       id: "selection-export-paper",
-      name: "Export selection",
+      name: "Export selection to clipboard",
       editorCheckCallback: (checking, editor, ctx) => {
         if (checking) {
           return editor.somethingSelected();
@@ -2118,6 +2502,20 @@ var LatexExportSettingTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
+    new import_obsidian4.Setting(containerEl).setName("Overwrite figure files").setDesc(
+      "Overwrite figure files in the Files folder during export."
+    ).addToggle(
+      (cb) => cb.setValue(this.plugin.settings.overwrite_figures).onChange(async (value) => {
+        this.plugin.settings.overwrite_figures = value;
+        await this.plugin.saveSettings();
+      })
+    );
+    new import_obsidian4.Setting(containerEl).setName("Overwrite header file").setDesc("Overwrite the header file (header.tex) during export.").addToggle(
+      (cb) => cb.setValue(this.plugin.settings.overwrite_header).onChange(async (value) => {
+        this.plugin.settings.overwrite_header = value;
+        await this.plugin.saveSettings();
+      })
+    );
     new import_obsidian4.Setting(containerEl).setName("Warn before overwriting on export").addToggle(
       (cb) => cb.setValue(this.plugin.settings.warn_before_overwrite).onChange(async (value) => {
         this.plugin.settings.warn_before_overwrite = value;
@@ -2130,11 +2528,31 @@ var LatexExportSettingTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("File name as environment title").setDesc(
-      "Set note file names as environment titles for embedded latex environments."
+    new import_obsidian4.Setting(containerEl).setName("Display environment names").setDesc(
+      "Set display attribute of the wikilink as the visible name of the environment in latex. If no display value is found, the value of the yaml entry 'env_title' will be used. If that is not found, use the file name if 'Default environment title to file names' is set. Setting any such field to an empty string specifies the absence of a title."
     ).addToggle(
-      (cb) => cb.setValue(this.plugin.settings.display_result_names).onChange(async (value) => {
-        this.plugin.settings.display_result_names = value;
+      (cb) => cb.setValue(this.plugin.settings.display_env_titles).onChange(async (value) => {
+        this.plugin.settings.display_env_titles = value;
+        await this.plugin.saveSettings();
+      })
+    );
+    new import_obsidian4.Setting(containerEl).setName("Default environment title to file name").setDesc(
+      "Use file names (without the file extension) as a default environment name."
+    ).addToggle(
+      (cb) => cb.setValue(
+        this.plugin.settings.default_env_name_to_file_name
+      ).onChange(async (value) => {
+        this.plugin.settings.default_env_name_to_file_name = value;
+        await this.plugin.saveSettings();
+      })
+    );
+    new import_obsidian4.Setting(containerEl).setName("Last external folder").setDesc(
+      "The last used external folder for exports. Updated automatically when exporting externally."
+    ).addText(
+      (text) => text.setPlaceholder(
+        "Last used external folder (e.g., /home/user/latex)"
+      ).setValue(this.plugin.settings.last_external_folder).onChange(async (value) => {
+        this.plugin.settings.last_external_folder = (0, import_obsidian4.normalizePath)(value);
         await this.plugin.saveSettings();
       })
     );

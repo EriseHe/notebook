@@ -34,8 +34,8 @@
   "mcp-tools",
   "obsidian-git",
   "inline-math",
-  "transfer-latex-from-gpt",
   "quick-preview",
   "math-booster",
-  "convert-katex-to-mathjax"
+  "convert-katex-to-mathjax",
+  "transfer-latex-from-gpt"
 ]
