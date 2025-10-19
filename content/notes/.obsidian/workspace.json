@@ -45,13 +45,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_3_four_vectors_lecture_notes.md",
+                "file": "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_6_tensor_equations_lecture_notes.md",
                 "mode": "source",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "moore_gr_chapter_3_four_vectors_lecture_notes"
+              "title": "moore_gr_chapter_6_tensor_equations_lecture_notes"
             }
           }
         ],
@@ -201,13 +201,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_3_four_vectors_lecture_notes.md",
+                "file": "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_6_tensor_equations_lecture_notes.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of moore_gr_chapter_3_four_vectors_lecture_notes"
+              "title": "Outline of moore_gr_chapter_6_tensor_equations_lecture_notes"
             }
           }
         ],
@@ -236,14 +236,14 @@
   },
   "active": "f0ba71a8d6d2b24e",
   "lastOpenFiles": [
+    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_3_four_vectors_lecture_notes.md",
+    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_5_arbitrary_coordinates_lecture_notes.md",
+    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_4_index_notation_lecture_notes.md",
     "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_6_tensor_equations_lecture_notes.md",
     "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_7_maxwells_equations_lecture_notes.md",
-    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_3_four_vectors_lecture_notes.md",
     "理论/微分几何笔记/广义相对论的几何基础/index.md",
-    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_5_arbitrary_coordinates_lecture_notes.md",
     "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_4_index_notation_lecture_notes.log",
     "理论/微分几何笔记/广义相对论的几何基础/4. Index Notation.md",
-    "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_4_index_notation_lecture_notes.md",
     "理论/微分几何笔记/广义相对论的几何基础/moore_gr_chapter_4_index_notation_lecture_notes~.md",
     "理论/微分几何笔记/广义相对论的几何基础/4. Index.md",
     "理论/微分几何笔记/广义相对论的几何基础/6. Tensor Equation.md",
