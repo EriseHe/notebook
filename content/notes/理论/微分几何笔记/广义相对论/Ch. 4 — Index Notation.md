@@ -108,6 +108,7 @@ Here $\mu$ is **free** (the statement holds component‑wise), while $\nu$ and $
 ---
 
 ## 4.6 Rules for safe manipulation 
+
 1. **Same free indices across terms.** You may only add/equate quantities with the same set of free indices (same vertical positions). Examples of *bad* forms Moore flags: $A^2=\eta_{\alpha\beta}A^\mu A^\nu$, $A^\mu=E^\nu$, $A^\mu=B_\mu$ (mismatched variance).
 2. **Renaming is allowed—but globally and safely.** You may rename any index provided you (i) rename **every** occurrence consistently, and (ii) don’t create a clash within a term by reusing a letter that’s already bound there. Examples of *bad* renaming: $A'^\mu=\Lambda^\mu{}_{\nu}A^\nu\to A'^\mu=\Lambda^\mu{}_{\mu}A^\mu$ (illegal self‑collision within a term).
 3. **Fundamental rule: when in doubt, write it out.** Expand the implied sums and use ordinary algebra to verify your step.
