@@ -1,0 +1,527 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath,amssymb,bm,mathtools}
+\usepackage{multicol}
+\setlength{\columnsep}{12pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+\raggedcolumns
+% compact heading macro with a bit more top space
+\newcommand{\chead}[1]{\vspace{6pt}{\large \textbf{#1}}\par}
+
+\begin{document}
+\small
+% tighten math display spacing (re-assert after font size change)
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+\begin{multicols*}{2}
+
+% =========================
+\chead{Ch 1-2.}
+
+For $c=1$, we have
+\[
+\beta=\frac{v}{c}=v
+\qquad\Rightarrow\qquad
+\gamma=\frac{dt}{d\tau}=\frac{1}{\sqrt{1-v^2}}
+\]
+
+\textit{S.R. Time Dilation:} 
+\[
+d\tau=dt\sqrt{1-v^2}\quad\text{ where } v^2=v_x^2+v_y^2+v_z^2
+\]
+
+
+\textit{Lorentz transformation matrix:}
+\[
+\Lambda_\nu^\mu=\left[\begin{array}{cccc}\gamma & -\gamma \beta & 0 & 0 \\ -\gamma \beta & \gamma & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{array}\right]\Leftrightarrow
+(\Lambda^{-1})_\nu^\mu=\left[\begin{array}{cccc}\gamma & \gamma \beta & 0 & 0 \\ \gamma \beta & \gamma & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{array}\right]
+\]
+
+
+% =========================
+\chead{Ch 3. Four Vector}
+
+\textbf{3.1 Four Vector Notation}
+
+\textit{Proper time:} $\tau$
+
+\textit{Four-position:} $x^\mu(\tau)=(t(\tau),\,x(\tau),\,y(\tau),\,z(\tau))$
+
+\textit{Four-displacement (arc length $s$):}
+\[
+d\mathbf{s}=\begin{bmatrix}dt\\ dx\\ dy\\ dz\end{bmatrix}
+\]
+
+\textit{Four-velocity:}
+\[
+\mathbf{u}\equiv
+\begin{bmatrix}u^t\\ u^x\\ u^y\\ u^z\end{bmatrix}
+\equiv
+\begin{bmatrix}\dfrac{dt}{d\tau}\\[4pt]\dfrac{dx}{d\tau}\\[4pt]\dfrac{dy}{d\tau}\\[4pt]\dfrac{dz}{d\tau}\end{bmatrix}
+=
+\begin{bmatrix}\dfrac{dt}{dt\sqrt{1-v^2}}\\[4pt]
+\dfrac{dx}{dt\sqrt{1-v^2}}\\[4pt]
+\dfrac{dy}{dt\sqrt{1-v^2}}\\[4pt]
+\dfrac{dz}{dt\sqrt{1-v^2}}
+\end{bmatrix}
+=
+\begin{bmatrix}\gamma\\ v_x\gamma\\ v_y\gamma\\ v_z\gamma\end{bmatrix}.
+\]
+
+\textbf{3.2 Lorentz Transformation}
+\[
+u'^{\mu}=
+\begin{bmatrix}
+u'^t\\ u'^x\\ u'^y\\ u'^z
+\end{bmatrix}
+=
+\begin{bmatrix}
+\gamma & -\gamma\beta & 0 & 0\\
+-\gamma\beta & \gamma & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+u^t\\ u^x\\ u^y\\ u^z
+\end{bmatrix},
+\]
+\textbf{3.3 Scalar product, magnitude, the interval}
+
+\textit{Minkowski metric:} $\eta_{\mu\nu}=\mathrm{diag}(-,1,1,1)$
+\[
+\begin{aligned}
+\mathbf{A}\cdot\mathbf{B}&=\eta_{\mu\nu}A^\mu B^\nu  \quad\text{ or }\quad A_\mu B^\mu\\
+&=\eta_{tt}A^tB^t+\eta_{xx}A^xB^x +\eta_{yy}A^yB^y+\eta_{zz}A^zB^z\\
+&=-A^tB^t+A^xB^x+A^yB^y+A^zB^z\\
+A^2=\mathbf{A}\cdot\mathbf{A}
+&=-(A^t)^2+(A^x)^2+(A^y)^2+(A^z)^2.
+\end{aligned}
+\]
+
+\textit{Interval}
+\[
+ds^2=\eta_{\mu\nu}\,dx^\mu dx^\nu
+= -dt^2+dx^2+dy^2+dz^2.
+\]
+
+\textit{Normalization of 4-velocity}
+\[
+\begin{aligned}
+ds^2&=-d\tau^2\ \ (\text{rest frame})\\
+\Rightarrow\quad
+\mathbf{u}\cdot\mathbf{u}
+&=\eta_{\mu\nu}\frac{dx^\mu}{d\tau}\frac{dx^\nu}{d\tau}\\
+&=\frac{1}{d\tau^2}\eta_{\mu\nu}dx^\mu dx^\nu\\
+&=\frac{ds^2}{d\tau^2}=\boxed{-1}.
+\end{aligned}
+\]
+
+\textbf{3.4 Relation Between $\mathbf{u}$ and $\mathbf{v}$}
+
+
+Velocity relation: $v_i=\dfrac{u^i}{u^t}$ for $i=x,y,z$
+
+At rest: 
+\[
+u^\mu=(1,0,0,0)
+\]
+
+Non-relativistic limit ($v\ll1$, $\gamma\approx1$): 
+\[
+u^\mu\approx(1,\,v_x,\,v_y,\,v_z)
+\]
+
+\textbf{3.5 Four Momentum}
+
+\textit{4-Momentum for mass $m$ and light} 
+
+\[ 
+\mathbf{p}=m\mathbf{u} \quad\Rightarrow\quad p^\mu =
+\begin{bmatrix}mu^t\\ mu^x\\ mu^y\\ mu^z\end{bmatrix} =
+\begin{bmatrix}\gamma m\\ \gamma m v_x\\ \gamma m v_y\\ \gamma m v_z\end{bmatrix} =
+\underbrace{\begin{bmatrix}E\\ Ev_x\\ Ev_y\\ Ev_z\end{bmatrix}}_{\text{light}}
+\]
+
+\textit{Relativistic energy:} \boxed{E=p^t=\gamma m}
+
+\textit{Invariant mass relation:}
+\[
+\begin{aligned}
+    \mathbf{p}\cdot\mathbf{p}
+    &=-(p^t)^2+\vec{p}^{\,2}
+    =-E^2+\vec{p}^{\,2}\quad\text{(1)}\\
+    \mathbf{p}\cdot\mathbf{p}
+    &=\eta_{\mu\nu}p^\mu p^\nu
+    =m^2\eta_{\mu\nu}u^\mu u^\nu
+    =-m^2\quad\text{(2)}
+\end{aligned}
+\]
+
+where $\vec{p}=(p^x,p^y,p^z)$ for spatial 3-momentum.
+\[
+(1)=(2)\quad\Longrightarrow\quad\boxed{E^2-\vec{p}^{\,2}=m^2}
+\]
+
+\textbf{3.6 Energy by observer}
+
+\textit{In rest frame (IRF):} Let $u^\mu_{\text{obs}}=(1,0,0,0)$, for passing object with 4-momentum $p^\mu$:
+\[
+\begin{aligned}
+E_{(\text{obs})}&=-\,\mathbf{p}\cdot\mathbf{u}_{\text{obs}}\\
+&=-\,\eta_{\mu\nu}p^\mu u^\nu_{\text{obs}}= p^t.
+\end{aligned}
+\]
+
+\textit{Kinetic energy:} $E=m+\mathrm{KE}$ for $v\ll1$
+
+% =========================
+\chead{Ch 4. Index Notation}
+
+\textbf{4.1 Useful Identity}
+\begin{itemize}
+\item identity matrix: $\delta^\mu_{\ \nu}=\mathrm{diag}(1,1,1,1)$
+\item inverse transformation: $(\Lambda^{-1})^\mu_{\ \alpha}\,\Lambda^\alpha_{\ \nu}=\delta^\mu_{\ \nu}$
+\item selector action: $\delta^\mu_{\ \nu}A^\nu=A^\mu$
+\item derivative rule:
+\[
+\begin{aligned}
+\frac{d}{d\tau}(A^2)
+&=2\,\eta_{\mu\nu}A^\mu\frac{dA^\nu}{d\tau}.
+\end{aligned}
+\]
+\end{itemize}
+
+% =========================
+\chead{Ch 5. Arbitrary Coordinates}
+
+\textbf{5.1 Coordinate basis}
+
+In any arbitrary curvilinear coordinates ($d s^2\neq d x^2+d y^2$), we define a coordinate basis $\mathbf e_\mu$ such that
+\[
+ds=dx^{\mu}\,\mathbf e_{\mu}
+=\underbrace{du\,\mathbf e_u+dw\,\mathbf e_w}_{\text{2D case}}
+\]
+
+
+\textit{Metric tensor:}
+\[
+ds^2=g_{\alpha\beta}\,dx^{\alpha}dx^{\beta}
+\]
+where $g_{\alpha \beta} \equiv \mathbf{e}_\alpha \cdot \mathbf{e}_\beta$ comprises the metric tensor.
+
+\textbf{5.2 Transformations}
+Consider $u, w$ and new coordinates $u'(u, w)$ and $w'(u, w)$
+\[
+dx'^\mu=\frac{\partial x'^\mu}{\partial x^{\nu}}\,dx^{\nu},\quad\\
+\]
+For any vector $\mathbf{A}$:
+\[
+\boxed{A'^\mu=\frac{\partial x'^\mu}{\partial x^{\nu}}A^{\nu}\quad\Longleftrightarrow\quad A^\mu=\frac{\partial x^\mu}{\partial x^{\prime \nu}} A^{\prime \nu}}
+\]
+\textbf{5.3 Coordinate Transformations in Flat Spacetime}
+
+For \textit{flat spacetime}, the general transformation law = L.T.:
+\[
+\begin{aligned}  \frac{\partial x^{\prime \mu}}{\partial x^\nu}=\Lambda_\nu^\mu \quad\Longleftrightarrow\quad \frac{\partial x^\mu}{\partial x^{\prime \nu}}=(\Lambda^{-1})_\nu^\mu\end{aligned}
+\]
+
+\textbf{5.4 The Metric for a Spherical Surface.}
+In polar coordinates, the metric on a sphere of radius $R$ is:
+\[
+ds^2=R^2\,d\theta^2 + R^2\sin^2\!\theta\,d\phi^2
+\]
+that is
+\[g_{\mu \nu}=\left[\begin{array}{ll}g_{\theta \theta} & g_{\theta \phi} \\ g_{\phi \theta} & g_{\phi \phi}\end{array}\right]=\left[\begin{array}{cc}R^2 & 0 \\ 0 & R^2 \sin ^2 \theta\end{array}\right]\]
+
+% =========================
+\chead{Ch 6. Tensor Equations}
+
+\textbf{6.1 Vectors vs covectors}
+
+\textit{Vector transformation law:}
+\[
+A'^\mu=\frac{\partial x'^\mu}{\partial x^{\nu}}A^{\nu}
+\]
+
+\textit{Covector transformation law:}
+
+$A_\mu$ transforms as a covector:
+$$
+\begin{aligned}
+A_\mu^{\prime} & =g_{\mu \nu}^{\prime} A^{\prime \nu}=\left(\frac{\partial x^\alpha}{\partial x^{\prime \mu}} \frac{\partial x^\beta}{\partial x^{\prime \nu}} g_{\alpha \beta}\right)\left(\frac{\partial x^{\prime \nu}}{\partial x^\gamma} A^\gamma\right) \\
+& =\frac{\partial x^\alpha}{\partial x^{\prime \mu}} \underbrace{\left(\frac{\partial x^\beta}{\partial x^{\prime \nu}} \frac{\partial x^{\prime \nu}}{\partial x^\gamma}\right)}_{\delta^\beta{ }_\gamma} g_{\alpha \beta} A^\gamma=\frac{\partial x^\alpha}{\partial x^{\prime \mu}} g_{\alpha \gamma} A^\gamma \\
+& =\frac{\partial x^\alpha}{\partial x^{\prime \mu}} A_\alpha
+\end{aligned}
+$$
+
+\textbf{6.2 Gradient and lowering}
+
+\textit{Gradient of a scalar is a covector:}
+\[
+\partial_\mu\phi=\frac{\partial\phi}{\partial x^{\mu}}\ (\text{covector})
+\]
+
+where
+$\partial_\mu \equiv \frac{\partial}{\partial x^\mu} = \left(\frac{\partial}{\partial t}, \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}\right)_\mu$
+
+\textit{Lowering an index with the metric produces a covector:}
+$$
+\begin{aligned}
+A_\mu=g_{\mu\nu}A^{\nu}
+\end{aligned}
+$$
+\textbf{6.3 Scalar contraction (invariant)}
+
+\textit{Scalar contraction is invariant:}
+\[A^{\prime \mu} B_\mu^{\prime}=\left(\frac{\partial x^{\prime \mu}}{\partial x^\alpha} A^\alpha\right)\left(\frac{\partial x^\beta}{\partial x^{\prime \mu}} B_\beta\right)=\underbrace{\left(\frac{\partial x^{\prime \mu}}{\partial x^\alpha} \frac{\partial x^\beta}{\partial x^{\prime \mu}}\right)}_{\delta^\beta{ }_\alpha} A^\alpha B_\beta=A^\alpha B_\alpha\]
+
+\textbf{6.4 Inverse metric}
+
+For any metric tensor $g_{\mu \nu}$:
+\[
+\boxed{g_{\mu \nu}^{\prime}=\frac{\partial x^\alpha}{\partial x^{\prime \mu}} \frac{\partial x^\beta}{\partial x^{\prime \nu}} g_{\alpha \beta} \quad\Longleftrightarrow\quad g_{\alpha \beta}=\frac{\partial x^{\prime \mu}}{\partial x^\alpha} \frac{\partial x^{\prime \nu}}{\partial x^\beta} g_{\mu \nu}^{\prime}}
+\]
+and also the inverse:
+\[
+\boxed{g'^{\mu\nu}=\frac{\partial x'^\mu}{\partial x^{\alpha}}\frac{\partial x'^\nu}{\partial x^{\beta}}\,g^{\alpha\beta} \quad\Longleftrightarrow\quad g^{\alpha\beta}=\frac{\partial x^{\prime \alpha}}{\partial x^\mu} \frac{\partial x^{\prime \beta}}{\partial x^\nu} g'^{\mu\nu}}
+\]
+
+\textbf{6.5 Tensor (master law)}
+\[
+T'^{\mu\nu\dots}{}_{\alpha\beta\dots}
+=\frac{\partial x'^\mu}{\partial x^{r}}\frac{\partial x'^\nu}{\partial x^{\sigma}}\cdots
+\frac{\partial x^{\gamma}}{\partial x'^\alpha}\frac{\partial x^{\delta}}{\partial x'^\beta}\cdots
+\,T^{r\sigma\dots}{}_{\gamma\delta\dots}.
+\]
+
+% =========================
+\chead{Ch 7. Maxwell}
+\textbf{7.1 Charge density and current density}
+
+\textit{Length contracts:}
+$$V=V^{\prime} / \gamma \quad\Longrightarrow\quad \rho=\gamma \rho^{\prime}$$
+\textit{Four-current density:}
+$$\boxed{J^\mu=\left(\rho, \rho v_x, \rho v_y, \rho v_z\right) \quad\text{ with }\vec{J}=\rho \vec{v}}$$
+
+\textbf{7.2 Gauss's law}
+
+(differential form):
+\[
+\nabla \cdot \mathbf{E}=\frac{\partial E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial E_z}{\partial z}=4 \pi k \rho
+\]
+where E is the electric field:
+\[
+\frac{d \mathbf{p}}{d t}=\mathbf{F}_e=q \mathbf{E} \quad\Longrightarrow\quad 
+\boxed{\frac{d p^\mu}{d \tau}=q F^\mu{ }_\nu u^\nu}
+\]
+
+
+
+\textbf{7.3 Maxwell equations}
+\[
+\boxed{\ \partial_\nu F^{\mu\nu}=4\pi k\,J^\mu\ },\qquad
+\partial_\sigma F_{\mu\nu}+\partial_\mu F_{\nu\sigma}+\partial_\nu F_{\sigma\mu}=0.
+\]
+where F is the field tensor:
+\[
+F_{\mu\nu}=\begin{bmatrix}
+0 & E_x & E_y & E_z\\
+-E_x & 0 & B_z & -B_y\\
+-E_y & -B_z & 0 & B_x\\
+-E_z & B_y & -B_x & 0
+\end{bmatrix}
+\]
+
+\textit{Charge conservation:} Take $\partial_\mu$ of both sides and commute derivatives: LHS = 0 because $F$ is antisymmetric,
+$$
+\partial_\mu \partial_\nu F^{\mu \nu} \equiv 0\quad\Longrightarrow\quad \boxed{\partial_\mu J^\mu=0}
+$$
+
+\textbf{7.4 Potentials}
+\[
+F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu.
+\]
+
+% =========================
+\chead{Ch 8. Geodesics}
+
+\textbf{8.0 Lagrange equation:}
+Lagrangian for our worldline is:
+\[
+L(x, \dot{x}) \equiv \sqrt{-g_{\mu \nu}(x) \dot{x}^\mu \dot{x}^\nu}, \quad \dot{x}^\mu \equiv \frac{d x^\mu}{d \sigma}
+\]
+Euler-Lagrange equation for our worldline is:
+\[
+\frac{d}{d\sigma}\left(\frac{\partial L}{\partial \dot{x}^\mu}\right)-\frac{\partial L}{\partial x^\mu}=0
+\]
+
+\textbf{8.1 Extremal proper time}
+Between two a timelike geodesic two timelike-separated events $A \to B$, the \textit{proper time} is:
+\[
+\tau=\int\!\sqrt{-g_{\mu\nu}\,\frac{dx^{\mu}}{d\sigma}\frac{dx^{\nu}}{d\sigma}}\,d\sigma.
+\]
+
+\textbf{8.2 Geodesic equations}
+\[
+\boxed{\begin{aligned}
+0&=\frac{d}{d\tau}\!\Big(g_{\alpha\nu}\,\frac{dx^{\nu}}{d\tau}\Big)
+-\frac{1}{2}\,\partial_{\alpha}g_{\mu\nu}\,\frac{dx^{\mu}}{d\tau}\frac{dx^{\nu}}{d\tau}\\[2pt]
+&=\frac{d^2 x^\rho}{d \tau^2}+\underbrace{\frac{1}{2} g^{\rho \alpha}\left(\partial_\mu g_{\alpha \nu}+\partial_\nu g_{\alpha \mu}-\partial_\alpha g_{\mu \nu}\right)}_{\Gamma^\rho{ }_{\mu \nu}} \frac{d x^\mu}{d \tau} \frac{d x^\nu}{d \tau}
+\end{aligned}}
+\]
+
+\textbf{8.3 Normalization}
+\[
+u\!\cdot\!u=g_{\mu\nu}\,\frac{dx^{\mu}}{d\tau}\frac{dx^{\nu}}{d\tau}=-1\ (\text{timelike}),\quad =0\ (\text{null}).
+\]
+
+% =========================
+\chead{Ch 9. Schwarzschild Metric}
+\textbf{9.0 Spherical Coordinates for Flat Spacetime:}
+\[
+ds^2= -dt^2 + dr^2 + r^2 d\theta^2 + r^2\sin^2\!\theta\,d\phi^2
+\]
+
+
+\textbf{9.1 Schwarzschild Metric}
+\[
+\boxed{\ ds^2 = \underbrace{-\Big(1-\frac{2GM}{r}\Big)}_{g_{t t} \text{ time part}} dt^2 + \underbrace{\Big(1-\frac{2GM}{r}\Big)^{-1}}_{g_{r r}\text{ radial part}}\!dr^2 + \underbrace{r^2}_{g_{\theta \theta}} d\theta^2 + \underbrace{r^2\sin^2\!\theta\,d\phi^2}_{g_{\phi \phi}}\ }.
+\]
+
+\textit{Features:} spherically symmetric, static, vacuum, and becomes the flat space metric in the limit as $r \rightarrow \infty$.
+
+\textit{Units:} $G$ has units of $\mathrm{m} / \mathrm{kg}$, and $GM$ in units of $\mathrm{m}$.
+
+\textbf{9.2 Meaning of $r$}
+\[
+r=\frac{C}{2\pi}\ (\text{circumference}),\qquad ds=\frac{dr}{\sqrt{1-2GM/r}}\ (t=\text{const}).
+\]
+
+\textbf{9.3 Newtonian limit and $r_s$}
+\[
+\frac{d^2 r}{d\tau^2}\Big|_{\text{rest}}= -\,\frac{1}{2}\,\frac{r_s}{r^2}\ \Rightarrow\ r_s=2GM.
+\]
+
+\textbf{9.4 Gravitational time dilation \& redshift}
+
+\textit{Time dilation} in Schwarzschild metric:
+\[
+\boxed{\Delta\tau_r=\sqrt{1-\tfrac{2GM}{r}}\,\Delta t}
+\]
+\textit{Redshift} in Schwarzschild metric:
+\[
+\begin{aligned}
+\frac{\lambda_R}{\lambda_E}&=\sqrt{\frac{1-\tfrac{2GM}{r_R}}{1-\tfrac{2GM}{r_E}}}\approx 1+g\,h \quad (\text{if } \frac{2 G M}{r} \ll 1 \text{ and } h \equiv r_R-r_E \ll r_E)
+\end{aligned}
+\]
+where $g=GM/r_E^2$.
+
+% =========================
+\chead{Ch 10. Particle Orbits}
+
+\textbf{10.1 Conserved quantities (equatorial)}
+\[
+e=\Big(1-\frac{2GM}{r}\Big)\frac{dt}{d\tau},\qquad l=r^2\frac{d\phi}{d\tau}.
+\]
+
+\textbf{10.2 Radial energy form}
+\[
+\tfrac12\Big(\frac{dr}{d\tau}\Big)^2=E-\Big[\,\frac{GM}{r}+\frac{l^2}{2r^2}-\frac{GMl^2}{r^3}\,\Big],\quad E=\tfrac12(e^2-1).
+\]
+
+\textbf{10.3 Circular orbits \& Kepler}
+\[
+\frac{dV}{dr}=0\ \Rightarrow\ r_c=\frac{l^2}{2GM}\Big(1\pm\sqrt{1-12(GM/l)^2}\Big),\quad
+\Omega^2=\frac{GM}{r_c^3}.
+\]
+
+\textbf{10.4 Acceleration and ISCO}
+\[
+\frac{d^2 r}{d\tau^2}= -\,\frac{GM}{r^2}+\frac{l^2}{r^3}-\frac{3GMl^2}{r^4},\quad r_{\text{ISCO}}=6GM,\ e_{\text{ISCO}}=\sqrt{8/9}.
+\]
+
+% =========================
+\chead{Ch 12. Photon Orbits}
+
+\textbf{12.1 Impact parameter}
+\[
+\boxed{\ b=\frac{l}{e}=
+r^2\left(1-\frac{2 G M}{r}\right)^{-1} \frac{d \phi}{d t} }.
+\]
+
+\textbf{12.2 Equation of Radial Motion for a Photon}
+
+For null (lightlike) curves, the equation of motion is:
+\[
+\begin{aligned}
+1&=\frac{1}{(1-2GM/r)^2}\Big(\frac{dr}{dt}\Big)^2+\Big(1-\frac{2GM}{r}\Big)\frac{b^2}{r^2}\\
+ \Longleftrightarrow\  \frac{1}{b^2}&=\frac{1}{b^2(1-2GM/r)^2}\Big(\frac{dr}{dt}\Big)^2+\frac{1-2GM/r}{r^2}
+\end{aligned}
+\]
+
+has a peak at $r=3GM\Rightarrow b_c^2=27(GM)^2$.
+
+\textbf{12.3 Equatorial plane}
+$$
+\begin{aligned}
+&\theta=\frac{\pi}{2}, \quad d \theta=0, \quad \sin \theta=1
+\end{aligned}
+$$
+
+\textbf{12.4 Photon 4-momentum (equatorial)}
+
+For photons in the equatorial plane:
+$$
+p^\mu=\frac{E}{1-2 G M / r} \frac{d x^\mu}{d t}
+$$
+
+\textit{Components:}
+$$
+\begin{aligned}
+p^t&=\frac{E}{(1-2 G M / r)}\\
+p^\phi &=\frac{E}{(1-2 G M / r)} \frac{d \phi}{d t}=E \frac{b}{r^2} \\
+p^\theta &=0\\
+p^r&=\frac{E}{(1-2 G M / r)} \frac{d r}{d t}= \pm E \sqrt{1-\frac{b^2}{r^2}\left(1-\frac{2 G M}{r}\right)}
+\end{aligned}
+$$
+
+\textbf{12.5 Observables for static observers}
+\[
+\sin\psi_c=\frac{3\sqrt{3}\,GM}{r}\sqrt{1-\frac{2GM}{r}},\qquad
+E_{\text{obs}}=\frac{E}{\sqrt{1-\tfrac{2GM}{r}}}.
+\]
+
+% =========================
+\chead{Ch 14. Event Horizon}
+
+\textbf{14.1 Horizon signals}
+\[
+ds^2\Big|_{\text{static}}= -\Big(1-\frac{2GM}{r}\Big)dt^2\Rightarrow ds^2=0\ (r=2GM),\quad
+\frac{\lambda_R}{\lambda_E}=\sqrt{\frac{1-\tfrac{2GM}{r_R}}{1-\tfrac{2GM}{r_E}}}\to\infty\ (r_E\to2GM^+).
+\]
+
+\textbf{14.2 Coordinate freeze at the horizon}
+\[
+\frac{dr}{dt},\ \frac{d\phi}{dt}\ \propto\ (1-2GM/r)\ \to\ 0\quad (r\to2GM^+).
+\]
+
+\textbf{14.3 Finite distances/times}
+\[
+\begin{aligned}
+\mathcal D( R\to 2GM)&=\int_{2GM}^{R}\!\frac{dr}{\sqrt{1-2GM/r}}\\[2pt]
+&=\sqrt{R(R-2GM)}+GM\ln\!\Bigg|\frac{\sqrt{R}+\sqrt{R-2GM}}{\sqrt{2GM}}\Bigg|.
+\end{aligned}
+\]
+\[
+\Delta\tau\Big|_{\text{rest at }R\to0}=\frac{\pi R^{3/2}}{\sqrt{8GM}},\qquad \Delta\tau_{\max}(2GM\to0)=\pi GM.
+\]
+
+\end{multicols*}
+\end{document}

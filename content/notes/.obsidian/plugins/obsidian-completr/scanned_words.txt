@@ -617,6 +617,8 @@ CIDSystemInfo
 CBbcc
 CNF
 CNE
+Composition
+Coupling
 font
 for
 functions
@@ -2315,6 +2317,7 @@ cDR
 cygN
 cheap
 computedb
+compilation
 Problem
 Partial
 Putting
@@ -7996,6 +7999,8 @@ DDgQ
 DescendantFonts
 DpF
 Dzp
+Deriving
+Dynamics
 map
 matrix
 mapping
@@ -8670,6 +8675,7 @@ mIG
 maQ
 mMl
 muy
+mappings
 have
 holds
 has
@@ -11840,6 +11846,7 @@ bpQ
 bfN
 bxl
 bIYm
+backprop
 allow
 and
 as
@@ -13796,6 +13803,8 @@ RKH
 RMh
 RCrX
 Registry
+Recursion
+Recursively
 requirement
 respect
 rule
@@ -16717,6 +16726,7 @@ TMHTQ
 TUo
 TmH
 Transcribed
+Trick
 Hence
 Here
 Hypotheses
@@ -18920,6 +18930,9 @@ AAAAIW
 AAAAIZ
 AAAAJC
 AAAAJD
+Augmented
+Alternatively
+Adjoint
 via
 variables
 view
@@ -21871,6 +21884,8 @@ LzP
 LhH
 LjR
 LUe
+Linearization
+Layers
 Value
 Verifying
 Verify
