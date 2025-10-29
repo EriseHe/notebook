@@ -98,7 +98,7 @@ R_{\beta\nu}=R_{\nu\beta}
 }
 \tag{19.6–19.7}
 $$
-**Scalar curvature** (trace of the Ricci):
+Scalar curvature (trace of the Ricci):
 $$
 \boxed{
 R \equiv g^{\beta\nu} R_{\beta\nu}
