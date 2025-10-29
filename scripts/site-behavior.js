@@ -155,6 +155,6 @@
     registerHandlers(state);
     setupToggleClicks();
     setupSectionLinks();
-    setupSidebarAutoHide();
+    // setupSidebarAutoHide(); // Disabled - sidebar is now fixed and always visible
   });
 })();
