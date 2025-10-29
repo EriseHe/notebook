@@ -38,8 +38,7 @@ $$
 = \mathbb E_{x\sim p_{\text{data}}}\big\|s_\theta(x)-\nabla_x\log p_{\text{data}}(x)\big\|_2^2\;}
 $$
 
-This is inconvenient when $p_{\text{data}}$ is supported on a thin manifold (score undefined off-manifold).  
-Introduce Gaussian corruption:
+This is inconvenient when $p_{\text{data}}$ is supported on a thin manifold (score undefined off-manifold).  Introduce Gaussian corruption:
 $$
 \tilde x = x+\sigma\varepsilon,\qquad \varepsilon\sim\mathcal N(0,I),
 \qquad p_\sigma(\tilde x\mid x)=\mathcal N(x,\sigma^2 I).
@@ -59,7 +58,6 @@ $$
 \mathbb E_{x,\tilde x}\big\|s_\theta(\tilde x)-\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\big\|_2^2 + C
 = \mathbb E_{x,\varepsilon}\Big\|s_\theta(x+\sigma\varepsilon)+\tfrac{\varepsilon}{\sigma}\Big\|_2^2 + C\;}
 $$
-
 
 # 3 Why Estimate the Score Instead of the Probability Density?
 
