@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1761035799.67505 "/Users/erisehe/Documents/GitHub/notebook/content/notes/理论/微分几何笔记/广义相对论/习题集/Cheat Sheet.tex" "Cheat Sheet.pdf" "Cheat Sheet" 1761035801.51929 0
-  "/Users/erisehe/Documents/GitHub/notebook/content/notes/理论/微分几何笔记/广义相对论/习题集/Cheat Sheet.tex" 1761035799.30018 16422 614b72e4cdffe37389da98390625970b ""
+["pdflatex"] 1761039055.90295 "/Users/erisehe/Documents/GitHub/notebook/content/notes/理论/微分几何笔记/广义相对论/习题集/Cheat Sheet.tex" "Cheat Sheet.pdf" "Cheat Sheet" 1761039056.69413 0
+  "/Users/erisehe/Documents/GitHub/notebook/content/notes/理论/微分几何笔记/广义相对论/习题集/Cheat Sheet.tex" 1761039055.59842 21026 0a811e2f6725afce3256dde9f9b06d6b ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm0900.tfm" 1136768653 1536 c4f439db76ef96a9c53bc437f35ffe20 ""
@@ -76,8 +76,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1741056986.07029 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1741056859 8221441 da7969beb4723ef80be701cb1e8b7aa9 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "Cheat Sheet.tex" 1761035799.30018 16422 614b72e4cdffe37389da98390625970b ""
-  "build/Cheat Sheet.aux" 1761035801.30125 32 ab05033ccbb38b00a31b200ccedf8001 "pdflatex"
+  "Cheat Sheet.tex" 1761039055.59842 21026 0a811e2f6725afce3256dde9f9b06d6b ""
+  "build/Cheat Sheet.aux" 1761039056.59874 32 c81c40425fbb5e93b90fba65da0b5e61 "pdflatex"
   (generated)
   "Cheat Sheet.pdf"
   "build/Cheat Sheet.aux"

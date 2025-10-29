@@ -418,10 +418,11 @@ r=\frac{C}{2\pi}\ (\text{circumference}),\qquad ds=\frac{dr}{\sqrt{1-2GM/r}}\ (t
 \textit{Redshift} in Schwarzschild metric:
 \[
 \begin{aligned}
-\frac{\lambda_R}{\lambda_E}&=\sqrt{\frac{1-\tfrac{2GM}{r_R}}{1-\tfrac{2GM}{r_E}}}\approx 1+g\,h \quad (\text{if } \frac{2 G M}{r} \ll 1 \text{ and } h \equiv r_R-r_E \ll r_E)
+\frac{\lambda_R}{\lambda_E}&=\sqrt{\frac{1-\tfrac{2GM}{r_R}}{1-\tfrac{2GM}{r_E}}}\approx 1+g\,h 
 \end{aligned}
 \]
-where $g=GM/r_E^2$.
+
+if $\frac{2 G M}{r} \ll 1$ and $h \equiv r_R-r_E \ll r_E$. Here $g=GM/r_E^2$.
 
 % =========================
 \chead{Ch 10. Particle Orbits}
@@ -453,33 +454,65 @@ e=\Big(1-\frac{2GM}{r}\Big)\frac{dt}{d\tau},\qquad l=r^2\frac{d\phi}{d\tau}.
 \textbf{12.1 Impact parameter}
 \[
 \boxed{\ b=\frac{l}{e}=
-r^2\left(1-\frac{2 G M}{r}\right)^{-1} \frac{d \phi}{d t} }.
+r^2\left(1-\frac{2 G M}{r}\right)^{-1} \frac{d \phi}{d t} }
 \]
 
-\textbf{12.2 Equation of Radial Motion for a Photon}
+or $$
+\frac{d \phi}{d t}=\frac{1-2 G M / r}{r^2} b
+$$
 
-For null (lightlike) curves, the equation of motion is:
-\[
-\begin{aligned}
-1&=\frac{1}{(1-2GM/r)^2}\Big(\frac{dr}{dt}\Big)^2+\Big(1-\frac{2GM}{r}\Big)\frac{b^2}{r^2}\\
- \Longleftrightarrow\  \frac{1}{b^2}&=\frac{1}{b^2(1-2GM/r)^2}\Big(\frac{dr}{dt}\Big)^2+\frac{1-2GM/r}{r^2}
-\end{aligned}
-\]
-
-has a peak at $r=3GM\Rightarrow b_c^2=27(GM)^2$.
-
-\textbf{12.3 Equatorial plane}
+\textbf{12.2 Equatorial plane}
 $$
 \begin{aligned}
 &\theta=\frac{\pi}{2}, \quad d \theta=0, \quad \sin \theta=1
 \end{aligned}
 $$
 
+\textbf{12.3 Equation of Radial Motion for a Photon}
+Use the Schwarzschild line element on the equatorial plane ($\theta=\pi/2$) and the null condition $ds^2=0$:
+$$
+\begin{aligned}
+0 & =-\left(1-\frac{2 G M}{r}\right) d t^2+\left(1-\frac{2 G M}{r}\right)^{-1} d r^2+r^2 d \phi^2 \\
+& \Rightarrow 1=\frac{1}{\left(1-\frac{2 G M}{r}\right)^2}\left(\frac{d r}{d t}\right)^2+\left(1-\frac{2 G M}{r}\right) \frac{b^2}{r^2}
+\end{aligned}
+$$
+
+Divide by $b^2$ to obtain the \textit{energy‑like} form with an effective potential $V(r)$:
+$$\boxed{\ \frac{1}{b^2}\;=\;\underbrace{\frac{1}{b^2\,\big(1-\tfrac{2GM}{r}\big)^{2}}\Big(\frac{dr}{dt}\Big)^2}_{\text{radial “kinetic” term}}\; +\; \underbrace{\frac{1-\tfrac{2GM}{r}}{r^2}}_{\displaystyle V(r)}\ }$$
+\textit{Remark:}
+\begin{itemize}
+\item The potential $V(r)=(1-2GM/r)/r^2$ has a peak at $r=3GM$
+\item Photons with $1/b^2$ larger than this peak spiral inward, with the \textit{critical case} $b^2=27(GM)^2$ corresponding to the unstable circular photon orbit at $r=3GM$.
+\end{itemize}
+
+Setting $GM\to0$ gives flat space result:
+$$\boxed{\ \frac{1}{b^2}=\frac{1}{b^2}\Big(\frac{dr}{dt}\Big)^2 + \frac{1}{r^2}\quad\text{(flat space)} }$$
+which says a light ray from infinity always returns to infinity
+
+\textbf{12.4 Locally orthonormal frames (LOFs) for static observers}
+
+A stationary observer constructs a \textit{locally orthonormal tetrad} $\{\mathcal O_t,\mathcal O_x,\mathcal O_y,\mathcal O_z\}$ at a point $P$, satisfying
+$$\boxed{\ \mathcal O_x\!\cdot\!\mathcal O_x = \mathcal O_y\!\cdot\!\mathcal O_y = \mathcal O_z\!\cdot\!\mathcal O_z = +1,\quad \mathcal O_t\!\cdot\!\mathcal O_t=-1,\quad \mathcal O_a\!\cdot\!\mathcal O_b=0\ (a\neq b) }$$
+so the metric in the LOF is Minkowski:
+$$\boxed{\ (g_{\mu\nu})_{\text{LOF}} = \eta_{\mu\nu} }$$
+If $A$ is any four‑vector with components $A^\mu$ in Schwarzschild coordinates and $(\mathcal O_a)^\mu$ are the **Schwarzschild components** of the LOF basis vectors, the observed components follow from scalar products:
+$$\boxed{\ A_{\text{obs}}^{\,t}= -\,\mathcal O_t\!\cdot\!A,\quad A_{\text{obs}}^{\,x}= \mathcal O_x\!\cdot\!A,\quad A_{\text{obs}}^{\,y}= \mathcal O_y\!\cdot\!A,\quad A_{\text{obs}}^{\,z}= \mathcal O_z\!\cdot\!A }$$
+For a static observer aligned with the Schwarzschild directions $(\phi,-\theta,r)$, the tetrad components are
+$$\begin{aligned}
+(\mathcal O_t)^\mu&=\Big(\frac{1}{\sqrt{1-\tfrac{2GM}{r}}},0,0,0\Big),\\
+(\mathcal O_x)^\mu&=\Big(0,\frac{1}{r\sin\theta},0,0\Big),\\
+(\mathcal O_y)^\mu&=\Big(0,0,\frac{1}{r},0\Big),\\
+(\mathcal O_z)^\mu&=\Big(0,0,0,\sqrt{1-\tfrac{2GM}{r}}\Big)
+\end{aligned}
+$$
+These satisfy $\mathcal O_a\!\cdot\!\mathcal O_b=\eta_{ab}$ with the Schwarzschild metric.
+
+
 \textbf{12.4 Photon 4-momentum (equatorial)}
 
-For photons in the equatorial plane:
+\textit{Photon 4-momentum} in the equatorial plane:
 $$
-p^\mu=\frac{E}{1-2 G M / r} \frac{d x^\mu}{d t}
+p^\mu=\frac{E}{1-2 G M / r} \frac{d x^\mu}{d t} \quad\text{where } E\equiv m e.
 $$
 
 \textit{Components:}
@@ -491,21 +524,47 @@ p^\theta &=0\\
 p^r&=\frac{E}{(1-2 G M / r)} \frac{d r}{d t}= \pm E \sqrt{1-\frac{b^2}{r^2}\left(1-\frac{2 G M}{r}\right)}
 \end{aligned}
 $$
+where ($+$) for outgoing and ($-$) for ingoing photons.
 
-\textbf{12.5 Observables for static observers}
-\[
-\sin\psi_c=\frac{3\sqrt{3}\,GM}{r}\sqrt{1-\frac{2GM}{r}},\qquad
-E_{\text{obs}}=\frac{E}{\sqrt{1-\tfrac{2GM}{r}}}.
-\]
+
+
+\textbf{12.5 Critical escape angle for stationary observers}
+
+Let a static observer at radius $r$ emit a photon in the equatorial plane making an angle $\psi$ with the \textit{radially outward} direction ($\mathcal O_z$). In the LOF, the photon speed is 1, so
+$$\boxed{\ \sin\psi=\frac{v_{x,\text{obs}}}{1}=\frac{(\mathcal O_x\!\cdot\!p)}{-\,(\mathcal O_t\!\cdot\!p)} }$$
+Using (12.10) and (12.12) in the dot products and imposing the \textit{critical} condition $b^2=27(GM)^2$ (the top of $V(r)$) gives
+$$\boxed{\ \sin\psi_c\;=\;\frac{3\sqrt{3}\,GM}{r}\,\sqrt{1-\frac{2GM}{r}}\ }$$
+
+\begin{itemize}
+    \item As $r\to\infty$, $\sin\psi_c\to0$ so $\psi_c\to180^\circ$ (escape in almost any direction). 
+    \item At $r=3GM$, $\sin\psi_c=1\Rightarrow\psi_c=90^\circ$ (photon sphere).
+    \item As $r\to2GM$, $\psi_c\to0^\circ$: even radially outward light is captured.
+\end{itemize}
+
+\textbf{12.6 Energy measured by a stationary observer (blueshift)}
+
+The energy measured in the LOF is $E_{\text{obs}}\equiv -\,\mathcal O_t\!\cdot\!p$. Using (12.10) and (12.12),
+$$\boxed{\ E_{\text{obs}}\;=\;\frac{E}{\sqrt{1-\tfrac{2GM}{r}}}\;>\;E}$$
+which diverges as $r\to2GM$. 
+This blueshift reflects that \textit{local clocks run slower} than the clock at infinity. Conversely, light sent upward is \textit{redshifted} as seen at infinity.
+
 
 % =========================
 \chead{Ch 14. Event Horizon}
 
 \textbf{14.1 Horizon signals}
+
+\textit{Stationary worldline} at $r=2GM$ (lightlike):
+
+Set $dr=d\theta=d\phi=0$: 
 \[
-ds^2\Big|_{\text{static}}= -\Big(1-\frac{2GM}{r}\Big)dt^2\Rightarrow ds^2=0\ (r=2GM),\quad
-\frac{\lambda_R}{\lambda_E}=\sqrt{\frac{1-\tfrac{2GM}{r_R}}{1-\tfrac{2GM}{r_E}}}\to\infty\ (r_E\to2GM^+).
+\begin{aligned}
+ds^2\Big|_{\text{static}}= -\Big(1-\frac{2GM}{r}\Big)dt^2\Rightarrow ds^2=0
+\end{aligned}
 \]
+
+\textit{Infinite redshift:}
+$$\frac{\lambda_R}{\lambda_E}=\sqrt{\frac{1-\tfrac{2GM}{r_R}}{1-\tfrac{2GM}{r_E}}}\to\infty\  \ (r_E\to2GM^+)$$
 
 \textbf{14.2 Coordinate freeze at the horizon}
 \[
@@ -513,15 +572,35 @@ ds^2\Big|_{\text{static}}= -\Big(1-\frac{2GM}{r}\Big)dt^2\Rightarrow ds^2=0\ (r=
 \]
 
 \textbf{14.3 Finite distances/times}
+
+\textit{Finite radial proper distance to the horizon:}
 \[
 \begin{aligned}
 \mathcal D( R\to 2GM)&=\int_{2GM}^{R}\!\frac{dr}{\sqrt{1-2GM/r}}\\[2pt]
 &=\sqrt{R(R-2GM)}+GM\ln\!\Bigg|\frac{\sqrt{R}+\sqrt{R-2GM}}{\sqrt{2GM}}\Bigg|.
 \end{aligned}
 \]
+
+
+\textbf{14.4 Finite proper time to fall past the horizon}
+
+For a particle released from rest at $r=R$, the proper time to $r=0$ (passing $2GM$ en route) is
 \[
-\Delta\tau\Big|_{\text{rest at }R\to0}=\frac{\pi R^{3/2}}{\sqrt{8GM}},\qquad \Delta\tau_{\max}(2GM\to0)=\pi GM.
+\Delta\tau\Big|_{\text{rest at }R\to0}=\frac{\pi R^{3/2}}{\sqrt{8GM}}
 \]
+
+
+For a solar‑mass black hole and $R=1000\,GM$, this gives $\Delta\tau\approx0.18\,\mathrm{s}$.
+
+\textbf{14.5 The future inside the horizon is $r=0$}
+
+Use the radial acceleration equation from Ch. 10 (valid for all $r$):
+$$\boxed{\ \frac{d^2 r}{d\tau^2}= -\,\frac{GM}{r^2}+\frac{l^2}{r^3}-\frac{3GMl^2}{r^4}\ }$$
+For $r<3GM$ the bracketed combination is negative, so $d^2r/d\tau^2<0$ irrespective of $l$ (any freely‑falling worldline inevitably moves inward).
+
+\textit{Maximum proper time:}
+$$\Delta\tau_{\max}(2GM\to0)=\pi GM \quad\text{(inside the horizon).}$$
+thus the future of any infaller inside the horizon ends at the singularity $r=0$ after a finite proper time.
 
 \end{multicols*}
 \end{document}

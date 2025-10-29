@@ -65,10 +65,10 @@ As $r\to\infty$, $\sin\psi_c\to0$ so $\psi_c\to180^\circ$ (escape in almost any 
 
 ---
 
-## 12.6 Energy measured by a stationary observer (blueshift)
-The energy measured in the LOF is $E_{\text{obs}}\equiv -\,\mathcal O_t\!\cdot\!p$. Using (12.10) and (12.12),
-$$\boxed{\ E_{\text{obs}}\;=\;\frac{E}{\sqrt{1-\tfrac{2GM}{r}}}\;>\;E\quad(\text{diverges as }r\to2GM) }\tag{12.15}$$
-This blueshift reflects that **local clocks run slower** than the clock at infinity. Conversely, light sent upward is redshifted as seen at infinity.
+## **12.6 Energy measured by a stationary observer (blueshift)**
+**The energy measured in the LOF is $E_{\text{obs}}\equiv -\,\mathcal O_t\!\cdot\!p$. Using (12.10) and (12.12),**
+**$$\boxed{\ E_{\text{obs}}\;=\;\frac{E}{\sqrt{1-\tfrac{2GM}{r}}}\;>\;E\quad(\text{diverges as }r\to2GM) }\tag{12.15}$$**
+**This blueshift reflects that local clocks run slower than the clock at infinity. Conversely, light sent upward is redshifted as seen at infinity.**
 
 ---
 
