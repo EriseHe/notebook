@@ -38,6 +38,7 @@ x_{i+1} = x_i + \epsilon \, \nabla_x \log p(x_i) + \sqrt{2\epsilon}\, z_i,
 \quad z_i \sim {N}(0, I)
 > $$
 > where
+> 
 > - $\epsilon$: small step size (learning rate)  
 > - $z_i$: Gaussian noise (same dimension as $x$)
 
