@@ -93,12 +93,13 @@ only depends on **relative changes** in $p(x)$, not on its absolute scale.
 $$
 \min_\theta\; \mathbb E_{x\sim p_{\text{data}}}\big\|s_\theta(x)-\nabla_x\log p_{\text{data}}(x)\big\|^2
 $$
-is ill-defined since $p_{\text{data}}(x)=0$ off-manifold
+is ill-defined since $p_{\text{data}}(x)=0$ off-manifold.
 
 > [!theorem]
 > $$
 P_{\text {data }}(x)=0 \text { iff outside of manifuld }
 $$
+
 
 ## 4.2 First step: **Denoise**
 Add noise $\tilde x=x+\sigma\varepsilon$. This corresponds to convolving the data density:
@@ -107,7 +108,6 @@ p_\sigma(\tilde x)=\int p_{\text{data}}(x)\, \mathcal N(\tilde x\mid x,\sigma^2 
 $$
 which has full support. We cannot compute $p_\sigma(\tilde x)$ in closed form, but
 $p_\sigma(\tilde x\mid x)$ **is** tractable and will be enough.
-
 
 ## 4.3 Deriving  $\nabla_{\tilde x}\log p_\sigma(\tilde x)$  as a posterior expectation
 
@@ -141,6 +141,7 @@ $$
           \big[\,\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\,\big]\ }.
 \end{aligned}
 $$
+
 ### 4.3.1 Gaussian check (plugs into the underbrace above)
 For $p_\sigma(\tilde x\mid x)=\mathcal N(x,\sigma^2 I)$,
 $$
