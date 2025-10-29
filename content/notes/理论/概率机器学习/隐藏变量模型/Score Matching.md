@@ -12,7 +12,8 @@ s(x) = \nabla_x \log p(x)
 
 ## 1.2 Intuition of Score function
 
-The score function $s(x)$ 
+The score function $s(x)$:
+
 - points **toward more likely samples**.  
 - shows how to “move” a noisy sample back to data.  
 
@@ -32,7 +33,6 @@ $$
 If we know the true score $s(x)$, we can **generate new samples** from the corresponding distribution by following the **reverse of the diffusion (noising) process** - or equivalently, by running a **Langevin dynamics** update:
 
 > [!definition] Langevin Dynamics
-> 
 >$$
 x_{i+1} = x_i + \epsilon \, \nabla_x \log p(x_i) + \sqrt{2\epsilon}\, z_i,
 \quad z_i \sim {N}(0, I)
