@@ -183,46 +183,60 @@ which also implies Tweedie’s denoising identity (idk what this is)
 $$\ \mathbb E[x\mid \tilde x]=\tilde x+\sigma^2\nabla_{\tilde x}\log p_\sigma(\tilde x)$$
 # 5 Expanding the ideal loss and isolating the constant
 
-Let $g(\tilde x):=\nabla_{\tilde x}\log p_\sigma(\tilde x)$ and $\psi(x,\tilde x):=\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)$:
+
 $$
 \begin{aligned}
-\mathcal L_{\text{ideal}}(\theta)
-&= \mathbb E_{\tilde x}\big\|s_\theta(\tilde x)-g(\tilde x)\big\|_2^2 \\[2pt]
-&= \mathbb E_{x,\tilde x}\big\|s_\theta(\tilde x)-\psi(x,\tilde x)\big\|_2^2
-\;+\; \underbrace{\mathbb E_{\tilde x}\|g(\tilde x)\|^2
--\mathbb E_{x,\tilde x}\|\psi(x,\tilde x)\|^2}_{=:~C\;\text{(independent of }\theta\text{)}} .
+\boxed{L_{\text{ideal}}(\theta)}
+&=\mathbb{E}_{\tilde x\sim p_\sigma}\!\left[\left\|\,s_\theta(\tilde x)
+    -\nabla_{\tilde x}\log p_\sigma(\tilde x)\,\right\|^2\right] \\[6pt]
+&=\mathbb{E}_{\tilde x}\!\left[\left\|\,s_\theta(\tilde x)
+   -\underbrace{\mathbb{E}_{x\sim p(x\mid \tilde x)}
+     \big[\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\big]}_{\text{posterior expectation identity}}\right\|^2\right] \\[6pt]
+&\overset{\|a-b\|^2}{=}
+\mathbb{E}_{\tilde x}\!\Big[\|s_\theta(\tilde x)\|^2
+-2\,s_\theta(\tilde x)^\top \mathbb{E}_{x\mid \tilde x}\![\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)]
++\big\|\mathbb{E}_{x\mid \tilde x}\![\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)]\big\|^2\Big] \\[6pt]
+&=\underbrace{\mathbb{E}_{\tilde x}\!\left[\|s_\theta(\tilde x)\|^2\right]}_{\text{depends on }\theta}
+-2\,\underbrace{\mathbb{E}_{x,\tilde x}\!\left[s_\theta(\tilde x)^\top \nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\right]}_{\text{swap } \mathbb{E}_{\tilde x}\mathbb{E}_{x\mid\tilde x}}
++\underbrace{\mathbb{E}_{\tilde x}\!\left[\left\|\mathbb{E}_{x\mid \tilde x}\![\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)]\right\|^2\right]}_{\text{no }\theta} \\[6pt]
+&=\mathbb{E}_{x,\tilde x}\!\left[\|s_\theta(\tilde x)\|^2-2\,s_\theta(\tilde x)^\top \nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\right]
++\color{gray}{C_0} \\[4pt]
+\overset{\text{complete-the-square}}{\Longrightarrow}\quad&=\mathbb{E}_{x,\tilde x}\!\left[\|s_\theta(\tilde x)-\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\|^2\right]
++\underbrace{\Big(\color{gray}{C_0}-\mathbb{E}_{x,\tilde x}\!\left[\|\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\|^2\right]\Big)}_{\displaystyle \color{gray}{=:C}\ \text{no }\theta} \\[6pt]
+&\equiv \boxed{L_{\text{DSM}}(\theta)}+\color{gray}{C}
 \end{aligned}
 $$
-
-Using the Gaussian form of $\psi$ and $\tilde x=x+\sigma\varepsilon$,
+where on line (3) you may recall that 
 $$
-\psi(x,\tilde x)= -\frac{\tilde x-x}{\sigma^2} = -\frac{1}{\sigma}\,\varepsilon .
-$$
-
-Recall that $$
-
 \begin{align}
 \|a-b\|^2 & =(a+b)^\top(a-b) \\ 
  & =a^Ta-2a^\top b+b^Tb\\
  & =\|a\|^2-2a^\top b+\|b\|^2
 \end{align}
-$$so 
-
-
-gives the same constant $C$ as above.
+$$
+which gives the same constant $C$ as above. Therefore, eventually we have:
+$$\boxed{L_{D S M}(\theta)=\mathbb{E}_{x, \widetilde{x}}\left[\left\|s_\theta(\widetilde{x})-\nabla_{\widetilde{x}} \log p(\widetilde{x} \mid x)\right\|^2\right] }$$
 
 # 6. Final denoising score matching (DSM) objective
 
+For Gaussian noise $p(\widetilde{x}\mid x) = {N}(\widetilde{x}; x, \sigma^2 I)$,
 $$
-\boxed{\;
-\mathcal L_{\text{DSM}}(\theta)
-= \mathbb E_{x\sim p_{\text{data}},~\varepsilon\sim\mathcal N(0,I)}
-\Big\|\,s_\theta(x+\sigma\varepsilon)+\tfrac{\varepsilon}{\sigma}\,\Big\|_2^2
-\;}
+\nabla_{\widetilde{x}}\log p(\widetilde{x}\mid x)
+= -\frac{\widetilde{x}-x}{\sigma^2}
 $$
-(The dropped term $C$ does not depend on $\theta$.)
-
----
+which gives the standard **denoising score matching** loss:
+$$
+\boxed{
+{L}_{DSM}(\theta)
+=
+\mathbb{E}_{x,\epsilon}
+\left[
+\left\|\, s_\theta(x + \sigma \epsilon)
++ \frac{\epsilon}{\sigma}\, \right\|^2
+\right],
+\quad \epsilon \sim {N}(0, I)
+}
+$$
 
 # 7. Side note: relation to DDPM
 
