@@ -1,7 +1,7 @@
 /* Quarto theme adjustments inspired by the original Hugo Book styling */
 :root {
-  --page-max-width: 1440px;        /* widen overall page container */
-  --content-max-width: 1400px;     /* allow content to reach page max if desired */
+  --page-max-width: 1280px;        /* original centered container width */
+  --content-max-width: 1280px;     /* allow content to reach page max if desired */
   --sidebar-bg: #f5f5f7;
   --sidebar-border: #e0e0e5;
   --heading-font: "IBM Plex Serif", "Times New Roman", "PingFang SC", serif;
@@ -14,7 +14,7 @@ body {
   font-family: var(--body-font);
   background-color: #fafafa;
   color: #1e1e24;
-  zoom: 1; /* Keep native scale so body can use full width */
+  zoom: 0.90; /* Scale down entire page by 10% to fit wider layout */
 }
 
 /* Main container accounts for fixed navbar */
@@ -428,46 +428,14 @@ pre.sourceCode.css::before { content: "CSS"; }
     padding-right: 1rem; /* space for toggle icon before the divider */
   }
 
-  /* Fix the sidebar to the left edge on desktop */
-  body.docked #quarto-sidebar {
-    position: fixed;
-    top: 56px; /* align with navbar height */
-    left: 0;
-    width: 320px;
-    height: calc(100vh - 56px);
-    transform: none;
-    background: var(--sidebar-bg);
-    border-right: 1px solid var(--sidebar-border);
-    padding: 1.5rem 1.25rem 2rem 1.75rem;
-    overflow-y: auto;
-    z-index: 1020;
+  /* Extend the left edge and keep the right edge fixed */
+  #quarto-sidebar {
+    width: 320px;                 /* widen by 40px */
+    transform: translateX(-40px); /* shift left by 40px */
   }
 
-  body.docked #quarto-sidebar .sidebar {
-    position: static;
-    top: auto;
-    max-height: none;
-    height: 100%;
-    overflow-y: auto;
-  }
-
-  /* Ensure parent containers accommodate the fixed sidebar */
-  body.docked #quarto-content,
-  body.docked.fullcontent #quarto-content {
-    margin-left: 320px;
-    width: calc(100% - 320px);
-    max-width: none;
-    overflow: visible;
-  }
-
-  body.docked .page-columns {
-    margin: 0;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    max-width: var(--page-max-width) !important;
-  }
-
-  .sidebar-navigation.docked { overflow: visible; }
+  /* Ensure parent containers don't clip the shift */
+  #quarto-content, .sidebar-navigation.docked { overflow: visible; }
 
   /* Increase main content width (override Quarto defaults) */
   .content { max-width: var(--content-max-width) !important; }
