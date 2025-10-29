@@ -1,4 +1,5 @@
 ---
+title: "Lecture notes"
 date: 2025-10-22
 ---
 # 1 Covariant Derivative and Geodesic Equation

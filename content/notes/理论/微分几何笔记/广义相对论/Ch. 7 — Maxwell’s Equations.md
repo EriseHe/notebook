@@ -1,3 +1,7 @@
+---
+title: "Ch. 7 — Maxwell’s Equations"
+---
+
 
 > **Goal of this chapter.** Starting only from **Gauss’s law** and the **definition of $\mathbf E$** in the static, non‑relativistic limit, we use tensor language to derive the **field tensor $F_{\mu\nu}$**, the **Lorentz force law**, the **covariant Maxwell equations**, and **charge conservation**, all consistent with special relativity. We keep Moore’s notation and insert the missing derivation steps inline (no separate section).
 
