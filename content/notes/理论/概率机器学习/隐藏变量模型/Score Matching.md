@@ -1,6 +1,6 @@
 # 1 What is the “Score”?
 
-## 1 Definition of Score
+## 1.1 Definition of Score
 
 > [!definition] Score
 > The **score** of a probability distribution is the **gradient of its log-likelihood**:
@@ -10,7 +10,7 @@ s(x) = \nabla_x \log p(x)
 
 >It tells us the **direction in which $p(x)$ increases the fastest** — that is, the direction pointing **toward regions of higher data density**.
 
-## 2 Intuition of Score function
+## 1.2 Intuition of Score function
 
 The score function $s(x)$:
 
@@ -28,7 +28,7 @@ $$
 $$
 
 
-## 3 Sampling from the Implicit Distribution
+## 1.3 Sampling from the Implicit Distribution
 
 If we know the true score $s(x)$, we can **generate new samples** from the corresponding distribution by following the **reverse of the diffusion (noising) process** - or equivalently, by running a **Langevin dynamics** update:
 
@@ -46,7 +46,7 @@ x_{i+1} = x_i + \epsilon \, \nabla_x \log p(x_i) + \sqrt{2\epsilon}\, z_i,
 
 # 2 Why Estimate the Score Instead of the Probability Density?
 
-## 1 Density Functions Are Hard to Model
+## 2.1 Density Functions Are Hard to Model
 
 Probability density can be complex, high-dimensional, and multimodal, so directly parameterizing $p(x)$ is hard in high dimension because we always need:
 
@@ -63,7 +63,7 @@ $$
 $$
 Hence learning the score avoids normalizing constants.
 
-## 2 The Score Is Simpler and Unconstrained
+## 2.2 The Score Is Simpler and Unconstrained
 
 The **score function**
 $$
@@ -78,7 +78,7 @@ only depends on **relative changes** in $p(x)$, not on its absolute scale.
 ![Score](https://yang-song.net/assets/img/score/smld.jpg)
 # 3 How to Estimate the Score?
 
-## 1 The Idea of "Score Matching"
+## 3.1 The Idea of "Score Matching"
 
 We want the learned score network to approximate the true score $\nabla_x \log p(x)$. 
 $$s_\theta(x)\approx \underbrace{\nabla_x \log p(x)}_{\text{true score}}$$
@@ -89,14 +89,14 @@ squared error } \quad\Longrightarrow\quad \min _\theta \mathbb{E}_{x \sim p(x)}\
 $$
 However, the term $\nabla_x \log p(x)$ is **NOT computable** directly, so we have to find another surrogate objective (computed using data samples $\left\{x_i\right\}_{i=1}^n$ only). To do this, we introduce the noisy version of this matching, **Denoising Score Matching (DSM)**.
 
-## 2 Using *noisy* score instead of the *true* data score
+## 3.2 Using *noisy* score instead of the *true* data score
 
 Given that we want a network $s_\theta(x)$ to approximate the score of the real data distribution, **what should the loss be?**
 $$
 \;\mathcal L_{\text{SM}}(\theta)
 = \mathbb E_{x\sim p_{\text{data}}}\big\|s_\theta(x)-\nabla_x\log p_{\text{data}}(x)\big\|_2^2\
 $$
-### 2.1 Problem on the data manifold
+### 3.2.1 Problem on the data manifold
 
 However, here $\min_\theta\; \mathbb E_{x\sim p_{\text{data}}}\big\|s_\theta(x)-\nabla_x\log p_{\text{data}}(x)\big\|^2$ is ill-defined because $p_{\text{data}}$ is supported on a thin manifold (score is undefined off-manifold). 
 
@@ -107,7 +107,7 @@ $$
 
 Therefore, this means $\log p_{\text {data }}=\text { undefined }$, which is problematic.
 
-## 3.3.2 Solution: **Denoise**
+## 3.3 Solution: Denoise
 
 We introduce Gaussian corruption:
 $$
@@ -135,7 +135,7 @@ $$
 = \mathbb E_{x,\varepsilon}\Big\|s_\theta(x+\sigma\varepsilon)+\tfrac{\varepsilon}{\sigma}\Big\|_2^2 + C\;}
 $$
 
-## 4.3 Relation Between Marginal and Conditional Scores
+## 3.4 Relation Between Marginal and Conditional Scores
 
 If we smooth the data with Gaussian corruption
 $$
@@ -166,7 +166,7 @@ $$
 \end{aligned}
 $$
 
-### 4.3.1 Gaussian check
+## 3.5 Gaussian check
 
 For $p_\sigma(\tilde x\mid x)=\mathcal N(x,\sigma^2 I)$, we have
 $$
@@ -182,7 +182,7 @@ $$
 which also implies Tweedie’s denoising identity (idk what this is)
 $$\ \mathbb E[x\mid \tilde x]=\tilde x+\sigma^2\nabla_{\tilde x}\log p_\sigma(\tilde x)$$
 
-# 5 Expanding the ideal loss and isolating the constant
+## 3.6 Expanding the ideal loss and isolating the constant
 
 $$
 \begin{aligned}
@@ -217,7 +217,7 @@ $$
 which gives the same constant $C$ as above. Therefore, eventually we have:
 $$\boxed{L_{D S M}(\theta)=\mathbb{E}_{x, \widetilde{x}}\left[\left\|s_\theta(\widetilde{x})-\nabla_{\widetilde{x}} \log p(\widetilde{x} \mid x)\right\|^2\right] }$$
 
-# 6. Final denoising score matching (DSM) objective
+# 3.7 Final denoising score matching (DSM) objective
 
 For Gaussian noise $p(\widetilde{x}\mid x) = {N}(\widetilde{x}; x, \sigma^2 I)$,
 $$
