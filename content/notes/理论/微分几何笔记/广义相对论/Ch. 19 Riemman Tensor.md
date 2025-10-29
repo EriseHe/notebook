@@ -88,7 +88,7 @@ This fuels the conservation law in Einstein’s equation after suitable contract
 ---
 # 6 Useful contractions
 
-**Ricci tensor** (contract 1st and 3rd indices; some authors use 1st and 4th with opposite sign):
+Ricci tensor (contract 1st and 3rd indices; some authors use 1st and 4th with opposite sign):
 $$
 \boxed{
 R_{\beta\nu} \equiv R^{\alpha}{}_{\beta\alpha\nu}

@@ -1190,6 +1190,8 @@ folzt
 fol
 fluids
 formulations
+fuels
+flatness
 color
 curve
 can
@@ -2333,6 +2335,10 @@ configurations
 complementary
 conversion
 collecting
+compacted
+compares
+crush
+contracting
 Problem
 Partial
 Putting
@@ -3255,6 +3261,7 @@ IID
 Importance
 Integrate
 Insight
+Inertial
 the
 terms
 that
@@ -5811,6 +5818,7 @@ darts
 demo
 denoising
 dropping
+divergenceless
 in
 inverse
 implicit
@@ -7598,6 +7606,7 @@ nvq
 needf
 neighbor
 noising
+neighboring
 Does
 Determine
 Differentiability
@@ -10940,6 +10949,7 @@ eEZd
 eHe
 expls
 equilibrate
+expose
 whether
 written
 which
@@ -11913,6 +11923,8 @@ backprop
 biasing
 burn
 beats
+bent
+bookkeeping
 allow
 and
 as
@@ -12777,6 +12789,7 @@ ata
 apQ
 aDh
 autocorrelation
+accelerate
 you
 yields
 yF
@@ -13879,6 +13892,7 @@ RNG
 RNGs
 Reproducibility
 RMSE
+Ricci
 requirement
 respect
 rule
@@ -15610,6 +15624,7 @@ pedagogy
 proposal
 proposals
 parameterize
+proportional
 Ex
 Evaluate
 Evaluating
@@ -17660,6 +17675,7 @@ BQd
 BFE
 BecauseMarginal
 Bridge
+Bianchi
 Function
 For
 FT
@@ -19850,6 +19866,7 @@ unattainable
 unbiased
 unphysical
 unweighted
+unremovable
 guarantees
 gives
 give
@@ -21993,6 +22010,7 @@ Linearization
 Layers
 Lennard
 LCG
+LIF
 Value
 Verifying
 Verify
@@ -22862,6 +22880,7 @@ khz
 kTi
 klC
 kwk
+killed
 One
 Olympo
 Oculis
