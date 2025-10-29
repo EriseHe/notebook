@@ -123,8 +123,7 @@
               "title": "Vertical tabs"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -225,10 +224,10 @@
   },
   "active": "cd6f012ad67a1bf4",
   "lastOpenFiles": [
+    "理论/概率机器学习/隐藏变量模型/NF_transcribed.md",
+    "理论/概率机器学习/隐藏变量模型/Score Matching.md",
     "image-1.png",
     "理论/微分几何笔记/广义相对论/Ch. 19 Riemman Tensor.md",
-    "理论/概率机器学习/隐藏变量模型/Score Matching.md",
-    "理论/概率机器学习/隐藏变量模型/NF_transcribed.md",
     "理论/概率机器学习/隐藏变量模型/Diffussion Models — Full ELBO Derivation (compact, rigorous, annotated).md",
     "理论/概率机器学习/隐藏变量模型/Normalizing Flows (NF).md",
     "理论/概率机器学习/隐藏变量模型/VAE.md",
