@@ -1,3 +1,7 @@
+---
+title: "Ch. 10 — Particle Orbits"
+---
+
 
 > **Goal of this chapter.** Use the geodesic equation in Schwarzschild spacetime to derive conserved quantities, the radial “energy” equation with an **effective potential** $V(r)$, circular‑orbit conditions (including the ISCO), and simple astrophysical implications. All formulas preserve Moore’s notation; each result is derived in **one continuous aligned environment**. Underbraces are used only for **derivation clarifications**.
 

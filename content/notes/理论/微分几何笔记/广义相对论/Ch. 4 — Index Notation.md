@@ -1,3 +1,7 @@
+---
+title: "Ch. 4 — Index Notation"
+---
+
 
 > **Goal of this chapter.** Replace bulky matrix equations with a compact, precise index notation that scales to tensors and keeps track of how objects transform. We follow Moore’s notation **exactly** and highlight why each formula matters, where it’s used, and how to read/manipulate it safely.
 

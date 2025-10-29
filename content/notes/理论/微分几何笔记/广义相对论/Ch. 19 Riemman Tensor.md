@@ -1,3 +1,7 @@
+---
+title: "Ch. 19 Riemman Tensor"
+---
+
 Curvature isn’t “how bent the coordinates look”; it’s how **nearby free-falling worldlines accelerate relative to each other**.  
 The Riemann tensor is the device that turns a reference geodesic’s four-velocity and a separation vector into that relative acceleration.  
 When Riemann vanishes everywhere you can globally call the place “flat.”  
