@@ -276,6 +276,57 @@ end
 ```
 **Compare with MD.** MC efficiently samples equilibrium structure (e.g., radial distribution function $g(r)$); MD also gives dynamics. In practice, use neighbor lists/cell lists and cutoffs to reduce the $O(N^2)$ cost.
 
+
+### Core Comparison
+
+Both MD and MC can simulate the same physical systems (e.g., particle fluids) and reach the same equilibrium results (same radial distribution functions, etc.).
+
+This agreement validates statistical mechanics:
+deterministic (MD) and stochastic (MC) microscopic dynamics converge to the same equilibrium structure.
+
+Philosophical difference
+
+MD (Molecular Dynamics):
+
+Deterministic, time-evolution based.
+
+Simulates trajectories of particles using Newton’s equations.
+
+Best for studying dynamic properties such as diffusion, viscosity, and relaxation times.
+
+Drawback: Can be slow when the system must cross large energy barriers — natural dynamics take a long time to sample the full phase space.
+
+MC (Monte Carlo):
+
+Stochastic, non-temporal.
+
+Generates a sequence of configurations without reference to real time.
+
+Cannot describe dynamics, but can efficiently explore equilibrium distributions.
+
+Advantage: Moves aren’t restricted by physical time-evolution, allowing you to design “unphysical” jumps that sample phase space much faster.
+
+Practical consequences
+
+MC is usually better for:
+
+Constructing phase diagrams
+
+Computing free energies
+
+Determining equations of state
+
+MD is better for:
+
+Understanding how systems evolve — the path between states.
+
+Final Insight
+
+MD tells you how a system gets from state A to B.
+MC tells you what A and B look like and their statistical weights.
+
+They’re not competitors but complementary: deterministic vs. probabilistic ways of uncovering the same thermodynamic truth.
+
 ---
 
 ## Checklist & Key Takeaways

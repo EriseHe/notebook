@@ -27,19 +27,19 @@ We make each of these explicit below.
 Set $dr=d\theta=d\phi=0$ in (14.1):
 $$\begin{aligned}
 -ds^2&= \Big(1-\tfrac{2GM}{r}\Big)\,dt^2 \\
-&\Rightarrow\;\boxed{\ ds^2=0\ \text{ at }\ r=2GM }\tag{14.5}
+&\Rightarrow\;\boxed{\ ds^2=0\ \text{ at }\ r=2GM }
 \end{aligned}$$
 So no massive particle can remain at rest at $r=2GM$.
 
 ### (b) “Freezing” as seen from infinity
 For a *massive* geodesic with constants $e=(1-2GM/r)\,dt/d\tau$ and $Q=r^2\,d\phi/d\tau$, one finds (Table 14.1 forms)
 $$\begin{aligned}
-\frac{dr}{dt}&=\pm\Big(1-\tfrac{2GM}{r}\Big)\sqrt{\,1-\Big(1-\tfrac{2GM}{r}\Big)\Big(1+\frac{Q^2}{r^2}\Big)\frac{1}{e^2}\,}\,,\\
-\frac{d\phi}{dt}&=\Big(1-\tfrac{2GM}{r}\Big)\frac{Q}{e\,r^2} \,.
+\frac{dr}{dt}&=\pm\Big(1-\tfrac{2GM}{r}\Big)\sqrt{\,1-\Big(1-\tfrac{2GM}{r}\Big)\Big(1+\frac{l^2}{r^2}\Big)\frac{1}{e^2}\,}\,,\\
+\frac{d\phi}{dt}&=\Big(1-\tfrac{2GM}{r}\Big)\frac{l}{e\,r^2} \,.
 \end{aligned}$$
 Both factors $\propto(1-2GM/r)$ drive the **coordinate** rates to zero as $r\to2GM^+$.
 
-For a *photon* with $b=Q/e$ (Ch. 12),
+For a *photon* with $b=l/e$ (Ch. 12),
 $$\frac{dr}{dt}=\pm\Big(1-\tfrac{2GM}{r}\Big)\sqrt{\,1-\Big(1-\tfrac{2GM}{r}\Big)\frac{b^2}{r^2}\,}\,,\qquad
 \frac{d\phi}{dt}=\Big(1-\tfrac{2GM}{r}\Big)\frac{b}{r^2},$$
 again showing $dr/dt,\,d\phi/dt\to0$ as $r\to2GM^+$.
@@ -55,7 +55,7 @@ $$\begin{aligned}
 \mathcal D(R\to2GM)
 &=\int_{2GM}^{R}\!\frac{dr}{\sqrt{1-\tfrac{2GM}{r}}} \\
 &=\boxed{\ \sqrt{R\big(R-2GM\big)}\;+
-GM\,\ln\!\Bigg|\frac{\sqrt{R}+\sqrt{R-2GM}}{\sqrt{2GM}}\Bigg|\ }\tag{14.3}
+GM\,\ln\!\Bigg|\frac{\sqrt{R}+\sqrt{R-2GM}}{\sqrt{2GM}}\Bigg|\ }
 \end{aligned}$$
 This is finite (e.g., $R=3GM\Rightarrow\mathcal D\approx3.05\,GM$).
 
