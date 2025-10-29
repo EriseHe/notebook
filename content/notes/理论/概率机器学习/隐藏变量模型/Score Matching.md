@@ -95,7 +95,7 @@ is ill-defined since $p_{\text{data}}(x)=0$ off-manifold.
 
 > [!theorem]
 > $$
-P_{\text {data }}(x)=0 \text { iff outside of manifuld }
+p_{\text {data }}(x)=0 \text { iff outside of manifold }
 $$
 
 
@@ -185,7 +185,6 @@ $$so
 
 
 gives the same constant $C$ as above.
-
 
 # 6. Final denoising score matching (DSM) objective
 
