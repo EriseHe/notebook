@@ -217,7 +217,7 @@ $$
 which gives the same constant $C$ as above. Therefore, eventually we have:
 $$\boxed{L_{D S M}(\theta)=\mathbb{E}_{x, \widetilde{x}}\left[\left\|s_\theta(\widetilde{x})-\nabla_{\widetilde{x}} \log p(\widetilde{x} \mid x)\right\|^2\right] }$$
 
-# 3.7 Final denoising score matching (DSM) objective
+## 3.7 Final denoising score matching (DSM) objective
 
 For Gaussian noise $p(\widetilde{x}\mid x) = {N}(\widetilde{x}; x, \sigma^2 I)$,
 $$
