@@ -82,7 +82,10 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: auto !important;
 }
 
-#quarto-sidebar .sidebar-menu-container { padding-right: 0.5rem; }
+#quarto-sidebar .sidebar-menu-container { 
+  padding-right: 0.5rem; 
+  padding-left: 1rem; /* Add left padding to prevent cutoff */
+}
 #quarto-sidebar .sidebar-section { margin-bottom: 0.6rem; }
 /* Collapsed by default: hide all nested sections unless explicitly opened by user click */
 #quarto-sidebar .collapse {
@@ -443,6 +446,15 @@ pre.sourceCode.css::before { content: "CSS"; }
 
   /* Ensure parent containers don't clip the shift */
   #quarto-content, .sidebar-navigation.docked { overflow: visible; }
+  
+  /* Fix sidebar navigation wrapper positioning */
+  .sidebar-navigation.docked {
+    position: fixed !important;
+    top: 56px !important;
+    left: 0 !important;
+    width: 320px !important;
+    transform: none !important;
+  }
 
   /* Increase main content width (override Quarto defaults) */
   .content { max-width: var(--content-max-width) !important; }
