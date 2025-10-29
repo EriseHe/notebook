@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/概率机器学习/强化学习（RL）/Markov奖励&决策过程.md",
+                "file": "理论/概率机器学习/自回归模型（AR）/index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Markov奖励&决策过程"
+              "title": "index"
             },
             "group": "3fc9f11126a08b41"
           },
@@ -224,6 +224,8 @@
   },
   "active": "cd6f012ad67a1bf4",
   "lastOpenFiles": [
+    "理论/概率机器学习/强化学习（RL）/Markov奖励&决策过程.md",
+    "image.png",
     "理论/概率机器学习/隐藏变量模型/Score Matching.md",
     "理论/概率机器学习/隐藏变量模型/NF_transcribed.md",
     "image-1.png",
@@ -259,8 +261,6 @@
     "理论/微分几何笔记/Frederic P Schuller讲义/第3讲 多线性代数.md",
     "理论/微分几何笔记/广义相对论/Ch. 8 — Geodesics.md",
     "理论/微分几何笔记/广义相对论/Ch. 7 — Maxwell’s Equations.md",
-    "理论/微分几何笔记/广义相对论/Ch. 6 — Tensor Equations.md",
-    "image.png",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
     "image-6.png",
     "image-5.png",
