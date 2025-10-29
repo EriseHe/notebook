@@ -95,55 +95,79 @@ $$
 \;\mathcal L_{\text{SM}}(\theta)
 = \mathbb E_{x\sim p_{\text{data}}}\big\|s_\theta(x)-\nabla_x\log p_{\text{data}}(x)\big\|_2^2\
 $$
+### 3.3.1 Problem on the data manifold
+
 However, here $\min_\theta\; \mathbb E_{x\sim p_{\text{data}}}\big\|s_\theta(x)-\nabla_x\log p_{\text{data}}(x)\big\|^2$ is ill-defined because $p_{\text{data}}$ is supported on a thin manifold (score is undefined off-manifold). 
 
 > [!theorem]
 > $$
-p_{\text {data }}(x)=0 \text { iff outside of manifold }
+p_{\text {data }}(x)=0 \quad\Longleftrightarrow\quad\text { outside of manifold }
 $$
 
-## 4.2 First step: **Denoise**
-Add noise $\tilde x=x+\sigma\varepsilon$. This corresponds to convolving the data density:
+Therefore, this means $\log p_{\text {data }}=\text { undefined }$, which is problematic.
+
+## 3.3.2 Solution: **Denoise**
+
+We introduce Gaussian corruption:
 $$
-p_\sigma(\tilde x)=\int p_{\text{data}}(x)\, \mathcal N(\tilde x\mid x,\sigma^2 I)\,dx,
+\boxed{\tilde x = x+\sigma\varepsilon,\quad\text{where } \varepsilon\sim\mathcal N(0,I)}
 $$
-which has full support. We cannot compute $p_\sigma(\tilde x)$ in closed form, but
-$p_\sigma(\tilde x\mid x)$ **is** tractable and will be enough.
+and hence we have
+$$ \quad\boxed{p_\sigma(\tilde x\mid x)=\mathcal N(x,\sigma^2 I)}$$
+This process corresponds to **convolving** the data density:
+$$
+p_\sigma(\tilde x)=\int p_{\text{data}}(x)\,\underbrace{p_\sigma(\tilde x\mid x)}_{ \mathcal N(\tilde x\mid x,\sigma^2 I)}\,dx
+$$
+which has **full support** (non-zero almost everywhere). We cannot compute $p_\sigma(\tilde x)$ in closed form(why?), but $p_\sigma(\tilde x\mid x)$ **is** tractable and will be enough. Then
+$$
+\begin{align}
+\log p_\sigma(\tilde x\mid x)= & C - \frac{\|\tilde x-x\|^2}{2\sigma^2}\\
+\Longrightarrow \quad\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)= &  -\frac{\tilde x-x}{\sigma^2}
+ \\
+ = &  -\frac{\varepsilon }{\sigma}
+\end{align}
+$$
+The **noisy** regression form:
+$$
+\boxed{\;
+\mathbb E_{x,\tilde x}\big\|s_\theta(\tilde x)-\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\big\|_2^2 + C
+= \mathbb E_{x,\varepsilon}\Big\|s_\theta(x+\sigma\varepsilon)+\tfrac{\varepsilon}{\sigma}\Big\|_2^2 + C\;}
+$$
 
 ## 4.3 Relation Between Marginal and Conditional Scores
-We smooth the data with Gaussian corruption
+
+If we smooth the data with Gaussian corruption
 $$
-p_\sigma(\tilde x)=\int p(x)\,p_\sigma(\tilde x\mid x)\,dx,
-\qquad p_\sigma(\tilde x\mid x)=\mathcal N(x,\sigma^2 I).
+p_\sigma(\tilde x)=\int \underbrace{p(x)}_{\text{intractable}}\,\underbrace{p_\sigma(\tilde x\mid x)}_{\mathcal N(x,\sigma^2 I).}\,dx
 $$
+then, notice $p(x)$ is independent of $\tilde x$, hence
 $$
 \begin{aligned}
 \boxed{\nabla_{\tilde x}\log p_\sigma(\tilde x)}
 &=\frac{ \nabla_{\tilde x} p_\sigma(\tilde x)}{ p_\sigma(\tilde x)}
 =\frac{1}{\;p_\sigma(\tilde x)\;}
-   \int \underbrace{p(x)}_{\text{indep. of }\tilde x}\;
-        \nabla_{\tilde x} p_\sigma(\tilde x\mid x)\,dx \\[6pt]
-&=\frac{1}{p_\sigma(\tilde x)}
    \int p(x)\;
-        \underbrace{p_\sigma(\tilde x\mid x)\,
-        \nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)}_{\substack{\text{``score of the conditional''}\\
-        \text{(use } \nabla u = u \nabla \log u\text{)}}}\,dx \\[10pt]
+        \underbrace{\nabla_{\tilde x} p_\sigma(\tilde x\mid x)}_{\text{(use } \nabla u = u \nabla \log u\text{)}}\,dx \\[6pt]
+&=\frac{1}{p_\sigma(\tilde x)} \int p(x)\;
+        \underparen{p_\sigma(\tilde x\mid x)\,
+        \nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)}dx \\[10pt]
 &=\frac{1}{p_\sigma(\tilde x)}
    \int \underbrace{p(x)\,p_\sigma(\tilde x\mid x)}_{\text{joint }p(x,\tilde x)}\;
         \nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\,dx \\[8pt]
-&=\frac{1}{p_\sigma(\tilde x)}
-   \int \underbrace{p(x\mid \tilde x)\,p_\sigma(\tilde x)}_{\substack{\text{Bayes: }\\
-        p(x,\tilde x)=p(x\mid\tilde x)\,p_\sigma(\tilde x)}}\;
+&=\cancel{\frac{1}{p_\sigma(\tilde x)}}
+   \int \underbrace{p(x, \tilde{x})}_{\substack{\text{Bayes: }\\
+        p(x,\tilde x)=p(x\mid\tilde x)\,\cancel{p_\sigma(\tilde x)}}}\;
         \nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\,dx \\[6pt]
 &=\int \underbrace{p(x\mid \tilde x)}_{\text{posterior weight}}\;
         \underbrace{\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)}_{\text{local score}}\,dx \\[4pt]
 &=\boxed{\ \mathbb E_{x\sim p(x\mid \tilde x)}
-          \big[\,\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\,\big]\ }.
+          \big[\,\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\,\big]\ }
 \end{aligned}
 $$
 
-### 4.3.1 Gaussian check (plugs into the underbrace above)
-For $p_\sigma(\tilde x\mid x)=\mathcal N(x,\sigma^2 I)$,
+### 4.3.1 Gaussian check
+
+For $p_\sigma(\tilde x\mid x)=\mathcal N(x,\sigma^2 I)$, we have
 $$
 \underbrace{\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)}_{\text{score of the conditional}}
 = -\frac{\tilde x-x}{\sigma^2}.
@@ -154,10 +178,8 @@ $$
 = \mathbb E_{x\mid \tilde x}\!\left[-\frac{\tilde x-x}{\sigma^2}\right]
 = \frac{\mathbb E[x\mid \tilde x]-\tilde x}{\sigma^2},
 $$
-which also implies Tweedie’s denoising identity
-$\ \mathbb E[x\mid \tilde x]=\tilde x+\sigma^2\nabla_{\tilde x}\log p_\sigma(\tilde x)$.
-
-
+which also implies Tweedie’s denoising identity (idk what this is)
+$$\ \mathbb E[x\mid \tilde x]=\tilde x+\sigma^2\nabla_{\tilde x}\log p_\sigma(\tilde x)$$
 # 5 Expanding the ideal loss and isolating the constant
 
 Let $g(\tilde x):=\nabla_{\tilde x}\log p_\sigma(\tilde x)$ and $\psi(x,\tilde x):=\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)$:
@@ -221,22 +243,3 @@ $$
 
 
 
-
- Introduce Gaussian corruption:
-$$
-\tilde x = x+\sigma\varepsilon,\qquad \varepsilon\sim\mathcal N(0,I),
-\qquad p_\sigma(\tilde x\mid x)=\mathcal N(x,\sigma^2 I).
-$$
-Then
-$$
-\log p_\sigma(\tilde x\mid x)=C - \frac{\|\tilde x-x\|^2}{2\sigma^2},
-\qquad
-\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)= -\frac{\tilde x-x}{\sigma^2}
-= -\frac{1}{\sigma}\,\varepsilon .
-$$
-The **noisy** regression form:
-$$
-\boxed{\;
-\mathbb E_{x,\tilde x}\big\|s_\theta(\tilde x)-\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\big\|_2^2 + C
-= \mathbb E_{x,\varepsilon}\Big\|s_\theta(x+\sigma\varepsilon)+\tfrac{\varepsilon}{\sigma}\Big\|_2^2 + C\;}
-$$

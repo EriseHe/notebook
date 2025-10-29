@@ -5049,6 +5049,7 @@ slowing
 subtract
 schedule
 scalings
+surrogate
 discuss
 determine
 described
@@ -8068,6 +8069,7 @@ Drawback
 DDPM
 Denoise
 DSM
+Denoising
 map
 matrix
 mapping
@@ -13446,6 +13448,7 @@ Normalized
 Notations
 Never
 NVT
+NOT
 Recall
 Rigorous
 Respect
@@ -18159,6 +18162,7 @@ FAAA
 FTDQ
 Fluid
 Factorize
+Formally
 Jacobian
 Jobcobian
 John
@@ -22025,6 +22029,7 @@ Layers
 Lennard
 LCG
 LIF
+Langevin
 Value
 Verifying
 Verify
