@@ -52,6 +52,7 @@ $$
 Intuition: curvature is exactly the “unremovable” part of the **second** derivatives of the metric once you’ve already killed the first derivatives by going to a LIF.
 
 # 4 Index symmetries (true at the LIF origin and hence tensorially everywhere)
+
 $$
 \boxed{
 
@@ -64,16 +65,16 @@ R_{\alpha[\beta\mu\nu]} &= 0
 R_{\alpha\beta\mu\nu}
 +R_{\alpha\mu\nu\beta}
 +R_{\alpha\nu\beta\mu}=0
-\end{aligned}
-
-}
+\end{aligned}}
 \tag{19.4 a–d}
 $$
+
 Consequences:  
 * In $n=4$, only **20** independent components remain (out of 256).  
 * In $n=2$, there’s only **one** independent component.
 
 # 5 Bianchi identity (differential)
+
 $$
 \boxed{
 \nabla_\sigma R^{\alpha}{}_{\beta\mu\nu}
@@ -85,7 +86,7 @@ $$
 This fuels the conservation law in Einstein’s equation after suitable contractions  
 (the contracted Bianchi identity gives $\nabla_\mu G^{\mu\nu}=0$).
 
----
+
 # 6 Useful contractions
 
 Ricci tensor (contract 1st and 3rd indices; some authors use 1st and 4th with opposite sign):
@@ -98,7 +99,9 @@ R_{\beta\nu}=R_{\nu\beta}
 }
 \tag{19.6–19.7}
 $$
-Scalar curvature (trace of the Ricci):
+
+Scalar curvature (trace of the Ricci)
+
 $$
 \boxed{
 R \equiv g^{\beta\nu} R_{\beta\nu}
@@ -108,8 +111,6 @@ R \equiv g^{\beta\nu} R_{\beta\nu}
 $$
 * $R$ is a true scalar: coordinate-independent.  
 * $R_{\mu\nu}$ and $R$ can both vanish in some curved spacetimes; only the **full** Riemann distinguishes flatness conclusively.
-
----
 
 # 7 Worked example: 2-sphere of radius $r$
 
@@ -152,9 +153,11 @@ R_{\theta\phi\theta\phi}
 \end{aligned}
 \tag{19.11}
 $$
+
 By 2D identities, the other components follow from symmetries.
 
 Ricci and scalar:
+
 $$
 \begin{aligned}
 R_{\theta\theta}
@@ -169,19 +172,18 @@ R_{\theta\phi}&=0,
 \end{aligned}
 \tag{19.12}
 $$
+
 $$
 \boxed{
 R = g^{\theta\theta}R_{\theta\theta}
 + g^{\phi\phi}R_{\phi\phi}
 = \frac{1}{r^2}+\frac{1}{r^2}
-= \frac{2}{r^2}
-}
+= \frac{2}{r^2}}
 \tag{19.13}
 $$
 Geometric meaning:  
 The Gaussian curvature $K$ of the sphere is $1/r^2$, and in 2D $R=2K$.
 
----
 
 # 8 Intuition compacted
 

@@ -15,7 +15,7 @@
               "state": {
                 "file": "理论/微分几何笔记/广义相对论/Ch. 19 Riemman Tensor.md",
                 "mode": "source",
-                "source": false,
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
