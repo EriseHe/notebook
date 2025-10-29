@@ -200,10 +200,10 @@ $$
 -2\,\underbrace{\mathbb{E}_{x,\tilde x}\!\left[s_\theta(\tilde x)^\top \nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\right]}_{\text{swap } \mathbb{E}_{\tilde x}\mathbb{E}_{x\mid\tilde x}}
 +\underbrace{\mathbb{E}_{\tilde x}\!\left[\left\|\mathbb{E}_{x\mid \tilde x}\![\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)]\right\|^2\right]}_{\text{no }\theta} \\[6pt]
 &=\mathbb{E}_{x,\tilde x}\!\left[\|s_\theta(\tilde x)\|^2-2\,s_\theta(\tilde x)^\top \nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\right]
-+\color{yellow}{C_0} \\[4pt]
++\color{red}{C_0} \\[4pt]
 \overset{\substack{\text{complete-}\\\text{the-square}}}{\Rightarrow}\;&=\mathbb{E}_{x,\tilde x}\!\left[\|s_\theta(\tilde x)-\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\|^2\right]
-+\underbrace{\Big(\color{yellow}{C_0}-\mathbb{E}_{x,\tilde x}\!\left[\|\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\|^2\right]\Big)}_{\displaystyle \color{yellow}{=:C}\ \text{no }\theta} \\[6pt]
-&\equiv \boxed{L_{\text{DSM}}(\theta)}+\color{yellow}{C}
++\underbrace{\Big(\color{red}{C_0}-\mathbb{E}_{x,\tilde x}\!\left[\|\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\|^2\right]\Big)}_{\displaystyle \color{red}{=:C}\ \text{no }\theta} \\[6pt]
+&\equiv \boxed{L_{\text{DSM}}(\theta)}+\color{red}{C}
 \end{aligned}
 $$
 where on line (3) you may recall that 
