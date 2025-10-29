@@ -184,7 +184,6 @@ $$\ \mathbb E[x\mid \tilde x]=\tilde x+\sigma^2\nabla_{\tilde x}\log p_\sigma(\t
 
 # 5 Expanding the ideal loss and isolating the constant
 
-
 $$
 \begin{aligned}
 \boxed{L_{\text{ideal}}(\theta)}
