@@ -2,22 +2,25 @@
 title: "Markov奖励&决策过程"
 ---
 
-# Markov Reward Processes (MRPs)
+# 1 Markov Reward Processes (MRPs)
 Goal: construct an algorithms for computing decision policies, where more iteration $\to$ monotonically improve the decision policy.
+
 ## 1.1 Return
 The **return**, denoted as $G_{t}$,  is the (*discounted*) sum of rewards received from time $t$ to horizon $H$.
+
 ### 1.1.1 Discount Factor
 The primary purpose of discount factor $\gamma\in[0,1]$ is to weights future rewards:
 - ensures *convergence* for infinite sum
 - controls *immediate* rewards ($\gamma=0$) vs. *delayed* rewards ($\gamma \to 1$)
-### 1.1.1 Horizon 
+
+### 1.1.2 Horizon 
 **Infinite-horizon**:
 $$
 \begin{aligned}
 G_t &= \sum_{k=0}^{\infty} \gamma^k r_{t+k}
 \end{aligned}
 $$
-**Finite-horizon** (episode length $H$):
+### 1.1.3 Finite-horizon (episode length $H$)
 
 For $H$ steps included, we have:
 $$\begin{aligned}
@@ -54,6 +57,7 @@ V(s) & =\mathbb{E}\left[\sum_{k=0}^{\infty} \gamma^k r_{t+k} \mid s_t=s\right] \
 \end{aligned}
 $$
 where $R(s)=\mathbb{E}[r_{t}|s_{t}=s]$. Therefore, in this formulation, we have:
+
 > [!theorem|1.2.1] Bellman Expectation Equation
 >The state-value function $V: \mathcal{S} \rightarrow \mathbb{R}$ is the unique function satisfying, for every $s \in \mathcal{S}$,
 >$$V(s)=\underbrace{R(s)}_{\text{Immediate reward }}+\underbrace{\gamma \sum_{s^{\prime} \in S} P\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right)}_{\text {Discounted sum of future rewards }}$$
@@ -82,7 +86,8 @@ V_k(s)&=R+\gamma PV_{k-1}\\
 $$
 Computational complexity: $O\left(|S|^2\right)$ for each iteration $(|S|=N)$
 
-# Markov Decision Processes (MDPs)
+# 2 Markov Decision Processes (MDPs)
+
 > [!definition|2.0]
 > A Markov Decision Process (MDP) is a 5 -tuple$$
 (\mathcal{S}, \mathcal{A}, P, R, \gamma) $$
@@ -129,11 +134,11 @@ V_k^\pi(s)
 \end{aligned}
 $$
 
-## 3. MDP Control & Evaluation 
+## 2.2 MDP Control & Evaluation 
 
 - **optimal policy**: not necessarily
 - **optimal value function**: yes, and unique
-### Policy Optimality 
+### 2.2.1 Policy Optimality 
 We compute the optimal policy:
 $$\pi^*(s)=\arg \max _\pi V^\pi(s)$$
-### Policy search
+### 2.2.2 Policy search
