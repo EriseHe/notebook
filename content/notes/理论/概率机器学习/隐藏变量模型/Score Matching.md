@@ -26,6 +26,23 @@ $$
 \log p(x) = \int s(x) \, dx + C}
 $$
 
+
+## Sampling from the Implicit Distribution
+
+If we know the true score $s(x)$, we can **generate new samples** from the corresponding distribution by following the **reverse of the diffusion (noising) process** - or equivalently, by running a **Langevin dynamics** update:
+
+> [!definition] Langevin Dynamics
+> 
+>$$
+x_{i+1} = x_i + \epsilon \, \nabla_x \log p(x_i) + \sqrt{2\epsilon}\, z_i,
+\quad z_i \sim {N}(0, I)
+> $$
+> where
+> - $\epsilon$: small step size (learning rate)  
+> - $z_i$: Gaussian noise (same dimension as $x$)
+
+![Langevin|840x840](https://calvinyluo.com/assets/images/diffusion/score_3d.jpeg) ![2D](https://calvinyluo.com/assets/images/diffusion/score_sample.webp)
+
 # 2 Why Estimate the Score Instead of the Probability Density?
 
 ### 2.1.1 Density Functions Are Hard to Model
@@ -92,9 +109,6 @@ $$
 \mathbb E_{x,\tilde x}\big\|s_\theta(\tilde x)-\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\big\|_2^2 + C
 = \mathbb E_{x,\varepsilon}\Big\|s_\theta(x+\sigma\varepsilon)+\tfrac{\varepsilon}{\sigma}\Big\|_2^2 + C\;}
 $$
-
-
-
 
 
 ## 3.2 Problem on the raw data manifold
