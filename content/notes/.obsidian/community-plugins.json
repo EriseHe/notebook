@@ -26,7 +26,6 @@
   "fontsource",
   "latex-exporter",
   "ai-latex-generator",
-  "number-headings-obsidian",
   "vertical-tabs",
   "callout-manager",
   "auto-card-link",
@@ -37,5 +36,6 @@
   "quick-preview",
   "math-booster",
   "convert-katex-to-mathjax",
-  "transfer-latex-from-gpt"
+  "transfer-latex-from-gpt",
+  "number-headings-obsidian"
 ]
