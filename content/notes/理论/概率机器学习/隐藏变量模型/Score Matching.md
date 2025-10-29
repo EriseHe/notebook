@@ -25,56 +25,27 @@ $$
 \quad \Rightarrow \quad
 \log p(x) = \int s(x) \, dx + C}
 $$
-# 2 Basic Construction
 
-We want a network $s_\theta(x)$ to approximate the **score** of the data density
-$$
-\nabla_x \log p_{\text{data}}(x).
-$$
+# 2 Why Estimate the Score Instead of the Probability Density?
 
-**What should the loss be?**
-$$
-\boxed{\;\mathcal L_{\text{SM}}(\theta)
-= \mathbb E_{x\sim p_{\text{data}}}\big\|s_\theta(x)-\nabla_x\log p_{\text{data}}(x)\big\|_2^2\;}
-$$
+### 2.1.1 Density Functions Are Hard to Model
 
-This is inconvenient when $p_{\text{data}}$ is supported on a thin manifold (score undefined off-manifold).  Introduce Gaussian corruption:
-$$
-\tilde x = x+\sigma\varepsilon,\qquad \varepsilon\sim\mathcal N(0,I),
-\qquad p_\sigma(\tilde x\mid x)=\mathcal N(x,\sigma^2 I).
-$$
+Probability density can be complex, high-dimensional, and multimodal, so directly parameterizing $p(x)$ is hard in high dimension because we always need:
 
-Then
-$$
-\log p_\sigma(\tilde x\mid x)=C - \frac{\|\tilde x-x\|^2}{2\sigma^2},
-\qquad
-\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)= -\frac{\tilde x-x}{\sigma^2}
-= -\frac{1}{\sigma}\,\varepsilon .
-$$
-
-The **noisy** regression form:
-$$
-\boxed{\;
-\mathbb E_{x,\tilde x}\big\|s_\theta(\tilde x)-\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\big\|_2^2 + C
-= \mathbb E_{x,\varepsilon}\Big\|s_\theta(x+\sigma\varepsilon)+\tfrac{\varepsilon}{\sigma}\Big\|_2^2 + C\;}
-$$
-
-# 3 Why Estimate the Score Instead of the Probability Density?
-
-### 3.1.1 Density Functions Are Hard to Model
-
-Probability density can be complex, high-dimensional, and multimodal, so directly parameterizing $p(x)$ is hard in high dimension because the **partition function**
+1. positive everywhere 
+2. integrate to 1 (for normalization) $$\int p(x) d x=1$$
+For example, notice that the **partition function** for energy-based model $E_{\theta}(x)$,
 $$
 Z=\int e^{-E_\theta(x)}dx
 $$
-is intractable. Gradients of the log-density cancel $Z$:
+is intractable. However, the gradients of the log-density cancel $Z$:
 $$
 \nabla_x \log p_\theta(x) = \nabla_x\big(-E_\theta(x)-\log Z\big)
 = -\nabla_x E_\theta(x).
 $$
 Hence learning the score avoids normalizing constants.
 
-### 3.1.2 The Score Is Simpler and Unconstrained
+### 2.1.2 The Score Is Simpler and Unconstrained
 
 The **score function**
 $$
@@ -85,9 +56,48 @@ only depends on **relative changes** in $p(x)$, not on its absolute scale.
 - It tells us **where** and **how fast** $p(x)$ increases or decreases.  
 - There is **no need** to ensure normalization or positivity.  
 - The score can take **any real value**, so it’s much easier for a neural network to approximate.
-# 4 How to Estimate the Score?
 
-## 4.1 Problem on the raw data manifold
+![Score](https://yang-song.net/assets/img/score/smld.jpg)
+# 3 How to Estimate the Score?
+
+## 3.1 Using *noisy* score instead of the *true* data score
+
+We want a network $s_\theta(x)$ to approximate the **score** of the real data distribution
+$$
+\nabla_x \log p_{\text{data}}(x)
+$$
+> natural data (like images) lie on a **low-dimensional manifold** in a very high-dimensional space.  
+
+
+**What should the loss be?**
+$$
+\boxed{\;\mathcal L_{\text{SM}}(\theta)
+= \mathbb E_{x\sim p_{\text{data}}}\big\|s_\theta(x)-\nabla_x\log p_{\text{data}}(x)\big\|_2^2\;}
+$$
+This is inconvenient when $p_{\text{data}}$ is supported on a thin manifold (score undefined off-manifold).  Introduce Gaussian corruption:
+$$
+\tilde x = x+\sigma\varepsilon,\qquad \varepsilon\sim\mathcal N(0,I),
+\qquad p_\sigma(\tilde x\mid x)=\mathcal N(x,\sigma^2 I).
+$$
+Then
+$$
+\log p_\sigma(\tilde x\mid x)=C - \frac{\|\tilde x-x\|^2}{2\sigma^2},
+\qquad
+\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)= -\frac{\tilde x-x}{\sigma^2}
+= -\frac{1}{\sigma}\,\varepsilon .
+$$
+The **noisy** regression form:
+$$
+\boxed{\;
+\mathbb E_{x,\tilde x}\big\|s_\theta(\tilde x)-\nabla_{\tilde x}\log p_\sigma(\tilde x\mid x)\big\|_2^2 + C
+= \mathbb E_{x,\varepsilon}\Big\|s_\theta(x+\sigma\varepsilon)+\tfrac{\varepsilon}{\sigma}\Big\|_2^2 + C\;}
+$$
+
+
+
+
+
+## 3.2 Problem on the raw data manifold
 $$
 \min_\theta\; \mathbb E_{x\sim p_{\text{data}}}\big\|s_\theta(x)-\nabla_x\log p_{\text{data}}(x)\big\|^2
 $$
@@ -107,8 +117,7 @@ $$
 which has full support. We cannot compute $p_\sigma(\tilde x)$ in closed form, but
 $p_\sigma(\tilde x\mid x)$ **is** tractable and will be enough.
 
-## 4.3 Deriving  $\nabla_{\tilde x}\log p_\sigma(\tilde x)$  as a posterior expectation
-
+## 4.3 Relation Between Marginal and Conditional Scores
 We smooth the data with Gaussian corruption
 $$
 p_\sigma(\tilde x)=\int p(x)\,p_\sigma(\tilde x\mid x)\,dx,
