@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Research/Hypre/Linux Environment for GPTune.md",
+                "file": "计算/Research/Hypre/Linux Environment for GPTune.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -224,12 +224,14 @@
   },
   "active": "cd6f012ad67a1bf4",
   "lastOpenFiles": [
+    "计算/量子力学讲义/波函数存在于在Hilbert空间中.md",
+    "计算/Research/Hypre/Linux Environment for GPTune.md",
+    "计算/Research/IllustrateTNG Simulation/Viewing Angle.md",
     "理论/概率机器学习/自回归模型（AR）/index.md",
-    "Research/Hypre/Linux Environment for GPTune.md",
     "理论/概率机器学习/隐藏变量模型/Score Matching.md",
-    "Research/Hypre",
-    "Research/illustrateTNG",
-    "Research",
+    "计算/Research/Hypre",
+    "计算/Research/illustrateTNG",
+    "计算/Research",
     "理论/概率机器学习/强化学习（RL）/Markov奖励&决策过程.md",
     "image.png",
     "理论/概率机器学习/隐藏变量模型/NF_transcribed.md",
@@ -260,8 +262,6 @@
     "理论/微分几何笔记/广义相对论的几何基础/index.md",
     "理论/微分几何笔记/Untitled.md",
     "理论/微分几何笔记/Frederic P Schuller讲义/第4讲 可微流形.md",
-    "理论/微分几何笔记/Frederic P Schuller讲义/第3讲 多线性代数.md",
-    "理论/微分几何笔记/广义相对论/Ch. 8 — Geodesics.md",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
     "image-6.png",
     "image-5.png",
