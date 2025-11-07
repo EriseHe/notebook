@@ -30,5 +30,10 @@
   "missionControlViewZoomFactor": 0.5,
   "disablePointerInMissionControlView": true,
   "backgroundMode": false,
+  "scrollableTabs": true,
+  "scrollableTabsMinWidth": 100,
+  "autoHideHorizontalTabs": false,
+  "disableOnThisDevice": false,
+  "enableUpdateCheck": true,
   "installationID": "g2xCnFdRJpW1PYJnBmx3A"
 }
