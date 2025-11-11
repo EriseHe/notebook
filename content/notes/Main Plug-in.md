@@ -143,3 +143,27 @@ Chemistry example:
 General Rule:
 * Always generate diagrams ready to paste into Obsidian without modification.
 * No text outside the \`\`\`tikz code block.
+
+
+
+$$
+\begin{aligned}
+\textbf{Variance–Preserving (VP) SDE:}\qquad
+d\mathbf{x} &= -\tfrac{1}{2},\beta(t),\mathbf{x},dt ;+; \sqrt{\beta(t)}, d\mathbf{w}*t,\
+\beta(t) &= \beta*{\min} ;+; t,(\beta_{\max}-\beta_{\min}),\qquad
+\alpha(t)=\exp!\Big(-\tfrac{1}{2}\int_{0}^{t}\beta(s),ds\Big).
+\end{aligned}
+$$
+$$
+\begin{aligned}
+d\mathbf{x} &= \sigma(t),d\mathbf{w}\*t,\
+\sigma(t) &= \sigma*{\min}\Big(\tfrac{\sigma_{\max}}{\sigma_{\min}}\Big)^{t},\qquad
+\varsigma^{2}(t)=\int_{0}^{t}\sigma^{2}(s),ds.
+\end{aligned}
+$$
+
+
+$$\begin{aligned} d \mathbf{x} & =-\frac{1}{2} \beta(t) \mathbf{x} d t+\sqrt{\beta(t)} d \mathbf{w}_t \\ \beta(t) & =\beta_{\text {min }}+t\left(\beta_{\text {max }}-\beta_{\text {min }}\right), \quad \alpha(t)=\exp \left(-\frac{1}{2} \int_0^t \beta(s) d s\right)\end{aligned}$$
+
+
+$$\begin{aligned} d \mathbf{x} & =\sigma(t) d \mathbf{w}_t \\ \sigma(t) & =\sigma_{\min }\left(\frac{\sigma_{\max }}{\sigma_{\min }}\right)^t, \quad s^2(t)=\int_0^t \sigma^2(s) d s\end{aligned}$$
