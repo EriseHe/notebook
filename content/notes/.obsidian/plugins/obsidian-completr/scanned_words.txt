@@ -5059,6 +5059,7 @@ surrogate
 stuck
 src
 specializing
+stick
 discuss
 determine
 described
@@ -6644,6 +6645,7 @@ intractable
 implementations
 inconvenient
 idk
+implying
 of
 our
 out
@@ -11967,6 +11969,7 @@ beats
 bent
 bookkeeping
 btl
+ball
 allow
 and
 as
@@ -12833,6 +12836,7 @@ aDh
 autocorrelation
 accelerate
 append
+antipodal
 you
 yields
 yF
@@ -13938,6 +13942,8 @@ Reproducibility
 RMSE
 Ricci
 RHS
+Rewriting
+Rescaling
 requirement
 respect
 rule
@@ -22077,6 +22083,7 @@ LCG
 LIF
 Langevin
 Lorenz
+Latin
 Value
 Verifying
 Verify
