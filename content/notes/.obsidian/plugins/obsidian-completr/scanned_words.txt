@@ -627,6 +627,7 @@ Cotangent
 Compatibility
 Connection
 Cone
+Conceptually
 font
 for
 functions
@@ -8812,6 +8813,7 @@ mymachine
 massage
 mfd
 multiplied
+minimizers
 have
 holds
 has
@@ -20877,6 +20879,7 @@ Marginal
 Mixed
 Minkowskian
 Massive
+Minimizing
 Using
 Up
 Ut
