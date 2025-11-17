@@ -66,13 +66,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何笔记/第二部分 黎曼几何/13. Smooth functions, tangent and cotangent vectors, metrics.md",
+                "file": "理论/微分几何笔记/第二部分 黎曼几何/13. Smooth Functions, Tangent and Cotangent Vectors, Metrics.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "13. Smooth functions, tangent and cotangent vectors, metrics"
+              "title": "13. Smooth Functions, Tangent and Cotangent Vectors, Metrics"
             }
           }
         ],
@@ -88,13 +88,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何笔记/第二部分 黎曼几何/16. Exponential Map, Normal Coordinates, and Distance.md",
+                "file": "理论/微分几何笔记/第二部分 黎曼几何/13. Smooth Functions, Tangent and Cotangent Vectors, Metrics.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "16. Exponential Map, Normal Coordinates, and Distance"
+              "title": "13. Smooth Functions, Tangent and Cotangent Vectors, Metrics"
             }
           }
         ]
@@ -318,12 +318,12 @@
   },
   "active": "29d035363d2e19b9",
   "lastOpenFiles": [
+    "理论/微分几何笔记/第二部分 黎曼几何/14. Tensors, Connections, Lie bracket.md",
+    "理论/微分几何笔记/第二部分 黎曼几何/13. Smooth Functions, Tangent and Cotangent Vectors, Metrics.md",
+    "理论/微分几何笔记/第二部分 黎曼几何/15. Riemannian Connection, Geodesics, and Parallel Transport.md",
     "理论/微分几何笔记/第二部分 黎曼几何/16. Exponential Map, Normal Coordinates, and Distance.md",
     "理论/微分几何笔记/第二部分 黎曼几何/16. Exponential Map, Normal Coordinates, and Distance.md",
     "理论/微分几何笔记/第二部分 黎曼几何/Lecture notes.md",
-    "理论/微分几何笔记/第二部分 黎曼几何/15. Riemannian Connection, Geodesics, and Parallel Transport.md",
-    "理论/微分几何笔记/第二部分 黎曼几何/14. Tensors.md",
-    "理论/微分几何笔记/第二部分 黎曼几何/13. Smooth functions, tangent and cotangent vectors, metrics.md",
     "Prompts.md",
     "index.md",
     "理论/广义相对论/Ch. 15.md",
