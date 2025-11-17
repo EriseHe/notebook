@@ -623,6 +623,7 @@ Congruential
 CDF
 Chains
 Constructing
+Cotangent
 font
 for
 functions
@@ -1193,6 +1194,7 @@ formulations
 fuels
 flatness
 fastest
+fibers
 color
 curve
 can
@@ -2343,6 +2345,9 @@ contracting
 corruption
 convolving
 cores
+cotangent
+consisting
+chasing
 Problem
 Partial
 Putting
@@ -3914,6 +3919,7 @@ timeout
 tcp
 tee
 traceless
+triangles
 system
 solvability
 such
@@ -5060,6 +5066,7 @@ stuck
 src
 specializing
 stick
+subdivide
 discuss
 determine
 described
@@ -9191,6 +9198,7 @@ hCS
 hUe
 histograms
 hypre
+holes
 local
 limit
 lim
@@ -11970,6 +11978,8 @@ bent
 bookkeeping
 btl
 ball
+bundle
+bundles
 allow
 and
 as
@@ -16504,6 +16514,7 @@ WWWRG
 WKS
 Wjd
 WZd
+Whitney
 Thus
 Theorem
 These
@@ -17739,6 +17750,7 @@ BFE
 BecauseMarginal
 Bridge
 Bianchi
+Bonnet
 Function
 For
 FT
@@ -20342,6 +20354,7 @@ grids
 gravitoelectric
 gravitomagnetic
 gravito
+genus
 Moreover
 Matrix
 Maximum
