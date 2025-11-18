@@ -709,6 +709,8 @@ CukW
 CWX
 CDw
 Coulomb
+Cosmic
+Censorship
 font
 for
 functions
@@ -1389,6 +1391,7 @@ fNP
 fkv
 fingers
 fired
+flatter
 color
 curve
 can
@@ -2638,6 +2641,7 @@ curl
 craft
 calibration
 confirmation
+cloaked
 Problem
 Partial
 Putting
@@ -3215,6 +3219,7 @@ Probe
 Pressure
 Precession
 Phys
+Penrose
 In
 Implicit
 Invertibility
@@ -3762,6 +3767,7 @@ IuL
 IiX
 ImA
 Inertia
+Innermost
 the
 terms
 that
@@ -4494,6 +4500,7 @@ tnCh
 torque
 thrusters
 torques
+tick
 system
 solvability
 such
@@ -5751,6 +5758,7 @@ spacecraft
 stray
 systematics
 striking
+submatrix
 discuss
 determine
 described
@@ -8139,6 +8147,7 @@ orf
 oyOK
 ovn
 oMx
+oblate
 near
 neighborhood
 necessary
@@ -8711,6 +8720,7 @@ nAAM
 nyAq
 nqc
 nui
+naked
 Does
 Determine
 Differentiability
@@ -11777,6 +11787,8 @@ SBO
 Spi
 Slow
 Spinning
+Stable
+Submatrix
 equations
 equation
 exists
@@ -12607,6 +12619,8 @@ eBj
 eRJ
 ekh
 easiest
+encloses
+ergoregion
 whether
 written
 which
@@ -16949,6 +16963,7 @@ rkr
 rFBC
 rFCx
 repel
+radiate
 partials
 partial
 point
@@ -18511,6 +18526,8 @@ EfD
 EFP
 EcUG
 Everitt
+Equatorial
+Everywhere
 We
 What
 With
@@ -19433,6 +19450,8 @@ Tvh
 TnN
 TfB
 Thirring
+Trajectories
+Third
 Hence
 Here
 Hypotheses
@@ -19930,6 +19949,7 @@ HNi
 HaJ
 HCG
 HFy
+Hypothesis
 By
 Because
 Below
@@ -22064,6 +22084,7 @@ ApNE
 AMqY
 ANt
 April
+Allowed
 via
 variables
 view
@@ -23069,6 +23090,8 @@ uxg
 umO
 ujMkV
 unexpectedly
+unrelated
+unproven
 guarantees
 gives
 give
@@ -25768,6 +25791,7 @@ LeD
 Lense
 Limit
 Lett
+Locating
 Value
 Verifying
 Verify
@@ -26180,6 +26204,7 @@ VKE
 VWL
 VSn
 VVL
+Velocities
 Yes
 You
 YX
@@ -27409,6 +27434,7 @@ OWo
 OKI
 OpP
 OMu
+Orbit
 Given
 Get
 Guessing
@@ -29433,6 +29459,7 @@ KWM
 KXrS
 KWY
 KVR
+Kerr
 ZH
 ZCjHR
 ZY
