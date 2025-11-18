@@ -315,27 +315,24 @@ Some key points:
 
 ## 5. The Importance of the Kerr Solution
 
-The Kerr solution is central to astrophysics for several reasons.
-
-> [!remark|36.3] Why Kerr matters
+The Kerr solution is central to astrophysics for several reasons. Why Kerr matters?
 
 1. **Exact rotating vacuum solution**  
-   The Kerr metric is an exact solution of the **empty-space** Einstein equation and therefore describes the spacetime outside any arbitrarily massive, compact rotating object (including black holes), provided the exterior is vacuum.
+   > The Kerr metric is an exact solution of the **empty-space** Einstein equation and therefore describes the spacetime outside any arbitrarily massive, compact rotating object (including black holes), provided the exterior is vacuum.
 
 2. **Uniqueness for axially symmetric objects**  
-   Just as the Schwarzschild geometry gives the unique spacetime outside any **spherically symmetric** non-charged object (for a given coordinate system), the Kerr geometry gives the unique spacetime outside any **axially symmetric**, time-independent compact object whose spacetime is asymptotically flat (again, assuming no electric charge).
+   > Just as the Schwarzschild geometry gives the unique spacetime outside any **spherically symmetric** non-charged object (for a given coordinate system), the Kerr geometry gives the unique spacetime outside any **axially symmetric**, time-independent compact object whose spacetime is asymptotically flat (again, assuming no electric charge).
 
 3. **Only possible exterior for uncharged rotating black holes**  
-   For gravitational collapse of an **uncharged** mass distribution, any non-spherical complexities in the gravitational field are radiated away as gravitational waves, leaving behind a Kerr geometry.  
-   If the angular momentum of the collapsing matter is exactly zero, the limiting geometry is Schwarzschild, which is simply the Kerr solution with $a=0$.
+   > For gravitational collapse of an **uncharged** mass distribution, any non-spherical complexities in the gravitational field are radiated away as gravitational waves, leaving behind a Kerr geometry. If the angular momentum of the collapsing matter is exactly zero, the limiting geometry is Schwarzschild, which is simply the Kerr solution with $a=0$.
 
-4. **Astrophysical expectation: $a\approx GM$**  
-   Realistic objects that might collapse to black holes almost certainly have non-zero angular momentum. Arguments (for example Bardeen, *Nature* **226**, 1970) indicate that many black holes formed by plausible processes will have $a\approx GM$.
+5. **Astrophysical expectation: $a\approx GM$**  
+   > Realistic objects that might collapse to black holes almost certainly have non-zero angular momentum. Arguments (for example Bardeen, *Nature* **226**, 1970) indicate that many black holes formed by plausible processes will have $a\approx GM$.
 
-5. **Upper bound $a<GM$ for black-hole formation**  
-   It is strongly believed that a black hole will not form if $a\ge GM$: too much angular momentum causes the collapsing object to spin off mass. Thus astrophysical black holes formed by collapse will almost certainly satisfy $a\approx GM$ but not exceed $GM$.
+6. **Upper bound $a<GM$ for black-hole formation**  
+   > It is strongly believed that a black hole will not form if $a\ge GM$: too much angular momentum causes the collapsing object to spin off mass. Thus astrophysical black holes formed by collapse will almost certainly satisfy $a\approx GM$ but not exceed $GM$.
 
-6. **Galactic centers and quasars**  
-   Observations suggest that massive black holes reside at the centers of essentially all galaxies, and that accretion disks around these black holes power quasars. Understanding such systems requires understanding Kerr geometry.
+7. **Galactic centers and quasars**  
+   > Observations suggest that massive black holes reside at the centers of essentially all galaxies, and that accretion disks around these black holes power quasars. Understanding such systems requires understanding Kerr geometry.
 
 Therefore, there are strong astrophysical motivations to study the Kerr solution in depth: it is not just a beautiful exact metric, but the **realistic** spacetime around rotating black holes throughout the universe.
