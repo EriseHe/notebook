@@ -1,7 +1,6 @@
 ## 37.1 Conserved Quantities
 
 Geodesic equation
-
 $$
 0=\frac{d}{d\tau}\!\left(g_{\mu\nu}\frac{dx^\nu}{d\tau}\right)
 -\frac12\partial_\mu g_{\alpha\beta}
@@ -10,27 +9,28 @@ $$
 $$
 
 Because $g_{\mu\nu}$ is independent of $t$ and $\phi$, there are two conserved quantities $e$ and $\ell$:
-
 $$
 \begin{aligned}
-\mu=t:\quad
+\mu=t\Longrightarrow\quad
 e &\equiv -g_{tt}\frac{dt}{d\tau} - g_{t\phi}\frac{d\phi}{d\tau}
-\\[4pt]
-\mu=\phi:\quad
+\\
+\mu=\phi\Longrightarrow\quad
 \ell &\equiv g_{t\phi}\frac{dt}{d\tau} + g_{\phi\phi}\frac{d\phi}{d\tau}
 \end{aligned}
 $$
-
-At $r\to\infty$, $e$ is the relativistic energy per unit mass and $\ell$ is the $z$–component of angular momentum per unit mass. Solving (37.2) for $dt/d\tau$ and $d\phi/d\tau$:
-
+At $r\to\infty$, these conserved quantities becomes:
+$$\begin{align}
+ & e \approx +\frac{dt}{d\tau}\qquad\;\;\;\;\text{ (relativistic energy per unit mass)} \\
+ & \ell  \approx  r^{2}\sin^{2}\theta \frac{d\phi}{d\tau} \;\;\text{ (the z–component of angular momentum per unit mass)}
+\end{align}$$
+Solving (37.2) for $dt/d\tau$ and $d\phi/d\tau$:
 $$
 \begin{aligned}
 \frac{dt}{d\tau}
 &=
 \frac{g_{\phi\phi}e + g_{t\phi}\ell}{
-\underbrace{g_{t\phi}^2 - g_{\phi\phi}g_{tt}}_{\displaystyle \equiv\ \Delta_\phi}
-}
-\\[4pt]
+\Delta_\phi}
+\\
 \frac{d\phi}{d\tau}
 &=
 \frac{-g_{t\phi}e - g_{tt}\ell}{\Delta_\phi}
@@ -38,8 +38,7 @@ $$
 \tag{37.3}
 $$
 
-The key combination simplifies to
-
+where $\Delta_{\phi}= g_{t\phi}^2 - g_{\phi\phi}g_{tt}$. The key combination simplifies to
 $$
 g_{t\phi}^2 - g_{tt}g_{\phi\phi}
 =
@@ -50,20 +49,15 @@ $$
 
 (here $R$ is a new symbol, unrelated to its use in the previous chapter).
 
----
-
 ## 37.2 Metric Components in the Equatorial Plane
 
-Define
-
+For Kerr Metric in Boyer-Lindguist coordinates, we define:
 $$
-\rho^2 \equiv r^2 + a^2\cos^2\theta,
+\boxed{\rho^2 \equiv r^2 + a^2\cos^2\theta,
 \qquad
-R^2 \equiv r^2 + a^2 - 2GMr
+R^2 \equiv r^2 + a^2 - 2GMr}
 $$
-
-Everywhere in Kerr spacetime
-
+Everywhere in Kerr spacetime becomes
 $$
 g_{\mu\nu}
 =
@@ -75,8 +69,7 @@ g_{\mu\nu}
 \end{pmatrix}
 $$
 
-
-In the **equatorial plane** $\theta=\pi/2$ ($\rho^2=r^2$, $\sin^2\theta=1$):
+In the **equatorial plane** ($\theta=\frac{\pi}{2}$) where $\rho^2=r^2$, $\sin^2\theta=1$:
 
 $$
 g_{\mu\nu}
@@ -89,9 +82,8 @@ g_{\mu\nu}
 \end{pmatrix}
 $$
 
-A particle starting with $\theta=\pi/2$ and $d\theta/d\tau=0$ remains in this plane, so equatorial orbits are consistent.
+A particle starting with ${} \theta=\frac{\pi}{2} {}$ and $\frac{d\theta}{d\tau}=0$ remains in this plane, so equatorial orbits are consistent.
 
----
 
 ## 37.3 Equatorial Equations of Motion
 
@@ -218,7 +210,19 @@ Upper sign: orbit **with** the source’s rotation; lower sign: **against**. For
 
 ---
 
-## 37.6 Innermost Stable Circular Orbit (ISCO)
+## 37.6 Circular Orbit (ISCO)
+
+### 37.6.1 Circular orbit
+
+For $\mu = r$, geodesic is:
+$$
+\begin{aligned}
+\phi&=\cancel{ \frac{d}{d \tau}\left(g_{rr} \frac{d r}{d \tau}\right)}-\frac{1}{2}\left[\partial_r g_{t t}\left(\frac{d t}{d \tau}\right)^2+\cancel{\partial_r q_{rr}\left(\frac{d r}{d \tau}\right)^2}+\cancel{\partial_r g_{\theta \theta}\left(\frac{d \theta}{d \tau}\right)^2}+\partial_r g_{\phi\phi}\left(\frac{d \phi}{d \tau}\right)^2+2 \partial_r g_{t \phi} \frac{d t}{d \tau} \frac{d \phi}{d \tau}\right]\\
+& =\left(\frac{d t}{d \tau}\right)^2\left(\partial_r g_{r r}+2 \partial_r g_{t\phi} \Omega+\partial_r g_{\phi\phi} \Omega^2\right)
+\end{aligned}
+$$
+
+### 37.6.2 Innermost Stable Circular Orbit (ISCO)
 
 For Schwarzschild, the ISCO radius was $r=6GM$. In Kerr, imposing the circular-orbit conditions on the effective potential yields
 

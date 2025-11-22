@@ -43,23 +43,17 @@ is the outer boundary of the **ergoregion** and is usually what we mean by the i
 
 ## 38.3 Static Limit and Allowed Angular Velocities
 
-Consider an observer kept at constant $r$ and $\theta$ but free in $\phi$.  
-A timelike worldline requires
-
+Consider an observer kept at constant $r$ and $\theta$ but free in $\phi$. A timelike worldline requires
 $$
 0 \le d\tau^2 = -ds^2
 = -\big(g_{tt}\,dt^2 + 2g_{t\phi}\,dt\,d\phi + g_{\phi\phi}\,d\phi^2\big)
 $$
-
 Dividing by $dt^2$ and defining $\Omega \equiv d\phi/dt$ gives
-
 $$
 0 \ge g_{tt} + 2g_{t\phi}\Omega + g_{\phi\phi}\Omega^2
 \tag{38.3}
 $$
-
 This quadratic inequality implies a range
-
 $$
 \Omega_{\min} \le \Omega \le \Omega_{\max}
 $$
