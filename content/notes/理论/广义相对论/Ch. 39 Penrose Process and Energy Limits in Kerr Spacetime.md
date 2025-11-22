@@ -1,5 +1,3 @@
-# Chapter 39 — Penrose Process and Energy Limits in Kerr Spacetime
-
 ## 39.1 Overview
 
 Inside the **ergoregion** of a Kerr black hole, particles can have **negative energy-at-infinity**.  
