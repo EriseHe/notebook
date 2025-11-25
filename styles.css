@@ -1,7 +1,7 @@
 /* Quarto theme adjustments inspired by the original Hugo Book styling */
 :root {
-  --page-max-width: 1800px;        /* wider container width */
-  --content-max-width: 1400px;     /* wider content area */
+  --page-max-width: 1280px;        /* original centered container width */
+  --content-max-width: 1280px;     /* allow content to reach page max if desired */
   --sidebar-bg: #f5f5f7;
   --sidebar-border: #e0e0e5;
   --heading-font: "IBM Plex Serif", "Times New Roman", "PingFang SC", serif;
@@ -17,10 +17,9 @@ body {
   zoom: 0.90; /* Scale down entire page by 10% to fit wider layout */
 }
 
-/* Main container accounts for fixed navbar and fixed sidebar */
+/* Main container accounts for fixed navbar */
 #quarto-content {
   padding-top: 56px; /* Just navbar height, no extra margin */
-  margin-left: 320px !important; /* Account for fixed sidebar width */
 }
 
 /* Smooth scroll behavior for all scrollable elements */
@@ -60,13 +59,8 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent; 
   border-right: none !important; 
   box-shadow: none !important; /* Remove vertical divider */
-  position: fixed !important;   /* fixed position on left */
-  top: 56px !important;         /* below navbar */
-  left: 0 !important;
-  width: 320px !important;      /* fixed width */
-  max-height: calc(100vh - 56px) !important;
-  opacity: 1 !important;        /* always visible */
-  z-index: 999;
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
   /* Hide scrollbar but keep functionality */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -76,16 +70,12 @@ h1, h2, h3, h4, h5, h6 {
   display: none; /* Chrome/Safari/Opera */
 }
 
-/* Ensure sidebar is never hidden */
 #quarto-sidebar.sidebar-hidden {
-  opacity: 1 !important;
-  pointer-events: auto !important;
+  opacity: 0;
+  pointer-events: none;
 }
 
-#quarto-sidebar .sidebar-menu-container { 
-  padding-right: 0.5rem; 
-  padding-left: 1rem; /* Add left padding to prevent cutoff */
-}
+#quarto-sidebar .sidebar-menu-container { padding-right: 0.5rem; }
 #quarto-sidebar .sidebar-section { margin-bottom: 0.6rem; }
 /* Collapsed by default: hide all nested sections unless explicitly opened by user click */
 #quarto-sidebar .collapse {
@@ -438,23 +428,14 @@ pre.sourceCode.css::before { content: "CSS"; }
     padding-right: 1rem; /* space for toggle icon before the divider */
   }
 
-  /* Keep sidebar at fixed width without transform */
+  /* Extend the left edge and keep the right edge fixed */
   #quarto-sidebar {
-    width: 320px;                 /* fixed width */
-    transform: none;              /* no transform needed - using fixed positioning */
+    width: 320px;                 /* widen by 40px */
+    transform: translateX(-40px); /* shift left by 40px */
   }
 
   /* Ensure parent containers don't clip the shift */
   #quarto-content, .sidebar-navigation.docked { overflow: visible; }
-  
-  /* Fix sidebar navigation wrapper positioning */
-  .sidebar-navigation.docked {
-    position: fixed !important;
-    top: 56px !important;
-    left: 0 !important;
-    width: 320px !important;
-    transform: none !important;
-  }
 
   /* Increase main content width (override Quarto defaults) */
   .content { max-width: var(--content-max-width) !important; }
@@ -608,14 +589,11 @@ img {
 .sidebar { 
   padding-left: 0.25rem;             /* shift items slightly left */
   background: transparent;
-  position: fixed !important;        /* fixed position on left */
-  top: 56px !important;              /* below navbar */
-  left: 0 !important;
-  width: 320px !important;           /* fixed width */
-  max-height: calc(100vh - 56px) !important;
+  position: sticky;
+  top: 5rem;                         /* reduce default top margin by half */
+  max-height: calc(100vh - 140px);
   overflow-y: auto;
   will-change: auto; /* Smooth scrolling performance */
-  z-index: 999;
 }
 
 /* Slightly widen body column on wide screens */
@@ -627,17 +605,17 @@ img {
 @media (min-width: 992px) {
   /* Left sidebar "docked" layout: increase body-content track max from ~1000px to our var */
   body.docked .page-columns {
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] 0px [page-start-inset] 0px [body-start-outset] 0px [body-start] 1.5em [body-content-start] minmax(800px, var(--content-max-width)) [body-content-end] 1.5em [body-end] 50px [body-end-outset] minmax(200px, 400px) [page-end-inset] 50px [page-end] 1fr [screen-end-inset] 1.5em [screen-end] !important;
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(min(var(--content-max-width), var(--page-max-width)) - 3em)) [body-content-end] 1.5em [body-end] 50px [body-end-outset] minmax(50px, 100px) [page-end-inset] 50px [page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
   }
 
   /* Fullcontent variant */
   body.docked.fullcontent .page-columns {
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] 0px [page-start-inset] 0px [body-start-outset] 0px [body-start] 1.5em [body-content-start] minmax(800px, var(--content-max-width)) [body-content-end body-end body-end-outset page-end-inset page-end] 1fr [screen-end-inset] 1.5em [screen-end] !important;
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(min(var(--content-max-width), var(--page-max-width)) - 3em)) [body-content-end body-end body-end-outset page-end-inset page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
   }
 
   /* Listing pages */
   body.docked.listing .page-columns {
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] 0px [page-start-inset] 0px [body-start-outset] 0px [body-start] 1.5em [body-content-start] minmax(800px, var(--content-max-width)) [body-content-end] 1.5em [body-end] 50px [body-end-outset] minmax(200px, 400px) [page-end-inset] 50px [page-end] 1fr [screen-end-inset] 1.5em [screen-end] !important;
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(min(var(--content-max-width), var(--page-max-width)) - 3em)) [body-content-end] 1.5em [body-end] 50px [body-end-outset] minmax(0px, 200px) [page-end-inset] 50px [page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
   }
 }
 
