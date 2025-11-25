@@ -1,5 +1,3 @@
-# Kruskal–Szekeres Coordinates for Schwarzschild Spacetime
-
 ## 1. Motivation: curing the fake singularity
 
 We start with the Schwarzschild metric (vacuum, outside a spherical mass $M$):
