@@ -1392,6 +1392,8 @@ fkv
 fingers
 fired
 flatter
+fluxes
+flipped
 color
 curve
 can
@@ -2645,6 +2647,16 @@ cloaked
 considerable
 complexities
 collapsing
+congruence
+comoving
+cheat
+cloak
+currents
+containers
+converting
+conduction
+cartesian
+conventional
 Problem
 Partial
 Putting
@@ -3223,6 +3235,8 @@ Pressure
 Precession
 Phys
 Penrose
+Poynting
+Perturbation
 In
 Implicit
 Invertibility
@@ -3771,6 +3785,8 @@ IiX
 ImA
 Inertia
 Innermost
+Irreducible
+Imposing
 the
 terms
 that
@@ -4504,6 +4520,11 @@ torque
 thrusters
 torques
 tick
+tidal
+tangentially
+tides
+threading
+tame
 system
 solvability
 such
@@ -5766,6 +5787,9 @@ surrounded
 slices
 saw
 simplicity
+squeeze
+schematic
+stresses
 discuss
 determine
 described
@@ -6637,6 +6661,8 @@ delay
 dipole
 dragging
 differs
+dust
+decoupled
 in
 inverse
 implicit
@@ -10075,6 +10101,9 @@ mIor
 mission
 monitored
 movie
+mnemonic
+macroscopic
+momentarily
 have
 holds
 has
@@ -11142,6 +11171,7 @@ lAO
 lYXUqK
 linearizes
 launched
+linearize
 Show
 Sufficient
 Substitute
@@ -11802,6 +11832,7 @@ Slow
 Spinning
 Stable
 Submatrix
+Singularities
 equations
 equation
 exists
@@ -12637,6 +12668,8 @@ ergoregion
 exposes
 evaluates
 empty
+extracts
+exhaust
 whether
 written
 which
@@ -13174,6 +13207,7 @@ wIf
 wbt
 wNJ
 wne
+walks
 by
 be
 bijective
@@ -14743,6 +14777,7 @@ axially
 arcseconds
 axisymmetric
 astrophysics
+annotating
 you
 yields
 yF
@@ -15558,6 +15593,7 @@ NeH
 Ntk
 NwT
 NrPF
+Naked
 Recall
 Rigorous
 Respect
@@ -16111,6 +16147,8 @@ Rotating
 Retardation
 Repeating
 Realistic
+Revisited
+Reversed
 requirement
 respect
 rule
@@ -16989,6 +17027,9 @@ rFCx
 repel
 radiate
 rotates
+rewrites
+radiation
+restricting
 partials
 partial
 point
@@ -18005,6 +18046,8 @@ precess
 patchy
 powers
 planets
+printed
+progressing
 Ex
 Evaluate
 Evaluating
@@ -18555,6 +18598,7 @@ EcUG
 Everitt
 Equatorial
 Everywhere
+Explicitly
 We
 What
 With
@@ -19479,6 +19523,7 @@ TfB
 Thirring
 Trajectories
 Third
+Terms
 Hence
 Here
 Hypotheses
@@ -19977,6 +20022,7 @@ HaJ
 HCG
 HFy
 Hypothesis
+Hawking
 By
 Because
 Below
@@ -20500,6 +20546,7 @@ BGb
 BRZ
 Boyer
 Bardeen
+Blandford
 Function
 For
 FT
@@ -21046,6 +21093,7 @@ Fvw
 FJv
 FHMQ
 FYJ
+Freedom
 Jacobian
 Jobcobian
 John
@@ -22116,6 +22164,8 @@ April
 Allowed
 Asymptotic
 Astrophysical
+Analogously
+Alembertian
 via
 variables
 view
@@ -23125,6 +23175,7 @@ unrelated
 unproven
 uncharged
 universe
+usable
 guarantees
 gives
 give
@@ -23618,6 +23669,8 @@ gyroscopes
 gyroscope
 geodetic
 galaxies
+glossary
+gather
 Moreover
 Matrix
 Maximum
@@ -24190,6 +24243,7 @@ Mss
 Moment
 Mission
 Multipole
+Multiplying
 Using
 Up
 Ut
@@ -24960,6 +25014,7 @@ qBGV
 qbO
 quartz
 quasars
+quantitatively
 zero
 zoom
 zG
@@ -25829,6 +25884,8 @@ Limit
 Lett
 Locating
 Lindquist
+Limitation
+Linearized
 Value
 Verifying
 Verify
@@ -27473,6 +27530,7 @@ OpP
 OMu
 Orbit
 Observations
+Operationally
 Given
 Get
 Guessing
@@ -27954,6 +28012,7 @@ Gravitomagnetic
 Gyroscope
 Geodetic
 Galactic
+Gauge
 xF
 xxii
 xmp
@@ -29911,6 +29970,7 @@ ZXF
 ZwQ
 ZATc
 Zec
+Znajek
 Xa
 Xm
 XS

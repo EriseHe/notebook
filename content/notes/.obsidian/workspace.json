@@ -27,31 +27,19 @@
             "id": "6beb0c3d0d2eb946",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.10.3"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.10.3"
-            }
-          },
-          {
-            "id": "eac5eeee2583f4be",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/广义相对论/Ch. 30.md",
-                "mode": "preview",
-                "source": true,
+                "file": "理论/广义相对论/Ch. 30 Gauge Freedom in the Weak-Field Einstein Equation.md",
+                "mode": "source",
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Ch. 30"
+              "title": "Ch. 30 Gauge Freedom in the Weak-Field Einstein Equation"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "4b7bbac40340a905",
@@ -256,12 +244,24 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "eac5eeee2583f4be",
+  "active": "6beb0c3d0d2eb946",
   "lastOpenFiles": [
-    "Prompts.md",
-    "理论/广义相对论/Ch. 30.md",
-    "Untitled.md",
+    "理论/广义相对论/Ch. 20 Stress-Energy and the Source of Gravity.md",
+    "理论/广义相对论/Ch. 21 The Einstein Equation.md",
     "理论/广义相对论/Ch. 39 Penrose Process and Energy Limits in Kerr Spacetime.md",
+    "理论/广义相对论/Ch. 22.md",
+    "理论/广义相对论/Ch. 22 Interpretation of Einstein Field Equation.md",
+    "理论/广义相对论/Ch. 19 Riemman Tensor.md",
+    "理论/广义相对论/Ch. 18. Geodesic Derivation.md",
+    "理论/广义相对论/Ch. 16.md",
+    "理论/广义相对论/Ch. 15 Kruskal–Szekeres Coordinates for Schwarzschild Spacetime.md",
+    "理论/广义相对论/Ch. 2 Einstein Summation Convention.md",
+    "理论/广义相对论/Ch. 3 Index Notation.md",
+    "理论/广义相对论/Ch. 6 Tensor Equation.md",
+    "理论/广义相对论/Ch. 14. Event Horizon.md",
+    "理论/广义相对论/Ch. 30 Gauge Freedom in the Weak-Field Einstein Equation.md",
+    "Prompts.md",
+    "Untitled.md",
     "理论/微分几何笔记/第二部分 黎曼几何/13. Smooth Functions, Tangent and Cotangent Vectors, Metrics.md",
     "理论/广义相对论/Ch. 38 Ergoregion and Horizon.md",
     "理论/广义相对论/Ch. 37 Kerr Particle Orbits.md",
@@ -282,20 +282,8 @@
     "理论/微分几何笔记/第二部分 黎曼几何/17. Riemannian Distance, Variations, and Geodesics.md",
     "理论/微分几何笔记/第二部分 黎曼几何/16. Exponential Map, Normal Coordinates, and Distance.md",
     "理论/微分几何笔记/第二部分 黎曼几何/15. Riemannian Connection, Geodesics, and Parallel Transport.md",
-    "理论/概率机器学习/隐藏变量模型/Score Matching.md",
-    "理论/微分几何笔记/第二部分 黎曼几何/Lecture notes.md",
-    "理论/微分几何笔记/第二部分 黎曼几何/14. Tensors, Connections, Lie bracket.md",
-    "index.md",
-    "理论/广义相对论/Ch. 15.md",
-    "理论/微分几何笔记/第一部分 曲线与曲面/12. Geodesic Triangle and Euler's Characteristics.md",
-    "理论/微分几何笔记/第一部分 曲线与曲面/9. Geodesic Normal Coordinates, Exponential Map.md",
-    "理论/微分几何笔记/Lecture Notes/545 10_08_25.md",
     "tmp_pdf_545_10_08_25",
     "tmp_pdf_pages",
-    "理论/微分几何笔记/第一部分 曲线与曲面/10. Geodesic Polar Coordinates, Local Length Minimizers, and Gauss’s Theorema Egregium.md",
-    "理论/广义相对论/Ch. 16.md",
-    "理论/广义相对论/Ch. 22.md",
-    "理论/广义相对论/Ch. 22 Interpretation of Einstein Field Equation.md",
     "计算/Research/Hypre",
     "计算/Research/illustrateTNG",
     "计算/Research",
