@@ -1,3 +1,7 @@
+---
+title: "Ch. 35 Gravitomagnetism"
+---
+
 ## 1. Introduction
 
 This chapter studies **gravitomagnetism**: the magnetic–like effects that appear in the weak-field limit of general relativity.  

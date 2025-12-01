@@ -1,3 +1,7 @@
+---
+title: "Ch. 8 — Geodesics"
+---
+
 
 > **Goal of this chapter.** Derive the **geodesic equation** from the “longest proper time” principle, convert it to a form with the **metric’s derivatives** (equivalent to the Christoffel‑symbol form), and note the normalization identities and the lightlike limit. All formulas match Moore’s notation and numbering; each main result is derived in **one continuous aligned environment** with occasional $\underbrace{\cdots}_{\text{comment}}$.
 

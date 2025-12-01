@@ -1,3 +1,7 @@
+---
+title: "Ch. 6 — Tensor Equations"
+---
+
 
 > **Goal of this chapter.** Generalize vectors to **tensors**, explain why indices appear **up vs. down**, and show how tensor expressions remain valid in **any** coordinate system. We follow Moore’s notation exactly and insert derivation steps inline (no separate section).
 

@@ -1,3 +1,7 @@
+---
+title: "Ch. 21 The Einstein Equation"
+---
+
 ## 21.1 Overview: From Newtonian Gravity to Einstein’s Equation
 
 In Newtonian gravity, Gauss’s law for the gravitational field is

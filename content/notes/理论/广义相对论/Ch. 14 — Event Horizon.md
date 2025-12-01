@@ -1,3 +1,7 @@
+---
+title: "Ch. 14 — Event Horizon"
+---
+
 > **Goal of this chapter.** Diagnose the apparent “pathologies” at $r=2GM$ in Schwarzschild spacetime, separate **coordinate** from **geometric** problems, and show what the event horizon means physically: a one‑way surface where $r$ becomes a **time‑like** coordinate. All formulas match Moore’s notation. Each derivation is kept in a single aligned block; underbraces annotate algebraic substitutions only. Commentary appears outside the math blocks.
 
 ---

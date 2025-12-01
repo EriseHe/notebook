@@ -1,7 +1,10 @@
+---
+title: "Ch. 30 Gauge Freedom in the Weak-Field Einstein Equation"
+---
+
 ## 30.1 Introduction and Weak-Field Limit
 
-Gravitational waves arise as **tiny, time-dependent perturbations** of otherwise flat spacetime.  
-Far from any realistic astrophysical source the field is weak, so we can use the **weak-field approximation** (chapter 22) to linearize the Einstein equation.
+Gravitational waves arise as **tiny, time-dependent perturbations** of otherwise flat spacetime. Far from any realistic astrophysical source the field is weak, so we can use the **weak-field approximation** (chapter 22) to linearize the Einstein equation.
 
 In this limit we use “nearly cartesian’’ coordinates where the metric is written as a flat background plus a small perturbation
 $$
@@ -23,7 +26,6 @@ g^{\mu\nu} = \eta^{\mu\nu} - h^{\mu\nu},
 h^{\mu\nu} \equiv \eta^{\mu\alpha}\eta^{\nu\beta} h_{\alpha\beta}
 \tag{30.2}
 $$
-
 Using this inverse metric, the Riemann tensor in the weak-field limit is
 $$
 R_{\alpha\beta\mu\nu}
@@ -36,7 +38,6 @@ R_{\alpha\beta\mu\nu}
 \big]
 \tag{30.3}
 $$
-
 Because we are dropping all terms that are second order or higher in $h_{\mu\nu}$, we can raise and lower indices using the flat metric $\eta_{\mu\nu}$ everywhere.  
 Operationally, **to this order** we treat $h_{\mu\nu}$ as if it were a tensor field in flat spacetime.
 
@@ -49,10 +50,7 @@ G^{\gamma\sigma} \equiv R^{\gamma\sigma}
 = 8\pi G T^{\gamma\sigma}
 \tag{30.4}
 $$
-where $R^{\gamma\sigma}$ is the Ricci tensor with indices raised, and
-$R \equiv g^{\alpha\beta} R_{\alpha\beta\mu\nu}$ is the curvature scalar.
-
-Using the weak-field expression for the Riemann tensor (equation 30.3) plus the definitions of $R^{\gamma\sigma}$ and $R$, one finds that, to first order in $h_{\mu\nu}$,
+where $R^{\gamma\sigma}$ is the Ricci tensor with indices raised, and $R \equiv g^{\alpha\beta} R_{\alpha\beta\mu\nu}$ is the curvature scalar. Using the weak-field expression for the Riemann tensor (equation 30.3) plus the definitions of $R^{\gamma\sigma}$ and $R$, one finds that, to first order in $h_{\mu\nu}$,
 $$
 \begin{aligned}
 \tfrac12 \Big(
