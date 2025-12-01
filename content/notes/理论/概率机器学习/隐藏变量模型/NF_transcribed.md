@@ -1,3 +1,7 @@
+---
+title: "NF_transcribed"
+---
+
 # Normalizing Flows (NF) and Continuous Normalizing Flows (CNF)
 
 > Clean compilation of handwritten lecture notes. Structure and notation preserved.

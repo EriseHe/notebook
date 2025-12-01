@@ -1,3 +1,7 @@
+---
+title: "Ch. 37 Kerr Particle Orbits"
+---
+
 ## 37.1 Conserved Quantities
 
 Geodesic equation

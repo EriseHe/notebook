@@ -1,3 +1,7 @@
+---
+title: "Ch. 18. Geodesic Derivation"
+---
+
 
 
 # 1) Big picture—what this section is doing and why it matters

@@ -1,3 +1,7 @@
+---
+title: "Ch. 5 — Arbitrary Coordinates"
+---
+
 
 > **Goal of this chapter.** Develop a coordinate‑independent way to write physics by introducing **coordinate bases**, the **metric tensor** in arbitrary coordinates, and **transformation laws** for vectors and metrics. This generalizes the principle of relativity beyond inertial Cartesian frames and prepares us for curved spacetimes.
 

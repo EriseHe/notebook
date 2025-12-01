@@ -1,3 +1,7 @@
+---
+title: "III Random Numbers & Monte Carlo"
+---
+
 # Module 3
 
 > **Big picture.** Randomness is a *computational resource*. By letting algorithms make random choices we can: (i) generate synthetic data, (ii) solve otherwise intractable integrals in high dimensions (Monte Carlo), and (iii) sample equilibrium distributions in statistical physics (Metropolis–Hastings / MCMC). This module moves from **pseudorandom number generators** → **Monte Carlo integration** → **importance sampling** → **Markov chains** → **Metropolis(-Hastings)** → **Ising & Lennard–Jones case studies**.

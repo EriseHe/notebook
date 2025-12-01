@@ -1,3 +1,6 @@
+---
+title: "Ch. 20 Stress-Energy and the Source of Gravity"
+---
 ## 20.1 Newtonian Gauss Laws and Local Field Equations
 
 In electrostatics, Gauss’s law relates the electric field $\vec E$ to the charge density $\rho$ that creates it:
@@ -271,4 +274,197 @@ We now want the **general tensor expression** for a perfect fluid in arbitrary c
 1. Reduce to (20.15) in the rest LIF.
 2. Be built from tensorial quantities that describe the fluid: $\rho_0$, $p_0$, $u^\mu$, and $g^{\mu\nu}$.
 
-The unique simple choi
+The unique simple choice that works is
+
+> [!definition|20.3] Stress-energy of a perfect fluid  
+> For a perfect fluid in arbitrary coordinates,
+> $$
+> T^{\mu\nu} \equiv (\rho_0 + p_0) u^\mu u^\nu + p_0 g^{\mu\nu}
+> \tag{20.16}
+> $$
+> In the fluid’s rest LIF this reduces to (20.15). The tensor is symmetric: $T^{\mu\nu} = T^{\nu\mu}$.
+
+Because figure 20.2 shows that this form correctly reproduces the dust stress-energy when $p_0 = 0$, and because $\nabla_\mu T^{\mu\nu} = 0$ holds for each dust-like subset of the fluid, it must also hold for the whole perfect fluid.
+
+## 20.7 Fluid Equations from the Conservation Law
+
+Applying the conservation law to the perfect-fluid stress-energy (20.16) yields the fluid’s equations of motion in an arbitrary LIF:
+$$
+\partial_\mu(\rho_0 u^\mu) + p_0 \partial_\mu u^\mu = 0
+\quad\text{(equation of continuity)}
+\tag{20.17}
+$$
+$$
+(\rho_0 + p_0)(\partial_\mu u^\mu) u^\nu
+= -(\eta^{\mu\nu} + u^\mu u^\nu)\partial_\mu p_0
+\quad\text{(equation of motion)}
+\tag{20.18}
+$$
+
+To connect with Newtonian fluid dynamics, consider a LIF in which the fluid moves slowly so that $v^2 \ll 1$ and
+$$
+u^\mu \approx [1, v_x, v_y, v_z]
+$$
+If random thermal motions are non-relativistic, then $p \ll \rho$ and we can ignore the distinction between $(\rho_0,p_0)$ in the rest frame and $(\rho,p)$ in the LIF.
+
+In this non-relativistic limit, equation (20.17) becomes
+$$
+\partial_\mu(\rho u^\mu) = 0
+\quad\Rightarrow\quad
+0 = \frac{\partial\rho}{\partial t} + \vec\nabla\cdot(\rho\vec v)
+\tag{20.19}
+$$
+which is the familiar **continuity equation** expressing mass (or energy) conservation.
+
+The spatial components of (20.18) reduce to
+$$
+\rho\left(\frac{\partial\vec v}{\partial t}
++ \vec v\cdot\vec\nabla\,\vec v\right)
+= -\vec\nabla p
+\tag{20.20}
+$$
+which is Euler’s equation—the Newtonian equation of motion for a perfect fluid.
+
+Those who know classical fluid dynamics will recognize (20.19) and (20.20) as the standard equations describing how fluid elements move in response to internal pressure gradients. The key conceptual point is:
+
+> [!remark|20.2] Role of $\nabla_\mu T^{\mu\nu}=0$  
+> The single tensor equation $\nabla_\mu T^{\mu\nu} = 0$ compactly encodes **all** of the local conservation and force laws determining the motion of a relativistic fluid.
+
+In later chapters, this stress-energy tensor $T^{\mu\nu}$ will serve as the **source term** on the right-hand side of the Einstein equation, providing the bridge from matter and energy to spacetime curvature.
+
+
+Using the normalization $u^\mu u_\mu=-1$ one can show $u_\mu\nabla_\nu u^\mu=0$, which implies $u^\mu\nabla_\nu u^\nu = -u_\nu\nabla_\mu u^\nu u^\mu$ and cancels against part of the first term when projected along $u_\mu$.
+
+Now take the $\mu=r$ component. For our static configuration:
+
+$u^r=0$, $u^\nu$ has only $t$ component
+
+$p=p(r)$ so $\partial_\nu p = \frac{dp}{dr},\delta^r_\nu$
+
+$g^{rr} = 1/B$
+
+Thus the $r$-component becomes
+
+
+Let’s keep using the book’s notation $p,\rho,m(r)$ and $A,B$.
+
+---
+
+## 1. Newtonian limit of the Oppenheimer–Volkoff equation
+
+Start from equation (23.49)
+
+$$
+\frac{dp}{dr}
+= -\frac{\rho + p}{r^2}
+\left[\frac{4\pi G p r^3 + Gm(r)}{1 - 2Gm(r)/r}\right]
+\tag{23.49}
+$$
+
+In the Newtonian limit (chapter 21) we assume
+
+1. **Weak field**
+   $2Gm(r)/r \ll 1$
+
+2. **Non-relativistic matter**
+   $p \ll \rho$ (pressure much smaller than energy density)
+
+3. **Newtonian mass**
+   The gravitational mass $m(r)$ coincides with the Newtonian enclosed mass $M(r)$, and the pressure is just $P=p$.
+
+Apply these approximations step by step:
+
+$$
+\begin{aligned}
+\frac{dp}{dr}
+&= -\frac{\rho + p}{r^2}
+\left[\frac{4\pi G p r^3 + Gm(r)}{1 - 2Gm(r)/r}\right] [4pt]
+&\approx -\frac{\rho}{r^2}
+\left[\frac{\underbrace{4\pi G p r^3}*{\text{small if }p\ll\rho} + Gm(r)}{\underbrace{1 - 2Gm(r)/r}*{\approx 1}}\right] [6pt]
+&\approx -\frac{\rho}{r^2},Gm(r)
+\end{aligned}
+$$
+
+Identifying $P \equiv p$ and $M(r) \equiv m(r)$ in this limit, we get
+
+$$
+\boxed{
+\frac{dP}{dr} = -\frac{G M(r)\rho}{r^2}
+}
+$$
+
+which is exactly the usual Newtonian hydrostatic equilibrium equation.
+
+---
+
+## 2. Behavior when $r < 2GM$ and gravitational collapse
+
+Now look qualitatively at equation (23.49) when the radius of the star becomes smaller than its Schwarzschild radius $R = 2GM$.
+
+For “normal” matter we have
+
+* $\rho > 0$
+* $p > 0$
+* $m(r) > 0$
+
+so the **numerator** in the square brackets is always positive
+
+$$
+4\pi G p r^3 + Gm(r) > 0
+$$
+
+The **denominator** is
+
+$$
+1 - \frac{2Gm(r)}{r}
+$$
+
+* For a stable neutron star with radius $R > 2GM$, we have $2Gm(r)/r < 1$ everywhere, so the denominator is positive.
+  Then the bracket is positive, and the overall minus sign gives
+
+  $$
+  \frac{dp}{dr} < 0
+  $$
+
+  so pressure decreases outward. This is the usual hydrostatic situation: higher pressure at smaller $r$ supports the star against gravity.
+
+* As the star contracts toward its Schwarzschild radius, the outer layers approach $r \simeq 2GM$ with $m(r)\simeq M$.
+  At $r = 2GM$ the denominator in (23.49) tends to zero
+
+  $$
+  1-\frac{2GM}{r} \to 0^+
+  $$
+
+  but the numerator stays positive. Therefore
+
+  $$
+  \left|\frac{dp}{dr}\right| \to \infty
+  $$
+
+  An **infinite** pressure gradient would be required to keep a static configuration. No realistic equation of state can provide this, so a static neutron-star solution ceases to exist once the star shrinks close to $R = 2GM$.
+
+* Once the radius passes inside its Schwarzschild radius, $r < 2GM$, the denominator is **negative**
+
+  $$
+  1-\frac{2Gm(r)}{r} < 0
+  $$
+
+  while the numerator is still positive. Thus the square bracket becomes negative, and the overall minus sign makes
+
+  $$
+  \frac{dp}{dr} > 0
+  $$
+
+  i.e. the pressure **increases** outward rather than inward.
+
+This behavior is qualitatively disastrous for hydrostatic support:
+
+* When $r>2GM$
+  pressure is largest at the center and falls outward ($dp/dr<0$), pushing **against** gravity.
+* When $r<2GM$
+  (23.49) demands $dp/dr>0$, so pressure is smaller at the center and larger at some larger radius, meaning the pressure gradient actually goes in the **same direction** as gravity instead of opposing it. There is no way to arrange a static, self-supporting fluid configuration.
+
+So as soon as the star’s radius crosses its Schwarzschild radius, the Oppenheimer–Volkoff equation itself tells us that **no static solution is possible**: any configuration must keep collapsing. In full general relativity, this continued collapse leads (classically) to a pointlike singular mass at $r=0$, with the exterior geometry remaining the Schwarzschild solution of mass $M$.
+
+Thus, the behavior of equation (23.49) for $r<2GM$ is entirely consistent with the picture that a sufficiently massive neutron star cannot find a new hydrostatic equilibrium and instead collapses to a point mass (a black-hole singularity), modulo whatever quantum-gravity effects might eventually modify the innermost physics.
+

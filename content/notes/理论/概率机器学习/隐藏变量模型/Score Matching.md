@@ -1,3 +1,7 @@
+---
+title: "Score Matching"
+---
+
 # 1 What is the “Score”?
 
 ## 1.1 Definition of Score

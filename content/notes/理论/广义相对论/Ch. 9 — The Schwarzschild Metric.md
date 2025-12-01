@@ -1,3 +1,7 @@
+---
+title: "Ch. 9 — The Schwarzschild Metric"
+---
+
 
 > **Goal of this chapter.** Introduce the Schwarzschild metric as a spherically symmetric, time‑independent vacuum solution; interpret its coordinates **operationally** (circumferential radial coordinate and time at infinity); and derive gravitational redshift and the large‑radius Newtonian limit. Every formula is preserved and each key result is derived in **one continuous aligned environment** with under‑brace comments.
 

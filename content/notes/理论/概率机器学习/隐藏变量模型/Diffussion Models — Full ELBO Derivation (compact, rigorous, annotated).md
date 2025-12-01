@@ -1,3 +1,7 @@
+---
+title: "Diffussion Models — Full ELBO Derivation (compact, rigorous, annotated)"
+---
+
 
 > **Notation (matches your notes):**  
 > - Forward (noising) Markov chain $q$:  

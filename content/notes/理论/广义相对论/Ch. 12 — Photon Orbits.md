@@ -1,3 +1,7 @@
+---
+title: "Ch. 12 — Photon Orbits"
+---
+
 
 > **Goal of this chapter.** Obtain the equations of motion for photons in Schwarzschild spacetime by taking the **massless limit** of geodesic first integrals; cast the null condition as an **energy‑like radial equation** with an effective potential; then relate coordinate components to **locally orthonormal frames (LOFs)** to compute angles, critical capture, and observed energies. All formulas use Moore’s notation. Each main result is derived in **one continuous aligned environment**; underbraces annotate algebraic substitutions only. Explanatory comments are outside the math blocks.
 

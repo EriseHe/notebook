@@ -1,3 +1,7 @@
+---
+title: "Ch. 38 Ergoregion and Horizon"
+---
+
 
 ## 38.1 Overview
 
