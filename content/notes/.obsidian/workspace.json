@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/广义相对论/Ch. 37 Kerr Particle Orbits.md",
+                "file": "理论/广义相对论/Ch. 31 Detecting Gravitational Waves.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Ch. 37 Kerr Particle Orbits"
+              "title": "Ch. 31 Detecting Gravitational Waves"
             }
           }
         ]
@@ -207,18 +207,21 @@
   },
   "active": "29d035363d2e19b9",
   "lastOpenFiles": [
-    "理论/概率机器学习/隐藏变量模型/Score Matching.md",
-    "理论/广义相对论/Ch. 21.md",
-    "理论/广义相对论/Ch. 21 The Einstein Equation.md",
-    "理论/广义相对论/Ch. 22 Weak-Field Limit and Stationary Sources.md",
-    "理论/广义相对论/Ch. 16.md",
-    "理论/广义相对论/Ch. 36 Rotating Objects and the Kerr Metric.md",
-    "理论/广义相对论/Ch. 23 The Schwarzschild Solution.md",
+    "理论/广义相对论/Ch. 32 Gravitational Wave Energy.md",
+    "理论/广义相对论/Ch. 31 Detecting Gravitational Waves.md",
     "理论/广义相对论/Ch. 39 Penrose Process and Energy Limits in Kerr Spacetime.md",
+    "理论/广义相对论/Chapter 21 — The Einstein Equation.md",
+    "理论/广义相对论/Ch. 22 Weak-Field Limit and Stationary Sources.md",
     "理论/广义相对论/Ch. 38 Ergoregion and Horizon.md",
     "理论/广义相对论/Ch. 37 Kerr Particle Orbits.md",
+    "理论/广义相对论/Ch. 36 Rotating Objects and the Kerr Metric.md",
     "理论/广义相对论/Ch. 35 Gravitomagnetism.md",
     "理论/广义相对论/Ch. 30 Gauge Freedom in the Weak-Field Einstein Equation.md",
+    "Untitled 1.md",
+    "理论/概率机器学习/隐藏变量模型/Score Matching.md",
+    "理论/广义相对论/Ch. 21 The Einstein Equation.md",
+    "理论/广义相对论/Ch. 16.md",
+    "理论/广义相对论/Ch. 23 The Schwarzschild Solution.md",
     "理论/广义相对论/Ch. 20 Stress-Energy and the Source of Gravity.md",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
@@ -240,8 +243,6 @@
     "理论/广义相对论/Ch. 14. Event Horizon.md",
     "Prompts.md",
     "Untitled.md",
-    "理论/微分几何笔记/第二部分 黎曼几何/13. Smooth Functions, Tangent and Cotangent Vectors, Metrics.md",
-    "计算/Research/Hypre/Linux Environment for GPTune.md",
     "tmp_pdf/545 10_01_25.pdf.png",
     "tmp_pdf/545_10_01_25.png",
     "tmp_pdf_pages/010f0ba8-d265-46c2-949b-dcf1139f1ff2-1.png",
@@ -252,7 +253,6 @@
     "tmp_pdf_pages/page_1.png",
     "tmp_pdf_pages/page_2.png",
     "tmp_pdf_pages/page_4.png",
-    "理论/微分几何笔记/第一部分 曲线与曲面/1. Overview of Differential Geometry.md",
     "Untitled.canvas",
     "Mathematics/MATH 351 & 352/Heat Equation/Untitled.canvas"
   ]
