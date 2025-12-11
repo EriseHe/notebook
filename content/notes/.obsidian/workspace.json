@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/广义相对论/Ch. 23 The Schwarzschild Solution.md",
+                "file": "理论/广义相对论/Ch. 33 Gemini.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Ch. 23 The Schwarzschild Solution"
+              "title": "Ch. 33 Gemini"
             }
           }
         ]
@@ -186,18 +186,19 @@
   },
   "active": "5fbfaf9ecd5ba797",
   "lastOpenFiles": [
-    "理论/广义相对论/Ch. 22 Weak-Field Limit and Stationary Sources.md",
-    "理论/广义相对论/Ch. 19 Riemman Tensor.md",
+    "理论/广义相对论/Ch. 33 ChatGPT.md",
+    "理论/广义相对论/Ch. 33 Gemini.md",
+    "理论/广义相对论/Ch. 17 The Absolute Gradient.md",
+    "理论/广义相对论/Ch. 16 Black Hole Thermodynamics.md",
+    "理论/广义相对论/Ch. 18 (2).md",
     "理论/广义相对论/Ch. 18. Geodesic Derivation.md",
-    "理论/广义相对论/Ch. 17.md",
-    "Prompts.md",
-    "index.md",
+    "理论/广义相对论/Ch. 19 Riemman Tensor.md",
     "理论/广义相对论/Ch. 23 The Schwarzschild Solution.md",
     "理论/广义相对论/Ch. 15 Kruskal–Szekeres Coordinates for Schwarzschild Spacetime.md",
-    "理论/广义相对论/Ch. 16.md",
+    "理论/广义相对论/Ch. 22 Weak-Field Limit and Stationary Sources.md",
+    "Prompts.md",
+    "index.md",
     "理论/广义相对论/Ch. 14. Event Horizon.md",
-    "理论/广义相对论/Ch. 33 (2).md",
-    "理论/广义相对论/Ch. 33 Gemini.md",
     "理论/广义相对论/Ch. 31 Detecting Gravitational Waves.md",
     "理论/广义相对论/Ch. 32 Gravitational Wave Energy.md",
     "理论/广义相对论/Ch. 30 Gauge Freedom in the Weak-Field Einstein Equation.md",
@@ -211,7 +212,6 @@
     "Untitled 1.md",
     "理论/概率机器学习/隐藏变量模型/Score Matching.md",
     "理论/广义相对论/Ch. 21 The Einstein Equation.md",
-    "理论/广义相对论/Ch. 20 Stress-Energy and the Source of Gravity.md",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
