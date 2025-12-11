@@ -1407,6 +1407,7 @@ finale
 forth
 facilities
 foolproof
+fluctuation
 color
 curve
 can
@@ -3823,6 +3824,7 @@ Ingoing
 Interferometers
 Interferometer
 Implying
+Infinity
 the
 terms
 that
@@ -8259,6 +8261,7 @@ observationally
 observations
 oceans
 orderly
+observing
 near
 neighborhood
 necessary
@@ -14918,6 +14921,7 @@ aproximation
 axiom
 accelerates
 asphericity
+antiparticle
 you
 yields
 yF
@@ -16303,6 +16307,7 @@ Reissner
 Rearrange
 Radiated
 Recalling
+Radiates
 requirement
 respect
 rule
@@ -18223,6 +18228,7 @@ permutations
 parenthesis
 preliminary
 projector
+possess
 Ex
 Evaluate
 Evaluating
@@ -20213,6 +20219,7 @@ HFy
 Hypothesis
 Hawking
 Hubble
+Hole
 By
 Because
 Below
@@ -26110,6 +26117,7 @@ Louisiana
 LISA
 Luminosity
 LIFs
+Lifetime
 Value
 Verifying
 Verify
