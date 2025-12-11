@@ -717,6 +717,7 @@ Complexity
 Contracting
 Concluding
 Convert
+Crude
 font
 for
 functions
@@ -3818,6 +3819,7 @@ Including
 Ingoing
 Interferometers
 Interferometer
+Implying
 the
 terms
 that
@@ -10179,6 +10181,7 @@ multiplicative
 modifying
 mini
 missions
+mergers
 have
 holds
 has
@@ -11917,6 +11920,7 @@ Spherically
 Straight
 Slippery
 Send
+Simplification
 equations
 equation
 exists
@@ -12760,6 +12764,7 @@ evaporation
 extrapolated
 evaporate
 environmental
+eqs
 whether
 written
 which
@@ -13301,6 +13306,7 @@ walks
 worry
 wavelengths
 worksheet
+waving
 by
 be
 bijective
@@ -13933,6 +13939,7 @@ bulk
 blur
 bombarded
 beams
+binary
 allow
 and
 as
@@ -14885,6 +14892,7 @@ anyway
 ago
 arrives
 arms
+aproximation
 you
 yields
 yF
@@ -16264,6 +16272,8 @@ Role
 Roughly
 Respond
 Reissner
+Rearrange
+Radiated
 requirement
 respect
 rule
@@ -18731,6 +18741,7 @@ Everywhere
 Explicitly
 Empty
 Ergoregion
+Estimates
 We
 What
 With
@@ -22314,6 +22325,7 @@ Alright
 Almost
 Averaging
 Amplitudes
+Approximations
 via
 variables
 view
@@ -25171,6 +25183,7 @@ quartz
 quasars
 quantitatively
 quadrupolar
+quadrupole
 zero
 zoom
 zG
@@ -26049,6 +26062,7 @@ LIGO
 Laser
 Louisiana
 LISA
+Luminosity
 Value
 Verifying
 Verify
@@ -28183,6 +28197,7 @@ Gauge
 Guesses
 Guess
 Gravitomagnetism
+Generating
 xF
 xxii
 xmp
@@ -28586,6 +28601,7 @@ xJh
 xMO
 xpoy
 xin
+xrightarrow
 Question
 Quondam
 QM
@@ -28941,6 +28957,7 @@ QCX
 QXP
 Qne
 QzJVW
+Quadrupole
 jpeg
 json
 joystick
@@ -29328,6 +29345,7 @@ jTW
 jNk
 jUHhj
 joules
+jerk
 Kuhn
 Km
 KP
