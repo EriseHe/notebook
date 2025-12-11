@@ -1,8 +1,6 @@
 ---
 title: "Ch. 16"
 ---
-# Chapter 18: Geodesic Deviation and the Riemann Tensor
-
 ## 1. Introduction: Tidal Effects
 
 One of Euclid's basic axioms about *flat space* is that parallel lines (geodesics) never meet. However, in the context of gravity, objects following initially parallel geodesics accelerate relative to each other due to **tidal effects**. Since this contradicts Euclid's axiom, it serves as a fundamental indicator that the spacetime surrounding a gravitating object is *curved*.
