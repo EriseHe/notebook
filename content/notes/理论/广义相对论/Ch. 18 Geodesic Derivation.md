@@ -1,8 +1,6 @@
 ---
 title: "Ch. 18. Geodesic Derivation"
 ---
-# 18. Geodesic Deviation
-
 ## 18.1 Physical Picture of Tidal Effects
 
 Euclid’s axiom for flat space says that **parallel lines never meet**. In spacetime, we learned earlier that the **tidal effects of gravity** cause worldlines that are initially parallel to accelerate relative to each other, so their geodesics do **not** remain parallel.
