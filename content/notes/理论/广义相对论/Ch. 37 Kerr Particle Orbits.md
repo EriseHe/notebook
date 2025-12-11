@@ -244,3 +244,8 @@ Special cases:
 
 - $a=0$ ⇒ $r=6GM$ (Schwarzschild result)  
 - Extreme Kerr $a=GM$ ⇒ $r=GM$ for co-rotating, $r=9GM$ for counter-rotating orbits
+
+
+
+
+

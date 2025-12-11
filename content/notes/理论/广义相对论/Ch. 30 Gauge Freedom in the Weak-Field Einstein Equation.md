@@ -4,7 +4,7 @@ title: "Ch. 30 Gauge Freedom in the Weak-Field Einstein Equation"
 
 ## 30.1 Introduction and Weak-Field Limit
 
-Gravitational waves arise as **tiny, time-dependent perturbations** of otherwise flat spacetime. Far from any realistic astrophysical source the field is weak, so we can use the **weak-field approximation** (chapter 22) to linearize the Einstein equation.
+Gravitational waves arise as **tiny, time-dependent perturbations** of otherwise flat spacetime. Far from any realistic astrophysical source the field is weak, so we can use the **weak-field aproximation** (chapter 22) to linearize the Einstein equation.
 
 In this limit we use “nearly cartesian’’ coordinates where the metric is written as a flat background plus a small perturbation
 $$

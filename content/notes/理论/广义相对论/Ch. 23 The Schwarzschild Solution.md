@@ -96,7 +96,6 @@ R_{tt}
 +\frac{1}{2B}\Big(\frac{\partial B}{\partial t}\Big)^2
 +\frac{1}{2A}\frac{\partial A}{\partial t}\frac{\partial B}{\partial t}
 \Bigg]
-\tag{23.6a}
 \\[6pt]
 R_{rr}
 &=\frac{1}{2A}\Bigg[
@@ -108,21 +107,17 @@ R_{rr}
 -\frac{1}{2B}\Big(\frac{\partial B}{\partial t}\Big)^2
 -\frac{1}{2A}\frac{\partial A}{\partial t}\frac{\partial B}{\partial t}
 \Bigg]
-\tag{23.6b}
 \\[6pt]
 R_{\theta\theta}
 &=-\frac{r}{2AB}\frac{\partial A}{\partial r}
 +\frac{r}{2B^2}\frac{\partial B}{\partial r}
 +1-\frac{1}{B}
-\tag{23.6c}
 \\[6pt]
 R_{\phi\phi}
 &=\sin^2\theta\,R_{\theta\theta}
-\tag{23.6d}
 \\[6pt]
 R_{tr}
 &=+\frac{1}{Br}\frac{\partial B}{\partial t}
-\tag{23.6e}
 \end{aligned}
 $$
 
