@@ -722,6 +722,9 @@ CUi
 Cup
 Cwr
 CpB
+Cor
+Cartan
+Covering
 font
 for
 functions
@@ -1416,6 +1419,7 @@ fPIF
 fNT
 fQWoT
 fox
+families
 color
 curve
 can
@@ -2695,6 +2699,7 @@ cNF
 cQK
 czxBCw
 cOB
+concatenated
 Problem
 Partial
 Putting
@@ -3294,6 +3299,7 @@ PPG
 Pru
 PvF
 PTEX
+Prop
 In
 Implicit
 Invertibility
@@ -3854,6 +3860,7 @@ IEs
 Icu
 IPj
 IOo
+Improved
 the
 terms
 that
@@ -5896,6 +5903,8 @@ sgV
 scs
 sXl
 smJ
+slot
+surjective
 discuss
 determine
 described
@@ -6781,6 +6790,9 @@ dEQ
 dgK
 dPQ
 dxx
+diffeo
+diffeomorphically
+dim
 in
 inverse
 implicit
@@ -7716,6 +7728,7 @@ ixx
 iDV
 iyK
 iUT
+intuitively
 of
 our
 out
@@ -8910,6 +8923,7 @@ nzi
 nuX
 nGh
 njH
+nbd
 Does
 Determine
 Differentiability
@@ -9466,6 +9480,7 @@ DFN
 DPN
 DiN
 DwY
+Determines
 map
 matrix
 mapping
@@ -10285,6 +10300,7 @@ mab
 mTz
 mTMo
 mUMo
+metrically
 have
 holds
 has
@@ -10789,6 +10805,7 @@ hEE
 hin
 hDrO
 hä
+homeomorphism
 local
 limit
 lim
@@ -12049,6 +12066,8 @@ SmJ
 SWL
 SgOV
 SrE
+Sectional
+Sample
 equations
 equation
 exists
@@ -15883,6 +15902,7 @@ NLR
 NZIJ
 Ncg
 NzB
+Normality
 Recall
 Rigorous
 Respect
@@ -16453,6 +16473,7 @@ REw
 RiO
 Rna
 RkLm
+Rinow
 requirement
 respect
 rule
@@ -17345,6 +17366,7 @@ relabeling
 relabeled
 rNY
 rwxA
+reparametrizations
 partials
 partial
 point
@@ -19896,6 +19918,9 @@ TAay
 Thp
 TeX
 Trapped
+Topology
+Tensoriality
+Trivial
 Hence
 Here
 Hypotheses
@@ -20401,6 +20426,8 @@ HuN
 HuA
 HsE
 HORx
+Hopf
+Hadamard
 By
 Because
 Below
@@ -22580,6 +22607,7 @@ Amplitudes
 Approximations
 AKP
 Anqz
+Aiming
 via
 variables
 view
@@ -25059,6 +25087,7 @@ UaJ
 UWu
 UwP
 UfCA
+Universal
 quotient
 question
 quickly
@@ -26791,6 +26820,7 @@ Vac
 Vot
 Vky
 Version
+Variations
 Yes
 You
 YX
@@ -29703,6 +29733,7 @@ jerk
 jsw
 jHD
 jEO
+joined
 Kuhn
 Km
 KP
