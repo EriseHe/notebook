@@ -85,8 +85,7 @@
               "title": "Vertical tabs"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -185,7 +184,7 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "5fbfaf9ecd5ba797",
+  "active": "829f54a31a6b8d4d",
   "lastOpenFiles": [
     "conflict-files-obsidian-git.md",
     "理论/微分几何笔记/第二部分 黎曼几何/20 Gauss&Weingarten Formulas, Surfaces, and Sectional Curvature.md",
