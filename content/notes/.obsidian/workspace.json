@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何笔记/第二部分 黎曼几何/22 Jacobi Fields, Constant Curvature, and Conjugate Points.md",
+                "file": "理论/微分几何笔记/第二部分 黎曼几何/18 Hopf–Rinow direction.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "22 Jacobi Fields, Constant Curvature, and Conjugate Points"
+              "title": "18 Hopf–Rinow direction"
             }
           }
         ]
@@ -186,8 +186,12 @@
   },
   "active": "5fbfaf9ecd5ba797",
   "lastOpenFiles": [
+    "理论/微分几何笔记/第二部分 黎曼几何/17. Riemannian Distance, Variations, and Geodesics.md",
+    "理论/微分几何笔记/第二部分 黎曼几何/22 Jacobi Fields, Constant Curvature, and Conjugate Points.md",
     "理论/微分几何笔记/第二部分 黎曼几何/21 Curvature via Sectional Curvature, and Jacobi Fields.md",
     "理论/微分几何笔记/第二部分 黎曼几何/20 Gauss&Weingarten Formulas, Surfaces, and Sectional Curvature.md",
+    "理论/微分几何笔记/第二部分 黎曼几何/19 Curvature Operator and Tensoriality.md",
+    "理论/微分几何笔记/第二部分 黎曼几何/18 Hopf–Rinow direction.md",
     "conflict-files-obsidian-git.md",
     "理论/广义相对论/习题集/build/Final Cheat Sheet.log",
     "理论/广义相对论/习题集/build/Final Cheat Sheet.fls",
@@ -199,10 +203,6 @@
     "理论/广义相对论/习题集/HW Set 5 -8",
     "理论/广义相对论/习题集/Final Cheat Sheet.tex",
     "理论/广义相对论/习题集/Final Cheat Sheet.synctex.gz",
-    "理论/微分几何笔记/第二部分 黎曼几何/22 Jacobi Fields, Constant Curvature, and Conjugate Points.md",
-    "理论/微分几何笔记/第二部分 黎曼几何/19 Curvature Operator and Tensoriality.md",
-    "理论/微分几何笔记/第二部分 黎曼几何/18 Hopf–Rinow direction.md",
-    "理论/微分几何笔记/第二部分 黎曼几何/17. Riemannian Distance, Variations, and Geodesics.md",
     "理论/微分几何笔记/第二部分 黎曼几何/16. Exponential Map, Normal Coordinates, and Distance.md",
     "Prompts.md",
     "index.md",
