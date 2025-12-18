@@ -85,7 +85,8 @@
               "title": "Vertical tabs"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -184,16 +185,25 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "5fbfaf9ecd5ba797",
+  "active": "4c5ac46d197274e7",
   "lastOpenFiles": [
-    "理论/广义相对论/习题集/Cheat Sheet.pdf",
+    "理论/广义相对论/习题集/build/Final Cheat Sheet.pdf",
+    "理论/广义相对论/习题集/build/Final Cheat Sheet.synctex(busy)",
+    "理论/广义相对论/习题集/build/pdflatex82473.fls",
+    "理论/广义相对论/习题集/build/pdflatex82456.fls",
+    "理论/广义相对论/习题集/build/pdflatex82432.fls",
+    "理论/广义相对论/习题集/build/pdflatex82408.fls",
+    "理论/广义相对论/习题集/build/pdflatex82407.fls",
+    "理论/广义相对论/习题集/build/pdflatex82384.fls",
+    "理论/广义相对论/习题集/build/pdflatex82346.fls",
+    "理论/广义相对论/习题集/build/pdflatex82328.fls",
+    "理论/广义相对论/习题集/build/pdflatex82308.fls",
     "理论/广义相对论/Ch. 18 Geodesic Derivation.md",
     "理论/广义相对论/Ch. 18 Geodesic Deviation and the Riemann Tensor.md",
     "理论/广义相对论/Ch. 21 The Einstein Equation.md",
     "理论/广义相对论/Ch. 21 The Einstein Equation (2).md",
     "理论/广义相对论/Pre-Midterm/Ch. 2 Einstein Summation Convention.md",
     "理论/广义相对论/Pre-Midterm/Ch. 4 — Index Notation.md",
-    "理论/广义相对论/Pre-Midterm",
     "理论/广义相对论/Pre-Midterm/Ch. 6 — Tensor Equations.md",
     "理论/广义相对论/Ch. 3 Index Notation.md",
     "理论/广义相对论/Ch. 6 Tensor Equation.md",
@@ -213,15 +223,6 @@
     "理论/广义相对论/Ch. 32 Gravitational Wave Energy.md",
     "理论/广义相对论/Ch. 30 Gauge Freedom in the Weak-Field Einstein Equation.md",
     "理论/广义相对论/Ch. 37 Kerr Particle Orbits.md",
-    "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
-    "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
-    "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
-    "计算/量子力学讲义/波函数存在于在Hilbert空间中.html",
-    "计算/量子力学讲义/波函数存在于在Hilbert空间中_files/mediabag",
-    "计算/量子力学讲义/波函数存在于在Hilbert空间中_files",
-    "计算/量子力学讲义/Lecture/第四章/第四章.html",
-    "计算/量子力学讲义/Lecture/第四章/第四章_files/mediabag",
-    "计算/量子力学讲义/Lecture/第四章/第四章_files",
     "tmp_pdf/545 10_01_25.pdf.png",
     "tmp_pdf/545_10_01_25.png",
     "tmp_pdf_pages/010f0ba8-d265-46c2-949b-dcf1139f1ff2-1.png",
