@@ -1,0 +1,716 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Essential Packages ---
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{physics}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{cancel}
+\usepackage{xcolor}
+\usepackage[many]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{graphicx}
+
+% --- Page Layout ---
+\geometry{top=0.7in, bottom=0.7in, left=0.7in, right=0.7in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% --- Custom Colors ---
+\definecolor{graytext}{gray}{0.5}
+
+% --- Custom Commands ---
+\newcommand{\gray}[1]{{\color{graytext}#1}}
+\newcommand{\examnote}[1]{{\color{red}\footnotesize\textbf{[Exam Note: #1]}}}
+
+% --- Header Configuration ---
+\newcommand{\courseName}{PHYS 458}
+\newcommand{\hwNumber}{HW 6}
+\newcommand{\hwTopic}{Morris--Thorne Wormhole}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\courseName: \hwNumber}}
+\rhead{\hwTopic}
+\cfoot{\thepage}
+
+% --- Boxes ---
+\newtcolorbox{solutionbox}{
+    breakable,
+    enhanced,
+    colback=white,
+    colframe=black,
+    title=\textbf{Derivation Transcript},
+    fonttitle=\bfseries\small,
+    arc=0mm,
+    boxrule=1pt,
+    left=5mm, right=5mm, top=5mm, bottom=5mm,
+    before skip=10pt,
+    after skip=20pt
+}
+
+\newtcolorbox{problembox}{
+    colback=gray!10!white,
+    colframe=gray!60!black,
+    title=\textbf{Problem Statement},
+    fonttitle=\bfseries\small,
+    arc=0mm,
+    boxrule=1pt,
+    left=5mm, right=5mm, top=5mm, bottom=5mm
+}
+
+\title{\vspace{-2cm} \courseName: \hwNumber\ Solutions}
+\author{}
+\date{}
+
+\begin{document}
+
+\section*{1. Morris--Thorne Wormhole}
+
+The metric is
+\[
+ds^2 = -dt^2 + dr^2 + (b^2 + r^2)\left(d\theta^2 + \sin^2\theta\, d\phi^2\right)
+\]
+with constant $b$.  Non-zero Christoffel symbols used below include
+\[
+\Gamma^r_{\theta\theta} = -r, \qquad
+\Gamma^r_{\phi\phi} = -r\sin^2\theta, \qquad
+\Gamma^\theta_{\phi\phi} = -\sin\theta\cos\theta, \qquad
+\Gamma^\phi_{\theta\phi} = \frac{\cos\theta}{\sin\theta}, \qquad
+\Gamma^\phi_{r\phi} = \Gamma^\theta_{r\theta} = \frac{r}{b^2 + r^2}
+\]
+
+% ---------- (a) ----------
+\subsection*{(a) Spherical symmetry and meaning of $r$}
+
+\begin{problembox}
+Is this metric spherically symmetric?  What does the coordinate $r$ measure?
+\end{problembox}
+
+\begin{solutionbox}
+Yes.
+
+For $dt = 0$, $dr = 0$,
+\[
+ds^2 = (b^2 + r^2)\left(d\theta^2 + \sin^2\theta\,d\phi^2\right)
+\]
+which is the metric for the surface of a sphere of radius $\sqrt{b^2 + r^2}$
+
+$t$ measures proper time, and $r$ measures radial distance.
+\examnote{Remember: spheres are at constant $t$ and $r$ with area $4\pi(b^2 + r^2)$.}
+\end{solutionbox}
+
+% ---------- (b) ----------
+\subsection*{(b) Computing Christoffel symbols}
+
+\begin{problembox}
+Calculate one of the non-zero $\Gamma^r_{\mu\nu}$, and either $\Gamma^\phi_{r\phi}$ or $\Gamma^\theta_{r\theta}$.
+\end{problembox}
+
+\begin{solutionbox}
+Start from the geodesic equation
+\[
+0 = \frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta} u^\alpha u^\beta
+\]
+which can be written as
+\[
+0 = \frac{d}{d\tau}\!\left(g_{\mu\nu}\frac{dx^\nu}{d\tau}\right)
+    - \frac{1}{2}\,\partial_\mu g_{\alpha\beta}\,u^\alpha u^\beta
+\]
+
+\textbf{Take $\mu = r$:}
+\[
+\frac{d^2 r}{d\tau^2} + \Gamma^r_{\alpha\beta} u^\alpha u^\beta = 0
+\]
+Using the second form,
+\[
+\frac{d}{d\tau}\!\left(g_{rr}\frac{dr}{d\tau}\right)
+      - \frac{1}{2}\,\partial_r g_{\alpha\beta}\,u^\alpha u^\beta = 0
+\]
+Since $g_{rr} = 1$,
+\[
+\frac{d^2 r}{d\tau^2}
+  - \frac{1}{2}\,\partial_r g_{\theta\theta}(u^\theta)^2
+  - \frac{1}{2}\,\partial_r g_{\phi\phi}(u^\phi)^2 = 0
+\]
+
+For $\Gamma^r_{\theta\theta}$:
+\[
+-\frac{1}{2}\,\partial_r(b^2 + r^2) = -r
+\qquad\Rightarrow\qquad
+\Gamma^r_{\theta\theta} = -r
+\]
+
+For $\Gamma^r_{\phi\phi}$:
+\[
+-\frac{1}{2}\,\partial_r\!\left((b^2 + r^2)\sin^2\theta\right)
+  = -r\sin^2\theta
+\qquad\Rightarrow\qquad
+\Gamma^r_{\phi\phi} = -r\sin^2\theta
+\]
+
+\bigskip
+
+Now list the metric components explicitly (Morris--Thorne metric):
+\[
+g_{tt} = -1, \qquad
+g_{rr} = 1, \qquad
+g_{\theta\theta} = b^2 + r^2, \qquad
+g_{\phi\phi} = (b^2 + r^2)\sin^2\theta
+\]
+
+\textbf{Use the geodesic equation to find $\Gamma^\theta_{r\theta}$.}
+
+Take $\mu = \theta$:
+\[
+0 = \frac{d^2\theta}{d\tau^2} + \Gamma^\theta_{\alpha\beta} u^\alpha u^\beta
+\]
+
+Writing this from the form
+\[
+0 = \frac{d}{d\tau}\!\left(g_{\theta\nu}\frac{dx^\nu}{d\tau}\right)
+    - \frac{1}{2}\,\partial_\theta g_{\alpha\beta}\,u^\alpha u^\beta
+\]
+and keeping the non-zero pieces:
+\[
+g_{\theta\theta}\frac{d^2\theta}{d\tau^2}
+   + \partial_r g_{\theta\theta}\,\frac{dr}{d\tau}\frac{d\theta}{d\tau}
+   - \frac{1}{2}\,\partial_\theta g_{\phi\phi}\left(\frac{d\phi}{d\tau}\right)^2
+   = 0
+\]
+
+The middle term is
+\[
+\partial_r g_{\theta\theta}\,\frac{dr}{d\tau}\frac{d\theta}{d\tau}
+ = 2r\,\frac{dr}{d\tau}\frac{d\theta}{d\tau}
+\]
+Comparing with the geodesic equation shows
+\[
+\Gamma^\theta_{r\theta} = \Gamma^\theta_{\theta r}
+   = \frac{1}{2}\frac{\partial_r g_{\theta\theta}}{g_{\theta\theta}}
+   = \frac{r}{b^2 + r^2}
+\]
+
+(From the last term one similarly reads off $\Gamma^\theta_{\phi\phi} = -\sin\theta\cos\theta$.)
+
+\bigskip
+
+\textbf{Use the geodesic equation to find $\Gamma^\phi_{r\phi}$.}
+
+Take $\mu = \phi$:
+\[
+0 = \frac{d^2\phi}{d\tau^2} + \Gamma^\phi_{\alpha\beta} u^\alpha u^\beta
+\]
+
+Again from
+\[
+0 = \frac{d}{d\tau}\!\left(g_{\phi\nu}\frac{dx^\nu}{d\tau}\right)
+    - \frac{1}{2}\,\partial_\phi g_{\alpha\beta}\,u^\alpha u^\beta
+\]
+the non-zero pieces give
+\[
+g_{\phi\phi}\frac{d^2\phi}{d\tau^2}
+  + \partial_r g_{\phi\phi}\,\frac{dr}{d\tau}\frac{d\phi}{d\tau}
+  + \partial_\theta g_{\phi\phi}\,\frac{d\theta}{d\tau}\frac{d\phi}{d\tau}
+  = 0
+\]
+
+From the $r\phi$ term,
+\[
+\Gamma^\phi_{r\phi} = \Gamma^\phi_{\phi r}
+  = \frac{1}{2}\frac{\partial_r g_{\phi\phi}}{g_{\phi\phi}}
+  = \frac{2r\sin^2\theta}{2(b^2 + r^2)\sin^2\theta}
+  = \frac{r}{b^2 + r^2}
+\]
+
+(The last term gives $\Gamma^\phi_{\theta\phi} = \cot\theta$.)
+\examnote{For quick reference: $\Gamma^r_{\theta\theta}=-r$, $\Gamma^r_{\phi\phi}=-r\sin^2\theta$, and $\Gamma^\theta_{r\theta}=\Gamma^\phi_{r\phi}=r/(b^2+r^2)$.}
+\end{solutionbox}
+
+% ---------- (c) ----------
+\subsection*{(c) Geodesic equations for $t$, $r$, and $\phi$}
+
+\begin{problembox}
+Write down the geodesic equations for $t$, $r$, and $\phi$.  You may use the symmetry of the metric to set $\theta = \pi/2$.
+\end{problembox}
+
+\begin{solutionbox}
+Start from
+\[
+0 = \frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta}
+      \frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau}
+\]
+
+\textbf{$\mu = t$:}
+
+All $\Gamma^t_{\mu\nu} = 0$, so
+\[
+\frac{d^2 t}{d\tau^2} = 0
+\]
+
+\textbf{$\mu = r$:}
+
+\[
+0 = \frac{d^2 r}{d\tau^2}
+  + \Gamma^r_{\theta\theta}\left(\frac{d\theta}{d\tau}\right)^2
+  + \Gamma^r_{\phi\phi}\left(\frac{d\phi}{d\tau}\right)^2
+\]
+
+Using $\Gamma^r_{\theta\theta} = -r$ and
+$\Gamma^r_{\phi\phi} = -r\sin^2\theta$:
+\[
+0 = \frac{d^2 r}{d\tau^2}
+  - r\left(\frac{d\theta}{d\tau}\right)^2
+  - r\sin^2\theta\left(\frac{d\phi}{d\tau}\right)^2
+\]
+
+Set $\theta = \pi/2 = \text{const.}$, so $d\theta/d\tau = 0$ and $\sin^2\theta = 1$:
+\[
+\frac{d^2 r}{d\tau^2}
+ = r\left(\frac{d\phi}{d\tau}\right)^2
+\]
+
+\textbf{$\mu = \phi$:}
+
+\[
+0 = \frac{d^2\phi}{d\tau^2}
+  + \Gamma^\phi_{\alpha\beta}\frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau}
+\]
+
+The non-zero pieces are $\Gamma^\phi_{r\phi}$ and $\Gamma^\phi_{\theta\phi}$:
+\[
+0 = \frac{d^2\phi}{d\tau^2}
+  + 2\Gamma^\phi_{r\phi}\frac{dr}{d\tau}\frac{d\phi}{d\tau}
+  + \Gamma^\phi_{\theta\phi}\frac{d\phi}{d\tau}\frac{d\theta}{d\tau}
+\]
+
+Using
+\(
+\Gamma^\phi_{r\phi} = \frac{r}{b^2 + r^2}
+\)
+and
+\(
+\Gamma^\phi_{\theta\phi} = \cot\theta
+\),
+then setting $\theta = \pi/2$ so that $d\theta/d\tau = 0$ and $\cot\theta = 0$,
+\[
+\frac{d^2\phi}{d\tau^2}
+  = -\,\frac{2r}{b^2 + r^2}\frac{dr}{d\tau}\frac{d\phi}{d\tau}
+\]
+
+\examnote{These are the working geodesic equations used for the effective potential in part (d).}
+\end{solutionbox}
+
+% ---------- (d) ----------
+\subsection*{(d) Circular orbits at the throat}
+
+\begin{problembox}
+The Schwarzschild metric admits geodesics that are circular orbits in a single plane around the mass $M$.  Is it possible for a free particle to orbit the throat of the wormhole in the same way?  Explain.
+\end{problembox}
+
+\begin{solutionbox}
+We can use the effective potential method of Ch.\ 10.
+
+First, note $2$ constants of integration from the $t$ and $\phi$ geodesics.
+
+From the $t$ geodesic:
+\[
+0 = \frac{d}{d\tau}\!\left(g_{tt}\frac{dt}{d\tau}\right)
+   \quad\Rightarrow\quad
+   -\frac{dt}{d\tau} = \text{const} \equiv -e
+\]
+or
+\[
+\frac{dt}{d\tau} = e
+\]
+
+From the $\phi$ geodesic:
+\[
+0 = \frac{d}{d\tau}\!\left(g_{\phi\phi}\frac{d\phi}{d\tau}\right)
+   = \frac{d}{d\tau}\!\left[(r^2 + b^2)\sin^2\theta\frac{d\phi}{d\tau}\right]
+   \equiv \ell
+\]
+For $\theta = \pi/2$ this gives
+\[
+\ell = (r^2 + b^2)\frac{d\phi}{d\tau}
+\]
+
+Use $-1 = \vec{u}\cdot\vec{u}$ as in Box 10.2:
+\[
+-1 = g_{tt}\left(\frac{dt}{d\tau}\right)^2
+      + g_{rr}\left(\frac{dr}{d\tau}\right)^2
+      + g_{\theta\theta}\left(\frac{d\theta}{d\tau}\right)^2
+      + g_{\phi\phi}\left(\frac{d\phi}{d\tau}\right)^2
+\]
+
+With $\theta = \pi/2$ and $d\theta/d\tau = 0$,
+\[
+-1 = -e^2 + \left(\frac{dr}{d\tau}\right)^2
+      + (r^2 + b^2)\left(\frac{d\phi}{d\tau}\right)^2
+\]
+
+Using $\ell = (r^2 + b^2)\,d\phi/d\tau$,
+\[
+-1 = -e^2 + \left(\frac{dr}{d\tau}\right)^2
+      + (r^2 + b^2)\left(\frac{\ell}{r^2 + b^2}\right)^2
+\]
+
+Or, as in (10.8),
+\[
+\underbrace{e^2 - 1}_{E}
+ = \underbrace{\left(\frac{dr}{d\tau}\right)^2}_{K}
+   + \underbrace{\frac{\ell^2}{r^2 + b^2}}_{V(r)}
+\]
+
+$V(r)$ has a maximum at $r = 0$, so an unstable circular orbit exists there.
+
+\examnote{Key fact: $V(r)$ peaks at the throat, so circular orbits about the throat are possible but unstable.}
+\end{solutionbox}
+
+% ---------- (e) ----------
+\subsection*{(e) Riemann tensor components}
+
+\begin{problembox}
+Show that all $R^t{}_{\beta\mu\nu} = 0$ and calculate one of $R^r{}_{\theta r\theta}$ or $R^r{}_{\phi r\phi}$.
+\end{problembox}
+
+\begin{solutionbox}
+Start from
+\[
+R^\alpha{}_{\beta\rho\nu}
+ = \partial_\rho\Gamma^\alpha_{\beta\nu}
+   - \partial_\nu\Gamma^\alpha_{\beta\rho}
+   + \Gamma^\alpha_{\rho\gamma}\Gamma^\gamma_{\beta\nu}
+   - \Gamma^\alpha_{\nu\gamma}\Gamma^\gamma_{\beta\rho}
+\]
+
+All $\Gamma^t_{\mu\nu} = 0$, so
+\[
+R^t{}_{\beta\mu\nu} = 0
+\]
+
+\textbf{Compute $R^r{}_{\theta r\theta}$.}
+
+\[
+R^r{}_{\theta r\theta}
+ = \partial_r\Gamma^r_{\theta\theta}
+   - \partial_\theta\Gamma^r_{\theta r}
+   + \Gamma^r_{r\gamma}\Gamma^\gamma_{\theta\theta}
+   - \Gamma^r_{\theta\gamma}\Gamma^\gamma_{r\theta}
+\]
+
+Most terms vanish:
+\[
+\Gamma^r_{\theta r} = 0, \qquad
+\Gamma^r_{rr} = 0, \qquad
+\Gamma^\gamma_{\theta\theta} = 0\ \text{for all }\gamma
+\]
+
+Using $\Gamma^r_{\theta\theta} = -r$ and $\Gamma^\theta_{r\theta}
+ = \Gamma^\theta_{\theta r} = r/(b^2 + r^2)$,
+\begin{align*}
+R^r{}_{\theta r\theta}
+ &= \partial_r(-r) - 0 + 0
+    - \Gamma^r_{\theta\theta}\Gamma^\theta_{r\theta} \\
+ &= (-1) - \bigl(-r\bigr)\frac{r}{b^2 + r^2} \\
+ &= -1 + \frac{r^2}{b^2 + r^2} \\
+ &= -\,\frac{b^2}{b^2 + r^2}
+\end{align*}
+
+\textbf{Compute $R^r{}_{\phi r\phi}$.}
+
+\[
+R^r{}_{\phi r\phi}
+ = \partial_r\Gamma^r_{\phi\phi}
+   - \partial_\phi\Gamma^r_{\phi r}
+   + \Gamma^r_{r\gamma}\Gamma^\gamma_{\phi\phi}
+   - \Gamma^r_{\phi\gamma}\Gamma^\gamma_{r\phi}
+\]
+
+Again, many terms vanish.  Using $\Gamma^r_{\phi\phi} = -r\sin^2\theta$ and
+$\Gamma^\phi_{r\phi} = \Gamma^\phi_{\phi r} = r/(b^2 + r^2)$,
+\begin{align*}
+R^r{}_{\phi r\phi}
+ &= \partial_r(-r\sin^2\theta) - 0 + 0
+    - \Gamma^r_{\phi\phi}\Gamma^\phi_{r\phi} \\
+ &= -\sin^2\theta
+    - \bigl(-r\sin^2\theta\bigr)\frac{r}{b^2 + r^2} \\
+ &= -\sin^2\theta + \frac{r^2\sin^2\theta}{b^2 + r^2} \\
+ &= -\,\frac{b^2\sin^2\theta}{b^2 + r^2}
+\end{align*}
+
+\examnote{$R^r{}_{\theta r\theta}$ and $R^r{}_{\phi r\phi}$ are the only independent non-zero components with an upper $r$ index that you need later for tidal forces.}
+\end{solutionbox}
+
+% ---------- (f) ----------
+\subsection*{(f) Tidal forces and geodesic deviation}
+
+\begin{problembox}
+A person falling into a black hole will eventually be torn apart by tidal forces.  Will this happen to a person traversing a Morris--Thorne wormhole?
+\end{problembox}
+
+\begin{solutionbox}
+Equation of geodesic deviation:
+\[
+\left(\frac{d^2 n}{d\tau^2}\right)^\alpha
+ = - R^\alpha{}_{\beta\mu\nu} U^\beta n^\mu U^\nu
+\]
+
+Consider deviation along $r$:
+\[
+\left(\frac{d^2 n}{d\tau^2}\right)^r
+ = - R^r{}_{\beta\mu\nu} U^\beta n^\mu U^\nu
+\]
+
+Since all $R^t{}_{\beta\mu\nu} = 0$ this reduces to
+\[
+\left(\frac{d^2 n}{d\tau^2}\right)^r
+ = - R^r{}_{\theta r\theta}\,n^r (U^\theta)^2
+   - R^r{}_{\phi r\phi}\,(U^\phi)^2
+\]
+
+Using the results from part (e),
+\[
+R^r{}_{\theta r\theta}
+ = -\,\frac{b^2}{b^2 + r^2}, \qquad
+R^r{}_{\phi r\phi}
+ = -\,\frac{b^2\sin^2\theta}{b^2 + r^2}
+\]
+both finite at $r = 0$.
+
+Thus, provided the person is not travelling too quickly, the tidal forces will be small.
+\examnote{Key point: no divergent curvature at the throat, so no ``spaghettification'' like in a Schwarzschild singularity.}
+\end{solutionbox}
+
+% ---------- (g) ----------
+\subsection*{(g) Expression for $R_{rr}$}
+
+\begin{problembox}
+Write down the expression for the $R_{rr}$ component of the Ricci tensor in terms of the non-zero Christoffel symbols and their derivatives, i.e.\ $R_{rr} = R^\alpha{}_{r\alpha r} = \ldots$.
+\end{problembox}
+
+\begin{solutionbox}
+Start from
+\[
+R_{rr} = R^\alpha{}_{r\alpha r}
+ = \partial_\alpha\Gamma^\alpha_{rr}
+   - \partial_r\Gamma^\alpha_{r\alpha}
+   + \Gamma^\alpha_{\alpha\gamma}\Gamma^\gamma_{rr}
+   - \Gamma^\alpha_{r\gamma}\Gamma^\gamma_{r\alpha}
+\]
+
+Because $\Gamma^\alpha_{rr} = 0$ and $\Gamma^\gamma_{rr} = 0$,
+\[
+R_{rr}
+ = - \partial_r\Gamma^\alpha_{r\alpha}
+   - \Gamma^\alpha_{r\gamma}\Gamma^\gamma_{r\alpha}
+\]
+
+Only the angular components contribute:
+\[
+\Gamma^\theta_{r\theta} = \Gamma^\phi_{r\phi}
+ = \frac{r}{b^2 + r^2}
+\]
+
+So
+\[
+R_{rr}
+ = -\partial_r\Gamma^\theta_{r\theta}
+   - \partial_r\Gamma^\phi_{r\phi}
+   - \Gamma^\theta_{r\theta}\Gamma^\theta_{r\theta}
+   - \Gamma^\phi_{r\phi}\Gamma^\phi_{r\phi}
+\]
+
+Using $\Gamma^\theta_{r\theta} = \Gamma^\phi_{r\phi}$,
+\[
+R_{rr}
+ = -2\left[\partial_r\Gamma^\theta_{r\theta}
+          + \left(\Gamma^\theta_{r\theta}\right)^2\right]
+\]
+
+\examnote{This matches the formula from the Diagonal Metric Worksheet for a metric with two identical angular directions.}
+\end{solutionbox}
+
+% ---------- (h) ----------
+\subsection*{(h) Evaluating $R_{rr}$}
+
+\begin{problembox}
+Calculate $R_{rr}$ using either the expression above or the Diagonal Metric Worksheet.
+\end{problembox}
+
+\begin{solutionbox}
+From part (g),
+\[
+R_{rr}
+ = -2\left[\partial_r\Gamma^\theta_{r\theta}
+          + \left(\Gamma^\theta_{r\theta}\right)^2\right]
+\]
+with
+\[
+\Gamma^\theta_{r\theta}
+ = \frac{r}{b^2 + r^2}
+\]
+
+Compute the derivative:
+\begin{align*}
+\partial_r\Gamma^\theta_{r\theta}
+ &= \partial_r\left(\frac{r}{b^2 + r^2}\right) \\
+ &= \frac{(b^2 + r^2) - 2r^2}{(b^2 + r^2)^2} \\
+ &= \frac{b^2 - r^2}{(b^2 + r^2)^2}
+\end{align*}
+
+Also
+\[
+\left(\Gamma^\theta_{r\theta}\right)^2
+ = \left(\frac{r}{b^2 + r^2}\right)^2
+ = \frac{r^2}{(b^2 + r^2)^2}
+\]
+
+Therefore
+\begin{align*}
+R_{rr}
+ &= -2\left[\frac{b^2 - r^2}{(b^2 + r^2)^2}
+            + \frac{r^2}{(b^2 + r^2)^2}\right] \\
+ &= -2\,\frac{b^2}{(b^2 + r^2)^2}
+\end{align*}
+
+So
+\[
+R_{rr} = -\,\frac{2 b^2}{(b^2 + r^2)^2}
+\]
+
+\examnote{Only $R_{rr}$ is non-zero; the other diagonal components of $R_{\mu\nu}$ vanish for this metric.}
+\end{solutionbox}
+
+% Part (j)
+\subsection*{(j) Stress-energy tensor and energy conditions}
+
+\begin{solutionbox}
+\textbf{Problem (j).} Calculate the components of the stress-energy tensor $T^{\mu\nu}$. Show that ``such material would violate all the `energy conditions' that underlie some deeply cherished theorems in general relativity (Morris \& Thorne 1988),''
+or at any rate, that it violates the dominant energy condition.
+
+\medskip
+
+Start from the Einstein equation written in mixed-index form
+\begin{align*}
+T^{\mu\nu}
+    &= \frac{1}{8\pi G}\Big[\,R^{\mu\nu} - \tfrac12 g^{\mu\nu} R\,\Big]
+\end{align*}
+and use the fact that
+\begin{align*}
+R^{\mu\nu}
+    &= g^{\mu\alpha} g^{\nu\beta} R_{\alpha\beta}
+    \qquad\text{(with $R_{\alpha\beta}$ non-zero only for $\alpha=\beta=r$)} \\
+R^{rr}
+    &= \big(g^{rr}\big)^2 R_{rr}
+\end{align*}
+From part (h), 
+\[
+R_{rr} = -\frac{2 b^2}{(r^2 + b^2)^2}
+\]
+and for the Morris--Thorne metric
+\[
+g^{tt} = -1, \qquad
+g^{rr} = 1, \qquad
+g^{\theta\theta} = \frac{1}{b^2 + r^2}, \qquad
+g^{\phi\phi} = \frac{1}{(b^2 + r^2)\sin^2\theta}
+\]
+
+Since $g^{rr}=1$,
+\[
+R^{rr} = -\frac{2 b^2}{(r^2 + b^2)^2}
+\]
+and the Ricci scalar is
+\begin{align*}
+R &= R^{\mu\nu} R_{\mu\nu}
+    = -\frac{2 b^2}{(r^2 + b^2)^2}
+\end{align*}
+\examnote{Here $R$ numerically equals $R_{rr}$ because $R_{\mu\nu}$ is non-zero only for $\mu=\nu=r$ and $g^{rr}=1$.}
+
+\bigskip
+
+\textbf{Component $T^{tt}$}
+
+\begin{align*}
+T^{tt}
+    &= \frac{1}{8\pi G}\Big[\,R^{tt} - \tfrac12 g^{tt} R\,\Big] \\
+    &= \frac{1}{8\pi G}\Big[\,0 - \tfrac12 g^{tt} R\,\Big] \\
+    &= \frac{1}{8\pi G}\left[ -\tfrac12 (-1)\left(-\frac{2 b^2}{(r^2 + b^2)^2}\right)\right] \\
+    &= \frac{1}{8\pi G}\left[ -\frac{b^2}{(r^2 + b^2)^2} \right]
+\end{align*}
+
+\textbf{Component $T^{rr}$}
+
+\begin{align*}
+T^{rr}
+    &= \frac{1}{8\pi G}\Big[\,R^{rr} - \tfrac12 g^{rr} R\,\Big] \\
+    &= \frac{1}{8\pi G}\left[ -\frac{2 b^2}{(r^2 + b^2)^2}
+        - \tfrac12 (1)\left(-\frac{2 b^2}{(r^2 + b^2)^2}\right) \right] \\
+    &= \frac{1}{8\pi G}\left[ -\frac{2 b^2}{(r^2 + b^2)^2}
+        + \frac{b^2}{(r^2 + b^2)^2} \right] \\
+    &= \frac{1}{8\pi G}\left[ -\frac{b^2}{(r^2 + b^2)^2} \right]
+\end{align*}
+
+\textbf{Component $T^{\theta\theta}$}
+
+\begin{align*}
+T^{\theta\theta}
+    &= \frac{1}{8\pi G}\Big[\,R^{\theta\theta} - \tfrac12 g^{\theta\theta} R\,\Big] \\
+    &= \frac{1}{8\pi G}\Big[\,0 - \tfrac12 g^{\theta\theta} R\,\Big] \\
+    &= \frac{1}{8\pi G}\left[
+        -\frac{1}{2(b^2 + r^2)}
+        \left(-\frac{2 b^2}{(r^2 + b^2)^2}\right)
+        \right] \\
+    &= \frac{1}{8\pi G}\left[
+        \frac{b^2}{(b^2 + r^2)^3}
+        \right]
+\end{align*}
+
+\textbf{Component $T^{\phi\phi}$}
+
+\begin{align*}
+T^{\phi\phi}
+    &= \frac{1}{8\pi G}\Big[\,R^{\phi\phi} - \tfrac12 g^{\phi\phi} R\,\Big] \\
+    &= \frac{1}{8\pi G}\Big[\,0 - \tfrac12 g^{\phi\phi} R\,\Big] \\
+    &= \frac{1}{8\pi G}\left[
+        -\frac{1}{2(b^2 + r^2)\sin^2\theta}
+        \left(-\frac{2 b^2}{(r^2 + b^2)^2}\right)
+        \right] \\
+    &= \frac{1}{8\pi G}\left[
+        \frac{b^2}{(b^2 + r^2)^3\sin^2\theta}
+        \right]
+\end{align*}
+
+So the non-zero components are
+\begin{align*}
+T^{tt} &= \frac{1}{8\pi G}\left[ -\frac{b^2}{(r^2 + b^2)^2} \right] \\
+T^{rr} &= \frac{1}{8\pi G}\left[ -\frac{b^2}{(r^2 + b^2)^2} \right] \\
+T^{\theta\theta} &= \frac{1}{8\pi G}\left[
+        \frac{b^2}{(b^2 + r^2)^3}
+        \right] \\
+T^{\phi\phi} &= \frac{1}{8\pi G}\left[
+        \frac{b^2}{(b^2 + r^2)^3\sin^2\theta}
+        \right]
+\end{align*}
+
+\examnote{In an orthonormal frame, $T^{tt}$ corresponds to $-\rho$. Since $T^{tt}<0$, the energy density $\rho$ is negative.}
+
+\medskip
+
+\textbf{Energy-condition statement}
+
+From $T^{tt}<0$ we see the \emph{weak energy condition} (which requires $\rho>0$) fails:
+\[
+\text{weak energy condition:}\quad \rho>0 \ \text{fails}\quad (\rho<0)
+\]
+The \emph{dominant energy condition} (DEC), which requires $\rho\geq |p|$, also fails:
+\[
+\text{DEC:}\quad \rho\geq |p| \ \text{likewise fails}
+\]
+Thus the matter required to support the Morris--Thorne wormhole violates the usual energy conditions.
+
+\end{solutionbox}
+
+
+\end{document}

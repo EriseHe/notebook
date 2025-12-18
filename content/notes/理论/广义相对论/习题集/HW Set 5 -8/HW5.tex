@@ -1,0 +1,856 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Essential Packages ---
+\usepackage{amsmath, amssymb, amsthm} % Math symbols and environments
+\usepackage{physics}      % Physics notation (e.g., \bra, \ket, \pdv)
+\usepackage{geometry}     % Page layout
+\usepackage{fancyhdr}     % Custom headers/footers
+\usepackage{cancel}       % Crossing out terms
+\usepackage{xcolor}       % Color support
+\usepackage[many]{tcolorbox} % Colorful boxes for solutions
+\usepackage{enumitem}     % Custom lists
+\usepackage{tikz}         % Drawing diagrams
+\usepackage{graphicx}     % Inserting images
+
+% --- Page Layout ---
+\geometry{top=0.7in, bottom=0.7in, left=0.7in, right=0.7in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% --- Custom Colors ---
+\definecolor{graytext}{gray}{0.5}
+
+% --- Custom Commands ---
+\newcommand{\gray}[1]{{\color{graytext}#1}}
+\newcommand{\examnote}[1]{{\color{red}\footnotesize\textbf{[Exam Note: #1]}}}
+
+% --- Header Configuration ---
+\newcommand{\courseName}{PHYS 458}
+\newcommand{\hwNumber}{HW 5} 
+\newcommand{\hwTopic}{Schwarzschild, Riemann \& Tides}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\courseName: \hwNumber}}
+\rhead{\hwTopic}
+\cfoot{\thepage}
+
+% --- Custom Solution Box Environment ---
+\newtcolorbox{solutionbox}{
+    breakable,
+    enhanced,
+    colback=white,
+    colframe=black,
+    title=\textbf{Derivation Transcript},
+    fonttitle=\bfseries\small,
+    arc=0mm,
+    boxrule=1pt,
+    left=5mm, right=5mm, top=5mm, bottom=5mm,
+    before skip=10pt,
+    after skip=20pt
+}
+
+\newtcolorbox{problembox}{
+    colback=gray!10!white,
+    colframe=gray!60!black,
+    title=\textbf{Problem Statement},
+    fonttitle=\bfseries\small,
+    arc=0mm,
+    boxrule=1pt,
+    left=5mm, right=5mm, top=5mm, bottom=5mm
+}
+
+\title{\vspace{-2cm} \courseName: \hwNumber \ Solutions}
+\author{}
+\date{}
+
+\begin{document}
+
+%========================================
+\section*{1. Christoffel Symbols for Schwarzschild}
+
+\begin{problembox}
+Use the method of Box 17.6 to calculate Schwarzschild Christoffel symbols
+that were not calculated in that box (for example, the symbols
+$\Gamma^{r}{}_{\mu\nu}$ and $\Gamma^{\phi}{}_{\mu\nu}$).
+Compare the two geodesic equations to read off the Christoffel symbols.
+\end{problembox}
+
+\subsection*{(a) Symbols with upper index $\mu = \phi$}
+
+\begin{solutionbox}
+
+The two forms of the geodesic equation that we want to compare are
+
+\begin{align*}
+\text{(I)}\quad
+0 &= \dv{\tau}\!\left(g_{\mu\nu}\dv{x^{\nu}}{\tau}\right)
+      - \frac12 \partial_{\mu}\!
+      \left(g_{\alpha\beta}\dv{x^{\alpha}}{\tau}\dv{x^{\beta}}{\tau}\right) \\
+\text{(II)}\quad
+0 &= \dv[2]{x^{\mu}}{\tau}
+   + \Gamma^{\mu}{}_{\alpha\beta}
+     \dv{x^{\alpha}}{\tau}\dv{x^{\beta}}{\tau} \, .
+\end{align*}
+
+For Schwarzschild in standard coordinates
+$(t,r,\theta,\phi)$ we have
+$g_{\phi\phi} = r^{2}\sin^{2}\theta$ and $g_{\mu\nu}$ is
+independent of $\phi$.
+
+We now take $\mu=\phi$ in (I):
+
+\[
+\boxed{\mu = \phi}
+\]
+
+\begin{align*}
+\text{(I)}\quad
+0
+&= \dv{\tau}\!\left(g_{\phi\phi}\dv{\phi}{\tau}\right)
+   - \frac12 \partial_{\phi}
+   \left( g_{\alpha\beta}
+          \dv{x^{\alpha}}{\tau}\dv{x^{\beta}}{\tau}
+   \right)
+\\
+&= \dv{\tau}\!\left(g_{\phi\phi}\dv{\phi}{\tau}\right)
+   - \frac12 \underbrace{\partial_{\phi}
+   \left( g_{\alpha\beta}
+          \dv{x^{\alpha}}{\tau}\dv{x^{\beta}}{\tau}
+   \right)}_{\displaystyle 0\ \text{(no $\phi$-dependence)}} \, .
+\end{align*}
+
+So we keep only the first term:
+
+\begin{align*}
+0 &= \dv{\tau}\!\left(g_{\phi\phi}\dv{\phi}{\tau}\right) \\
+  &= g_{\phi\phi}\dv[2]{\phi}{\tau}
+     + \partial_{\theta}g_{\phi\phi}\dv{\theta}{\tau}\dv{\phi}{\tau}
+     + \partial_{r}g_{\phi\phi}\dv{r}{\tau}\dv{\phi}{\tau} \, .
+\end{align*}
+
+Now use $g_{\phi\phi}=r^{2}\sin^{2}\theta$:
+
+\begin{align*}
+0
+&= r^{2}\sin^{2}\theta \dv[2]{\phi}{\tau}
+   + 2r^{2}\sin\theta\cos\theta\,
+       \dv{\theta}{\tau}\dv{\phi}{\tau}
+   + 2r\sin^{2}\theta\,
+       \dv{r}{\tau}\dv{\phi}{\tau} \\
+&\underbrace{=}_{\displaystyle
+\text{divide by }r^{2}\sin^{2}\theta}
+\dv[2]{\phi}{\tau}
+ + 2\cot\theta\,
+   \dv{\theta}{\tau}\dv{\phi}{\tau}
+ + \frac{2}{r}\,
+   \dv{r}{\tau}\dv{\phi}{\tau} \, .
+\end{align*}
+
+Now write the geodesic with $\mu=\phi$ in the form (II):
+
+\begin{align*}
+\text{(II)}\quad
+0 &= \dv[2]{\phi}{\tau}
+ + \Gamma^{\phi}{}_{\theta\phi}
+   \dv{\theta}{\tau}\dv{\phi}{\tau}
+ + \Gamma^{\phi}{}_{r\phi}
+   \dv{r}{\tau}\dv{\phi}{\tau} \, .
+\end{align*}
+
+Comparing term by term, we identify
+
+\begin{align*}
+\Gamma^{\phi}{}_{\theta\phi} &= \cot\theta \, ,\\
+\Gamma^{\phi}{}_{r\phi}      &= \frac{1}{r} \, ,
+\end{align*}
+
+and all other $\Gamma^{\phi}{}_{\mu\nu}$ vanish:
+\[
+\Gamma^{\phi}{}_{\mu\nu} = 0
+\quad\text{for all other index combinations.}
+\]
+
+\examnote{The trick here is: use form (I), expand, and then
+compare to form (II) to read off the Christoffels.}
+
+\end{solutionbox}
+
+\subsection*{(b) Symbols with upper index $\mu = r$}
+
+\begin{solutionbox}
+
+Again start from the pair of geodesic equations:
+
+\begin{align*}
+\text{(I)}\quad
+0 &= \dv{\tau}\!\left(g_{\mu\nu}\dv{x^{\nu}}{\tau}\right)
+      - \frac12 \partial_{\mu}\!
+      \left(g_{\alpha\beta}\dv{x^{\alpha}}{\tau}\dv{x^{\beta}}{\tau}\right) \\
+\text{(II)}\quad
+0 &= \dv[2]{x^{\mu}}{\tau}
+   + \Gamma^{\mu}{}_{\alpha\beta}
+     \dv{x^{\alpha}}{\tau}\dv{x^{\beta}}{\tau} \, .
+\end{align*}
+
+Now take $\mu = r$.
+
+\[
+\boxed{\mu = r}
+\]
+
+\textbf{Step I: write geodesic in form (I).}
+
+\begin{align*}
+0
+&= g_{rr}\dv[2]{r}{\tau}
+   + \partial_{r}g_{rr}\left(\dv{r}{\tau}\right)^{2}
+   - \frac12\partial_{r}\Big[
+        g_{tt}\left(\dv{t}{\tau}\right)^{2}
+      + g_{rr}\left(\dv{r}{\tau}\right)^{2}
+      + g_{\theta\theta}\left(\dv{\theta}{\tau}\right)^{2}
+      + g_{\phi\phi}\left(\dv{\phi}{\tau}\right)^{2}
+     \Big] \, .
+\end{align*}
+
+For Schwarzschild,
+\begin{align*}
+g_{tt} &= -\left(1-\frac{2GM}{r}\right) ,\\
+g_{rr} &= \left(1-\frac{2GM}{r}\right)^{-1} ,\\
+g_{\theta\theta} &= r^{2} ,\\
+g_{\phi\phi} &= r^{2}\sin^{2}\theta \, .
+\end{align*}
+
+The $r$-derivatives are
+\begin{align*}
+\partial_{r}g_{rr}
+   &= -\left(1-\frac{2GM}{r}\right)^{-2}
+      \left(\frac{2GM}{r^{2}}\right) , \\
+\partial_{r}g_{tt}
+   &= -\frac{2GM}{r^{2}} ,\\
+\partial_{r}g_{\theta\theta}
+   &= 2r ,\\
+\partial_{r}g_{\phi\phi}
+   &= 2r\sin^{2}\theta \, .
+\end{align*}
+
+\textbf{Step II: substitute these into (I).}
+
+\begin{align*}
+0
+&= \left(1-\frac{2GM}{r}\right)^{-1}\dv[2]{r}{\tau}
+   -\left(1-\frac{2GM}{r}\right)^{-2}
+      \left(\frac{2GM}{r^{2}}\right)
+      \left(\dv{r}{\tau}\right)^{2} \\
+&\quad -\frac12 \Bigg[
+   -\frac{2GM}{r^{2}}
+   \left(\dv{t}{\tau}\right)^{2}
+   -\left(1-\frac{2GM}{r}\right)^{-2}
+     \left(\frac{2GM}{r^{2}}\right)
+     \left(\dv{r}{\tau}\right)^{2} \\
+&\qquad\qquad
+   + 2r\left(\dv{\theta}{\tau}\right)^{2}
+   + 2r\sin^{2}\theta\left(\dv{\phi}{\tau}\right)^{2}
+   \Bigg] \, .
+\end{align*}
+
+Distribute the $-\frac12$ in the last line:
+
+\begin{align*}
+0
+&= \left(1-\frac{2GM}{r}\right)^{-1}\dv[2]{r}{\tau}
+   -\left(1-\frac{2GM}{r}\right)^{-2}
+      \left(\frac{2GM}{r^{2}}\right)
+      \left(\dv{r}{\tau}\right)^{2} \\
+&\quad + \frac{GM}{r^{2}}
+   \left(\dv{t}{\tau}\right)^{2}
+   + \frac12\left(1-\frac{2GM}{r}\right)^{-2}
+      \left(\frac{2GM}{r^{2}}\right)
+      \left(\dv{r}{\tau}\right)^{2} \\
+&\quad - r\left(\dv{\theta}{\tau}\right)^{2}
+      - r\sin^{2}\theta\left(\dv{\phi}{\tau}\right)^{2} \, .
+\end{align*}
+
+Now factor where convenient.
+First multiply the entire equation by
+$\left(1-\dfrac{2GM}{r}\right)$ to isolate
+$\dv[2]{r}{\tau}$:
+
+\begin{align*}
+0
+&= \dv[2]{r}{\tau}
+   -\left(1-\frac{2GM}{r}\right)^{-1}
+      \left(\frac{2GM}{r^{2}}\right)
+      \left(\dv{r}{\tau}\right)^{2} \\
+&\quad + \frac{GM}{r^{2}}
+   \left(1-\frac{2GM}{r}\right)
+   \left(\dv{t}{\tau}\right)^{2} \\
+&\quad - r\left(1-\frac{2GM}{r}\right)
+      \left(\dv{\theta}{\tau}\right)^{2}
+      - r\sin^{2}\theta\left(1-\frac{2GM}{r}\right)
+        \left(\dv{\phi}{\tau}\right)^{2} \, .
+\end{align*}
+
+So we have
+
+\begin{align*}
+0
+&= \dv[2]{r}{\tau}
+   +\frac{GM}{r^{2}}
+     \left(1-\frac{2GM}{r}\right)
+     \left(\dv{t}{\tau}\right)^{2}
+   -\frac{GM}{r^{2}}
+     \left(1-\frac{2GM}{r}\right)^{-1}
+     \left(\dv{r}{\tau}\right)^{2} \\
+&\quad - r\left(1-\frac{2GM}{r}\right)
+          \left(\dv{\theta}{\tau}\right)^{2}
+      - r\sin^{2}\theta\left(1-\frac{2GM}{r}\right)
+        \left(\dv{\phi}{\tau}\right)^{2} \, .
+\end{align*}
+
+\textbf{Step III: compare with the geodesic in form (II).}
+
+For $\mu = r$, equation (II) is
+
+\[
+0 = \dv[2]{r}{\tau}
+    + \Gamma^{r}{}_{tt}\left(\dv{t}{\tau}\right)^{2}
+    + \Gamma^{r}{}_{rr}\left(\dv{r}{\tau}\right)^{2}
+    + \Gamma^{r}{}_{\theta\theta}\left(\dv{\theta}{\tau}\right)^{2}
+    + \Gamma^{r}{}_{\phi\phi}\left(\dv{\phi}{\tau}\right)^{2} \, .
+\]
+
+Comparing coefficient by coefficient, we read off
+
+\begin{align*}
+\Gamma^{r}{}_{tt}
+ &= \frac{GM}{r^{2}}\left(1-\frac{2GM}{r}\right) ,\\[4pt]
+\Gamma^{r}{}_{rr}
+ &= -\frac{GM}{r^{2}}\left(1-\frac{2GM}{r}\right)^{-1} ,\\[4pt]
+\Gamma^{r}{}_{\theta\theta}
+ &= -r\left(1-\frac{2GM}{r}\right) ,\\[4pt]
+\Gamma^{r}{}_{\phi\phi}
+ &= -r\sin^{2}\theta\left(1-\frac{2GM}{r}\right) ,
+\end{align*}
+
+and all other $\Gamma^{r}{}_{\mu\nu}$ vanish:
+\[
+\Gamma^{r}{}_{\mu\nu}=0 \quad\text{for all other index combinations.}
+\]
+
+\examnote{These are the standard Schwarzschild $\Gamma^{r}{}_{\mu\nu}$.
+If you remember the final forms above, you can very quickly build any
+radial geodesic equation on the exam.}
+
+\end{solutionbox}
+
+%========================================
+\section*{2. Riemann Tensor from Commutator of Covariant Derivatives}
+
+\begin{problembox}
+Show that the commutator of the covariant derivatives of a vector
+gives an expression for the Riemann tensor:
+\[
+\nabla_{\mu}\nabla_{\nu}V^{\rho}
+ - \nabla_{\nu}\nabla_{\mu}V^{\rho}
+ = R^{\rho}{}_{\sigma\mu\nu}V^{\sigma} \, .
+\]
+\end{problembox}
+
+\begin{solutionbox}
+
+Start from the definition of the covariant derivative of a vector:
+\[
+\nabla_{\mu}V^{\rho}
+ = \partial_{\mu}V^{\rho}
+ + \Gamma^{\rho}{}_{\mu\sigma}V^{\sigma} \, .
+\]
+
+First compute $\nabla_{\nu}V^{\rho}$, then $\nabla_{\mu}$ of that:
+
+\begin{align*}
+\nabla_{\mu}\nabla_{\nu}V^{\rho}
+&= \nabla_{\mu}
+   \left(\partial_{\nu}V^{\rho}
+        + \Gamma^{\rho}{}_{\nu\lambda}V^{\lambda}\right) \\[4pt]
+&= \partial_{\mu}\left(\partial_{\nu}V^{\rho}
+        + \Gamma^{\rho}{}_{\nu\lambda}V^{\lambda}\right)
+ + \Gamma^{\rho}{}_{\mu\sigma}
+   \left(\partial_{\nu}V^{\sigma}
+        + \Gamma^{\sigma}{}_{\nu\lambda}V^{\lambda}\right)
+ - \Gamma^{\lambda}{}_{\mu\nu}
+   \left(\partial_{\lambda}V^{\rho}
+        + \Gamma^{\rho}{}_{\lambda\sigma}V^{\sigma}\right) \, .
+\end{align*}
+
+Expand everything:
+
+\begin{align*}
+\nabla_{\mu}\nabla_{\nu}V^{\rho}
+&= \partial_{\mu}\partial_{\nu}V^{\rho}
+ + (\partial_{\mu}\Gamma^{\rho}{}_{\nu\lambda})V^{\lambda}
+ + \Gamma^{\rho}{}_{\nu\lambda}\partial_{\mu}V^{\lambda} \\
+&\quad
+ + \Gamma^{\rho}{}_{\mu\sigma}\partial_{\nu}V^{\sigma}
+ + \Gamma^{\rho}{}_{\mu\sigma}\Gamma^{\sigma}{}_{\nu\lambda}V^{\lambda} \\
+&\quad
+ - \Gamma^{\lambda}{}_{\mu\nu}\partial_{\lambda}V^{\rho}
+ - \Gamma^{\lambda}{}_{\mu\nu}\Gamma^{\rho}{}_{\lambda\sigma}V^{\sigma} \, .
+\end{align*}
+
+Similarly, exchange $\mu\leftrightarrow\nu$ to get
+$\nabla_{\nu}\nabla_{\mu}V^{\rho}$:
+
+\begin{align*}
+\nabla_{\nu}\nabla_{\mu}V^{\rho}
+&= \partial_{\nu}\partial_{\mu}V^{\rho}
+ + (\partial_{\nu}\Gamma^{\rho}{}_{\mu\lambda})V^{\lambda}
+ + \Gamma^{\rho}{}_{\mu\lambda}\partial_{\nu}V^{\lambda} \\
+&\quad
+ + \Gamma^{\rho}{}_{\nu\sigma}\partial_{\mu}V^{\sigma}
+ + \Gamma^{\rho}{}_{\nu\sigma}\Gamma^{\sigma}{}_{\mu\lambda}V^{\lambda} \\
+&\quad
+ - \Gamma^{\lambda}{}_{\nu\mu}\partial_{\lambda}V^{\rho}
+ - \Gamma^{\lambda}{}_{\nu\mu}\Gamma^{\rho}{}_{\lambda\sigma}V^{\sigma} \, .
+\end{align*}
+
+Now subtract:
+\begin{align*}
+\nabla_{\mu}\nabla_{\nu}V^{\rho}
+ - \nabla_{\nu}\nabla_{\mu}V^{\rho}&= \big[\partial_{\mu}\partial_{\nu}V^{\rho}
+      - \partial_{\nu}\partial_{\mu}V^{\rho}\big] \\
+&\quad
+ + \big[(\partial_{\mu}\Gamma^{\rho}{}_{\nu\lambda})
+        - (\partial_{\nu}\Gamma^{\rho}{}_{\mu\lambda})\big]V^{\lambda} \\
+&\quad
+ + \big[\Gamma^{\rho}{}_{\nu\lambda}\partial_{\mu}V^{\lambda}
+        - \Gamma^{\rho}{}_{\mu\lambda}\partial_{\nu}V^{\lambda}\big] \\
+&\quad
+ + \big[\Gamma^{\rho}{}_{\mu\sigma}\partial_{\nu}V^{\sigma}
+        - \Gamma^{\rho}{}_{\nu\sigma}\partial_{\mu}V^{\sigma}\big] \\
+&\quad
+ + \big[\Gamma^{\rho}{}_{\mu\sigma}\Gamma^{\sigma}{}_{\nu\lambda}
+        - \Gamma^{\rho}{}_{\nu\sigma}\Gamma^{\sigma}{}_{\mu\lambda}\big]V^{\lambda} \\
+&\quad
+ - \big[\Gamma^{\lambda}{}_{\mu\nu}
+        - \Gamma^{\lambda}{}_{\nu\mu}\big]\partial_{\lambda}V^{\rho} \\
+&\quad
+ - \big[\Gamma^{\lambda}{}_{\mu\nu}
+        - \Gamma^{\lambda}{}_{\nu\mu}\big]\Gamma^{\rho}{}_{\lambda\sigma}V^{\sigma} \, .
+\end{align*}
+
+Now, using the symmetry $\Gamma^{\lambda}{}_{\mu\nu}
+= \Gamma^{\lambda}{}_{\nu\mu}$, the terms with
+$\partial_{\lambda}V^{\rho}$ and the last group proportional to
+$\Gamma^{\rho}{}_{\lambda\sigma}V^{\sigma}$ cancel.  
+Similarly, the mixed terms with $\partial_{\mu}V^{\lambda}$ and
+$\partial_{\nu}V^{\lambda}$ cancel pairwise
+(the professor circled these ``red'' terms on the sheet).
+
+Thus we are left only with terms proportional to $V^{\lambda}$:
+
+\begin{align*}
+\nabla_{\mu}\nabla_{\nu}V^{\rho}
+ - \nabla_{\nu}\nabla_{\mu}V^{\rho}
+&=
+\Big[
+   \partial_{\mu}\Gamma^{\rho}{}_{\nu\lambda}
+ - \partial_{\nu}\Gamma^{\rho}{}_{\mu\lambda}
+ + \Gamma^{\rho}{}_{\mu\sigma}\Gamma^{\sigma}{}_{\nu\lambda}
+ - \Gamma^{\rho}{}_{\nu\sigma}\Gamma^{\sigma}{}_{\mu\lambda}
+\Big] V^{\lambda} \, .
+\end{align*}
+
+By definition this bracket is the Riemann tensor:
+
+\[
+R^{\rho}{}_{\lambda\mu\nu}
+ = \partial_{\mu}\Gamma^{\rho}{}_{\nu\lambda}
+ - \partial_{\nu}\Gamma^{\rho}{}_{\mu\lambda}
+ + \Gamma^{\rho}{}_{\mu\sigma}\Gamma^{\sigma}{}_{\nu\lambda}
+ - \Gamma^{\rho}{}_{\nu\sigma}\Gamma^{\sigma}{}_{\mu\lambda} \, .
+\]
+
+Renaming the dummy index $\lambda\to\sigma$ gives the final result
+
+\[
+\boxed{
+\nabla_{\mu}\nabla_{\nu}V^{\rho}
+ - \nabla_{\nu}\nabla_{\mu}V^{\rho}
+ = R^{\rho}{}_{\sigma\mu\nu}V^{\sigma}
+}
+\]
+
+exactly as required.
+
+\examnote{On the exam, the key is: expand both covariant derivatives,
+subtract, and remember (i) $\Gamma^{\lambda}{}_{\mu\nu}$ is symmetric
+in the lower indices, and (ii) partial derivatives commute on scalars.}
+
+\end{solutionbox}
+
+%========================================
+\section*{3. Computing $R^{t}{}_{r t r}$ in Schwarzschild}
+
+\begin{problembox}
+Show that
+\[
+R^{t}{}_{rtr}
+ = \frac{2GM}{r^{3}}\left(1-\frac{2GM}{r}\right)^{-1} \, .
+\]
+Then discuss the behavior at $r=2GM$ and as $r\to\infty$.
+\end{problembox}
+
+\begin{solutionbox}
+
+The relevant nonzero Christoffel symbols (from Problem 1 and Box 17.6) are
+\begin{align*}
+\Gamma^{t}{}_{tr} &= \Gamma^{t}{}_{rt}
+  = \frac{GM}{r^{2}}\left(1-\frac{2GM}{r}\right)^{-1} ,\\[4pt]
+\Gamma^{r}{}_{tt} &=
+  \frac{GM}{r^{2}}\left(1-\frac{2GM}{r}\right) ,\\[4pt]
+\Gamma^{r}{}_{rr} &=
+  -\frac{GM}{r^{2}}\left(1-\frac{2GM}{r}\right)^{-1} .
+\end{align*}
+
+For the component $R^{t}{}_{rtr}$ we use the definition
+\[
+R^{\rho}{}_{\sigma\mu\nu}
+ = \partial_{\mu}\Gamma^{\rho}{}_{\nu\sigma}
+  - \partial_{\nu}\Gamma^{\rho}{}_{\mu\sigma}
+  + \Gamma^{\rho}{}_{\mu\lambda}\Gamma^{\lambda}{}_{\nu\sigma}
+  - \Gamma^{\rho}{}_{\nu\lambda}\Gamma^{\lambda}{}_{\mu\sigma} \, .
+\]
+
+Set $(\rho,\sigma,\mu,\nu)=(t,r,t,r)$:
+
+\begin{align*}
+R^{t}{}_{rtr}
+ &= \partial_{t}\Gamma^{t}{}_{rr}
+    - \partial_{r}\Gamma^{t}{}_{tr}
+    + \Gamma^{t}{}_{t\lambda}\Gamma^{\lambda}{}_{rr}
+    - \Gamma^{t}{}_{r\lambda}\Gamma^{\lambda}{}_{tr} \, .
+\end{align*}
+
+Schwarzschild is static, so $\partial_{t}\Gamma^{t}{}_{rr}=0$.
+
+Only $\lambda=t,r$ contribute.  Thus
+
+\begin{align*}
+R^{t}{}_{rtr}
+ &= - \partial_{r}\Gamma^{t}{}_{tr}
+    + \Gamma^{t}{}_{tt}\Gamma^{t}{}_{rr}
+    + \Gamma^{t}{}_{tr}\Gamma^{r}{}_{rr}
+    - \Gamma^{t}{}_{rt}\Gamma^{t}{}_{tr}
+    - \Gamma^{t}{}_{rr}\Gamma^{r}{}_{tr} \, .
+\end{align*}
+
+But $\Gamma^{t}{}_{tt}=0$ and $\Gamma^{t}{}_{rr}=0$ for Schwarzschild in
+these coordinates, so the only surviving terms are
+
+\begin{align*}
+R^{t}{}_{rtr}
+ &= -\partial_{r}\Gamma^{t}{}_{tr}
+    + \Gamma^{t}{}_{tr}\Gamma^{r}{}_{rr} \, .
+\end{align*}
+
+Now compute the derivative:
+\[
+\Gamma^{t}{}_{tr}
+ = \frac{GM}{r^{2}}\left(1-\frac{2GM}{r}\right)^{-1}
+ = GM\,r^{-2}\left(1-\frac{2GM}{r}\right)^{-1} .
+\]
+
+\begin{align*}
+\partial_{r}\Gamma^{t}{}_{tr}
+&= GM\left[
+   -2r^{-3}\left(1-\frac{2GM}{r}\right)^{-1}
+   + r^{-2}\left(1-\frac{2GM}{r}\right)^{-2}
+     \left(\frac{2GM}{r^{2}}\right) \right]  \\
+&= -\frac{2GM}{r^{3}}
+   \left(1-\frac{2GM}{r}\right)^{-1}
+   + \frac{2G^{2}M^{2}}{r^{4}}
+     \left(1-\frac{2GM}{r}\right)^{-2} \, .
+\end{align*}
+
+Next,
+\[
+\Gamma^{t}{}_{tr}\Gamma^{r}{}_{rr}
+ = \left[\frac{GM}{r^{2}}
+        \left(1-\frac{2GM}{r}\right)^{-1}\right]
+   \left[-\frac{GM}{r^{2}}
+        \left(1-\frac{2GM}{r}\right)^{-1}\right]
+ = -\frac{G^{2}M^{2}}{r^{4}}
+   \left(1-\frac{2GM}{r}\right)^{-2} \, .
+\]
+
+Therefore
+
+\begin{align*}
+R^{t}{}_{rtr}
+&= -\partial_{r}\Gamma^{t}{}_{tr}
+   + \Gamma^{t}{}_{tr}\Gamma^{r}{}_{rr} \\[4pt]
+&= -\left[
+      -\frac{2GM}{r^{3}}
+        \left(1-\frac{2GM}{r}\right)^{-1}
+      + \frac{2G^{2}M^{2}}{r^{4}}
+        \left(1-\frac{2GM}{r}\right)^{-2}
+    \right]
+   -\frac{G^{2}M^{2}}{r^{4}}
+      \left(1-\frac{2GM}{r}\right)^{-2} \\[4pt]
+&= \frac{2GM}{r^{3}}
+     \left(1-\frac{2GM}{r}\right)^{-1} \, .
+\end{align*}
+
+So we reproduce the desired result:
+
+\[
+\boxed{
+R^{t}{}_{rtr}
+ = \frac{2GM}{r^{3}}\left(1-\frac{2GM}{r}\right)^{-1}
+}
+\]
+
+Now examine the limits:
+
+\begin{itemize}
+\item At $r = 2GM$,
+\[
+R^{t}{}_{rtr} \to \infty
+\]
+in these coordinates.
+This divergence is a \emph{coordinate pathology} of Schwarzschild
+coordinates, not a physical singularity.
+
+\item As $r\to\infty$,
+\[
+R^{t}{}_{rtr} \to 0
+\]
+which reflects that the spacetime is asymptotically flat far from the
+mass.
+\end{itemize}
+
+\examnote{The important pattern to remember:
+curvature scales like $GM/r^{3}$.  Factors of
+$\left(1-\dfrac{2GM}{r}\right)^{-1}$ are coordinate artifacts of
+Schwarzschild coordinates.}
+
+\end{solutionbox}
+
+%========================================
+\section*{4. Local-Orthonormal-Frame Curvature Component}
+
+\begin{solutionbox}
+
+On the professor's sheet this is labeled ``19.8: investigate nature of
+singularity at $r=2GM$ in Schwarzschild metric.''
+
+The main goal is to show that the physically measured component
+$R_{\hat{t}\hat{r}\hat{t}\hat{r}}$ in a local orthonormal frame (LOF)
+is finite at $r=2GM$ even though $R^{t}{}_{rtr}$ diverges in
+Schwarzschild coordinates.
+
+Let $\tilde{O}_{\mu}$ denote the orthonormal basis vectors of the
+local frame.  For a 4--vector $A^{\mu}$, the components measured by the
+observer are
+\[
+A^{\mu}_{\text{obs}} = \tilde{O}^{\mu}{}_{\rho} A^{\rho} \, .
+\]
+
+For a rank--$(1,3)$ tensor such as $R^{\alpha}{}_{\beta\mu\nu}$, its
+components in the observer's orthonormal frame are
+
+\[
+(R^{\alpha}{}_{\beta\mu\nu})_{\text{obs}}
+ = R^{\alpha}{}_{\beta\mu\nu}
+   (\tilde{O}^{\beta})_{\hat{b}}
+   (\tilde{O}^{\mu})_{\hat{m}}
+   (\tilde{O}^{\nu})_{\hat{n}}
+   (\tilde{O}_{\alpha})^{\hat{a}} \, ,
+\]
+
+with sums over repeated hatted indices.
+By convention the $\hat{z}$-direction of the LOF is aligned with the
+radial direction $r$, so the component of physical interest is
+$R_{\hat{z}\hat{t}\hat{z}\hat{t}}$, which the sheet denotes
+by $R^{+}_{z+z+}$ in the LOF.
+
+Using the explicit tetrad from Problem 12.7 (quoted on the sheet),
+\[
+\tilde{O}^{\mu}{}_{\hat{z}}
+ =
+ \begin{pmatrix}
+ -\dfrac{\sqrt{2GM/r}}{\left(1-\dfrac{2GM}{r}\right)} \\
+ \left(1-\dfrac{2GM}{r}\right)^{-1} \\
+ 0 \\ 0
+ \end{pmatrix},
+\qquad
+\tilde{O}^{\mu}{}_{\hat{t}}
+ =
+ \begin{pmatrix}
+ \left(1-\dfrac{2GM}{r}\right)^{-1} \\
+ -\sqrt{\dfrac{2GM}{r}}\left(1-\dfrac{2GM}{r}\right)^{-1} \\
+ 0 \\ 0
+ \end{pmatrix},
+\]
+one finds after substituting into the transformation law and summing
+over indices (as done line by line on the handwritten sheet) that
+
+\[
+(R^{+}_{z+z+})_{\text{obs}}
+ = -g_{tt} R^{t}{}_{rtr} \, .
+\]
+
+Since $g_{tt} = -\left(1-\dfrac{2GM}{r}\right)$ and we already found
+$R^{t}{}_{rtr}$ above, we get
+
+\begin{align*}
+(R^{+}_{z+z+})_{\text{obs}}
+&= -g_{tt} R^{t}{}_{rtr} \\
+&= \left(1-\frac{2GM}{r}\right)
+   \left[
+     \frac{2GM}{r^{3}}
+     \left(1-\frac{2GM}{r}\right)^{-1}
+   \right] \\
+&= \boxed{\frac{2GM}{r^{3}}} \, .
+\end{align*}
+
+This is the curvature component as measured in the local inertial
+frame of a freely falling observer.  It is perfectly \emph{finite} at
+$r=2GM$ and only diverges as $r\to 0$.
+
+\examnote{The key physical message: the Schwarzschild-coordinate
+singularity at $r=2GM$ is \emph{not} a true curvature singularity.
+Real tidal forces are determined by LOF components like
+$R^{+}_{z+z+} = 2GM/r^{3}$.}
+
+\end{solutionbox}
+
+%========================================
+\section*{5. Geodesic Deviation and Tidal Forces}
+
+\begin{problembox}
+Consider a star with radius $r_{\ast}$ falling radially into a black
+hole of mass $M$.  Use the inertial frame of the star where it is
+locally at rest and consider the tidal force in the radial ($+z$)
+direction.  The four--velocity and separation vector are
+\[
+u^{\mu} =
+\begin{bmatrix}
+1 \\ 0 \\ 0 \\ 0
+\end{bmatrix},
+\qquad
+n^{\mu} =
+\begin{bmatrix}
+0 \\ 0 \\ 0 \\ r_{\ast}
+\end{bmatrix}.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Find the tidal acceleration $\left(\dfrac{d^{2}n}{d\tau^{2}}\right)^{z}$.
+\item Estimate the disruption radius $r_{\text{disrupt}}$ where the
+tidal acceleration equals the surface gravity of the star.
+\end{enumerate}
+\end{problembox}
+
+\begin{solutionbox}
+
+The equation of geodesic deviation is
+\[
+\left(\dv[2]{n^{\alpha}}{\tau}\right)
+ = - R^{\alpha}{}_{\beta\mu\nu}
+     u^{\beta}u^{\mu}n^{\nu} \, .
+\]
+
+On the professor's sheet this is applied with the local orthonormal
+frame where the freely falling frame (LIF) has
+
+\[
+u^{\mu} =
+\begin{bmatrix}
+1 \\ 0 \\ 0 \\ 0
+\end{bmatrix},
+\qquad
+n^{\mu} =
+\begin{bmatrix}
+0 \\ 0 \\ 0 \\ r_{\ast}
+\end{bmatrix},
+\]
+
+and the curvature component from the previous problem,
+\[
+(R^{+}_{z+z+})_{\text{obs}} = \frac{2GM}{r^{3}} \, .
+\]
+
+\subsubsection*{(a) Tidal acceleration in the $z$-direction}
+
+Take $\alpha = z$ and note that only $\beta=\mu=t$, $\nu = z$ contribute:
+
+\begin{align*}
+\left(\dv[2]{n^{z}}{\tau}\right)
+&= - R^{z}{}_{tzt}\, u^{t}u^{t} n^{z} \\
+&= - R^{z}{}_{tzt}\, (1)(1)\, r_{\ast} \\
+&= - (R^{+}_{z+z+})_{\text{obs}}\; r_{\ast} \\
+&= - \frac{2GM}{r^{3}}\, r_{\ast} \, .
+\end{align*}
+
+So
+\[
+\boxed{
+\left(\dv[2]{n^{z}}{\tau^{2}}\right)
+ = -\frac{2GM}{r^{3}}\, r_{\ast}
+}
+\]
+which is the same as in the margin note
+``(same as Newtonian result)'' on the professor's sheet.
+
+\subsubsection*{(b) Disruption radius}
+
+Let the magnitude of the tidal acceleration at the star's surface equal
+the surface gravity of the star, denoted here by $g_{\ast}$:
+
+\[
+\left|\dv[2]{n^{z}}{\tau^{2}}\right|_{\text{disrupt}}
+ = g_{\ast}
+ = \frac{GM_{\ast}}{r_{\ast}^{2}} \, ,
+\]
+where $M_{\ast}$ is the mass of the star.
+
+From part (a),
+\[
+\left|\dv[2]{n^{z}}{\tau^{2}}\right|
+ = \frac{2GM}{r^{3}}\, r_{\ast} \, .
+\]
+
+Setting these equal and solving for $r$ (which the sheet calls
+$r_{\text{disrupt}}$),
+
+\begin{align*}
+\frac{2GM}{r_{\text{disrupt}}^{3}}\, r_{\ast}
+ &= \frac{GM_{\ast}}{r_{\ast}^{2}} \\[4pt]
+r_{\text{disrupt}}^{3}
+ &= \frac{2M}{M_{\ast}}\, r_{\ast}^{3} \, .
+\end{align*}
+
+Therefore
+
+\[
+\boxed{
+r_{\text{disrupt}}
+ = \left( \frac{2M}{M_{\ast}} \right)^{1/3} r_{\ast}
+}
+\]
+
+This is the expression the professor uses on the last lines of the
+sheet to estimate the disruption radius for:
+\begin{itemize}
+\item the Sun falling into Sgr A* (with $M \sim 4\times 10^{6}M_{\odot}$),
+\item the Sun falling into a $10M_{\odot}$ black hole.
+\end{itemize}
+
+\examnote{The structure to remember:
+tidal acceleration $\sim (GM/r^{3})\times\text{(size)}$,
+so $r_{\text{disrupt}} \sim (M/M_{\ast})^{1/3}r_{\ast}$.}
+
+\end{solutionbox}
+
+\end{document}
