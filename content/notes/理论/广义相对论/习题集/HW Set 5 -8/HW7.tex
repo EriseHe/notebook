@@ -1,0 +1,677 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Essential Packages ---
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{physics}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{cancel}
+\usepackage{xcolor}
+\usepackage[many]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{graphicx}
+
+% --- Page Layout ---
+\geometry{top=0.7in, bottom=0.7in, left=0.7in, right=0.7in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% --- Custom Colors ---
+\definecolor{graytext}{gray}{0.5}
+
+% --- Custom Commands ---
+\newcommand{\gray}[1]{{\color{graytext}#1}}
+\newcommand{\examnote}[1]{{\color{red}\footnotesize\textbf{[Exam Note: #1]}}}
+
+% --- Header Configuration ---
+\newcommand{\courseName}{PHYS 458}
+\newcommand{\hwNumber}{HW 7}
+\newcommand{\hwTopic}{Oppenheimer–Volkoff, Eddington–Finkelstein, Hawking Radiation}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\courseName: \hwNumber}}
+\rhead{\hwTopic}
+\cfoot{\thepage}
+
+% --- Solution Box Environment ---
+\newtcolorbox{solutionbox}{
+    breakable,
+    enhanced,
+    colback=white,
+    colframe=black,
+    title=\textbf{Derivation Transcript},
+    fonttitle=\bfseries\small,
+    arc=0mm,
+    boxrule=1pt,
+    left=5mm, right=5mm, top=5mm, bottom=5mm,
+    before skip=10pt,
+    after skip=20pt
+}
+
+\newtcolorbox{problembox}{
+    colback=gray!10!white,
+    colframe=gray!60!black,
+    title=\textbf{Problem Statement},
+    fonttitle=\bfseries\small,
+    arc=0mm,
+    boxrule=1pt,
+    left=5mm, right=5mm, top=5mm, bottom=5mm
+}
+
+\title{\vspace{-2cm} \courseName: \hwNumber\ Solutions}
+\author{}
+\date{}
+
+\begin{document}
+
+%=========================================================
+\section*{1.\ Oppenheimer–Volkoff Equation (Book Problem 23.5)}
+
+%-------------------- (a) --------------------
+\subsection*{(a) Show that for a perfect fluid $T_{\mu\nu}-\tfrac12 g_{\mu\nu}T$ has the stated form}
+
+\begin{problembox}
+For a perfect fluid,
+\[
+T_{\mu\nu} = (\rho + P) u_\mu u_\nu + g_{\mu\nu} P
+\]
+and
+\[
+T \equiv g^{\mu\nu} T_{\mu\nu}
+\]
+Show that
+\[
+T_{\mu\nu} - \tfrac12 g_{\mu\nu} T
+\]
+can be written in the form used in the text.
+\end{problembox}
+
+\begin{solutionbox}
+We start from
+\[
+T_{\mu\nu} = (\rho + P) u_\mu u_\nu + g_{\mu\nu} P
+\]
+
+Compute the trace
+$$
+\begin{aligned}
+T
+&= g^{\mu\nu} T_{\mu\nu} \\
+&= (\rho + P) g^{\mu\nu} u_\mu u_\nu + g^{\mu\nu} g_{\mu\nu} P \\
+&= (\rho + P)\underbrace{\left(\vec{u}\cdot\vec{u}\right)}_{=-1} + 4P \\
+&= -\rho + 3P
+\end{aligned}
+$$
+
+Then
+$$
+\begin{aligned}
+T_{\mu\nu} - \frac12 g_{\mu\nu} T
+&= (\rho + P) u_\mu u_\nu + g_{\mu\nu} P - \frac12 g_{\mu\nu}(-\rho + 3P) \\
+&= (\rho + P) u_\mu u_\nu + \frac12 g_{\mu\nu}(\rho - P)
+\end{aligned}
+$$
+\end{solutionbox}
+
+%-------------------- (b) --------------------
+\subsection*{(b) 4-velocity for fluid at rest}
+
+\begin{problembox}
+Assume the star's interior is static and spherically symmetric with metric
+\[
+ds^2 = -A(r)\,dt^2 + B(r)\,dr^2 + r^2(d\theta^2 + \sin^2\theta\,d\phi^2)
+\]
+For a perfect fluid at rest in these coordinates, write down the 4-velocity $u^\mu$ and its covector $u_\mu$.
+\end{problembox}
+
+\begin{solutionbox}
+We consider a fluid at rest in these coordinates, so its 4-velocity is
+\[
+u^\mu =
+\begin{bmatrix}
+u^t \\[4pt]
+0 \\[4pt]
+0 \\[4pt]
+0
+\end{bmatrix}
+\qquad
+\text{(for fluid at rest)}
+\]
+
+The covector is
+\[
+u_\mu = g_{\mu\nu} u^\nu
+\]
+
+For the assumed diagonal metric,
+\[
+u_t = g_{tt} u^t \,, \qquad u_i = 0
+\]
+
+Normalize using $\vec{u}\cdot\vec{u} = -1$:
+$$
+\begin{aligned}
+-1 &= g_{\mu\nu} u^\mu u^\nu = g_{tt} (u^t)^2 = -A (u^t)^2 \\
+\Rightarrow\quad u^t &= \frac{1}{\sqrt{A}}
+\end{aligned}
+$$
+
+Then
+\[
+u_t = g_{tt} u^t = -A \frac{1}{\sqrt{A}} = -\sqrt{A}
+\]
+\end{solutionbox}
+
+%-------------------- (c) --------------------
+\subsection*{(c) Show that the Einstein equation implies Eqs.\ (23.44a–c)}
+
+\begin{problembox}
+Using the above perfect-fluid form and 4-velocity, show that
+\[
+R_{tt} = 4\pi G A(\rho + 3P), \qquad
+R_{rr} = 4\pi G B(\rho - P), \qquad
+R_{\theta\theta} = 4\pi G r^2 (\rho - P)
+\]
+\end{problembox}
+
+\begin{solutionbox}
+Einstein equations (in these units) are
+\[
+R_{\mu\nu} = 8\pi G\left(T_{\mu\nu} - \frac12 g_{\mu\nu} T\right)
+\]
+
+Using the result from part (a),
+\[
+T_{\mu\nu} - \frac12 g_{\mu\nu} T
+= (\rho + P) u_\mu u_\nu + \frac12 g_{\mu\nu}(\rho - P)
+\]
+
+\textbf{$R_{tt}$:}
+$$
+\begin{aligned}
+R_{tt}
+&= 8\pi G\left[T_{tt} - \frac12 g_{tt} T\right] \\
+&= 8\pi G\left[(\rho + P) (u_t)^2 + \frac12 g_{tt}(\rho - P)\right] \\
+&= 8\pi G\left[(\rho + P)A - \frac12 A(\rho - P)\right] \\
+&= 8\pi G\,A\left[\rho + P - \frac12\rho + \frac12 P\right] \\
+&= 4\pi G\,A(\rho + 3P)
+\end{aligned}
+$$
+
+\textbf{$R_{rr}$:}
+The $u_r$ component vanishes, so
+$$
+\begin{aligned}
+R_{rr}
+&= 8\pi G\left[0 + \frac12 g_{rr}(\rho - P)\right] \\
+&= 4\pi G\,B(\rho - P)
+\end{aligned}
+$$
+
+\textbf{$R_{\theta\theta}$:}
+Similarly,
+$$
+\begin{aligned}
+R_{\theta\theta}
+&= 8\pi G\left[0 + \frac12 g_{\theta\theta}(\rho - P)\right] \\
+&= 4\pi G\,r^2(\rho - P)
+\end{aligned}
+$$
+\end{solutionbox}
+
+%-------------------- (d) --------------------
+\subsection*{(d) Derive Eq.\ (23.46): combination of $R_{tt}$, $R_{rr}$, $R_{\theta\theta}$}
+
+\begin{problembox}
+Using Eqs.\ (23.6) for the diagonal metric (with all time derivatives set to zero),
+show that
+\[
+\frac{R_{tt}}{A} + \frac{R_{rr}}{B} + \frac{2R_{\theta\theta}}{r^2}
+= 16\pi G\rho
+\]
+and hence that
+\[
+\frac{d}{dr}\left[r\left(1 - \frac1B\right)\right] = 8\pi G\rho\,r^2
+\]
+\end{problembox}
+
+\begin{solutionbox}
+Starting from Eq.\ (23.6) in the text and setting all time-derivatives to zero,
+\[
+\frac{R_{tt}}{A} + \frac{R_{rr}}{B} + \frac{2R_{\theta\theta}}{r^2}
+\]
+is written as
+$$
+\begin{aligned}
+\frac{R_{tt}}{A} + \frac{R_{rr}}{B} + \frac{2R_{\theta\theta}}{r^2}
+&=
+\frac{1}{2AB}
+\Bigg[
+\frac{d^2A}{dr^2}
+-\frac{1}{2A}\left(\frac{dA}{dr}\right)^2
++\frac{1}{2B}\frac{dA}{dr}\frac{dB}{dr}
++2\frac{dA}{dr}\frac1r
+\Bigg] \\[4pt]
+&\quad
++
+\frac{1}{2AB}
+\Bigg[
+\frac{d^2B}{dr^2}
+-\frac{1}{2B}\left(\frac{dB}{dr}\right)^2
++\frac{1}{2A}\frac{dA}{dr}\frac{dB}{dr}
+-2\frac{dB}{dr}\frac1r
+\Bigg] \\[4pt]
+&\quad
++\frac{2}{r^2}
+\Bigg[
+-\frac{r}{2AB}\frac{dA}{dr}
++\frac{r}{2B^2}\frac{dB}{dr}
++1-\frac1B
+\Bigg]
+\end{aligned}
+$$
+
+Many terms cancel between the first two big brackets and with pieces of the $\theta\theta$ term; symbolically
+$$
+\begin{aligned}
+\frac{R_{tt}}{A} + \frac{R_{rr}}{B} + \frac{2R_{\theta\theta}}{r^2}
+&=
+\frac{2}{B^2}\frac{dB}{dr}
++\frac{2}{r^2}
+-\frac{2}{r^2 B} \\
+&=
+\frac{2}{r^2}
+\left[
+r\frac{d}{dr}\left(1-\frac1B\right)
++ \left(1-\frac1B\right)
+\right] \\
+&=
+\frac{2}{r^2}\frac{d}{dr}\Bigl[r\left(1-\frac1B\right)\Bigr]
+\end{aligned}
+$$
+
+By the Einstein equation, this combination must equal $16\pi G\rho$, so
+\[
+\frac{2}{r^2}\frac{d}{dr}\Bigl[r\left(1-\frac1B\right)\Bigr]
+= 16\pi G\rho
+\]
+
+Thus
+\[
+\frac{d}{dr}\left[r\left(1-\frac1B\right)\right]
+= 8\pi G\rho\,r^2
+\]
+which is Eq.\ (23.46).
+\end{solutionbox}
+
+%-------------------- (e) --------------------
+\subsection*{(e) Integrate Eq.\ (23.46) to obtain $B(r)$}
+
+\begin{problembox}
+Integrate
+\[
+\frac{d}{dr}\left[r\left(1 - \frac1B\right)\right]
+= 8\pi G\rho\,r^2
+\]
+to obtain Eqs.\ (23.47a–b):
+\[
+B = \left[1 - \frac{2Gm(r)}{r}\right]^{-1},
+\qquad
+m(r) \equiv \int_0^r 4\pi\rho r^2\,dr
+\]
+and interpret $m(r)$.
+\end{problembox}
+
+\begin{solutionbox}
+Starting from
+\[
+\frac{d}{dr}\left[r\left(1 - \frac1B\right)\right]
+= 8\pi G\rho\,r^2
+\]
+
+Integrate from $0$ to $r$:
+$$
+\begin{aligned}
+r\left(1 - \frac1B\right)
+&= 2G m(r)
+\end{aligned}
+$$
+where
+\[
+m(r) \equiv \int_0^r 4\pi\rho r^2\,dr
+\]
+
+Thus
+\[
+B = \left[1 - \frac{2Gm(r)}{r}\right]^{-1}
+\]
+
+For a star of radius $R$, $m(R) = M$ is the Schwarzschild mass.
+\end{solutionbox}
+
+%-------------------- (f) --------------------
+\subsection*{(f) Use $\nabla_\nu T^{\mu\nu}=0$ to find $A(r)$}
+
+\begin{problembox}
+Use the energy–momentum conservation equation
+\[
+\nabla_\nu T^{\mu\nu} = 0
+\]
+and take the $\mu = r$ component to derive Eq.\ (23.48):
+\[
+\frac{1}{A}\frac{dA}{dr} = -\frac{2}{\rho + P}\frac{dP}{dr}
+\]
+\end{problembox}
+
+\begin{solutionbox}
+Take the $\mu = r$ component:
+\[
+\nabla_\nu T^{r\nu} = \partial_\nu T^{r\nu}
++ \Gamma^{r}_{\nu\alpha} T^{\alpha\nu}
++ \Gamma^{\nu}_{\nu\alpha} T^{r\alpha} = 0
+\]
+
+For a perfect fluid
+\[
+T^{\mu\nu} = (\rho + P) u^\mu u^\nu + g^{\mu\nu} P
+\]
+
+In the static, spherically symmetric case, $u^r=0$ and $\rho=\rho(r)$, $P=P(r)$, so after simplification only the $tt$-terms survive. Using $u^t = 1/\sqrt{A}$ and $u_t=-\sqrt{A}$ one finds
+$$
+\begin{aligned}
+\nabla_\nu T^{r\nu}
+&=
+\Gamma^{r}_{tt} (\rho+P)(u^t)^2
++ g^{rr} \frac{dP}{dr}
+\end{aligned}
+$$
+
+From the diagonal metric worksheet,
+\[
+\Gamma^{t}_{tr} = \frac{1}{2A}\frac{dA}{dr}
+\,,\qquad
+\Gamma^{r}_{tt} = \frac{1}{2B}\frac{dA}{dr}
+\]
+
+Also $g^{rr} = 1/B$. Thus
+$$
+\begin{aligned}
+0
+&= \Gamma^{r}_{tt} (\rho+P)(u^t)^2 + g^{rr}\frac{dP}{dr} \\
+&= \frac{1}{2B}\frac{dA}{dr} (\rho+P)\frac{1}{A}
++ \frac{1}{B}\frac{dP}{dr}
+\end{aligned}
+$$
+
+Multiply by $B$:
+\[
+0 = \frac{1}{2A}(\rho+P)\frac{dA}{dr} + \frac{dP}{dr}
+\]
+
+Hence
+\[
+\frac{1}{A}\frac{dA}{dr} = -\frac{2}{\rho + P}\frac{dP}{dr}
+\]
+which is Eq.\ (23.48).
+\end{solutionbox}
+
+%-------------------- (g) --------------------
+\subsection*{(g) Derive the Oppenheimer–Volkoff equation (23.49)}
+
+\begin{problembox}
+Use Eqs.\ (23.6c), (23.44c),
+\[
+R_{\theta\theta}
+= -\frac{r}{2AB}\frac{dA}{dr}
++ \frac{r}{2B^2}\frac{dB}{dr}
++ 1 - \frac1B
+\]
+\[
+R_{\theta\theta} = 4\pi G r^2(\rho - P)
+\]
+together with
+\[
+B = \left[1 - \frac{2Gm(r)}{r}\right]^{-1},
+\qquad
+\frac{1}{A}\frac{dA}{dr} = -\frac{2}{\rho + P}\frac{dP}{dr}
+\]
+to show that
+\[
+\frac{dP}{dr}
+= -\frac{\rho + P}{r^2}
+\frac{4\pi G r^3 P + Gm(r)}{1 - 2Gm(r)/r}
+\]
+which is Eq.\ (23.49), the Oppenheimer–Volkoff equation.
+\end{problembox}
+
+\begin{solutionbox}
+Starting from Eq.\ (23.6c),
+\[
+R_{\theta\theta}
+= -\frac{r}{2AB}\frac{dA}{dr}
++ \frac{r}{2B^2}\frac{dB}{dr}
++ 1 - \frac1B
+\]
+
+By Eq.\ (23.44c),
+\[
+R_{\theta\theta} = 4\pi G r^2(\rho - P)
+\]
+
+Substitute $B^{-1} = 1 - 2Gm(r)/r$ and Eq.\ (23.48) for $dA/dr$.
+After algebra (as in the notes) one arrives at
+$$
+\begin{aligned}
+4\pi G r^2 (\rho - P)
+&= \frac{r}{2}\frac{1}{\rho + P}\frac{dP}{dr}
++ \frac{Gm(r)}{r}
++ 2\pi G r^2(\rho + P)
+\end{aligned}
+$$
+which rearranges to
+\[
+\frac{dP}{dr}
+= -\frac{\rho + P}{r^2}
+\frac{4\pi G r^3 P + Gm(r)}{1 - 2Gm(r)/r}
+\]
+
+This is Eq.\ (23.49), the Oppenheimer–Volkoff equation for stellar structure.
+\end{solutionbox}
+
+%=========================================================
+\section*{2.\ Application of Eq.\ (23.49) to Gravitational Collapse}
+
+\begin{problembox}
+Show that Eq.\ (23.49) reduces in the Newtonian limit to
+\[
+\frac{dP}{dr} = -\frac{GM(r)\rho}{r^2}
+\]
+Discuss qualitatively what happens to Eq.\ (23.49) when $r<2GM$ and show that this is consistent with the neutron star collapsing to a point mass.
+\end{problembox}
+
+\begin{solutionbox}
+Starting from the Oppenheimer–Volkoff equation
+\[
+\frac{dP}{dr}
+= -\frac{\rho + P}{r^2}
+\frac{4\pi G r^3 P + Gm(r)}{1 - 2Gm(r)/r}
+\]
+
+In the Newtonian limit,
+\[
+P \ll \rho, \qquad 2Gm(r) \ll r
+\]
+
+so
+\[
+\rho + P \approx \rho,
+\qquad
+1 - \frac{2Gm(r)}{r} \approx 1,
+\qquad
+4\pi G r^3 P \ll Gm(r)
+\]
+
+Hence
+\[
+\frac{dP}{dr}
+\approx -\rho\,\frac{Gm(r)}{r^2}
+\]
+which is the familiar Newtonian hydrostatic equilibrium equation.
+
+A sketch of $P(r)$ shows $dP/dr < 0$; pressure increases toward the center to support the outer layers.
+
+When mass is contained within $r < 2GM$, the factor $(1 - 2Gm(r)/r)$ changes sign. In this regime,
+\[
+\frac{dP}{dr} > 0
+\]
+and the interior pressure decreases as one goes inward; gravitational collapse is then inevitable.
+\end{solutionbox}
+
+%=========================================================
+\section*{3.\ Eddington–Finkelstein Coordinates}
+
+%-------------------- 3(a) --------------------
+\subsection*{(a) Ingoing photon geodesic $t(r)$}
+
+\begin{problembox}
+Using the Schwarzschild metric, integrate the radial equation of motion for an ingoing photon to find $t$ as a function of $r$.
+\end{problembox}
+
+\begin{solutionbox}
+From Table 14.1 (or Ch.\ 12) for null geodesics in Schwarzschild,
+\[
+\frac{dr}{dt}
+= \pm\left(1 - \frac{2GM}{r}\right)
+\sqrt{1 - \left(1 - \frac{2GM}{r}\right)\frac{b^2}{r^2}}
+\]
+
+For a radially ingoing (or outgoing) photon we take $b=0$, so
+\[
+\frac{dr}{dt} = -\left(1 - \frac{2GM}{r}\right)
+\]
+
+Thus
+\[
+\frac{dt}{dr} = -\frac{1}{1 - 2GM/r}
+\]
+
+Integrate:
+$$
+\begin{aligned}
+t
+&= -\int \frac{dr}{1 - 2GM/r} \\
+&= -\left[r + 2GM \ln(r - 2GM)\right] + \text{const.}
+\end{aligned}
+$$
+\end{solutionbox}
+
+%-------------------- 3(b) --------------------
+\subsection*{(b) Coordinate transformation to ingoing Eddington–Finkelstein time}
+
+\begin{problembox}
+Show that the coordinate transformation
+\[
+t \to \bar{t} = t + 2GM\ln(r - 2GM)
+\]
+puts the ingoing photon trajectory from part (a) on a straight line at $45^\circ$ to the $r$-axis in the $(t,r)$–plane.
+\end{problembox}
+
+\begin{solutionbox}
+Define the new time coordinate
+\[
+\bar{t} = t + 2GM\ln(r - 2GM)
+\]
+
+Using the result from part (a),
+\[
+t = -\left(r + 2GM \ln(r - 2GM)\right) + \text{const.}
+\]
+
+Then
+\[
+\bar{t} = -r + \text{const.}
+\]
+
+Thus in the $(\bar{t}, r)$ diagram, the ingoing photon follows
+\[
+\bar{t} + r = \text{const.}
+\]
+which is a straight line at $45^\circ$.
+\end{solutionbox}
+
+%-------------------- 3(c) --------------------
+\subsection*{(c) Schwarzschild metric in ingoing Eddington–Finkelstein form}
+
+\begin{problembox}
+Write the Schwarzschild metric in ingoing Eddington–Finkelstein coordinates and show that it is well behaved at $r = 2GM$. Sketch the light cones.
+\end{problembox}
+
+\begin{solutionbox}
+We have
+\[
+\bar{t} = t + 2GM \ln(r - 2GM)
+\quad\Rightarrow\quad
+d\bar{t} = dt + \frac{2GM}{r - 2GM}\,dr
+\]
+
+Solve for $dt$:
+\[
+dt = d\bar{t} - \frac{2GM}{r - 2GM}\,dr
+\]
+
+Plug this into the Schwarzschild metric
+\[
+ds^2 = -\left(1 - \frac{2GM}{r}\right)dt^2
++ \left(1 - \frac{2GM}{r}\right)^{-1}dr^2 + r^2 d\Omega^2
+\]
+
+After algebra, this gives
+\[
+ds^2 = -\left(1 - \frac{2GM}{r}\right)d\bar{t}^2
++ \frac{4GM}{r}\,d\bar{t}\,dr
++ \left(1 + \frac{2GM}{r}\right)dr^2
++ r^2 d\Omega^2
+\]
+
+This form of the metric is regular at $r = 2GM$. The associated spacetime diagram shows ingoing null geodesics as straight lines at $45^\circ$, while outgoing null geodesics are tilted and ``trapped'' as they cross $r=2GM$ toward the singularity.
+\end{solutionbox}
+
+%=========================================================
+\section*{4.\ Hawking Radiation and Mini Black Holes}
+
+\begin{problembox}
+The most energetic particle ever measured was a high-energy cosmic ray proton with energy $E \sim 3\times10^{20}\,\mathrm{eV}$. Suppose such a particle were to interact with a particle in the upper atmosphere, converting all of its energy into a black hole with the equivalent mass. How long would it live? Should we worry about a rain of mini–black holes falling to Earth and destroying us all?
+\end{problembox}
+
+\begin{solutionbox}
+The lifetime of a black hole evaporating via Hawking radiation is given in Eq.\ (16.9):
+\[
+\tau_{\text{life}} = 2.095\times10^{67}\,\text{yr}
+\left(\frac{M}{M_\odot}\right)^3
+\]
+
+Convert $1\,\mathrm{eV}$ to solar masses:
+\[
+1\,\mathrm{eV}
+= 1.782\times10^{-36}\,\mathrm{kg}
+\times\frac{1M_\odot}{1.989\times10^{30}\,\mathrm{kg}}
+= 8.96\times10^{-67} M_\odot
+\]
+
+The ``OMG'' particle had $E \sim 3\times10^{20}\,\mathrm{eV}$ so
+\[
+M \sim 2.7\times10^{-46} M_\odot
+\]
+
+Plug into the lifetime:
+\[
+\tau_{\text{life}} \sim 4\times10^{-70}\,\text{yr}
+\sim 10^{-62}\,\text{s}
+\]
+
+Conclusion: such a mini black hole would evaporate essentially instantaneously. We'll be fine.
+\end{solutionbox}
+
+\end{document}

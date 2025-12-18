@@ -1,0 +1,1059 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath,amssymb,bm,mathtools}
+\usepackage{multicol}
+\usepackage{enumitem}
+\setlength{\columnsep}{12pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+\raggedcolumns
+% compact heading macro with a bit more top space
+\newcommand{\chead}[1]{\vspace{6pt}{\large \textbf{#1}}\par}
+
+\begin{document}
+\small
+% tighten math display spacing (re-assert after font size change)
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+\begin{multicols*}{2}
+
+% =========================
+\chead{Ch 15. Kruskal--Szekeres}
+
+Schwarzschild metric (vacuum, $r>2GM$):
+\[
+ds^2 = -\Bigl(1-\frac{2GM}{r}\Bigr)dt^2
++ \Bigl(1-\frac{2GM}{r}\Bigr)^{-1}dr^2
++ r^2(d\theta^2+\sin^2\theta\,d\phi^2).
+\]
+
+Kruskal--Szekeres coordinates $(u,v)$:
+% KEY: removes coordinate singularity at $r=2GM$
+\[
+\boxed{u^2 - v^2 = \Bigl(\frac{r}{2GM}-1\Bigr)e^{r/2GM}},
+\qquad
+t = 2GM\ln\Bigl|\frac{u+v}{u-v}\Bigr|.
+\]
+
+Kruskal--Szekeres metric:
+\[
+ds^2
+= -\frac{32(GM)^3}{r}e^{-r/2GM}(dv^2-du^2)
++ r^2(d\theta^2+\sin^2\theta\,d\phi^2),
+\]
+with $r=r(u,v)$ implicitly via $u^2-v^2$.  The horizon $r=2GM$ is $u=\pm v$ (null lines); radial photons obey $du=\pm dv$ (45$^\circ$ lines).
+
+% =========================
+\chead{Ch 16. Black Hole Thermodynamics}
+
+Energy per unit mass at infinity in Schwarzschild:
+\[
+e \equiv \Bigl(1-\frac{2GM}{r}\Bigr)\frac{dt}{d\tau}.
+\]
+
+Hawking temperature:
+% KEY: $T\propto 1/M$; smaller BH = hotter!
+\[
+\boxed{k_B T = \frac{\hbar}{8\pi GM}},
+\qquad
+T = \frac{\hbar}{8\pi k_B GM}.
+\]
+
+Black-hole lifetime (order of magnitude):
+\[
+\tau_{\text{life}}
+\approx 2.1\times10^{67}\,\text{yr}
+\Bigl(\frac{M}{M_\odot}\Bigr)^3.
+\]
+
+Entropy (Bekenstein--Hawking):
+% KEY: $S\propto A$ (horizon area), not volume!
+\[
+\boxed{S = \frac{4\pi k_B G M^2}{\hbar}
+= \frac{k_B}{4G\hbar}A},
+\qquad
+A = 4\pi(2GM)^2.
+\]
+
+% =========================
+\chead{Ch 17--19. Covariant Derivative and Curvature}
+
+Christoffel symbols (Levi--Civita connection):
+% KEY: memorize this formula!
+\[
+\boxed{\Gamma^\alpha_{\mu\nu}
+= \tfrac12 g^{\alpha\sigma}
+(\partial_\mu g_{\nu\sigma}
++ \partial_\nu g_{\sigma\mu}
+- \partial_\sigma g_{\mu\nu})}.
+\]
+
+Absolute gradient (covariant derivative):
+\[
+\nabla_\alpha A^\mu
+= \partial_\alpha A^\mu
++ \Gamma^\mu_{\alpha\nu}A^\nu,
+\qquad
+\nabla_\alpha B_\mu
+= \partial_\alpha B_\mu
+- \Gamma^\nu_{\alpha\mu}B_\nu.
+\]
+
+General tensor (example):
+\[
+\nabla_\alpha T^{\mu\nu}{}_{\sigma}
+= \partial_\alpha T^{\mu\nu}{}_{\sigma}
++ \Gamma^\mu_{\alpha\beta}T^{\beta\nu}{}_{\sigma}
++ \Gamma^\nu_{\alpha\beta}T^{\mu\beta}{}_{\sigma}
+- \Gamma^\beta_{\alpha\sigma}T^{\mu\nu}{}_{\beta}.
+\]
+
+Metric compatibility and geodesics:
+% KEY: geodesic equation is fundamental!
+\[
+\nabla_\alpha g_{\mu\nu}=0,
+\qquad
+\boxed{\frac{d^2x^\mu}{d\tau^2}
++ \Gamma^\mu_{\alpha\beta}
+\frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau}=0}.
+\]
+
+Riemann tensor:
+% KEY: ``3 to 4 is positive, 4 to 3 is not. Twins bond inside.''
+\[
+\boxed{R^\alpha_{\ \beta\mu\nu}
+= \partial_\mu\Gamma^\alpha_{\beta\nu}
+- \partial_\nu\Gamma^\alpha_{\beta\mu}
++ \Gamma^\alpha_{\gamma\mu}\Gamma^\gamma_{\beta\nu}
+- \Gamma^\alpha_{\gamma\nu}\Gamma^\gamma_{\beta\mu}}.
+\]
+
+Geodesic deviation:
+% KEY: connects Riemann to physical tidal effects!
+\[
+\boxed{\Bigl(\frac{d^2 n}{d\tau^2}\Bigr)^\alpha
+= - R^\alpha_{\ \mu\nu\sigma}
+u^\mu u^\nu n^\sigma}.
+\]
+
+Ricci tensor, scalar, and key symmetries:
+\[
+R_{\mu\nu} \equiv R^\alpha_{\ \mu\alpha\nu},
+\qquad
+R \equiv g^{\mu\nu}R_{\mu\nu},
+\]
+\[
+R_{\alpha\beta\mu\nu}
+= -R_{\beta\alpha\mu\nu}
+= -R_{\alpha\beta\nu\mu}
+= R_{\mu\nu\alpha\beta},
+\]
+\[
+R_{\alpha[\beta\mu\nu]}=0,
+\qquad
+\nabla_\sigma R^\alpha_{\ \beta\mu\nu}
++ \nabla_\mu R^\alpha_{\ \beta\nu\sigma}
++ \nabla_\nu R^\alpha_{\ \beta\sigma\mu}=0.
+\]
+
+% =========================
+\chead{Ch 20. Stress--Energy as Source}
+
+Dust:
+\[
+T^{\mu\nu}_{\text{dust}}
+= \rho_0 u^\mu u^\nu.
+\]
+
+Perfect fluid (rest-frame density $\rho_0$, pressure $p_0$):
+% KEY: reduces to dust when $p_0=0$
+\[
+\boxed{T^{\mu\nu}
+= (\rho_0 + p_0)u^\mu u^\nu + p_0 g^{\mu\nu}}.
+\]
+
+Physical meanings:\\
+$\bullet$ $T^{tt}$: energy density\\
+$\bullet$ $T^{it}$: $i$-momentum density and $i$-flux of energy\\
+$\bullet$ $T^{ij}$: $i$-flux of $j$-momentum (stresses).
+
+Local energy--momentum conservation:
+% KEY: follows from $\nabla_\nu G^{\mu\nu}=0$; implies geodesic motion for dust
+\[
+\boxed{\nabla_\mu T^{\mu\nu}=0}.
+\]
+
+For a perfect fluid this yields (in a LIF, nonrelativistic limit)
+the continuity and Euler equations:
+\[
+\frac{\partial\rho}{\partial t}
++ \boldsymbol{\nabla}\!\cdot(\rho\mathbf{v})=0,
+\]
+\[
+\rho\Bigl(\frac{\partial\mathbf{v}}{\partial t}
++ \mathbf{v}\!\cdot\!\boldsymbol{\nabla}\mathbf{v}\Bigr)
+= -\boldsymbol{\nabla}p.
+\]
+
+% =========================
+\chead{Ch 21. Einstein Equation}
+
+Einstein tensor:
+\[
+G^{\mu\nu}
+\equiv R^{\mu\nu}-\tfrac12 g^{\mu\nu}R,
+\qquad
+\nabla_\nu G^{\mu\nu}=0.
+\]
+
+Einstein equation (with cosmological constant):
+% KEY: The central equation of GR!
+\[
+\boxed{G^{\mu\nu} + \Lambda g^{\mu\nu}
+= 8\pi G\,T^{\mu\nu}}.
+\]
+
+Alternative form:
+% KEY: useful for vacuum ($T^{\mu\nu}=0 \Rightarrow R^{\mu\nu}=0$)
+\[
+\boxed{R^{\mu\nu}
+= 8\pi G\Bigl(T^{\mu\nu}-\tfrac12 g^{\mu\nu}T\Bigr)
++ \Lambda g^{\mu\nu}},
+\qquad
+T\equiv T^\alpha_{\ \alpha}.
+\]
+
+Vacuum energy:
+\[
+T^{\mu\nu}_{\text{vac}}
+= -\frac{\Lambda}{8\pi G}g^{\mu\nu}.
+\]
+
+Newtonian limit (weak field, slow motion, $T^{tt}\approx\rho$):
+% KEY: Shows GR reduces to Newton; fixes $\kappa=8\pi G$
+\[
+\boxed{R_{tt} \approx \nabla^2\Phi,
+\qquad
+\nabla^2\Phi = 4\pi G\rho},
+\]
+fixing the coupling $\kappa=8\pi G$.
+
+% =========================
+\chead{Ch 22. Weak Field and Stationary Sources}
+
+Metric perturbation:
+\[
+g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu},
+\qquad
+|h_{\mu\nu}|\ll1.
+\]
+
+Weak-field gauge condition (Lorentz / de Donder):
+\[
+H_\nu \equiv
+\eta^{\mu\alpha}\Bigl(\partial_\mu h_{\alpha\nu}
+- \tfrac12\partial_\nu h_{\alpha\mu}\Bigr)=0.
+\]
+
+In this gauge, for stationary sources ($\partial_t=0$):
+\[
+\nabla^2 h_{\beta\nu}
+= -16\pi G\Bigl(T_{\beta\nu}-\tfrac12\eta_{\beta\nu}T\Bigr).
+\]
+
+For a perfect fluid with rest-frame $(\rho_0,p_0)$:
+\[
+2T_{tt}-\eta_{tt}T \approx \rho_0+3p_0\equiv\rho_g,
+\]
+\[
+-T_{ti}+\tfrac12\eta_{ti}T \approx (\rho_0+p_0)u_i\equiv\Pi_i,
+\]
+\[
+2T_{ii}-\eta_{ii}T \approx \rho_0-p_0\equiv\rho_c.
+\]
+
+Spherical, nonrotating, weak field:
+\[
+h_{tt}=h_{xx}=h_{yy}=h_{zz}=\frac{2GM}{r},
+\]
+giving Newtonian acceleration
+$\ddot{\mathbf{x}}=-\boldsymbol{\nabla}(GM/r)$.
+
+% =========================
+\chead{Ch 23. Schwarzschild Solution}
+
+Trial metric (spherically symmetric):
+\[
+ds^2 = -A(r,t)\,dt^2 + B(r,t)\,dr^2 + r^2(d\theta^2+\sin^2\theta\,d\phi^2).
+\]
+
+Vacuum Einstein eq: $R_{\mu\nu}=0$.
+From $R_{tr}=0$: $\partial B/\partial t=0$ ($B$ time-independent).
+
+Key relation (from $R_{tt}=R_{rr}=0$):
+\[
+\frac{1}{A}\frac{\partial A}{\partial r} = -\frac{1}{B}\frac{dB}{dr}.
+\]
+
+Solution: $1/B = A = 1+C/r$.  Christoffel symbol:
+\[
+\Gamma^r_{tt} = \frac{1}{2B}\frac{\partial A}{\partial r}.
+\]
+
+Geodesic for particle at rest ($u^i=0$, only $u^t\neq0$):
+\[
+\frac{d^2r}{d\tau^2} = -\frac{1}{2}\frac{\partial A}{\partial r} = \frac{C}{2r^2}.
+\]
+
+Matching to Newton ($d^2r/dt^2=-GM/r^2$) gives $C=-2GM$.
+
+Schwarzschild metric:
+% KEY: memorize this; it's the foundation for BH physics
+\[
+\boxed{ds^2
+= -\Bigl(1-\frac{2GM}{r}\Bigr)dt^2
++ \Bigl(1-\frac{2GM}{r}\Bigr)^{-1}dr^2
++ r^2 d\Omega^2}.
+\]
+
+Key facts:\\
+$\bullet$ $r=2GM$: event horizon (Schwarzschild radius).\\
+$\bullet$ \textbf{Birkhoff's theorem}: vacuum exterior of \emph{any}
+  spherically symmetric source is Schwarzschild, even if source is time-dependent.\\
+$\bullet$ $M$ = Newtonian mass (from test particle motion at $r\to\infty$).
+
+Oppenheimer--Volkoff equation (hydrostatic equilibrium):
+% KEY: GR generalization of $dP/dr = -GM\rho/r^2$
+\[
+\boxed{\frac{dp}{dr}
+= -\frac{(\rho+p)(Gm(r)+4\pi Gpr^3)}{r^2(1-2Gm(r)/r)}},
+\]
+where $m(r)=\int_0^r 4\pi\rho r'^2 dr'$.
+Newtonian limit: $p\ll\rho$, $2Gm/r\ll1$ gives $dP/dr=-GM(r)\rho/r^2$.
+
+% =========================
+\chead{Ch 30. Linearized Einstein \& Gauge}
+
+Perturbation and trace reverse:
+\[
+h_{\mu\nu} = h_{\nu\mu},\qquad
+h \equiv \eta^{\mu\nu}h_{\mu\nu},
+\]
+\[
+H_{\mu\nu}
+\equiv h_{\mu\nu}-\tfrac12\eta_{\mu\nu}h,
+\qquad
+H \equiv \eta^{\mu\nu}H_{\mu\nu}=-h.
+\]
+
+Weak-field Einstein equation (in terms of $H_{\mu\nu}$):
+\[
+\Box^2 H^{\mu\nu}
+- \partial^\mu\partial_\alpha H^{\alpha\nu}
+- \partial^\nu\partial_\alpha H^{\alpha\mu}
++ \eta^{\mu\nu}\partial_\alpha\partial_\beta H^{\alpha\beta}
+= -16\pi G T^{\mu\nu},
+\]
+where $\Box^2\equiv\partial^\alpha\partial_\alpha$.
+
+Lorentz gauge:
+\[
+\partial_\mu H^{\mu\nu}=0
+\quad\Longrightarrow\quad
+\Box^2 H^{\mu\nu} = -16\pi G T^{\mu\nu}.
+\]
+
+Gauge transformation ($x'^\mu=x^\mu+\xi^\mu$, $|\xi^\mu|\ll1$):
+\[
+H'_{\mu\nu}
+= H_{\mu\nu}
+- \partial_\mu\xi_\nu
+- \partial_\nu\xi_\mu
++ \eta_{\mu\nu}\partial_\alpha\xi^\alpha,
+\]
+leaving the weak-field curvature invariant.
+
+% =========================
+\chead{Ch 31. Gravitational Waves \& TT Gauge}
+
+In vacuum and Lorentz gauge:
+% KEY: wave equation for GWs
+\[
+\boxed{\Box^2 H^{\mu\nu}=0},
+\qquad
+\partial_\mu H^{\mu\nu}=0.
+\]
+
+Plane wave:
+% KEY: GWs travel at speed of light!
+\[
+H^{\mu\nu}
+= A^{\mu\nu}\cos(k_\sigma x^\sigma),
+\qquad
+k^\sigma k_\sigma=0
+\Rightarrow \boxed{v_{\text{GW}}=1}.
+\]
+
+Residual gauge freedom can impose TT gauge:
+\[
+A^\mu_{\ \mu}=0,
+\qquad
+A^{\mu 0}=0.
+\]
+% KEY: In TT gauge, $h^{TT}_{\mu\nu}=H^{TT}_{\mu\nu}$ (trace vanishes!)
+
+For propagation in $+z$ direction, only
+\[
+A^{xx}=A_+,\quad
+A^{yy}=-A_+,\quad
+A^{xy}=A^{yx}=A_\times
+\]
+are nonzero (``plus'' and ``cross'' polarizations).
+
+Effect on a ring of test particles in the transverse plane:
+\[
+\Delta s \approx
+R\Bigl[1+\tfrac12 A_+\cos\omega t\cos2\theta\Bigr]
+\quad(+\ \text{mode}),
+\]
+\[
+\Delta s \approx
+R\Bigl[1+\tfrac12 A_\times\cos\omega t\sin2\theta\Bigr]
+\quad(\times\ \text{mode}).
+\]
+
+% =========================
+\chead{Ch 32. Gravitational-Wave Energy}
+
+In weak field on nearly flat background, expand $G_{\mu\nu}$ to second order in $h_{\mu\nu}$ and define the effective GW stress--energy:
+\[
+T^{GW}_{\mu\nu}
+\equiv -\frac{\langle G^{(2)}_{\mu\nu}\rangle}{8\pi G},
+\qquad
+\partial_\mu\bigl(T^{\mu\nu}+T^{\mu\nu}_{GW}\bigr)=0.
+\]
+
+In TT gauge for a plane wave:
+% KEY: energy density = flux (since $v_{\text{GW}}=1$)
+\[
+\boxed{T^{GW}_{tt}
+= \frac{1}{32\pi G}
+\Bigl\langle
+\dot h^{TT}_{jk}\dot h^{jk}_{TT}
+\Bigr\rangle},
+\qquad
+j,k=x,y,z,
+\]
+which equals the GW energy flux in the propagation direction.
+For a single $+$ polarization:
+\[
+T^{GW}_{tt}
+= \frac{1}{16\pi G}\langle\dot h_+^2\rangle.
+\]
+
+% =========================
+\chead{Ch 33. GW from Sources (Quadrupole)}
+
+Small--weak--slow source, Lorentz gauge:
+\[
+\Box^2 H^{\mu\nu} = -16\pi G T^{\mu\nu}.
+\]
+
+Retarded solution (far zone, distance $R$):
+\[
+H^{\mu\nu}(t,\mathbf{R})
+\approx \frac{4G}{R}
+\int_{\text{src}}T^{\mu\nu}(t-R,\mathbf{r})\,dV.
+\]
+
+Using $\int T^{jk}dV = \tfrac12 d^2 I^{jk}/dt^2$ with
+\[
+I^{jk}
+\equiv\int\rho\,x^j x^k\,dV,
+\]
+and the reduced (trace-free) quadrupole
+\[
+\mathcal{I}^{jk}
+\equiv\int\rho\Bigl(x^j x^k
+-\tfrac13\eta^{jk}r^2\Bigr)dV,
+\]
+the TT metric at distance $R$ is
+% KEY: $\ddot{\mathcal{I}}$ evaluated at retarded time $t-R$
+\[
+\boxed{h^{TT}_{jk}(t,\mathbf{R})
+= \frac{2G}{R}\ddot{\mathcal{I}}^{TT}_{jk}(t-R)}.
+\]
+
+Quadrupole luminosity formula (total GW power):
+% KEY: essential for GW source calculations!
+\[
+\boxed{L_{GW}
+= -\frac{dE}{dt}
+= \frac{G}{5}
+\Bigl\langle
+\dddot{\mathcal{I}}_{jk}\dddot{\mathcal{I}}^{jk}
+\Bigr\rangle}.
+\]
+
+% =========================
+\chead{Ch 35. Gravitomagnetism}
+
+Weak-field, slow-source limit: define potentials
+\[
+\Phi_G \equiv -\tfrac12 h_{tt}
+= -\int\frac{G\rho_0}{s}\,dV,
+\qquad
+\mathbf{A}_G \equiv -\tfrac14 h_{t i}\,\hat{\mathbf{e}}_i
+= -\int\frac{G\mathbf{J}}{s}\,dV,
+\]
+with mass current $\mathbf{J}=\rho_0\mathbf{v}$.
+
+Gravitoelectric and gravitomagnetic fields:
+% KEY: analogy to E\&M!
+\[
+\boxed{\mathbf{E}_G
+\equiv -\boldsymbol{\nabla}\Phi_G
+- \frac{\partial\mathbf{A}_G}{\partial t},
+\qquad
+\mathbf{B}_G
+\equiv \boldsymbol{\nabla}\times\mathbf{A}_G}.
+\]
+
+Maxwell-like equations:
+\[
+\boldsymbol{\nabla}\cdot\mathbf{E}_G = -4\pi G\rho_0,
+\qquad
+\boldsymbol{\nabla}\times\mathbf{B}_G
+- \frac{\partial\mathbf{E}_G}{\partial t}
+= -4\pi G\mathbf{J},
+\]
+\[
+\boldsymbol{\nabla}\cdot\mathbf{B}_G=0,
+\qquad
+\boldsymbol{\nabla}\times\mathbf{E}_G
++ \frac{\partial\mathbf{B}_G}{\partial t}=0.
+\]
+
+Gravitational Lorentz-force law (static fields, $|\mathbf{V}|\ll1$):
+% KEY: note factor of 4 in front of $\mathbf{B}_G$!
+\[
+\boxed{m\frac{d^2\mathbf{x}}{dt^2}
+= m\Bigl(\mathbf{E}_G
++ \mathbf{V}\times4\mathbf{B}_G\Bigr)}.
+\]
+
+Gyroscope (spin $\mathbf{s}$) precession in $\mathbf{B}_G$:
+% KEY: Lense-Thirring (frame-dragging) precession!
+\[
+\boldsymbol{\tau}
+= \mathbf{s}\times2\mathbf{B}_G,
+\qquad
+\boxed{\boldsymbol{\Omega}_{LT} = -2\mathbf{B}_G}.
+\]
+
+Field of a spinning mass (spin $\mathbf{S}$):
+\[
+\mathbf{B}_G(\mathbf{r})
+= \frac{G}{2r^3}
+\bigl[3(\mathbf{S}\!\cdot\!\hat{\mathbf{r}})\hat{\mathbf{r}}-\mathbf{S}\bigr].
+\]
+
+% =========================
+\chead{Ch 36. Kerr Metric}
+
+Define (memorize these!):
+% KEY: $\Delta=0$ gives horizons; $\Sigma$ appears everywhere
+\[
+\boxed{\Sigma \equiv r^2 + a^2\cos^2\theta,
+\qquad
+\Delta \equiv r^2 - 2GMr + a^2}.
+\]
+
+Kerr metric in Boyer--Lindquist coordinates:
+\[
+\begin{aligned}
+ds^2
+&=
+-\Bigl(1-\frac{2GMr}{\Sigma}\Bigr)dt^2
++ \frac{\Sigma}{\Delta}dr^2
++ \Sigma\,d\theta^2 \\[2pt]
+&\quad
++ \Bigl(r^2+a^2+\frac{2GMr\,a^2\sin^2\theta}{\Sigma}\Bigr)
+  \sin^2\theta\,d\phi^2
+- \frac{4GMr a\sin^2\theta}{\Sigma}\,dt\,d\phi.
+\end{aligned}
+\]
+
+Parameters:\\
+$\bullet$ $M$: mass,\quad $\bullet$ $a\equiv S/M$: angular momentum per unit mass ($S$ total spin).
+
+Limits:\\
+$\bullet$ $a\to0$ $\Rightarrow$ Schwarzschild,\\
+$\bullet$ far from source, first order in $GM/r$ reproduces the weak-field rotating metric.
+
+% =========================
+\chead{Ch 37. Kerr Equatorial Orbits}
+
+Constants of motion (Kerr, equatorial plane):
+\[
+e \equiv -g_{tt}\frac{dt}{d\tau}
+- g_{t\phi}\frac{d\phi}{d\tau},
+\qquad
+\ell \equiv g_{t\phi}\frac{dt}{d\tau}
++ g_{\phi\phi}\frac{d\phi}{d\tau},
+\]
+($e$: energy per unit mass at infinity, $\ell$: $z$-component of angular momentum per unit mass).
+
+Energy-like radial equation (equatorial, massive particle):
+% KEY: Kerr version of effective potential
+\[
+\boxed{\tilde E \equiv \tfrac12(e^2-1)
+= \tfrac12\Bigl(\frac{dr}{d\tau}\Bigr)^2
+- \frac{GM}{r}
++ \frac{\ell^2+a^2(1-e^2)}{2r^2}
+- \frac{GM(\ell-ea)^2}{r^3}}.
+\]
+
+Radial ``force'' form:
+\[
+\frac{d^2r}{d\tau^2}
+= -\frac{GM}{r^2}
++ \frac{\ell^2+a^2(1-e^2)}{r^3}
+- \frac{3GM(\ell-ea)^2}{r^4}.
+\]
+
+Azimuthal motion:
+\[
+\frac{d\phi}{d\tau}
+= \frac{(2GMa/r)e+(1-2GM/r)\ell}
+       {r^2-2GMr+a^2}.
+\]
+
+Zero-angular-momentum trajectories ($\ell=0$) are dragged:
+\[
+\frac{d\phi}{d\tau}
+= \frac{2GMa e}{r(r^2-2GMr+a^2)}\neq0.
+\]
+
+Kepler's third law in Kerr (equatorial circular orbits):
+% KEY: $+$ co-rotating (with BH spin), $-$ counter-rotating
+\[
+\boxed{\Omega\equiv\frac{d\phi}{dt}
+= \frac{\sqrt{GM}}{r^{3/2}\pm a\sqrt{GM}}},
+\]
+\[
+T \equiv \Bigl|\frac{2\pi}{\Omega}\Bigr|
+= \sqrt{\frac{4\pi^2 r^3}{GM}}\ \pm 2\pi a,
+\]
+upper sign: co-rotating, lower: counter-rotating.
+
+ISCO condition (equatorial):
+% KEY: $+$ co-rotating, $-$ counter-rotating; $a=0\Rightarrow r=6GM$
+\[
+\boxed{r^2 - 6GMr - 3a^2 \pm 8a\sqrt{GMr}=0}.
+\]
+
+% =========================
+\chead{Ch 38. Ergoregion and Horizons}
+
+Infinite-redshift surfaces ($g_{tt}=0$):
+\[
+r = GM \pm \sqrt{(GM)^2-a^2\cos^2\theta}.
+\]
+The outer one
+\[
+r_e(\theta)=GM+\sqrt{(GM)^2-a^2\cos^2\theta}
+\]
+is the \emph{static limit} bounding the ergoregion.
+
+Kerr horizons from $\Delta=0$:
+% KEY: $r_+$ is the event horizon
+\[
+\boxed{r_\pm
+= GM \pm \sqrt{(GM)^2-a^2}}.
+\]
+Outer horizon: $r_+$.  For $a\to0$,
+$r_+\to2GM$.
+
+Horizon area:
+\[
+A = 8\pi GM r_+ = 4\pi(2GM_{\text{ir}})^2,
+\]
+where $M_{\text{ir}}$ is the irreducible mass (Ch.~39).
+
+Condition for a horizon (cosmic censorship):
+% KEY: $a>GM$ would give naked singularity
+\[
+\boxed{a\le GM};
+\]
+if $a>GM$ there is no horizon (naked singularity, excluded by cosmic censorship conjecture).
+
+% =========================
+\chead{Ch 39. Penrose Process and Irreducible Mass}
+
+Equatorial geodesic ``energy'' equation (massive particle):
+\[
+\frac12(e^2-1)
+= \tfrac12\Bigl(\frac{dr}{d\tau}\Bigr)^2
+- \frac{GM}{r}
++ \frac{\ell^2+a^2(1-e^2)}{2r^2}
+- \frac{GM(\ell-ea)^2}{r^3}.
+\]
+
+Rewrite as quadratic in $e$:
+\[
+0 = -A e^2 + B e + C
++ \Bigl(\frac{dr}{d\tau}\Bigr)^2,
+\]
+\[
+A=1+\frac{a^2}{r^2}+\frac{2GMa^2}{r^3},
+\quad
+B=\frac{4GMa}{r^3},
+\quad
+C=1-\frac{2GM}{r}
++ \frac{\ell^2+a^2}{r^2}
+- \frac{2GM\ell^2}{r^3}.
+\]
+
+Effective potentials for $e$:
+\[
+V_\pm(r)
+= \frac{\tfrac12B\pm\sqrt{\tfrac14B^2+AC}}{A},
+\qquad
+e \ge V_-(r),
+\]
+with turning points at $e=V_-(r)$.  Inside the ergoregion, $V_-(r)$ can be negative $\Rightarrow$ negative-energy orbits.
+
+Penrose process: particle $P$ splits into $Q+R$ in the ergoregion, with $e_Q<0$ (falls in) and $e_R=e_P-e_Q>e_P$ (escapes), extracting rotational energy from the hole.
+
+At the horizon $r=r_+$, one finds
+\[
+e \ge \frac{B}{2A},
+\]
+leading to the bound (for a particle of mass $m$)
+\[
+\Delta M \ge \frac{a\,\Delta S}{r_+^2+a^2}
+= \frac{a\,\Delta S}{2GM r_+},
+\]
+with $\Delta M = me$, $\Delta S = m\ell$.
+
+Irreducible mass:
+% KEY: can never decrease via classical processes
+\[
+\boxed{M_{\text{ir}}
+\equiv \frac{\sqrt{2GM r_+}}{2G}},
+\qquad
+\Delta M_{\text{ir}} \ge 0,
+\]
+and the mass decomposition
+% KEY: rotational energy $=M-M_{\text{ir}}$ is extractable
+\[
+\boxed{M^2
+= M_{\text{ir}}^2
++ \Bigl(\frac{S}{2GM_{\text{ir}}}\Bigr)^2}.
+\]
+For Schwarzschild ($a=0$), $M_{\text{ir}}=M$.
+Black-hole entropy is proportional to $A\propto M_{\text{ir}}^2$ and cannot decrease in any classical process.
+\newpage
+\begin{center}\textbf{\large}\end{center}
+\newpage
+\begin{center}\textbf{\large Minkowski metrics}\end{center}
+
+% ------------------------------------------------
+\textbf{Cartesian $(t,x,y,z)$:}\\
+\textit{Motivation: Special relativity in the absence of gravity.}\\
+- Coordinates: $(t,x,y,z)$\\
+- Line element:
+\[
+ds^2 = -dt^2 + dx^2 + dy^2 + dz^2.
+\]
+- Metric:
+\[
+g_{\mu\nu} = \mathrm{diag}(-1,\,1,\,1,\,1).
+\]
+% ------------------------------------------------
+\textbf{Spherical spatial coords $(t,r,\theta,\phi)$:}\\
+\textit{Motivation: Same flat spacetime as above.}\\
+- Coordinates: $(t,r,\theta,\phi)$\\
+- Line element:
+\[
+ds^2 = -dt^2 + dr^2 + r^2(d\theta^2+\sin^2\theta\,d\phi^2).
+\]
+- Metric:
+\[
+g_{\mu\nu} = \mathrm{diag}\bigl(-1,\,1,\,r^2,\,r^2\sin^2\theta\bigr).
+\]
+Useful when comparing with Schwarzschild and Kerr.
+
+% ------------------------------------------------
+\textbf{2-sphere of radius $r$ (angular part):}\\
+\textit{Motivation: Spatial geometry of a sphere of areal radius $r$; appears as the angular part of many 4D metrics (Schwarzschild, FRW, etc.).}\\
+- Coordinates: $(\theta,\phi)$ (spatial 2D)\\
+- Line element:
+\[
+ds^2 = r^2(d\theta^2+\sin^2\theta\,d\phi^2).
+\]
+- Metric:
+\[
+g_{ij} =
+\begin{pmatrix}
+r^2 & 0\\
+0 & r^2\sin^2\theta
+\end{pmatrix},
+\qquad i,j=\theta,\phi.
+\]
+Curved even though embedded in flat space; Gaussian curvature $K=1/r^2$.
+
+% ------------------------------------------------
+\begin{center}\textbf{\large Schwarzschild }\end{center}
+
+% ------------------------------------------------
+\textbf{Schwarzschild metric (exterior to spherical mass $M$):}\\
+\textit{Motivation: Unique spherically symmetric, vacuum ($T_{\mu\nu}=0$), static solution of Einstein's equations outside a spherical mass (Birkhoff's theorem).}
+
+- Coordinates: $(t,r,\theta,\phi)$\\
+- Line element:
+\[
+ds^2
+= -\Bigl(1-\frac{2GM}{r}\Bigr)dt^2
++ \Bigl(1-\frac{2GM}{r}\Bigr)^{-1}dr^2
++ r^2(d\theta^2+\sin^2\theta\,d\phi^2).
+\]
+- Metric:
+\[
+g_{\mu\nu} =
+\begin{pmatrix}
+ -\Bigl(1-\dfrac{2GM}{r}\Bigr) & 0 & 0 & 0\\
+ 0 & \Bigl(1-\dfrac{2GM}{r}\Bigr)^{-1} & 0 & 0\\
+ 0 & 0 & r^2 & 0\\
+ 0 & 0 & 0 & r^2\sin^2\theta
+\end{pmatrix}.
+\]
+\textbf{Key properties:}
+Static? yes; Stationary? yes; Spherically symmetric? yes; Asymptotically flat? yes ($g_{\mu\nu}\to\eta_{\mu\nu}$ as $r\to\infty$); Horizons / singularities: event horizon at $r=2GM$; curvature singularity at $r=0$.
+
+% ------------------------------------------------
+\textbf{Weak-field Schwarzschild (Newtonian limit):}\\
+\textit{Motivation: Expansion of Schwarzschild for $GM/r\ll1$; used to connect $g_{tt}$ to Newtonian potential $\Phi_N=-GM/r$ and to derive geodesic equation $\Rightarrow$ Newtonian gravity.}
+
+For $GM/r\ll1$:\\
+- Coordinates: $(t,x,y,z)$\\
+- Line element:
+\[
+ds^2 \approx -\Bigl(1-\frac{2GM}{r}\Bigr)dt^2
++ \Bigl(1+\frac{2GM}{r}\Bigr)(dx^2+dy^2+dz^2)
+\]
+where $r=\sqrt{x^2+y^2+z^2}$.
+
+- Metric:
+\[
+g_{\mu\nu} \approx
+\begin{pmatrix}
+ -\Bigl(1-\dfrac{2GM}{r}\Bigr) & 0 & 0 & 0\\
+ 0 & 1+\dfrac{2GM}{r} & 0 & 0\\
+ 0 & 0 & 1+\dfrac{2GM}{r} & 0\\
+ 0 & 0 & 0 & 1+\dfrac{2GM}{r}
+\end{pmatrix}.
+\]
+\textbf{Key properties (within the approximation):}
+Static? yes (to this order); Stationary? yes; Spherically symmetric? yes; Asymptotically flat? yes; Horizons: not captured in this expansion (valid only for $r\gg 2GM$).
+
+% ------------------------------------------------
+\textbf{Static star interior (Oppenheimer--Volkoff metric):}\\
+\textit{Motivation:} Einstein + perfect-fluid equations $\Rightarrow$ Oppenheimer–Volkoff equation.
+
+Coordinates $(t,r,\theta,\phi)$, functions $A(r)$, $B(r)$:\\
+- Line element:
+\[
+ds^2 = -A(r)\,dt^2 + B(r)\,dr^2 + r^2(d\theta^2 + \sin^2\theta\,d\phi^2).
+\]
+- Metric:
+\[
+g_{\mu\nu} =
+\begin{pmatrix}
+ -A(r) & 0 & 0 & 0\\
+ 0 & B(r) & 0 & 0\\
+ 0 & 0 & r^2 & 0\\
+ 0 & 0 & 0 & r^2\sin^2\theta
+\end{pmatrix}.
+\]
+\textbf{Key properties:}
+Static? yes (fluid at rest in these coordinates); Stationary? yes; Spherically symmetric? yes; Asymptotically flat? matched to exterior Schwarzschild at $r=R$ (stellar surface); Horizons: interior region typically has no horizon; the exterior Schwarzschild horizon location depends on total mass $M$.
+
+% ------------------------------------------------
+\textbf{Schwarzschild in ingoing Eddington–Finkelstein coords}\\
+\textit{Motivation: Coordinate transformation designed so that radially ingoing null geodesics are straight lines and the metric is regular at $r=2GM$ (HW 7, problem 3).}
+
+Coordinate transform:
+\[
+\bar{t} = t + 2GM\ln(r - 2GM).
+\]
+- Coordinates: $(\bar t,r,\theta,\phi)$\\
+- Line element:
+\[
+ds^2 = -\Bigl(1-\frac{2GM}{r}\Bigr)d\bar{t}^{\,2}
+ + \frac{4GM}{r}\,d\bar{t}\,dr
+ + \Bigl(1+\frac{2GM}{r}\Bigr)dr^2
+ + r^2 d\Omega^2.
+\]
+- Metric (ordering $(\bar t,r,\theta,\phi)$):
+\[
+g_{\mu\nu} =
+\begin{pmatrix}
+ -\Bigl(1-\dfrac{2GM}{r}\Bigr) & \dfrac{2GM}{r} & 0 & 0\\
+ \dfrac{2GM}{r} & 1+\dfrac{2GM}{r} & 0 & 0\\
+ 0 & 0 & r^2 & 0\\
+ 0 & 0 & 0 & r^2\sin^2\theta
+\end{pmatrix}.
+\]
+\textbf{Key properties:}
+Static? no ($g_{\bar t r}\neq0$); Stationary? yes (metric components independent of $\bar t$); Spherically symmetric? yes; Asymptotically flat? yes; Horizons: event horizon at $r=2GM$; metric is regular there in these coordinates. Ingoing radial null geodesics are straight $45^\circ$ lines in $(\bar t,r)$.
+
+% ------------------------------------------------
+\textbf{Kruskal--Szekeres (extended Schwarzschild, $(v,u,\theta,\phi)$):}\\
+\textit{Motivation: Maximal analytic extension of Schwarzschild that removes the coordinate singularity at $r=2GM$ and displays full causal structure (two exteriors, black hole, white hole).}\\
+- Coordinates: $(v,u,\theta,\phi)$\\
+- Line element:
+\[
+ds^2
+= -\frac{32(GM)^3}{r}e^{-r/2GM}(dv^2-du^2)
++ r^2(d\theta^2+\sin^2\theta\,d\phi^2),
+\]
+with $r=r(u,v)$ determined implicitly by
+\[
+u^2-v^2=\Bigl(\frac{r}{2GM}-1\Bigr)e^{r/2GM}.
+\]
+- Metric (ordering $(v,u,\theta,\phi)$):
+\[
+g_{\mu\nu} =
+\begin{pmatrix}
+-\dfrac{32(GM)^3}{r}e^{-r/2GM} & 0 & 0 & 0\\
+0 & \dfrac{32(GM)^3}{r}e^{-r/2GM} & 0 & 0\\
+0 & 0 & r^2 & 0\\
+0 & 0 & 0 & r^2\sin^2\theta
+\end{pmatrix}.
+\]
+\textbf{Key properties:}
+Static in $(v,u)$? not globally (timelike Killing vector changes character across regions); Stationary? only in individual exterior regions; Spherically symmetric? yes; Asymptotically flat? yes in each exterior region; Horizons: event horizons are the null lines $u=\pm v$; $r=2GM$ is nonsingular in these coordinates.
+
+% ------------------------------------------------
+\begin{center}\textbf{\large Rotating metrics}\end{center}
+
+% ------------------------------------------------
+\textbf{Weak-field rotating sphere (slow rotation, $(t,R,\theta,\phi)$):}\\
+\textit{Motivation: Linearized solution for a slowly rotating mass with angular momentum $J=Ma$; used to describe frame dragging / gravitomagnetism (Ch.~36).}\\
+- Coordinates: $(t,R,\theta,\phi)$\\
+- Define:(keep only first order) $$F_- \equiv 1-\dfrac{2GM}{R}, \quad F_+ \equiv 1+\dfrac{2GM}{R}$$
+- Line element (first order in $GM/R$ and spin $a=S/M$):
+\[
+\begin{aligned}
+ds^2
+&= -F_-\,dt^2
++ F_+\bigl(dR^2+R^2 d\theta^2+R^2\sin^2\theta\,d\phi^2\bigr)\\
+&\quad - \frac{4GMa}{R}\sin^2\theta\,dt\,d\phi.
+\end{aligned}
+\]
+ 
+- Metric:
+\[
+g_{\mu\nu} =
+\begin{pmatrix}
+ -F_- & 0 & 0 & -2GMa\,\dfrac{\sin^2\theta}{R}\\
+ 0 & F_+ & 0 & 0\\
+ 0 & 0 & F_+ R^2 & 0\\
+ -2GMa\,\dfrac{\sin^2\theta}{R} & 0 & 0 & F_+ R^2\sin^2\theta
+\end{pmatrix}.
+\]
+\textbf{Key properties (to linear order):} Static? no ($g_{t\phi}\neq0$); Stationary? yes; Spherically symmetric? no (only axisymmetric about rotation axis); Asymptotically flat? yes; Horizons: none in this weak-field approximation; describes the far field of a rotating body.
+
+% ------------------------------------------------
+\textbf{Kerr metric (rotating BH, Boyer--Lindquist $(t,r,\theta,\phi)$):}\\
+\textit{Motivation: Exact, stationary, axisymmetric vacuum solution representing a rotating black hole of mass $M$ and specific angular momentum $a$.}\\
+- Define
+\[
+\Sigma = r^2 + a^2\cos^2\theta,
+\qquad
+\Delta = r^2 - 2GMr + a^2.
+\]
+- Line element:
+\[
+\begin{aligned}
+ds^2 &=
+-\Bigl(1-\frac{2GMr}{\Sigma}\Bigr)dt^2
++ \frac{\Sigma}{\Delta}dr^2
++ \Sigma\,d\theta^2 \\
+&\quad
++ \Bigl(r^2+a^2+\frac{2GMr\,a^2\sin^2\theta}{\Sigma}\Bigr)
+  \sin^2\theta\,d\phi^2
+- \frac{4GMr a\sin^2\theta}{\Sigma}\,dt\,d\phi.
+\end{aligned}
+\]
+- Metric:
+\[
+g_{\mu\nu} =
+\begin{pmatrix}
+ -\Bigl(1-\dfrac{2GMr}{\Sigma}\Bigr) & 0 & 0 & -\dfrac{2GMr a\sin^2\theta}{\Sigma}\\
+ 0 & \dfrac{\Sigma}{\Delta} & 0 & 0\\
+ 0 & 0 & \Sigma & 0\\
+ -\dfrac{2GMr a\sin^2\theta}{\Sigma} & 0 & 0 &
+  \Bigl(r^2+a^2+\dfrac{2GMr\,a^2\sin^2\theta}{\Sigma}\Bigr)\sin^2\theta
+\end{pmatrix}.
+\]
+\textbf{Key properties:} Static? no ($g_{t\phi}\neq0$; no hypersurface-orthogonal timelike Killing vector); Stationary? yes; Spherically symmetric? no (axisymmetric); Asymptotically flat? yes; Horizons: $\Delta=0$ gives $r_\pm = GM\pm\sqrt{(GM)^2-a^2}$ (outer horizon $r_+$, inner horizon $r_-$); ergosphere where $g_{tt}=0$.
+
+\bigskip
+\begin{center}\textbf{\large Cosmological and wormhole metrics}\end{center}
+
+% ------------------------------------------------
+\textbf{FRW metric $(t,r,\theta,\phi)$ (homogeneous, isotropic):}\\
+\textit{Motivation: Assumes spatial slices are homogeneous and isotropic with scale factor $a(t)$ and constant spatial curvature $k=+1,0,-1$ (cosmological principle; HW 3).}\\
+- Coordinates: $(t,r,\theta,\phi)$\\
+- Line element:
+\[
+ds^2=-dt^2+a(t)^2\left[\frac{dr^2}{1-kr^2}+r^2\left(d\theta^2+\sin^2\theta\,d\phi^2\right)\right].
+\]
+- Metric:
+\[
+g_{\mu\nu} =
+\begin{pmatrix}
+ -1 & 0 & 0 & 0\\
+ 0 & \dfrac{a(t)^2}{1-kr^2} & 0 & 0\\
+ 0 & 0 & a(t)^2 r^2 & 0\\
+ 0 & 0 & 0 & a(t)^2 r^2 \sin^2\theta
+\end{pmatrix}.
+\]
+\textbf{Key properties:} Static? no (explicit $t$ dependence in $a(t)$); Stationary? no (no timelike Killing vector in general); Spherically symmetric about any comoving point? yes (spatial homogeneity and isotropy); Asymptotically flat? generally no (spatial curvature and expansion dominate); Horizons: cosmological particle/event horizons may exist depending on $a(t)$.
+
+% ------------------------------------------------
+\textbf{Morris--Thorne wormhole (HW 6):}\\
+\textit{Motivation: Spherically symmetric, static wormhole ansatz with throat radius $b$ (Morris–Thorne / Ellis wormhole); requires exotic matter violating energy conditions.}\\
+- Coordinates: $(t,r,\theta,\phi)$, constant $b$\\
+- Line element:
+\[
+ds^2 = -dt^2 + dr^2 + (b^2 + r^2)\left(d\theta^2 + \sin^2\theta\, d\phi^2\right).
+\]
+- Metric:
+\[
+g_{\mu\nu} =
+\begin{pmatrix}
+ -1 & 0 & 0 & 0\\
+ 0 & 1 & 0 & 0\\
+ 0 & 0 & b^2 + r^2 & 0\\
+ 0 & 0 & 0 & (b^2 + r^2)\sin^2\theta
+\end{pmatrix}.
+\]
+\textbf{Key properties:} Static? yes; Stationary? yes; Spherically symmetric? yes; Asymptotically flat? yes on both ends ($b^2+r^2\sim r^2$ as $r\to\pm\infty$); Horizons: none (traversable wormhole; no $g_{tt}$ zero crossing); Matter content: violates weak/dominant energy conditions.
+
+At $r=0$ the area radius is $b$ (wormhole throat); 
+asymptotically $b^2+r^2\simeq r^2$ gives two flat 
+regions joined at the throat.
+
+\end{multicols*}
+\end{document}
+
