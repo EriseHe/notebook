@@ -7,7 +7,7 @@ page-layout: article
 - [理论](理论/index.md)
 - [计算](计算/index.md)
 
-> 所有子页面都会自动出现在侧边导航中。
+> 进入具体主题后，请使用左侧导航浏览该主题的全部内容。
 
 
 # ChatGPT Prompt for Lecture Notes Compilation
