@@ -5,6 +5,7 @@ project:
   - public/**
   output-dir: docs
   pre-render:
+  - node scripts/generate-notes-sidebars.js
   - node scripts/fix-empty-titles.js
   render:
   - index.md
@@ -31,13 +32,68 @@ website:
     location: navbar
     type: textbox
   sidebar:
+  # AUTO-GENERATED NOTES SIDEBAR START
   - id: notes
+    style: docked
+    search: true
+    contents:
+    - auto: "content/notes/理论/*/index.md"
+    - auto: "content/notes/计算/*/index.md"
+  - id: notes-uc9f329e6-udd514d50
     style: docked
     search: true
     collapse-level: 2
     contents:
-    - auto: content/notes/理论/**/*.md
-    - auto: content/notes/计算/**/*.md
+    - auto: content/notes/理论/概率机器学习/**/*.md
+  - id: notes-uc9f329e6-u46c09b88
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - auto: content/notes/理论/广义相对论/**/*.md
+  - id: notes-uc9f329e6-u891850f8
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - auto: content/notes/理论/偏微分方程/**/*.md
+  - id: notes-uc9f329e6-uebb28be0
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - auto: content/notes/理论/实分析/**/*.md
+  - id: notes-uc9f329e6-u3f81468c
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - auto: content/notes/理论/拓扑学笔记/**/*.md
+  - id: notes-uc9f329e6-u2946ef54
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - auto: content/notes/理论/微分几何笔记/**/*.md
+  - id: notes-uc9f329e6-julia
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - auto: content/notes/理论/Julia科学计算笔记/**/*.md
+  - id: notes-ueb019720-uc0e2e384
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - auto: content/notes/计算/量子力学讲义/**/*.md
+  - id: notes-ueb019720-research
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - auto: content/notes/计算/Research/**/*.md
+  # AUTO-GENERATED NOTES SIDEBAR END
   - id: posts
     style: docked
     search: true
