@@ -1,10 +1,10 @@
 ---
-title: "Introduction"
+title: ""
 page-layout: full
 sidebar: notes
 ---
 
-# <div class="page-brand">Erise Note</div>
+<div class="page-brand">Erise Note</div>
 
 这个网页笔记完全是我为己所用的【**私人笔记**】。我将其发布的目的并不是为了展示笔记，而是出于一种“网页版”费曼学习法的目的，在想象所有人都是自己是听众的情况下进行知识传授，从而来结构化我的数学和物理知识体系。当然，在这种刻意的展示（presentation）中，若是有人能有所受益，那更是再好不过了，所以我便理所当然地将他们发布出来。
 
@@ -16,29 +16,26 @@ sidebar: notes
 You always know where to go when nobody is nowhere.
 ```
 
-### Build Commands
+### README
 
-**To preview the site locally** (auto-reloads on file changes):
+**这个网站是什么**
 
-```bash
-cd /Users/erisehe/Documents/GitHub/notebook
-quarto preview --port 4200
-```
+- 一份持续更新的数学与物理学习笔记集合。
+- 目标是“讲给未来的自己听”，用清晰的叙述来组织知识结构。
+- 内容可能含有不够严谨的证明或个人化的写法，请带着批判性阅读。
 
-Then open http://localhost:4200 in your browser.
+**如何浏览**
 
-**To build the site** (generates static files in `docs/`):
+- 顶部导航：Notes / Research / Posts。
+- 左侧导航：进入某个主题后，只显示该主题内的页面。
+- 想快速找内容，可使用顶部搜索框。
 
-```bash
-cd /Users/erisehe/Documents/GitHub/notebook
-quarto render
-```
+**内容组织**
 
-**To fix any empty title fields** (run before building if needed):
+- Notes：长期更新的系统笔记。
+- Research：研究相关的资料、记录与片段。
+- Posts：相对独立的短文或想法。
 
-```bash
-cd /Users/erisehe/Documents/GitHub/notebook
-node scripts/fix-empty-titles.js
-```
+**免责声明**
 
-**Note:** If you encounter build errors, first check for empty `title:` fields in markdown frontmatter and run the fix script above.
+这些笔记主要服务于个人学习，错误与疏漏在所难免；如有参考价值，亦属幸运。
