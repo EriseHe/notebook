@@ -12,6 +12,7 @@ project:
   - content/notes/理论/**/*.md
   - content/notes/计算/**/*.md
   - content/posts/**/*.md
+  - content/Research/**/*.md
   - '!**/_index.md'
   - '!**/*.ipynb'
   - '!**/*.html'
@@ -22,6 +23,8 @@ website:
     left:
     - text: Notes
       href: content/notes/index.md
+    - text: Research
+      href: content/Research/index.md
     - text: Posts
       href: content/posts/index.md
     right:
@@ -94,6 +97,12 @@ website:
     contents:
     - auto: content/notes/计算/Research/**/*.md
   # AUTO-GENERATED NOTES SIDEBAR END
+  - id: research
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - auto: content/Research/**/*.md
   - id: posts
     style: docked
     search: true
