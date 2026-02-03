@@ -283,6 +283,12 @@ body.callout-zoom-active {
   background: rgba(15, 18, 24, 0.35);
   backdrop-filter: blur(2px);
   z-index: 1100;
+  opacity: 0;
+  transition: opacity 0.22s linear;
+}
+
+.callout-zoom-backdrop.is-visible {
+  opacity: 1;
 }
 
 .callout.callout-zoomed,
@@ -296,6 +302,20 @@ body.callout-zoom-active {
   cursor: zoom-out;
   transition: transform 0.22s linear, box-shadow 0.22s linear;
   will-change: transform;
+}
+
+.callout.callout-zoom-closing,
+.math-theorem.callout-zoom-closing {
+  pointer-events: none;
+}
+
+.callout.callout-zoom-closing:hover {
+  transform: none !important;
+}
+
+.math-theorem.callout-zoom-closing:hover {
+  transform: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
 }
 
 .callout.callout-zoomed:hover,

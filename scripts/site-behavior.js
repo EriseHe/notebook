@@ -194,17 +194,33 @@
       if (!active) return;
       openToken += 1;
       const target = active;
+      target.classList.add('callout-zoom-closing');
       target.classList.remove('callout-zoomed');
+      backdrop.classList.remove('is-visible');
 
       const cleanup = () => {
+        target.classList.remove('callout-zoom-closing');
         active = null;
         backdrop.remove();
         document.body.classList.remove('callout-zoom-active');
       };
 
-      target.addEventListener('transitionend', cleanup, { once: true });
+      let pending = 0;
+      const done = () => {
+        pending -= 1;
+        if (pending <= 0) cleanup();
+      };
+
+      pending += 1;
+      target.addEventListener('transitionend', done, { once: true });
+
+      if (backdrop.isConnected) {
+        pending += 1;
+        backdrop.addEventListener('transitionend', done, { once: true });
+      }
+
       clearTimeout(resetTimeout);
-      resetTimeout = setTimeout(cleanup, 300);
+      resetTimeout = setTimeout(cleanup, 450);
     };
 
     const openZoom = (callout) => {
@@ -233,9 +249,11 @@
           performance.now() - start >= MAX_WAIT_MS;
         if (done) {
           active = callout;
+          active.classList.remove('callout-zoom-closing');
           active.classList.add('callout-zoomed');
           document.body.classList.add('callout-zoom-active');
-          document.body.appendChild(backdrop);
+          if (!backdrop.isConnected) document.body.appendChild(backdrop);
+          requestAnimationFrame(() => backdrop.classList.add('is-visible'));
           return;
         }
         requestAnimationFrame(waitUntilCentered);
