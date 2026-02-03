@@ -187,7 +187,7 @@
       active.classList.add('callout-zoomed');
       document.body.classList.add('callout-zoom-active');
       document.body.appendChild(backdrop);
-    });
+    }, true);
 
     document.addEventListener('click', (evt) => {
       if (active && !active.contains(evt.target)) clearZoom();
