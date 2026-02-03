@@ -266,12 +266,72 @@
     document.documentElement.style.setProperty('--scroll-offset', `${offset}px`);
   }
 
+  function setupTocSpy() {
+    const toc = document.querySelector('#TOC');
+    if (!toc) return;
+
+    const links = Array.from(toc.querySelectorAll('a[data-scroll-target]'));
+    if (!links.length) return;
+
+    const targets = links.map((link) => {
+      const target = link.getAttribute('data-scroll-target');
+      if (!target) return null;
+      if (target.startsWith('#')) {
+        return document.getElementById(decodeURI(target.slice(1)));
+      }
+      return document.querySelector(decodeURI(target));
+    });
+
+    let rafId = null;
+    const update = () => {
+      rafId = null;
+
+      const offsetRaw = getComputedStyle(document.documentElement)
+        .getPropertyValue('--scroll-offset')
+        .trim();
+      const offset = Number.parseFloat(offsetRaw) || 0;
+      const threshold = offset + 1;
+
+      let activeIdx = 0;
+
+      // If we are at (or very near) the bottom, force the last item active.
+      if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2) {
+        activeIdx = links.length - 1;
+      } else {
+        for (let i = 0; i < targets.length; i++) {
+          const el = targets[i];
+          if (!el) continue;
+          const top = el.getBoundingClientRect().top;
+          if (top - threshold <= 0) activeIdx = i;
+          else break; // headings are ordered; we can stop once one is below threshold
+        }
+      }
+
+      for (let i = 0; i < links.length; i++) {
+        links[i].classList.toggle('active', i === activeIdx);
+      }
+    };
+
+    const scheduleUpdate = () => {
+      if (rafId != null) return;
+      rafId = requestAnimationFrame(update);
+    };
+
+    // Initial sync (after layout settles)
+    requestAnimationFrame(scheduleUpdate);
+    setTimeout(scheduleUpdate, 0);
+
+    document.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+  }
+
   function init() {
     const state = loadState();
     disableHeadroom();
     syncScrollOffsets();
     syncSections(state);
     registerHandlers(state);
+    setupTocSpy();
     sortSidebarLists();
     setupSidebarAutoHide();
     setupCalloutZoom();
