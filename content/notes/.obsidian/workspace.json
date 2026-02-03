@@ -43,7 +43,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/index.md",
+                "file": "理论/PDEs/MATH 352 PDE in Action/index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -215,8 +215,9 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "829f54a31a6b8d4d",
+  "active": "291ebdea15b414f2",
   "lastOpenFiles": [
+    "理论/PDEs/index.md",
     "理论/PDEs/数值PDEs分析/1. Introduction.md",
     "理论/PDEs/经典二阶PDEs",
     "Prompts.md",
