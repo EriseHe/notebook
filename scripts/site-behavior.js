@@ -104,6 +104,12 @@
   }
 
   function sortSidebarLists() {
+    const collator = new Intl.Collator(['zh-CN', 'en'], {
+      numeric: true,
+      sensitivity: 'base',
+      ignorePunctuation: true,
+    });
+
     const lists = document.querySelectorAll('#quarto-sidebar ul.sidebar-section');
     lists.forEach(list => {
       const children = Array.from(list.children);
@@ -116,26 +122,13 @@
 
       const getText = (item) => {
         const link = item.querySelector('.sidebar-item-text');
-        return link ? link.textContent.trim() : '';
-      };
-
-      const getNumber = (text) => {
-        const match = text.match(/(\d+)/);
-        return match ? Number.parseInt(match[1], 10) : null;
+        return link ? link.textContent.replace(/\s+/g, ' ').trim() : '';
       };
 
       const sorted = items.slice().sort((a, b) => {
         const aText = getText(a);
         const bText = getText(b);
-        const aNum = getNumber(aText);
-        const bNum = getNumber(bText);
-
-        if (aNum !== null && bNum !== null && aNum !== bNum) {
-          return aNum - bNum;
-        }
-        if (aNum !== null && bNum === null) return -1;
-        if (aNum === null && bNum !== null) return 1;
-        return aText.localeCompare(bText, 'zh-CN', { numeric: true, sensitivity: 'base' });
+        return collator.compare(aText, bText);
       });
 
       const changed = sorted.some((item, idx) => item !== items[idx]);
