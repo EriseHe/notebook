@@ -131,15 +131,6 @@ main.content {
 
 #quarto-sidebar .sidebar-menu-container { padding-right: 0.5rem; }
 #quarto-sidebar .sidebar-section { margin-bottom: 0.6rem; }
-/* Collapsed by default: hide all nested sections unless explicitly opened by user click */
-#quarto-sidebar .collapse {
-  display: none !important;
-}
-
-#quarto-sidebar .collapse.show {
-  display: block !important;
-}
-
 /* Hide toggle icons - make folder names clickable to expand */
 #quarto-sidebar .sidebar-item-toggle { display: none !important; }
 
