@@ -188,9 +188,11 @@
 
     let active = null;
     let resetTimeout = null;
+    let openToken = 0;
 
     const clearZoom = () => {
       if (!active) return;
+      openToken += 1;
       const target = active;
       target.classList.remove('callout-zoomed');
 
@@ -203,6 +205,43 @@
       target.addEventListener('transitionend', cleanup, { once: true });
       clearTimeout(resetTimeout);
       resetTimeout = setTimeout(cleanup, 300);
+    };
+
+    const openZoom = (callout) => {
+      const token = ++openToken;
+
+      // Scroll first (while page is still scrollable), then zoom.
+      const rect = callout.getBoundingClientRect();
+      const desiredTop =
+        window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2;
+
+      window.scrollTo({
+        top: Math.max(0, desiredTop),
+        behavior: 'smooth',
+      });
+
+      const start = performance.now();
+      const MAX_WAIT_MS = 800;
+      const CENTER_EPS_PX = 8;
+
+      const waitUntilCentered = () => {
+        if (token !== openToken) return;
+        const r = callout.getBoundingClientRect();
+        const dy = r.top + r.height / 2 - window.innerHeight / 2;
+        const done =
+          Math.abs(dy) <= CENTER_EPS_PX ||
+          performance.now() - start >= MAX_WAIT_MS;
+        if (done) {
+          active = callout;
+          active.classList.add('callout-zoomed');
+          document.body.classList.add('callout-zoom-active');
+          document.body.appendChild(backdrop);
+          return;
+        }
+        requestAnimationFrame(waitUntilCentered);
+      };
+
+      requestAnimationFrame(waitUntilCentered);
     };
 
     backdrop.addEventListener('click', clearZoom);
@@ -225,10 +264,7 @@
 
       if (active && active !== callout) clearZoom();
 
-      active = callout;
-      active.classList.add('callout-zoomed');
-      document.body.classList.add('callout-zoom-active');
-      document.body.appendChild(backdrop);
+      openZoom(callout);
     }, true);
 
     document.addEventListener('click', (evt) => {
