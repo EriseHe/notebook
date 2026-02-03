@@ -187,27 +187,54 @@
     backdrop.className = 'callout-zoom-backdrop';
 
     let active = null;
+    let placeholder = null;
     let resetTimeout = null;
+
+    const createPlaceholder = (target, rect) => {
+      const ph = document.createElement('div');
+      ph.className = 'callout-zoom-placeholder';
+      const style = window.getComputedStyle(target);
+      ph.style.height = `${rect.height}px`;
+      ph.style.marginTop = style.marginTop;
+      ph.style.marginBottom = style.marginBottom;
+      ph.style.marginLeft = style.marginLeft;
+      ph.style.marginRight = style.marginRight;
+      target.parentNode?.insertBefore(ph, target);
+      return ph;
+    };
 
     const clearZoom = () => {
       if (!active) return;
       const target = active;
-      const dx = Number.parseFloat(target.dataset.zoomX || '0');
-      const dy = Number.parseFloat(target.dataset.zoomY || '0');
-
-      target.style.setProperty('--zoom-x', `${dx}px`);
-      target.style.setProperty('--zoom-y', `${dy}px`);
-      target.style.setProperty('--zoom-scale', '1');
+      const rect = target.getBoundingClientRect();
+      const origin = target.dataset.zoomOrigin ? JSON.parse(target.dataset.zoomOrigin) : null;
+      if (origin) {
+        target.style.top = `${origin.top}px`;
+        target.style.left = `${origin.left}px`;
+        target.style.width = `${origin.width}px`;
+        target.style.height = `${origin.height}px`;
+        target.style.transform = 'translate(0, 0) scale(1)';
+      } else {
+        target.style.top = `${rect.top}px`;
+        target.style.left = `${rect.left}px`;
+        target.style.width = `${rect.width}px`;
+        target.style.height = `${rect.height}px`;
+        target.style.transform = 'translate(0, 0) scale(1)';
+      }
 
       const cleanup = () => {
         target.classList.remove('callout-zoomed');
-        target.style.removeProperty('--zoom-x');
-        target.style.removeProperty('--zoom-y');
-        target.style.removeProperty('--zoom-scale');
-        target.style.removeProperty('--zoom-width');
-        delete target.dataset.zoomX;
-        delete target.dataset.zoomY;
+        target.style.removeProperty('top');
+        target.style.removeProperty('left');
+        target.style.removeProperty('width');
+        target.style.removeProperty('height');
+        target.style.removeProperty('transform');
+        delete target.dataset.zoomOrigin;
         active = null;
+        if (placeholder) {
+          placeholder.remove();
+          placeholder = null;
+        }
         backdrop.remove();
         document.body.classList.remove('callout-zoom-active');
       };
@@ -237,20 +264,20 @@
       }
 
       const rect = callout.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const viewportX = window.innerWidth / 2;
-      const viewportY = window.innerHeight / 2;
-      const dx = centerX - viewportX;
-      const dy = centerY - viewportY;
-
       active = callout;
-      active.dataset.zoomX = String(dx);
-      active.dataset.zoomY = String(dy);
-      active.style.setProperty('--zoom-x', `${dx}px`);
-      active.style.setProperty('--zoom-y', `${dy}px`);
-      active.style.setProperty('--zoom-scale', '1');
-      active.style.setProperty('--zoom-width', `${rect.width}px`);
+      active.dataset.zoomOrigin = JSON.stringify({
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height,
+      });
+
+      placeholder = createPlaceholder(active, rect);
+      active.style.top = `${rect.top}px`;
+      active.style.left = `${rect.left}px`;
+      active.style.width = `${rect.width}px`;
+      active.style.height = `${rect.height}px`;
+      active.style.transform = 'translate(0, 0) scale(1)';
 
       active.classList.add('callout-zoomed');
       document.body.classList.add('callout-zoom-active');
@@ -258,9 +285,9 @@
 
       requestAnimationFrame(() => {
         if (!active) return;
-        active.style.setProperty('--zoom-x', '0px');
-        active.style.setProperty('--zoom-y', '0px');
-        active.style.setProperty('--zoom-scale', '1.5');
+        active.style.top = '50%';
+        active.style.left = '50%';
+        active.style.transform = 'translate(-50%, -50%) scale(1.5)';
       });
     }, true);
 
