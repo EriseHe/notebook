@@ -203,6 +203,8 @@
         // otherwise the background/shadow can "flash" at the start of zoom-out.
         target.classList.remove('callout-zoomed');
         target.classList.remove('callout-zoom-closing');
+        target.classList.add('callout-zoom-cooldown');
+        setTimeout(() => target.classList.remove('callout-zoom-cooldown'), 200);
 
         backdrop.classList.remove('is-visible');
 
