@@ -63,46 +63,6 @@
     });
   }
 
-  function setupToggleClicks() {
-    const toggles = document.querySelectorAll('#quarto-sidebar .sidebar-item-section .sidebar-item-toggle');
-    toggles.forEach(toggle => {
-      toggle.addEventListener('click', evt => {
-        evt.preventDefault();
-        const targetId = toggle.getAttribute('data-bs-target');
-        if (!targetId) return;
-        const collapse = document.querySelector(targetId);
-        if (!collapse) return;
-
-        const shouldShow = !collapse.classList.contains('show');
-        collapse.classList.toggle('show', shouldShow);
-        toggle.classList.toggle('collapsed', !shouldShow);
-        toggle.setAttribute('aria-expanded', shouldShow ? 'true' : 'false');
-
-        collapse.dispatchEvent(new Event(shouldShow ? 'shown.bs.collapse' : 'hidden.bs.collapse', { bubbles: true }));
-      });
-    });
-  }
-
-  function setupSectionLinks() {
-    const links = document.querySelectorAll('#quarto-sidebar .sidebar-item-section > .sidebar-item-container > .sidebar-item-text.sidebar-link');
-    links.forEach(link => {
-      link.addEventListener('click', evt => {
-        const section = link.closest('.sidebar-item-section');
-        if (!section) return;
-        const toggle = section.querySelector('.sidebar-item-toggle');
-        if (!toggle) return;
-        const targetId = toggle.getAttribute('data-bs-target');
-        const collapse = document.querySelector(targetId);
-        if (!collapse) return;
-
-        if (!collapse.classList.contains('show')) {
-          evt.preventDefault();
-          toggle.click();
-        }
-      });
-    });
-  }
-
   function sortSidebarLists() {
     const collator = new Intl.Collator(['zh-CN', 'en'], {
       numeric: true,
@@ -312,8 +272,6 @@
     syncScrollOffsets();
     syncSections(state);
     registerHandlers(state);
-    setupToggleClicks();
-    setupSectionLinks();
     sortSidebarLists();
     setupSidebarAutoHide();
     setupCalloutZoom();
