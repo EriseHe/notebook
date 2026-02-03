@@ -311,6 +311,18 @@ body.callout-zoom-active {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
 }
 
+.callout.callout-zoom-cooldown,
+.math-theorem.callout-zoom-cooldown {
+  /* After zoom-out, prevent immediate hover lift/shadow from "flashing" */
+  transition: none !important;
+}
+
+.callout.callout-zoom-cooldown:hover,
+.math-theorem.callout-zoom-cooldown:hover {
+  transform: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
 .callout.callout-zoomed:hover,
 .math-theorem.callout-zoomed:hover {
   transform: scale(var(--callout-zoom-scale, 1.45)) !important;
