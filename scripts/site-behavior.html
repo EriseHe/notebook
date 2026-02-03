@@ -1,1 +1,9 @@
-<script src="scripts/site-behavior.js"></script>
+<script>
+  (function () {
+    const offset = document.querySelector('meta[name="quarto:offset"]')?.getAttribute('content') || '';
+    const script = document.createElement('script');
+    script.src = `${offset}scripts/site-behavior.js`;
+    script.defer = true;
+    document.body.appendChild(script);
+  })();
+</script>
