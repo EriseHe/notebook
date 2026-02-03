@@ -9,6 +9,7 @@ project:
   - node scripts/fix-empty-titles.js
   render:
   - index.md
+  - content/notes/index.md
   - content/notes/理论/**/*.md
   - content/notes/计算/**/*.md
   - content/posts/**/*.md
