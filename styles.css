@@ -8,6 +8,10 @@
   --sidebar-border: #e0e0e5;
   --body-font: "SF Pro", "PingFang SC", "Noto Serif", serif;
   --heading-font: "SF Pro", "PingFang SC", "Noto Serif", serif;
+  --bs-body-font-family: var(--body-font);
+  --bs-heading-font-family: var(--body-font);
+  --bs-font-sans-serif: var(--body-font);
+  --bs-font-serif: var(--body-font);
   --code-font: "JetBrains Mono", "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   scroll-behavior: smooth;
 }
@@ -39,6 +43,12 @@ html {
   letter-spacing: 0.02em;
 }
 
+#quarto-content h1,
+#quarto-content h2,
+#quarto-content h3,
+#quarto-content h4,
+#quarto-content h5,
+#quarto-content h6,
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--body-font) !important;
   color: #0d0d0f;
