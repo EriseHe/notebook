@@ -266,6 +266,19 @@
     document.documentElement.style.setProperty('--scroll-offset', `${offset}px`);
   }
 
+  function syncSidebarStickyTop() {
+    const sidebar = document.getElementById('quarto-sidebar');
+    if (!sidebar) return;
+
+    // Capture the "nice looking" initial gap and reuse it as the sticky top
+    // so the sidebar doesn't drift upward before sticking.
+    if (window.scrollY > 10) return;
+
+    const top = Math.round(sidebar.getBoundingClientRect().top);
+    if (!Number.isFinite(top) || top <= 0) return;
+    document.documentElement.style.setProperty('--sidebar-sticky-top', `${top}px`);
+  }
+
   function setupTocSpy() {
     const toc = document.querySelector('#TOC');
     if (!toc) return;
@@ -329,13 +342,17 @@
     const state = loadState();
     disableHeadroom();
     syncScrollOffsets();
+    syncSidebarStickyTop();
     syncSections(state);
     registerHandlers(state);
     setupTocSpy();
     sortSidebarLists();
     setupSidebarAutoHide();
     setupCalloutZoom();
-    window.addEventListener('resize', syncScrollOffsets);
+    window.addEventListener('resize', () => {
+      syncScrollOffsets();
+      syncSidebarStickyTop();
+    });
   }
 
   if (document.readyState === 'loading') {

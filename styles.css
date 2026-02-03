@@ -97,8 +97,8 @@ main.content {
   box-shadow: none !important;   /* Remove inset divider if theme uses it */
   font-size: 0.95rem;
   position: sticky;
-  top: 5rem;                         /* reduce default top margin by half */
-  max-height: calc(100vh - 140px);
+  top: var(--sidebar-sticky-top, 5rem); /* JS captures preferred top gap on load */
+  max-height: calc(100vh - var(--sidebar-sticky-top, 5rem) - 60px);
   overflow-y: auto;
   will-change: auto; /* Smooth scrolling performance */
 }
