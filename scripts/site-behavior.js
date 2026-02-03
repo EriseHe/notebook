@@ -148,6 +148,58 @@
     setTimeout(scheduleSidebarHide, 3000);
   }
 
+  function setupCalloutZoom() {
+    const callouts = Array.from(document.querySelectorAll('.callout'));
+    if (callouts.length === 0) return;
+
+    const backdrop = document.createElement('div');
+    backdrop.className = 'callout-zoom-backdrop';
+
+    let active = null;
+
+    const clearZoom = () => {
+      if (!active) return;
+      active.classList.remove('callout-zoomed');
+      active = null;
+      backdrop.remove();
+      document.body.classList.remove('callout-zoom-active');
+    };
+
+    backdrop.addEventListener('click', clearZoom);
+    document.addEventListener('keydown', (evt) => {
+      if (evt.key === 'Escape') clearZoom();
+    });
+
+    callouts.forEach((callout) => {
+      callout.addEventListener('dblclick', (evt) => {
+        evt.preventDefault();
+        evt.stopPropagation();
+
+        if (active && active !== callout) {
+          active.classList.remove('callout-zoomed');
+        }
+
+        if (active === callout) {
+          clearZoom();
+          return;
+        }
+
+        active = callout;
+        active.classList.add('callout-zoomed');
+        document.body.classList.add('callout-zoom-active');
+        document.body.appendChild(backdrop);
+      });
+
+      callout.addEventListener('click', (evt) => {
+        if (active) evt.stopPropagation();
+      });
+    });
+
+    document.addEventListener('click', (evt) => {
+      if (active && !active.contains(evt.target)) clearZoom();
+    });
+  }
+
   window.document.addEventListener('DOMContentLoaded', () => {
     const state = loadState();
     disableHeadroom();
@@ -156,5 +208,6 @@
     setupToggleClicks();
     setupSectionLinks();
     setupSidebarAutoHide();
+    setupCalloutZoom();
   });
 })();
