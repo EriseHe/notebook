@@ -799,6 +799,8 @@ img {
   --theorem-accent: #2563eb;
   --theorem-accent-rgb: 37, 99, 235;
   --theorem-border: rgba(37, 99, 235, 0.28);
+  border-radius: 0;
+  background: #e2e4e8 !important; /* slightly grayer than default callouts */
 }
 
 .math-theorem.theorem {
