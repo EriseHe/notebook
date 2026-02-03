@@ -5,7 +5,9 @@
   --content-max-width: 1360px;     /* main content width */
   --body-track-max: min(var(--content-max-width), var(--page-max-width));
   --page-bg: #fafafa;
-  --scroll-offset: 88px; /* JS updates this to match the fixed header height */
+  --scroll-offset: 72px; /* JS updates this to match the fixed header height */
+  /* Keep the docked sidebar gap fixed under the navbar (no "drifting up" on scroll). */
+  --sidebar-sticky-top: calc(var(--scroll-offset) + 40px);
   --sidebar-bg: #f5f5f7;
   --sidebar-border: #e0e0e5;
   --body-font: "SF Pro", "PingFang SC", "Noto Serif", serif;
@@ -98,8 +100,8 @@ main.content {
   font-size: 0.95rem;
   position: sticky;
   /* Quarto sets inline top/max-height on .sidebar via quarto-nav.js; override it */
-  top: var(--sidebar-sticky-top, 5rem) !important; /* JS captures preferred top gap on load */
-  max-height: calc(100vh - var(--sidebar-sticky-top, 5rem) - 60px) !important;
+  top: var(--sidebar-sticky-top) !important;
+  max-height: calc(100vh - var(--sidebar-sticky-top) - 60px) !important;
   overflow-y: auto;
   will-change: auto; /* Smooth scrolling performance */
 }
