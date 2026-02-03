@@ -5,6 +5,7 @@
   --content-max-width: 1360px;     /* main content width */
   --body-track-max: min(var(--content-max-width), var(--page-max-width));
   --page-bg: #fafafa;
+  --scroll-offset: 88px; /* JS updates this to match the fixed header height */
   --sidebar-bg: #f5f5f7;
   --sidebar-border: #e0e0e5;
   --body-font: "SF Pro", "PingFang SC", "Noto Serif", serif;
@@ -32,6 +33,7 @@ body {
 /* Smooth scroll behavior for all scrollable elements */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--scroll-offset);
 }
 
 .quarto-margin-sidebar, .sidebar {
@@ -53,6 +55,15 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font) !important;
   color: #0d0d0f;
+}
+
+#quarto-content h1,
+#quarto-content h2,
+#quarto-content h3,
+#quarto-content h4,
+#quarto-content h5,
+#quarto-content h6 {
+  scroll-margin-top: var(--scroll-offset);
 }
 
 /* ========================================

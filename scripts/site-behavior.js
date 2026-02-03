@@ -299,9 +299,17 @@
     });
   }
 
+  function syncScrollOffsets() {
+    const header = document.getElementById('quarto-header');
+    const height = header ? header.getBoundingClientRect().height : 56;
+    const offset = Math.max(56, Math.round(height + 16)); // header + breathing room
+    document.documentElement.style.setProperty('--scroll-offset', `${offset}px`);
+  }
+
   function init() {
     const state = loadState();
     disableHeadroom();
+    syncScrollOffsets();
     syncSections(state);
     registerHandlers(state);
     setupToggleClicks();
@@ -309,6 +317,7 @@
     sortSidebarLists();
     setupSidebarAutoHide();
     setupCalloutZoom();
+    window.addEventListener('resize', syncScrollOffsets);
   }
 
   if (document.readyState === 'loading') {
