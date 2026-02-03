@@ -6,8 +6,8 @@
   --body-track-max: min(var(--content-max-width), var(--page-max-width));
   --sidebar-bg: #f5f5f7;
   --sidebar-border: #e0e0e5;
-  --heading-font: "IBM Plex Serif", "Times New Roman", "PingFang SC", serif;
   --body-font: "SF Pro", "PingFang SC", "Noto Serif", serif;
+  --heading-font: "SF Pro", "PingFang SC", "Noto Serif", serif;
   --code-font: "JetBrains Mono", "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   scroll-behavior: smooth;
 }
@@ -34,13 +34,13 @@ html {
 }
 
 .quarto-title-block .title {
-  font-family: var(--heading-font);
+  font-family: var(--body-font) !important;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--heading-font);
+  font-family: var(--body-font) !important;
   color: #0d0d0f;
 }
 
@@ -62,35 +62,6 @@ main.content {
 main.content {
   border-left: none !important;
   box-shadow: none !important;
-}
-
-@media (max-width: 991px) {
-  main.content {
-    padding: 1.75rem 1.5rem;
-  }
-}
-
-/* Slightly widen body column on wide screens */
-@media (min-width: 1200px) {
-  .page-columns .content { padding-right: 2.25rem; }
-}
-
-/* Force Quarto grid to allocate a wider content track on desktop */
-@media (min-width: 992px) {
-  /* Left sidebar "docked" layout: increase body-content track max from ~1000px to our var */
-  body.docked .page-columns {
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(var(--body-track-max) - 3em)) [body-content-end] 1.5em [body-end] 50px [body-end-outset] minmax(50px, 100px) [page-end-inset] 50px [page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
-  }
-
-  /* Fullcontent variant */
-  body.docked.fullcontent .page-columns {
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(var(--body-track-max) - 3em)) [body-content-end body-end body-end-outset page-end-inset page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
-  }
-
-  /* Listing pages */
-  body.docked.listing .page-columns {
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(var(--body-track-max) - 3em)) [body-content-end] 1.5em [body-end] 50px [body-end-outset] minmax(0px, 200px) [page-end-inset] 50px [page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
-  }
 }
 
 /* ========================================
