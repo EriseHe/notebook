@@ -201,7 +201,8 @@ div.page-columns div.content,
 /* ========================================
    CALLOUT ZOOM (double-click to enlarge)
    ======================================== */
-.callout {
+.callout,
+.math-theorem {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -217,7 +218,8 @@ body.callout-zoom-active {
   z-index: 1100;
 }
 
-.callout.callout-zoomed {
+.callout.callout-zoomed,
+.math-theorem.callout-zoomed {
   position: fixed;
   top: 50%;
   left: 50%;

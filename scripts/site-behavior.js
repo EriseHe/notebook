@@ -149,7 +149,7 @@
   }
 
   function setupCalloutZoom() {
-    const callouts = Array.from(document.querySelectorAll('.callout'));
+    const callouts = Array.from(document.querySelectorAll('.math-theorem, .callout'));
     if (callouts.length === 0) return;
 
     const backdrop = document.createElement('div');
