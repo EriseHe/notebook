@@ -856,6 +856,29 @@ img {
   --theorem-border: rgba(8, 145, 178, 0.28);
 }
 
+/* Remark: quotation-like display (no card) */
+.math-theorem.remark {
+  background: transparent !important;
+  border: none;
+  border-left: 4px solid var(--theorem-accent);
+  border-radius: 0;
+  box-shadow: none;
+  margin: 2rem 0;
+}
+
+.math-theorem.remark:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.math-theorem.remark .theorem-header {
+  padding: 0.6rem 1rem 0.25rem 1.1rem;
+}
+
+.math-theorem.remark .theorem-content {
+  padding: 0 1rem 0.9rem 1.1rem;
+}
+
 .math-theorem.example {
   --theorem-accent: #059669;
   --theorem-accent-rgb: 5, 150, 105;
