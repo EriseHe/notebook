@@ -189,6 +189,7 @@
     let active = null;
     let placeholder = null;
     let resetTimeout = null;
+    let scrollLock = null;
 
     const createPlaceholder = (target, rect) => {
       const ph = document.createElement('div');
@@ -224,6 +225,7 @@
 
       const cleanup = () => {
         target.classList.remove('callout-zoomed');
+        target.classList.remove('callout-zoom-transition');
         target.style.removeProperty('top');
         target.style.removeProperty('left');
         target.style.removeProperty('width');
@@ -234,6 +236,13 @@
         if (placeholder) {
           placeholder.remove();
           placeholder = null;
+        }
+        if (scrollLock) {
+          document.body.style.removeProperty('position');
+          document.body.style.removeProperty('top');
+          document.body.style.removeProperty('width');
+          window.scrollTo(0, scrollLock);
+          scrollLock = null;
         }
         backdrop.remove();
         document.body.classList.remove('callout-zoom-active');
@@ -272,6 +281,11 @@
         height: rect.height,
       });
 
+      scrollLock = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollLock}px`;
+      document.body.style.width = '100%';
+
       placeholder = createPlaceholder(active, rect);
       active.style.top = `${rect.top}px`;
       active.style.left = `${rect.left}px`;
@@ -280,14 +294,18 @@
       active.style.transform = 'translate(0, 0) scale(1)';
 
       active.classList.add('callout-zoomed');
+      active.classList.add('callout-zoom-transition');
       document.body.classList.add('callout-zoom-active');
       document.body.appendChild(backdrop);
 
       requestAnimationFrame(() => {
         if (!active) return;
-        active.style.top = '50%';
-        active.style.left = '50%';
-        active.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        requestAnimationFrame(() => {
+          if (!active) return;
+          active.style.top = '50%';
+          active.style.left = '50%';
+          active.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        });
       });
     }, true);
 

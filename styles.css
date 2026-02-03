@@ -298,6 +298,11 @@ body.callout-zoom-active {
   will-change: transform, top, left;
 }
 
+.callout.callout-zoomed.callout-zoom-transition,
+.math-theorem.callout-zoomed.callout-zoom-transition {
+  transition: transform 0.25s linear, top 0.25s linear, left 0.25s linear, box-shadow 0.25s linear;
+}
+
 .callout.callout-zoomed:hover,
 .math-theorem.callout-zoomed:hover {
   transform: translate(-50%, -50%) scale(1.5) !important;
