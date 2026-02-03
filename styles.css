@@ -304,17 +304,10 @@ body.callout-zoom-active {
   will-change: transform;
 }
 
-.callout.callout-zoom-closing,
-.math-theorem.callout-zoom-closing {
+.callout.callout-zoomed.callout-zoom-closing,
+.math-theorem.callout-zoomed.callout-zoom-closing {
   pointer-events: none;
-}
-
-.callout.callout-zoom-closing:hover {
-  transform: none !important;
-}
-
-.math-theorem.callout-zoom-closing:hover {
-  transform: none !important;
+  transform: scale(1) !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
 }
 
