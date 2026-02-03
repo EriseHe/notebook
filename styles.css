@@ -1,7 +1,9 @@
 /* Quarto theme adjustments inspired by the original Hugo Book styling */
 :root {
-  --page-max-width: 1360px;        /* widen overall grid so content can expand */
-  --content-max-width: 1360px;     /* body track uses min(content, page) */
+  /* Layout tokens */
+  --page-max-width: 1360px;        /* overall grid width */
+  --content-max-width: 1360px;     /* main content width */
+  --body-track-max: min(var(--content-max-width), var(--page-max-width));
   --sidebar-bg: #f5f5f7;
   --sidebar-border: #e0e0e5;
   --heading-font: "IBM Plex Serif", "Times New Roman", "PingFang SC", serif;
@@ -42,11 +44,70 @@ h1, h2, h3, h4, h5, h6 {
   color: #0d0d0f;
 }
 
+/* ========================================
+   LAYOUT / GRID
+   ======================================== */
+.page-columns { max-width: var(--page-max-width) !important; margin: 0 auto; }
+
+main.content {
+  padding: 2rem 2rem;
+}
+
+.page-columns .content {
+  max-width: var(--content-max-width) !important;
+}
+
+/* Some themes draw the divider on the content column instead of the sidebar */
+.page-columns .content,
+main.content {
+  border-left: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 991px) {
+  main.content {
+    padding: 1.75rem 1.5rem;
+  }
+}
+
+/* Slightly widen body column on wide screens */
+@media (min-width: 1200px) {
+  .page-columns .content { padding-right: 2.25rem; }
+}
+
+/* Force Quarto grid to allocate a wider content track on desktop */
+@media (min-width: 992px) {
+  /* Left sidebar "docked" layout: increase body-content track max from ~1000px to our var */
+  body.docked .page-columns {
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(var(--body-track-max) - 3em)) [body-content-end] 1.5em [body-end] 50px [body-end-outset] minmax(50px, 100px) [page-end-inset] 50px [page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
+  }
+
+  /* Fullcontent variant */
+  body.docked.fullcontent .page-columns {
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(var(--body-track-max) - 3em)) [body-content-end body-end body-end-outset page-end-inset page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
+  }
+
+  /* Listing pages */
+  body.docked.listing .page-columns {
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(var(--body-track-max) - 3em)) [body-content-end] 1.5em [body-end] 50px [body-end-outset] minmax(0px, 200px) [page-end-inset] 50px [page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
+  }
+}
+
+/* ========================================
+   LEFT SIDEBAR (MENU) STYLING
+   ======================================== */
+
 .sidebar {
+  padding-left: 0.25rem;             /* shift items slightly left */
   background: transparent;
   border-right: none !important; /* Remove vertical divider */
   box-shadow: none !important;   /* Remove inset divider if theme uses it */
   font-size: 0.95rem;
+  position: sticky;
+  top: 5rem;                         /* reduce default top margin by half */
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  will-change: auto; /* Smooth scrolling performance */
 }
 
 .sidebar .nav-link { border-radius: 8px; padding: 0.5rem 0.75rem; transition: background-color .15s ease, color .15s ease, transform .1s ease; }
@@ -130,28 +191,51 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-1px);
 }
 
-.page-columns { max-width: var(--page-max-width) !important; margin: 0 auto; }
+/* ========================================
+   SIDEBAR SPACING - add room before divider
+   ======================================== */
+@media (min-width: 992px) {
+  /* Give breathing space between items/toggles and the vertical divider */
+  #quarto-sidebar .sidebar-header,
+  #quarto-sidebar .sidebar-menu-container,
+  #quarto-sidebar .sidebar-item-container {
+    padding-right: 1rem; /* space for toggle icon before the divider */
+  }
 
-main.content { 
-  padding: 2rem 2rem; 
-  max-width: var(--content-max-width) !important;
-}
+  /* Extend the left edge and keep the right edge fixed */
+  #quarto-sidebar {
+    width: 320px;                 /* widen by 40px */
+    transform: translateX(-40px); /* shift left by 40px */
+  }
 
-/* Some themes draw the divider on the content column instead of the sidebar */
-.page-columns .content,
-main.content {
-  border-left: none !important;
-  box-shadow: none !important;
-  max-width: var(--content-max-width) !important;
-}
+  /* Ensure parent containers don't clip the shift */
+  #quarto-content, .sidebar-navigation.docked { overflow: visible; }
 
-/* Additional selectors to ensure content width is applied */
-#quarto-content .content,
-.quarto-container > .page-columns > .content,
-div.page-columns div.content,
-.column-body,
-.content.column-body {
-  max-width: var(--content-max-width) !important;
+  /* First-level folders (direct children of root list): spacing + bold */
+  #quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li.sidebar-item-section {
+    margin-bottom: 0.5rem;
+  }
+  #quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text {
+    font-weight: 700 !important;
+  }
+
+  /* Nested folders (any depth under a section): normal weight */
+  #quarto-sidebar ul.sidebar-section .sidebar-item-text {
+    font-weight: 500 !important;
+  }
+
+  /* Increase indentation for nested levels */
+  #quarto-sidebar .sidebar-section.depth1 .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth1 > li > .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth1 > li > a.sidebar-item-toggle { padding-left: 0.75rem; }
+
+  #quarto-sidebar .sidebar-section.depth2 .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth2 > li > .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth2 > li > a.sidebar-item-toggle { padding-left: 1.5rem; }
+
+  #quarto-sidebar .sidebar-section.depth3 .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth3 > li > .sidebar-item-container,
+  #quarto-sidebar .sidebar-section.depth3 > li > a.sidebar-item-toggle { padding-left: 2.25rem; }
 }
 
 .page-brand {
@@ -453,56 +537,6 @@ pre.sourceCode.css::before { content: "CSS"; }
 /* Hide ToC title only (localized). Do NOT hide first heading */
 #toc-title { display: none !important; }
 
-/* ========================================
-   SIDEBAR SPACING - add room before divider
-   ======================================== */
-@media (min-width: 992px) {
-  /* Give breathing space between items/toggles and the vertical divider */
-  #quarto-sidebar .sidebar-header,
-  #quarto-sidebar .sidebar-menu-container,
-  #quarto-sidebar .sidebar-item-container {
-    padding-right: 1rem; /* space for toggle icon before the divider */
-  }
-
-  /* Extend the left edge and keep the right edge fixed */
-  #quarto-sidebar {
-    width: 320px;                 /* widen by 40px */
-    transform: translateX(-40px); /* shift left by 40px */
-  }
-
-  /* Ensure parent containers don't clip the shift */
-  #quarto-content, .sidebar-navigation.docked { overflow: visible; }
-
-  /* Increase main content width (override Quarto defaults) */
-  .content { max-width: var(--content-max-width) !important; }
-
-  /* First-level folders (direct children of root list): spacing + bold */
-  #quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li.sidebar-item-section {
-    margin-bottom: 0.5rem;
-  }
-  #quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text {
-    font-weight: 700 !important;
-  }
-
-  /* Nested folders (any depth under a section): normal weight */
-  #quarto-sidebar ul.sidebar-section .sidebar-item-text {
-    font-weight: 500 !important;
-  }
-
-  /* Increase indentation for nested levels */
-  #quarto-sidebar .sidebar-section.depth1 .sidebar-item-container,
-  #quarto-sidebar .sidebar-section.depth1 > li > .sidebar-item-container,
-  #quarto-sidebar .sidebar-section.depth1 > li > a.sidebar-item-toggle { padding-left: 0.75rem; }
-
-  #quarto-sidebar .sidebar-section.depth2 .sidebar-item-container,
-  #quarto-sidebar .sidebar-section.depth2 > li > .sidebar-item-container,
-  #quarto-sidebar .sidebar-section.depth2 > li > a.sidebar-item-toggle { padding-left: 1.5rem; }
-
-  #quarto-sidebar .sidebar-section.depth3 .sidebar-item-container,
-  #quarto-sidebar .sidebar-section.depth3 > li > .sidebar-item-container,
-  #quarto-sidebar .sidebar-section.depth3 > li > a.sidebar-item-toggle { padding-left: 2.25rem; }
-}
-
 /* Ensure Quarto sets language class and we backfill label from class name */
 /* The pandoc/quarto HTML already sets classes like pre.sourceCode.python.
    The rules above set the accent color and label via ::before per language. */
@@ -535,12 +569,6 @@ a:hover {
 
 img {
   border-radius: 12px;
-}
-
-@media (max-width: 991px) {
-  main.content {
-    padding: 1.75rem 1.5rem;
-  }
 }
 
 /* ========================================
@@ -616,43 +644,6 @@ img {
 #quarto-margin-sidebar li,
 .quarto-margin-sidebar li {
   border: none !important;
-}
-
-/* ========================================
-   LEFT SIDEBAR (MENU) STYLING
-   Modify here for menu appearance
-   ======================================== */
-.sidebar { 
-  padding-left: 0.25rem;             /* shift items slightly left */
-  background: transparent;
-  position: sticky;
-  top: 5rem;                         /* reduce default top margin by half */
-  max-height: calc(100vh - 140px);
-  overflow-y: auto;
-  will-change: auto; /* Smooth scrolling performance */
-}
-
-/* Slightly widen body column on wide screens */
-@media (min-width: 1200px) {
-  .page-columns .content { padding-right: 2.25rem; max-width: var(--content-max-width) !important; }
-}
-
-/* Force Quarto grid to allocate a wider content track on desktop */
-@media (min-width: 992px) {
-  /* Left sidebar "docked" layout: increase body-content track max from ~1000px to our var */
-  body.docked .page-columns {
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(min(var(--content-max-width), var(--page-max-width)) - 3em)) [body-content-end] 1.5em [body-end] 50px [body-end-outset] minmax(50px, 100px) [page-end-inset] 50px [page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
-  }
-
-  /* Fullcontent variant */
-  body.docked.fullcontent .page-columns {
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(min(var(--content-max-width), var(--page-max-width)) - 3em)) [body-content-end body-end body-end-outset page-end-inset page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
-  }
-
-  /* Listing pages */
-  body.docked.listing .page-columns {
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start] minmax(50px, 100px) [page-start-inset] 50px [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(min(var(--content-max-width), var(--page-max-width)) - 3em)) [body-content-end] 1.5em [body-end] 50px [body-end-outset] minmax(0px, 200px) [page-end-inset] 50px [page-end] 5fr [screen-end-inset] 1.5em [screen-end] !important;
-  }
 }
 
 /* ========================================
