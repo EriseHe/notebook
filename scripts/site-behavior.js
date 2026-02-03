@@ -196,35 +196,40 @@
       const target = active;
       target.classList.add('callout-zoom-closing');
 
-      const finish = () => {
-        if (token !== openToken) return;
+      // Fade the backdrop immediately, but keep the callout above it (z-index)
+      // until the fade completes to avoid a brief "darkening" color shift.
+      if (backdrop.isConnected) backdrop.classList.remove('is-visible');
 
-        // Remove the zoomed layering only after the shrink transition finishes,
-        // otherwise the background/shadow can "flash" at the start of zoom-out.
-        target.classList.remove('callout-zoomed');
+      let cleaned = false;
+      const cleanupOnce = () => {
+        if (cleaned || token !== openToken) return;
+        cleaned = true;
+
         target.classList.remove('callout-zoom-closing');
-        target.classList.add('callout-zoom-cooldown');
-        setTimeout(() => target.classList.remove('callout-zoom-cooldown'), 200);
+        target.classList.remove('callout-zoomed');
 
-        backdrop.classList.remove('is-visible');
-
-        const cleanup = () => {
-          if (token !== openToken) return;
-          active = null;
-          backdrop.remove();
-          document.body.classList.remove('callout-zoom-active');
-        };
-
-        if (backdrop.isConnected) {
-          backdrop.addEventListener('transitionend', cleanup, { once: true });
-        }
-        clearTimeout(resetTimeout);
-        resetTimeout = setTimeout(cleanup, 450);
+        active = null;
+        backdrop.remove();
+        document.body.classList.remove('callout-zoom-active');
       };
 
-      target.addEventListener('transitionend', finish, { once: true });
+      let pending = 0;
+      const done = () => {
+        if (token !== openToken) return;
+        pending -= 1;
+        if (pending <= 0) cleanupOnce();
+      };
+
+      pending += 1;
+      target.addEventListener('transitionend', done, { once: true });
+
+      if (backdrop.isConnected) {
+        pending += 1;
+        backdrop.addEventListener('transitionend', done, { once: true });
+      }
+
       clearTimeout(resetTimeout);
-      resetTimeout = setTimeout(finish, 300);
+      resetTimeout = setTimeout(cleanupOnce, 500);
     };
 
     const openZoom = (callout) => {
