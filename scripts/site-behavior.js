@@ -192,35 +192,37 @@
 
     const clearZoom = () => {
       if (!active) return;
-      openToken += 1;
+      const token = ++openToken;
       const target = active;
       target.classList.add('callout-zoom-closing');
-      target.classList.remove('callout-zoomed');
-      backdrop.classList.remove('is-visible');
 
-      const cleanup = () => {
+      const finish = () => {
+        if (token !== openToken) return;
+
+        // Remove the zoomed layering only after the shrink transition finishes,
+        // otherwise the background/shadow can "flash" at the start of zoom-out.
+        target.classList.remove('callout-zoomed');
         target.classList.remove('callout-zoom-closing');
-        active = null;
-        backdrop.remove();
-        document.body.classList.remove('callout-zoom-active');
+
+        backdrop.classList.remove('is-visible');
+
+        const cleanup = () => {
+          if (token !== openToken) return;
+          active = null;
+          backdrop.remove();
+          document.body.classList.remove('callout-zoom-active');
+        };
+
+        if (backdrop.isConnected) {
+          backdrop.addEventListener('transitionend', cleanup, { once: true });
+        }
+        clearTimeout(resetTimeout);
+        resetTimeout = setTimeout(cleanup, 450);
       };
 
-      let pending = 0;
-      const done = () => {
-        pending -= 1;
-        if (pending <= 0) cleanup();
-      };
-
-      pending += 1;
-      target.addEventListener('transitionend', done, { once: true });
-
-      if (backdrop.isConnected) {
-        pending += 1;
-        backdrop.addEventListener('transitionend', done, { once: true });
-      }
-
+      target.addEventListener('transitionend', finish, { once: true });
       clearTimeout(resetTimeout);
-      resetTimeout = setTimeout(cleanup, 450);
+      resetTimeout = setTimeout(finish, 300);
     };
 
     const openZoom = (callout) => {
