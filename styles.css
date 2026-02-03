@@ -860,12 +860,18 @@ img {
 /* Remark: quotation-like display (no card) */
 .math-theorem.remark,
 .math-theorem.example {
-  background: var(--page-bg) !important;
+  background: transparent !important;
   border: none;
   border-left: 4px solid var(--theorem-accent);
   border-radius: 0;
   box-shadow: none;
   margin: 2rem 0;
+}
+
+.math-theorem.remark.callout-zoomed,
+.math-theorem.example.callout-zoomed {
+  /* Only make the quote blocks "solid" when zoomed so the enlarged card reads cleanly */
+  background: var(--page-bg) !important;
 }
 
 .math-theorem.remark > p,
