@@ -258,9 +258,10 @@
       if (evt.key === 'Escape') clearZoom();
     });
 
-    document.addEventListener('dblclick', (evt) => {
+    document.addEventListener('click', (evt) => {
       const callout = evt.target.closest('.math-theorem, .callout');
       if (!callout) return;
+      if (evt.target.closest('a, button, input, textarea, select, label')) return;
 
       evt.preventDefault();
       evt.stopPropagation();
