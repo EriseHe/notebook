@@ -28,7 +28,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/偏微分方程/数值偏微分/Galerkin Method.md",
+                "file": "理论/偏微分方程/数值偏微分方程/Galerkin Method.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/概率机器学习/强化学习（RL）/Markov奖励&决策过程.md",
+                "file": "理论/偏微分方程/数值偏微分方程/1. Introduction.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Markov奖励&决策过程"
+              "title": "1. Introduction"
             }
           }
         ],
@@ -217,6 +217,14 @@
   },
   "active": "291ebdea15b414f2",
   "lastOpenFiles": [
+    "Prompts.md",
+    "理论/偏微分方程/数值偏微分方程/1. Introduction.md",
+    "理论/偏微分方程/数值偏微分方程/2. Poisson Equation.md",
+    "理论/偏微分方程/数值偏微分方程/Galerkin Method.md",
+    "Screenshot 2025-10-01 at 1.18.16 AM.png",
+    "image.png",
+    "image-1.png",
+    "理论/概率机器学习/强化学习（RL）/Markov奖励&决策过程.md",
     "理论/拓扑学笔记/T-n分离公理.md",
     "理论/广义相对论/Ch. 2 Einstein Summation Convention.md",
     "理论/微分几何讲义/Frederic P Schuller讲义/第3讲 多线性代数.md",
@@ -226,8 +234,7 @@
     "理论/Julia科学计算笔记/0 基本语法.md",
     "理论/微分几何讲义/微分几何导论I",
     "理论/Julia科学计算笔记/3.md",
-    "理论/偏微分方程/数值偏微分/Galerkin Method.md",
-    "理论/偏微分方程/数值偏微分",
+    "理论/偏微分方程/数值偏微分方程",
     "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/17. Riemannian Distance, Variations, and Geodesics.md",
     "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/22 Jacobi Fields, Constant Curvature, and Conjugate Points.md",
     "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/21 Curvature via Sectional Curvature, and Jacobi Fields.md",
@@ -242,17 +249,12 @@
     "理论/广义相对论/习题集/HW Set 5 -8/HW7.tex",
     "理论/广义相对论/习题集/HW Set 5 -8/HW6.tex",
     "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/16. Exponential Map, Normal Coordinates, and Distance.md",
-    "Prompts.md",
     "index.md",
     "理论/广义相对论/Ch. 18 Geodesic Derivation.md",
     "理论/广义相对论/Ch. 18 Geodesic Deviation and the Riemann Tensor.md",
     "理论/广义相对论/Ch. 21 The Einstein Equation.md",
     "理论/广义相对论/Ch. 21 The Einstein Equation (2).md",
     "理论/广义相对论/Ch. 4 — Index Notation.md",
-    "理论/广义相对论/Ch. 6 — Tensor Equations.md",
-    "理论/广义相对论/Ch. 3 Index Notation.md",
-    "理论/广义相对论/Ch. 6 Tensor Equation.md",
-    "理论/广义相对论/Ch. 17 The Absolute Gradient.md",
     "tmp_pdf/545 10_01_25.pdf.png",
     "tmp_pdf/545_10_01_25.png",
     "tmp_pdf_pages/010f0ba8-d265-46c2-949b-dcf1139f1ff2-1.png",
@@ -260,9 +262,6 @@
     "tmp_pdf_pages/010f0ba8-d265-46c2-949b-dcf1139f1ff2-3.png",
     "tmp_pdf_pages/010f0ba8-d265-46c2-949b-dcf1139f1ff2-4.png",
     "tmp_pdf_545_10_08_25/c9997111-0760-4a8a-8999-5e9040eb55a1-1.png",
-    "tmp_pdf_pages/page_1.png",
-    "tmp_pdf_pages/page_2.png",
-    "tmp_pdf_pages/page_4.png",
     "Untitled.canvas",
     "Mathematics/MATH 351 & 352/Heat Equation/Untitled.canvas"
   ]
