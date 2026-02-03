@@ -149,9 +149,6 @@
   }
 
   function setupCalloutZoom() {
-    const callouts = Array.from(document.querySelectorAll('.math-theorem, .callout'));
-    if (callouts.length === 0) return;
-
     const backdrop = document.createElement('div');
     backdrop.className = 'callout-zoom-backdrop';
 
@@ -170,29 +167,26 @@
       if (evt.key === 'Escape') clearZoom();
     });
 
-    callouts.forEach((callout) => {
-      callout.addEventListener('dblclick', (evt) => {
-        evt.preventDefault();
-        evt.stopPropagation();
+    document.addEventListener('dblclick', (evt) => {
+      const callout = evt.target.closest('.math-theorem, .callout');
+      if (!callout) return;
 
-        if (active && active !== callout) {
-          active.classList.remove('callout-zoomed');
-        }
+      evt.preventDefault();
+      evt.stopPropagation();
 
-        if (active === callout) {
-          clearZoom();
-          return;
-        }
+      if (active && active !== callout) {
+        active.classList.remove('callout-zoomed');
+      }
 
-        active = callout;
-        active.classList.add('callout-zoomed');
-        document.body.classList.add('callout-zoom-active');
-        document.body.appendChild(backdrop);
-      });
+      if (active === callout) {
+        clearZoom();
+        return;
+      }
 
-      callout.addEventListener('click', (evt) => {
-        if (active) evt.stopPropagation();
-      });
+      active = callout;
+      active.classList.add('callout-zoomed');
+      document.body.classList.add('callout-zoom-active');
+      document.body.appendChild(backdrop);
     });
 
     document.addEventListener('click', (evt) => {
