@@ -228,7 +228,7 @@
     });
   }
 
-  window.document.addEventListener('DOMContentLoaded', () => {
+  function init() {
     const state = loadState();
     disableHeadroom();
     syncSections(state);
@@ -238,5 +238,11 @@
     sortSidebarLists();
     setupSidebarAutoHide();
     setupCalloutZoom();
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    window.document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
