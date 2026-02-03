@@ -22,11 +22,11 @@ website:
   navbar:
     left:
     - text: Notes
-      href: content/notes/index.md
+      href: content/notes/index.html
     - text: Research
-      href: content/Research/index.md
+      href: content/Research/index.html
     - text: Posts
-      href: content/posts/index.md
+      href: content/posts/index.html
     right:
     - icon: github
       href: https://github.com/EriseHe/notebook
