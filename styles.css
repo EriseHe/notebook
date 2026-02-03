@@ -866,6 +866,14 @@ img {
   margin: 2rem 0;
 }
 
+.math-theorem.remark > p {
+  margin: 0;
+}
+
+.math-theorem.remark > p .proof-title {
+  display: none;
+}
+
 .math-theorem.remark:hover {
   transform: none;
   box-shadow: none;
