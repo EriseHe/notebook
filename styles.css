@@ -7,7 +7,7 @@
   --page-bg: #fafafa;
   --scroll-offset: 72px; /* JS updates this to match the fixed header height */
   /* Keep the docked sidebar gap fixed under the navbar (no "drifting up" on scroll). */
-  --sidebar-sticky-top: calc(var(--scroll-offset) + 40px);
+  --sidebar-sticky-top: calc(var(--scroll-offset) + 24px);
   --sidebar-bg: #f5f5f7;
   --sidebar-border: #e0e0e5;
   --body-font: "SF Pro", "PingFang SC", "Noto Serif", serif;
