@@ -97,8 +97,9 @@ main.content {
   box-shadow: none !important;   /* Remove inset divider if theme uses it */
   font-size: 0.95rem;
   position: sticky;
-  top: var(--sidebar-sticky-top, 5rem); /* JS captures preferred top gap on load */
-  max-height: calc(100vh - var(--sidebar-sticky-top, 5rem) - 60px);
+  /* Quarto sets inline top/max-height on .sidebar via quarto-nav.js; override it */
+  top: var(--sidebar-sticky-top, 5rem) !important; /* JS captures preferred top gap on load */
+  max-height: calc(100vh - var(--sidebar-sticky-top, 5rem) - 60px) !important;
   overflow-y: auto;
   will-change: auto; /* Smooth scrolling performance */
 }
