@@ -70,30 +70,62 @@
       ignorePunctuation: true,
     });
 
-    const lists = document.querySelectorAll('#quarto-sidebar ul.sidebar-section');
-    lists.forEach(list => {
-      const children = Array.from(list.children);
-      if (!children.length) return;
-      const hasSection = children.some(child => child.classList.contains('sidebar-item-section'));
-      if (hasSection) return;
+    const normalize = (text) =>
+      (text || '')
+        .normalize('NFKC')
+        .replace(/\s+/g, ' ')
+        .trim();
 
-      const items = children.filter(child => child.classList.contains('sidebar-item'));
-      if (items.length < 2) return;
+    const getItemText = (li) => {
+      const link = li.querySelector('.sidebar-item-text');
+      return normalize(link ? link.textContent : li.textContent);
+    };
 
-      const getText = (item) => {
-        const link = item.querySelector('.sidebar-item-text');
-        return link ? link.textContent.replace(/\s+/g, ' ').trim() : '';
-      };
+    const sortList = (list) => {
+      const children = Array.from(list.children).filter((el) =>
+        el.classList.contains('sidebar-item') || el.classList.contains('sidebar-item-section')
+      );
+      if (children.length < 2) return;
 
-      const sorted = items.slice().sort((a, b) => {
-        const aText = getText(a);
-        const bText = getText(b);
-        return collator.compare(aText, bText);
+      const pinned = [];
+      const sortable = [];
+
+      children.forEach((li, idx) => {
+        const link = li.querySelector('.sidebar-item-text');
+        const href = link?.getAttribute('href') || '';
+        const isPinned =
+          href.endsWith('/content/notes/理论/index.html') ||
+          href.endsWith('/content/notes/理论/') ||
+          href.endsWith('/content/notes/计算/index.html') ||
+          href.endsWith('/content/notes/计算/');
+
+        if (isPinned) pinned.push({ li, idx });
+        else sortable.push({ li, idx });
       });
 
-      const changed = sorted.some((item, idx) => item !== items[idx]);
+      const sorted = sortable
+        .slice()
+        .sort((a, b) => {
+          const aText = getItemText(a.li);
+          const bText = getItemText(b.li);
+          const cmp = collator.compare(aText, bText);
+          return cmp !== 0 ? cmp : a.idx - b.idx; // keep stable ordering for ties
+        })
+        .map((x) => x.li);
+
+      const final = [...pinned.map((x) => x.li), ...sorted];
+      const changed = final.some((li, i) => li !== children[i]);
       if (!changed) return;
-      sorted.forEach(item => list.appendChild(item));
+
+      final.forEach((li) => list.appendChild(li));
+    };
+
+    const sidebarRoots = document.querySelectorAll(
+      '#quarto-sidebar, .quarto-sidebar-toggle-contents'
+    );
+    sidebarRoots.forEach((sidebar) => {
+      const lists = sidebar.querySelectorAll('.sidebar-menu-container ul.list-unstyled');
+      lists.forEach(sortList);
     });
   }
 
@@ -266,19 +298,6 @@
     document.documentElement.style.setProperty('--scroll-offset', `${offset}px`);
   }
 
-  function syncSidebarStickyTop() {
-    const sidebar = document.getElementById('quarto-sidebar');
-    if (!sidebar) return;
-
-    // Capture the "nice looking" initial gap and reuse it as the sticky top
-    // so the sidebar doesn't drift upward before sticking.
-    if (window.scrollY > 10) return;
-
-    const top = Math.round(sidebar.getBoundingClientRect().top);
-    if (!Number.isFinite(top) || top <= 0) return;
-    document.documentElement.style.setProperty('--sidebar-sticky-top', `${top}px`);
-  }
-
   function setupTocSpy() {
     const toc = document.querySelector('#TOC');
     if (!toc) return;
@@ -342,7 +361,6 @@
     const state = loadState();
     disableHeadroom();
     syncScrollOffsets();
-    syncSidebarStickyTop();
     syncSections(state);
     registerHandlers(state);
     setupTocSpy();
@@ -351,7 +369,6 @@
     setupCalloutZoom();
     window.addEventListener('resize', () => {
       syncScrollOffsets();
-      syncSidebarStickyTop();
     });
   }
 
