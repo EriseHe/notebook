@@ -187,13 +187,34 @@
     backdrop.className = 'callout-zoom-backdrop';
 
     let active = null;
+    let resetTimeout = null;
 
     const clearZoom = () => {
       if (!active) return;
-      active.classList.remove('callout-zoomed');
-      active = null;
-      backdrop.remove();
-      document.body.classList.remove('callout-zoom-active');
+      const target = active;
+      const dx = Number.parseFloat(target.dataset.zoomX || '0');
+      const dy = Number.parseFloat(target.dataset.zoomY || '0');
+
+      target.style.setProperty('--zoom-x', `${dx}px`);
+      target.style.setProperty('--zoom-y', `${dy}px`);
+      target.style.setProperty('--zoom-scale', '1');
+
+      const cleanup = () => {
+        target.classList.remove('callout-zoomed');
+        target.style.removeProperty('--zoom-x');
+        target.style.removeProperty('--zoom-y');
+        target.style.removeProperty('--zoom-scale');
+        target.style.removeProperty('--zoom-width');
+        delete target.dataset.zoomX;
+        delete target.dataset.zoomY;
+        active = null;
+        backdrop.remove();
+        document.body.classList.remove('callout-zoom-active');
+      };
+
+      target.addEventListener('transitionend', cleanup, { once: true });
+      clearTimeout(resetTimeout);
+      resetTimeout = setTimeout(cleanup, 300);
     };
 
     backdrop.addEventListener('click', clearZoom);
@@ -208,19 +229,39 @@
       evt.preventDefault();
       evt.stopPropagation();
 
-      if (active && active !== callout) {
-        active.classList.remove('callout-zoomed');
-      }
+      if (active && active !== callout) clearZoom();
 
       if (active === callout) {
         clearZoom();
         return;
       }
 
+      const rect = callout.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const viewportX = window.innerWidth / 2;
+      const viewportY = window.innerHeight / 2;
+      const dx = centerX - viewportX;
+      const dy = centerY - viewportY;
+
       active = callout;
+      active.dataset.zoomX = String(dx);
+      active.dataset.zoomY = String(dy);
+      active.style.setProperty('--zoom-x', `${dx}px`);
+      active.style.setProperty('--zoom-y', `${dy}px`);
+      active.style.setProperty('--zoom-scale', '1');
+      active.style.setProperty('--zoom-width', `${rect.width}px`);
+
       active.classList.add('callout-zoomed');
       document.body.classList.add('callout-zoom-active');
       document.body.appendChild(backdrop);
+
+      requestAnimationFrame(() => {
+        if (!active) return;
+        active.style.setProperty('--zoom-x', '0px');
+        active.style.setProperty('--zoom-y', '0px');
+        active.style.setProperty('--zoom-scale', '1.5');
+      });
     }, true);
 
     document.addEventListener('click', (evt) => {
