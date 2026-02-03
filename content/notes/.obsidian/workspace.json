@@ -28,7 +28,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/偏微分方程/数值偏微分方程/Galerkin Method.md",
+                "file": "理论/PDEs/数值PDEs/Galerkin Method.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -43,7 +43,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/偏微分方程/数值偏微分方程/1. Introduction.md",
+                "file": "理论/PDEs/数值PDEs/1. Introduction.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -215,12 +215,13 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "291ebdea15b414f2",
+  "active": "829f54a31a6b8d4d",
   "lastOpenFiles": [
+    "理论/PDEs/三大经典二阶PDEs",
     "Prompts.md",
-    "理论/偏微分方程/数值偏微分方程/1. Introduction.md",
-    "理论/偏微分方程/数值偏微分方程/2. Poisson Equation.md",
-    "理论/偏微分方程/数值偏微分方程/Galerkin Method.md",
+    "理论/PDEs/数值PDEs/1. Introduction.md",
+    "理论/PDEs/数值PDEs/2. Poisson Equation.md",
+    "理论/PDEs/数值PDEs/Galerkin Method.md",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
     "image.png",
     "image-1.png",
@@ -234,7 +235,7 @@
     "理论/Julia科学计算笔记/0 基本语法.md",
     "理论/微分几何讲义/微分几何导论I",
     "理论/Julia科学计算笔记/3.md",
-    "理论/偏微分方程/数值偏微分方程",
+    "理论/PDEs/数值PDEs",
     "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/17. Riemannian Distance, Variations, and Geodesics.md",
     "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/22 Jacobi Fields, Constant Curvature, and Conjugate Points.md",
     "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/21 Curvature via Sectional Curvature, and Jacobi Fields.md",
