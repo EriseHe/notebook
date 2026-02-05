@@ -51,9 +51,24 @@
               "icon": "lucide-file",
               "title": "index"
             }
+          },
+          {
+            "id": "67af20a2b1cc642f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "index.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -117,7 +132,7 @@
             }
           },
           {
-            "id": "b18f3a83020763b0",
+            "id": "e3190decc29964a3",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -195,12 +210,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of index"
             }
           },
           {
@@ -214,7 +230,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -237,8 +253,10 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "291ebdea15b414f2",
+  "active": "4c5ac46d197274e7",
   "lastOpenFiles": [
+    "Prompts.md",
+    "Screenshot 2025-10-01 at 1.18.16 AM.png",
     "理论/PDEs/MATH 352 PDE in Action/index.md",
     "理论/PDEs/index.md",
     "理论/PDEs/MATH 352 PDE in Action/_index.md",
@@ -266,7 +284,6 @@
     "理论/PDEs/经典二阶PDEs/Heat Equation/Heat Equation Solution.md",
     "理论/PDEs/MATH 352 PDE in Action/第十章",
     "理论/PDEs/MATH 352 PDE in Action/第四章",
-    "理论/PDEs/数值PDEs分析/Galerkin Method.md",
     "理论/PDEs/经典二阶PDEs/Laplace Equation",
     "理论/PDEs/经典二阶PDEs/Wave Equation",
     "理论/PDEs/MATH 352 PDE in Action/第九章",
@@ -284,7 +301,6 @@
     "tmp_pdf_545_10_08_25/c9997111-0760-4a8a-8999-5e9040eb55a1-1.png",
     "tmp_pdf_pages/page_1.png",
     "tmp_pdf_pages/page_2.png",
-    "tmp_pdf_pages/page_4.png",
     "Untitled.canvas",
     "Mathematics/MATH 351 & 352/Heat Equation/Untitled.canvas"
   ]
