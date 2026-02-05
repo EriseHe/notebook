@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "日志.md",
+                "file": "家庭式生命权力：通过儒家的家国体系重读福柯的生命政治理论在东亚的实践.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "日志"
+              "title": "家庭式生命权力：通过儒家的家国体系重读福柯的生命政治理论在东亚的实践"
             }
           }
         ],
@@ -104,19 +104,7 @@
             }
           },
           {
-            "id": "d5c31321420aec8c",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "com.maxymillion.zen",
-              "state": {},
-              "pinned": true,
-              "icon": "lucide-ghost",
-              "title": "com.maxymillion.zen"
-            }
-          },
-          {
-            "id": "78da8c4943970ade",
+            "id": "93faa360a9dc8467",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -225,8 +213,8 @@
   },
   "active": "4092f7e61333f21f",
   "lastOpenFiles": [
-    "福柯视角下的物理学转变以及新范式的可能.md",
     "日志.md",
+    "福柯视角下的物理学转变以及新范式的可能.md",
     "家庭式生命权力：通过儒家的家国体系重读福柯的生命政治理论在东亚的实践.md",
     "Commentary on Foucault's The Order of Things.md",
     "Create Graph Using LaTex Code.md",
