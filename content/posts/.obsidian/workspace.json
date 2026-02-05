@@ -27,16 +27,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Reading Response.md",
+                "file": "Commentary on Foucault's The Order of Things.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Reading Response"
+              "title": "Commentary on Foucault's The Order of Things"
+            }
+          },
+          {
+            "id": "4092f7e61333f21f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "日志.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "日志"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -91,6 +105,18 @@
           },
           {
             "id": "d5c31321420aec8c",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "com.maxymillion.zen",
+              "state": {},
+              "pinned": true,
+              "icon": "lucide-ghost",
+              "title": "com.maxymillion.zen"
+            }
+          },
+          {
+            "id": "78da8c4943970ade",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -193,21 +219,23 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fa3c282e7fa5df95",
+  "active": "4092f7e61333f21f",
   "lastOpenFiles": [
+    "福柯视角下的物理学转变以及新范式的可能.md",
+    "日志.md",
+    "家庭式生命权力：通过儒家的家国体系重读福柯的生命政治理论在东亚的实践.md",
+    "Commentary on Foucault's The Order of Things.md",
+    "Create Graph Using LaTex Code.md",
+    "Commentary on the Collage.md",
+    "Sex & Sexuality.md",
+    "Reading Response.md",
     "_index.md",
     "index.md",
-    "Commentary on Foucault's The Order of Things.md",
     "2025 Topology Summer Research.md",
-    "Commentary on the Collage.md",
-    "Create Graph Using LaTex Code.md",
-    "Sex & Sexuality.md",
-    "福柯视角下的物理学转变以及新范式的可能.md",
-    "家庭式生命权力：通过儒家的家国体系重读福柯的生命政治理论在东亚的实践.md",
-    "Reading Response.md",
     "Lacanian AI.md",
     "migrate-from-jekyll.md",
     "Integrate DeepL Translation Instruction.md",

@@ -28,7 +28,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/数值PDEs分析/Galerkin Method.md",
+                "file": "理论/偏微分方程/数值偏微分/Galerkin Method.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Prompts.md",
+                "file": "理论/PDEs/index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Prompts"
+              "title": "index"
             }
           }
         ],
@@ -116,8 +116,7 @@
               "title": "Vertical tabs"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -216,47 +215,44 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "4c5ac46d197274e7",
+  "active": "291ebdea15b414f2",
   "lastOpenFiles": [
     "理论/PDEs/MATH 352 PDE in Action/index.md",
     "理论/PDEs/index.md",
-    "理论/PDEs/数值PDEs分析/1. Introduction.md",
-    "理论/PDEs/经典二阶PDEs",
-    "Prompts.md",
-    "理论/PDEs/数值PDEs分析/2. Poisson Equation.md",
-    "理论/PDEs/数值PDEs分析/Galerkin Method.md",
-    "Screenshot 2025-10-01 at 1.18.16 AM.png",
-    "image.png",
-    "image-1.png",
+    "理论/PDEs/MATH 352 PDE in Action/_index.md",
     "理论/概率机器学习/强化学习（RL）/Markov奖励&决策过程.md",
-    "理论/拓扑学笔记/T-n分离公理.md",
-    "理论/广义相对论/Ch. 2 Einstein Summation Convention.md",
-    "理论/微分几何讲义/Frederic P Schuller讲义/第3讲 多线性代数.md",
-    "理论/微分几何讲义/微分几何导论II",
-    "理论/微分几何讲义/Frederic P Schuller讲义/第4讲 可微流形.md",
-    "理论/微分几何讲义/微分几何导论I/Final.pdf",
-    "理论/Julia科学计算笔记/0 基本语法.md",
-    "理论/微分几何讲义/微分几何导论I",
-    "理论/Julia科学计算笔记/3.md",
+    "理论/PDEs/MATH 352 PDE in Action/第十章/Quiz 4.md",
+    "理论/PDEs/MATH 352 PDE in Action/第十章/index.md",
+    "理论/PDEs/MATH 352 PDE in Action/第四章/_index.md",
+    "理论/PDEs/MATH 352 PDE in Action/第四章/index.md",
+    "理论/PDEs/MATH 352 PDE in Action/第十章/Finite Element Method.md",
+    "理论/PDEs/MATH 352 PDE in Action/第四章/4.1 有限元.md",
+    "理论/PDEs/经典二阶PDEs/Heat Equation/_index.md",
+    "理论/PDEs/经典二阶PDEs/Laplace Equation/_index.md",
+    "理论/PDEs/经典二阶PDEs/Laplace Equation/index.md",
+    "理论/PDEs/MATH 352 PDE in Action/第九章/_index.md",
+    "理论/PDEs/经典二阶PDEs/Wave Equation/_index.md",
+    "理论/PDEs/经典二阶PDEs/Wave Equation/index.md",
+    "理论/PDEs/经典二阶PDEs/Heat Equation/The Fourier Series.md",
+    "理论/PDEs/MATH 352 PDE in Action/第九章/index.md",
+    "理论/PDEs/MATH 352 PDE in Action/第九章/Exercise.md",
+    "理论/PDEs/MATH 352 PDE in Action/第九章/9.4 2D Problem.md",
+    "理论/PDEs/MATH 352 PDE in Action/第九章/9.3 Advection-Diffusion Equation.md",
+    "理论/PDEs/MATH 352 PDE in Action/第九章/9.1 Boundary Value Problems.md",
+    "理论/PDEs/MATH 352 PDE in Action/第九章/9.2 Finite Difference.md",
+    "理论/PDEs/经典二阶PDEs/Heat Equation/index.md",
+    "理论/PDEs/经典二阶PDEs/Heat Equation/Heat Equation Solution.md",
+    "理论/PDEs/MATH 352 PDE in Action/第十章",
+    "理论/PDEs/MATH 352 PDE in Action/第四章",
+    "理论/PDEs/数值PDEs分析/Galerkin Method.md",
+    "理论/PDEs/经典二阶PDEs/Laplace Equation",
+    "理论/PDEs/经典二阶PDEs/Wave Equation",
+    "理论/PDEs/MATH 352 PDE in Action/第九章",
+    "理论/PDEs/经典二阶PDEs/Heat Equation",
     "理论/PDEs/数值PDEs分析",
-    "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/17. Riemannian Distance, Variations, and Geodesics.md",
-    "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/22 Jacobi Fields, Constant Curvature, and Conjugate Points.md",
-    "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/21 Curvature via Sectional Curvature, and Jacobi Fields.md",
-    "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/20 Gauss&Weingarten Formulas, Surfaces, and Sectional Curvature.md",
-    "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/19 Curvature Operator and Tensoriality.md",
-    "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/18 Hopf–Rinow direction.md",
-    "conflict-files-obsidian-git.md",
-    "理论/广义相对论/习题集/build/Final Cheat Sheet.log",
-    "理论/广义相对论/习题集/build/Final Cheat Sheet.fls",
-    "理论/广义相对论/习题集/build/Final Cheat Sheet.fdb_latexmk",
-    "理论/广义相对论/习题集/build/Final Cheat Sheet.aux",
-    "理论/广义相对论/习题集/HW Set 5 -8/HW7.tex",
-    "理论/微分几何讲义/微分几何导论I/第二部分 黎曼几何/16. Exponential Map, Normal Coordinates, and Distance.md",
-    "index.md",
-    "理论/广义相对论/Ch. 18 Geodesic Derivation.md",
-    "理论/广义相对论/Ch. 18 Geodesic Deviation and the Riemann Tensor.md",
-    "理论/广义相对论/Ch. 21 The Einstein Equation.md",
-    "理论/广义相对论/Ch. 21 The Einstein Equation (2).md",
+    "理论/PDEs/_metadata.yml",
+    "理论/PDEs/经典二阶PDEs",
+    "理论/PDEs/MATH 352 PDE in Action",
     "tmp_pdf/545 10_01_25.pdf.png",
     "tmp_pdf/545_10_01_25.png",
     "tmp_pdf_pages/010f0ba8-d265-46c2-949b-dcf1139f1ff2-1.png",
@@ -264,6 +260,9 @@
     "tmp_pdf_pages/010f0ba8-d265-46c2-949b-dcf1139f1ff2-3.png",
     "tmp_pdf_pages/010f0ba8-d265-46c2-949b-dcf1139f1ff2-4.png",
     "tmp_pdf_545_10_08_25/c9997111-0760-4a8a-8999-5e9040eb55a1-1.png",
+    "tmp_pdf_pages/page_1.png",
+    "tmp_pdf_pages/page_2.png",
+    "tmp_pdf_pages/page_4.png",
     "Untitled.canvas",
     "Mathematics/MATH 351 & 352/Heat Equation/Untitled.canvas"
   ]
