@@ -31,10 +31,10 @@
   "auto-card-link",
   "obsidian-annotator",
   "mcp-tools",
-  "obsidian-git",
   "inline-math",
   "quick-preview",
   "math-booster",
   "number-headings-obsidian",
-  "transfer-latex-from-gpt"
+  "transfer-latex-from-gpt",
+  "obsidian-git"
 ]
