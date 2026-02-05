@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Image to 3D-Model.md",
+                "file": "Reading Response.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Image to 3D-Model"
+              "title": "Reading Response"
             }
           }
         ],
@@ -87,6 +87,18 @@
               "state": {},
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "d5c31321420aec8c",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "com.maxymillion.zen",
+              "state": {},
+              "pinned": true,
+              "icon": "eye",
+              "title": "Zen"
             }
           }
         ]
@@ -175,6 +187,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -185,13 +198,22 @@
   },
   "active": "fa3c282e7fa5df95",
   "lastOpenFiles": [
+    "_index.md",
+    "index.md",
+    "Commentary on Foucault's The Order of Things.md",
     "2025 Topology Summer Research.md",
+    "Commentary on the Collage.md",
+    "Create Graph Using LaTex Code.md",
+    "Sex & Sexuality.md",
+    "福柯视角下的物理学转变以及新范式的可能.md",
+    "家庭式生命权力：通过儒家的家国体系重读福柯的生命政治理论在东亚的实践.md",
+    "Reading Response.md",
+    "Lacanian AI.md",
+    "migrate-from-jekyll.md",
+    "Integrate DeepL Translation Instruction.md",
+    "creating-a-new-theme.md",
     "Image to 3D-Model.md",
     "Untitled",
-    "creating-a-new-theme.md",
-    "Integrate DeepL Translation Instruction.md",
-    "migrate-from-jekyll.md",
-    "Short Cut for GIST.md",
-    "_index.md"
+    "Short Cut for GIST.md"
   ]
 }

@@ -204,7 +204,3 @@ here are some few-shot examples:
   ...
 5. You may fill out any abbreviation, or missing parts of derivation or proof for completion (of course, make sure they are correct). No need to expand on what's beyond.
 
-
-
-
-

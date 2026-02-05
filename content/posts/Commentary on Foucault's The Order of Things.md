@@ -1,5 +1,7 @@
 ---
-title: "Commentary on Foucault's The Order of Things"
+title: Commentary on Foucault's The Order of Things
+tags:
+  - Foucault
 ---
 
 # Close Reading Commentary 

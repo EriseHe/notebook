@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/MATH 352 PDE in Action/index.md",
+                "file": "Prompts.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "Prompts"
             }
           }
         ],
@@ -116,7 +116,8 @@
               "title": "Vertical tabs"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -215,8 +216,9 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "291ebdea15b414f2",
+  "active": "4c5ac46d197274e7",
   "lastOpenFiles": [
+    "理论/PDEs/MATH 352 PDE in Action/index.md",
     "理论/PDEs/index.md",
     "理论/PDEs/数值PDEs分析/1. Introduction.md",
     "理论/PDEs/经典二阶PDEs",
@@ -255,7 +257,6 @@
     "理论/广义相对论/Ch. 18 Geodesic Deviation and the Riemann Tensor.md",
     "理论/广义相对论/Ch. 21 The Einstein Equation.md",
     "理论/广义相对论/Ch. 21 The Einstein Equation (2).md",
-    "理论/广义相对论/Ch. 4 — Index Notation.md",
     "tmp_pdf/545 10_01_25.pdf.png",
     "tmp_pdf/545_10_01_25.png",
     "tmp_pdf_pages/010f0ba8-d265-46c2-949b-dcf1139f1ff2-1.png",
