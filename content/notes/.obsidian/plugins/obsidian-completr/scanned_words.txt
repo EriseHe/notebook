@@ -733,6 +733,17 @@ CMR
 CMSY
 Cgü
 CMMI
+Classic
+Conducting
+Channel
+Coefficients
+Curl
+Calculated
+Conservative
+Calculating
+Conductors
+Capacitors
+Capacitance
 font
 for
 functions
@@ -1436,6 +1447,7 @@ fjW
 ffi
 fHg
 fblC
+fictitious
 color
 curve
 can
@@ -2722,6 +2734,13 @@ cDd
 ctJr
 cfc
 cEP
+conductors
+conductor
+cosines
+circulates
+conservative
+circulation
+capacitor
 Problem
 Partial
 Putting
@@ -3326,6 +3345,7 @@ PBW
 PqcP
 PageMode
 PageLabels
+Performing
 In
 Implicit
 Invertibility
@@ -3895,6 +3915,10 @@ Iop
 ImE
 IdZ
 Ido
+Images
+Induced
+Independence
+Irrotational
 the
 terms
 that
@@ -5949,6 +5973,11 @@ slY
 sFa
 sdET
 spW
+sink
+swirls
+swirl
+sieve
+spikes
 discuss
 determine
 described
@@ -7788,6 +7817,8 @@ iaL
 iTJ
 inQ
 iQk
+instructs
+intercept
 of
 our
 out
@@ -8400,6 +8431,7 @@ oEV
 ojW
 oCe
 oBWTt
+originate
 near
 neighborhood
 necessary
@@ -9551,6 +9583,10 @@ DCf
 Duc
 DDLHDD
 Dests
+Distances
+Dipole
+Del
+Dimensional
 map
 matrix
 mapping
@@ -10376,6 +10412,7 @@ mCrV
 mmK
 mWe
 mBu
+monopole
 have
 holds
 has
@@ -12155,6 +12192,9 @@ SZy
 SMr
 SFa
 SLb
+Superposition
+Stokes
+Solenoidal
 equations
 equation
 exists
@@ -13012,6 +13052,9 @@ eKI
 ecCK
 eVZ
 eIM
+exploits
+exploiting
+equipotential
 whether
 written
 which
@@ -13566,6 +13609,7 @@ wZC
 weAN
 wOXd
 weE
+water
 by
 be
 bijective
@@ -15196,6 +15240,7 @@ arrowdblright
 arrowright
 asteriskmath
 aPv
+assures
 you
 yields
 yF
@@ -18581,6 +18626,8 @@ pyv
 periodcentered
 pyC
 pCos
+pipe
+permittivity
 Ex
 Evaluate
 Evaluating
@@ -19151,6 +19198,10 @@ EvzKU
 ElGv
 EZC
 EDq
+Extrema
+Electric
+Electrodynamics
+Electrostatic
 We
 What
 With
@@ -20111,6 +20162,7 @@ Tch
 TQw
 Tjd
 TkH
+Tangential
 Hence
 Here
 Hypotheses
@@ -20622,6 +20674,7 @@ HGr
 HcX
 HKw
 HYKGXU
+Helmholtz
 By
 Because
 Below
@@ -21721,6 +21774,7 @@ Fullbanner
 Fzl
 Fdz
 Fsj
+Follows
 Jacobian
 Jobcobian
 John
@@ -22822,6 +22876,7 @@ ANHa
 AlT
 AJZD
 Axioms
+Azimuthal
 via
 variables
 view
@@ -23310,6 +23365,7 @@ vacV
 vextendsingle
 vqs
 vTA
+violates
 unknowns
 unique
 uniquely
@@ -24947,6 +25003,8 @@ MxG
 ModDate
 MVf
 MiKTeX
+Monopole
+Move
 Using
 Up
 Ut
@@ -26650,6 +26708,7 @@ Lzs
 Lga
 Lfg
 LqU
+Line
 Value
 Verifying
 Verify
