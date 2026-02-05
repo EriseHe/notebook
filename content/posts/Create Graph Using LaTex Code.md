@@ -3,7 +3,6 @@ title: "Create Graph Using LaTex Code"
 ---
 
 
-
 ```tikz
 \usetikzlibrary{arrows.meta, positioning}
 
