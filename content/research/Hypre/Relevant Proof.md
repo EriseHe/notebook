@@ -194,6 +194,24 @@ $$\begin{aligned} f'(\alpha) &= \frac{d}{d\alpha} (\alpha \ln^2 \alpha) \\ &= (1
 Set this to $0$, we get $\alpha = 1, \frac{1}{e^{2}}$, so the paper assumes $\tau \geq 1/e^2$ to avoid any explosion. For our $\alpha_\omega$, it starts at $\tau$ and only grows larger as $\omega$ increases. Then
 ## Theorem 2.1
 
+> [!theorem|2.1] Regret bound for the automated SOR parameter selection
+> Define $\alpha_t = \tau_t + (1-\tau_t)\max\{\beta_t^2, \omega_{\max}-1\}$, where $\beta_t = \rho(\mathbf{I}_n - \mathbf{D}_t^{-1}\mathbf{A}_t)$ and $\tau_t$ is the minimal $\tau$ satisfying Assumption 2.1 and the second part of Lemma 2.1. If we run Algorithm 2 using SOR initialized at
+>  - solver: $\mathbf{x} = \mathbf{0}_n$ 
+>  - parameter grid: $g_{[i]} = 1 + (\omega_{\max}-1)\frac{i}{d}$ 
+>  - normalization: $K \ge \frac{-\log \varepsilon}{-\log \alpha_{\max}}$ for $\alpha_{\max} = \max_t \alpha_t$ 
+>  - step-size: $\eta = 1/\sqrt{T}$  
+>  then the expected number of iterations is bounded as:
+> $$
+> \mathbb{E} \sum_{t=1}^T \operatorname{SOR}_t(\omega_t) \le 2K\sqrt{2dT} + \sum_{t=1}^T \frac{-\log \varepsilon}{d \log^2 \alpha_t} + \min_{\omega \in (0, \omega_{\max}]} \sum_{t=1}^T U_t(\omega) 
+> $$
+> 
+> Furthermore, using $d = \sqrt[3]{\frac{T/2}{\log^2 \alpha_{\max}}}$, yields the tighter bound:
+> 
+> $$
+> \mathbb{E} \sum_{t=1}^T \operatorname{SOR}_t(\omega_t) \le 3 \log \frac{1}{\varepsilon} \sqrt[3]{\frac{2\overline{\gamma} T^2}{\log^2 \alpha_{\max}}} + \min_{\omega \in (0,2)} \sum_{t=1}^T U_t(\omega) 
+> $$
+
+
 
 ## Theorem B.3 Preconditioned CG
 
