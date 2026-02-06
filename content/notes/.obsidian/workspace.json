@@ -66,9 +66,21 @@
               "icon": "lucide-file",
               "title": "Prompts"
             }
+          },
+          {
+            "id": "5cf248cfdd55898d",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.11.7"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -132,7 +144,7 @@
             }
           },
           {
-            "id": "dc268305ca095d54",
+            "id": "0457156928657b4d",
             "type": "leaf",
             "pinned": true,
             "state": {

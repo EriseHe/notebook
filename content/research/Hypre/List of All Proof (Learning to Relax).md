@@ -1,3 +1,6 @@
+---
+title: List of All Proof (Learning to Relax)
+---
 
 ## Main Lemma and Theorem
 
