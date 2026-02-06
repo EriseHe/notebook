@@ -212,6 +212,10 @@ Set this to $0$, we get $\alpha = 1, \frac{1}{e^{2}}$, so the paper assumes $\ta
 
 > [!remark|2.1] 
 > The theorem proves that as the number of instances ($T$) approaches infinity, the **average cost per instance** converges to the performance of the best fixed parameter $\omega$ in the search space. This means your AI agent eventually becomes as efficient as a human expert who already knows the optimal setting.
+
+**Proof.**  For sequence of linear systems, ....
+
+# Semi-Lipschitz Bandits
 ## Theorem B.3 Preconditioned CG
 
 > potentially the "Proof of Concept" for why BoomerAMG is learnable as **preconditioner**.

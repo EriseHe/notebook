@@ -71,12 +71,15 @@
             "id": "5cf248cfdd55898d",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.11.7"
+                "file": "理论/概率机器学习/index.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.11.7"
+              "icon": "lucide-file",
+              "title": "index"
             }
           }
         ],
@@ -144,7 +147,7 @@
             }
           },
           {
-            "id": "0457156928657b4d",
+            "id": "fba06bfcad151aeb",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -155,8 +158,7 @@
               "title": "Zen"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -266,8 +268,12 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "4c5ac46d197274e7",
+  "active": "5cf248cfdd55898d",
   "lastOpenFiles": [
+    "理论/概率机器学习/自回归模型（AR）/index.md",
+    "理论/概率机器学习/自回归模型（AR）/Transformer.md",
+    "理论/概率机器学习/自回归模型（AR）/Recurrent Neural Networks (RNN).md",
+    "理论/概率机器学习/自回归模型（AR）/Autoregressive模型.md",
     "理论/电磁学/第三章.md",
     "理论/index.md",
     "理论/电磁学/第二章.md",
@@ -292,10 +298,6 @@
     "理论/PDEs/MATH 352 PDE in Action/第九章/_index.md",
     "理论/PDEs/经典二阶PDEs/Wave Equation/_index.md",
     "理论/PDEs/经典二阶PDEs/Wave Equation/index.md",
-    "理论/PDEs/经典二阶PDEs/Heat Equation/The Fourier Series.md",
-    "理论/PDEs/MATH 352 PDE in Action/第九章/index.md",
-    "理论/PDEs/MATH 352 PDE in Action/第九章/Exercise.md",
-    "理论/PDEs/MATH 352 PDE in Action/第九章/9.4 2D Problem.md",
     "理论/PDEs/MATH 352 PDE in Action/第十章",
     "理论/PDEs/MATH 352 PDE in Action/第四章",
     "理论/PDEs/经典二阶PDEs/Laplace Equation",

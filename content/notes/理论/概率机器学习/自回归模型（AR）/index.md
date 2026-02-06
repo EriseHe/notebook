@@ -1,5 +1,5 @@
 ---
-title: "index"
+title: 自回归模型（AR）
 date: 2025-09-01
 tags:
   - AR
