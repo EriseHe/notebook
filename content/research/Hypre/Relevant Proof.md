@@ -204,15 +204,14 @@ Set this to $0$, we get $\alpha = 1, \frac{1}{e^{2}}$, so the paper assumes $\ta
 > $$
 > \mathbb{E} \sum_{t=1}^T \operatorname{SOR}_t(\omega_t) \le 2K\sqrt{2dT} + \sum_{t=1}^T \frac{-\log \varepsilon}{d \log^2 \alpha_t} + \min_{\omega \in (0, \omega_{\max}]} \sum_{t=1}^T U_t(\omega) 
 > $$
-> 
 > Furthermore, using $d = \sqrt[3]{\frac{T/2}{\log^2 \alpha_{\max}}}$, yields the tighter bound:
-> 
 > $$
 > \mathbb{E} \sum_{t=1}^T \operatorname{SOR}_t(\omega_t) \le 3 \log \frac{1}{\varepsilon} \sqrt[3]{\frac{2\overline{\gamma} T^2}{\log^2 \alpha_{\max}}} + \min_{\omega \in (0,2)} \sum_{t=1}^T U_t(\omega) 
 > $$
 
 
-
+> [!remark|2.1] 
+> The theorem proves that as the number of instances ($T$) approaches infinity, the **average cost per instance** converges to the performance of the best fixed parameter $\omega$ in the search space. This means your AI agent eventually becomes as efficient as a human expert who already knows the optimal setting.
 ## Theorem B.3 Preconditioned CG
 
 > potentially the "Proof of Concept" for why BoomerAMG is learnable as **preconditioner**.
