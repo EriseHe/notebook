@@ -7,6 +7,7 @@ title: Relevant Proof
 ## 1.1 SOR Iteration Matrix Derivation
 
 > This derivation follows the notation used in **Algorithm 1** and **Section 2.1**.
+
 ### 1.1.1 Matrix Splitting
 
 The system matrix $\mathbf{A} \in \mathbb{R}^{n \times n}$ is decomposed into its diagonal, strictly lower, and strictly upper triangular components:
