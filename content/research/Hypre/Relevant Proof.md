@@ -136,18 +136,17 @@ $$\boxed{U(\omega) = 1 + \frac{-\log \varepsilon}{-\log(\rho(\mathbf{C}_\omega) 
 
 ### Claim 1. $\operatorname{SOR}(\mathbf{A}, \mathbf{b}, \omega)<U(\omega)$
 
-**Proof.** We want to show that the final iteration $k<U(\omega)$. Suppose, for the sake of **contradiction**, there exists $l$ such that
-$$
-l>U(\omega)=1+\frac{\log \varepsilon}{\log (\rho+\tau(1-\rho))}
-$$
-then, this means at step $l-1$, the error still too large:
+**Proof.** We want to show that the final iteration $k<U(\omega)$. Suppose, for the sake of **contradiction**, there exists $l$ such that $l>U(\omega)$. Then, this means at step $l-1$, the error still too large:
 $$\frac{\left\|\mathbf{C}_\omega^{l-1} \mathbf{b}\right\|_2}{\|\mathbf{b}\|_2}>\varepsilon$$
 As we have shown earlier, we know 
-
 $$
 \epsilon<\frac{\left\|\mathbf{C}_\omega^{l-1} \mathbf{b}\right\|_2}{\|\mathbf{b}\|_2}\leq\frac{\|\mathbf{C}_\omega^{l-1}\|\cancel{\| \mathbf{b}\|_2}}{\cancel{\|\mathbf{b}\|_2}}=\left\|\mathbf{C}_\omega^{l-1}\right\|_2 \leq \underbrace{\left(\rho\left(\mathbf{C}_\omega\right)+\tau\left(1-\rho\left(\mathbf{C}_\omega\right)\right)\right)^{l-1}}_{\text {Assumption 2.1 }}
 $$
 By definition of $U(\omega)$, we know 
+$$
+l>U(\omega)=1+\frac{\log \varepsilon}{\log (\rho+\tau(1-\rho))}
+
+$$
 
 ### Claim 2 
 
