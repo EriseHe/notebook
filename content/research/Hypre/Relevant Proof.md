@@ -158,6 +158,8 @@ Then
 $$(\rho + \tau(1 - \rho))^{l-1} < (\rho + \tau(1 - \rho))^{U(\omega)-1} = \epsilon$$
 and this results in $\epsilon \leq \dots < \epsilon$, which is a contradiction. 
 ■
+
+
 ### Claim 2. $U$ is decreasing towards $\omega^*$
 
 **Step 1. ($U(\omega)$ is a monotonic function of $\rho$)**
