@@ -87,7 +87,7 @@ $$
 The total number of iterations required to reach tolerance $\varepsilon$ is then bounded by $U(\omega)$:
 $$\boxed{U(\omega) = 1 + \frac{-\log \varepsilon}{-\log(\rho(\mathbf{C}_\omega) + \tau(1 - \rho(\mathbf{C}_\omega)))}}$$
 
-# Proof Relevant to BoomerAMG
+# 2. Relevant Proof
 
 > **Lemma 2.1**, **Theorem B.3**, **Theorem B.4**, **Theorem 2.1**, and **Theorem 2.3** (plus **F.3–F.4** if we want the “smooth in expectation” trick).
 
@@ -217,7 +217,7 @@ Set this to $0$, we get $\alpha = 1, \frac{1}{e^{2}}$, so the paper assumes $\ta
 
 **Proof.**  For sequence of linear systems, ....
 
-# Semi-Lipschitz Bandits
+# 3. Semi-Lipschitz Bandits
 ## Theorem B.3 Preconditioned CG
 
 > potentially the "Proof of Concept" for why BoomerAMG is learnable as **preconditioner**.
