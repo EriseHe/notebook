@@ -169,7 +169,7 @@ For $u(\omega) = 1 + \frac{-\log \epsilon}{-\log \alpha}$ where $\alpha = \rho +
 2) $\log \alpha \downarrow$
 3) $\frac{\log \epsilon}{\log \alpha} \to 0$
 
-So $U(\omega)$ is strictly decreasing as $\rho$ decreases. Vice versa.
+So $U(\omega)$ is strictly decreasing as $\rho$ decreases. 
 
 **Step 2. (V-Shape of spectral radius)**
 
