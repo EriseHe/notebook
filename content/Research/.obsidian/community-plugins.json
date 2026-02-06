@@ -1,7 +1,7 @@
 [
   "obsidian-git",
   "zen",
-  "obsidian-latex-suite",
   "math-in-callout",
-  "mathlinks"
+  "mathlinks",
+  "obsidian-latex-suite"
 ]
