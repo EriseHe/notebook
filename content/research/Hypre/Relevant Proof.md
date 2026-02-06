@@ -13,6 +13,7 @@ The system matrix $\mathbf{A} \in \mathbb{R}^{n \times n}$ is decomposed into it
 $$\mathbf{A} = \mathbf{D} + \mathbf{L} + \mathbf{L}^T$$
 For SOR method with parameter $\omega \in (0, 2)$, we define preconditioner matrix $\mathbf{W}_\omega$ as:
 $$\mathbf{W}_\omega = \frac{1}{\omega}\mathbf{D} + \mathbf{L}$$
+
 ### 1.1.2. Fixed-Point Iteration
 
 We define the residual $\mathbf{r}_k$ as:
@@ -30,11 +31,12 @@ $$
 The iteration matrix, $\mathbf{C}_\omega$, by definition governs the evolution of the **error** and the **residual**:
 $$\begin{align}
 \mathbf{C}_\omega :&= (\mathbf{I} - \underbrace{\mathbf{W}_\omega^{-1}\mathbf{A}}_{\mathbf{A}\mathbf{W}^{-1}_{\omega}})\\
-
 &=\mathbf{I} - \mathbf{A}(\mathbf{D}/\omega + \mathbf{L})^{-1}
-\end{align}$$
+\end{align}
+$$
 where $\mathbf{W}_\omega^{-1}\mathbf{A}$ and $\mathbf{A}\mathbf{W}_\omega^{-1}$ are similar and share the same eigenvalues. Therefore, the residual at iteration $k$ evolves as:
 $$\boxed{\mathbf{r}_k = \mathbf{C}_\omega^k \mathbf{r}_0}$$
+
 ### 1.1.4. Spectral Radius and Convergence
 
 The **asymptotic convergence rate** is determined by the spectral radius $\rho(\mathbf{C}_\omega)$:
@@ -142,14 +144,40 @@ As we have shown earlier, we know
 $$
 \epsilon<\frac{\left\|\mathbf{C}_\omega^{l-1} \mathbf{b}\right\|_2}{\|\mathbf{b}\|_2}\leq\frac{\|\mathbf{C}_\omega^{l-1}\|\cancel{\| \mathbf{b}\|_2}}{\cancel{\|\mathbf{b}\|_2}}=\left\|\mathbf{C}_\omega^{l-1}\right\|_2 \leq \underbrace{\left(\rho\left(\mathbf{C}_\omega\right)+\tau\left(1-\rho\left(\mathbf{C}_\omega\right)\right)\right)^{l-1}}_{\text {Assumption 2.1 }}
 $$
-By definition of $U(\omega)$, we know 
+By definition of $U(\omega)$, we know,
 $$
-l>U(\omega)=1+\frac{\log \varepsilon}{\log (\rho+\tau(1-\rho))}
-
+\begin{align}
+l  & > U(\omega)\\
+l - 1  & > U(\omega) - 1 = \frac{\log \epsilon}{\log(\rho + \tau(1 - \rho))} = \log_{(\rho + \tau(1 - \rho))} (\epsilon)
+\end{align}
 $$
+Then
+$$(\rho + \tau(1 - \rho))^{l-1} < (\rho + \tau(1 - \rho))^{U(\omega)-1} = \epsilon$$
+and this results in $\epsilon \leq \dots < \epsilon$, which is a contradiction. 
+■
+### Claim 2. $U$ is decreasing towards $\omega^*$
 
-### Claim 2 
+**Step 1. ($U(\omega)$ is a monotonic function of $\rho$)**
+For $u(\omega) = 1 + \frac{-\log \epsilon}{-\log \alpha}$ where $\alpha = \rho + \tau(1 - \rho)$, notice that as $\rho \downarrow$, we have
+1) $\alpha \downarrow$
+2) $\log \alpha \downarrow$
+3) $\frac{\log \epsilon}{\log \alpha} \to 0$
 
+So $U(\omega)$ is strictly decreasing as $\rho$ decreases. Vice versa.
+
+**Step 2. (V-Shape of spectral radius)**
+
+SOR theory by Hackbusch (2016) shows the V-shape of its spectral radius:
+$$\rho(C_{\omega}) = \begin{cases} 
+\frac{1}{4} \left( \omega \beta + \sqrt{\omega^2 \beta^2 - 4(\omega - 1)} \right)^2 & \omega < \omega^* \\
+\omega - 1 & \omega > \omega^* \end{cases}$$
+
+Over the interval $(0, \omega^*)$, observe that $\rho$ strictly decreases. From part A, since $U$ follows the same direction as $\rho$, therefore $U(\omega)$ is **monotonically decreasing** on $\left(0, \omega^*\right)$.
+
+### Claim 3. Lipschitz Continuity
+
+We want to show the Lipschitz continuity of $U(\omega)$, that is, to show its derivative **less than or equal to a constant**. Here, we first differentiate:
+$$\left|\partial_\omega U(\omega)\right|=\frac{(\tau-1) \log \varepsilon}{(\tau+(1-\tau)(\omega-1)) \log ^2(\tau+(1-\tau)(\omega-1))}$$
 
 ## Theorem 2.1
 
