@@ -75,7 +75,7 @@
             }
           },
           {
-            "id": "e9d31d58477e3fee",
+            "id": "78d758d973418a9d",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -90,7 +90,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "05994e471f4673f7",
@@ -106,7 +107,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "collapseAll": false,
+                "file": "Hypre/Relevant Proof.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -115,7 +117,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Relevant Proof"
             }
           },
           {
@@ -166,20 +168,21 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Hypre/Relevant Proof.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Relevant Proof"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
