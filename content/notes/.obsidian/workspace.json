@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/电磁学/第三章.md",
+                "file": "Prompts.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "第三章"
+              "title": "Prompts"
             }
           }
         ],
@@ -209,13 +209,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/电磁学/第三章.md",
+                "file": "Prompts.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 第三章"
+              "title": "Outline of Prompts"
             }
           },
           {
@@ -255,9 +255,9 @@
   },
   "active": "67af20a2b1cc642f",
   "lastOpenFiles": [
+    "理论/电磁学/第三章.md",
     "理论/index.md",
     "理论/电磁学/第二章.md",
-    "理论/电磁学/第三章.md",
     "理论/电磁学/第一章.md",
     "Prompts.md",
     "理论/电磁学",
