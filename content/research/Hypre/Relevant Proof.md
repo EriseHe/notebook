@@ -1,3 +1,6 @@
+---
+title: Relevant Proof
+---
 
 # 1. Near-asymptotic analysis of SOR
 
@@ -8,7 +11,6 @@
 
 The system matrix $\mathbf{A} \in \mathbb{R}^{n \times n}$ is decomposed into its diagonal, strictly lower, and strictly upper triangular components:
 $$\mathbf{A} = \mathbf{D} + \mathbf{L} + \mathbf{L}^T$$
-
 For SOR method with parameter $\omega \in (0, 2)$, we define preconditioner matrix $\mathbf{W}_\omega$ as:
 $$\mathbf{W}_\omega = \frac{1}{\omega}\mathbf{D} + \mathbf{L}$$
 ### 1.1.2. Fixed-Point Iteration
@@ -119,9 +121,9 @@ $$\boxed{U(\omega) = 1 + \frac{-\log \varepsilon}{-\log(\rho(\mathbf{C}_\omega) 
 > $$
 > 2. **(Monotonicity and regularity)** $U$ is decreasing toward $\omega^*$, and is
 > $$
-> \frac{-(1-\tau)\log\varepsilon}{\alpha\log^2\alpha}
+> \left(\frac{-(1-\tau)\log\varepsilon}{\alpha\log^2\alpha}\right)\text{ -Lipschitz}
 > $$
-> -Lipschitz on $\omega\ge\omega^*$ if
+>  om $\omega\ge\omega^*$ if
 > $$
 > \tau\ge\frac{1}{e^2}
 > \quad\text{or}\quad
@@ -134,9 +136,20 @@ $$\boxed{U(\omega) = 1 + \frac{-\log \varepsilon}{-\log(\rho(\mathbf{C}_\omega) 
 
 ### Claim 1. $\operatorname{SOR}(\mathbf{A}, \mathbf{b}, \omega)<U(\omega)$
 
-**Proof.** Suppose, for the sake of contradiction, there exists an iteration count $l$, that is larger than $U()$
+**Proof.** We want to show that the final iteration $k<U(\omega)$. Suppose, for the sake of **contradiction**, there exists $l$ such that
+$$
+l>U(\omega)=1+\frac{\log \varepsilon}{\log (\rho+\tau(1-\rho))}
+$$
+then, this means at step $l-1$, the error still too large:
+$$\frac{\left\|\mathbf{C}_\omega^{l-1} \mathbf{b}\right\|_2}{\|\mathbf{b}\|_2}>\varepsilon$$
+As we have shown earlier, we know 
 
+$$
+\epsilon<\frac{\left\|\mathbf{C}_\omega^{l-1} \mathbf{b}\right\|_2}{\|\mathbf{b}\|_2}\leq\frac{\|\mathbf{C}_\omega^{l-1}\|\cancel{\| \mathbf{b}\|_2}}{\cancel{\|\mathbf{b}\|_2}}=\left\|\mathbf{C}_\omega^{l-1}\right\|_2 \leq \underbrace{\left(\rho\left(\mathbf{C}_\omega\right)+\tau\left(1-\rho\left(\mathbf{C}_\omega\right)\right)\right)^{l-1}}_{\text {Assumption 2.1 }}
+$$
+By definition of $U(\omega)$, we know 
 
+### Claim 2 
 
 
 ## Theorem 2.1
