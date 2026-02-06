@@ -278,18 +278,17 @@ We now show that Tsallis-INF with bandit access to $\ell_t$ on a discretization 
 > $$
 > Setting $d = \sqrt[3]{\frac{(b-a)^2\bar{L}^2T}{2K^2}}$ for $\bar{L} = \frac{1}{T}\sum_{t=1}^T L_t$ yields the bound $3\sqrt[3]{2(b-a)\bar{L}K^2T^2}$.
 
-> [!proof]
-> Let $\lceil\cdot\rceil_g$ denote rounding to the closest element of $g$ in the direction of $z$. Then for $x \in [a,b]$ we have $|\lceil x\rceil_g - z| \le |x-z|$ and $|\lceil x\rceil_g - x| \le \frac{b-a}{d}$, so applying Theorem B.1 and this fact yields
-> $$
-> \begin{aligned}
-> \mathbb{E}\sum_{t=1}^T \ell_t(g_{[i_t]})
-> &\le 2K\sqrt{2dT} + \min_{i\in[d]} \sum_{t=1}^T \ell_t(g_{[i]})
-> \le 2K\sqrt{2dT} + \min_{i\in[d]} \sum_{t=1}^T u_t(g_{[i]}) \\
-> &= 2K\sqrt{2dT} + \min_{x\in[a,b]} \sum_{t=1}^T u_t(\lceil x\rceil_g) \\
-> &\le 2K\sqrt{2dT} + \frac{b-a}{d}\sum_{t=1}^T L_t + \min_{x\in[a,b]} \sum_{t=1}^T u_t(x).
-> \end{aligned}
-> $$
-> (13)
+**Proof.** 
+Let $\lceil\cdot\rceil_g$ denote rounding to the closest element of $g$ in the direction of $z$. Then for $x \in [a,b]$ we have $|\lceil x\rceil_g - z| \le |x-z|$ and $|\lceil x\rceil_g - x| \le \frac{b-a}{d}$, so applying Theorem B.1 and this fact yields
+$$
+\begin{aligned}
+\mathbb{E}\sum_{t=1}^T \ell_t(g_{[i_t]})
+&\le 2K\sqrt{2dT} + \min_{i\in[d]} \sum_{t=1}^T \ell_t(g_{[i]})
+\le 2K\sqrt{2dT} + \min_{i\in[d]} \sum_{t=1}^T u_t(g_{[i]}) \\
+&= 2K\sqrt{2dT} + \min_{x\in[a,b]} \sum_{t=1}^T u_t(\lceil x\rceil_g) \\
+&\le 2K\sqrt{2dT} + \frac{b-a}{d}\sum_{t=1}^T L_t + \min_{x\in[a,b]} \sum_{t=1}^T u_t(x).
+\end{aligned}
+$$
 
 
 For contextual bandits, we restrict to $(L_t,b)$-semi-Lipschitz functions and $L_f$-Lipschitz policies, obtaining $O(T^{3/4})$ regret; this rate matches known upper and lower bounds for the case where losses are Lipschitz in both actions and contexts (Lu et al., 2010, Theorem 1), although this does not imply optimality of our result.
@@ -307,16 +306,18 @@ For contextual bandits, we restrict to $(L_t,b)$-semi-Lipschitz functions and $L
 > 4\sqrt[4]{4K^2\bar{L}^2(b-a)CL_fT^3} \;+\; \sqrt[4]{\frac{C^3L_f^3\bar{L}^2T}{4(b-a)K^2}}.
 > $$
 
-> [!proof]
-> Define $[\cdot]_h$ to be the operation of rounding to the closest element of $h$, breaking ties arbitrarily, and set $[T]_j = \{t \in [T] : [c_t]_h = h_{[j]}\}$. Furthermore, define $[x]_g$ to be the smallest element $g_{[i]}$ in $g$ s.t. $x + \frac{CL_f}{2m} \le g_{[i]}$ (or $\max_{i\in[d]} g_{[i]}$ if such an element does not exist).
->
-> $$
-> \begin{aligned}
-> \mathbb{E}\sum_{t=1}^T \ell_t(g_{[i_t]})
-> &= \mathbb{E}\sum_{j=1}^m \sum_{t\in[T]_j} \ell_t(g_{[i_t]}) - \min_{i\in[d]} \sum_{t\in[T]_j} \ell_t(g_{[i]}) + \min_{i\in[d]} \sum_{t\in[T]_j} \ell_t(g_{[i]}) \\
-> &\le m + 4\sum_{j=1}^m K\sqrt{d|[T]_j|} + \min_{i\in[d]} \sum_{t\in[T]_j} \ell_t(g_{[i]}) \\
-> &\le m + 4K\sqrt{dmT} + \sum_{j=1}^m \min_{i\in[d]} \sum_{t\in[T]_j} u_t(g_{[i]}) \\
-> &\le m + 4K\sqrt{dmT} + \sum_{t=1}^T u_t([f([c_t]_h)]_g).
-> \end{aligned}
-> $$
-> where the first inequality follows by Theorem B.2, the second applies Jensen’s inequality to the left term and $u_t \ge \ell_t$ on the right, and the last uses optimality of each $i$ for each $j$. Now since $f$ is $L_f$-Lipschitz we have by definition of $[\cdot]_h$ that $|f(c_t) - f([c_t]_h)| \le \frac{CL_f}{2m}$. This in turn implies that $f(c_t) \le [f([c_t]_h)]_g \le f(c_t) + \frac{CL_f}{m} + \frac{b-a}{d}$ by definition of $g$ and $[\cdot]_g$. Since $u_t$ is $(L_t,b)$-semi-Lipschitz, the result follows. $\square$
+**Proof.**
+Define $[\cdot]_h$ to be the operation of rounding to the closest element of $h$, breaking ties arbitrarily, and set $[T]_j = \{t \in [T] : [c_t]_h = h_{[j]}\}$. Furthermore, define $[x]_g$ to be the smallest element $g_{[i]}$ in $g$ s.t. $x + \frac{CL_f}{2m} \le g_{[i]}$ (or $\max_{i\in[d]} g_{[i]}$ if such an element does not exist).
+
+$$
+\begin{aligned}
+\mathbb{E}\sum_{t=1}^T \ell_t(g_{[i_t]})
+&= \mathbb{E}\sum_{j=1}^m \sum_{t\in[T]_j} \ell_t(g_{[i_t]}) - \min_{i\in[d]} \sum_{t\in[T]_j} \ell_t(g_{[i]}) + \min_{i\in[d]} \sum_{t\in[T]_j} \ell_t(g_{[i]}) \\
+&\le m + 4\sum_{j=1}^m K\sqrt{d|[T]_j|} + \min_{i\in[d]} \sum_{t\in[T]_j} \ell_t(g_{[i]}) \\
+&\le m + 4K\sqrt{dmT} + \sum_{j=1}^m \min_{i\in[d]} \sum_{t\in[T]_j} u_t(g_{[i]}) \\
+&\le m + 4K\sqrt{dmT} + \sum_{t=1}^T u_t([f([c_t]_h)]_g).
+\end{aligned}
+$$
+where the first inequality follows by Theorem B.2, the second applies Jensen’s inequality to the left term and $u_t \ge \ell_t$ on the right, and the last uses optimality of each $i$ for each $j$. Now since $f$ is $L_f$-Lipschitz we have by definition of $[\cdot]_h$ that $|f(c_t) - f([c_t]_h)| \le \frac{CL_f}{2m}$. This in turn implies that $f(c_t) \le [f([c_t]_h)]_g \le f(c_t) + \frac{CL_f}{m} + \frac{b-a}{d}$ by definition of $g$ and $[\cdot]_g$. Since $u_t$ is $(L_t,b)$-semi-Lipschitz, the result follows. 
+
+$\square$
