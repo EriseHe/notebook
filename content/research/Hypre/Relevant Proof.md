@@ -213,18 +213,110 @@ Set this to $0$, we get $\alpha = 1, \frac{1}{e^{2}}$, so the paper assumes $\ta
 
 
 > [!remark|2.1] 
-> The theorem proves that as the number of instances ($T$) approaches infinity, the **average cost per instance** converges to the performance of the best fixed parameter $\omega$ in the search space. This means your AI agent eventually becomes as efficient as a human expert who already knows the optimal setting.
+> As number of instances ($T$) approaches infinity, the **average cost per instance** converges to the performance of the best fixed parameter $\omega$ in the search space. This means the AI agent eventually becomes as efficient as a human expert who already knows the optimal setting.
 
-**Proof.**  For sequence of linear systems, ....
+
+**Proof.**  
+
+The first inequality in Theorem 2.1 (Equation 4) is a standard result for **Multi-Armed Bandits**. We need to prove that the SOR cost functions ($U_t$) meet the specific requirements of that theorem:
+
+1. **Lipschitz Requirement**: Theorem B.3 requires the functions to be Lipschitz. 
+	- For $\omega \in [1, \omega_{\max}]$, *Lemma 2.1* is used to show that $U_t - 1$ is indeed semi-Lipschitz.
+	- for $\omega \in (0, 1)$, while non-smooth, Lemma 2.1.2 proves all $U_t$ are **strictly decreasing** toward $\omega=1$, so any parameter chosen in the non-Lipschitz region $(0, 1)$ will either be closer to the optimum or bounded by the value at $\omega=1$.
+	Therefore, we can extend the comparator domain to the full range $(0, \omega_{\max}]$. 
+
+2. **Boundedness Requirement**: The cost must be capped. We have already shown that $SOR_t - 1$ is safely bounded by $\frac{-\log \varepsilon}{-\log \alpha_t}$.
+
 
 # 3. Semi-Lipschitz Bandits
-## Theorem B.3 Preconditioned CG
+# Appendix B — Semi-Lipschitz Bandits
 
-> potentially the "Proof of Concept" for why BoomerAMG is learnable as **preconditioner**.
+We consider a sequence of adaptively chosen loss functions $\ell_1,\ldots,\ell_T : [a,b] \mapsto [0,K]$ on an interval $[a,b]\subset \mathbb{R}$ and upper bounds $u_1,\ldots,u_T : [a,b] \mapsto \mathbb{R}$ satisfying $u_t(x) \ge \ell_t(x)\ \forall t \in [T],\ x \in [a,b]$, where $[T]$ denotes the set of integers from $1$ to $T$. Our analysis will focus on the Tsallis-INF algorithm of Abernethy et al. (2015), which we write in its general form in Algorithm 4, although the analysis extends easily to the better-known (but sub-optimal) Exp3 (Auer et al., 2002). For Tsallis-INF, the following two facts follow directly from known results:
+
+---
+
+## Theorem B.1
+
+> [!theorem|B.1] (Corollary of Abernethy et al. (2015, Corollary 3.2))
+> If $\eta_t = 1/\sqrt{T}\ \forall t \in [T]$ then Algorithm 4 has regret
+> $$
+> \mathbb{E}\sum_{t=1}^T \ell_t(g_{[i_t]}) - \min_{i\in[d]} \sum_{t=1}^T \ell_t(g_{[i]}) \le 2K\sqrt{2dT}.
+> $$
+
+---
+
+## Theorem B.2
+
+> [!theorem|B.2] (Corollary of Zimmert & Seldin (2021, Theorem 1))
+> If $\eta_t = 2/\sqrt{t}\ \forall t \in [T]$ then Algorithm 4 has regret
+> $$
+> \mathbb{E}\sum_{t=1}^T \ell_t(g_{[i_t]}) - \min_{i\in[d]} \sum_{t=1}^T \ell_t(g_{[i]}) \le 4K\sqrt{dT} + 1.
+> $$
+
+---
+
+We now define a generalization of the Lipschitzness condition that trivially generalizes regular $L$-Lipschitz functions, as well as the notion of one-sided Lipschitz functions studied in the stochastic setting by Dütting et al. (2023).
+
+## Definition B.1
+
+> [!definition|B.1]
+> Given a constant $L \ge 0$ and a point $z \in [a,b]$, we say a function $f : [a,b] \mapsto \mathbb{R}$ is $(L,z)$-semi-Lipschitz if
+> $$
+> f(x) - f(y) \le L|x-y|\ \forall x,y\ \text{s.t.}\ |x-z| \le |y-z|.
+> $$
+
+---
+
+We now show that Tsallis-INF with bandit access to $\ell_t$ on a discretization of $[a,b]$ attains $O(T^{2/3})$ regret w.r.t. any fixed $x \in [a,b]$ evaluated by any comparator sequence of semi-Lipschitz upper bounds $u_t$. Note that guarantees for the standard comparator can be recovered by just setting $\ell_t = u_t\ \forall t \in [T]$, and that the rate is optimal by Kleinberg (2004, Theorem 4.2).
+
+## Theorem B.3
+
+> [!theorem|B.3]
+> If $u_t \ge \ell_t$ is $(L_t,z)$-semi-Lipschitz $\forall t \in [T]$ then Algorithm 4 using action space $g \in [a,b]^d$ s.t. $g_{[i]} = a + \frac{b-a}{d}i\ \forall i \in [d-1]$ and $g_{[d]} = z$ has regret
+> $$
+> \mathbb{E}\sum_{t=1}^T \ell_t(g_{[i_t]}) - \min_{x\in[a,b]} \sum_{t=1}^T u_t(x) \le 2K\sqrt{2dT} + \frac{b-a}{d}\sum_{t=1}^T L_t.
+> $$
+> Setting $d = \sqrt[3]{\frac{(b-a)^2\bar{L}^2T}{2K^2}}$ for $\bar{L} = \frac{1}{T}\sum_{t=1}^T L_t$ yields the bound $3\sqrt[3]{2(b-a)\bar{L}K^2T^2}$.
+
+> [!proof]
+> Let $\lceil\cdot\rceil_g$ denote rounding to the closest element of $g$ in the direction of $z$. Then for $x \in [a,b]$ we have $|\lceil x\rceil_g - z| \le |x-z|$ and $|\lceil x\rceil_g - x| \le \frac{b-a}{d}$, so applying Theorem B.1 and this fact yields
+> $$
+> \begin{aligned}
+> \mathbb{E}\sum_{t=1}^T \ell_t(g_{[i_t]})
+> &\le 2K\sqrt{2dT} + \min_{i\in[d]} \sum_{t=1}^T \ell_t(g_{[i]})
+> \le 2K\sqrt{2dT} + \min_{i\in[d]} \sum_{t=1}^T u_t(g_{[i]}) \\
+> &= 2K\sqrt{2dT} + \min_{x\in[a,b]} \sum_{t=1}^T u_t(\lceil x\rceil_g) \\
+> &\le 2K\sqrt{2dT} + \frac{b-a}{d}\sum_{t=1}^T L_t + \min_{x\in[a,b]} \sum_{t=1}^T u_t(x).
+> \end{aligned}
+> $$
+> (13)
+
+
+For contextual bandits, we restrict to $(L_t,b)$-semi-Lipschitz functions and $L_f$-Lipschitz policies, obtaining $O(T^{3/4})$ regret; this rate matches known upper and lower bounds for the case where losses are Lipschitz in both actions and contexts (Lu et al., 2010, Theorem 1), although this does not imply optimality of our result.
 
 ## Theorem B.4
 
+> [!theorem|B.4]
+> If $u_t \ge \ell_t$ is $(L_t,b)$-semi-Lipschitz and $c_t \in [c,c+C]\ \forall t \in [T]$ then Algorithm 5 using action space $g_{[i]} = a + \frac{b-a}{d}i$ and $h_{[j]} = c + \frac{C}{m}\left(j - \frac{1}{2}\right)$ as the grid of contexts has regret w.r.t. any $L_f$-Lipschitz policy $f : [c,c+C] \mapsto [a,b]$ of
+> $$
+> \mathbb{E}\sum_{t=1}^T \ell_t(g_{[i_t]}) - \sum_{t=1}^T u_t(\pi(c_t))
+> \le m + 4K\sqrt{dmT} + \left(\frac{CL_f}{m} + \frac{b-a}{d}\right)\sum_{t=1}^T L_t.
+> $$
+> Setting $d = \sqrt[4]{\frac{(b-a)^3\bar{L}^2T}{4CL_fK^2}},\ m = \sqrt[4]{\frac{C^3L_f^3\bar{L}^2T}{4(b-a)K^2}}$ yields regret
+> $$
+> 4\sqrt[4]{4K^2\bar{L}^2(b-a)CL_fT^3} \;+\; \sqrt[4]{\frac{C^3L_f^3\bar{L}^2T}{4(b-a)K^2}}.
+> $$
 
-
-
-
+> [!proof]
+> Define $[\cdot]_h$ to be the operation of rounding to the closest element of $h$, breaking ties arbitrarily, and set $[T]_j = \{t \in [T] : [c_t]_h = h_{[j]}\}$. Furthermore, define $[x]_g$ to be the smallest element $g_{[i]}$ in $g$ s.t. $x + \frac{CL_f}{2m} \le g_{[i]}$ (or $\max_{i\in[d]} g_{[i]}$ if such an element does not exist).
+>
+> $$
+> \begin{aligned}
+> \mathbb{E}\sum_{t=1}^T \ell_t(g_{[i_t]})
+> &= \mathbb{E}\sum_{j=1}^m \sum_{t\in[T]_j} \ell_t(g_{[i_t]}) - \min_{i\in[d]} \sum_{t\in[T]_j} \ell_t(g_{[i]}) + \min_{i\in[d]} \sum_{t\in[T]_j} \ell_t(g_{[i]}) \\
+> &\le m + 4\sum_{j=1}^m K\sqrt{d|[T]_j|} + \min_{i\in[d]} \sum_{t\in[T]_j} \ell_t(g_{[i]}) \\
+> &\le m + 4K\sqrt{dmT} + \sum_{j=1}^m \min_{i\in[d]} \sum_{t\in[T]_j} u_t(g_{[i]}) \\
+> &\le m + 4K\sqrt{dmT} + \sum_{t=1}^T u_t([f([c_t]_h)]_g).
+> \end{aligned}
+> $$
+> where the first inequality follows by Theorem B.2, the second applies Jensen’s inequality to the left term and $u_t \ge \ell_t$ on the right, and the last uses optimality of each $i$ for each $j$. Now since $f$ is $L_f$-Lipschitz we have by definition of $[\cdot]_h$ that $|f(c_t) - f([c_t]_h)| \le \frac{CL_f}{2m}$. This in turn implies that $f(c_t) \le [f([c_t]_h)]_g \le f(c_t) + \frac{CL_f}{m} + \frac{b-a}{d}$ by definition of $g$ and $[\cdot]_g$. Since $u_t$ is $(L_t,b)$-semi-Lipschitz, the result follows. $\square$
