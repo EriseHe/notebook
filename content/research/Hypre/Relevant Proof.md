@@ -123,7 +123,7 @@ $$\boxed{U(\omega) = 1 + \frac{-\log \varepsilon}{-\log(\rho(\mathbf{C}_\omega) 
 > $$
 > \left(\frac{-(1-\tau)\log\varepsilon}{\alpha\log^2\alpha}\right)\text{ -Lipschitz}
 > $$
->  om $\omega\ge\omega^*$ if
+>  on $\omega\ge\omega^*$ if
 > $$
 > \tau\ge\frac{1}{e^2}
 > \quad\text{or}\quad
