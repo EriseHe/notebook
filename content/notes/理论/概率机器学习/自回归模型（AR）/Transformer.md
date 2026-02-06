@@ -1,5 +1,5 @@
 ---
-title: 4. Transformer
+title: Transformer
 date: 2025-09-15
 lecture: "4"
 tags:
