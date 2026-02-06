@@ -23,18 +23,21 @@ $$
 \begin{align}
 \mathbf{x}_{k+1}& =\mathbf{x}_k + \mathbf{W}_\omega^{-1} \mathbf{r}_k \\
  &=\mathbf{x}_k + \mathbf{W}_\omega^{-1} (\mathbf{b} - \mathbf{A}\mathbf{x}_k) \\
-& = \underbrace{(\mathbf{I} - \mathbf{W}_\omega^{-1}\mathbf{A})}_{\mathbf{C}_{\omega}}\mathbf{x}_k + \mathbf{W}_\omega^{-1}\mathbf{b}
+& = \underbrace{(\mathbf{I} - \mathbf{W}_\omega^{-1}\mathbf{A})}_{e_{\omega}}\mathbf{x}_k+ \mathbf{W}_\omega^{-1}\mathbf{b}
 \end{align}$$
 
 ### 1.1.3. The Defect Reduction Matrix $\mathbf{C}_\omega$
 
 The iteration matrix, $\mathbf{C}_\omega$, by definition governs the evolution of the **error** and the **residual**:
+
+$$\mathbf{r}_{k+1}=\underbrace{\left(\mathbf{I}-\mathbf{A} \mathbf{W}_\omega^{-1}\right)}_{\mathbf{C}_\omega} \mathbf{r}_k$$
+That is,
 $$\begin{align}
-\mathbf{C}_\omega :&= (\mathbf{I} - \underbrace{\mathbf{W}_\omega^{-1}\mathbf{A}}_{\mathbf{A}\mathbf{W}^{-1}_{\omega}})\\
+\mathbf{C}_\omega :&= (\mathbf{I} - \mathbf{W}_\omega^{-1}\mathbf{A})\\
 &=\mathbf{I} - \mathbf{A}(\mathbf{D}/\omega + \mathbf{L})^{-1}
 \end{align}
 $$
-where $\mathbf{W}_\omega^{-1}\mathbf{A}$ and $\mathbf{A}\mathbf{W}_\omega^{-1}$ are similar and share the same eigenvalues. Therefore, the residual at iteration $k$ evolves as:
+(note: $\mathbf{W}_\omega^{-1}\mathbf{A}$ and $\mathbf{A}\mathbf{W}_\omega^{-1}$ are similar and share the same eigenvalues). Therefore, the residual at iteration $k$ evolves as:
 $$\boxed{\mathbf{r}_k = \mathbf{C}_\omega^k \mathbf{r}_0}$$
 
 ### 1.1.4. Spectral Radius and Convergence
@@ -55,7 +58,7 @@ $$\lim_{k \to \infty} \sqrt[k]{\|\mathbf{C}_\omega^k\|_2} = \rho(\mathbf{C}_\ome
 > \rho(\mathbf{C}_\omega)
 > +
 > \tau\bigl(1-\rho(\mathbf{C}_\omega)\bigr)
-> \Bigr)^{k},
+> \Bigr)^{k}
 > $$
 > for the iteration index $k =\min\Bigl\{\, i \;\big|\;|\mathbf{C}_\omega^{\,i+1}\mathbf{b}\|_2<\varepsilon \|\mathbf{b}\|_2\Bigr\}.$
 
@@ -176,9 +179,19 @@ Over the interval $(0, \omega^*)$, observe that $\rho$ strictly decreases. From 
 
 ### Claim 3. Lipschitz Continuity
 
-We want to show the Lipschitz continuity of $U(\omega)$, that is, to show its derivative **less than or equal to a constant**. Here, we first differentiate:
-$$\left|\partial_\omega U(\omega)\right|=\frac{(\tau-1) \log \varepsilon}{(\tau+(1-\tau)(\omega-1)) \log ^2(\tau+(1-\tau)(\omega-1))}$$
-
+For interval $(\omega^*,2)$, the right side, we know $\rho(C_{\omega})=\omega -1$, so we have
+$$
+\begin{align}
+\alpha_\omega  & = \rho + \tau(1-\rho)\\ 
+ & =\tau + (1 - \tau)(\omega - 1)
+\end{align}$$
+Then using the chain rule, we compute $\partial_\omega U(\omega) = \frac{dU}{d\alpha} \cdot \frac{d\alpha}{d\omega}$:
+$$\begin{aligned} \partial_\omega U(\omega) &= \frac{d}{d\omega} \left[ 1 + \frac{\log \varepsilon}{\log(\alpha_\omega)} \right] \\ &= (\log \varepsilon) \cdot \frac{d}{d\omega} \left[ (\log \alpha_\omega)^{-1} \right] \\ &= (\log \varepsilon) \cdot \underbrace{\left[ -(\log \alpha_\omega)^{-2} \cdot \frac{1}{\alpha_\omega} \right]}_{\text{Outer Derivative } \frac{dU}{d\alpha}} \cdot \underbrace{\frac{d}{d\omega} \left[ \tau + (1 - \tau)(\omega - 1) \right]}_{\text{Inner Derivative } \frac{d\alpha}{d\omega}} \\ &= (\log \varepsilon) \cdot \left[ \frac{-1}{\alpha_\omega \log^2 \alpha_\omega} \right] \cdot \left[ 1 - \tau \right] \\ &= \frac{-(1 - \tau) \log \varepsilon}{\alpha_\omega \log^2 \alpha_\omega} \end{aligned}$$
+Therefore, we have obtained
+$$\lvert \partial_\omega U(\omega) \rvert = \frac{(\tau - 1) \log \varepsilon}{(\tau + (1-\tau)(\omega - 1)) \log^2(\tau + (1-\tau)(\omega - 1))}$$
+We want to show the Lipschitz continuity of $U(\omega)$, that is, to show its derivative is **bounded by a constant**. Here, the numerator is a constant, and denominator is basically in a form of $$f(\alpha) = \alpha \ln^2 \alpha$$To ensure the slope of the cost function $|\partial_\omega U(\omega)|$ does not blow up to infinity, we must ensure $f(\alpha)$ stays away from zero. So,
+$$\begin{aligned} f'(\alpha) &= \frac{d}{d\alpha} (\alpha \ln^2 \alpha) \\ &= (1) \cdot \ln^2 \alpha + \alpha \cdot \left( 2 \ln \alpha \cdot \frac{1}{\alpha} \right) \\ &= \ln^2 \alpha + 2 \ln \alpha \\ &= \ln \alpha (\ln \alpha + 2) \end{aligned}$$
+Set this to $0$, we get $\alpha = 1, \frac{1}{e^{2}}$, so the paper assumes $\tau \geq 1/e^2$ to avoid any explosion. For our $\alpha_\omega$, it starts at $\tau$ and only grows larger as $\omega$ increases. Then
 ## Theorem 2.1
 
 
