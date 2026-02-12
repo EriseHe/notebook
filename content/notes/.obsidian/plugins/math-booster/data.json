@@ -151,5 +151,7 @@
     "searchModalRange": "recent",
     "searchModalDvQuery": ""
   },
-  "excludedFiles": []
+  "excludedFiles": [
+    "理论/PDEs/数值PDEs分析/3. REcap.md"
+  ]
 }
