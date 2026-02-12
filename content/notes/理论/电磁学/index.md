@@ -1,10 +1,10 @@
+---
+title: 电磁学
+---
 
 No test on derivation, no theorem
 
-
-
-
-5 problems
+5 problems:
 - focus on techniques
 - remember uniqueness theorem, but no need to prove.
 - Electrostatics
