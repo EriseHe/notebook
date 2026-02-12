@@ -43,7 +43,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/index.md",
+                "file": "理论/电磁学/index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -83,7 +83,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -147,7 +147,7 @@
             }
           },
           {
-            "id": "fba06bfcad151aeb",
+            "id": "f62fe77c897926e4",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -158,11 +158,12 @@
               "title": "Zen"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 287.5
   },
   "right": {
     "id": "916c7330540abd4e",
@@ -268,22 +269,27 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "5cf248cfdd55898d",
+  "active": "4c5ac46d197274e7",
   "lastOpenFiles": [
+    "理论/index.md",
+    "理论/电磁学/Chapter 1.md",
+    "理论/电磁学/Chapter 2.md",
+    "理论/电磁学/index.md",
+    "理论/电磁学/第一章.md",
+    "Prompts.md",
+    "理论/电磁学/第二章.md",
+    "理论/电磁学/第三章.md",
+    "理论/PDEs/数值PDEs分析/3. Finite Element Method (1D Error Estimates & Assembly).md",
+    "理论/PDEs/index.md",
+    "理论/概率机器学习/index.md",
     "理论/概率机器学习/自回归模型（AR）/index.md",
     "理论/概率机器学习/自回归模型（AR）/Transformer.md",
     "理论/概率机器学习/自回归模型（AR）/Recurrent Neural Networks (RNN).md",
     "理论/概率机器学习/自回归模型（AR）/Autoregressive模型.md",
-    "理论/电磁学/第三章.md",
-    "理论/index.md",
-    "理论/电磁学/第二章.md",
-    "理论/电磁学/第一章.md",
-    "Prompts.md",
     "理论/电磁学",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
     "index.md",
     "理论/PDEs/MATH 352 PDE in Action/index.md",
-    "理论/PDEs/index.md",
     "理论/PDEs/MATH 352 PDE in Action/_index.md",
     "理论/概率机器学习/强化学习（RL）/Markov奖励&决策过程.md",
     "理论/PDEs/MATH 352 PDE in Action/第十章/Quiz 4.md",
@@ -293,11 +299,6 @@
     "理论/PDEs/MATH 352 PDE in Action/第十章/Finite Element Method.md",
     "理论/PDEs/MATH 352 PDE in Action/第四章/4.1 有限元.md",
     "理论/PDEs/经典二阶PDEs/Heat Equation/_index.md",
-    "理论/PDEs/经典二阶PDEs/Laplace Equation/_index.md",
-    "理论/PDEs/经典二阶PDEs/Laplace Equation/index.md",
-    "理论/PDEs/MATH 352 PDE in Action/第九章/_index.md",
-    "理论/PDEs/经典二阶PDEs/Wave Equation/_index.md",
-    "理论/PDEs/经典二阶PDEs/Wave Equation/index.md",
     "理论/PDEs/MATH 352 PDE in Action/第十章",
     "理论/PDEs/MATH 352 PDE in Action/第四章",
     "理论/PDEs/经典二阶PDEs/Laplace Equation",
