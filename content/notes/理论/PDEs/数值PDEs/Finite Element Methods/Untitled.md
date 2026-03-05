@@ -1,0 +1,931 @@
+## 2.4 Finite Element: One Possible Choice of $X_N$
+
+> [!remark]
+> **Remark.** What if the problem is non-linear?
+>
+> $$
+> -\Delta u + u^3 = f
+> \quad\Longrightarrow\quad
+> \int_\Omega \nabla u \nabla v + \int_\Omega u^3 v = f.
+> $$
+>
+> - This problem is WP (although we don’t have symmetry).
+> - Solving: linearize, then discretize:
+>
+>   $$
+>   \int_\Omega \nabla u^{(k+1)} \nabla v + \int_\Omega \big(u^{(k)}\big)^2 u^{(k+1)} v = f
+>   $$
+>
+>   We can use root finding. For example, Newton’s method.
+>
+> - Solving: discretize, then linearize
+>
+>   $$
+>   u_N = \sum_{j=0}^{N-1} c_j \varphi_j,
+>   \qquad
+>   X_N = \mathrm{span}\{\varphi\}_{j=0}^{N-1}.
+>   $$
+>
+>   Then, we form a non-linear equation $F(c)=0$. We can also use Newton’s method.
+
+### 2.4  Finite Element: One Possible Choice of $X_N$
+
+Recall: we need to compute
+$$
+a(\varphi_j,\varphi_i)=\int_\Omega \nabla\varphi_j \nabla\varphi_i.
+$$
+So, we want functions that are easy to differentiate and integrate. $\Longrightarrow$ **Polynomials!**
+
+> [!example]
+> **Example 2.4.1 Runge Counterexample**
+>
+> Consider the function $f=\dfrac{1}{x^2+1}$, $\quad x\in[-5,5]$.
+>
+> If we interpolate $f(x)$ with euispaced points and polynomials,
+>
+> $$
+> \inf \|u-w_N\|\xrightarrow{N\to\infty}0
+> $$
+>
+> will not be held.
+>
+> Solutions:
+> - Optimize the position of nodes: Gaussian interpolation, Chebysev nodes.
+> - Piecewise interpolation: locally fit piecewise polynomial.
+
+---
+
+## 2.4.1  Finite Element in 1D
+
+$$
+-u''=f
+\quad\Longrightarrow\quad
+\int_0^1 u'v'=\int_0^1 fv
+$$
+
+with $u(0)=u(1)=v(0)=v(1)=0$, where
+
+$$
+X_N=\{u_h \mid u_h\in C([0,1])\ \text{and}\ u_h\in \mathbb{P}^1(I_h)\},
+$$
+
+where $\mathbb{P}^1$ denotes polynomial of order 1. So, $X_N^1\subset H_0^1(0,1)$, and $\dim(X_N)=N-1=\dfrac{1}{h}-1$. So, when $N\to +\infty$, $h\to 0$, and $\dim(X_N)\to +\infty$.
+
+[figure omitted]
+
+When doing interpolation, let $y=f(x)$ be the true function, and $y_i=f(x_i)$ be the interpolant. There are many ways to construct the interpolant. Finite Element will use the **Lagrange Polynomial (Hat functions)**:
+
+[figure omitted]
+
+$$
+\varphi_k(x)=
+\begin{cases}
+\dfrac{x-x_{k-1}}{x_k-x_{k-1}}=\dfrac{x-x_{k-1}}{h}, & x\in[x_{k-1},x_k],\\[6pt]
+\dfrac{x_{k+1}-x}{x_{k+1}-x_k}=\dfrac{x_{k+1}-x}{h}, & x\in[x_k,x_{k+1}],\\[6pt]
+0, & \text{o/w.}
+\end{cases}
+$$
+
+Note that
+$$
+\varphi_j(x_k)=\delta_{ik}=
+\begin{cases}
+1, & i=k\\
+0, & i\ne k
+\end{cases}
+$$
+is the Kronecker-$\delta$ function. So, if $v_N=\sum_{i=0}^{N-1} y_i\varphi_i$, we have
+$$
+v_N(x_k)=\sum_{i=0}^{N-1} y_i\varphi_i(x_k)=y_k.
+$$
+
+**FE In Practice**  We will set everything up on a reference interval $[0,1]$ with $\hat\varphi_0=1-\hat x$ and $\hat\varphi_1=\hat x$. We will use the bijection $x=\mathrm{map}(\hat x)=a\hat x+b$ such that $\mathrm{map}(0)=x_{j-1}$ and $\mathrm{map}(1)=x_j$. Then,
+
+$$
+\varphi_j=
+\begin{cases}
+\mathrm{map}(\hat\varphi_0) & \text{in}\ (x_{j-1},x_j)\\
+\mathrm{map}(\hat\varphi_1) & \text{in}\ (x_j,x_{j+1}).
+\end{cases}
+$$
+
+Also,
+$$
+\hat x=\frac{x-b}{a}=\frac{x-x_{j-1}}{h}.
+$$
+
+### Convergence Theorem and Its Application
+
+Let $u(x)\in C^0([0,1])$. Denote $\Pi_u^1(x)\in X_h^1$ as
+
+$$
+\Pi_u^1(x)=\{\text{continuous function, linear s.t. on }I_k=[x_k,x_{k+1}],\ \Pi_u^1(I_k)\in\mathbb{P}^1\},
+$$
+
+where $\mathbb{P}^1$ denotes polynomial of order 1. Then,
+
+$$
+\Pi_u^1(x)=\sum_{j=0}^{N} u(x_j)\varphi_j(x_j).
+$$
+
+To measure error, consider the following norms:
+
+$$
+\|u-\Pi_u^1\|_{L^2}
+\quad\text{and}\quad
+\|\nabla(u-\Pi_u^1)\|_{L^2}=|u-\Pi_u^1|_{H^1}
+\ \ \text{(semi-norm)}.
+$$
+
+> [!theorem]
+> **Theorem 2.4.2**
+>
+> If $u\in H^2([0,1])$, then
+>
+> $$
+> \|u-\Pi_u^1\|_{L^2}\le C_0\|u\|_{H^2}h^2=C\|u''\|_{L^2}h^2
+> $$
+> $$
+> |u-\Pi_u^1|_{H^1}\le C_1\|u''\|_{L^2}h
+> $$
+> $$
+> \Longrightarrow\ \ \|u-\Pi_u^1\|_{H^1}\le C\|u''\|_{L^2}h.
+> $$
+
+**Proof 1.** $u\in H^2([0,1])\ \Rightarrow\ u\in C^1([0,1])$.
+
+- Let’s work locally on the interval $[x_j,x_{j+1}]$. Denote that
+  $$
+  e=u-\Pi_u^1,\qquad e(x_j)=0,\qquad \text{and }e(x_{j+1})=0.
+  $$
+
+  By Rolle’s Theorem, $\exists\,\xi_j$ s.t. $e'(\xi_j)=0$. By Fundamental Theorem of Calculus,
+
+  $$
+  e'(x)=\int_{\xi_j}^{x} e''(x)\,dx=\int_{\xi_j}^{x} u''(x)\,dx
+  \qquad[(\Pi_u^1)''=0]
+  $$
+
+  $$
+  |e'(x)|\le\left|\int_{x_j}^{x_{j+1}} u''(x)\,dx\right|
+  $$
+
+  $$
+  \le \left(\int_{x_j}^{x_{j+1}} 1^2\right)^{1/2}
+     \left(\int_{x_j}^{x_{j+1}} (u'')^2\right)^{1/2}
+  =h^{1/2}\|u''\|_{L^2(I_j)}.
+  \qquad[\text{Cauchy-Schwarz}]
+  $$
+
+  $$
+  \Longrightarrow\ \ \|e'(x)\|_{L^2(I_j)}^2=\int_{x_j}^{x_{j+1}} |e'(x)|^2
+  \le h\cdot \|u''\|_{L^2(I_j)}^2
+  =h^2\|u''\|_{L^2(I_j)}^2.
+  $$
+
+Now, let’s move to global:
+
+$$
+\|e'\|_{L^2(I)}^2=\sum_j \|e'\|_{L^2(I_j)}^2 \le h^2\|u''\|_{L^2(I)}^2.
+$$
+
+$$
+|e|_{H^1}=\|e'\|_{L^2}\le Ch\|u''\|_{L^2}=Ch|u|_{H^2}\sim O(h).
+$$
+
+- Let’s repeat the same argument:
+
+$$
+|e(x)|=\left|\int_{x_j}^{x} e'\,dx\right|
+\le\left(\int_{x_j}^{x_{j+1}} 1^2\right)^{1/2}
+   \left(\int_{x_j}^{x_{j+1}} (e')^2\right)^{1/2}
+$$
+
+$$
+e^2(x)=(e(x))^2\le h\|e'\|_{L^2(I_j)}
+$$
+
+$$
+\int_{x_j}^{x_{j+1}} e^2(x)\le h^2\|e'\|_{L^2(I_j)}^2
+\le h^4\|u''\|_{L^2(I_j)}^2
+\qquad[\text{Use conclusion from ①}]
+$$
+
+Globally,
+
+$$
+\|e\|_{L^2}^2=\sum_j \|e\|_{L^2(I_j)}^2\le h^4\|u''\|_{L^2(I)}
+$$
+
+$$
+\Longrightarrow\ \ \|e\|_{L^2}\le Ch^2\|u''\|_{L^2}\sim O(h^2).
+$$
+
+Q.E.D. $\blacksquare$
+
+**Applications of Theorem 2.4.2:**
+
+- Consider FE problem $a(u_h,v_h)=F(v_h)$. For $u_h\in X_h^1$, we have
+
+  $$
+  \|u-u_h\|_{H^1}\le \frac{M}{\alpha}\inf_{w_h\in X_h^1}\|u-w_h\|_{H^1}
+  \qquad[\text{Cea Lemma}]
+  $$
+
+  $$
+  \le \frac{M}{\alpha}\|u-\Pi_{u,h}^1\|_{H^1}
+  \qquad[\text{Theorem 2.4.2}]
+  $$
+
+  $$
+  \le \frac{M}{\alpha}h\|u''\|_{H^2}
+  $$
+
+  $$
+  \|u-u_h\|_{L^2}\le O(h^2).
+  $$
+
+- If we know the error is bad locally, we can locally refine $h$ to get better error.
+
+### Advection-Reaction Problem, Local Assembly, and Global Assembly
+
+$$
+\begin{cases}
+-u''+\sigma u=f,\qquad \sigma>0\\
+u(0)=u(1)=0.
+\end{cases}
+$$
+
+Weak formulation:
+
+$$
+\int_0^1 u'v'+\int_0^1 \sigma uv=\int_0^1 fv
+\quad \forall\, v\in H_0^1.
+$$
+
+- **Matris A:**
+
+$$
+A_{ij}=a(\varphi_i,\varphi_j)
+=\int_0^1 \varphi_j'\varphi_i' + \int_0^1 \sigma\varphi_j\varphi_i
+\qquad\text{(mass matrix)}
+$$
+
+$$
+b_i=\int_0^1 f\varphi_i
+$$
+
+How to integrate numerically? We do it interval by interval. Suppose we have first order Lagrange polynomials. Then,
+
+$$
+\int_0^1 \sum_j \int_{I_j},
+$$
+
+where
+
+$$
+\int_{I_k}=\int_{I_k}\varphi_i'\varphi_j' + \int_{I_k}\sigma\varphi_i\varphi_j.
+\qquad\text{(constant)}
+$$
+
+Note that
+
+$$
+\int_{I_k}\varphi_\ell'\varphi_r'=0
+\quad\text{if}\quad
+\ell,r\ne k,k+1.
+$$
+
+So, the matrix will be tridiagonal, and
+
+$$
+A_{ij}=\int_0^1 \varphi_j'\varphi_i' + \int_0^1 \sigma\varphi_j\varphi_i
+=\int_{x_{j-1}}^{x_{j+1}} \varphi_j'\varphi_i' + \int_{x_{j-1}}^{x_{j+1}} \varphi_j\varphi_i.
+$$
+
+Let’s only consider the first interval:
+
+[figure omitted]
+
+$$
+A_{00}=\int_{x_0}^{x_1}\varphi_0'\varphi_0' + \sigma\int_{x_0}^{x_1}\varphi_0\varphi_0
+$$
+
+$$
+A_{01}=\int_{x_0}^{x_1} x_1\varphi_0'\varphi_1' + \sigma\int_{x_0}^{x_1}\varphi_0\varphi_1
+$$
+
+$$
+A_{11}=\int_{x_0}^{x_2}\varphi_1'\varphi_1' + \sigma\int_{x_0}^{x_2}\varphi_1\varphi_1
+=\underbrace{\int_{x_0}^{x_1}\varphi_1'\varphi_1' + \sigma\int_{x_0}^{x_1}\varphi_1\varphi_1}_{=:A_{11}^*}
++\int_{x_1}^{x_2}\varphi_1'\varphi_1' + \sigma\int_{x_1}^{x_2}\varphi_1\varphi_1
+$$
+
+will be calculated in the next interval
+
+$$
+A_{10}=\int_{x_0}^{x_1}\varphi_1'\varphi_0' + \sigma\int_{x_0}^{x_1}\varphi_1\varphi_0 = A_{01}.
+$$
+
+We will get the rest of $A_{11}$ in the second interval.
+
+- **Local assembly:** we will form the $2\times 2$ matrix locally:
+
+$$
+a_{00}=a(\hat\varphi_0,\hat\varphi_0)_{\mathrm{local}}
+$$
+$$
+a_{10}=a(\hat\varphi_0,\hat\varphi_1)_{\mathrm{local}}=a_{01}
+$$
+$$
+a_{11}=a(\hat\varphi_1,\hat\varphi_1)_{\mathrm{local}}
+$$
+
+We can compute the integrals on a reference interval $[0,1]$:
+
+$$
+a_{ii}=\int_{x_i}^{x_{i+1}} \varphi_i'\varphi_i' + \sigma\int_{x_i}^{x_{i+1}} \varphi_i\varphi_i
+$$
+
+Consider the map: $x=h\hat x + x_i \in [0,1]$.
+
+$$
+\frac{\partial\varphi_i}{\partial x}
+=
+\frac{\partial\hat\varphi_i}{\partial\hat x}\cdot\frac{\partial\hat x}{\partial x},
+\qquad
+\frac{dx}{d\hat x}=h.
+$$
+
+Then,
+
+$$
+a_{ii}
+=\int_0^1 \frac{\partial\hat\varphi_i}{\partial\hat x}\cdot\frac{\partial\hat x}{\partial x}\cdot
+      \frac{\partial\hat\varphi_i}{\partial\hat x}\cdot\frac{\partial\hat x}{\partial x}\,h\,d\hat x
++ \sigma\int_0^1 \hat\varphi_i\hat\varphi_i\,h\,d\hat x.
+$$
+
+Now, everything is pre-computable. To compute these integrals efficiently, we will use *Gaussian Quadrature*.
+
+- **Global assembly:** additivity of integrals.
+- **Treatment of the boundary conditions:** after global assembly, we will impose the BCs.
+
+### Use Quadratic Functions Instead
+
+[figure omitted]
+
+$$
+\varphi_i=\frac{(x-x_{i+1})(x-x_{i+1/2})}{(x_i-x_{i+1})(x_i-x_{i+1/2})}
+$$
+
+$$
+\varphi_{i+1/2}=\frac{(x-x_i)(x-x_{i+1})}{(x_{i+1/2}-x_i)(x_{i+1/2}-x_{i+1})}
+$$
+
+$$
+\varphi_{i+1}=\frac{(x-x_i)(x-x_{i+1/2})}{(x_{i+1}-x_i)(x_{i+1}-x_{i+1/2})}
+$$
+
+- Local assembly: $3\times 3$ matrices.
+- Global assembly: pena-diagonal (five diagonal entries):
+
+[figure omitted]
+
+### Convergence and Error
+
+$$
+\mathbb{P}^1:\quad e_{H^1}\sim O(h)\qquad e_{L^2}\sim O(h^2)
+$$
+$$
+\mathbb{P}^2:\quad e_{H^1}\sim O(h^2)\qquad e_{L^2}\sim O(h^3)
+$$
+$$
+\mathbb{P}^3:\quad e_{H^1}\sim O(h^3)\qquad e_{L^2}\sim O(h^4)
+$$
+
+> [!theorem]
+> **Theorem 2.4.3 Convergence of FE in 1D**
+>
+> Suppose $u\in H^{s+1}(0,1)$ with $s\ge 1$. For FE, we work in $X_h^q$. Then,
+>
+> $$
+> \|e\|_{H^1}\le C\|u\|_{H^{\min(q,s)}}h^{\min(q,s)}
+> $$
+> $$
+> \|e\|_{L^2}\le C\|u\|_{H^{\min(q,s)}}h^{\min(q,s)+1}.
+> $$
+
+> [!remark]
+> **Remark.** This implies that increasing the degree of polynomials in FE makes sense only when the solution is regular enough.
+
+**Table 1: Summary of Rate of Convergence in $H^1$, Given Different $q$ and $s$**
+
+| $q\backslash s$ | $1$ | $2$ | $3$ | $4$ | $5$ | $\cdots$ |
+|---:|---:|---:|---:|---:|---:|---:|
+| $1$ | $1$ | $1$ | $1$ | $1$ | $1$ |  |
+| $2$ | $1$ | $2$ | $2$ | $2$ | $2$ |  |
+| $3$ | $1$ | $2$ | $3$ | $3$ | $3$ |  |
+| $4$ | $1$ | $2$ | $3$ | $4$ | $4$ |  |
+| $\vdots$ |  |  |  |  |  |  |
+
+*Optimal choices:* with the regularity we have ($s$), take the minimal optimal polynomial degree ($q$).  
+There are two ways to reduce error: (1) reduce $h$, and (2) increase $q$.
+
+### Reusing Matrices
+
+**Set-up**  We have built linear FE matrices
+
+$$
+A_L u_L=b_L.
+$$
+
+**Goal**  Set up quadratic FE $(A_Q u_Q=b_Q)$ from reusing $A_L$
+
+[figure omitted]
+
+$$
+\varphi_0=1-\hat x
+\qquad
+\varphi_1=\hat x
+\qquad\Longrightarrow\qquad
+\varphi_{H,2}=\varphi_0\varphi_1=(1-\hat x)\hat x
+$$
+
+**Conclusion: What is a Finite Element?**  We have an interval $I$. A finite element is built on $K\in \mathcal{P}(I)$, some partition of $I$. On each $K$, we build basis polynomials of degree $q$. i.e., $u(K)\in\mathbb{P}^q$.
+
+---
+
+## 2.4.2  Finite Elements in Multiple Dimension
+
+Let’s divide the region into triangles:
+
+[figure omitted]
+
+$$
+\Omega=\bigcup_{k=1}^N T_k,
+$$
+
+though this relationship could be false in reality.
+
+Triangle = Vertex + Edge
+
+[figure omitted]
+
+**Requirement**  Vertices are not on edges of another triangle
+
+[figure omitted]
+
+**Property**  If $v\in C^0(\overline{\Omega})$ and $v\in H^k(T_k)$, then $v\in H^k(\Omega)$
+
+**How large is the mesh?**  We have two measurements:
+
+- $h=\max |x_1-x_2|$ for $x_1,x_2\in T_k$
+
+- $\dfrac{h_k}{\rho_k}<\delta$, independent of $k$.
+
+[figure omitted]
+
+Recall the problem:
+
+$$
+\begin{cases}
+-\Delta u=f\\
+u(\partial\Omega)=0
+\end{cases}
+\quad\Longrightarrow\quad
+\int \nabla u\nabla\varphi=\int f\varphi,
+$$
+
+we aim to build
+
+$$
+\Omega=\bigcup_{k=1}^{N} T_k
+\qquad\text{and}\qquad
+X_k^h=\{v_n\in H^1:\ v_h(T_k)\in\mathbb{P}^k\}.
+$$
+
+### Linear Polynomial
+
+$$
+ax+by+c
+\qquad
+\left(x=\begin{bmatrix}x_0\\x_1\end{bmatrix}\right).
+$$
+
+We could rewrite
+
+$$
+P_k(x)-P_k(P_j)=c_j,
+$$
+
+which will give us a “tent” function.
+
+[figure omitted]
+
+We will work on a reference interval:
+
+[figure omitted]
+
+$$
+\hat\varphi_0=1-\hat x-\hat y,\qquad
+\hat\varphi_1=\hat x,\qquad
+\hat\varphi_2=\hat y.
+$$
+
+$$
+x=B_k\hat x + c_k
+$$
+
+[figure omitted]
+
+$$
+x(\hat x,\hat y)=
+\begin{cases}
+x(0,0)=x_0\\
+x(1,0)=x_1\\
+x(0,1)=x_2.
+\end{cases}
+$$
+
+$$
+x=x_0\hat\varphi_0(\hat x,\hat y)+x_1\hat\varphi_1(\hat x,\hat y)+x_2\hat\varphi_2(\hat x,\hat y)
+$$
+
+$$
+y=y_0\hat\varphi_0(\hat x,\hat y)+y_1\hat\varphi_1(\hat x,\hat y)+y_2\hat\varphi_2(\hat x,\hat y)
+$$
+
+Then, we can build the matrix by
+
+$$
+A_{ij}=\int_\Omega \nabla\varphi_j\nabla\varphi_i=\sum_k \int_{T_k}\nabla\varphi_j\nabla\varphi_i.
+$$
+
+This matrix is symmetric, but we don’t have clear pattern.
+
+> [!example]
+> **Example 2.4.4**
+>
+> Node 12 sees nodes 1, 8, 7, 5, 3, and 24. With a different mesh generation and numbering, we have a different matrix structure.
+
+### $\mathbb{P}^2$ Functions
+
+[figure omitted]
+
+$$
+ax^2+bxy+cy^2+dx+ey+f
+$$
+
+$$
+\hat\varphi_0=2(1-\hat x-\hat y)\left(\frac12-\hat x-\hat y\right)
+$$
+
+$$
+\hat\varphi_1=2\hat x\left(\hat x-\frac12\right)
+$$
+
+$$
+\hat\varphi_2=2\hat y\left(\hat y-\frac12\right)
+$$
+
+$$
+\hat\varphi_3=4(1-\hat x-\hat y)\hat x
+$$
+
+$$
+\hat\varphi_4=4\hat x\hat y
+$$
+
+$$
+\hat\varphi_5=4(1-\hat x-\hat y)\hat y
+$$
+
+On a general element, $x=B_k\hat x + c_k$. Transforming the Integral using Chain rule:
+
+$$
+\left\{
+\begin{aligned}
+\frac{\partial\varphi}{\partial x}
+&=
+\frac{\partial\hat\varphi}{\partial\hat x}\cdot\frac{\partial\hat x}{\partial x}
++
+\frac{\partial\hat\varphi}{\partial\hat y}\cdot\frac{\partial\hat y}{\partial x}\\[6pt]
+\frac{\partial\varphi}{\partial y}
+&=
+\frac{\partial\hat\varphi}{\partial\hat x}\cdot\frac{\partial\hat x}{\partial y}
++
+\frac{\partial\hat\varphi}{\partial\hat y}\cdot\frac{\partial\hat y}{\partial y}
+\end{aligned}
+\right\}
+\qquad
+\nabla_{x,y}\varphi=B_k^{-1}\nabla_{\hat x,\hat y}\hat\varphi.
+$$
+
+Since $x=B_k\hat x+c$, we have $\hat x=B_k^{-1}x+d$. So,
+
+$$
+\frac{\partial\hat x}{\partial x}=(B_k^{-1})_{1,1},
+\qquad
+\frac{\partial\hat x}{\partial y}=(B_k^{-1})_{1,2}.
+$$
+
+$$
+\int_K \nabla\varphi_j\cdot\nabla\varphi_i\,dx
+=
+\int_{\hat K\Delta} \nabla_{\hat x,\hat y}\hat\varphi_j\,J_k^{-1}\,
+\nabla_{\hat x,\hat y}\hat\varphi_i\,J_k^{-1}\,|J_k|\,d\hat x
+$$
+
+$$
+=
+\int_{\hat K\Delta}
+\left(B_k^{-1}\nabla_{\hat x,\hat y}\hat\varphi_i\right)
+\left(B_k^{-1}\nabla_{\hat x,\hat y}\hat\varphi_j\right)
+|\det(B_k)|\,d\hat x
+$$
+
+We can also transform the semi-norm:
+
+$$
+\int_K (\nabla u)^2\,dx=\int_{\hat K} (B_k^{-1}\widehat{\nabla}u)^2\,|\det B_k|\,d\hat x
+$$
+
+$$
+|u|_{H^1(K)}^2\le \|B_k^{-1}\|^2|\det B_k|\,|u|_{H^1(\hat K)}^2
+$$
+
+$$
+|u|_{H^1(K)}\le \|B_k^{-1}\|\,|\det B_k|^{1/2}|u|_{H^1(\hat K)}
+$$
+
+$$
+|u|_{H^1(\hat K)}\le \|B_k\|\,|\det B_k|^{-1/2}|u|_{H^1(K)}
+\qquad
+[\text{semi-norms in }H^1(K)\text{ and in }H^1(\hat K)\text{ are equivalent}]
+$$
+
+$$
+|u|_{H^m(K)}\le \|B_k^{-1}\|^m|\det B_k|^{1/2}|u|_{H^m(\hat K)}.
+$$
+
+Bounding $\|B_k\|$: $\hat x\to x$:
+
+$$
+\|B_k\|=\sup_{\|\xi\|=\hat\rho}\frac{\|B\xi\|}{\hat\rho}\le \frac{h_k}{\hat\rho}
+$$
+
+$$
+\|B_k^{-1}\|\le \cdots \le \frac{\hat\rho}{\rho_k}=\frac{\sqrt2}{\delta_k}.
+$$
+
+> [!theorem]
+> **Theorem 2.4.5 Convergence of FE in Multiple Dimension**
+>
+> Suppose $u\in H^{s+1}$ and $u_h\in \mathbb{P}^p=X_h^p$. The error is given by
+>
+> $$
+> \|u-u_h\|_{H^1}\le Ch^q|u|_{H^{q+1}},
+> $$
+>
+> where $q=\min(p,s)$.
+
+**Proof 2.** Strategies:
+
+1. Global $\to$ Local: $K$  
+2. $K\to\hat K$  
+3. Error in $\hat K$  
+4. Go back to $\hat K$ use previous inequalities  
+5. $K\to \Omega=\bigcup_{k=1}^{\infty} T_k$
+
+Recall some results: Cèa Lemma:
+
+$$
+\|u-u_h\|\le C\inf_{w_h\in V_h}\|u-w_h\|\le C\|u-\Pi_h^p u\|,
+$$
+
+where $\Pi_h^p$ is the polynomial interpolation of order $p$. To move from ② $\to$ ③ in our strategy:
+
+$$
+\int_K (\nabla u-\nabla\Pi_u^p u)^2\,dx \to \int_{\hat K} (\widehat{\nabla}\hat u-\widehat{\nabla}\Pi_h^p\hat u)^2\,d\hat x
+$$
+
+**Lemma 2.6 Bramble-Hilbert** $u\in H^{r+1}$, $\mathcal{L}(u):H^{r+1}\to H^m$, $\mathcal{L}(p)=0\ \ \forall\,p\in\mathbb{P}^r$. Then,
+
+$$
+\|\mathcal{L}(v)\|_{H^m}\le C\inf_{p\in\mathbb{P}^r}\|u+p\|_{H^{r+1}}
+$$
+
+*Proof.*
+
+$$
+\|\mathcal{L}(v)\|\le \|\mathcal{L}\|\cdot\|v\|
+$$
+
+Since $\mathcal{L}(p)=0$, we know that
+
+$$
+\|\mathcal{L}(v+p)\|\le \|\mathcal{L}\|\cdot\|v+p\|
+\le \|\mathcal{L}\|\inf_{p\in\mathbb{P}^r}\|v+p\|.
+$$
+
+**Lemma 2.7 Deny-Lions**
+
+$$
+\inf \|u+p\|_{H^{r+1}}\le C|u|_{H^{r+1}}.
+$$
+
+So, on $\hat K$, we have
+
+$$
+|u-\hat u_h|_{H^m(\hat K)}\le C|u|_{H^{r+1}(\hat K)}.
+$$
+
+Let’s go to $K$: Recall that
+
+$$
+|u|_{H^{r+1}(\hat K)}\le \|B_k\|\cdot|\det B_k|^{-1/2}|u|_{H^{r+1}(K)}
+$$
+
+$$
+|u|_{H^{r+1}(K)}\le \|B_k^{-1}\|\cdot|\det B_k|^{1/2}|u|_{H^{r+1}(\hat K)}.
+$$
+
+So,
+
+$$
+|e|_{H^m(K)}
+\le C\|B_k^{-1}\|^m|\det B_k|^{1/2}\|B_k\|^{r+1}|\det B_k|^{-1/2}|u|_{H^{r+1}(K)}.
+$$
+
+Note that
+
+$$
+\|B_k^{-1}\|\le \frac{h_k}{\rho_k}
+\qquad\text{and}\qquad
+\|B_k\|\le \frac{h_k}{\hat\rho}.
+$$
+
+we have that
+
+$$
+|e|_{H^m(K)}
+\le C\left(\frac{h_k}{\rho_k}\right)^m h_k^{r+1-m}|u|_{H^{r+1}(K)}
+\qquad
+[\text{Assumption: mesh is regular, so }\frac{h_k}{\rho_k}<\delta\ \ (\perp k)]
+$$
+
+$$
+\le C\delta^m h_k^{r+1-m}|u|_{H^{r+1}(K)}
+$$
+
+$$
+=\tilde C\,h_k^{r+1-m}|u|_{H^{r+1}(K)}.
+$$
+
+- If $m=1$:
+
+$$
+|e|_{H^1(K)}\le Ch^r|u|_{H^{r+1}(K)}.
+$$
+
+- If $m=0$:
+
+$$
+|e|_{L^2(K)}\le Ch^{r+1}|u|_{H^{r+1}(K)}.
+$$
+
+Q.E.D. $\blacksquare$
+
+**Proposition 2.8**
+
+$$
+\|e_{FEM}\|_{L^2}\le Ch^{r+1}|u|_{H^{r+1}}.
+$$
+
+**Proof 3.** Introduce the auxiliary problem (Aubin-Nitsche Trick):
+
+$$
+\begin{cases}
+-\Delta u=f\\
+u(\partial\Omega)=0
+\end{cases}
+\quad\Longrightarrow\quad
+\begin{cases}
+-\Delta\varphi=e\\
+\varphi(\partial\Omega)=0.
+\end{cases}
+$$
+
+Elliptic regularity:
+
+$$
+\begin{cases}
+-\Delta u=f\in L^2\\
+u(\partial\Omega)=0
+\end{cases}
+\quad\Longrightarrow\quad
+\|u\|_{H^2\cap H_0^1}\le C\|f\|_{L^2}
+\ \ (\|u\|_{H^2}\le C\|\Delta u\|_{L^2}).
+$$
+
+In weak formulation, $a(\varphi,v)=(e_h,v)$. So,
+
+$$
+\|e_h\|^2=a(\varphi,e_h)=a(e_h,\varphi)=a(e_h,\varphi-\varphi_h)
+$$
+
+$$
+\|e_h\|_{L^2}^2\le Ch|\varphi|_{H^2}\|e_h\|_{H^1}
+\qquad[\text{Interpolation error, }\|\varphi-\varphi_h\|_{H^1}\le Ch|\varphi|_{H^2}]
+$$
+
+$$
+\le \|e_h\|_{L^2}\|e_h\|_{H^1}
+\qquad[-\Delta\varphi=e_h\Longrightarrow |\varphi|_{H^2}\le C\|e_h\|_{L^2}]
+$$
+
+$$
+\|e_h\|_{L^2}\le h\|e_h\|_{H^1}.
+$$
+
+Q.E.D. $\blacksquare$
+
+**Proposition 2.9**  *The matrix $A$ is SPD, sparse, and $\mathrm{cond}_2(A)\sim O(h^{-2})$.*
+
+> [!remark]
+> **Remark.** Since $A$ is SPD, solving $Ax=b$ is equivalent to
+>
+> $$
+> \min \ \frac12 x^\top Ax - b^\top x.
+> $$
+
+> [!remark]
+> We could solve using CG:
+>
+> $$
+> \|e_{CG}^{(k+1)}\|
+> \le
+> \frac{\sqrt{\mathrm{cond}_2(A)}-1}{\sqrt{\mathrm{cond}_2(A)}+1}\,
+> \|e_{CG}^{(k)}\|.
+> $$
+>
+> To accelerate convergence, use pre-conditioner $P^{-1}$ s.t.
+>
+> $$
+> \mathrm{cond}_2(P^{-1}A)\ll \mathrm{cond}_2(A).
+> $$
+>
+> We solve $P^{-1}Ax=P^{-1}b$ instead.
+
+**Proof 4. (of Proposition 2.9)**
+
+$$
+\mathrm{cond}_2(A)=\frac{\lambda_{\max}}{\lambda_{\min}}
+$$
+
+In Rayleigh coefficient form, eigenvalues are
+
+$$
+\frac{x^\top Ax}{x^\top x}=\frac{x^\top(\lambda x)}{x^\top x}=\lambda,
+$$
+
+where $x^\top Ax=a(v_h,v_h)$. Note that $v_h=\sum_i x_i\varphi_i$. Let $d$ denote the dimension of the problem. Then,
+
+$$
+\alpha_1 h^d x^\top x \le \|v_h\|_{L^2}^2 \le \alpha_2 h^2 x^\top x
+\qquad (1)
+$$
+
+Also, inverse inequality gives
+
+$$
+c_1\|v_h\|\le \|\nabla v_h\|_{L^2}\le ch^{-1}\|v_h\|_{L^2}
+\qquad (2)
+$$
+
+Combine the two inequalities,
+
+$$
+c_1\frac{h^d\cdot \|v_h\|_{H^2}^2}{\|v_h\|_{L^2}^2}
+\le
+\frac{a(v_h,v_h)}{x^\top x}
+\le
+c_2\frac{h^d\|v_h\|_{H^1}^2}{\|v_h\|_{L^2}^2}
+$$
+
+So,
+
+$$
+c_1 h^d \le \underbrace{\frac{a(v_h,v_h)}{x^\top x}}_{\text{eigenvalue}} \le c_2 h^{d-2}.
+$$
+
+So, $\lambda_{\min}=c_1 h^d$ and $\lambda_{\max}=c_2 h^{d-2}$. Then,
+
+$$
+\mathrm{cond}_2(A)=\frac{\lambda_{\max}}{\lambda_{\min}}
+=\frac{c_2 h^{d-2}}{c_1 h^d}
+=ch^{-2}.
+$$
+
+Q.E.D. $\blacksquare$
