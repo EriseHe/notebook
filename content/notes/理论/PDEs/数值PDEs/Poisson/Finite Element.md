@@ -99,7 +99,7 @@ $$
 v_N(x_k)=\sum_{i=0}^{N-1} y_i\varphi_i(x_k)=y_k.
 $$
 
-**FE In Practice**  We will set everything up on a reference interval $[0,1]$ with $\hat\varphi_0=1-\hat x$ and $\hat\varphi_1=\hat x$. We will use the bijection $x=\mathrm{map}(\hat x)=a\hat x+b$ such that $\mathrm{map}(0)=x_{j-1}$ and $\mathrm{map}(1)=x_j$. Then,
+**F.E. In Practice**  We will set everything up on a reference interval $[0,1]$ with $\hat\varphi_0=1-\hat x$ and $\hat\varphi_1=\hat x$. We will use the bijection $x=\mathrm{map}(\hat x)=a\hat x+b$ such that $\mathrm{map}(0)=x_{j-1}$ and $\mathrm{map}(1)=x_j$. Then,
 
 $$
 \varphi_j=
