@@ -745,6 +745,7 @@ Conductors
 Capacitors
 Capacitance
 CAB
+Comment
 font
 for
 functions
@@ -1450,6 +1451,7 @@ fHg
 fblC
 fictitious
 faucet
+forcing
 color
 curve
 can
@@ -2746,6 +2748,8 @@ capacitor
 coplanar
 cursive
 curls
+conjugated
+closeness
 Problem
 Partial
 Putting
@@ -3355,6 +3359,8 @@ Priori
 Place
 Products
 Pseudovectors
+Poincare
+Poincar
 In
 Implicit
 Invertibility
@@ -3928,6 +3934,8 @@ Images
 Induced
 Independence
 Irrotational
+Inclusion
+Inequality
 the
 terms
 that
@@ -4682,6 +4690,7 @@ tYB
 tIw
 thereof
 trigonometric
+typo
 system
 solvability
 such
@@ -5993,6 +6002,9 @@ shall
 satisfactory
 species
 shoulder
+subspace
+switch
+seminorm
 discuss
 determine
 described
@@ -7839,6 +7851,7 @@ iQk
 instructs
 intercept
 inversions
+ignores
 of
 our
 out
@@ -9044,6 +9057,8 @@ ngL
 nonalphabetical
 nine
 nicely
+nudge
+numeric
 Does
 Determine
 Differentiability
@@ -9612,6 +9627,7 @@ Del
 Dimensional
 Distributivity
 Displacement
+Distributional
 map
 matrix
 mapping
@@ -10439,6 +10455,7 @@ mWe
 mBu
 monopole
 mesh
+minimizer
 have
 holds
 has
@@ -11538,6 +11555,7 @@ lWt
 lwop
 loG
 lCy
+leakage
 Show
 Sufficient
 Substitute
@@ -12228,6 +12246,9 @@ Stiffness
 Sparsity
 Six
 Sometimes
+Specially
+Sobolev
+Strictly
 equations
 equation
 exists
@@ -13089,6 +13110,7 @@ exploits
 exploiting
 equipotential
 elliptic
+explode
 whether
 written
 which
@@ -14300,6 +14322,7 @@ bracketright
 bPx
 bardbl
 bVg
+blowing
 allow
 and
 as
@@ -16130,6 +16153,7 @@ NSG
 NzP
 Names
 Nums
+Norms
 Recall
 Rigorous
 Respect
@@ -16707,6 +16731,8 @@ RFk
 RqO
 RPfM
 RsMx
+Riesz
+Reason
 requirement
 respect
 rule
@@ -17609,6 +17635,8 @@ rqP
 resolved
 reformulate
 rotations
+ripple
+recurring
 partials
 partial
 point
@@ -18677,6 +18705,9 @@ pays
 pseudoscalars
 pseudovector
 pseudoscalar
+pairings
+paragraph
+provable
 Ex
 Evaluate
 Evaluating
@@ -19252,6 +19283,7 @@ Electric
 Electrodynamics
 Electrostatic
 Evidently
+Enough
 We
 What
 With
@@ -20728,6 +20760,7 @@ HcX
 HKw
 HYKGXU
 Helmholtz
+Hölder
 By
 Because
 Below
@@ -23423,6 +23456,7 @@ vextendsingle
 vqs
 vTA
 violates
+violating
 unknowns
 unique
 uniquely
@@ -25063,6 +25097,7 @@ MiKTeX
 Monopole
 Move
 Multiplication
+Mappings
 Using
 Up
 Ut
@@ -25864,6 +25899,7 @@ qaVTg
 qmmFE
 quoteright
 qRb
+quantified
 zero
 zoom
 zG

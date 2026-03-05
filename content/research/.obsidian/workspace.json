@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Advanced Lab/Instruction for Lab.md",
+                "file": "Hypre/Paper Notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Instruction for Lab"
+              "title": "Paper Notes"
             }
           }
         ]
@@ -75,7 +75,7 @@
             }
           },
           {
-            "id": "3ccd9c68dd23e978",
+            "id": "ac84d43c8cc5cfbd",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -196,9 +196,9 @@
   },
   "active": "8dd9e3a90e774690",
   "lastOpenFiles": [
-    "Advanced Lab/Module 1 LabVIEW.md",
     "Advanced Lab/Instruction for Lab.md",
     "Hypre/Paper Notes.md",
+    "Advanced Lab/Module 1 LabVIEW.md",
     "Hypre/Setup-Solve Phases RL design.md",
     "Advanced Lab",
     "Hypre/Learning to Relax Proof.md",
