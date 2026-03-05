@@ -25098,6 +25098,7 @@ Monopole
 Move
 Multiplication
 Mappings
+Measuring
 Using
 Up
 Ut
@@ -28489,6 +28490,7 @@ OZQl
 Odh
 OpenAction
 Orientation
+Orthogonal
 Given
 Get
 Guessing
