@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/数值PDEs/Poisson/Finite Element Method (1D Error Estimates & Assembly).md",
+                "file": "理论/PDEs/数值PDEs/Poisson/3. Galerkin Method.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Finite Element Method (1D Error Estimates & Assembly)"
+              "title": "3. Galerkin Method"
             }
           }
         ]
@@ -199,11 +199,11 @@
   },
   "active": "5fbfaf9ecd5ba797",
   "lastOpenFiles": [
-    "理论/PDEs/数值PDEs/Poisson/3. Galerkin Method.md",
-    "理论/PDEs/数值PDEs/Poisson/4. Finite Element.md",
-    "理论/PDEs/数值PDEs/Poisson/Finite Element Method (1D Error Estimates & Assembly).md",
     "理论/PDEs/数值PDEs/Poisson/2. Finite Difference.md",
     "理论/PDEs/数值PDEs/Poisson/1. Poisson Equation.md",
+    "理论/PDEs/数值PDEs/Poisson/3. Galerkin Method.md",
+    "理论/PDEs/数值PDEs/Poisson/Finite Element Method (1D Error Estimates & Assembly).md",
+    "理论/PDEs/数值PDEs/Poisson/4. Finite Element.md",
     "理论/PDEs/数值PDEs/Foundations/1. Data and Solution.md",
     "理论/PDEs/数值PDEs/EXAM Review.md",
     "理论/PDEs/数值PDEs/Foundations/2. Functional Analysis.md",
