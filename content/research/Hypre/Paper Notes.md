@@ -9,10 +9,26 @@ Large-scale simulation, optimization, and inverse problems often *repeatedly* re
 
 Algebraic multigrid (AMG) methods, one of the [most popular] iterative solver and preconditionor, sit at the center of this workflow due to their efficiency and scalability in extremely large problems. However, the practical performance of AMG in production is famously [fragile(is this really true? or should we say it is parameter-dependent? but its kinda repetitive to say that. I meant to say something that it is very sensitive, and depedent]. That is, two matrices with the same size and sparsity can exhibit dramatically different convergence and setup behavior under varying parameter settings. Solving with AMG often involves meticulous selection over a [large (maybes its too strong to say? what is the right word)] number of mixed-typed parameters. While many selection methods has been developed over the years, an explicit relations between AMG parameters and runtime performance remains unknown. Finding a set of near-optimal multi-parameter for a specific sets of problem therefore rely heavily on heuristics and empirical observations. This forces practitioners into a recurring, expensive loop of trial-and-error tuning that is unscalable in modern scientific computing pipelines.
 
-
 In this paper, we develop a machine learning tuning framework for BoomerAMG, one of most commonly used parellel algebraic multigrid solver developed by hypre. A major reason tuning persists is that AMG is not a single algorithm but a \emph{family} of interacting design choices. 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+at the same time, the black-box nature o AMG does not imply arbitrariness. 
 
 At the same time, the black-box nature of AMG does not imply arbitrariness. Practitioners know---often painfully---that solver behavior is patterned: families of problems induce recurring ``regimes'' (e.g., strongly anisotropic diffusion, variable coefficients, near-incompressibility, high-contrast materials), and within each regime there are parameter ranges that reliably produce efficient hierarchies. This observation motivates a different question: can we learn how to choose AMG setup parameters from experience, online, as we process a stream of linear systems---using only cheap, computable signals---while still retaining principled performance guarantees?
 

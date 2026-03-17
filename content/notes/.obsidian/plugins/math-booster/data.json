@@ -27,7 +27,7 @@
       "eqRefSuffix": "",
       "labelPrefix": "",
       "lineByLine": true,
-      "theoremCalloutStyle": "Framed",
+      "theoremCalloutStyle": "Vivid",
       "theoremCalloutFontInherit": false,
       "beginProof": "\\begin{proof}",
       "endProof": "\\end{proof}",
@@ -152,6 +152,29 @@
     "searchModalDvQuery": ""
   },
   "excludedFiles": [
-    "理论/PDEs/数值PDEs分析/3. REcap.md"
+    "理论/PDEs/数值PDEs分析/3. REcap.md",
+    "理论/PDEs/应用PDE/01 Mid-Point Method.md",
+    "理论/PDEs/应用PDE/02 Three-Point Backward Differentiation Formula.md",
+    "理论/PDEs/应用PDE/03 Numerical Solution of Ordinary Differential Equations.md",
+    "理论/PDEs/应用PDE/第九章/9.1 Boundary Value Problems.md",
+    "理论/PDEs/应用PDE/第九章/9.2 Finite Difference.md",
+    "理论/PDEs/应用PDE/第九章/9.3 Advection-Diffusion Equation.md",
+    "理论/PDEs/应用PDE/第九章/9.4 2D Problem.md",
+    "理论/PDEs/应用PDE/第九章/Exercise.md",
+    "理论/PDEs/应用PDE/第九章/index.md",
+    "理论/PDEs/应用PDE/第九章/_index.md",
+    "理论/PDEs/应用PDE/第十章/Finite Element Method.md",
+    "理论/PDEs/应用PDE/第十章/index.md",
+    "理论/PDEs/应用PDE/第十章/Quiz 4.md",
+    "理论/PDEs/应用PDE/第四章/4.1 有限元.md",
+    "理论/PDEs/应用PDE/第四章/index.md",
+    "理论/PDEs/应用PDE/第四章/_index.md",
+    "理论/PDEs/数值PDEs/2. Poisson Equation.md",
+    "理论/PDEs/数值PDEs/3. Finite Element Method (1D Error Estimates & Assembly).md",
+    "理论/PDEs/数值PDEs/Galerkin Method.md",
+    "理论/PDEs/数值PDEs/Foundations/1. Introduction.md",
+    "理论/PDEs/数值PDEs/Foundations/2. Functional Analysis.md",
+    "理论/PDEs/数值PDEs/Foundations/3. Solving Linear System.md",
+    "理论/PDEs/数值PDEs/Foundations/General Statement of PDEs.md"
   ]
 }

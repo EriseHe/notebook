@@ -1,7 +1,6 @@
 ---
 date: 2026-02-10
 ---
-
 ## 3.1 Error Estimates (A Priori)
 
 For a standard second-order elliptic problem (e.g., Poisson equation $-u'' = f$), the error between the exact solution $u$ and the finite element approximation $u_h$ is bounded by the mesh size $h$.
