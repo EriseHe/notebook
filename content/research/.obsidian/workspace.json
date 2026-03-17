@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "Instruction for Lab"
             }
+          },
+          {
+            "id": "da1815416e464c1a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Hypre/Paper Notes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Paper Notes"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -75,7 +90,7 @@
             }
           },
           {
-            "id": "3ccd9c68dd23e978",
+            "id": "38de87112a026a46",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -194,12 +209,12 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "8dd9e3a90e774690",
+  "active": "da1815416e464c1a",
   "lastOpenFiles": [
+    "Hypre/Setup-Solve Phases RL design.md",
+    "Hypre/Paper Notes.md",
     "Advanced Lab/Module 1 LabVIEW.md",
     "Advanced Lab/Instruction for Lab.md",
-    "Hypre/Paper Notes.md",
-    "Hypre/Setup-Solve Phases RL design.md",
     "Advanced Lab",
     "Hypre/Learning to Relax Proof.md",
     "Hypre/Relevant Proof.md",
