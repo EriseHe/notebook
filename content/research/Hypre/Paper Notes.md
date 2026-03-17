@@ -38,11 +38,41 @@ Contribution
 
 
 
+
+
+
+A natural response to BoomerAMG parameter sensitivity is to treat tuning as a global optimization problem, but this view contributes limitedly to BoomerAMG in two respects. First, the parameter space is high-dimensional, mixed-type, and expensive to evaluate, so monolithic probabilistic optimization becomes increasingly costly as the number of tunable parameters and solver calls grows. Second, such formulations ignore the fact that BoomerAMG exposes feedback at different stages of execution. In particular, solve-phase decisions are made repeatedly over multigrid cycles, and each choice influences the subsequent residual trajectory and future work. This makes solve tuning fundamentally a sequential control problem rather than a one-shot parameter search, which naturally motivates reinforcement learning.
+
+At the same time, not all BoomerAMG decisions have the same temporal structure. Setup choices are made once per instance, before the hierarchy is applied, and must adapt across a stream of changing matrices; solve choices are made repeatedly within a fixed hierarchy and can exploit cycle-level feedback such as residual norms and recent reduction factors. We therefore view BoomerAMG tuning through a unified decision-theoretic lens with two horizons: a long-horizon sequential problem in the solve phase and a one-step, instance-level decision problem in the setup phase. The latter is naturally modeled by online bandit learning---or, when matrix features are incorporated explicitly, by contextual bandits---while the former is modeled by reinforcement learning. This yields a phase-aware framework in which setup and solve are learned differently, but for the same underlying reason: they are distinct feedback-driven decision problems.
+
+% --- Paragraph 5 (merged): Brief gap + key observation + framework preview (bandits + RL) ---
+Despite substantial prior work on multigrid parameter selection, performance modeling, and data-driven parameter optimization, existing approaches only address the difficulty of tuning BoomerAMG over a \emph{sequence-of-systems} in parts [need citations \citep{gahvari2011modeling,caldana2024deep}?]. 
+
 # Related Work
 
-Recently, there has been an emerging studies of developing machine learning techniques to automate such unscalable process. 
+\paragraph{Heuristic and expert-designed AMG tuning.}
+Algebraic multigrid has long relied on carefully engineered heuristics for strength-of-connection, coarse/fine splitting, interpolation, truncation, and smoothing; see the classical AMG literature and standard reviews \citep{ruge1987algebraic,stuben2001review}. In particular, BoomerAMG exposes a rich collection of such design choices in a parallel production solver, including multiple coarsening, interpolation, and relaxation variants \citep{henson2002boomeramg,hypre_boomeramg_docs}. While these heuristics make AMG broadly effective, they also leave practical performance highly sensitive to problem-dependent parameter choices. A long-standing theme in the AMG literature is therefore that practical performance depends strongly on tuning hierarchy-construction heuristics rather than on a single universally optimal configuration. As a result, users typically rely on expert defaults, manual tuning, and benchmark-specific rules of thumb rather than on closed-form prescriptions.
 
-The work done by learning to relax is great, but the choice of using ChebyCB bandits to learn  relys on
+\paragraph{Performance modeling and work-aware views of AMG.}
+A second line of work studies AMG performance through analytical and empirical cost models. These works emphasize that practical efficiency depends not only on asymptotic convergence, but also on hierarchy complexity, communication, memory traffic, and coarse-grid bottlenecks \citep{gahvari2011modeling,baker2014preparing,gahvari2014hybrid}. For BoomerAMG in particular, performance models show that setup decisions can strongly affect both operator complexity and downstream cycle cost, so iteration count alone is often an incomplete objective \citep{gahvari2011modeling}. This perspective directly motivates work-aware tuning criteria for online learning: a useful signal must reflect both hierarchy construction and the cost of applying that hierarchy.
+
+\paragraph{Offline autotuning, surrogate optimization, and learned parameter predictors.}
+Recent work has increasingly treated AMG parameter selection as an offline black-box optimization problem. In the broader autotuning literature, Bayesian optimization and Gaussian-process surrogates are standard tools for expensive configuration search \citep{morita2022bo,gptune_general}. AMG-specific examples include deep-learning-based strong-threshold prediction \citep{zou2023autoamg,caldana2024deep}, joint prediction of threshold and smoother choices \citep{antonietti2025annamg}, and Gaussian-process-based parameter prediction for selected PDE families \citep{zhang2025kernel}. These approaches provide evidence that AMG parameters are learnable from matrix data, but they are predominantly \emph{offline} and often \emph{problem-family-specific}: they rely on pretraining or surrogate fitting over a fixed workload, and they do not directly address online adaptation over streams of systems using solver-native feedback.
+
+\paragraph{Learning AMG components rather than tuning exposed parameters.}
+A related literature uses machine learning to redesign parts of multigrid itself, for example by learning prolongation operators or coarsening rules \citep{greenfeld2019learning,luz2020learning,taghibakhshi2021optimization}. These works show that data-driven models can capture nontrivial structure in hierarchy design, often improving convergence relative to classical heuristics. However, they usually target the synthesis of new multigrid components rather than the online tuning of a production solver's existing parameter interface, and they typically require substantial offline training. Our focus is complementary: we retain BoomerAMG as a black-box industrial solver and ask how to adapt its exposed setup and solve parameters online.
+
+\paragraph{Online learning for iterative solvers: bandits and reinforcement learning.}
+The closest prior work in spirit is \citet{khodak2024learning}, who show that bandit algorithms can tune the relaxation parameter of SOR across a sequence of linear systems and asymptotically compete with the best fixed parameter in hindsight. They further study a contextual setting based on diagonal-shift families \(A_t = A + c_t I\), where low-dimensional structure enables stronger contextual learning guarantees \citep{khodak2024learning}. More recently, online bandit learning has also been used to adapt preconditioners inside transient PDE simulations \citep{khodak2025pcgbandit}. Reinforcement learning has likewise been explored for multigrid parameter control, for example via PPO-based adaptation in h/p-multigrid solvers \citep{huergo2024rlmultigrid}. These works establish the promise of online learning for solver adaptation, but they do not resolve the specific challenge posed by industrial AMG setup tuning. In particular, they do not address the distinct role of \emph{setup} decisions in algebraic multigrid, where hierarchy construction creates an expensive upstream choice that shapes all downstream cycle behavior.
+
+\paragraph{Positioning of the present work.}
+Our work is closest in spirit to online solver tuning by bandits and RL, but differs from prior approaches in three ways. First, unlike the SOR setting of \citet{khodak2024learning}, we target a modern black-box multilevel solver whose parameter space is mixed-type and whose costs are hierarchy-dependent rather than analytically spectral. In BoomerAMG, setup parameters alter the hierarchy topology itself through discrete branching, thresholding, and multilevel sparsity trade-offs, so the clean analytic structure available for SOR does not carry over directly. Second, unlike offline surrogate or neural predictors for AMG parameters \citep{zou2023autoamg,caldana2024deep,zhang2025kernel}, we focus on the \emph{online sequence-of-systems regime}, where the learner must adapt from solver-native feedback without repeated offline retraining. Third, unlike monolithic black-box search, we exploit the setup--solve decomposition of BoomerAMG itself: setup is treated as an instance-level hierarchy-construction decision with a work--convergence trade-off, whereas solve is treated as a sequential control problem with cycle-level feedback. This distinction motivates a phase-aware design in which setup and solve are learned differently.
+
+More broadly, our work is also related to structured contextual bandits. If one is willing to posit that the expected work-aware cost admits a learnable dependence on problem features and setup actions, e.g.
+$$
+\mathbb{E}[\mathrm{WU}_t(s)\mid c_t] \approx \theta^\top \phi(c_t,s),
+$$
+then contextual linear or kernelized bandits provide a natural alternative to independent-arm search. However, unlike the one-dimensional contextual structure available in SOR, such assumptions for industrial AMG are not analytically given and must instead be motivated through solver-native features and empirical validation. Our formulation therefore sits between classical heuristic AMG tuning and fully learned black-box surrogates: we exploit solver structure where available, but do not assume an explicit spectral formula for BoomerAMG performance.
 # BoomerAMG
 
 Consider a set of linear systems of the form
@@ -77,5 +107,11 @@ Theory: 我们利用 RKHS 理论（或 Eluder Dimension），证明了即使没�
 我看edmond他们理论上知道SOR的$\omega^*$ 和c之间存在一个V形的光滑函数关系 所以他们直接用Chebyshev CB来逼近这种关系 而amg的parameter非常复杂没对于这种未知黑盒关系 我想知道有没有可能假设matrix的某些特征和work units之间存在像这样的某种关系
 $$\mathbb{E}\!\left[\mathrm{WU}_t(s)\mid c_t\right]\approx \theta^\top \phi(c_t,s)$$
 如果可以假设的话 我们就可以用LinUCB bandits不会有纬度爆炸也; linUCB正好可以解决维度炸的问题 是半连续 它学的是背后的连续曲线 
+
+
+
+
+
+
 
 

@@ -745,6 +745,8 @@ Conductors
 Capacitors
 Capacitance
 CAB
+Cyclic
+Crystal
 font
 for
 functions
@@ -3355,6 +3357,9 @@ Priori
 Place
 Products
 Pseudovectors
+Polarized
+Presence
+Permittivity
 In
 Implicit
 Invertibility
@@ -3928,6 +3933,8 @@ Images
 Induced
 Independence
 Irrotational
+Interchange
+Infinitesimal
 the
 terms
 that
@@ -5993,6 +6000,7 @@ shall
 satisfactory
 species
 shoulder
+stuff
 discuss
 determine
 described
@@ -6892,6 +6900,12 @@ distributive
 diagonals
 dotted
 drain
+dotting
+dielectrics
+dipoles
+dielectric
+dialectics
+dealt
 in
 inverse
 implicit
@@ -7839,6 +7853,9 @@ iQk
 instructs
 intercept
 inversions
+insulators
+intereface
+ionic
 of
 our
 out
@@ -9612,6 +9629,12 @@ Del
 Dimensional
 Distributivity
 Displacement
+Distributive
+Dielectircs
+Dipoles
+Dielectrics
+Deceptive
+Dielectric
 map
 matrix
 mapping
@@ -10439,6 +10462,7 @@ mWe
 mBu
 monopole
 mesh
+molecule
 have
 holds
 has
@@ -12228,6 +12252,10 @@ Stiffness
 Sparsity
 Six
 Sometimes
+Subtraction
+Swap
+Summarization
+Susceptibility
 equations
 equation
 exists
@@ -13089,6 +13117,7 @@ exploits
 exploiting
 equipotential
 elliptic
+everyday
 whether
 written
 which
@@ -15281,6 +15310,9 @@ ascertained
 archetype
 anomalously
 analog
+asymmatrical
+accumulations
+attributables
 you
 yields
 yF
@@ -16130,6 +16162,8 @@ NSG
 NzP
 Names
 Nums
+Neat
+Neutral
 Recall
 Rigorous
 Respect
@@ -17609,6 +17643,7 @@ rqP
 resolved
 reformulate
 rotations
+recovered
 partials
 partial
 point
@@ -18677,6 +18712,9 @@ pays
 pseudoscalars
 pseudovector
 pseudoscalar
+pulling
+polarizability
+permanent
 Ex
 Evaluate
 Evaluating
@@ -20728,6 +20766,7 @@ HcX
 HKw
 HYKGXU
 Helmholtz
+Head
 By
 Because
 Below
@@ -24479,6 +24518,7 @@ gPhY
 greaterequal
 gNEy
 gMS
+gardient
 Moreover
 Matrix
 Maximum
@@ -25063,6 +25103,9 @@ MiKTeX
 Monopole
 Move
 Multiplication
+Means
+Microscopic
+Macroscopic
 Using
 Up
 Ut
@@ -25437,6 +25480,7 @@ UwTes
 UUmsN
 UEk
 UseOutlines
+Used
 quotient
 question
 quickly
