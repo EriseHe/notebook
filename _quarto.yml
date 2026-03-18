@@ -126,6 +126,7 @@ format:
     filters:
     - filters/auto-title.lua
     - filters/obsidian-callouts.lua
+from: markdown+lists_without_preceding_blankline
 execute:
   echo: false
   warning: false
