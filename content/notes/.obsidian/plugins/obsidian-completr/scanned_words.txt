@@ -1460,6 +1460,7 @@ fictitious
 faucet
 forcing
 finer
+fringing
 color
 curve
 can
@@ -3386,6 +3387,7 @@ Poicar
 Prob
 Presence
 Permittivity
+Paramagnets
 In
 Implicit
 Invertibility
@@ -4720,6 +4722,7 @@ trigonometric
 typo
 tent
 trivially
+tilted
 system
 solvability
 such
@@ -6037,6 +6040,7 @@ seminorm
 shaded
 solid
 stuff
+solenoid
 discuss
 determine
 described
@@ -7895,6 +7899,7 @@ ice
 insulators
 intereface
 ionic
+inducing
 of
 our
 out
@@ -9102,6 +9107,7 @@ nine
 nicely
 nudge
 numeric
+nuclei
 Does
 Determine
 Differentiability
@@ -9679,6 +9685,7 @@ Dipoles
 Dielectrics
 Deceptive
 Dielectric
+Diamagnets
 map
 matrix
 mapping
@@ -13731,6 +13738,7 @@ weE
 water
 whirlpool
 watching
+wire
 by
 be
 bijective
@@ -16813,6 +16821,8 @@ Requirement
 Rayleigh
 Robin
 Requirements
+Response
+Rectangular
 requirement
 respect
 rule
@@ -19374,6 +19384,7 @@ Electrostatic
 Evidently
 Enough
 Except
+Electrons
 We
 What
 With
@@ -20340,6 +20351,8 @@ Triple
 Twice
 Treatment
 Transforming
+Torques
+Torque
 Hence
 Here
 Hypotheses
@@ -21960,6 +21973,9 @@ Fzl
 Fdz
 Fsj
 Follows
+Ferromagnets
+Forces
+FieldsIn
 Jacobian
 Jobcobian
 John
@@ -25208,6 +25224,7 @@ Milgram
 Means
 Microscopic
 Macroscopic
+Material
 Using
 Up
 Ut
@@ -26915,6 +26932,7 @@ Lfg
 LqU
 Line
 Lions
+Lenz
 Value
 Verifying
 Verify
@@ -28605,6 +28623,7 @@ OpenAction
 Orientation
 Orthogonal
 Optimize
+Orbital
 Given
 Get
 Guessing
