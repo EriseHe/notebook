@@ -1,5 +1,9 @@
 
 
+**"How do proposals for US medical interventions into China in the mid-twentieth century enact/materialize gender?"**
+
+
+
 Goal: Position your research (question/archival object) in existing scholarly conversations
 
 Chose 5 peer-reviewed sources
@@ -48,8 +52,6 @@ Make sure to distinguish between
 
 ---
 Research Question
-
-**"How do proposals for US medical interventions into China in the mid-twentieth century enact/materialize gender?"**
 
 
 
