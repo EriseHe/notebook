@@ -756,6 +756,7 @@ Crystal
 Currents
 Configuration
 Cyclotron
+Correct
 font
 for
 functions
@@ -1464,6 +1465,7 @@ faucet
 forcing
 finer
 fringing
+flares
 color
 curve
 can
@@ -4732,6 +4734,7 @@ typo
 tent
 trivially
 tilted
+traditionally
 system
 solvability
 such
@@ -6051,6 +6054,11 @@ solid
 stuff
 solenoid
 spins
+stipulate
+substituted
+straddling
+strongest
+strikingly
 discuss
 determine
 described
@@ -7911,6 +7919,7 @@ intereface
 ionic
 inducing
 ignore
+inherits
 of
 our
 out
@@ -9702,6 +9711,8 @@ Diamagnets
 Demonstration
 Detecting
 Depending
+Directionality
+Dominant
 map
 matrix
 mapping
@@ -10533,6 +10544,10 @@ minimizer
 molecule
 member
 magnetostatics
+magnetostatic
+multipole
+monopoles
+magnet
 have
 holds
 has
@@ -12335,6 +12350,7 @@ Subtraction
 Swap
 Summarization
 Susceptibility
+South
 equations
 equation
 exists
@@ -13203,6 +13219,7 @@ everyday
 exclusion
 exerts
 electrically
+electricity
 whether
 written
 which
@@ -13762,6 +13779,7 @@ whirlpool
 watching
 wire
 wires
+wafer
 by
 be
 bijective
@@ -14419,6 +14437,7 @@ bardbl
 bVg
 blowing
 bijection
+beautifully
 allow
 and
 as
@@ -15404,6 +15423,7 @@ auxiliary
 asymmatrical
 accumulations
 attributables
+altering
 you
 yields
 yF
@@ -16260,6 +16280,7 @@ Neat
 Neutral
 Neutrality
 North
+Nonuniform
 Recall
 Rigorous
 Respect
@@ -18835,6 +18856,8 @@ pulling
 polarizability
 permanent
 paramagnetism
+pillbox
+physicists
 Ex
 Evaluate
 Evaluating
@@ -20383,6 +20406,7 @@ Treatment
 Transforming
 Torques
 Torque
+Theoretical
 Hence
 Here
 Hypotheses
@@ -21443,6 +21467,7 @@ BCs
 Bounding
 Bramble
 Boris
+Bad
 Function
 For
 FT
@@ -22008,6 +22033,7 @@ Ferromagnets
 Forces
 FieldsIn
 Frequency
+Fringing
 Jacobian
 Jobcobian
 John
@@ -23116,6 +23142,7 @@ Alphabetical
 Aubin
 Antiparallel
 Attraction
+Advice
 via
 variables
 view
@@ -27395,6 +27422,7 @@ VRT
 Vnl
 Vertex
 Vertices
+Verdict
 Yes
 You
 YX
@@ -28663,6 +28691,7 @@ Optimize
 Orbital
 Origin
 Opposite
+Ordinarily
 Given
 Get
 Guessing
@@ -29165,6 +29194,7 @@ Geometrical
 Globally
 Greens
 Going
+Gilbert
 xF
 xxii
 xmp

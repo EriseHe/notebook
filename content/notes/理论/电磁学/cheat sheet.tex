@@ -1,0 +1,495 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath,amssymb,bm,mathtools}
+\usepackage[scr=esstix]{mathalpha} % \mathscr supports lowercase (so \mathscr{r} works)
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{cancel}
+\setlength{\columnsep}{12pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+\raggedcolumns
+
+% compact heading macros
+\newcommand{\chead}[1]{\vspace{6pt}{\large \textbf{#1}}\par}
+\newcommand{\subhead}[1]{\vspace{3pt}{\bfseries #1}\par}
+\newcommand{\csub}[1]{\vspace{2pt}\textbf{#1}\par}
+\newcommand{\key}[1]{\textbf{#1}}
+
+% separation notation (define ONCE)
+\newcommand{\scrr}{\mathscr{r}}           % scalar distance |r - r'|
+\newcommand{\scrrv}{\bm{\mathscr{r}}}     % vector r - r'
+\newcommand{\scrrhat}{\hat{\scrrv}}       % unit vector (r - r')/|r - r'|
+
+% other unit vectors / symbols
+\newcommand{\Rcal}{\scrr}
+\newcommand{\rhat}{\hat{\mathbf r}}
+\newcommand{\nhat}{\hat{\mathbf n}}
+\newcommand{\phat}{\hat{\boldsymbol\phi}}
+\newcommand{\zhat}{\hat{\mathbf z}}
+
+% box that auto-fits to the current column width (good for multicols)
+\newcommand{\cboxed}[1]{%
+  \begin{adjustbox}{max width=\columnwidth}%
+    $\boxed{\displaystyle #1}$%
+  \end{adjustbox}%
+}
+
+% Helper for stacking multiple boxed equations vertically inside one display.
+\newenvironment{caligned}{\begin{aligned}[t]}{\end{aligned}}
+
+
+\begin{document}
+\scriptsize
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+
+\begin{multicols*}{2}
+
+\chead{Ch 4. Electric Fields in Matter}
+
+\csub{4.1 Polarization}
+\[
+\cboxed{\mathbf p=\alpha \mathbf E}
+\qquad
+\cboxed{\mathbf P\equiv \frac{d\mathbf p}{d\tau}}
+\]
+\[
+\begin{caligned}
+  \cboxed{\rho_b=-\nabla\cdot \mathbf P}\\
+  \cboxed{\sigma_b=\mathbf P\cdot \nhat}
+\end{caligned}
+\]
+\[
+\cboxed{\boldsymbol\tau=\mathbf p\times \mathbf E}
+\qquad
+\cboxed{U=-\mathbf p\cdot \mathbf E}
+\]
+\key{Use:} turn matter into ordinary electrostatics sources. For constant $\mathbf P$, $\rho_b=0$ and only $\sigma_b$ survives.
+
+\csub{4.2 Field of a polarized object}
+\[
+\cboxed{V(\mathbf r)=\frac{1}{4\pi\epsilon_0}\left(\oint \frac{\sigma_b}{\Rcal}\,da'+\int \frac{\rho_b}{\Rcal}\,d\tau'\right)}
+\]
+Then $\mathbf E=-\nabla V$.
+
+\key{Uniformly polarized sphere:}
+\[
+\cboxed{\mathbf E_{\rm in}=-\frac{\mathbf P}{3\epsilon_0}}
+\]
+\[
+\cboxed{\mathbf p_{\rm sphere}=\frac{4\pi R^3}{3}\mathbf P,\quad
+\mathbf E_{\rm out}=\frac{1}{4\pi\epsilon_0r^3}\bigl[3(\mathbf p\cdot\rhat)\rhat-\mathbf p\bigr]}
+\]
+
+\csub{4.3 Electric displacement $\mathbf D$}
+Split charge into free $+$ bound:
+\[
+\epsilon_0\nabla\cdot \mathbf E=\rho=\rho_f+\rho_b,\qquad \rho_b=-\nabla\cdot \mathbf P
+\]
+so define
+\[
+\cboxed{\mathbf D\equiv \epsilon_0\mathbf E+\mathbf P}
+\]
+\[
+\begin{caligned}
+  \cboxed{\nabla\cdot \mathbf D=\rho_f}\\
+  \cboxed{\oint \mathbf D\cdot d\mathbf a=Q_{f,\rm enc}}
+\end{caligned}
+\]
+\key{Use:} with symmetry, solve for $\mathbf D$ from \emph{free} charge only, then recover $\mathbf E$ from $\mathbf P$ or constitutive law.
+
+\key{Deceptive parallel with $\mathbf E$:}
+\[
+\nabla\times \mathbf E=0\quad\text{but}\quad \nabla\times \mathbf D=\nabla\times \mathbf P
+\]
+so there is generally \emph{no} scalar potential for $\mathbf D$ and no simple Coulomb-type law for $\mathbf D$. $\mathbf D$ is mainly a symmetry/Gauss-law tool.
+
+\key{Boundary conditions:}
+\[
+\cboxed{D_{\rm above}^{\perp}-D_{\rm below}^{\perp}=\sigma_f}
+\qquad
+\cboxed{\mathbf E_{\rm above}^{\parallel}=\mathbf E_{\rm below}^{\parallel}}
+\]
+Equivalent normal $E$ jump:
+\[
+\cboxed{\epsilon_0(E_{\rm above}^{\perp}-E_{\rm below}^{\perp})=\sigma_{\rm total}}
+\]
+\key{Exam move:} normal component $\to$ use pillbox; tangential component $\to$ use tiny loop.
+
+\key{Crystal ambiguity:} in ionic crystals the absolute $\mathbf P$ can depend on how you partition charges into dipoles; \emph{physical} quantities are the resulting bound charges/currents and changes in polarization, not an arbitrary absolute reference for infinite crystal.
+
+\csub{4.4 Linear dielectrics}
+\[
+\cboxed{\mathbf P=\epsilon_0\chi_e \mathbf E}
+\qquad
+\cboxed{\mathbf D=\epsilon \mathbf E}
+\]
+\[
+\cboxed{\epsilon=\epsilon_0(1+\chi_e)}
+\qquad
+\cboxed{\epsilon_r\equiv \epsilon/\epsilon_0=1+\chi_e}
+\]
+\key{Meaning:} $\chi_e$ measures how easily material polarizes; $\epsilon_r$ tells how much field/capacitance changes relative to vacuum.
+
+If homogeneous linear dielectric fills space:
+\[
+\cboxed{\mathbf E=\mathbf E_{\rm vac}/\epsilon_r}
+\]
+For anisotropic crystals:
+\[
+\cboxed{P_i=\epsilon_0\sum_j \chi_{ij}E_j}
+\]
+so $\mathbf P$ need not be parallel to $\mathbf E$.
+
+\key{Boundary-value problems in linear media:}
+\[
+\cboxed{V_1=V_2}
+\qquad
+\cboxed{\epsilon_1 E_1^\perp-\epsilon_2 E_2^\perp=\sigma_f}
+\]
+\[
+\cboxed{\epsilon_1\frac{\partial V_1}{\partial n}-\epsilon_2\frac{\partial V_2}{\partial n}=-\sigma_f}
+\]
+Inside homogeneous dielectric,
+\[
+\rho_b=-\nabla\cdot \mathbf P=-\frac{\chi_e}{1+\chi_e}\rho_f
+\]
+so if no free charge in the bulk, then $\rho_b=0$ in the bulk and $V$ obeys Laplace's equation.
+
+\key{Capacitance/energy:}
+\[
+\cboxed{C=\epsilon_r C_{\rm vac}}
+\qquad
+\cboxed{W=\frac12 CV^2=\frac12 QV=\frac{Q^2}{2C}}
+\]
+For linear dielectrics,
+\[
+\cboxed{W=\frac12 \int \mathbf D\cdot \mathbf E\,d\tau}
+\]
+\key{Interpretation:} this is work to assemble the \emph{free} charge while the dielectric polarizes.
+
+\key{Force on dielectric slab in capacitor:}
+\[
+\cboxed{F=\frac12 V^2\frac{dC}{dx}=\frac12\frac{Q^2}{C^2}\frac{dC}{dx}}
+\]
+Direction is toward larger $C$ (dielectric gets pulled into field).
+
+\chead{Ch 5. Magnetostatics}
+
+\csub{5.1 Lorentz force law}
+\[
+\cboxed{\mathbf F=q(\mathbf E+\mathbf v\times \mathbf B)}
+\]
+Magnetic part exists only for moving charge and is perpendicular to both $\mathbf v$ and $\mathbf B$.
+\[
+\cboxed{dW_{\rm mag}=\mathbf F_{\rm mag}\cdot d\mathbf l=0}
+\]
+\key{Meaning:} magnetic fields change direction of motion, not speed/kinetic energy.
+
+\key{Uniform $\mathbf B$ trajectories:}
+\[
+\cboxed{R=\frac{mv_\perp}{|q|B}}
+\qquad
+\cboxed{\omega_c=\frac{|q|B}{m}}
+\qquad
+\cboxed{T=\frac{2\pi m}{|q|B}}
+\]
+If $v_\parallel\neq 0$, path is a helix with pitch $p=v_\parallel T$.
+
+\csub{Currents and force on current}
+\[
+\cboxed{I=\frac{dq}{dt}}
+\qquad
+\cboxed{\mathbf K=\sigma \mathbf v}
+\qquad
+\cboxed{\mathbf J=\rho \mathbf v}
+\]
+\[
+\cboxed{\mathbf F=I\int d\mathbf l\times \mathbf B}
+\]
+\[
+\cboxed{d\mathbf F=I\,d\mathbf l\times \mathbf B,\quad
+\mathbf F=\int \mathbf K\times \mathbf B\,da,\quad
+\mathbf F=\int \mathbf J\times \mathbf B\,d\tau}
+\]
+\key{Continuity equation:}
+\[
+\cboxed{\nabla\cdot \mathbf J=-\frac{\partial \rho}{\partial t}}
+\]
+In magnetostatics,
+\[
+\cboxed{\partial \rho/\partial t=0,\qquad \nabla\cdot \mathbf J=0}
+\]
+\key{Use:} steady current cannot start/stop inside region unless charge accumulates.
+
+\csub{5.2 Biot--Savart law}
+Magnetostatics requires steady currents:
+\[
+\cboxed{\frac{\partial \rho}{\partial t}=0,\qquad \frac{\partial \mathbf J}{\partial t}=0}
+\]
+\[
+\cboxed{\mathbf B(\mathbf r)=\frac{\mu_0}{4\pi}I\int \frac{d\mathbf l'\times \scrrhat}{\scrr^2}}
+\]
+\[
+\cboxed{\mathbf B(\mathbf r)=\frac{\mu_0}{4\pi}\int \frac{\mathbf J(\mathbf r')\times \scrrhat}{\scrr^2}\,d\tau'}
+\]
+Also for surfaces:
+\[
+\cboxed{\mathbf B=\frac{\mu_0}{4\pi}\int \frac{\mathbf K\times \scrrhat}{\scrr^2}\,da'}
+\]
+\key{Exam warnings:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Do \emph{not} apply Biot--Savart to a single moving point charge in magnetostatics.
+\item Keep source point $\mathbf r'$ and field point $\mathbf r$ distinct.
+\item Direction comes from $d\mathbf l'\times \scrrhat$ (right-hand rule).
+\end{itemize}
+
+\key{High-frequency results from Biot--Savart/symmetry:}
+\[
+\cboxed{B_{\rm wire}=\frac{\mu_0 I}{2\pi s}\,\phat}
+\qquad
+\cboxed{B_{\rm loop,center}=\frac{\mu_0 I}{2R}}
+\]
+Finite straight segment:
+\[
+\cboxed{B=\frac{\mu_0 I}{4\pi s}\,(\sin\theta_1+\sin\theta_2)}
+\]
+
+\csub{5.3 Divergence, curl, and Amp\`ere's law}
+\[
+\cboxed{\nabla\cdot \mathbf B=0}
+\qquad
+\cboxed{\oint \mathbf B\cdot d\mathbf a=0}
+\]
+\key{Meaning:} no magnetic monopoles; field lines do not begin/end.
+
+\[
+\cboxed{\nabla\times \mathbf B=\mu_0\mathbf J}
+\qquad
+\cboxed{\oint \mathbf B\cdot d\mathbf l=\mu_0 I_{\rm enc}}
+\]
+\key{Derivation skeleton from Biot--Savart:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item For divergence, use $\nabla\cdot(\mathbf J\times \scrrhat/\scrr^2)$ and curls vanish.
+\item For curl, use $\nabla\cdot(\scrrhat/\scrr^2)=4\pi\delta^3(\scrrv)$.
+\item Delta function picks out $\mathbf J(\mathbf r)$.
+\end{itemize}
+
+\key{When Amp\`ere is useful:} only when symmetry lets you pull $B$ outside the loop.
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Infinite wire: circular loop $\Rightarrow B(2\pi s)=\mu_0 I$.
+\item Infinite solenoid: rectangular loop $\Rightarrow B=\mu_0 nI$ inside, $\approx 0$ outside.
+\item Toroid: circle of radius $s$ inside core $\Rightarrow B=\mu_0 NI/(2\pi s)$.
+\item Infinite current sheet with $\mathbf K$: \ $\cboxed{B=\mu_0 K/2}$ on each side, opposite directions.
+\end{itemize}
+
+\key{Statics comparison:}
+\[
+\cboxed{\nabla\cdot \mathbf E=\rho/\epsilon_0,\ \nabla\times \mathbf E=0}
+\qquad
+\cboxed{\nabla\cdot \mathbf B=0,\ \nabla\times \mathbf B=\mu_0\mathbf J}
+\]
+
+\csub{5.4 Vector potential $\mathbf A$}
+\[
+\cboxed{\mathbf B=\nabla\times \mathbf A}
+\]
+Gauge freedom:
+\[
+\cboxed{\mathbf A'=\mathbf A+\nabla \lambda}
+\]
+Choose Coulomb gauge:
+\[
+\cboxed{\nabla\cdot \mathbf A=0}
+\]
+Then Amp\`ere gives vector Poisson equation:
+\[
+\cboxed{\nabla^2\mathbf A=-\mu_0\mathbf J}
+\]
+Integral solutions:
+\[
+\cboxed{\mathbf A(\mathbf r)=\frac{\mu_0}{4\pi}\int \frac{\mathbf J(\mathbf r')}{\scrr}\,d\tau'}
+\]
+\[
+\cboxed{\mathbf A=\frac{\mu_0 I}{4\pi}\int \frac{d\mathbf l'}{\scrr}}
+\qquad
+\cboxed{\mathbf A=\frac{\mu_0}{4\pi}\int \frac{\mathbf K}{\scrr}\,da'}
+\]
+\key{Boundary conditions:}
+\[
+\cboxed{B_{\rm above}^{\perp}=B_{\rm below}^{\perp}}
+\qquad
+\cboxed{\mathbf B_{\rm above}^{\parallel}-\mathbf B_{\rm below}^{\parallel}=\mu_0(\mathbf K\times \nhat)}
+\]
+\[
+\cboxed{\mathbf A_{\rm above}=\mathbf A_{\rm below}},\qquad
+\cboxed{\frac{\partial \mathbf A_{\rm above}}{\partial n}-\frac{\partial \mathbf A_{\rm below}}{\partial n}=-\mu_0\mathbf K}
+\]
+
+\key{Magnetic dipole moment of loop:}
+\[
+\cboxed{\mathbf m=I\mathbf a}
+\]
+Direction by right-hand rule. Far away, localized current distributions look dipolar:
+\[
+\cboxed{\mathbf A_{\rm dip}=\frac{\mu_0}{4\pi}\frac{\mathbf m\times \rhat}{r^2}}
+\]
+\[
+\cboxed{\mathbf B_{\rm dip}=\frac{\mu_0}{4\pi r^3}\bigl[3(\mathbf m\cdot \rhat)\rhat-\mathbf m\bigr]}
+\]
+On axis: $\cboxed{B_{\rm axis}=\mu_0 m/(2\pi r^3)}$. In equatorial plane: $\cboxed{B_{\rm eq}=\mu_0 m/(4\pi r^3)}$ opposite to $\mathbf m$.
+
+\chead{Ch 6. Magnetic Fields in Matter}
+
+\csub{6.1 Magnetization and magnetic dipoles}
+Microscopic origin: orbital motion $+$ spin.
+\[
+\cboxed{\mathbf M\equiv \frac{d\mathbf m}{d\tau}}
+\]
+Units: A/m. Material types:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Paramagnets: $\mathbf M$ tends to align with field.
+\item Diamagnets: induced $\mathbf M$ opposes field.
+\item Ferromagnets: strong alignment + memory (history dependent).
+\end{itemize}
+
+\key{Torque/energy/force on magnetic dipole:}
+\[
+\cboxed{\mathbf N=\mathbf m\times \mathbf B}
+\qquad
+\cboxed{U=-\mathbf m\cdot \mathbf B}
+\]
+\[
+\cboxed{\mathbf F=\nabla(\mathbf m\cdot \mathbf B)}
+\]
+\key{Use:} in uniform $\mathbf B$, net force on closed loop is zero but torque may be nonzero; translational force needs nonuniform field.
+
+\key{Uniform-field proof of zero net force:}
+\[
+\mathbf F=I\oint d\mathbf l\times \mathbf B
+=I\left(\oint d\mathbf l\right)\times \mathbf B=0
+\]
+
+\key{Diamagnetism derivation (classical model):}
+\[
+\cboxed{\mathbf m_{\rm orbit}=-\frac12 evR\,\zhat}
+\]
+Field changes orbital speed by
+\[
+\cboxed{\Delta v=\frac{eRB}{2m_e}}
+\]
+hence induced dipole moment
+\[
+\cboxed{\Delta \mathbf m=-\frac{e^2R^2}{4m_e}\mathbf B}
+\]
+always opposite $\mathbf B$.
+
+\key{Gilbert vs Amp\`ere model:} electric-dipole analogies help intuition, but real magnets are current loops, not separated magnetic charges.
+
+\csub{6.2 Field of a magnetized object}
+Build field from infinitesimal dipoles $d\mathbf m=\mathbf M\,d\tau'$:
+\[
+\cboxed{\mathbf A(\mathbf r)=\frac{\mu_0}{4\pi}\int \frac{\mathbf M(\mathbf r')\times \scrrhat}{\scrr^2}\,d\tau'}
+\]
+After vector identity + integration by parts:
+\[
+\begin{caligned}
+  \cboxed{\mathbf J_b=\nabla\times \mathbf M}\\
+  \cboxed{\mathbf K_b=\mathbf M\times \nhat}
+\end{caligned}
+\]
+and the potential becomes exactly that of ordinary currents:
+\[
+\cboxed{\mathbf A=\frac{\mu_0}{4\pi}\int \frac{\mathbf J_b}{\scrr}\,d\tau'+\frac{\mu_0}{4\pi}\oint \frac{\mathbf K_b}{\scrr}\,da'}
+\]
+\key{Use:} replace magnetized matter by equivalent bound volume/surface current and then solve with Biot--Savart/Amp\`ere.
+
+\key{Shortcut:} if $\mathbf M$ is uniform, then $\mathbf J_b=0$ and only $\mathbf K_b=\mathbf M\times \nhat$ remains.
+
+\csub{6.3 Auxiliary field $\mathbf H$}
+Total current splits into free $+$ bound:
+\[
+\mathbf J=\mathbf J_f+\mathbf J_b,\qquad \mathbf J_b=\nabla\times \mathbf M
+\]
+Define
+\[
+\cboxed{\mathbf H\equiv \frac{\mathbf B}{\mu_0}-\mathbf M}
+\]
+Then
+\[
+\begin{caligned}
+  \cboxed{\nabla\times \mathbf H=\mathbf J_f}\\
+  \cboxed{\oint \mathbf H\cdot d\mathbf l=I_{f,\rm enc}}
+\end{caligned}
+\]
+\key{Use:} when symmetry is set by \emph{free current}, solve for $\mathbf H$ first, then recover $\mathbf B=\mu_0(\mathbf H+\mathbf M)$.
+
+\key{Deceptive parallel with $\mathbf D$:}
+\[
+\cboxed{\nabla\cdot \mathbf H=-\nabla\cdot \mathbf M}
+\]
+so $\mathbf H$ is generally not divergenceless; there is no general Biot--Savart law for $\mathbf H$.
+
+\key{Boundary conditions:}
+\[
+\cboxed{B_{\rm above}^{\perp}-B_{\rm below}^{\perp}=0}
+\]
+\[
+\cboxed{\mathbf H_{\rm above}^{\parallel}-\mathbf H_{\rm below}^{\parallel}=\mathbf K_f\times \nhat}
+\]
+Equivalent normal jump for $H$:
+\[
+\cboxed{H_{\rm above}^{\perp}-H_{\rm below}^{\perp}=-(M_{\rm above}^{\perp}-M_{\rm below}^{\perp})}
+\]
+If no free surface current, tangential $\mathbf H$ is continuous.
+
+\csub{6.4 Linear and nonlinear media}
+For linear magnetic media:
+\[
+\cboxed{\mathbf M=\chi_m \mathbf H}
+\]
+\[
+\cboxed{\mathbf B=\mu_0(\mathbf H+\mathbf M)=\mu \mathbf H}
+\]
+\[
+\cboxed{\mu=\mu_0(1+\chi_m)}\qquad
+\cboxed{\mu_r=\mu/\mu_0=1+\chi_m}
+\]
+\key{Signs:} $\chi_m>0$ for paramagnets, $\chi_m<0$ for diamagnets.
+
+In homogeneous linear media:
+\[
+\cboxed{\mathbf J_b=\nabla\times \mathbf M=\chi_m\nabla\times \mathbf H=\chi_m \mathbf J_f}
+\]
+So if $\mathbf J_f=0$ in bulk, then $\mathbf J_b=0$ in bulk too; bound current lives on surface.
+
+\key{Ferromagnets (nonlinear):}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Domains align; response is not $\mathbf M=\chi_m\mathbf H$ except maybe locally.
+\item Saturation: beyond some $H$, $M$ stops increasing much.
+\item Hysteresis: $B$ depends on history.
+\item Residual magnetization: magnetization left after $H\to 0$.
+\item Coercive field: reverse $H$ needed to demagnetize.
+\item Curie point: above $T_C$, ferromagnet becomes paramagnetic.
+\end{itemize}
+
+\chead{Fast Problem-Solving Map}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \key{Given $\mathbf P$}: compute $\rho_b,\sigma_b$, then use electrostatics.
+\item \key{Given dielectric + free charge symmetry}: use $\oint \mathbf D\cdot d\mathbf a=Q_{f,\rm enc}$.
+\item \key{Given steady current geometry}: try Biot--Savart first; switch to Amp\`ere if symmetry is high.
+\item \key{Given magnetized matter}: replace by $\mathbf J_b,\mathbf K_b$.
+\item \key{Given magnetic material with free-current symmetry}: solve $\mathbf H$, then $\mathbf B=\mu_0(\mathbf H+\mathbf M)$ or $\mathbf B=\mu\mathbf H$ if linear.
+\item \key{Boundary problem}: normal component usually comes from divergence law; tangential component from loop/Amp\`ere law.
+\item \key{Derivation points}: write the defining field equation first, then the theorem used (Gauss/Stokes/integration by parts), then the symmetry argument.
+\end{itemize}
+\end{multicols*}
+\end{document}
