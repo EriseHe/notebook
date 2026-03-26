@@ -129,7 +129,7 @@
               "type": "com.maxymillion.zen",
               "state": {},
               "pinned": true,
-              "icon": "eye-off",
+              "icon": "eye",
               "title": "Zen"
             }
           }
@@ -137,7 +137,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5
+    "width": 365.5024719238281
   },
   "right": {
     "id": "916c7330540abd4e",
@@ -245,8 +245,9 @@
   },
   "active": "5cf248cfdd55898d",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
+    "理论/PDEs/Numerical PDEs/Advection-Diffusion/Advection-Diffusion.md",
     "理论/PDEs/Numerical PDEs/Advection-Diffusion/3.1 Finite Difference of 1D Problem.md",
+    "conflict-files-obsidian-git.md",
     "理论/电磁学/5 Magnetostatics/5.4 Magnetic Vector Potential 243.md",
     "理论/电磁学/5 Magnetostatics/5.3 The Divergence and Curl of B 227.md",
     "理论/电磁学/5 Magnetostatics/5.2 The Biot–Savart Law.md",
@@ -254,7 +255,6 @@
     "理论/电磁学/5 Magnetostatics",
     "image.png",
     "image-1.png",
-    "理论/PDEs/Numerical PDEs/Advection-Diffusion/Advection-Diffusion.md",
     "理论/概率机器学习/index.md",
     "理论/PDEs/Numerical PDEs/Advection-Diffusion",
     "理论/PDEs/Numerical PDEs/EXAM Review.md",
