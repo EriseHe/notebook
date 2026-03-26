@@ -44,9 +44,21 @@
               "icon": "lucide-file",
               "title": "Literature Review"
             }
+          },
+          {
+            "id": "fc99c76a1604a0d2",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.12.7"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -100,7 +112,7 @@
             }
           },
           {
-            "id": "7b054718c2dff162",
+            "id": "785aa09eea0cc05f",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -207,7 +219,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4092f7e61333f21f",
+  "active": "fc99c76a1604a0d2",
   "lastOpenFiles": [
     "Feminism/Untitled.md",
     "Feminism/Literature Review.md",
