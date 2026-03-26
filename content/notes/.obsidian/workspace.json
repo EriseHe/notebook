@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3. Advection-Diffusion.md",
+                "file": "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.1 Finite Difference of 1D Problem.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3. Advection-Diffusion"
+              "title": "3.1 Finite Difference of 1D Problem"
             }
           }
         ],
@@ -245,6 +245,7 @@
   },
   "active": "5cf248cfdd55898d",
   "lastOpenFiles": [
+    "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3. Advection-Diffusion.md",
     "理论/Julia科学计算笔记/I 变量、基本类型和函数.md",
     "理论/Julia科学计算笔记/0 基本语法.md",
     "理论/Julia科学计算笔记/II ODEs与分子动力学.md",
@@ -253,7 +254,6 @@
     "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.4 General Statement of PDEs.md",
     "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.3 Solving Linear System.md",
     "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.1 Data and Solution.md",
-    "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3. Advection-Diffusion.md",
     "conflict-files-obsidian-git.md",
     "理论/电磁学/5 Magnetostatics/5.4 Magnetic Vector Potential 243.md",
     "理论/电磁学/5 Magnetostatics/5.3 The Divergence and Curl of B 227.md",
