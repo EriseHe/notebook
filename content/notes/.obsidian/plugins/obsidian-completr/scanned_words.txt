@@ -749,6 +749,7 @@ Cyclic
 Crystal
 Controls
 Cell
+Cancel
 font
 for
 functions
@@ -6011,6 +6012,9 @@ stuff
 scanned
 smoke
 sacrifice
+severe
+smearing
+stencil
 discuss
 determine
 described
@@ -9074,6 +9078,8 @@ ngL
 nonalphabetical
 nine
 nicely
+nudge
+newly
 Does
 Determine
 Differentiability
@@ -13132,6 +13138,8 @@ exploiting
 equipotential
 elliptic
 everyday
+explode
+equivalency
 whether
 written
 which
@@ -14346,6 +14354,7 @@ bPx
 bardbl
 bVg
 blowing
+beautifully
 allow
 and
 as
@@ -17664,6 +17673,7 @@ rotations
 recovered
 river
 relys
+ripple
 partials
 partial
 point
@@ -24031,6 +24041,7 @@ uoc
 ugR
 uVl
 ugG
+upgraded
 guarantees
 gives
 give
@@ -24541,6 +24552,7 @@ greaterequal
 gNEy
 gMS
 gardient
+gathering
 Moreover
 Matrix
 Maximum
@@ -25128,6 +25140,7 @@ Multiplication
 Means
 Microscopic
 Macroscopic
+Mappings
 Using
 Up
 Ut
@@ -25503,6 +25516,7 @@ UUmsN
 UEk
 UseOutlines
 Used
+Usin
 quotient
 question
 quickly
@@ -26330,6 +26344,8 @@ zBekI
 ztp
 zZc
 zTm
+zig
+zag
 Let
 Label
 Local
