@@ -58,7 +58,11 @@
             }
           }
         ],
+<<<<<<< HEAD
         "currentTab": 3
+=======
+        "currentTab": 1
+>>>>>>> origin/main
       }
     ],
     "direction": "vertical"
@@ -112,7 +116,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "785aa09eea0cc05f",
+=======
+            "id": "e5f0a56192434c58",
+>>>>>>> origin/main
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -219,10 +227,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
+<<<<<<< HEAD
   "active": "fc99c76a1604a0d2",
+=======
+  "active": "fa3c282e7fa5df95",
+>>>>>>> origin/main
   "lastOpenFiles": [
-    "Feminism/Untitled.md",
     "Feminism/Literature Review.md",
+    "Feminism/Untitled.md",
     "Foucault/Sex & Sexuality.md",
     "Foucault/Commentary on the Collage.md",
     "Foucault/家庭式生命权力：通过儒家的家国体系重读福柯的生命政治理论在东亚的实践.md",
