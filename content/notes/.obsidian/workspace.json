@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/Numerical PDEs/Advection-Diffusion/3.1 Finite Difference of 1D Problem.md",
+                "file": "理论/PDEs/index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3.1 Finite Difference of 1D Problem"
+              "title": "index"
             }
           }
         ],
@@ -245,10 +245,10 @@
   },
   "active": "5cf248cfdd55898d",
   "lastOpenFiles": [
+    "理论/PDEs/Numerical PDEs/Advection-Diffusion/3.1 Finite Difference of 1D Problem.md",
     "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.4 General Statement of PDEs.md",
     "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.3 Solving Linear System.md",
     "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.1 Data and Solution.md",
-    "理论/PDEs/Numerical PDEs/Advection-Diffusion/3.1 Finite Difference of 1D Problem.md",
     "理论/PDEs/Numerical PDEs/Advection-Diffusion/Advection-Diffusion.md",
     "conflict-files-obsidian-git.md",
     "理论/电磁学/5 Magnetostatics/5.4 Magnetic Vector Potential 243.md",
