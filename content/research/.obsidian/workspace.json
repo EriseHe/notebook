@@ -1,5 +1,6 @@
 {
   "main": {
+<<<<<<< HEAD
     "id": "c8d1a0c932e8579c",
     "type": "split",
     "children": [
@@ -9,15 +10,23 @@
         "children": [
           {
             "id": "091b423265e55bd7",
+=======
+    "id": "66eeed5452df03db",
+    "type": "split",
+    "children": [
+      {
+        "id": "6f26e8a343556ebb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8bdfc4ca5b939359",
+>>>>>>> origin/main
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hypre/Paper Notes.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
+<<<<<<< HEAD
               "title": "Paper Notes"
             }
           },
@@ -31,6 +40,9 @@
               },
               "icon": "lucide-book-up",
               "title": "Release Notes 1.12.7"
+=======
+              "title": "New tab"
+>>>>>>> origin/main
             }
           }
         ]
@@ -39,6 +51,7 @@
     "direction": "vertical"
   },
   "left": {
+<<<<<<< HEAD
     "id": "c6663160766ccb0c",
     "type": "split",
     "children": [
@@ -48,6 +61,17 @@
         "children": [
           {
             "id": "95d37d8762e22c13",
+=======
+    "id": "a95ce4c00dd3ea10",
+    "type": "split",
+    "children": [
+      {
+        "id": "60e72aa9485b3243",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e96ee6b9c2f339ca",
+>>>>>>> origin/main
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -60,7 +84,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "d7baeb90ed24cb4d",
+=======
+            "id": "019507fac9385035",
+>>>>>>> origin/main
             "type": "leaf",
             "state": {
               "type": "search",
@@ -77,7 +105,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "9bdc76494e519d0e",
+=======
+            "id": "ba179040bc1a3b4c",
+>>>>>>> origin/main
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -87,7 +119,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "9eea7288bc6147d9",
+=======
+            "id": "b7160fe146464e42",
+>>>>>>> origin/main
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -106,6 +142,7 @@
     "collapsed": true
   },
   "right": {
+<<<<<<< HEAD
     "id": "adb851619762f555",
     "type": "split",
     "children": [
@@ -115,6 +152,17 @@
         "children": [
           {
             "id": "e73e34949646f2bb",
+=======
+    "id": "ed80e99c6af1849e",
+    "type": "split",
+    "children": [
+      {
+        "id": "cdda202ed3c98ccd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "49f682819780c18a",
+>>>>>>> origin/main
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -133,7 +181,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "bd2964116c747913",
+=======
+            "id": "19c391bcc433d82f",
+>>>>>>> origin/main
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -147,7 +199,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "fb6fe38707bf7e21",
+=======
+            "id": "7aabcfaa6d074bb2",
+>>>>>>> origin/main
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -162,7 +218,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "a708c83719fe8f2c",
+=======
+            "id": "01c5ed2cfea426bc",
+>>>>>>> origin/main
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -176,7 +236,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "791e81a9c3da6bd9",
+=======
+            "id": "755d1774f33519c6",
+>>>>>>> origin/main
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -210,9 +274,14 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
+<<<<<<< HEAD
   "active": "091b423265e55bd7",
   "lastOpenFiles": [
     "Hypre/Paper.md",
     "Hypre/Paper Notes.md"
   ]
+=======
+  "active": "8bdfc4ca5b939359",
+  "lastOpenFiles": []
+>>>>>>> origin/main
 }

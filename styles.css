@@ -824,11 +824,37 @@ img {
 }
 
 .math-theorem.definition {
-  --theorem-accent: #2563eb;
-  --theorem-accent-rgb: 37, 99, 235;
-  --theorem-border: rgba(37, 99, 235, 0.28);
+  --theorem-accent: #e91e63;
+  --theorem-accent-rgb: 233, 30, 99;
+  --theorem-border: rgba(233, 30, 99, 0.18);
   border-radius: 0;
-  background: #e2e4e8 !important; /* slightly grayer than default callouts */
+  background: #fce4ec !important;
+  border: none;
+  border-left: 4px solid var(--theorem-accent);
+  box-shadow: none;
+}
+
+.math-theorem.definition:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.math-theorem.definition .theorem-badge {
+  text-transform: none;
+  font-size: 1.06rem;
+}
+
+.math-theorem.definition .theorem-title::before {
+  content: "(";
+}
+
+.math-theorem.definition .theorem-title::after {
+  content: ").";
+}
+
+.math-theorem.definition .theorem-title {
+  color: var(--theorem-accent) !important;
+  font-style: normal;
 }
 
 .math-theorem.theorem {
