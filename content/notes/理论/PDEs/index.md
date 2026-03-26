@@ -1,5 +1,5 @@
 ---
-title: "偏微分方程"
+title: PDEs
 page-layout: article
 ---
 
