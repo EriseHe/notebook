@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/Numerical PDEs/2. Poisson/4. Finite Element.md",
+                "file": "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.4 Reaction-Dominated Problem.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "4. Finite Element"
+              "title": "3.4 Reaction-Dominated Problem"
             }
           }
         ],
@@ -245,10 +245,13 @@
   },
   "active": "5cf248cfdd55898d",
   "lastOpenFiles": [
+    "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.1 Finite Difference of 1D Problem.md",
+    "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.4 Reaction-Dominated Problem.md",
+    "理论/PDEs/Numerical PDEs/2. Poisson/Finite Element Method (1D Error Estimates & Assembly).md",
+    "理论/PDEs/Numerical PDEs/2. Poisson/2.4 Finite Element.md",
     "理论/PDEs/Numerical PDEs/2. Poisson/2.3 Galerkin Method.md",
     "理论/PDEs/Numerical PDEs/2. Poisson/2.2 Finite Difference.md",
     "理论/PDEs/Numerical PDEs/2. Poisson/2.1 Poisson Equation.md",
-    "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.1 Finite Difference of 1D Problem.md",
     "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3. Advection-Diffusion.md",
     "理论/Julia科学计算笔记/I 变量、基本类型和函数.md",
     "理论/Julia科学计算笔记/0 基本语法.md",
@@ -271,13 +274,10 @@
     "理论/PDEs/Numerical PDEs/Untitled.md",
     "Prompts.md",
     "理论/电磁学/Chapter 1.md",
-    "理论/PDEs/Numerical PDEs/2. Poisson/Finite Element Method (1D Error Estimates & Assembly).md",
-    "理论/PDEs/Numerical PDEs/2. Poisson/4. Finite Element.md",
     "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.2 Functional Analysis.md",
     "理论/PDEs/Numerical PDEs/2. Poisson",
     "理论/PDEs/Numerical PDEs/1. Functional Analysis",
     "理论/PDEs/Numerical PDEs",
-    "理论/PDEs/Application/第四章/index.md",
     "理论/PDEs/Application/第四章",
     "理论/PDEs/Application/第十章",
     "理论/PDEs/Application/第九章",
