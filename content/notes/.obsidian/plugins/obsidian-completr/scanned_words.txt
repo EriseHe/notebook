@@ -753,6 +753,7 @@ Cancel
 Collocation
 Choice
 Chebysev
+Comment
 font
 for
 functions
@@ -1459,6 +1460,7 @@ fblC
 fictitious
 faucet
 finer
+forcing
 color
 curve
 can
@@ -2763,6 +2765,8 @@ consistence
 combing
 calculated
 conditioner
+closeness
+conjugated
 Problem
 Partial
 Putting
@@ -3380,6 +3384,7 @@ Poicar
 Positivity
 Possible
 Polynomial
+Poincare
 In
 Implicit
 Invertibility
@@ -3955,6 +3960,7 @@ Irrotational
 Interchange
 Infinitesimal
 Inequality
+Inclusion
 the
 terms
 that
@@ -4715,6 +4721,7 @@ travels
 trivially
 tent
 trapizial
+typo
 system
 solvability
 such
@@ -6035,6 +6042,9 @@ smearing
 stencil
 staney
 studnets
+subspace
+switch
+seminorm
 discuss
 determine
 described
@@ -7894,6 +7904,7 @@ intereface
 ionic
 ink
 interpolant
+ignores
 of
 our
 out
@@ -9102,6 +9113,7 @@ nicely
 nudge
 newly
 nonpositive
+numeric
 Does
 Determine
 Differentiability
@@ -9679,6 +9691,7 @@ Dielectric
 Dimension
 Deny
 Dominated
+Distributional
 map
 matrix
 mapping
@@ -10507,6 +10520,7 @@ mBu
 monopole
 mesh
 molecule
+minimizer
 have
 holds
 has
@@ -11611,6 +11625,7 @@ lifting
 lump
 lumped
 lamping
+leakage
 Show
 Sufficient
 Substitute
@@ -12304,6 +12319,9 @@ Subtraction
 Swap
 Summarization
 Susceptibility
+Sobolev
+Strictly
+Specially
 equations
 equation
 exists
@@ -16812,6 +16830,8 @@ Reusing
 Requirement
 Rayleigh
 Replacing
+Riesz
+Reason
 requirement
 respect
 rule
@@ -18794,6 +18814,7 @@ plugins
 posedness
 proven
 pena
+pairings
 Ex
 Evaluate
 Evaluating
@@ -19370,6 +19391,7 @@ Electrodynamics
 Electrostatic
 Evidently
 Except
+Enough
 We
 What
 With
@@ -20850,6 +20872,7 @@ HYKGXU
 Helmholtz
 Head
 Hat
+Hölder
 By
 Because
 Below
@@ -23550,6 +23573,7 @@ vextendsingle
 vqs
 vTA
 violates
+violating
 unknowns
 unique
 uniquely
@@ -25203,6 +25227,7 @@ Mesh
 Missing
 Matris
 Matrices
+Measuring
 Using
 Up
 Ut
@@ -28603,6 +28628,7 @@ Odh
 OpenAction
 Orientation
 Optimize
+Orthogonal
 Given
 Get
 Guessing
