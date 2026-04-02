@@ -1,4 +1,5 @@
 ---
+title: "21 Curvature via Sectional Curvature, and Jacobi Fields"
 date: 2025-11-12
 ---
 

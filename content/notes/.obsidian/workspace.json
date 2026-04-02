@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/Application/Untitled.md",
+                "file": "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.4 Reaction-Dominated Problem.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "3.4 Reaction-Dominated Problem"
             }
           }
         ]
@@ -91,7 +91,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 365.5024719238281
+    "width": 365.5024719238281,
+    "collapsed": true
   },
   "right": {
     "id": "916c7330540abd4e",
@@ -199,20 +200,31 @@
   },
   "active": "5fbfaf9ecd5ba797",
   "lastOpenFiles": [
-    "理论/PDEs/Application/01 Mid-Point Method.md",
+    "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
+    "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
+    "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
+    "计算/量子力学讲义/波函数存在于在Hilbert空间中.html",
+    "计算/量子力学讲义/波函数存在于在Hilbert空间中_files/mediabag",
+    "计算/量子力学讲义/波函数存在于在Hilbert空间中_files",
+    "计算/量子力学讲义/index.html",
+    "计算/量子力学讲义/index_files/mediabag",
+    "计算/量子力学讲义/index_files",
+    "计算/量子力学讲义/Lecture/第四章/第四章.html",
+    "计算/量子力学讲义/Lecture/第四章/第四章_files/mediabag",
+    "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3. Advection-Diffusion.md",
+    "理论/PDEs/Numerical PDEs/2. Poisson/Finite Element Method (1D Error Estimates & Assembly).md",
     "理论/PDEs/Application/Untitled.md",
+    "理论/PDEs/Application/01 Mid-Point Method.md",
     "理论/PDEs/Application/MFEM.md",
     "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.4 Reaction-Dominated Problem.md",
     "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.1 Finite Difference of 1D Problem.md",
     "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.2 Functional Analysis.md",
     "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.1 Data and Solution.md",
     "理论/电磁学/Chapter 1.md",
-    "理论/PDEs/Numerical PDEs/2. Poisson/Finite Element Method (1D Error Estimates & Assembly).md",
     "理论/PDEs/Numerical PDEs/2. Poisson/2.4 Finite Element.md",
     "理论/PDEs/Numerical PDEs/2. Poisson/2.3 Galerkin Method.md",
     "理论/PDEs/Numerical PDEs/2. Poisson/2.2 Finite Difference.md",
     "理论/PDEs/Numerical PDEs/2. Poisson/2.1 Poisson Equation.md",
-    "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3. Advection-Diffusion.md",
     "理论/Julia科学计算笔记/I 变量、基本类型和函数.md",
     "理论/Julia科学计算笔记/0 基本语法.md",
     "理论/Julia科学计算笔记/II ODEs与分子动力学.md",
@@ -224,19 +236,8 @@
     "理论/电磁学/5 Magnetostatics/5.3 The Divergence and Curl of B 227.md",
     "理论/电磁学/5 Magnetostatics/5.2 The Biot–Savart Law.md",
     "理论/电磁学/5 Magnetostatics/5.1 The Lorentz Force Law.md",
-    "理论/电磁学/5 Magnetostatics",
     "image.png",
     "image-1.png",
-    "理论/概率机器学习/index.md",
-    "理论/PDEs/Numerical PDEs/3. Advection-Diffusion",
-    "理论/PDEs/Numerical PDEs/2. Poisson",
-    "理论/PDEs/Numerical PDEs/1. Functional Analysis",
-    "理论/PDEs/Numerical PDEs",
-    "理论/PDEs/Application/第四章",
-    "理论/PDEs/Application/第十章",
-    "理论/PDEs/Application/第九章",
-    "理论/PDEs/Application",
-    "理论/电磁学/6 Magnetic Fields in Matter",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
     "tmp_pdf/545 10_01_25.pdf.png",
     "tmp_pdf/545_10_01_25.png",

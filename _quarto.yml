@@ -43,6 +43,12 @@ website:
     contents:
     - auto: "content/notes/理论/*/index.md"
     - auto: "content/notes/计算/*/index.md"
+  - id: notes-uc9f329e6-u31247908
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - auto: content/notes/理论/电磁学/**/*.md
   - id: notes-uc9f329e6-udd514d50
     style: docked
     search: true
@@ -55,12 +61,6 @@ website:
     collapse-level: 2
     contents:
     - auto: content/notes/理论/广义相对论/**/*.md
-  - id: notes-uc9f329e6-u891850f8
-    style: docked
-    search: true
-    collapse-level: 2
-    contents:
-    - auto: content/notes/理论/偏微分方程/**/*.md
   - id: notes-uc9f329e6-uebb28be0
     style: docked
     search: true
@@ -73,30 +73,30 @@ website:
     collapse-level: 2
     contents:
     - auto: content/notes/理论/拓扑学笔记/**/*.md
-  - id: notes-uc9f329e6-u2946ef54
+  - id: notes-uc9f329e6-u59fddf4
     style: docked
     search: true
     collapse-level: 2
     contents:
-    - auto: content/notes/理论/微分几何笔记/**/*.md
+    - auto: content/notes/理论/微分几何讲义/**/*.md
   - id: notes-uc9f329e6-julia
     style: docked
     search: true
     collapse-level: 2
     contents:
     - auto: content/notes/理论/Julia科学计算笔记/**/*.md
+  - id: notes-uc9f329e6-pdes
+    style: docked
+    search: true
+    collapse-level: 2
+    contents:
+    - auto: content/notes/理论/PDEs/**/*.md
   - id: notes-ueb019720-uc0e2e384
     style: docked
     search: true
     collapse-level: 2
     contents:
     - auto: content/notes/计算/量子力学讲义/**/*.md
-  - id: notes-ueb019720-research
-    style: docked
-    search: true
-    collapse-level: 2
-    contents:
-    - auto: content/notes/计算/research/**/*.md
   # AUTO-GENERATED NOTES SIDEBAR END
   - id: research
     style: docked

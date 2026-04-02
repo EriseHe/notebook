@@ -1,3 +1,7 @@
+---
+title: "Instruction for Lab"
+---
+
 PHYS-444W-1: Adv Undergraduate Laboratory - Spring 2026
 PHYS 444W/445W/544
 

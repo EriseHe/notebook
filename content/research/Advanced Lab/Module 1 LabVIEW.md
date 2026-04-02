@@ -1,3 +1,7 @@
+---
+title: "Module 1 LabVIEW"
+---
+
 # 1 Experiment
 
 ## 1.1 Objectives

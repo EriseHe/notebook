@@ -1,3 +1,7 @@
+---
+title: "Untitled"
+---
+
 Object Reflection Paper
 
 My archival object is a conference document titled “RECOMMENDATIONS TO THE CHINA PLANNING COMMITTEE AND THE COMMITTEE ON EAST ASIA,” produced as part of the China Planning Committee of the Committee on East Asia, “Conference on Medical and Health Work in China,” held March 21–22, 1945, in New York City. It is currently housed at Pitts Theology Library, Special Collections and Archives, within the collection American Missionary Aid to Post-WWII Reconstruction in East Asia (MSS 423), which is composed of documents connected to the Foreign Missions Conference of North America and spans summer 1944 to 1947.

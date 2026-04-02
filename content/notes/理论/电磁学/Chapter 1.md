@@ -1,3 +1,7 @@
+---
+title: "Chapter 1"
+---
+
 # 1.1 Vector Algebra
 
 ## 1.1.1 Core Operations on Vectors

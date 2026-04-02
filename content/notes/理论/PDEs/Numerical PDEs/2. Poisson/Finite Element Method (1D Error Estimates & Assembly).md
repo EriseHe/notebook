@@ -1,4 +1,5 @@
 ---
+title: "Finite Element Method (1D Error Estimates & Assembly)"
 date: 2026-02-10
 ---
 ## 3.1 Error Estimates (A Priori)

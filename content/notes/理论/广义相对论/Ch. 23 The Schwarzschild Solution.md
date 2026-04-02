@@ -1,3 +1,7 @@
+---
+title: "Ch. 23 The Schwarzschild Solution"
+---
+
 
 ## 23.1 Introduction and Strategy
 

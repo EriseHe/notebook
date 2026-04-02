@@ -1,4 +1,5 @@
 ---
+title: "20 Gauss&Weingarten Formulas, Surfaces, and Sectional Curvature"
 date: 2025-11-10
 ---
 
