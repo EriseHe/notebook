@@ -1,3 +1,7 @@
+---
+title: "Ch. 17 The Absolute Gradient"
+---
+
 ## 17.1 Overview
 
 In earlier chapters we explored the Schwarzschild geometry and saw how tensor equations express physics in a coordinate–independent way.  

@@ -1,4 +1,5 @@
 ---
+title: "18 Hopf–Rinow direction"
 date: 2025-11-03
 ---
 # MATH 545 — Differential Geometry I (11/03/25)

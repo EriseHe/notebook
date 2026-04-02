@@ -1,3 +1,7 @@
+---
+title: "Ch. 33 Gemini"
+---
+
 # 1 Chapter 33: Generating Gravitational Waves
 
 ## 1.1 Estimates and Approximations

@@ -1,3 +1,7 @@
+---
+title: "Ch. 32 Gravitational Wave Energy"
+---
+
 ## 32.1 Introduction
 
 In chapter 31 we saw that a passing gravitational wave distorts a ring of freely
