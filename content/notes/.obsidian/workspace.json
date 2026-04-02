@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/Application/01 Mid-Point Method.md",
+                "file": "理论/PDEs/Application/Untitled.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "01 Mid-Point Method"
+              "title": "Untitled"
             }
           }
         ]
@@ -76,7 +76,7 @@
             }
           },
           {
-            "id": "bf9364b7f9a2ef2a",
+            "id": "9b3a363dc9d7e12f",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -199,8 +199,9 @@
   },
   "active": "5fbfaf9ecd5ba797",
   "lastOpenFiles": [
-    "理论/PDEs/Application/MFEM.md",
     "理论/PDEs/Application/01 Mid-Point Method.md",
+    "理论/PDEs/Application/Untitled.md",
+    "理论/PDEs/Application/MFEM.md",
     "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.4 Reaction-Dominated Problem.md",
     "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.1 Finite Difference of 1D Problem.md",
     "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.2 Functional Analysis.md",
@@ -228,7 +229,6 @@
     "image-1.png",
     "理论/概率机器学习/index.md",
     "理论/PDEs/Numerical PDEs/3. Advection-Diffusion",
-    "理论/PDEs/Numerical PDEs/EXAM Review.md",
     "理论/PDEs/Numerical PDEs/2. Poisson",
     "理论/PDEs/Numerical PDEs/1. Functional Analysis",
     "理论/PDEs/Numerical PDEs",
