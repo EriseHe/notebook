@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.6.md",
+                "file": "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.6 Linearization, ODE Stability, Semi-Discretization, and the Theta-Method.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3.6"
+              "title": "3.6 Linearization, ODE Stability, Semi-Discretization, and the Theta-Method"
             }
           }
         ]
@@ -200,7 +200,7 @@
   "active": "5fbfaf9ecd5ba797",
   "lastOpenFiles": [
     "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.5 Heat equation.md",
-    "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.6.md",
+    "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.6 Linearization, ODE Stability, Semi-Discretization, and the Theta-Method.md",
     "理论/PDEs/数值PDEs/2. Poisson/2.2 Finite Difference.md",
     "理论/PDEs/数值PDEs/2. Poisson/2.1 Poisson Equation.md",
     "理论/PDEs/MFEM/1. MFEM Overview and Get Started.md",
