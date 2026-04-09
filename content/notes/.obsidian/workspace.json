@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/MFEM/1. MFEM Overview and Get Started.md",
+                "file": "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.6.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "1. MFEM Overview and Get Started"
+              "title": "3.6"
             }
           }
         ]
@@ -199,14 +199,17 @@
   },
   "active": "5fbfaf9ecd5ba797",
   "lastOpenFiles": [
+    "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.5 Heat equation.md",
+    "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.6.md",
+    "理论/PDEs/数值PDEs/2. Poisson/2.2 Finite Difference.md",
+    "理论/PDEs/数值PDEs/2. Poisson/2.1 Poisson Equation.md",
+    "理论/PDEs/MFEM/1. MFEM Overview and Get Started.md",
     "理论/PDEs/MFEM/3. Heat Transfer.md",
     "理论/PDEs/MFEM/2. Finite Element \"Hello World!\".md",
-    "理论/PDEs/MFEM/1. MFEM Overview and Get Started.md",
     "理论/PDEs/MFEM/4. Linear Elasticity.md",
     "理论/PDEs/Application/Intro to MFEM.md",
     "理论/PDEs/Application/Untitled.md",
     "理论/PDEs/MFEM",
-    "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.5.md",
     "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.4 Reaction-Dominated Problem.md",
     "理论/微分几何讲义/微分几何导论II/Apr 8.md",
     "理论/微分几何讲义/微分几何导论I/Lecture Notes/545 10_08_25.md",
@@ -229,12 +232,9 @@
     "理论/电磁学/Chapter 1.md",
     "理论/PDEs/数值PDEs/2. Poisson/2.4 Finite Element.md",
     "理论/PDEs/数值PDEs/2. Poisson/2.3 Galerkin Method.md",
-    "理论/PDEs/数值PDEs/2. Poisson/2.2 Finite Difference.md",
-    "理论/PDEs/数值PDEs/2. Poisson/2.1 Poisson Equation.md",
     "理论/Julia科学计算笔记/I 变量、基本类型和函数.md",
     "理论/Julia科学计算笔记/0 基本语法.md",
     "理论/Julia科学计算笔记/II ODEs与分子动力学.md",
-    "理论/PDEs/index.md",
     "image.png",
     "image-1.png",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
