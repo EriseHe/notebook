@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/微分几何讲义/微分几何导论II/Apr 8.md",
+                "file": "理论/PDEs/MFEM/1. MFEM Overview and Get Started.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Apr 8"
+              "title": "1. MFEM Overview and Get Started"
             }
           }
         ]
@@ -76,7 +76,7 @@
             }
           },
           {
-            "id": "813c6b6bdd34cb30",
+            "id": "cd2bea6488547db9",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -200,10 +200,18 @@
   },
   "active": "5fbfaf9ecd5ba797",
   "lastOpenFiles": [
+    "理论/PDEs/Application/Intro to MFEM.md",
+    "理论/PDEs/MFEM/1. MFEM Overview and Get Started.md",
+    "理论/PDEs/MFEM/4. Linear Elasticity.md",
+    "理论/PDEs/MFEM/3. Heat Transfer.md",
+    "理论/PDEs/MFEM/2. Finite Element \"Hello World!\".md",
+    "理论/PDEs/Application/Untitled.md",
+    "理论/PDEs/MFEM",
     "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.5.md",
-    "理论/微分几何讲义/微分几何导论II/Apr 8.md",
-    "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3. Advection-Diffusion.md",
     "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.4 Reaction-Dominated Problem.md",
+    "理论/微分几何讲义/微分几何导论II/Apr 8.md",
+    "理论/微分几何讲义/微分几何导论I/Lecture Notes/545 10_08_25.md",
+    "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3. Advection-Diffusion.md",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files/mediabag",
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
@@ -213,9 +221,7 @@
     "计算/量子力学讲义/index.html",
     "计算/量子力学讲义/index_files/mediabag",
     "计算/量子力学讲义/index_files",
-    "计算/量子力学讲义/Lecture/第四章/第四章.html",
     "理论/PDEs/Numerical PDEs/2. Poisson/Finite Element Method (1D Error Estimates & Assembly).md",
-    "理论/PDEs/Application/Untitled.md",
     "理论/PDEs/Application/01 Mid-Point Method.md",
     "理论/PDEs/Application/MFEM.md",
     "理论/PDEs/Numerical PDEs/3. Advection-Diffusion/3.1 Finite Difference of 1D Problem.md",
@@ -230,12 +236,6 @@
     "理论/Julia科学计算笔记/0 基本语法.md",
     "理论/Julia科学计算笔记/II ODEs与分子动力学.md",
     "理论/PDEs/index.md",
-    "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.4 General Statement of PDEs.md",
-    "理论/PDEs/Numerical PDEs/1. Functional Analysis/1.3 Solving Linear System.md",
-    "conflict-files-obsidian-git.md",
-    "理论/电磁学/5 Magnetostatics/5.4 Magnetic Vector Potential 243.md",
-    "理论/电磁学/5 Magnetostatics/5.3 The Divergence and Curl of B 227.md",
-    "理论/电磁学/5 Magnetostatics/5.2 The Biot–Savart Law.md",
     "image.png",
     "image-1.png",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
