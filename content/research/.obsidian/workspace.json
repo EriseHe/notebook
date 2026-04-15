@@ -1,20 +1,22 @@
 {
   "main": {
-    "id": "c727591ec09bac84",
+    "id": "66eeed5452df03db",
     "type": "split",
     "children": [
       {
-        "id": "48ba3929f6e397df",
+        "id": "6f26e8a343556ebb",
         "type": "tabs",
         "children": [
           {
-            "id": "d7891419c4d835f5",
+            "id": "8bdfc4ca5b939359",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.12.7"
             }
           }
         ]
@@ -23,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "30f296d1a0a741ab",
+    "id": "a95ce4c00dd3ea10",
     "type": "split",
     "children": [
       {
-        "id": "0728c76d1710b657",
+        "id": "60e72aa9485b3243",
         "type": "tabs",
         "children": [
           {
-            "id": "7b2e8298235ac8c2",
+            "id": "e96ee6b9c2f339ca",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,7 +46,7 @@
             }
           },
           {
-            "id": "80857baa02238713",
+            "id": "019507fac9385035",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +63,7 @@
             }
           },
           {
-            "id": "b21dab82cc2c266a",
+            "id": "ba179040bc1a3b4c",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -71,7 +73,7 @@
             }
           },
           {
-            "id": "bec91e8d5cceed41",
+            "id": "007209443f0985a6",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -89,20 +91,19 @@
     "width": 300
   },
   "right": {
-    "id": "ad0e539ced9ab101",
+    "id": "ed80e99c6af1849e",
     "type": "split",
     "children": [
       {
-        "id": "98f1f709729805d4",
+        "id": "cdda202ed3c98ccd",
         "type": "tabs",
         "children": [
           {
-            "id": "671d0e61dff1b622",
+            "id": "49f682819780c18a",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Advanced Lab/Module 3 Heat Conduction.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,25 +113,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Module 3 Heat Conduction"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "b09ff0ed40b7355b",
+            "id": "19c391bcc433d82f",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Advanced Lab/Module 3 Heat Conduction.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Module 3 Heat Conduction"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "6e0c47441bcebf6f",
+            "id": "7aabcfaa6d074bb2",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -145,7 +145,7 @@
             }
           },
           {
-            "id": "601c0ca8cfa83326",
+            "id": "01c5ed2cfea426bc",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -159,18 +159,17 @@
             }
           },
           {
-            "id": "850f1a16ffec9503",
+            "id": "755d1774f33519c6",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Advanced Lab/Module 3 Heat Conduction.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Module 3 Heat Conduction"
+              "title": "Outline"
             }
           }
         ]
@@ -193,10 +192,10 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "d7891419c4d835f5",
+  "active": "8bdfc4ca5b939359",
   "lastOpenFiles": [
+    "Hypre/Paper.md",
     "Advanced Lab/Module 3/Paper.md",
-    "Advanced Lab/Instruction for Lab.md",
     "Advanced Lab/Module 3/Module 3 Heat Conduction.md",
     "Advanced Lab/Module 3"
   ]

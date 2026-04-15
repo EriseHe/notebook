@@ -158,6 +158,16 @@ so $\mathbf P$ need not be parallel to $\mathbf E$.
 \[
 \cboxed{\epsilon_1\frac{\partial V_1}{\partial n}-\epsilon_2\frac{\partial V_2}{\partial n}=-\sigma_f}
 \]
+If $\sigma_f=0$:
+\[
+\cboxed{\epsilon_1 E_1^\perp=\epsilon_2 E_2^\perp}
+\qquad
+\cboxed{E_1^\parallel=E_2^\parallel}
+\]
+Hence field-line bending:
+\[
+\cboxed{\frac{\tan\theta_1}{\tan\theta_2}=\frac{\epsilon_1}{\epsilon_2}}
+\]
 Inside homogeneous dielectric,
 \[
 \rho_b=-\nabla\cdot \mathbf P=-\frac{\chi_e}{1+\chi_e}\rho_f
@@ -170,6 +180,14 @@ so if no free charge in the bulk, then $\rho_b=0$ in the bulk and $V$ obeys Lapl
 \qquad
 \cboxed{W=\frac12 CV^2=\frac12 QV=\frac{Q^2}{2C}}
 \]
+\[
+\cboxed{C_{\rm pp}=\frac{\epsilon A}{d}}
+\qquad
+\cboxed{u=\frac12 \mathbf D\cdot \mathbf E=\frac12\epsilon E^2=\frac{D^2}{2\epsilon}}
+\]
+\[
+\cboxed{W_{\rm all\ charges}=\frac{\epsilon_0}{2}\int E^2\,d\tau}
+\]
 For linear dielectrics,
 \[
 \cboxed{W=\frac12 \int \mathbf D\cdot \mathbf E\,d\tau}
@@ -179,6 +197,10 @@ For linear dielectrics,
 \key{Force on dielectric slab in capacitor:}
 \[
 \cboxed{F=\frac12 V^2\frac{dC}{dx}=\frac12\frac{Q^2}{C^2}\frac{dC}{dx}}
+\]
+For slab width $w$ and plate separation $d$:
+\[
+\cboxed{|F|=\frac{\epsilon_0\chi_e w}{2d}V^2}
 \]
 Direction is toward larger $C$ (dielectric gets pulled into field).
 
@@ -212,6 +234,10 @@ If $v_\parallel\neq 0$, path is a helix with pitch $p=v_\parallel T$.
 \qquad
 \cboxed{\mathbf J=\rho \mathbf v}
 \]
+For moving line charge density $\lambda$:
+\[
+\cboxed{I=\lambda v}
+\]
 \[
 \cboxed{\mathbf F=I\int d\mathbf l\times \mathbf B}
 \]
@@ -220,6 +246,11 @@ If $v_\parallel\neq 0$, path is a helix with pitch $p=v_\parallel T$.
 \mathbf F=\int \mathbf K\times \mathbf B\,da,\quad
 \mathbf F=\int \mathbf J\times \mathbf B\,d\tau}
 \]
+Parallel wires distance $s$:
+\[
+\cboxed{\frac{F}{L}=\frac{\mu_0 I_1I_2}{2\pi s}}
+\]
+Same-direction currents attract; opposite directions repel.
 \key{Continuity equation:}
 \[
 \cboxed{\nabla\cdot \mathbf J=-\frac{\partial \rho}{\partial t}}
@@ -258,9 +289,16 @@ Also for surfaces:
 \qquad
 \cboxed{B_{\rm loop,center}=\frac{\mu_0 I}{2R}}
 \]
+\[
+\cboxed{B_{\rm axis\ of\ loop}(z)=\frac{\mu_0 I R^2}{2(R^2+z^2)^{3/2}}}
+\]
 Finite straight segment:
 \[
 \cboxed{B=\frac{\mu_0 I}{4\pi s}\,(\sin\theta_1+\sin\theta_2)}
+\]
+Circular arc of angle $\phi$ (radians):
+\[
+\cboxed{B_{\rm arc}=\frac{\mu_0 I\phi}{4\pi R}}
 \]
 
 \csub{5.3 Divergence, curl, and Amp\`ere's law}
@@ -413,6 +451,18 @@ and the potential becomes exactly that of ordinary currents:
 \key{Use:} replace magnetized matter by equivalent bound volume/surface current and then solve with Biot--Savart/Amp\`ere.
 
 \key{Shortcut:} if $\mathbf M$ is uniform, then $\mathbf J_b=0$ and only $\mathbf K_b=\mathbf M\times \nhat$ remains.
+\[
+\cboxed{|\mathbf K_b|=M\ \text{for side surface of uniformly magnetized cylinder}}
+\]
+\key{Uniformly magnetized sphere:}
+\[
+\cboxed{\mathbf m_{\rm sphere}=\frac{4\pi R^3}{3}\mathbf M}
+\]
+\[
+\cboxed{\mathbf H_{\rm in}=-\frac{\mathbf M}{3}}
+\qquad
+\cboxed{\mathbf B_{\rm in}=\frac{2}{3}\mu_0\mathbf M}
+\]
 
 \csub{6.3 Auxiliary field $\mathbf H$}
 Total current splits into free $+$ bound:
@@ -464,6 +514,15 @@ For linear magnetic media:
 \cboxed{\mu_r=\mu/\mu_0=1+\chi_m}
 \]
 \key{Signs:} $\chi_m>0$ for paramagnets, $\chi_m<0$ for diamagnets.
+If no free surface current at interface of linear media:
+\[
+\cboxed{B_1^\perp=B_2^\perp}
+\qquad
+\cboxed{\frac{B_1^\parallel}{\mu_1}=\frac{B_2^\parallel}{\mu_2}}
+\]
+\[
+\cboxed{\frac{\tan\theta_1}{\tan\theta_2}=\frac{\mu_1}{\mu_2}}
+\]
 
 In homogeneous linear media:
 \[

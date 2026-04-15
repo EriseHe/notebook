@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.12.17)  19 MAR 2026 16:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.12.17)  19 MAR 2026 16:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -331,8 +331,7 @@ tex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count295
 \l__pdf_internal_box=\box103
-)
-No file "cheat sheet".aux.
+) (cheat sheet.aux)
 \openout1 = `"cheat sheet.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
@@ -349,6 +348,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
 LaTeX Font Info:    ... okay on input line 47.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
 LaTeX Font Info:    ... okay on input line 47.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -435,10 +435,10 @@ L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 5598 strings out of 474486
- 90962 string characters out of 5743754
+ 5601 strings out of 474486
+ 91070 string characters out of 5743754
  1964542 words of memory out of 5000000
- 27812 multiletter control sequences out of 15000+600000
+ 27813 multiletter control sequences out of 15000+600000
  563518 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  86i,13n,93p,365b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -458,7 +458,7 @@ onts/cm/cmr7.pfb><C:/Users/19175/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmsy5.pfb><C:/Users/19175/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/amsfonts/cm/cmsy7.pfb><C:/Users/19175/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmti7.pfb>
-Output written on "cheat sheet.pdf" (3 pages, 181641 bytes).
+Output written on "cheat sheet.pdf" (3 pages, 185905 bytes).
 PDF statistics:
  82 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
