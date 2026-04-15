@@ -1,3 +1,7 @@
+---
+title: "Ch. 33 ChatGPT"
+---
+
 # Chapter 33: Gravitational Waves from Astrophysical Sources
 
 ## 33.0 Introduction

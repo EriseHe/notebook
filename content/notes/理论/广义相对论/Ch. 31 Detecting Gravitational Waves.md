@@ -1,3 +1,7 @@
+---
+title: "Ch. 31 Detecting Gravitational Waves"
+---
+
 ## 31.1 Weak-Field Gravitational Waves and Lorentz Gauge
 
 We work in the weak-field limit, where the metric is written as a small perturbation
