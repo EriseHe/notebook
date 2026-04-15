@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "8e0c072c719f9376",
+        "id": "48ba3929f6e397df",
         "type": "tabs",
         "children": [
           {
-            "id": "04055b75998463c3",
+            "id": "d7891419c4d835f5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Advanced Lab/Module 3 Heat Conduction.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Module 3 Heat Conduction"
+              "title": "New tab"
             }
           }
         ]
@@ -75,7 +71,7 @@
             }
           },
           {
-            "id": "fca8a5898f89bbec",
+            "id": "bec91e8d5cceed41",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -197,8 +193,11 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "04055b75998463c3",
+  "active": "d7891419c4d835f5",
   "lastOpenFiles": [
-    "Advanced Lab/Module 3 Heat Conduction.md"
+    "Advanced Lab/Module 3/Paper.md",
+    "Advanced Lab/Instruction for Lab.md",
+    "Advanced Lab/Module 3/Module 3 Heat Conduction.md",
+    "Advanced Lab/Module 3"
   ]
 }

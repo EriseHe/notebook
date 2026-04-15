@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "03cc82d8bf8d767c",
+        "id": "6e54a92d227244dc",
         "type": "tabs",
         "children": [
           {
-            "id": "5fbfaf9ecd5ba797",
+            "id": "208356162090146d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.6 Linearization, ODE Stability, Semi-Discretization, and the Theta-Method.md",
+                "file": "理论/PDEs/MFEM/2. Finite Element Hello World!.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3.6 Linearization, ODE Stability, Semi-Discretization, and the Theta-Method"
+              "title": "2. Finite Element Hello World!"
             }
           }
         ]
@@ -76,7 +76,7 @@
             }
           },
           {
-            "id": "cd2bea6488547db9",
+            "id": "7cab439ba391e258",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -91,7 +91,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 365.5024719238281
+    "width": 294.5024719238281
   },
   "right": {
     "id": "916c7330540abd4e",
@@ -153,13 +153,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Prompts.md",
+                "file": "理论/PDEs/MFEM/2. Finite Element Hello World!.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Prompts"
+              "title": "Outline of 2. Finite Element Hello World!"
             }
           },
           {
@@ -177,8 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 279.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -197,16 +196,32 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "5fbfaf9ecd5ba797",
+  "active": "208356162090146d",
   "lastOpenFiles": [
+    "理论/电磁学/8 Conservation Laws/8.1.md",
+    "理论/电磁学/9 Electromagnetic Waves/9.2.md",
+    "理论/电磁学/9 Electromagnetic Waves/9.3.md",
+    "理论/PDEs/Application/03 Numerical Solution of Ordinary Differential Equations.md",
+    "理论/PDEs/MFEM/1. MFEM Overview and Get Started.md",
+    "理论/PDEs/MFEM/4. Linear Elasticity.md",
+    "理论/PDEs/MFEM/3. Heat Transfer.md",
+    "理论/PDEs/MFEM/2. Finite Element Hello World!.md",
+    "理论/电磁学/习题集.md",
+    "理论/电磁学/7 Electrodynamics/Practice Problem.md",
+    "理论/电磁学/7 Electrodynamics/7.4 The Field of a Rotating Magnet.md",
+    "理论/电磁学/7 Electrodynamics/7.3 Maxwell’s Equations.md",
+    "理论/电磁学/7 Electrodynamics/7.2 Electromagnetic Induction.md",
+    "理论/电磁学/7 Electrodynamics/7.1 Electromotive Force.md",
+    "理论/电磁学/index.md",
+    "理论/电磁学/8 Conservation Laws/Untitled",
+    "理论/电磁学/9 Electromagnetic Waves",
+    "理论/电磁学/8 Conservation Laws",
+    "理论/电磁学/7 Electrodynamics",
+    "理论/电磁学/Untitled.md",
     "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.5 Heat equation.md",
     "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.6 Linearization, ODE Stability, Semi-Discretization, and the Theta-Method.md",
     "理论/PDEs/数值PDEs/2. Poisson/2.2 Finite Difference.md",
     "理论/PDEs/数值PDEs/2. Poisson/2.1 Poisson Equation.md",
-    "理论/PDEs/MFEM/1. MFEM Overview and Get Started.md",
-    "理论/PDEs/MFEM/3. Heat Transfer.md",
-    "理论/PDEs/MFEM/2. Finite Element \"Hello World!\".md",
-    "理论/PDEs/MFEM/4. Linear Elasticity.md",
     "理论/PDEs/Application/Intro to MFEM.md",
     "理论/PDEs/Application/Untitled.md",
     "理论/PDEs/MFEM",
@@ -219,22 +234,6 @@
     "计算/量子力学讲义/薛定谔方程的傅立叶变换_files",
     "计算/量子力学讲义/波函数存在于在Hilbert空间中.html",
     "计算/量子力学讲义/波函数存在于在Hilbert空间中_files/mediabag",
-    "计算/量子力学讲义/波函数存在于在Hilbert空间中_files",
-    "计算/量子力学讲义/index.html",
-    "计算/量子力学讲义/index_files/mediabag",
-    "计算/量子力学讲义/index_files",
-    "理论/PDEs/数值PDEs/2. Poisson/Finite Element Method (1D Error Estimates & Assembly).md",
-    "理论/PDEs/Application/01 Mid-Point Method.md",
-    "理论/PDEs/Application/MFEM.md",
-    "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.1 Finite Difference of 1D Problem.md",
-    "理论/PDEs/数值PDEs/1. Functional Analysis/1.2 Functional Analysis.md",
-    "理论/PDEs/数值PDEs/1. Functional Analysis/1.1 Data and Solution.md",
-    "理论/电磁学/Chapter 1.md",
-    "理论/PDEs/数值PDEs/2. Poisson/2.4 Finite Element.md",
-    "理论/PDEs/数值PDEs/2. Poisson/2.3 Galerkin Method.md",
-    "理论/Julia科学计算笔记/I 变量、基本类型和函数.md",
-    "理论/Julia科学计算笔记/0 基本语法.md",
-    "理论/Julia科学计算笔记/II ODEs与分子动力学.md",
     "image.png",
     "image-1.png",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
