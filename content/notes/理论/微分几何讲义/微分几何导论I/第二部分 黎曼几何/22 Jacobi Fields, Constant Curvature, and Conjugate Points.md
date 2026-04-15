@@ -1,4 +1,5 @@
 ---
+title: "22 Jacobi Fields, Constant Curvature, and Conjugate Points"
 date: 2025-11-17
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "19 Curvature Operator and Tensoriality"
 date: 2025-11-05
 ---
 ## 1. Curvature

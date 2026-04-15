@@ -1,3 +1,7 @@
+---
+title: "Ch. 22 Weak-Field Limit and Stationary Sources"
+---
+
 ## 22. 1. Energy Conservation as a Geometric Necessity
 
 In chapter 21 the Einstein tensor was defined as  

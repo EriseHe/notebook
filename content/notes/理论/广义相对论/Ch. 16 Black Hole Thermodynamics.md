@@ -1,3 +1,7 @@
+---
+title: "Ch. 16 Black Hole Thermodynamics"
+---
+
 ## 1. Introduction
 
 Black holes were originally thought to be purely classical objects. However, Hawking showed that they possess quantum-mechanical aspects, such as entropy and temperature.
