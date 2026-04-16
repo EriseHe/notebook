@@ -1,22 +1,20 @@
 {
   "main": {
-    "id": "66eeed5452df03db",
+    "id": "c727591ec09bac84",
     "type": "split",
     "children": [
       {
-        "id": "6f26e8a343556ebb",
+        "id": "48ba3929f6e397df",
         "type": "tabs",
         "children": [
           {
-            "id": "8bdfc4ca5b939359",
+            "id": "d7891419c4d835f5",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.12.7"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.12.7"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -25,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "a95ce4c00dd3ea10",
+    "id": "30f296d1a0a741ab",
     "type": "split",
     "children": [
       {
-        "id": "60e72aa9485b3243",
+        "id": "0728c76d1710b657",
         "type": "tabs",
         "children": [
           {
-            "id": "e96ee6b9c2f339ca",
+            "id": "7b2e8298235ac8c2",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -46,7 +44,7 @@
             }
           },
           {
-            "id": "019507fac9385035",
+            "id": "80857baa02238713",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -63,7 +61,7 @@
             }
           },
           {
-            "id": "ba179040bc1a3b4c",
+            "id": "b21dab82cc2c266a",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -73,7 +71,7 @@
             }
           },
           {
-            "id": "a2a20366dea076fa",
+            "id": "bec91e8d5cceed41",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -91,19 +89,20 @@
     "width": 300
   },
   "right": {
-    "id": "ed80e99c6af1849e",
+    "id": "ad0e539ced9ab101",
     "type": "split",
     "children": [
       {
-        "id": "cdda202ed3c98ccd",
+        "id": "98f1f709729805d4",
         "type": "tabs",
         "children": [
           {
-            "id": "49f682819780c18a",
+            "id": "671d0e61dff1b622",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Advanced Lab/Module 3 Heat Conduction.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,24 +112,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Module 3 Heat Conduction"
             }
           },
           {
-            "id": "19c391bcc433d82f",
+            "id": "b09ff0ed40b7355b",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Advanced Lab/Module 3 Heat Conduction.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Module 3 Heat Conduction"
             }
           },
           {
-            "id": "7aabcfaa6d074bb2",
+            "id": "6e0c47441bcebf6f",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -145,7 +145,7 @@
             }
           },
           {
-            "id": "01c5ed2cfea426bc",
+            "id": "601c0ca8cfa83326",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -159,17 +159,18 @@
             }
           },
           {
-            "id": "755d1774f33519c6",
+            "id": "850f1a16ffec9503",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
+                "file": "Advanced Lab/Module 3 Heat Conduction.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Module 3 Heat Conduction"
             }
           }
         ]
@@ -192,10 +193,16 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "8bdfc4ca5b939359",
+  "active": "d7891419c4d835f5",
   "lastOpenFiles": [
-    "Hypre/Paper.md",
+    "Feminist History/(Yip, Ka-che) Health and Nationalist Reconstruction Rural Health in Nationalist China, 1928-1937.md",
+    "Feminist History/(Xu, Yier) A Modern Occupation for Women - Feminization and the Professionalization of Nursing in 1930s China.md",
+    "Feminist History/(Shemo, Connie) Able to Do Things of Which They Have Never Dreamed - Shi Meiyu’s Vision of Nursing in Early Twentieth-Century China.md",
+    "Feminist History/(Li, Minghui) Childbirth transformation and new style midwifery in Beijing, 1926 – 1937.md",
+    "Feminist History/(Barnes, Nicole Elizabeth). Intimate Communities - Wartime Healthcare and the Birth of Modern China, 1937–1945.md",
+    "Feminist History",
     "Advanced Lab/Module 3/Paper.md",
+    "Advanced Lab/Instruction for Lab.md",
     "Advanced Lab/Module 3/Module 3 Heat Conduction.md",
     "Advanced Lab/Module 3"
   ]
