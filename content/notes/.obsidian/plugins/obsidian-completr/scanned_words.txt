@@ -759,6 +759,7 @@ Cyclotron
 Correct
 Crystals
 Capacitor
+Circuit
 font
 for
 functions
@@ -1472,6 +1473,7 @@ fills
 filled
 finished
 fronts
+forever
 color
 curve
 can
@@ -2794,6 +2796,12 @@ corrected
 canceled
 cleaner
 coplanarity
+conductivity
+coaxial
+cylinders
+carrier
+cuts
+contacts
 Problem
 Partial
 Putting
@@ -3995,6 +4003,7 @@ Inductance
 Intensity
 Incidence
 Intensities
+Ideal
 the
 terms
 that
@@ -4757,6 +4766,8 @@ traditionally
 twisting
 thickness
 travels
+traps
+transient
 system
 solvability
 such
@@ -6086,6 +6097,8 @@ slab
 superconducting
 settles
 strikes
+skill
+shortcut
 discuss
 determine
 described
@@ -6993,6 +7006,9 @@ dialectics
 dealt
 dissipative
 decouple
+driving
+dissipated
+dynamo
 in
 inverse
 implicit
@@ -8570,6 +8586,7 @@ originate
 ordinarily
 optics
 oblique
+ohmic
 near
 neighborhood
 necessary
@@ -9166,6 +9183,7 @@ nudge
 numeric
 nuclei
 neutralizing
+newtons
 Does
 Determine
 Differentiability
@@ -9749,6 +9767,7 @@ Detecting
 Depending
 Directionality
 Dominant
+Drude
 map
 matrix
 mapping
@@ -10586,6 +10605,7 @@ monopoles
 magnet
 monochromatic
 magnetizes
+motional
 have
 holds
 has
@@ -11100,6 +11120,7 @@ handed
 haven
 hemispherical
 hollowed
+heating
 local
 limit
 lim
@@ -12394,6 +12415,7 @@ Shielding
 Stored
 Slab
 Snell
+Steady
 equations
 equation
 exists
@@ -13267,6 +13289,10 @@ electret
 emphasizing
 experimentally
 extinguished
+emf
+electrodes
+equipotentials
+equalizes
 whether
 written
 which
@@ -13827,6 +13853,8 @@ watching
 wire
 wires
 wafer
+worthy
+warns
 by
 be
 bijective
@@ -14490,6 +14518,7 @@ bulging
 balloon
 balances
 beam
+buildup
 allow
 and
 as
@@ -16928,6 +16957,8 @@ Repulsion
 RHR
 Restrict
 Radiation
+Resistivity
+Resistance
 requirement
 respect
 rule
@@ -17836,6 +17867,15 @@ rounding
 recovered
 refraction
 reflector
+resistivity
+resistor
+resistive
+rises
+redistributed
+rearrangements
+redistributes
+redistribution
+rod
 partials
 partial
 point
@@ -18922,6 +18962,8 @@ polarize
 plates
 pulled
 polarizes
+pileups
+pushing
 Ex
 Evaluate
 Evaluating
@@ -19503,6 +19545,8 @@ Electrons
 Electrical
 Electromotive
 Emf
+Exam
+Extremely
 We
 What
 With
@@ -20475,6 +20519,7 @@ Torque
 Theoretical
 Transversality
 Transmission
+Trap
 Hence
 Here
 Hypotheses
@@ -22498,6 +22543,7 @@ JVCT
 JiCQ
 JJtY
 Jump
+Joule
 At
 And
 Again
@@ -24256,6 +24302,8 @@ ugR
 uVl
 ugG
 unpaired
+uphill
+uniformity
 guarantees
 gives
 give
@@ -24769,6 +24817,7 @@ gardient
 governing
 glass
 geometrical
+geometries
 Moreover
 Matrix
 Maximum
@@ -27504,6 +27553,7 @@ Vnl
 Vertex
 Vertices
 Verdict
+Voltage
 Yes
 You
 YX

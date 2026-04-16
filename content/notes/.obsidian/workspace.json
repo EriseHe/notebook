@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/电磁学/9 Electromagnetic Waves/9.3 Electromagnetic Waves in Matter.md",
+                "file": "理论/电磁学/7 Electrodynamics/7.1 Electromotive Force.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "9.3 Electromagnetic Waves in Matter"
+              "title": "7.1 Electromotive Force"
             }
           },
           {
@@ -88,7 +88,7 @@
             }
           },
           {
-            "id": "0b9450b30dfd8c0d",
+            "id": "3d6c73c77407cb50",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -211,14 +211,14 @@
   },
   "active": "5fbfaf9ecd5ba797",
   "lastOpenFiles": [
-    "理论/电磁学/9 Electromagnetic Waves/9.2 Electromagnetic Waves in Vacuum.md",
-    "理论/电磁学/9 Electromagnetic Waves/9.3 Electromagnetic Waves in Matter.md",
-    "理论/电磁学/8 Conservation Laws/8.1.md",
-    "理论/电磁学/7 Electrodynamics/Practice Problem.md",
-    "理论/电磁学/7 Electrodynamics/7.4 The Field of a Rotating Magnet.md",
-    "理论/电磁学/7 Electrodynamics/7.3 Maxwell’s Equations.md",
     "理论/电磁学/7 Electrodynamics/7.2 Electromagnetic Induction.md",
     "理论/电磁学/7 Electrodynamics/7.1 Electromotive Force.md",
+    "理论/电磁学/7 Electrodynamics/7.4 The Field of a Rotating Magnet.md",
+    "理论/电磁学/7 Electrodynamics/7.3 Maxwell’s Equations.md",
+    "理论/电磁学/9 Electromagnetic Waves/9.3 Electromagnetic Waves in Matter.md",
+    "理论/电磁学/9 Electromagnetic Waves/9.2 Electromagnetic Waves in Vacuum.md",
+    "理论/电磁学/8 Conservation Laws/8.1.md",
+    "理论/电磁学/7 Electrodynamics/Practice Problem.md",
     "理论/电磁学/4 Electric Fields in Matter/4.4 Linear Dielectrics.md",
     "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.6 Linearization, ODE Stability, Semi-Discretization, and the Theta-Method.md",
     "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.5 Heat equation.md",
