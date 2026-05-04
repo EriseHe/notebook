@@ -11,12 +11,14 @@
             "id": "8bdfc4ca5b939359",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.12.7"
+                "file": "Advanced Lab/Module 3/md.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.12.7"
+              "icon": "lucide-file",
+              "title": "md"
             }
           }
         ]
@@ -73,7 +75,7 @@
             }
           },
           {
-            "id": "a2a20366dea076fa",
+            "id": "23bbc9df2ce15836",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -194,6 +196,7 @@
   },
   "active": "8bdfc4ca5b939359",
   "lastOpenFiles": [
+    "Advanced Lab/Module 3/md.md",
     "Hypre/Paper.md",
     "Advanced Lab/Module 3/Paper.md",
     "Advanced Lab/Module 3/Module 3 Heat Conduction.md",

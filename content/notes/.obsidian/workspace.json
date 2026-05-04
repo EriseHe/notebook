@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/电磁学/7 Electrodynamics/7.1 Electromotive Force.md",
+                "file": "理论/微分几何讲义/微分几何导论II/Problem 3.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "7.1 Electromotive Force"
+              "title": "Problem 3"
             }
           },
           {
@@ -88,7 +88,7 @@
             }
           },
           {
-            "id": "3d6c73c77407cb50",
+            "id": "d8e9ef9e906cb840",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -211,8 +211,12 @@
   },
   "active": "5fbfaf9ecd5ba797",
   "lastOpenFiles": [
-    "理论/电磁学/7 Electrodynamics/7.2 Electromagnetic Induction.md",
+    "理论/微分几何讲义/微分几何导论II/Problem 2.md",
+    "理论/微分几何讲义/微分几何导论II/Course Content.md",
+    "理论/微分几何讲义/微分几何导论II/Problem 3.md",
+    "理论/微分几何讲义/微分几何导论II/Apr 8.md",
     "理论/电磁学/7 Electrodynamics/7.1 Electromotive Force.md",
+    "理论/电磁学/7 Electrodynamics/7.2 Electromagnetic Induction.md",
     "理论/电磁学/7 Electrodynamics/7.4 The Field of a Rotating Magnet.md",
     "理论/电磁学/7 Electrodynamics/7.3 Maxwell’s Equations.md",
     "理论/电磁学/9 Electromagnetic Waves/9.3 Electromagnetic Waves in Matter.md",
@@ -235,16 +239,12 @@
     "理论/PDEs/数值PDEs/1. Functional Analysis/1.4 General Statement of PDEs.md",
     "理论/PDEs/数值PDEs/1. Functional Analysis/1.3 Solving Linear System.md",
     "理论/PDEs/数值PDEs/1. Functional Analysis/1.2 Functional Analysis.md",
-    "理论/PDEs/数值PDEs/1. Functional Analysis/1.1 Data and Solution.md",
     "理论/PDEs/数值PDEs/1. Functional Analysis",
-    "理论/微分几何讲义/微分几何导论II/Apr 8.md",
     "理论/微分几何讲义/微分几何导论II",
     "理论/电磁学/_metadata.yml",
     "理论/电磁学/9 Electromagnetic Waves",
     "理论/电磁学/8 Conservation Laws",
     "理论/电磁学/7 Electrodynamics",
-    "理论/电磁学/6 Magnetic Fields in Matter/6.2 The Field of a Magnetized Object 276.md",
-    "理论/PDEs/Application/第四章/index.md",
     "理论/PDEs/Application/第四章",
     "理论/PDEs/Application/第十章",
     "image-1.png",
