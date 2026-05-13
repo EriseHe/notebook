@@ -1,0 +1,1188 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath,amssymb,bm,mathtools}
+\usepackage[scr=esstix]{mathalpha} % \mathscr supports lowercase (so \mathscr{r} works)
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{cancel}
+\setlength{\columnsep}{12pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+\raggedcolumns
+
+% compact heading macros
+\newcommand{\chead}[1]{\vspace{6pt}{\large \textbf{#1}}\par}
+\newcommand{\subhead}[1]{\vspace{3pt}{\bfseries #1}\par}
+\newcommand{\csub}[1]{\vspace{2pt}\textbf{#1}\par}
+\newcommand{\key}[1]{\textbf{#1}}
+\newcommand{\entry}[1]{\vspace{1pt}\textbf{#1}\par}
+
+% separation notation (define ONCE)
+\newcommand{\scrr}{\mathscr{r}}           % scalar distance |r - r'|
+\newcommand{\scrrv}{\bm{\mathscr{r}}}     % vector r - r'
+\newcommand{\scrrhat}{\hat{\scrrv}}       % unit vector (r - r')/|r - r'|
+
+% other unit vectors / symbols
+\newcommand{\Rcal}{\scrr}
+\newcommand{\rhat}{\hat{\mathbf r}}
+\newcommand{\nhat}{\hat{\mathbf n}}
+\newcommand{\phat}{\hat{\boldsymbol\phi}}
+\newcommand{\zhat}{\hat{\mathbf z}}
+
+% box that auto-fits to the current column width (good for multicols)
+\newcommand{\cboxed}[1]{%
+  \begin{adjustbox}{max width=\columnwidth}%
+    $\boxed{\displaystyle #1}$%
+  \end{adjustbox}%
+}
+
+% Helper for stacking multiple boxed equations vertically inside one display.
+\newenvironment{caligned}{\begin{aligned}[t]}{\end{aligned}}
+
+
+\begin{document}
+\small
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+
+\begin{multicols*}{2}
+
+% ============================================================
+\chead{Ch. 7.1 - Electromotive Force}
+
+\textbf{7.1.1 Ohm's law}
+
+\entry{Local form}
+\[
+\mathbf J=\sigma\mathbf f,\qquad
+\cboxed{\mathbf J=\sigma\mathbf E}
+,\qquad
+\mathbf J=\sigma(\mathbf E+\mathbf v\times\mathbf B)
+\]
+$\mathbf f$ = total force per unit charge. Use the $\mathbf v\times\mathbf B$ version only when the conductor itself moves through $\mathbf B$. Resistivity $\rho=1/\sigma$.
+
+\entry{Current / circuit}
+\[
+I=\int\mathbf J\cdot d\mathbf a,\quad I=JA\ (\text{uniform}),\qquad
+\cboxed{V=IR}
+\]
+
+\entry{Geometry $\to$ resistance}
+\[
+\cboxed{R=\dfrac{L}{\sigma A}}
+\qquad
+\cboxed{R=\dfrac{\ln(b/a)}{2\pi\sigma L}}
+\]
+(uniform wire $L,A$; radial flow between coaxial cylinders $a<b$).
+
+\entry{Steady current}
+For steady $\mathbf J$ with uniform $\sigma$,
+\[
+\nabla\cdot\mathbf J=0,\ \nabla\cdot\mathbf E=0,\ \mathbf E=-\nabla V
+\ \Longrightarrow\ \cboxed{\nabla^2V=0}
+\]
+Bulk charge vanishes; any excess charge lives on the surface. Solve by Laplace + BCs (uniqueness).
+
+\entry{Joule heating}
+\[
+\cboxed{P=VI=I^2R=\dfrac{V^2}{R}}
+\]
+
+\textbf{7.1.2 Electromotive force}
+
+Split force per unit charge $\mathbf f=\mathbf f_s+\mathbf E$; $\mathbf f_s$ = nonelectrostatic source force (battery / generator / chemical).
+
+\entry{Definition of emf}
+\[
+\cboxed{\mathcal E\equiv\oint\mathbf f\cdot d\mathbf l=\oint\mathbf f_s\cdot d\mathbf l}
+\]
+because $\oint\mathbf E\cdot d\mathbf l=0$ for any electrostatic field. $[\mathcal E]=$ volts: work per unit charge by the source around the loop.
+
+\entry{Ideal battery}
+Inside an ideal source $\mathbf E=-\mathbf f_s$, so the terminal voltage is
+\[
+\cboxed{V=\mathcal E}
+\]
+
+\entry{Warning}
+A loop partly inside an \emph{electrostatic} field still gives $\oint\mathbf E\cdot d\mathbf l=0$: no emf.
+
+\textbf{7.1.3 Motional emf}
+
+Mobile charges with velocity $\mathbf w$ feel $\mathbf f_{\rm mag}=\mathbf w\times\mathbf B$, so
+\[
+\mathcal E=\oint\mathbf f_{\rm mag}\cdot d\mathbf l\quad(\text{snapshot of loop})
+\]
+
+\entry{Standard bar / flux-rule pair}
+\[
+\cboxed{\mathcal E=vBh}
+\qquad
+\cboxed{\mathcal E=-\dfrac{d\Phi}{dt},\ \ \Phi=\int\mathbf B\cdot d\mathbf a}
+\]
+First: one segment of length $h$ cuts uniform $B$ with $\mathbf v\perp\mathbf B$. Then $I=\mathcal E/R$. Flux rule works for a \emph{single well-defined loop} moving / rotating / stretching continuously.
+
+\entry{Sign rule}
+Fingers in positive loop direction, thumb gives $d\mathbf a$. $\mathcal E<0$ means current flows opposite to the chosen positive loop direction (Lenz).
+
+\entry{Faraday disk}
+Disk of radius $a$, angular speed $\omega$, uniform vertical $B$: $\mathbf f_{\rm mag}=\omega sB\,\hat{\mathbf s}$, so
+\[
+\cboxed{\mathcal E=\int_0^{a}\!\omega sB\,ds=\dfrac{\omega Ba^2}{2}},\qquad
+I=\dfrac{\omega Ba^2}{2R}
+\]
+Use the direct integral; the flux rule fails because current spreads over the disk.
+
+\chead{Ch. 7.2 - Electromagnetic Induction}
+
+\textbf{7.2.1 Faraday's law}
+
+A changing magnetic flux induces an emf / circulating $\mathbf E$.
+\[
+\cboxed{
+\begin{aligned}
+\mathcal E=\oint\mathbf E\cdot d\mathbf l&=-\dfrac{d\Phi}{dt}
+=-\!\int\dfrac{\partial\mathbf B}{\partial t}\cdot d\mathbf a\\[2pt]
+\nabla\times\mathbf E&=-\dfrac{\partial\mathbf B}{\partial t}
+\end{aligned}}
+\]
+
+\entry{Flux patterns}
+\[
+\Phi=BA\cos\theta,\qquad \Phi=B\,(\text{overlap area})
+\]
+Uniform $B$ through a fixed tilted loop; partly-overlapping / sliding loop. Use only the region where $B\neq0$.
+
+\entry{Fast workflow \& Lenz}
+\[
+\Phi=\!\int\!\mathbf B\cdot d\mathbf a\ \Longrightarrow\ 
+\mathcal E=-\dfrac{d\Phi}{dt}\ \Longrightarrow\ 
+I=\dfrac{\mathcal E}{R}
+\]
+Induced current opposes the \emph{change} in flux (sign from right-hand rule on the chosen $d\mathbf a$).
+
+\textbf{7.2.2 Induced electric field}
+
+A pure Faraday field has
+\[
+\cboxed{\nabla\cdot\mathbf E=0,\qquad \nabla\times\mathbf E=-\dfrac{\partial\mathbf B}{\partial t}}
+\]
+It forms \emph{closed loops} around the region where $B$ is changing; $\oint\mathbf E\cdot d\mathbf l\neq 0$.
+
+\entry{Analog of Biot--Savart}
+\[
+\mathbf E=-\dfrac{1}{4\pi}\!\int\!\dfrac{(\partial\mathbf B/\partial t)\times\hat{\scrrv}}{\scrr^{\,2}}\,d\tau
+\]
+Usually too hard directly; use symmetry + $\oint\mathbf E\cdot d\mathbf l$.
+
+\entry{Canonical azimuthal field (cylindrical symmetry)}
+Uniform $B(t)\hat{\mathbf z}$ inside a disk of radius $a$. Choose a circular Amperian loop of radius $s$, $E=E_\phi(s)$:
+\[
+\cboxed{
+\mathbf E=
+\begin{cases}
+-\dfrac{s}{2}\dfrac{dB}{dt}\,\phat, & s<a\\[3pt]
+-\dfrac{a^{2}}{2s}\dfrac{dB}{dt}\,\phat, & s>a
+\end{cases}}
+\]
+Area used in Faraday's law is always the area that actually contains flux.
+
+\entry{Charged rim / wheel}
+Once $\mathbf E$ is known,
+\[
+d\mathbf F=dq\,\mathbf E,\qquad d\boldsymbol\tau=\mathbf r\times d\mathbf F
+\]
+
+\entry{Quasistatic warning}
+In 7.2 we compute $\mathbf B$ from magnetostatic formulas. Valid only when currents / fields change slowly.
+
+\textbf{7.2.3 Inductance}
+
+\entry{Mutual inductance}
+\[
+\Phi_2=M_{21}I_1,\qquad M_{21}=M_{12}\equiv M
+\]
+\[
+\cboxed{\mathcal E_2=-M\dfrac{dI_1}{dt}}
+\]
+
+\entry{Self-inductance}
+\[
+\cboxed{\Phi=LI,\qquad \mathcal E=-L\dfrac{dI}{dt}}
+\]
+Minus sign: back-emf opposes the change in current.
+
+\entry{Standard geometries}
+\[
+\begin{aligned}
+M&=\mu_0\pi a^{2}n_1n_2\,l &&\text{(short sol.\ inside long sol., radius }a)\\[1pt]
+L&=\dfrac{\mu_0 N^{2}h}{2\pi}\ln\!\left(\dfrac{b}{a}\right) &&\text{(toroid: rect.\ cross-sec., }a,b,h,N)\\[1pt]
+L&=\dfrac{\mu_0 l}{2\pi}\ln\!\left(\dfrac{b}{a}\right) &&\text{(coax of length }l,\ a<b)
+\end{aligned}
+\]
+
+\entry{RL circuit (series $\mathcal E_0,R,L$; switch at $t=0$)}
+Kirchhoff: $\mathcal E_0-L\,dI/dt=IR$, with $\tau=L/R$:
+\[
+\cboxed{
+\begin{aligned}
+I_{\rm grow}(t)&=\dfrac{\mathcal E_0}{R}\!\left(1-e^{-t/\tau}\right)\\[2pt]
+I_{\rm decay}(t)&=I_0\,e^{-t/\tau}
+\end{aligned}}
+\]
+
+\textbf{7.2.4 Energy in magnetic fields}
+
+\entry{Core formulas}
+\[
+\cboxed{
+\begin{aligned}
+W&=\tfrac12 LI^{2}=\tfrac12\!\int(\mathbf A\cdot\mathbf J)\,d\tau\\[2pt]
+W&=\dfrac{1}{2\mu_0}\!\int B^{2}\,d\tau,\quad u_B=\dfrac{B^{2}}{2\mu_0}
+\end{aligned}}
+\]
+If $L$ known use $\tfrac12 LI^2$; if $B(\mathbf r)$ easy use $u_B$ and integrate.
+
+\entry{Coax example (between $a<b$)}
+\[
+\mathbf B=\dfrac{\mu_0 I}{2\pi s}\,\phat
+\ \Longrightarrow\
+W=\dfrac{\mu_0 I^{2}l}{4\pi}\ln\!\left(\dfrac{b}{a}\right)
+\]
+Match to $W=\tfrac12 LI^{2}$ to read off $L=\dfrac{\mu_0 l}{2\pi}\ln(b/a)$. Energy method wins when current is distributed.
+
+\entry{Physical meaning}
+Magnetic forces do no work directly; the energy to build $I$ is spent pushing against the \emph{induced} electric field, and is stored as magnetic-field energy.
+
+% ============================================================
+\chead{Ch. 7.3 - Maxwell's Equations}
+
+\csub{7.3.1 Electrodynamics before Maxwell (what failed, and when)}
+\textbf{Old Ampère law (magnetostatics only):}
+\[
+\cboxed{\nabla\times\mathbf B=\mu_0\mathbf J.}
+\]
+\textbf{Why it was OK before:} derived from Biot--Savart, so safe only for \emph{steady currents}.
+\textbf{Exam trigger:} charging capacitor, time-dependent current, or charge buildup $\Rightarrow$ \emph{do not} use this alone.
+
+Take divergence:
+\[
+\cboxed{\nabla\cdot(\nabla\times\mathbf B)=0\ \Rightarrow\ \nabla\cdot\mathbf J=0.}
+\]
+But continuity requires
+\[
+\cboxed{\nabla\cdot\mathbf J=-\dfrac{\partial\rho}{\partial t}.}
+\]
+So old Ampère is incompatible with nonsteady currents.
+
+\textbf{Capacitor paradox (must know):} for the same Ampèrian loop around a charging wire, one spanning surface cuts the wire and encloses $I$, another bulges through the gap and encloses no conduction current. So ``$I_{\rm enc}$'' is surface-dependent unless Ampère is fixed.
+
+\csub{7.3.2 How Maxwell fixed Ampère's law}
+Use continuity + Gauss:
+\[
+\cboxed{\nabla\cdot\mathbf J=-\dfrac{\partial\rho}{\partial t}},\qquad
+\cboxed{\rho=\epsilon_0\,\nabla\cdot\mathbf E}
+\]
+Hence
+\[
+\cboxed{\nabla\cdot\mathbf J=-\dfrac{\partial}{\partial t}(\epsilon_0\,\nabla\cdot\mathbf E)=-\nabla\cdot\!\left(\epsilon_0\dfrac{\partial\mathbf E}{\partial t}\right).}
+\]
+Add the term that kills the bad divergence:
+\[
+\cboxed{\nabla\times\mathbf B=\mu_0\mathbf J+\mu_0\epsilon_0\dfrac{\partial\mathbf E}{\partial t}.}
+\]
+\textbf{Displacement current density:}
+\[
+\cboxed{\mathbf J_d\equiv\epsilon_0\dfrac{\partial\mathbf E}{\partial t}.}
+\]
+
+\textbf{Integral form of Ampère--Maxwell:}
+\[
+\cboxed{\oint\mathbf B\cdot d\mathbf l=\mu_0 I_{\rm enc}+\mu_0\epsilon_0\dfrac{d}{dt}\!\int\mathbf E\cdot d\mathbf a.}
+\]
+\emph{Exam move:} for a charging capacitor, one surface contributes conduction $I_{\rm enc}$, the other contributes displacement current; both give the same $\oint\mathbf B\cdot d\mathbf l$.
+
+\textbf{Between capacitor plates (parallel-plate, area $A$, $dQ/dt=I$):}
+\[
+\cboxed{\dfrac{\partial E}{\partial t}=\dfrac{I}{\epsilon_0 A}}
+\ \Rightarrow\
+\cboxed{I_d=\epsilon_0\dfrac{d}{dt}\!\int\mathbf E\cdot d\mathbf a=I.}
+\]
+Displacement current exactly replaces the ``missing'' current in the gap.
+
+\textbf{Physical sentence to memorize:}
+\[
+\cboxed{\text{changing }\mathbf B\text{ induces }\mathbf E;\quad\text{changing }\mathbf E\text{ induces }\mathbf B.}
+\]
+
+\csub{7.3.3 Maxwell's equations (vacuum + source-first form)}
+\textbf{Standard textbook form:}
+\[
+\cboxed{
+\begin{aligned}
+\nabla\cdot\mathbf E&=\dfrac{\rho}{\epsilon_0} & \nabla\cdot\mathbf B&=0\\[2pt]
+\nabla\times\mathbf E&=-\dfrac{\partial\mathbf B}{\partial t}\ \ &
+\nabla\times\mathbf B&=\mu_0\mathbf J+\mu_0\epsilon_0\dfrac{\partial\mathbf E}{\partial t}
+\end{aligned}}
+\]
+\textbf{Lorentz force law (must go with Maxwell):}
+\[
+\cboxed{\mathbf F=q(\mathbf E+\mathbf v\times\mathbf B).}
+\]
+
+\textbf{Source-first rewrite Griffiths likes:}
+\[
+\cboxed{
+\begin{aligned}
+\nabla\cdot\mathbf E&=\dfrac{\rho}{\epsilon_0} & \nabla\cdot\mathbf B&=0\\[2pt]
+\nabla\times\mathbf E+\dfrac{\partial\mathbf B}{\partial t}&=0\ \ &
+\nabla\times\mathbf B-\mu_0\epsilon_0\dfrac{\partial\mathbf E}{\partial t}&=\mu_0\mathbf J
+\end{aligned}}
+\]
+(\emph{Point:} fields on the left, sources on the right.)
+
+\textbf{Continuity equation follows from Maxwell} (same formula as 7.3.1).
+
+\textbf{Integral forms (high-frequency exam use):}
+\[
+\cboxed{
+\begin{aligned}
+\oint_{S}\mathbf E\cdot d\mathbf a&=\dfrac{Q_{\rm enc}}{\epsilon_0} &
+\oint_{S}\mathbf B\cdot d\mathbf a&=0\\[2pt]
+\oint_{P}\mathbf E\cdot d\mathbf l&=-\dfrac{d}{dt}\!\!\int_{S}\mathbf B\cdot d\mathbf a\\[2pt]
+\oint_{P}\mathbf B\cdot d\mathbf l&=\mu_0 I_{\rm enc}+\mu_0\epsilon_0\dfrac{d}{dt}\!\!\int_{S}\mathbf E\cdot d\mathbf a
+\end{aligned}}
+\]
+
+\textbf{Example 7.15 (must know the lesson):} two concentric metal spheres with ohmic material between them can have radial conduction current $\mathbf J=\sigma\mathbf E$ but still
+\[
+\cboxed{\mathbf B=0}
+\]
+because in this time-dependent spherical configuration the displacement current cancels the conduction current in Ampère--Maxwell:
+\[
+\cboxed{\mathbf J_d=-\mathbf J.}
+\]
+\emph{Exam lesson:} current does \emph{not} automatically imply a magnetic field in electrodynamics; use the full Ampère--Maxwell law, not magnetostatics.
+
+\csub{7.3.4 Magnetic charge (hypothetical symmetric form)}
+If magnetic charge existed, the equations would become symmetric:
+\[
+\cboxed{
+\begin{aligned}
+\nabla\cdot\mathbf E&=\dfrac{\rho_e}{\epsilon_0} & \nabla\cdot\mathbf B&=\mu_0\rho_m\\[2pt]
+\nabla\times\mathbf E&=-\mu_0\mathbf J_m-\dfrac{\partial\mathbf B}{\partial t}\ \ &
+\nabla\times\mathbf B&=\mu_0\mathbf J_e+\mu_0\epsilon_0\dfrac{\partial\mathbf E}{\partial t}
+\end{aligned}}
+\]
+\textbf{Real-world classical E\&M:}
+\[
+\cboxed{\rho_m=0,\qquad \mathbf J_m=0.}
+\]
+\emph{Exam point:} this is why $\nabla\cdot\mathbf B=0$ and why magnetic field lines never begin or end.
+
+\csub{7.3.5 Maxwell's equations in matter (free vs bound split)}
+\textbf{Charge/current split:}
+\[
+\cboxed{\rho=\rho_f+\rho_b=\rho_f-\nabla\cdot\mathbf P}
+\]
+\[
+\cboxed{\mathbf J=\mathbf J_f+\mathbf J_b+\mathbf J_p=\mathbf J_f+\nabla\times\mathbf M+\dfrac{\partial\mathbf P}{\partial t}}
+\]
+
+\textbf{Definitions of $\mathbf D$ and $\mathbf H$:}
+\[
+\cboxed{\mathbf D\equiv\epsilon_0\mathbf E+\mathbf P},\qquad
+\cboxed{\mathbf H\equiv\dfrac{1}{\mu_0}\mathbf B-\mathbf M}
+\]
+
+\textbf{Matter form of Maxwell's equations:}
+\[
+\cboxed{
+\begin{aligned}
+\nabla\cdot\mathbf D&=\rho_f & \nabla\cdot\mathbf B&=0\\[2pt]
+\nabla\times\mathbf E&=-\dfrac{\partial\mathbf B}{\partial t}\ \ &
+\nabla\times\mathbf H&=\mathbf J_f+\dfrac{\partial\mathbf D}{\partial t}
+\end{aligned}}
+\]
+
+\textbf{Linear media constitutive relations:}
+\[
+\cboxed{\mathbf P=\epsilon_0\chi_e\mathbf E,\qquad \mathbf M=\chi_m\mathbf H}
+\]
+so
+\[
+\cboxed{\mathbf D=\epsilon\mathbf E,\qquad \mathbf H=\dfrac{1}{\mu}\mathbf B}
+\]
+with
+\[
+\cboxed{\epsilon=\epsilon_0(1+\chi_e),\qquad \mu=\mu_0(1+\chi_m).}
+\]
+
+\textbf{Displacement current in matter:}
+\[
+\cboxed{\mathbf J_d\equiv\dfrac{\partial\mathbf D}{\partial t}.}
+\]
+
+\textbf{When to use matter form:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item problem gives $\rho_f,\mathbf J_f,\mathbf P,\mathbf M$
+\item dielectric / magnetic media explicitly present
+\item boundary problem between media
+\item constitutive data $\epsilon,\mu,\chi_e,\chi_m$ are given
+\end{itemize}
+
+\csub{7.3.6 Boundary conditions (pillbox = normal, loop = tangential)}
+In general $E,B,D,H$ may jump across an interface or a sheet carrying surface charge/current.
+
+\textbf{Matter-form integral equations used for the derivation:}
+\[
+\cboxed{
+\begin{aligned}
+\oint_{S}\mathbf D\cdot d\mathbf a&=Q^{\,f}_{\rm enc} &
+\oint_{S}\mathbf B\cdot d\mathbf a&=0\\[2pt]
+\oint_{P}\mathbf E\cdot d\mathbf l&=-\dfrac{d}{dt}\!\!\int_{S}\mathbf B\cdot d\mathbf a\\[2pt]
+\oint_{P}\mathbf H\cdot d\mathbf l&=I^{\,f}_{\rm enc}+\dfrac{d}{dt}\!\!\int_{S}\mathbf D\cdot d\mathbf a
+\end{aligned}}
+\]
+
+\textbf{Boundary conditions (textbook form); $\nhat$ from ``below'' to ``above'':}
+\[
+\cboxed{
+\begin{aligned}
+D^{\perp}_{\rm above}-D^{\perp}_{\rm below}&=\sigma_f &
+B^{\perp}_{\rm above}-B^{\perp}_{\rm below}&=0\\[2pt]
+E^{\parallel}_{\rm above}-E^{\parallel}_{\rm below}&=0\ \ &
+\mathbf H^{\parallel}_{\rm above}-\mathbf H^{\parallel}_{\rm below}&=\mathbf K_f\times\nhat
+\end{aligned}}
+\]
+
+\textbf{Special cases you use most often.} If no free surface charge,
+\[
+\cboxed{D^{\perp}_{\rm above}=D^{\perp}_{\rm below}}
+\]
+if no free surface current,
+\[
+\cboxed{\mathbf H^{\parallel}_{\rm above}=\mathbf H^{\parallel}_{\rm below}.}
+\]
+
+\textbf{In linear media} ($\mathbf D=\epsilon\mathbf E,\ \mathbf H=\mathbf B/\mu$):
+\[
+\cboxed{
+\begin{aligned}
+\epsilon_1 E^{\perp}_{1}-\epsilon_2 E^{\perp}_{2}&=\sigma_f &
+B^{\perp}_{1}-B^{\perp}_{2}&=0\\[2pt]
+E^{\parallel}_{1}-E^{\parallel}_{2}&=0\ \ &
+\dfrac{\mathbf B^{\parallel}_{1}}{\mu_1}-\dfrac{\mathbf B^{\parallel}_{2}}{\mu_2}&=\mathbf K_f\times\nhat
+\end{aligned}}
+\]
+
+\textbf{Exam move:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \textbf{Pillbox} across boundary $\Rightarrow$ normal components
+\item \textbf{Thin loop} across boundary $\Rightarrow$ tangential components
+\item If $\sigma_f=0$, normal $D$ is continuous
+\item If $\mathbf K_f=0$, tangential $H$ is continuous
+\item $B_\perp$ is always continuous
+\item $E_\parallel$ is always continuous
+\end{itemize}
+
+\textbf{Minimal memory block:}
+\[
+\cboxed{\text{normal: }\ D_\perp,\ B_\perp},\qquad
+\cboxed{\text{tangential: }\ E_\parallel,\ H_\parallel}
+\]
+(divergence laws control normal jumps; curl laws control tangential jumps)
+
+\csub{7.3 one-line exam checklist}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Charging capacitor $\Rightarrow$ use Ampère--Maxwell, not old Ampère
+\item ``Missing current'' in a gap $\Rightarrow$ compute displacement current
+\item Material problem $\Rightarrow$ try $\mathbf D,\mathbf H$
+\item Interface problem $\Rightarrow$ pillbox + loop boundary conditions
+\item Time-dependent current but high symmetry $\Rightarrow$ check whether $\mathbf J_d$ cancels $\mathbf J$ (Example 7.15 idea)
+\end{itemize}
+
+% ============================================================
+\chead{Ch. 7.4 - Field of a Rotating Magnet}
+
+\csub{Main question of \S 7.4}
+\textbf{Textbook question:} if an axially symmetric magnet rotates at constant angular velocity about its axis, does its magnetic field rotate with it?
+
+\textbf{Textbook conclusion:} for rotation about the \emph{axis of symmetry}, the field is the same as that of the stationary magnet, so in that sense the field is stationary in time
+\[
+\cboxed{\dfrac{\partial\mathbf B}{\partial t}=0}
+\]
+for an axially symmetric magnet rotating steadily about its symmetry axis.
+
+\emph{Exam meaning:} the source moves, but the field configuration in space does not change with time.
+
+\csub{Faraday's three experiments}
+Faraday mounted the magnet on the axis of the conducting disk and found:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \textbf{Magnet fixed, disk rotates} $\Rightarrow$ current flows
+\item \textbf{Magnet and disk rotate together} $\Rightarrow$ current still flows
+\item \textbf{Disk fixed, magnet rotates} $\Rightarrow$ no current flows
+\end{itemize}
+
+So Faraday concluded:
+\[
+\cboxed{\text{A magnet rotating about its axis of symmetry does not drag its field around with it.}}
+\]
+
+The text also notes the contrasting case: if the magnet rotates about an axis \emph{perpendicular} to its axis of symmetry, then the direction of the field pattern changes in time, so in that case the field is dragged along with the source.
+
+\csub{Field lines are not physical objects}
+\textbf{Key textbook point:} in Maxwell's theory, the physical quantities are the fields $\mathbf E$ and $\mathbf B$; field lines are just visualization tools.
+
+A field line tells you only:
+\[
+\cboxed{\text{line density }\leftrightarrow|\mathbf F|,\qquad \text{arrow direction }\leftrightarrow\text{direction of }\mathbf F}
+\]
+where $\mathbf F$ stands for $\mathbf E$ or $\mathbf B$.
+
+But field lines do \emph{not} come with any built-in identity:
+\[
+\cboxed{\text{A field line at }t_1\text{ is not uniquely matched to a field line at }t_2.}
+\]
+
+\emph{Exam point:} statements about whether ``the field lines move'' are not automatically physical statements unless you first specify what you mean by identifying one line with another.
+
+\csub{Electric-field analogy used by the textbook}
+Griffiths compares this to the electric field of a point charge at rest at the origin:
+\[
+\cboxed{\mathbf E(\mathbf r)=\dfrac{1}{4\pi\epsilon_0}\dfrac{q}{r^{2}}\,\rhat}
+\]
+This field is static. If someone draws different ``movies'' of its field lines, that does not mean the field itself changed.
+
+Likewise, for a uniformly charged sphere rotating steadily, the external electric field is still the ordinary Coulomb field:
+\[
+\cboxed{\mathbf E_{\text{out}}(\mathbf r)=\dfrac{1}{4\pi\epsilon_0}\dfrac{Q}{r^{2}}\,\rhat}
+\]
+because the charge distribution is time-independent.
+
+\textbf{Lesson:}
+\[
+\cboxed{\text{Different field-line pictures can represent the same physical field.}}
+\]
+
+\csub{The real source of confusion: the Lorentz force law}
+The correct force law is $\mathbf F=q(\mathbf E+\mathbf v\times\mathbf B)$ (see 7.3.3).
+
+\textbf{Important textbook clarification:} the velocity $\mathbf v$ here is the velocity of the charge in the inertial frame in which $\mathbf E$ and $\mathbf B$ are being described.
+
+It is \emph{not} the velocity relative to a local field line.
+
+So the old picture
+\[
+\cboxed{\text{charge cutting through field lines}}
+\]
+is only a mnemonic, not a literal physical statement.
+
+\csub{Faraday-law clarification}
+What induces an electric field is not ``moving field lines,'' but a time-dependent magnetic field: $\nabla\times\mathbf E=-\partial\mathbf B/\partial t$ (see 7.2.1).
+
+So for the axially symmetric rotating magnet, since $\partial\mathbf B/\partial t=0$ there is no Faraday-induced electric field from that rotation alone.
+
+\textbf{Very important correction:}
+\[
+\cboxed{\text{Moving field lines do not induce }\mathbf E;\ \text{changing }\mathbf B\text{ does.}}
+\]
+
+\csub{Connection to the disk experiment}
+If the disk rotates in a stationary magnetic field, the charges in the disk do move through the field, so there is a motional emf $\mathcal E=\oint(\mathbf v\times\mathbf B)\cdot d\mathbf l$, and the Faraday-disk result $\mathcal E=\omega B a^{2}/2$, $I=\omega B a^{2}/(2R)$ (see 7.1.3) applies.
+
+If the magnet rotates but the disk is fixed, and the magnet is axially symmetric, then the magnetic field is stationary in time and the charges in the disk have no motional $\mathbf v\times\mathbf B$ force. Hence no current.
+
+If the magnet and disk rotate together, the disk charges still move through the stationary field, so the same motional emf is produced as before.
+
+\csub{What is physically meaningful}
+\textbf{Physically meaningful:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item the fields $\mathbf E(\mathbf r,t)$ and $\mathbf B(\mathbf r,t)$
+\item whether $\partial\mathbf B/\partial t$ is zero or not
+\item the force on charges from $q(\mathbf E+\mathbf v\times\mathbf B)$
+\item whether a measurable emf or current appears
+\end{itemize}
+
+\textbf{Not physically meaningful by itself:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item ``which field line at time $t_1$ became which field line at time $t_2$''
+\item ``field lines are literal wires moving through space''
+\end{itemize}
+
+\csub{High-yield exam takeaways}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Axially symmetric rotating magnet about its own symmetry axis: $\partial\mathbf B/\partial t=0$
+\item No time-dependent $\mathbf B$ $\Rightarrow$ no Faraday-induced $\mathbf E$ ($\nabla\times\mathbf E=0$)
+\item Rotating disk in stationary $\mathbf B$ $\Rightarrow$ motional emf
+\item Stationary disk + rotating symmetric magnet $\Rightarrow$ no current
+\item In $\mathbf F=q(\mathbf E+\mathbf v\times\mathbf B)$, $\mathbf v$ is measured in the chosen inertial frame, not relative to field lines
+\item Field lines are pictures, not physical objects
+\end{itemize}
+
+% ============================================================
+\chead{Ch. 8.1 - Charge and Energy}
+
+\csub{8.1.1 The Continuity Equation}
+\textbf{Textbook starting point: local conservation of charge.} If the charge in a region changes, that exact amount must have crossed the boundary. So for a volume $V$ with boundary $S$,
+\[
+\cboxed{Q(t)=\int_V \rho(\mathbf r,t)\,d\tau}
+\]
+and the current flowing \emph{out} through the boundary is
+\[
+\cboxed{\oint_S \mathbf J\cdot d\mathbf a.}
+\]
+
+\textbf{Integral form of charge conservation:}
+\[
+\cboxed{\dfrac{dQ}{dt}=-\oint_S \mathbf J\cdot d\mathbf a.}
+\]
+\emph{Meaning:} outward current lowers the charge remaining inside, hence the minus sign.
+
+Using $Q(t)=\int_V \rho\,d\tau$ and the divergence theorem,
+\[
+\cboxed{\int_V \dfrac{\partial \rho}{\partial t}\,d\tau=-\int_V \nabla\cdot\mathbf J\,d\tau}
+\]
+so, because this is true for any volume,
+\[
+\cboxed{\dfrac{\partial \rho}{\partial t}=-\nabla\cdot\mathbf J.}
+\]
+
+\textbf{This is the continuity equation.} It is the exact local statement of charge conservation.
+
+\textbf{How to read it:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item $\nabla\cdot\mathbf J>0$ means net current flows \emph{out} of a point-region, so $\rho$ there decreases
+\item $\nabla\cdot\mathbf J<0$ means current converges in, so $\rho$ there increases
+\end{itemize}
+
+\textbf{Steady-current clue:} if the problem says \emph{steady current}, then
+\[
+\cboxed{\dfrac{\partial \rho}{\partial t}=0\ \Longrightarrow\ \nabla\cdot\mathbf J=0.}
+\]
+\emph{Exam use:} standard condition for stationary current flow in conductors.
+
+\textbf{Source constraint (important):}
+\[
+\cboxed{\rho(\mathbf r,t),\ \mathbf J(\mathbf r,t)\ \text{must satisfy}\ \dfrac{\partial \rho}{\partial t}=-\nabla\cdot\mathbf J.}
+\]
+Built into Maxwell's equations; not an independent extra law.
+
+\textbf{Fast exam workflow:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Given $\mathbf J(\mathbf r,t)$, compute $\nabla\cdot\mathbf J$ to see whether charge accumulates
+\item Given $\rho(\mathbf r,t)$, use $\partial\rho/\partial t=-\nabla\cdot\mathbf J$ to constrain $\mathbf J$
+\item If problem says ``steady,'' immediately write $\nabla\cdot\mathbf J=0$
+\end{itemize}
+
+\csub{8.1.2 Poynting's Theorem}
+\textbf{Textbook idea:} charge conservation has density $\rho$ and current $\mathbf J$. Energy conservation should have an \emph{energy density} and an \emph{energy current}.
+
+From earlier results,
+\[
+W_e=\tfrac{\epsilon_0}{2}\!\int E^{2}\,d\tau,\qquad
+W_m=\tfrac{1}{2\mu_0}\!\int B^{2}\,d\tau
+\]
+so the electromagnetic energy density is
+\[
+\cboxed{u=\tfrac{1}{2}\!\left(\epsilon_0 E^{2}+\dfrac{1}{\mu_0}B^{2}\right).}
+\]
+\textbf{Meaning of $u$:} electromagnetic energy stored \emph{per unit volume.}
+
+\textbf{Work done on charges:} from the Lorentz force law,
+\[
+dW=\mathbf F\cdot d\mathbf l=q(\mathbf E+\mathbf v\times\mathbf B)\cdot\mathbf v\,dt=q\,\mathbf E\cdot\mathbf v\,dt
+\]
+since magnetic force does no work. Therefore, for all charges in a volume $V$,
+\[
+\cboxed{\dfrac{dW}{dt}=\int_V(\mathbf E\cdot\mathbf J)\,d\tau.}
+\]
+
+\textbf{Meaning of $\mathbf E\cdot\mathbf J$:}
+\[
+\cboxed{\mathbf E\cdot\mathbf J=\text{power delivered per unit volume.}}
+\]
+\emph{Exam use:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item if $\mathbf E\cdot\mathbf J>0$, field energy is being transferred to matter
+\item if $\mathbf E\cdot\mathbf J<0$, matter is giving energy back to the field
+\end{itemize}
+
+\textbf{Poynting vector:}
+\[
+\cboxed{\mathbf S\equiv\dfrac{1}{\mu_0}\mathbf E\times\mathbf B.}
+\]
+\textbf{Meaning:}
+\[
+\cboxed{\mathbf S\cdot d\mathbf a=\text{energy per unit time crossing }d\mathbf a.}
+\]
+So $\mathbf S$ is the \emph{energy flux density.}
+
+\textbf{Poynting's theorem (integral form):}
+\[
+\cboxed{\dfrac{dW}{dt}=-\dfrac{d}{dt}\!\int_V u\,d\tau-\oint_S\mathbf S\cdot d\mathbf a.}
+\]
+
+\textbf{How to read it:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item $dW/dt$ = power delivered by the fields to the charges in $V$
+\item $-(d/dt)\!\int_V u\,d\tau$ = loss of field energy stored inside $V$
+\item $-\oint_S\mathbf S\cdot d\mathbf a$ = net outward flow of field energy through the boundary
+\end{itemize}
+
+So the energy given to matter comes from:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item energy already stored in the fields inside the region
+\item or energy flowing into the region through the surface
+\end{itemize}
+
+\textbf{Empty-space version (no charges in $V$):} if no work is done on matter, then
+\[
+\cboxed{\dfrac{\partial u}{\partial t}=-\nabla\cdot\mathbf S.}
+\]
+This is the \emph{continuity equation for energy.}
+
+\textbf{Analogy to charge conservation:}
+\[
+\cboxed{\dfrac{\partial\rho}{\partial t}=-\nabla\cdot\mathbf J\ \Longleftrightarrow\ \dfrac{\partial u}{\partial t}=-\nabla\cdot\mathbf S.}
+\]
+So:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item $\rho$ plays the role of charge density, $u$ plays the role of energy density
+\item $\mathbf J$ plays the role of charge current, $\mathbf S$ plays the role of energy current
+\end{itemize}
+
+\csub{Example 8.1 (must know): energy flow into a resistive wire}
+When current flows down a resistive wire, Joule heating power is $VI$. Griffiths recomputes this using the Poynting vector.
+
+For a wire of length $L$ and radius $a$:
+\[
+\cboxed{E=\dfrac{V}{L}}
+\]
+inside the wire, and at the surface
+\[
+\cboxed{B=\dfrac{\mu_0 I}{2\pi a}.}
+\]
+Therefore
+\[
+\cboxed{S=\dfrac{1}{\mu_0}EB=\dfrac{1}{\mu_0}\dfrac{V}{L}\dfrac{\mu_0 I}{2\pi a}=\dfrac{VI}{2\pi aL}.}
+\]
+Its direction is \emph{radially inward.}
+
+So the total power flowing \emph{into} the wire through its curved surface is
+\[
+\cboxed{\oint\mathbf S\cdot d\mathbf a=S(2\pi aL)=VI.}
+\]
+
+\textbf{Exam lesson:}
+\[
+\cboxed{\text{Energy heating the wire flows in through the surrounding EM field.}}
+\]
+One of the most important conceptual examples in the chapter.
+
+\csub{How to choose formulas on an exam}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Charge buildup / steady current $\Rightarrow$ continuity equation (see 8.1.1)
+\item Energy stored in fields $\Rightarrow$ $u=\tfrac{1}{2}(\epsilon_0 E^2+B^2/\mu_0)$ (see 8.1.2)
+\item Direction of energy flow $\Rightarrow$ Poynting vector $\mathbf S$ (see 8.1.2)
+\item Power delivered to matter $\Rightarrow$ $dW/dt=\int \mathbf E\cdot\mathbf J\,d\tau$ (see 8.1.2)
+\item Local field-energy conservation in empty space $\Rightarrow$ $\partial u/\partial t=-\nabla\cdot\mathbf S$ (see 8.1.2)
+\item \textbf{Power crossing a surface} (only new formula here):
+\[
+\cboxed{P=\int\mathbf S\cdot d\mathbf a}
+\]
+\end{itemize}
+
+% ============================================================
+\chead{Ch. 8.2 - Momentum}
+
+\csub{8.2.1 Newton's Third Law in Electrodynamics}
+\textbf{Textbook point:} in electrostatics and magnetostatics, Newton's third law holds, but in full electrodynamics it can fail for the \emph{mechanical} forces between particles.
+
+\textbf{What rescues momentum conservation:}
+\[
+\cboxed{\text{The fields themselves carry momentum.}}
+\]
+
+\textbf{Exam meaning:} if the forces on particles are not equal and opposite, the missing momentum is in the fields, so only
+\[
+\cboxed{\mathbf p_{\rm total}=\mathbf p_{\rm mech}+\mathbf p_{\rm field}}
+\]
+is conserved.
+
+\textbf{Use this section when:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item a problem says Newton's third law seems to fail
+\item two moving charges give non-opposite magnetic forces
+\item you are asked where the ``missing'' momentum went
+\end{itemize}
+
+\csub{8.2.2 Maxwell's Stress Tensor}
+\textbf{Total electromagnetic force on the charges in a volume $V$:}
+\[
+\cboxed{\mathbf F=\int_V (\rho \mathbf E+\mathbf J\times \mathbf B)\,d\tau}
+\]
+so the force density is
+\[
+\cboxed{\mathbf f=\rho \mathbf E+\mathbf J\times \mathbf B.}
+\]
+
+\textbf{Field-only form of the force density:}
+\[
+\cboxed{\begin{aligned}
+\mathbf f&=\epsilon_0\big[(\boldsymbol\nabla\cdot\mathbf E)\mathbf E+(\mathbf E\cdot\boldsymbol\nabla)\mathbf E\big]\\
+&\quad+\tfrac{1}{\mu_0}\big[(\boldsymbol\nabla\cdot\mathbf B)\mathbf B+(\mathbf B\cdot\boldsymbol\nabla)\mathbf B\big]\\
+&\quad-\tfrac{1}{2}\boldsymbol\nabla\!\left(\epsilon_0E^2+\tfrac{1}{\mu_0}B^2\right)\\
+&\quad-\epsilon_0\tfrac{\partial}{\partial t}(\mathbf E\times\mathbf B)
+\end{aligned}}
+\]
+
+\textbf{Maxwell stress tensor:}
+\[
+\cboxed{T_{ij}\equiv\epsilon_0\!\left(E_iE_j-\tfrac{1}{2}\delta_{ij}E^2\right)+\tfrac{1}{\mu_0}\!\left(B_iB_j-\tfrac{1}{2}\delta_{ij}B^2\right)}
+\]
+
+\textbf{Two high-use components:}
+\[
+\cboxed{\begin{aligned}
+T_{xx}&=\tfrac{\epsilon_0}{2}(E_x^2-E_y^2-E_z^2)+\tfrac{1}{2\mu_0}(B_x^2-B_y^2-B_z^2)\\
+T_{xy}&=\epsilon_0 E_xE_y+\tfrac{1}{\mu_0}B_xB_y
+\end{aligned}}
+\]
+
+\textbf{Meaning of $\overleftrightarrow{\mathbf T}$:}
+\[
+\cboxed{\mathbf f=\boldsymbol\nabla\cdot\overleftrightarrow{\mathbf T}-\epsilon_0\mu_0\dfrac{\partial \mathbf S}{\partial t}}
+\]
+where $\mathbf S$ is the Poynting vector (Ch. 8.1).
+
+\textbf{Total force in a volume:}
+\[
+\cboxed{\mathbf F=\oint_S \overleftrightarrow{\mathbf T}\cdot d\mathbf a-\epsilon_0\mu_0\dfrac{d}{dt}\int_V \mathbf S\,d\tau}
+\]
+
+\textbf{Static case (very important):}
+\[
+\cboxed{\mathbf F=\oint_S \overleftrightarrow{\mathbf T}\cdot d\mathbf a\quad(\text{static})}
+\]
+
+\textbf{What it means physically:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item $\overleftrightarrow{\mathbf T}$ is the electromagnetic \emph{stress} = force per unit area on a surface
+\item diagonal entries $T_{xx},T_{yy},T_{zz}$ are pressures
+\item off-diagonal entries are shears
+\end{itemize}
+
+\textbf{Main exam move:} if the fields are static, replace a messy volume-force calculation by the surface integral above. Pick \emph{any} closed surface enclosing the charges you care about, and no others.
+
+\textbf{Example 8.2 (must know the lesson):} for the northern hemisphere of a uniformly charged solid sphere,
+\[
+\cboxed{\mathbf F=\dfrac{1}{4\pi\epsilon_0}\dfrac{3Q^2}{16R^2}\,\zhat.}
+\]
+\emph{Lesson:} the stress tensor ``sniffs out'' the force by a surface integral, without doing a direct volume-force integral.
+
+\csub{8.2.3 Conservation of Momentum}
+\textbf{Newton's second law for the matter in $V$:} $\mathbf F=d\mathbf p_{\rm mech}/dt$. Inserting the stress-tensor force formula,
+\[
+\cboxed{\dfrac{d\mathbf p_{\rm mech}}{dt}=-\epsilon_0\mu_0\dfrac{d}{dt}\int_V \mathbf S\,d\tau+\oint_S \overleftrightarrow{\mathbf T}\cdot d\mathbf a}
+\]
+
+\textbf{Field momentum stored in $V$:}
+\[
+\cboxed{\mathbf p_{\rm field}=\epsilon_0\mu_0\int_V \mathbf S\,d\tau}
+\]
+
+\textbf{Momentum density in the fields:}
+\[
+\cboxed{\mathbf g=\epsilon_0\mu_0\mathbf S=\epsilon_0(\mathbf E\times \mathbf B)}
+\]
+
+\textbf{Momentum conservation statement:} if $\mathbf p_{\rm mech}$ increases, either $\mathbf p_{\rm field}$ decreases, or momentum flows in through the boundary.
+
+\textbf{Local continuity equation for field momentum:}
+\[
+\cboxed{\dfrac{\partial \mathbf g}{\partial t}=\boldsymbol\nabla\cdot\overleftrightarrow{\mathbf T}}
+\]
+the momentum analog of the continuity equation.
+
+\textbf{Very important interpretation:}
+\[
+\cboxed{-\overleftrightarrow{\mathbf T}=\text{momentum current density.}}
+\]
+So $\overleftrightarrow{\mathbf T}$ itself is stress (force per unit area), while $-\overleftrightarrow{\mathbf T}$ is the momentum flux carried by the fields.
+
+\textbf{Example 8.3 (must know): resistanceless coaxial cable.} Between the conductors,
+\[
+\cboxed{\mathbf E=\dfrac{\lambda}{2\pi\epsilon_0 s}\,\hat{\mathbf s},\qquad
+\mathbf B=\dfrac{\mu_0 I}{2\pi s}\,\phat}
+\]
+Hence
+\[
+\cboxed{\mathbf S=\dfrac{\lambda I}{4\pi^2\epsilon_0 s^2}\,\zhat}
+\]
+so the power flow is $P=\int\mathbf S\cdot d\mathbf a=IV$, and the momentum stored in the fields is
+\[
+\cboxed{\mathbf p_{\rm field}=\dfrac{\mu_0\lambda I l}{2\pi}\ln\!\left(\dfrac{b}{a}\right)\zhat=\epsilon_0\mu_0IVl\,\zhat}
+\]
+
+\textbf{Exam lesson from Ex.\ 8.3:} static $\mathbf E,\mathbf B$ can still carry momentum if $\mathbf E\times\mathbf B\neq 0$.
+
+\csub{8.2.4 Angular Momentum}
+The fields carry not only energy and momentum, but angular momentum too (using $u$ and $\mathbf g$ from 8.1.2 and above).
+
+\textbf{Angular momentum density in the fields:}
+\[
+\cboxed{\boldsymbol{\ell}=\mathbf r\times \mathbf g=\epsilon_0\big[\mathbf r\times(\mathbf E\times\mathbf B)\big]}
+\]
+
+\textbf{Meaning:} even perfectly static fields can carry angular momentum, provided $\mathbf E\times\mathbf B\neq 0$.
+
+\textbf{Example 8.4 (high-yield): coaxial charged cylinders + long solenoid.} Before the solenoid current is turned off:
+\[
+\cboxed{\mathbf E=\dfrac{Q}{2\pi\epsilon_0 l}\dfrac{1}{s}\,\hat{\mathbf s}\ (a<s<b),\quad
+\mathbf B=\mu_0 n I\,\zhat\ (s<R)}
+\]
+So the momentum density is
+\[
+\cboxed{\mathbf g=-\dfrac{\mu_0 n I Q}{2\pi l s}\,\phat\quad (a<s<R)}
+\]
+and the total field angular momentum is
+\[
+\cboxed{\mathbf L_{\rm em}=-\tfrac{1}{2}\mu_0 n I Q(R^2-a^2)\,\zhat}
+\]
+
+When the current is slowly turned off, Faraday's law gives the induced circumferential electric field
+\[
+\cboxed{\mathbf E=\begin{cases}
+-\tfrac{1}{2}\mu_0 n \tfrac{dI}{dt}\tfrac{R^2}{s}\,\phat, & s>R \\[0.3em]
+-\tfrac{1}{2}\mu_0 n \tfrac{dI}{dt}\,s\,\phat, & s<R
+\end{cases}}
+\]
+
+The cylinders pick up angular momentum:
+\[
+\cboxed{\mathbf L_b=-\tfrac{1}{2}\mu_0 n I Q R^2\,\zhat,\qquad
+\mathbf L_a=\tfrac{1}{2}\mu_0 n I Q a^2\,\zhat}
+\]
+so $\mathbf L_{\rm em}=\mathbf L_a+\mathbf L_b$.
+
+\textbf{Exam lesson from Ex.\ 8.4:} angular momentum lost by the fields equals angular momentum gained by the matter.
+
+\csub{Important caution at the end of \S 8.2}
+\textbf{Quadratic quantities do \emph{not} obey superposition.} Because $u\propto E^2$, $\mathbf S\propto \mathbf E\times\mathbf B$, $\mathbf g\propto\mathbf E\times\mathbf B$, $\boldsymbol{\ell}\propto\mathbf r\times(\mathbf E\times\mathbf B)$, and $\overleftrightarrow{\mathbf T}$ is quadratic in the fields, if $\mathbf E=\mathbf E_1+\mathbf E_2$ then
+\[
+\cboxed{u=\tfrac{1}{2}\epsilon_0(\mathbf E\cdot\mathbf E)=u_1+u_2+\epsilon_0\,\mathbf E_1\cdot\mathbf E_2}
+\]
+So energy, momentum, angular momentum, Poynting vector, and stress tensor are \emph{not} found by simply adding the separate answers.
+
+\csub{How to choose formulas on an exam}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Force on charges in a volume $\Rightarrow$ $\mathbf F=\int(\rho\mathbf E+\mathbf J\times\mathbf B)\,d\tau$ (see 8.2.2)
+\item Force using fields only $\Rightarrow$ full $\overleftrightarrow{\mathbf T}$--$\mathbf S$ formula (see 8.2.2)
+\item Static fields $\Rightarrow$ $\mathbf F=\oint\overleftrightarrow{\mathbf T}\cdot d\mathbf a$ (see 8.2.2)
+\item Field momentum $\Rightarrow$ $\mathbf p_{\rm field}=\epsilon_0\mu_0\int\mathbf S\,d\tau$, $\mathbf g=\epsilon_0(\mathbf E\times\mathbf B)$ (see 8.2.3)
+\item Field angular momentum $\Rightarrow$ $\boldsymbol{\ell}=\mathbf r\times\mathbf g$, $\mathbf L_{\rm field}=\int\boldsymbol{\ell}\,d\tau$ (see 8.2.4)
+\item If Newton's third law seems to fail $\Rightarrow$ look for missing field momentum
+\end{itemize}
+
+% ============================================================
+\chead{Ch. 9.1 - Waves in One Dimension}
+
+\csub{9.1.1 The Wave Equation}
+\textbf{Right-moving wave of fixed shape:}
+\[
+\cboxed{f(z,t)=g(z-vt)}
+\]
+shape unchanged; every point of the profile shifts right by $vt$.
+
+\textbf{Wave equation:}
+\[
+\cboxed{\dfrac{\partial^2 f}{\partial z^2}=\dfrac{1}{v^2}\dfrac{\partial^2 f}{\partial t^2}}
+\]
+if a disturbance propagates at constant speed without changing shape, it satisfies this equation.
+
+\textbf{Left-moving wave:} $f(z,t)=h(z+vt)$.
+
+\textbf{Most general 1D solution:}
+\[
+\cboxed{f(z,t)=g(z-vt)+h(z+vt)}
+\]
+any 1D wave is the sum of a right-mover and a left-mover.
+
+\textbf{High-yield standing-wave form:}
+\[
+\cboxed{f(z,t)=A\sin(kz)\cos(kvt)}
+\]
+satisfies the wave equation; can be written as a sum of left- and right-movers.
+
+\textbf{Exam move:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item shape moves rigidly right $\Rightarrow$ try $g(z-vt)$
+\item shape moves rigidly left $\Rightarrow$ try $h(z+vt)$
+\item general wave equation $\Rightarrow$ think superposition of left/right movers
+\end{itemize}
+
+\csub{9.1.2 Sinusoidal Waves}
+\textbf{Standard sinusoidal wave:}
+\[
+\cboxed{f(z,t)=A\cos[k(z-vt)+\delta]}
+\]
+with $A$ = amplitude, $k$ = wave number, $\delta$ = phase constant, and phase $=k(z-vt)+\delta$.
+
+\textbf{Basic relations:}
+\[
+\cboxed{\begin{aligned}
+\lambda&=\tfrac{2\pi}{k},\qquad T=\tfrac{2\pi}{kv}\\
+\nu&=\tfrac{1}{T}=\tfrac{kv}{2\pi}=\tfrac{v}{\lambda}\\
+\omega&=2\pi\nu=kv
+\end{aligned}}
+\]
+
+\textbf{More convenient form:}
+\[
+\cboxed{f(z,t)=A\cos(kz-\omega t+\delta)\ \ (\text{right-moving})}
+\]
+Left-moving: $f(z,t)=A\cos(kz+\omega t-\delta)=A\cos(-kz-\omega t+\delta)$. Changing sign of $k$ reverses propagation direction.
+
+\textbf{Complex notation (textbook workhorse):}
+\[
+\cboxed{\tilde f(z,t)=\tilde A\,e^{i(kz-\omega t)},\ \tilde A=Ae^{i\delta},\ f=\Re(\tilde f)}
+\]
+
+\textbf{Euler formula:} $e^{i\theta}=\cos\theta+i\sin\theta$.
+
+\textbf{If two sinusoidal waves share $k$ and $\omega$, add the complex amplitudes:}
+\[
+\cboxed{\tilde A_3=\tilde A_1+\tilde A_2}
+\]
+this is the clean way to combine waves with different amplitudes/phases.
+
+\textbf{Any wave as a superposition of sinusoids:}
+\[
+\cboxed{\tilde f(z,t)=\int_{-\infty}^{\infty}\tilde A(k)e^{i(kz-\omega t)}\,dk}
+\]
+if you understand sinusoidal waves, in principle you understand arbitrary waves.
+
+\textbf{Important caution:} complex notation is excellent for \emph{adding} sinusoidal waves, but not for multiplying them. For quadratic quantities, go back to the real fields.
+
+\csub{9.1.3 Reflection and Transmission}
+Two strings joined at $z=0$, same tension $T$, different mass densities $\mu_1,\mu_2$, so different wave speeds:
+\[
+\cboxed{v=\sqrt{\dfrac{T}{\mu}}}
+\]
+
+\textbf{Incident, reflected, transmitted waves:}
+\[
+\cboxed{\begin{aligned}
+\tilde f_I&=\tilde A_I e^{i(k_1 z-\omega t)}\ (z<0)\\
+\tilde f_R&=\tilde A_R e^{i(-k_1 z-\omega t)}\ (z<0)\\
+\tilde f_T&=\tilde A_T e^{i(k_2 z-\omega t)}\ (z>0)
+\end{aligned}}
+\]
+
+\textbf{Same driving frequency, different wavelengths:}
+\[
+\cboxed{\dfrac{\lambda_1}{\lambda_2}=\dfrac{k_2}{k_1}=\dfrac{v_1}{v_2}}
+\]
+
+\textbf{Boundary conditions at the knot} (continuity of $f$ and $\partial_z f$ for a massless knot):
+\[
+\cboxed{\tilde f(0^-,t)=\tilde f(0^+,t),\quad
+\left.\dfrac{\partial \tilde f}{\partial z}\right|_{0^-}\!=\left.\dfrac{\partial \tilde f}{\partial z}\right|_{0^+}}
+\]
+
+\textbf{Amplitude equations:}
+\[
+\cboxed{\tilde A_I+\tilde A_R=\tilde A_T,\quad k_1(\tilde A_I-\tilde A_R)=k_2\tilde A_T}
+\]
+
+\textbf{Solve for outgoing amplitudes:}
+\[
+\cboxed{\tilde A_R=\dfrac{k_1-k_2}{k_1+k_2}\tilde A_I,\qquad
+\tilde A_T=\dfrac{2k_1}{k_1+k_2}\tilde A_I}
+\]
+Equivalently, in terms of wave speeds:
+\[
+\cboxed{\tilde A_R=\dfrac{v_2-v_1}{v_2+v_1}\tilde A_I,\qquad
+\tilde A_T=\dfrac{2v_2}{v_2+v_1}\tilde A_I}
+\]
+
+\textbf{Phase/amplitude relation:}
+\[
+\cboxed{\begin{aligned}
+A_Re^{i\delta_R}&=\tfrac{v_2-v_1}{v_2+v_1}A_Ie^{i\delta_I}\\
+A_Te^{i\delta_T}&=\tfrac{2v_2}{v_2+v_1}A_Ie^{i\delta_I}
+\end{aligned}}
+\]
+
+\textbf{Case 1: second string lighter} $(v_2>v_1)$: $\delta_R=\delta_T=\delta_I$, so no phase reversal; $A_R=\tfrac{v_2-v_1}{v_2+v_1}A_I$.
+
+\textbf{Case 2: second string heavier} $(v_2<v_1)$: $\delta_R+\pi=\delta_T=\delta_I$, so the reflected wave is inverted ($180^\circ$ phase shift); $A_R=\tfrac{v_1-v_2}{v_2+v_1}A_I$.
+
+\textbf{Fixed end / immovable post:}
+\[
+\cboxed{A_R=A_I,\qquad A_T=0}
+\]
+total reflection, with inversion.
+
+\textbf{Main exam move:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item write $\tilde f_I,\tilde f_R,\tilde f_T$
+\item impose continuity of displacement and slope
+\item solve two linear equations for $\tilde A_R,\tilde A_T$
+\item then interpret sign as phase reversal or not
+\end{itemize}
+
+\csub{9.1.4 Polarization}
+\textbf{Transverse vs longitudinal:} transverse = displacement $\perp$ propagation; longitudinal = displacement along propagation. Sound waves are longitudinal; EM waves are transverse.
+
+\textbf{Vertical / horizontal polarization:}
+\[
+\cboxed{\tilde f_v=\tilde A e^{i(kz-\omega t)}\hat{\mathbf x},\quad
+\tilde f_h=\tilde A e^{i(kz-\omega t)}\hat{\mathbf y}}
+\]
+
+\textbf{General linearly polarized wave:}
+\[
+\cboxed{\tilde f(z,t)=\tilde A e^{i(kz-\omega t)}\,\hat{\mathbf n}}
+\]
+
+\textbf{Transverse condition:}
+\[
+\cboxed{\hat{\mathbf n}\cdot\hat{\mathbf z}=0}
+\]
+
+\textbf{Polarization vector in terms of angle $\theta$:}
+\[
+\cboxed{\hat{\mathbf n}=\cos\theta\,\hat{\mathbf x}+\sin\theta\,\hat{\mathbf y}}
+\]
+
+\textbf{Decomposition into horizontal + vertical pieces:}
+\[
+\cboxed{\tilde f=(\tilde A\cos\theta)e^{i(kz-\omega t)}\hat{\mathbf x}+(\tilde A\sin\theta)e^{i(kz-\omega t)}\hat{\mathbf y}}
+\]
+
+\textbf{Meaning of polarization:} $\hat{\mathbf n}$ defines the plane of vibration.
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \textbf{Linear:} horizontal and vertical components in phase
+\item \textbf{Circular} (Prob.\ 9.8): equal amplitudes, phase difference $90^\circ$
+\item \textbf{Elliptical:} unequal amplitudes and/or general phase difference
+\item switching the sign of $\hat{\mathbf n}$ $\Leftrightarrow$ phase shift of $180^\circ$
+\end{itemize}
+
+\textbf{Exam move:}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item polarization angle $\Rightarrow$ write $\hat{\mathbf n}=\cos\theta\,\hat{\mathbf x}+\sin\theta\,\hat{\mathbf y}$
+\item transverse? check $\hat{\mathbf n}\perp$ propagation
+\item combining perpendicular components $\Rightarrow$ use phase relation to decide linear / circular / elliptical
+\end{itemize}
+
+\end{multicols*}
+\end{document}

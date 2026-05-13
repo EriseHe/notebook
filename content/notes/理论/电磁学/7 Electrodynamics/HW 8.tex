@@ -1,0 +1,498 @@
+\documentclass[12pt]{article}
+
+%--------------------------
+% Page layout
+%--------------------------
+\usepackage[top=0.6in, bottom=1in, left=0.8in, right=1.0in]{geometry}
+
+%--------------------------
+% Formatting / layout
+%--------------------------
+\usepackage{titlesec}
+\usepackage{lipsum}
+
+%--------------------------
+% Core math
+%--------------------------
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{cancel}
+
+%--------------------------
+% Colors + boxes (ORDER MATTERS)
+%--------------------------
+\usepackage{xcolor}
+\usepackage[many]{tcolorbox}
+\usepackage{mdframed}
+
+%--------------------------
+% Tools for your auto-boxing logic
+%--------------------------
+\usepackage{xparse}
+\usepackage{xstring}
+\usepackage{etoolbox}
+
+%--------------------------
+% Solution box (mdframed)
+%--------------------------
+\newmdenv[
+  topline=true,
+  bottomline=true,
+  rightline=true,
+  leftline=true,
+  linecolor=black,
+  linewidth=0.8pt,
+  backgroundcolor=white,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  skipabove=8pt,
+  skipbelow=8pt,
+  splitbottomskip=2pt,
+  splittopskip=2pt,
+]{solutionbox}
+
+
+
+%--------------------------
+% Problem box (tcolorbox) — matches your previous doc
+% Usage: \begin{problembox}[P1.33] ... \end{problembox}
+%--------------------------
+\NewDocumentEnvironment{problembox}{O{}}
+{%
+\begin{tcolorbox}[
+    colback=gray!10!white,
+    colframe=gray!60!black,
+    title=\textbf{\ifstrempty{#1}{}{ (\,#1\,)}},
+    fonttitle=\bfseries\small,
+    arc=0mm,
+    boxrule=1pt,
+    left=5mm, right=5mm, top=5mm, bottom=5mm
+]%
+}
+{\end{tcolorbox}}
+
+%--------------------------
+% Auto-wrap any \item[Solution.] in a solutionbox until next item at same level
+% NOTE: Must write \item[Solution.] (with the period) to trigger.
+%--------------------------
+\newcounter{solution@depth}
+\newcounter{solution@level}
+\newif\ifinsolutionbox
+\insolutionboxfalse
+
+\AtBeginEnvironment{enumerate}{\stepcounter{solution@depth}}
+\AtEndEnvironment{enumerate}{%
+  \ifinsolutionbox
+    \ifnum\value{solution@depth}=\value{solution@level}\relax
+      \end{solutionbox}%
+      \insolutionboxfalse
+    \fi
+  \fi
+  \addtocounter{solution@depth}{-1}%
+}
+\AtBeginEnvironment{itemize}{\stepcounter{solution@depth}}
+\AtEndEnvironment{itemize}{\addtocounter{solution@depth}{-1}}
+\AtBeginEnvironment{description}{\stepcounter{solution@depth}}
+\AtEndEnvironment{description}{\addtocounter{solution@depth}{-1}}
+
+\let\olditem\item
+\RenewDocumentCommand{\item}{o}{%
+  \ifinsolutionbox
+    \ifnum\value{solution@depth}=\value{solution@level}\relax
+      \end{solutionbox}%
+      \insolutionboxfalse
+    \fi
+  \fi
+  \IfNoValueTF{#1}{%
+    \olditem
+  }{%
+    \IfStrEq{#1}{Solution.}{%
+      \olditem[]%
+      \begin{solutionbox}%
+      \insolutionboxtrue
+      \setcounter{solution@level}{\value{solution@depth}}%
+    }{%
+      \olditem[#1]%
+    }%
+  }%
+}
+
+%--------------------------
+% Figures / tables
+%--------------------------
+\usepackage{graphicx}
+\usepackage{subcaption}
+\providecommand{\IfPDFManagementActiveF}[1]{#1}
+\usepackage{svg}
+\usepackage{booktabs}
+\usepackage{float}
+
+%--------------------------
+% TikZ
+%--------------------------
+\usepackage{tikz}
+\usetikzlibrary{arrows,arrows.meta,angles,quotes,calc}
+
+\DeclareGraphicsExtensions{.pdf,.jpg,.tif,.png}
+
+%--------------------------
+% Theorem environments
+%--------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+%--------------------------
+% Spacing / pagination
+%--------------------------
+\setlength{\parskip}{0pt}
+\setlength{\topsep}{2pt}
+\setlength{\partopsep}{0pt}
+\raggedbottom
+\pagenumbering{gobble}
+
+%--------------------------
+% Hyperref LAST
+%--------------------------
+\usepackage[hidelinks]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\thispagestyle{plain}
+\vspace{-4ex}  % Less aggressive spacing reduction
+
+
+\begin{center}
+\begin{tabular}{*{3}{c}}
+    \parbox[t]{0.3\linewidth}{\centering\textbf{Homework Set 8}}
+    & \parbox[t]{0.3\linewidth}{\centering\textbf{PHYS 365\\Electricity \& Magnetism}}
+    & \parbox[t]{0.3\linewidth}{\centering\textbf{Erise He}}\\[2em]
+    \hline
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\begin{enumerate}
+  \item[P7.3] \textbf{(a) Two metal objects are embedded in weakly conducting (nonpolarizable) material of conductivity $\sigma$. Show that the resistance between them is related to the capacitance of the arrangement by}
+  \[
+  R=\frac{\epsilon_0}{\sigma C}.
+  \]
+  \textbf{(b) Suppose you connected a battery between 1 and 2, and charged them up to a potential difference $V_0$. If you then disconnect the battery, the charge will gradually leak off. Show that}
+  \[
+  V(t)=V_0 e^{-t/\tau},
+  \]
+  \textbf{and find the time constant, $\tau$, in terms of $\epsilon_0$ and $\sigma$.}
+
+  \item[Solution]
+
+  \medskip
+  \textbf{(a)}
+  We know 
+  \[
+  C=\frac{Q}{V},\qquad R=\frac{V}{I}
+  \]
+  and also 
+  \[
+  I=\int \mathbf J\cdot d\mathbf a
+  =\sigma\int \mathbf E\cdot d\mathbf a
+  \qquad
+  Q=\epsilon_0\int \mathbf E\cdot d\mathbf a
+  \]
+  Therefore
+  \[
+  \begin{aligned}
+  I&=\frac{\sigma}{\epsilon_0}\,Q\\
+  \frac{Q}{I}&=\frac{\epsilon_0}{\sigma}
+  \end{aligned}
+  \]
+  then we have
+  \[
+  \begin{aligned}
+  RC
+  &=\frac{V}{I}\frac{Q}{V}
+  =\frac{Q}{I}
+  =\frac{\epsilon_0}{\sigma}\\
+  R&=\frac{\epsilon_0}{\sigma C}
+  \end{aligned}
+  \]
+ 
+ 
+
+  \medskip
+  \textbf{(b)}
+  Since we know that
+  \[
+  Q(t)=CV(t),\qquad I(t)=\frac{V(t)}{R},\qquad I(t)=-\frac{dQ}{dt}
+  \]
+  so
+  \[
+  \begin{aligned}
+  -\frac{dQ}{dt}
+  &=\frac{V}{R}
+  =\frac{Q/C}{R}
+  =\frac{Q}{RC}\\[4pt]
+  \frac{dQ}{Q}
+  &=-\frac{dt}{RC}
+  \end{aligned}
+  \]
+  We then integrate,
+  \[
+  \begin{aligned}
+  \int_{Q_0}^{Q(t)}\frac{dQ'}{Q'}
+  &=-\int_0^t \frac{dt'}{RC}\\[4pt]
+  \ln\!\left(\frac{Q(t)}{Q_0}\right)
+  &=-\frac{t}{RC}\\[4pt]
+  Q(t)
+  &=Q_0 e^{-t/(RC)}
+  \end{aligned}
+  \]
+  We then divide by $C$
+  \[
+  \begin{aligned}
+  V(t)
+  &=\frac{Q(t)}{C}
+  =\frac{Q_0}{C}e^{-t/(RC)}
+  =V_0 e^{-t/(RC)}
+  \end{aligned}
+  \]
+  Thus
+  \[
+V(t)=V_0 e^{-t/\tau},\qquad \tau=RC
+  \]
+  From the answer we obtain from part (a),
+  \[
+  \boxed{\tau=RC=\frac{\epsilon_0}{\sigma}}
+  \]
+
+\end{enumerate}
+
+\newpage%----------------------------------------------------------
+
+\begin{enumerate}
+  \item[P7.7] \textbf{A metal bar of mass $m$ slides frictionlessly on two parallel conducting rails a distance $l$ apart (Fig.7.17). A resistor $R$ is connected across the rails, and a uniform magnetic field $\mathbf{B}$, pointing into the page, fills the entire region.}
+\item[(a)] \textbf{If the bar moves to the right at speed $v$, what is the current in the resistor? In what direction does it flow?}
+
+\item[Solution]
+As the bar moves to the right, the area of the loop increases, so the magnetic flux \emph{into} the page increases. By Lenz's law, the induced current would produce a field out of the page, so the current is \emph{counterclockwise} around the loop.
+
+That is, in the moving bar the magnetic force is
+\[
+q\,\mathbf v\times \mathbf B,
+\]
+and since $\mathbf v$ is to the right while $\mathbf B$ is into the page, $\mathbf v\times \mathbf B$ shoudl point up. Thus, the positive charge is driven upward in the bar, so the current goes upward through the bar, left along the top rail, downward through the resistor, and right along the bottom rail. The moving emf across the bar is $Blv$, so Ohm's law give
+\[
+\begin{aligned}
+IR&=Blv\\
+I&=\frac{Blv}{R}
+\end{aligned}
+\]
+Therefore, it flows counterclockwise, which means downward through the resistor.
+
+\item[(b)] \textbf{What is the magnetic force on the bar? In what direction?}
+
+\item[Solution]
+The current in the bar is upward, and the magnetic field is into the page, so the magnetic force on the bar points to the left, opposite to the motion. In particualr, its magnitude is
+\[
+\begin{aligned}
+F_B&=IlB\\
+&=\left(\frac{Blv}{R}\right)lB\\
+&=\frac{B^2l^2}{R}\,v
+\end{aligned}
+\]
+directed to the left.
+
+\item[(c)] \textbf{If the bar starts out with speed $v_0$ at time $t=0$, and is left to slide, what is its speed at a later time $t$?}
+
+\item[Solution]
+The only horizontal force on the bar is the magnetic force from part (b), which opposes the motion. Therefore Newton's second law gives
+\[
+\begin{aligned}
+m\frac{dv}{dt}&=-F_B\\
+&=-\frac{B^2l^2}{R}\,v
+\end{aligned}
+\]
+Separate variables:
+\[
+\begin{aligned}
+\frac{dv}{v}&=-\frac{B^2l^2}{mR}\,dt
+\end{aligned}
+\]
+Integrate from $t=0$ (when $v=v_0$) to time $t$ (when $v=v(t)$):
+\[
+\begin{aligned}
+\int_{v_0}^{v(t)}\frac{dv'}{v'}
+&=-\frac{B^2l^2}{mR}\int_0^t dt'\\
+\ln\!\left(\frac{v(t)}{v_0}\right)
+&=-\frac{B^2l^2}{mR}\,t
+\end{aligned}
+\]
+Exponentiating,
+\[
+v(t)=v_0 e^{-\frac{B^2l^2}{mR}t}
+\]
+So the speed decays exponentially, with time constant
+\[
+\boxed{\tau=\frac{mR}{B^2l^2}}
+\]
+
+\item[(d)] \textbf{The initial kinetic energy of the bar was, of course, $\tfrac12 mv_0^2$. Check that the energy delivered to the resistor is exactly $\tfrac12 mv_0^2$.}
+
+\item[Solution]
+The power dissipated in the resistor is
+\[
+P=I^2R
+\]
+Using the current from part (a),
+\[
+\begin{aligned}
+P(t)
+&=\left(\frac{Blv(t)}{R}\right)^2R\\
+&=\frac{B^2l^2}{R}\,v(t)^2
+\end{aligned}
+\]
+Now substitute the speed from part (c):
+\[
+\begin{aligned}
+P(t)
+&=\frac{B^2l^2}{R}\left(v_0 e^{-\frac{B^2l^2}{mR}t}\right)^2\\
+&=\frac{B^2l^2v_0^2}{R}\,e^{-\,\frac{2B^2l^2}{mR}t}
+\end{aligned}
+\]
+The total energy delivered to the resistor is
+\[
+\begin{aligned}
+W
+&=\int_0^\infty P(t)\,dt\\
+&=\frac{B^2l^2v_0^2}{R}\int_0^\infty e^{-\,\frac{2B^2l^2}{mR}t}\,dt\\
+&=\frac{B^2l^2v_0^2}{R}\left[\frac{mR}{2B^2l^2}\right]\\
+&=\frac12 mv_0^2
+\end{aligned}
+\]
+Therefore,
+\[
+W=\frac12 mv_0^2
+\]
+which is precisely the initial kinetic energy of the bar.
+\end{enumerate}
+
+\newpage%----------------------------------------------------------
+
+\begin{enumerate}
+  \item[P7.23] \textbf{A small loop of wire (radius $a$) is held a distance $z$ above the center of a large loop (radius $b$), as shown in Fig.7.37. The planes of the two loops are parallel, and perpendicular to the common axis.}
+ 
+\item[(a)] \textbf{Suppose current $I$ flows in the big loop. Find the flux through the little loop. (The little loop is so small that you may consider the field of the big loop to be essentially constant)}
+
+\item[Solution]
+Suppose that the positive normal to both loops along $+\hat{\mathbf z}$, and from the field on the axis of a circular loop of radius $b$ carrying current $I$,
+\[
+B(z)=\frac{\mu_0 I b^2}{2\left(b^2+z^2\right)^{3/2}}
+\]
+
+Since the little loop is very small, we can simply treat this as constant over the area; therefore the flux through the little loop is
+\[
+\begin{aligned}
+\Phi_{\text{little}}
+&=B(z)\cdot \pi a^2\\[4pt]
+&=\frac{\mu_0 I b^2}{2\left(b^2+z^2\right)^{3/2}}\cdot \pi a^2\\[4pt]
+&=\frac{\mu_0 I\pi a^2 b^2}{2\left(b^2+z^2\right)^{3/2}}
+\end{aligned}
+\]
+
+\item[(b)] \textbf{Suppose current $I$ flows in the little loop. Find the flux through the big loop. (The little loop is so small that you may treat it as a magnetic dipole)}
+
+\item[Solution]
+Again, since the little loop is very small, we can treat it as magnetic dipole of moment
+\[
+\mathbf m=I\pi a^2\,\hat{\mathbf z}
+\]
+where the vector potential of a magnetic dipole is
+\[
+\mathbf A(\mathbf r)=\frac{\mu_0}{4\pi}\frac{\mathbf m\times \mathbf r}{r^3}
+\]
+
+To compute the flux through the big loop, we can use
+\[
+\Phi_{\text{big}}=\oint \mathbf A\cdot d\mathbf l
+\]
+Then, for a point on the big loop, the displacement from the dipole to that point become
+\[
+\mathbf r=b\,\hat{\mathbf s}-z\,\hat{\mathbf z}\quad \Longrightarrow\quad r=\sqrt{b^2+z^2}
+\]
+in cylindrical coordinates. So
+\[
+\begin{aligned}
+\mathbf m\times \mathbf r
+&=\left(I\pi a^2\,\hat{\mathbf z}\right)\times\left(b\,\hat{\mathbf s}-z\,\hat{\mathbf z}\right)\\[4pt]
+&=I\pi a^2\,b\left(\hat{\mathbf z}\times \hat{\mathbf s}\right)\\[4pt]
+&=I\pi a^2\,b\,\hat{\boldsymbol\phi}
+\end{aligned}
+\]
+
+Therefore
+\[
+\begin{aligned}
+\mathbf A
+&=\frac{\mu_0}{4\pi}\frac{I\pi a^2\,b\,\hat{\boldsymbol\phi}}{\left(b^2+z^2\right)^{3/2}}\\[4pt]
+&=\frac{\mu_0 I a^2 b}{4\left(b^2+z^2\right)^{3/2}}\,\hat{\boldsymbol\phi}
+\end{aligned}
+\]
+so on the big loop
+\[
+A_\phi=\frac{\mu_0 I a^2 b}{4\left(b^2+z^2\right)^{3/2}}
+\]
+
+Now the line element around the big loop is
+\[
+d\mathbf l=b\,d\phi\,\hat{\boldsymbol\phi}
+\]
+Hence
+\[
+\begin{aligned}
+\Phi_{\text{big}}
+&=\oint \mathbf A\cdot d\mathbf l\\[4pt]
+&=\int_0^{2\pi} A_\phi\,b\,d\phi\\[4pt]
+&=\int_0^{2\pi}\frac{\mu_0 I a^2 b}{4\left(b^2+z^2\right)^{3/2}}\,b\,d\phi\\[4pt]
+&=\frac{\mu_0 I a^2 b^2}{4\left(b^2+z^2\right)^{3/2}}\int_0^{2\pi} d\phi\\[4pt]
+&=\frac{\mu_0 I a^2 b^2}{4\left(b^2+z^2\right)^{3/2}}(2\pi)\\[4pt]
+&=\frac{\mu_0 I\pi a^2 b^2}{2\left(b^2+z^2\right)^{3/2}}
+\end{aligned}
+\]
+
+Thus
+\[
+\boxed{\Phi_{\text{big}}=\frac{\mu_0 I\pi a^2 b^2}{2\left(b^2+z^2\right)^{3/2}}}
+\]
+
+\item[(c)] \textbf{Find the mutual inductances, and confirm that $M_{12}=M_{21}$}
+
+\item[Solution]
+Let loop 1 be the little loop and loop 2 be the big loop. From part (a), when current $I$ flows in loop 2,
+\[
+\begin{aligned}
+M_{12}
+&=\frac{\Phi_{\text{little}}}{I}\\[4pt]
+&=\frac{1}{I}\frac{\mu_0 I\pi a^2 b^2}{2\left(b^2+z^2\right)^{3/2}}\\[4pt]
+&=\frac{\mu_0 \pi a^2 b^2}{2\left(b^2+z^2\right)^{3/2}}
+\end{aligned}
+\]
+
+From part (b), when current $I$ flows in loop 1,
+\[
+\begin{aligned}
+M_{21}
+&=\frac{\Phi_{\text{big}}}{I}\\[4pt]
+&=\frac{1}{I}\frac{\mu_0 I\pi a^2 b^2}{2\left(b^2+z^2\right)^{3/2}}\\[4pt]
+&=\frac{\mu_0 \pi a^2 b^2}{2\left(b^2+z^2\right)^{3/2}}
+\end{aligned}
+\]
+
+Therefore, we confirm that
+\[
+\boxed{M_{12}=M_{21}=\frac{\mu_0 \pi a^2 b^2}{2\left(b^2+z^2\right)^{3/2}}}
+\]
+
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,974 @@
+\documentclass[12pt]{article}
+
+%--------------------------
+% Page layout
+%--------------------------
+\usepackage[top=0.6in, bottom=1in, left=0.8in, right=1.0in]{geometry}
+
+%--------------------------
+% Formatting / layout
+%--------------------------
+\usepackage{titlesec}
+\usepackage{lipsum}
+
+%--------------------------
+% Core math
+%--------------------------
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{cancel}
+
+%--------------------------
+% Colors + boxes (ORDER MATTERS)
+%--------------------------
+\usepackage{xcolor}
+\usepackage[many]{tcolorbox}
+\usepackage{mdframed}
+
+%--------------------------
+% Tools for your auto-boxing logic
+%--------------------------
+\usepackage{xparse}
+\usepackage{xstring}
+\usepackage{etoolbox}
+
+%--------------------------
+% Solution box (mdframed)
+%--------------------------
+\newmdenv[
+  topline=true,
+  bottomline=true,
+  rightline=true,
+  leftline=true,
+  linecolor=black,
+  linewidth=0.8pt,
+  backgroundcolor=white,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  skipabove=8pt,
+  skipbelow=8pt,
+  splitbottomskip=2pt,
+  splittopskip=2pt,
+]{solutionbox}
+
+%--------------------------
+% Problem box (tcolorbox) — matches your previous doc
+% Usage: \begin{problembox}[P1.33] ... \end{problembox}
+%--------------------------
+\NewDocumentEnvironment{problembox}{O{}}
+{%
+\begin{tcolorbox}[
+    colback=gray!10!white,
+    colframe=gray!60!black,
+    title=\textbf{\ifstrempty{#1}{}{ (\,#1\,)}},
+    fonttitle=\bfseries\small,
+    arc=0mm,
+    boxrule=1pt,
+    left=5mm, right=5mm, top=5mm, bottom=5mm
+]%
+}
+{\end{tcolorbox}}
+
+%--------------------------
+% Auto-wrap any \item[Solution.] in a solutionbox until next item at same level
+% NOTE: Must write \item[Solution.] (with the period) to trigger.
+%--------------------------
+\newcounter{solution@depth}
+\newcounter{solution@level}
+\newif\ifinsolutionbox
+\insolutionboxfalse
+
+\AtBeginEnvironment{enumerate}{\stepcounter{solution@depth}}
+\AtEndEnvironment{enumerate}{%
+  \ifinsolutionbox
+    \ifnum\value{solution@depth}=\value{solution@level}\relax
+      \end{solutionbox}%
+      \insolutionboxfalse
+    \fi
+  \fi
+  \addtocounter{solution@depth}{-1}%
+}
+\AtBeginEnvironment{itemize}{\stepcounter{solution@depth}}
+\AtEndEnvironment{itemize}{\addtocounter{solution@depth}{-1}}
+\AtBeginEnvironment{description}{\stepcounter{solution@depth}}
+\AtEndEnvironment{description}{\addtocounter{solution@depth}{-1}}
+
+\let\olditem\item
+\RenewDocumentCommand{\item}{o}{%
+  \ifinsolutionbox
+    \ifnum\value{solution@depth}=\value{solution@level}\relax
+      \end{solutionbox}%
+      \insolutionboxfalse
+    \fi
+  \fi
+  \IfNoValueTF{#1}{%
+    \olditem
+  }{%
+    \IfStrEq{#1}{Solution.}{%
+      \olditem[]%
+      \begin{solutionbox}%
+      \insolutionboxtrue
+      \setcounter{solution@level}{\value{solution@depth}}%
+    }{%
+      \olditem[#1]%
+    }%
+  }%
+}
+
+%--------------------------
+% Figures / tables
+%--------------------------
+\usepackage{graphicx}
+\usepackage{subcaption}
+\providecommand{\IfPDFManagementActiveF}[1]{#1}
+\usepackage{svg}
+\usepackage{booktabs}
+\usepackage{float}
+
+%--------------------------
+% TikZ
+%--------------------------
+\usepackage{tikz}
+\usetikzlibrary{arrows,arrows.meta,angles,quotes,calc}
+
+\DeclareGraphicsExtensions{.pdf,.jpg,.tif,.png}
+
+%--------------------------
+% Theorem environments
+%--------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+%--------------------------
+% Spacing / pagination
+%--------------------------
+\setlength{\parskip}{0pt}
+\setlength{\topsep}{2pt}
+\setlength{\partopsep}{0pt}
+\raggedbottom
+\pagenumbering{gobble}
+
+%--------------------------
+% Hyperref LAST
+%--------------------------
+\usepackage[hidelinks]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\thispagestyle{plain}
+\vspace{-4ex}  % Less aggressive spacing reduction
+
+
+\begin{center}
+\begin{tabular}{*{3}{c}}
+    \parbox[t]{0.3\linewidth}{\centering\textbf{Homework Set 9}}
+    & \parbox[t]{0.3\linewidth}{\centering\textbf{PHYS 365\\Electricity \& Magnetism}}
+    & \parbox[t]{0.3\linewidth}{\centering\textbf{Erise He}}\\[2em]
+    \hline
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\begin{enumerate}
+    \item[P7.39] \textbf{Suppose}
+  \[
+  \mathbf{E}(r,t)=\frac{1}{4\pi\epsilon_0}\frac{q}{r^2}\,\theta(vt-r)\,\hat{\mathbf{r}},
+  \qquad
+  \mathbf{B}(r,t)=0.
+  \]
+  \textbf{(The theta function is defined in Prob.1.46b.) Show that these fields satisfy all of Maxwell's equations, and determine $\rho$ and $\mathbf{J}$. Describe the physical situation that gives rise to these fields.}
+
+
+\item[Solution] 
+
+
+We use Maxwell's equations in the form given in Eq.~(7.52). The field is
+$$
+\mathbf E(\mathbf r,t)=\frac{1}{4\pi\epsilon_0}\frac{q}{r^2}\theta(vt-r)\hat{\mathbf r}
+\qquad
+\mathbf B(\mathbf r,t)=0
+$$
+We first determine $\rho$ from Gauss's law. We write
+$$
+\begin{aligned}
+\mathbf E&=\frac{q}{4\pi\epsilon_0}\theta(vt-r)\frac{\hat{\mathbf r}}{r^2}\\
+\Longrightarrow\nabla \cdot \mathbf E
+&=
+\frac{q}{4\pi\epsilon_0}
+\nabla \cdot \left[\theta(vt-r)\frac{\hat{\mathbf r}}{r^2}\right] \\
+&=
+\frac{q}{4\pi\epsilon_0}
+\left[
+\theta(vt-r)\underbrace{ \nabla\cdot\left(\frac{\hat{\mathbf r}}{r^2}\right) }_{ 4\pi\delta^3(\mathbf r) }
++
+\frac{\hat{\mathbf r}}{r^2}\cdot \underbrace{ \nabla\theta(vt-r) }_{ A}
+\right]\\
+&= \frac{q}{4\pi\epsilon_{0}}[\theta(vt -r)4\pi\delta^{3}(\mathbf{r})-\frac{\hat{\mathbf r}}{r^{2}}\cdot A]
+\end{aligned}
+$$
+For $A$, if $u=vt-r$, then
+$$
+\frac{d\theta(u)}{du}=\delta(u)
+$$
+hence
+$$
+\begin{aligned}
+\nabla\theta(vt-r)
+&=
+\delta(vt-r)\nabla(vt-r) \\
+&=
+-\delta(vt-r)\hat{\mathbf r}
+\end{aligned}
+$$
+Therefore
+$$
+\begin{aligned}
+\nabla \cdot \mathbf E
+&=
+\frac{q}{4\pi\epsilon_0}
+\left[
+4\pi\theta(vt-r)\delta^3(\mathbf r)
+-
+\frac{1}{r^2}\delta(vt-r)
+\right]
+\end{aligned}
+$$
+So Gauss's law gives us this
+$$
+\begin{aligned}
+\rho(\mathbf r,t)
+&=
+\epsilon_0 \nabla \cdot \mathbf E \\
+&=
+q\,\theta(vt-r)\delta^3(\mathbf r)
+-
+\frac{q}{4\pi r^2}\delta(vt-r)\\
+&=
+q\,\theta(t)\delta^3(\mathbf r)
+-
+\frac{q}{4\pi r^2}\delta(vt-r)
+\end{aligned}
+$$
+Since $\delta^3(\mathbf r)$ has support only at $r=0$ s.t. the factor $\theta(vt-r)$ becomes $\theta(vt)=\theta(t)$. \\
+
+
+Next, since $\mathbf B=0$, then $\nabla\cdot \mathbf B=0$. For Faraday's law, we can use spherical-coordinate curl formula. Here
+$$
+E_r=\frac{1}{4\pi\epsilon_0}\frac{q}{r^2}\theta(vt-r)
+\qquad
+E_\theta=0
+\qquad
+E_\phi=0
+$$
+and there is no angular dependence. Hence, 
+$$
+\nabla\times \mathbf E=0 \quad \Longrightarrow \quad \nabla\times \mathbf E+\frac{\partial \mathbf B}{\partial t}=0
+$$
+Next, from Eq.~(7.52),
+$$
+\begin{align} \\
+\underbrace{ \nabla\times \mathbf B }_{0}-\cancel{ \mu_0 }\epsilon_0\frac{\partial \mathbf E}{\partial t} & =\cancel{ \mu_0}\mathbf J\\
+-\epsilon_0\frac{\partial \mathbf E}{\partial t}  & = \mathbf J  \\
+\end{align}
+$$
+Now, since
+$$
+\begin{aligned}
+\frac{\partial \mathbf E}{\partial t}
+&=
+\frac{q}{4\pi\epsilon_0 r^2}
+\underbrace{ \frac{\partial}{\partial t}\theta(vt-r) }_{ v\delta(vt-r) }\hat{\mathbf r} \\
+&=
+\frac{qv}{4\pi\epsilon_0 r^2}\delta(vt-r)\hat{\mathbf r}
+\end{aligned}
+$$
+Plug it back to the formula, we have
+$$
+\begin{aligned}
+\mathbf J(\mathbf r,t)
+ & = -\epsilon_{0}\left( \frac{qv}{4\pi\epsilon_{0}r^{2}} \delta(vt-r)\mathbf{\hat{r}}\right)  \\
+ & =-\frac{qv}{4\pi r^2}\delta(vt-r)\hat{\mathbf r}
+\end{aligned}
+$$
+
+To describe the physical situation, we can see that the second term in $\rho$ is a spherical shell at radius $r=vt$. and the total charge would be
+$$
+\begin{aligned}
+Q
+&=
+\int
+\left(
+-\frac{q}{4\pi r^2}\delta(vt-r)
+\right)
+\,d\tau \\
+&=
+-\frac{q}{4\pi}
+\int \delta(vt-r)\,r^2\sin\theta\,dr\,d\theta\,d\phi \,\frac{1}{r^2} \\
+&=
+-\frac{q}{4\pi}
+\int \delta(vt-r)\sin\theta\,dr\,d\theta\,d\phi \\
+&=
+-\frac{q}{4\pi}(1)(4\pi) \\
+&=
+-q
+\end{aligned}
+$$
+which means the fields describe a $+q$ at the origin with a spherical shell of $-q$ moving outward. Specifically, we have
+$$
+\begin{aligned}
+\mathbf E & =\frac{1}{4\pi\epsilon_0}\frac{q}{r^2}\hat{\mathbf r}
+\qquad &  & (r>vt)\\
+\mathbf E & =0
+\qquad &  & (r<vt)
+\end{aligned}
+$$
+and by spherical symmetry
+$$
+\mathbf B=0
+$$
+\end{enumerate}
+
+\newpage%----------------------------------------------------------
+
+\begin{enumerate}
+
+\begin{figure}
+      \centering
+      \includegraphics[width=0.5\linewidth]{Screenshot 2026-04-09 at 6.18.30 PM.png}
+          \centering
+  \includegraphics[width=0.5\linewidth]{Screenshot 2026-04-09 at 6.17.44 PM.png}
+\end{figure}
+\item[P7.49] \textbf{If a magnetic dipole levitating above an infinite superconducting plane (Prob.7.48) is free to rotate, what orientation will it adopt, and how high above the surface will it float?}
+
+\item[Solution] Let the angle between the dipole \(\mathbf m_1\) and the \(z\) axis be \(\theta\). Then
+$$
+\mathbf m_1=m(\sin\theta\,\hat{\mathbf x}+\cos\theta\,\hat{\mathbf z})
+$$
+
+For a superconducting plane at \(z=0\), the image dipole has the same component parallel to the plane and the opposite component perpendicular to the plane, so
+$$
+\mathbf m_2=m(\sin\theta\,\hat{\mathbf x}-\cos\theta\,\hat{\mathbf z})
+$$
+
+The field of the image dipole on the \(z\) axis follows from Eq. \(5.89\):
+$$
+\mathbf B(z)=\frac{\mu_0}{4\pi}\frac{1}{(h+z)^3}\Bigl[3(\mathbf m_2\cdot \hat{\mathbf z})\hat{\mathbf z}-\mathbf m_2\Bigr]
+$$
+
+The torque on \(\mathbf m_1\) is, from Eq. \(6.1\),
+$$
+\mathbf N=\mathbf m_1\times \mathbf B
+$$
+so at the location of the real dipole, \(z=h\),
+$$
+\begin{aligned}
+\mathbf N
+&=
+\frac{\mu_0}{4\pi(2h)^3}\,
+\mathbf m_1\times
+\Bigl[3(\mathbf m_2\cdot \hat{\mathbf z})\hat{\mathbf z}-\mathbf m_2\Bigr] \\
+&=
+\frac{\mu_0}{4\pi(2h)^3}
+\Bigl[
+3(\mathbf m_2\cdot \hat{\mathbf z})(\mathbf m_1\times \hat{\mathbf z})
+-
+(\mathbf m_1\times \mathbf m_2)
+\Bigr]
+\end{aligned}
+$$
+
+Now compute each factor
+
+First,
+$$
+\mathbf m_2\cdot \hat{\mathbf z}
+=
+m(\sin\theta\,\hat{\mathbf x}-\cos\theta\,\hat{\mathbf z})\cdot \hat{\mathbf z}
+=
+-m\cos\theta
+$$
+
+Next,
+$$
+\begin{aligned}
+\mathbf m_1\times \hat{\mathbf z}
+&=
+m(\sin\theta\,\hat{\mathbf x}+\cos\theta\,\hat{\mathbf z})\times \hat{\mathbf z} \\
+&=
+m\sin\theta\,(\hat{\mathbf x}\times \hat{\mathbf z})
++
+m\cos\theta\,(\hat{\mathbf z}\times \hat{\mathbf z}) \\
+&=
+m\sin\theta\,(-\hat{\mathbf y})
++0 \\
+&=
+-m\sin\theta\,\hat{\mathbf y}
+\end{aligned}
+$$
+
+Finally,
+$$
+\begin{aligned}
+\mathbf m_1\times \mathbf m_2
+&=
+m(\sin\theta\,\hat{\mathbf x}+\cos\theta\,\hat{\mathbf z})
+\times
+m(\sin\theta\,\hat{\mathbf x}-\cos\theta\,\hat{\mathbf z}) \\
+&=
+m^2
+\Bigl[
+\sin^2\theta\,(\hat{\mathbf x}\times \hat{\mathbf x})
+-\sin\theta\cos\theta\,(\hat{\mathbf x}\times \hat{\mathbf z})
++\sin\theta\cos\theta\,(\hat{\mathbf z}\times \hat{\mathbf x})
+-\cos^2\theta\,(\hat{\mathbf z}\times \hat{\mathbf z})
+\Bigr] \\
+&=
+m^2
+\Bigl[
+0
+-\sin\theta\cos\theta\,(-\hat{\mathbf y})
++\sin\theta\cos\theta\,\hat{\mathbf y}
+-0
+\Bigr] \\
+&=
+2m^2\sin\theta\cos\theta\,\hat{\mathbf y}
+\end{aligned}
+$$
+
+Substituting into the torque formula,
+$$
+\begin{aligned}
+\mathbf N
+&=
+\frac{\mu_0}{4\pi(2h)^3}
+\Bigl[
+3(-m\cos\theta)(-m\sin\theta\,\hat{\mathbf y})
+-
+2m^2\sin\theta\cos\theta\,\hat{\mathbf y}
+\Bigr] \\
+&=
+\frac{\mu_0}{4\pi(2h)^3}
+\Bigl[
+3m^2\sin\theta\cos\theta\,\hat{\mathbf y}
+-
+2m^2\sin\theta\cos\theta\,\hat{\mathbf y}
+\Bigr] \\
+&=
+\frac{\mu_0 m^2}{4\pi(2h)^3}\sin\theta\cos\theta\,\hat{\mathbf y}
+\end{aligned}
+$$
+
+from this, we can see the torque vanishes when
+$$
+\theta=0,\frac{\pi}{2},\pi
+$$
+
+The only stable orientation is $\theta=\frac{\pi}{2}$ so the dipole settles parallel to the plane. In this orientation,
+$$
+\mathbf m_1=\mathbf m_2=m\hat{\mathbf x}
+$$
+
+Then the field of the image dipole on the \(z\) axis is
+$$
+\begin{aligned}
+\mathbf B(z)
+&=
+\frac{\mu_0}{4\pi}\frac{1}{(h+z)^3}
+\Bigl[
+3(\mathbf m_2\cdot \hat{\mathbf z})\hat{\mathbf z}
+-\mathbf m_2
+\Bigr] \\
+&=
+\frac{\mu_0}{4\pi}\frac{1}{(h+z)^3}
+\Bigl[
+3(m\hat{\mathbf x}\cdot \hat{\mathbf z})\hat{\mathbf z}
+-m\hat{\mathbf x}
+\Bigr] \\
+&=
+\frac{\mu_0}{4\pi}\frac{1}{(h+z)^3}
+\Bigl[
+0-m\hat{\mathbf x}
+\Bigr] \\
+&=
+-\frac{\mu_0 m}{4\pi(h+z)^3}\hat{\mathbf x}
+\end{aligned}
+$$
+
+Using Eq. \(6.3\),
+$$
+\mathbf F=\nabla(\mathbf m_1\cdot \mathbf B)
+$$
+
+Now
+$$
+\begin{aligned}
+\mathbf m_1\cdot \mathbf B
+&=
+m\hat{\mathbf x}\cdot
+\left(
+-\frac{\mu_0 m}{4\pi(h+z)^3}\hat{\mathbf x}
+\right) \\
+&=
+-\frac{\mu_0 m^2}{4\pi(h+z)^3}
+\end{aligned}
+$$
+
+Hence
+$$
+\begin{aligned}
+\mathbf F
+&=
+\nabla\left(
+-\frac{\mu_0 m^2}{4\pi(h+z)^3}
+\right) \\
+&=
+\frac{\partial}{\partial z}
+\left(
+-\frac{\mu_0 m^2}{4\pi(h+z)^3}
+\right)\hat{\mathbf z} \\
+&=
+-\frac{\mu_0 m^2}{4\pi}\frac{\partial}{\partial z}(h+z)^{-3}\hat{\mathbf z} \\
+&=
+-\frac{\mu_0 m^2}{4\pi}\Bigl[-3(h+z)^{-4}\Bigr]\hat{\mathbf z} \\
+&=
+\frac{3\mu_0 m^2}{4\pi(h+z)^4}\hat{\mathbf z}
+\end{aligned}
+$$
+
+At the location of the real dipole, \(z=h\), this becomes
+$$
+\begin{aligned}
+\mathbf F
+&=
+\frac{3\mu_0 m^2}{4\pi(2h)^4}\hat{\mathbf z}
+\end{aligned}
+$$
+
+At equilibrium, this upward force would equal to its weight \(mg\), if the mass of the magnet is m:
+$$
+\begin{aligned}
+Mg &= \frac{3\mu_0 m^2}{4\pi(2h)^4}&\\
+h&=\left( \frac{3\mu_{0}m^{2}}{4\pi 8 Mg}  \right)^ {\frac{1}{4}}    \\
+\end{aligned}
+$$
+\end{enumerate}
+
+\newpage%----------------------------------------------------------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screenshot 2026-04-09 at 5.23.04 PM.png}
+    \label{fig:placeholder}
+\end{figure}
+\begin{enumerate}
+  \item[P8.3] \textbf{Consider the charging capacitor in Prob.7.35.}
+   \item[(a)] \textit{Find the electric and magnetic fields in the gap, as functions of the distance $s$ from the axis and the time $t$. (Assume the charge is zero at $t=0$.)}
+\item[Solution] 
+
+Let the axis of the wire be the \(z\) axis, and use cylindrical coordinates \((s,\phi,z)\). Since the current is uniformly distributed over the cross section of the wire,
+$$
+\mathbf J=\frac{I}{\pi a^2}\,\hat{\mathbf z}
+$$
+
+Let \(Q(t)\) be the charge on the positive plate. Then
+$$
+\frac{dQ}{dt}=I
+\qquad
+Q(0)=0\quad \Longrightarrow \quad Q(t)=It
+$$
+Hence the surface charge density on the plates is
+$$
+\sigma(t)=\frac{Q(t)}{\pi a^2}=\frac{It}{\pi a^2}
+$$
+
+the gap is a parallel plate capacitor, so the electric field in the gap is uniform:
+$$
+\boxed{\mathbf E(s,t)=\frac{\sigma(t)}{\epsilon_0}\,\hat{\mathbf z}
+=\frac{It}{\pi\epsilon_0 a^2}\,\hat{\mathbf z}
+\qquad
+(s<a)}
+$$
+
+For finding the magnetic field, we apply the Ampere-Maxwell law to a circular loop \(s<a\) in the gap:
+$$
+\begin{aligned}
+    \oint \mathbf B\cdot d\mathbf l
+&=\mu_0 \underbrace{I_{enc}}_{0}+\mu_0\epsilon_0\frac{d\Phi_E}{dt}
+\\
+&= \mu_0\epsilon_0\frac{d\Phi_E}{dt}
+\end{aligned}
+$$
+
+because in the gap no conduction current through the flat surface. By symmetry,
+$$
+\mathbf B(s,t)=B(s,t)\,\hat{\boldsymbol\phi} \quad \Longrightarrow \quad\oint \mathbf B\cdot d\mathbf l=B(s,t)(2\pi s)
+
+$$
+
+The electric flux through the loop is
+$$
+\Phi_E=E(s,t)\,(\pi s^2)
+$$
+because \(E\) is uniform over the circular surface of radius \(s\). Therefore
+$$
+\begin{aligned}
+B(s,t)(2\pi s)
+&=
+\mu_0\epsilon_0\frac{d}{dt}\left(E(s,t)\pi s^2\right) \\
+&=
+\mu_0\epsilon_0\pi s^2\frac{dE}{dt} \\
+&=
+\mu_0\epsilon_0\pi s^2
+\frac{d}{dt}\left(\frac{It}{\pi\epsilon_0 a^2}\right) \\
+&=
+\mu_0\epsilon_0\pi s^2
+\left(\frac{I}{\pi\epsilon_0 a^2}\right) \\
+&=
+\mu_0 I\frac{s^2}{a^2}
+\end{aligned}
+$$
+which means
+$$
+\begin{aligned}
+B(s,t)
+&=
+\frac{1}{2\pi s}\,\mu_0 I\frac{s^2}{a^2} \\
+&=
+\frac{\mu_0 I s}{2\pi a^2}
+\end{aligned}
+$$
+
+Thus
+$$
+\boxed{\mathbf B(s,t)=\frac{\mu_0 I s}{2\pi a^2}\,\hat{\boldsymbol\phi}
+\qquad
+(s<a)}
+$$
+
+\item[(b)] \textit{Find the energy density $u_{\mathrm{em}}$ and the Poynting vector $\mathbf{S}$ in the gap. Note especially the direction of $\mathbf{S}$. Check that Eq.8.12 is satisfied.}
+\item[Solution] The electromagnetic energy density is
+$$
+\begin{aligned}
+u_{\text{em}}(s,t) &=  \frac{1}{2}\left(\epsilon_0E^2+\frac{1}{\mu_0}B^2\right)\\
+&=
+\frac{1}{2}\left[
+\epsilon_0\left(\frac{It}{\pi\epsilon_0 a^2}\right)^2
++
+\frac{1}{\mu_0}\left(\frac{\mu_0 I s}{2\pi a^2}\right)^2
+\right] \\
+&=
+\frac{1}{2}\left[
+\frac{I^2t^2}{\pi^2\epsilon_0 a^4}
++
+\frac{\mu_0 I^2 s^2}{4\pi^2 a^4}
+\right] \\
+&=
+\frac{I^2t^2}{2\pi^2\epsilon_0 a^4}
++
+\frac{\mu_0 I^2 s^2}{8\pi^2 a^4}
+\end{aligned}
+$$
+
+The Poynting vector is
+
+$$
+\begin{aligned}
+\mathbf S(s,t)
+&=\frac{1}{\mu_0}(\mathbf E\times \mathbf B)\\
+&=
+\frac{1}{\mu_0}
+\left(
+\frac{It}{\pi\epsilon_0 a^2}\hat{\mathbf z}
+\times
+\frac{\mu_0 I s}{2\pi a^2}\hat{\boldsymbol\phi}
+\right) \\
+&=
+\frac{1}{\mu_0}
+\left(
+\frac{\mu_0 I^2ts}{2\pi^2\epsilon_0 a^4}
+\right)
+(\hat{\mathbf z}\times \hat{\boldsymbol\phi}) \\
+&=
+\frac{I^2ts}{2\pi^2\epsilon_0 a^4}
+(\hat{\mathbf z}\times \hat{\boldsymbol\phi})
+\end{aligned}
+$$
+
+Now
+$$
+\hat{\mathbf z}\times \hat{\boldsymbol\phi}=-\hat{\mathbf s}
+$$
+so
+$$
+\boxed{
+\mathbf S(s,t)
+=
+-\frac{I^2ts}{2\pi^2\epsilon_0 a^4}\,\hat{\mathbf s}
+}
+$$
+
+Thus \(\mathbf S\) points radially inward. To check Eq.~8.12 in the gap, again note that there is no conduction current there, so
+$$
+\mathbf J=\mathbf 0
+$$
+and Poynting's theorem becomes
+$$
+\frac{\partial u_{\text{em}}}{\partial t}=-\nabla\cdot \mathbf S
+$$
+
+Now
+$$
+u_{\text{em}}(s,t)
+=
+\frac{I^2t^2}{2\pi^2\epsilon_0 a^4}
++
+\frac{\mu_0 I^2 s^2}{8\pi^2 a^4}
+$$
+so
+$$
+\begin{aligned}
+\frac{\partial u_{\text{em}}}{\partial t}
+&=
+\frac{\partial}{\partial t}
+\left(
+\frac{I^2t^2}{2\pi^2\epsilon_0 a^4}
++
+\frac{\mu_0 I^2 s^2}{8\pi^2 a^4}
+\right) \\
+&=
+\frac{I^2}{2\pi^2\epsilon_0 a^4}\frac{\partial}{\partial t}(t^2)
++
+0 \\
+&=
+\frac{I^2}{2\pi^2\epsilon_0 a^4}(2t) \\
+&=
+\frac{I^2t}{\pi^2\epsilon_0 a^4}
+\end{aligned}
+$$
+
+Also, in cylindrical coordinates, since \(S_\phi=0\) and \(S_z=0\),
+$$
+\nabla\cdot \mathbf S
+=
+\frac{1}{s}\frac{\partial}{\partial s}(sS_s)
+$$
+
+Here
+$$
+S_s=-\frac{I^2ts}{2\pi^2\epsilon_0 a^4}
+$$
+Therefore
+$$
+\begin{aligned}
+\nabla\cdot \mathbf S
+&=
+\frac{1}{s}\frac{\partial}{\partial s}
+\left[
+s\left(
+-\frac{I^2ts}{2\pi^2\epsilon_0 a^4}
+\right)
+\right] \\
+&=
+\frac{1}{s}\frac{\partial}{\partial s}
+\left(
+-\frac{I^2t}{2\pi^2\epsilon_0 a^4}s^2
+\right) \\
+&=
+\frac{1}{s}
+\left(
+-\frac{I^2t}{2\pi^2\epsilon_0 a^4}\frac{\partial}{\partial s}(s^2)
+\right) \\
+&=
+\frac{1}{s}
+\left(
+-\frac{I^2t}{2\pi^2\epsilon_0 a^4}(2s)
+\right) \\
+&=
+-\frac{I^2t}{\pi^2\epsilon_0 a^4}
+\end{aligned}
+$$
+
+Hence
+$$
+\boxed{
+\frac{\partial u_{\text{em}}}{\partial t}
+=
+-\nabla\cdot \mathbf S
+}
+$$
+as requested.
+ 
+\item[(c)] \textit{Determine the total energy in the gap, as a function of time. Calculate the total power flowing into the gap, by integrating the Poynting vector over the appropriate surface. Check that the power input is equal to the rate of increase of energy in the gap (Eq.8.9 -- in this case $W=0$, because there is no charge in the gap). [If you're worried about the fringing fields, do it for a volume of radius $b<a$ well inside the gap.]}
+For part (c), take a cylindrical volume of radius \(b<a\) and thickness \(w\) inside the gap
+
+The total electromagnetic energy in this volume is
+$$
+U_{\text{em}}(b,t)=\int u_{\text{em}}\,d\tau
+=\int_0^w dz\int_0^{2\pi}d\phi\int_0^b u_{\text{em}}(s,t)\,s\,ds
+$$
+
+Substitute
+$$
+u_{\text{em}}(s,t)
+=
+\frac{I^2t^2}{2\pi^2\epsilon_0 a^4}
++
+\frac{\mu_0 I^2 s^2}{8\pi^2 a^4}
+$$
+to get
+$$
+\begin{aligned}
+U_{\text{em}}(b,t)
+&=
+\int_0^w dz\int_0^{2\pi}d\phi\int_0^b
+\left(
+\frac{I^2t^2}{2\pi^2\epsilon_0 a^4}
++
+\frac{\mu_0 I^2 s^2}{8\pi^2 a^4}
+\right)s\,ds \\
+&=
+\underbrace{\int_0^w dz}_{=\,w} 
+\underbrace{\int_0^{2\pi}d\phi}_{=\,2\pi}
+\left[
+\frac{I^2t^2}{2\pi^2\epsilon_0 a^4}\underbrace{\int_0^b s\,ds}_{=\,\frac{b^2}{2}}
++
+\frac{\mu_0 I^2}{8\pi^2 a^4}\underbrace{\int_0^b s^3\,ds}_{=\,\frac{b^4}{4}}
+\right] \\
+&=
+(w)(2\pi)
+\left[
+\frac{I^2t^2}{2\pi^2\epsilon_0 a^4}\left(\frac{b^2}{2}\right)
++
+\frac{\mu_0 I^2}{8\pi^2 a^4}\left(\frac{b^4}{4}\right)
+\right] \\
+&=
+2\pi w
+\left[
+\frac{I^2t^2b^2}{4\pi^2\epsilon_0 a^4}
++
+\frac{\mu_0 I^2b^4}{32\pi^2 a^4}
+\right] \\
+&=
+\frac{wI^2t^2b^2}{2\pi\epsilon_0 a^4}
++
+\frac{\mu_0 wI^2b^4}{16\pi a^4}
+\end{aligned}
+$$
+Therefore
+$$
+\boxed{
+U_{\text{em}}(b,t)
+=
+\frac{wI^2t^2b^2}{2\pi\epsilon_0 a^4}
++
+\frac{\mu_0 wI^2b^4}{16\pi a^4}
+}
+$$
+
+Now compute the power flowing into this volume. Since \(\mathbf S\) is purely radial,
+$$
+\mathbf S(s,t)
+=
+-\frac{I^2ts}{2\pi^2\epsilon_0 a^4}\,\hat{\mathbf s}
+$$
+only the curved side contributes to the surface integral. On that surface,
+$$
+s=b
+\qquad
+d\mathbf a=\hat{\mathbf s}\,b\,d\phi\,dz
+$$
+
+Thus the outward flux is
+$$
+\begin{aligned}
+\oint \mathbf S\cdot d\mathbf a
+&=
+\int_0^w dz\int_0^{2\pi}d\phi\,
+\mathbf S(b,t)\cdot \hat{\mathbf s}\,b \\
+&=
+\int_0^w dz\int_0^{2\pi}d\phi\,
+\left(
+-\frac{I^2tb}{2\pi^2\epsilon_0 a^4}\hat{\mathbf s}
+\right)\cdot
+\left(
+\hat{\mathbf s}\,b
+\right) \\
+&=
+\int_0^w dz\int_0^{2\pi}d\phi\,
+\left(
+-\frac{I^2tb^2}{2\pi^2\epsilon_0 a^4}
+\right) \\
+&=
+(2\pi w)
+\left(
+-\frac{I^2tb^2}{2\pi^2\epsilon_0 a^4}
+\right) \\
+&=
+-\frac{wI^2tb^2}{\pi\epsilon_0 a^4}
+\end{aligned}
+$$
+
+Hence the power flowing into the gap is
+$$
+\boxed{
+P_{\text{in}}
+=
+-\oint \mathbf S\cdot d\mathbf a
+=
+\frac{wI^2tb^2}{\pi\epsilon_0 a^4}
+}
+$$
+
+now we differentiate the total energy
+$$
+\begin{aligned}
+\frac{dU_{\text{em}}}{dt}
+&=
+\frac{d}{dt}
+\left(
+\frac{wI^2t^2b^2}{2\pi\epsilon_0 a^4}
++
+\frac{\mu_0 wI^2b^4}{16\pi a^4}
+\right) \\
+&=
+\frac{wI^2b^2}{2\pi\epsilon_0 a^4}\frac{d}{dt}(t^2)
++
+0 \\
+&=
+\frac{wI^2b^2}{2\pi\epsilon_0 a^4}(2t) \\
+&=
+\frac{wI^2tb^2}{\pi\epsilon_0 a^4}
+\end{aligned}
+$$
+
+Therefore
+$$
+P_{\text{in}}=\frac{dU_{\text{em}}}{dt}
+$$
+
+And if neglecting fringing entirely, we set \(b=a\), then
+$$
+\boxed{U_{\text{em}}(a,t)
+=
+\frac{wI^2t^2}{2\pi\epsilon_0 a^2}
++
+\frac{\mu_0 wI^2}{16\pi}}
+$$
+the total power flowing into the entire gap is
+$$
+\boxed{
+P_{\text{in}}
+=
+\frac{wI^2t}{\pi\epsilon_0 a^2}
+}\quad
+\text{and} \quad  \frac{dU_{\text{em}}(a,t)}{dt}
+=
+\frac{wI^2t}{\pi\epsilon_0 a^2}
+=
+P_{\text{in}}
+$$
+\end{enumerate}
+
+
+\end{document}

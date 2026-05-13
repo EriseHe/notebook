@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "48ba3929f6e397df",
+        "id": "c6a6c8c7964f69fb",
         "type": "tabs",
         "children": [
           {
-            "id": "d7891419c4d835f5",
+            "id": "fcd87a2a762b7525",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -71,7 +71,7 @@
             }
           },
           {
-            "id": "bec91e8d5cceed41",
+            "id": "153387cb495e4467",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -193,8 +193,14 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "d7891419c4d835f5",
+  "active": "7b2e8298235ac8c2",
   "lastOpenFiles": [
+    "Advanced Lab/Module 4/Final.md",
+    "Advanced Lab/Module 3/Module 3 Heat Conduction.md",
+    "Advanced Lab/Module 4",
+    "Advanced Lab/Instruction for Lab.md",
+    "Advanced Lab/Untitled.md",
+    "Advanced Lab/Module 1 LabVIEW.md",
     "Feminist History/(Yip, Ka-che) Health and Nationalist Reconstruction Rural Health in Nationalist China, 1928-1937.md",
     "Feminist History/(Xu, Yier) A Modern Occupation for Women - Feminization and the Professionalization of Nursing in 1930s China.md",
     "Feminist History/(Shemo, Connie) Able to Do Things of Which They Have Never Dreamed - Shi Meiyu’s Vision of Nursing in Early Twentieth-Century China.md",
@@ -202,8 +208,6 @@
     "Feminist History/(Barnes, Nicole Elizabeth). Intimate Communities - Wartime Healthcare and the Birth of Modern China, 1937–1945.md",
     "Feminist History",
     "Advanced Lab/Module 3/Paper.md",
-    "Advanced Lab/Instruction for Lab.md",
-    "Advanced Lab/Module 3/Module 3 Heat Conduction.md",
     "Advanced Lab/Module 3"
   ]
 }

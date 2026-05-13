@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "6e54a92d227244dc",
+        "id": "1df40576ed6cc72f",
         "type": "tabs",
         "children": [
           {
-            "id": "208356162090146d",
+            "id": "bd10274eaac19094",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/电磁学/7 Electrodynamics/7.2 Electromagnetic Induction.md",
+                "file": "理论/微分几何讲义/微分几何导论II/problem 4.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "7.2 Electromagnetic Induction"
+              "title": "problem 4"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": " 有意义",
+                "query": "simple Riemannian manifold",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -76,7 +76,7 @@
             }
           },
           {
-            "id": "7cab439ba391e258",
+            "id": "608a098e2a99e46a",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -153,13 +153,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "理论/电磁学/7 Electrodynamics/7.2 Electromagnetic Induction.md",
+                "file": "理论/微分几何讲义/微分几何导论II/Problem 4 Boundary Distance Determines Volume for Simple Metrics.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 7.2 Electromagnetic Induction"
+              "title": "Outline of Problem 4 Boundary Distance Determines Volume for Simple Metrics"
             }
           },
           {
@@ -177,7 +177,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 279.5
+    "width": 279.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -196,18 +197,76 @@
       "transfer-latex-from-gpt:Convert LaTeX to MathJax": false
     }
   },
-  "active": "208356162090146d",
+  "floating": {
+    "id": "9e60269ad2b123c2",
+    "type": "floating",
+    "children": [
+      {
+        "id": "3180737de59bed49",
+        "type": "window",
+        "children": [
+          {
+            "id": "6333e260935b6b06",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "24b21d995861ad8b",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "理论/微分几何讲义/微分几何导论II/Problem 4 Boundary Distance Determines Volume for Simple Metrics.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "Problem 4 Boundary Distance Determines Volume for Simple Metrics"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 0,
+        "y": 36,
+        "width": 1470,
+        "height": 920,
+        "maximize": true,
+        "zoom": -1
+      }
+    ]
+  },
+  "active": "24b21d995861ad8b",
   "lastOpenFiles": [
-    "理论/电磁学/7 Electrodynamics/7.1 Electromotive Force.md",
-    "理论/电磁学/cheat sheet.tex",
-    "理论/电磁学/cheat sheet.pdf",
-    "理论/电磁学/cheat sheet.log",
-    "理论/电磁学/cheat sheet.aux",
-    "理论/电磁学/9 Electromagnetic Waves/9.3 Electromagnetic Waves in Matter.md",
+    "理论/微分几何讲义/微分几何导论II/problem 4.md",
+    "理论/微分几何讲义/微分几何导论II/Problem 4 Boundary Distance Determines Volume for Simple Metrics.md",
+    "理论/微分几何讲义/微分几何导论II/Final.md",
+    "理论/微分几何讲义/微分几何导论II/Apr 8.md",
+    "理论/微分几何讲义/微分几何导论II/Apr 20.md",
+    "理论/PDEs/数值PDEs/Final.md",
+    "理论/PDEs/MFEM/Final Project.md",
+    "理论/电磁学/7 Electrodynamics/7.3 Maxwell’s Equations.md",
+    "理论/电磁学/Midterm3/pdflatex46678.fls",
+    "理论/电磁学/Midterm3/pdflatex46677.fls",
+    "理论/电磁学/Midterm3/pdflatex46534.fls",
+    "理论/电磁学/Midterm3/pdflatex46533.fls",
+    "理论/电磁学/Midterm3/pdflatex46300.fls",
+    "理论/电磁学/Midterm3/pdflatex46299.fls",
+    "理论/电磁学/Midterm3/pdflatex46130.fls",
+    "理论/电磁学/Midterm3/pdflatex46129.fls",
+    "理论/电磁学/Midterm3/pdflatex45875.fls",
+    "理论/电磁学/Midterm3/pdflatex45869.fls",
+    "理论/电磁学/7 Electrodynamics/Chapter 7.3 Maxwell's Equations Cheat Sheet.md",
+    "理论/电磁学/7 Electrodynamics/7.4 The Field of a Rotating Magnet.md",
+    "理论/电磁学/8 Conservation Laws/8.1.md",
     "理论/电磁学/9 Electromagnetic Waves/9.2 Electromagnetic Waves in Vacuum.md",
+    "理论/电磁学/9 Electromagnetic Waves/9.3 Electromagnetic Waves in Matter.md",
+    "理论/电磁学/7 Electrodynamics/Practice Problem.md",
+    "理论/电磁学/7 Electrodynamics/7.2 Electromagnetic Induction.md",
+    "理论/电磁学/7 Electrodynamics/7.1 Electromotive Force.md",
     "理论/电磁学/6 Magnetic Fields in Matter/6.2 The Field of a Magnetized.md",
     "理论/PDEs/MFEM/2. Finite Element Hello World!.md",
-    "理论/电磁学/8 Conservation Laws/8.1.md",
     "理论/电磁学/9 Electromagnetic Waves/9.2.md",
     "理论/电磁学/9 Electromagnetic Waves/9.3.md",
     "理论/PDEs/Application/03 Numerical Solution of Ordinary Differential Equations.md",
@@ -215,24 +274,7 @@
     "理论/PDEs/MFEM/4. Linear Elasticity.md",
     "理论/PDEs/MFEM/3. Heat Transfer.md",
     "理论/电磁学/习题集.md",
-    "理论/电磁学/7 Electrodynamics/Practice Problem.md",
-    "理论/电磁学/7 Electrodynamics/7.4 The Field of a Rotating Magnet.md",
-    "理论/电磁学/7 Electrodynamics/7.3 Maxwell’s Equations.md",
-    "理论/电磁学/7 Electrodynamics/7.2 Electromagnetic Induction.md",
     "理论/电磁学/index.md",
-    "理论/电磁学/8 Conservation Laws/Untitled",
-    "理论/电磁学/9 Electromagnetic Waves",
-    "理论/电磁学/8 Conservation Laws",
-    "理论/电磁学/7 Electrodynamics",
-    "理论/电磁学/Untitled.md",
-    "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.5 Heat equation.md",
-    "理论/PDEs/数值PDEs/3. Advection-Diffusion/3.6 Linearization, ODE Stability, Semi-Discretization, and the Theta-Method.md",
-    "理论/PDEs/数值PDEs/2. Poisson/2.2 Finite Difference.md",
-    "理论/PDEs/数值PDEs/2. Poisson/2.1 Poisson Equation.md",
-    "理论/PDEs/Application/Intro to MFEM.md",
-    "理论/PDEs/Application/Untitled.md",
-    "理论/PDEs/MFEM",
-    "计算/量子力学讲义/薛定谔方程的傅立叶变换.html",
     "image.png",
     "image-1.png",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
