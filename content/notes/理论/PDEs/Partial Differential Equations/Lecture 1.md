@@ -1,0 +1,97 @@
+---
+date: 2026-09-02
+---
+### Notation
+
+- Gradient $D$, or $\nabla =(\partial x_{1}, \dots, \partial x_{n})$ in $\mathbb{R}^n$
+- Matrices $$
+\begin{align}
+A & =((a_{ij}))  \\
+\end{align}
+$$
+- diagonal $$diag(A)= diag(d_{1},\dots ,d_{N})$$
+
+- $$
+\begin{align}
+\alpha = &  (\alpha_{1}, \dots,\alpha_{n}) \\
+D^{\alpha} u = &  (\partial^{\alpha_{1}}_{x_{1}},\dots, \partial^{n}_{x_{n}})u
+\end{align}
+$$
+- $$
+C(U) = \text{continon functions on set $U$}
+$$
+
+### Definitions and notation for PDEs
+
+PDE: 
+$$
+F ( D^{k}u(x), D^{k-1}u(x), \dots, Du(x), u(x), x)=0
+$$
+for $x\in U$.
+
+> This PDE has order $k$, and $F$ should be known may need boundary and initial equations.
+
+### Types of PDEs
+
+PDEs is 
+- **linear** if $F$ is linear in $u$ and its derivatives
+	- e.x. Transport equations$$a_{0}f+a_{1}\partial_{x_{1}}f + \dots +a_{n}\partial_{x_{n}}f = a_{n+1}$$
+	- e.x. $$(x^{2}+1)u_{xx}+f_{1}(u_{x})=f_{2}(x) + f_{3}(u)$$
+- **semi-linear** if $F$ is linear in highest derivative $D^{k}u$, with coefficients depending only on $x$.
+- **quasi-linear** if $F$ is linear in highest derivative $D^{k}u$ but coefficients (for highest derivative) can depend on other derivatives. 
+	- ex. $$f_{x}+f^{2}=u(x)$$
+- **fully nonlinear**: anything else goes.
+
+| Type                | Highest derivatives $D^ku$                               | Lower derivatives / $u$ |
+| ------------------- | ---------------------------------------------------------- | ------------------------- |
+| **Linear**          | linear; coefficients only $x$                            | also linear               |
+| **Semilinear**      | linear; coefficients only $x$                            | can be nonlinear          |
+| **Quasilinear**     | linear; coefficients may depend on $u,Du,\dots,D^{k-1}u$ | can be nonlinear          |
+| **Fully nonlinear** | **nonlinear**                                              | anything                  |
+
+
+#### Examples
+
+$$
+\begin{align}
+\text{linear}  & \to \text{Laplace equations}  &  & \Delta u =0\\
+ & \to \text{Linear transport} &  & u_{t}+\sum b_{i}u_{x_{i}}=0 \\
+& \to \text{Heat equation}  &  & u_{t}- \nabla u =0 \\
+& \to \text{Wave equation}  &  & u_{tt}+\nabla u =0\\ 
+& \to \text{Schrodinger equation}  &  & iu_{t}+\nabla u =0\\  \\
+ \\
+
+
+\text{Non-linear}  
+ & \to \text{$KdV$} &  & u_{t}+ uu_{x} + u_{xxx}=0 \\
+& \to \text{Minimal Surface}  &  & div\left( \frac{D_{u}}{1+|D_{u}|^{2}} \right) =0,   \\
+&&&  div \cdot f = \sum \partial _{x_{i}}f_{i}\\
+& \to \text{Burgers Equations}  &  & u_{t}+uu_{x} =0\\ 
+\end{align}
+$$
+
+### Types of solutions
+
+> [!definition] Well-posed PDE
+> A well-posed equations 
+> solution is 
+> - unique
+> - smooth
+> - dependence on data
+
+- as much as smoothness as the terms in the PDE
+- Weak solutions that solve the PDE in some sense.
+
+
+EXAMPLE (SEE PHOTO)
+$$
+u_{t} +{uu_{x}u}
+$$
+$$
+
+$$
+
+---
+
+
+
