@@ -11,10 +11,14 @@
             "id": "0dfe5a1d50cef0fa",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Lacanian/唯一之爱与复数欲望：拉康主义框架下对齐泽克“激进之爱”的一个内部质疑.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "唯一之爱与复数欲望：拉康主义框架下对齐泽克“激进之爱”的一个内部质疑"
             }
           }
         ]
@@ -37,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -71,7 +77,7 @@
             }
           },
           {
-            "id": "09a99486a501f6f1",
+            "id": "840cf1ae0cfd498b",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -176,5 +182,15 @@
     }
   },
   "active": "0dfe5a1d50cef0fa",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Lacanian",
+    "Foucault/福柯视角下的物理学转变以及新范式的可能.md",
+    "Lacanian/唯一之爱与复数欲望：拉康主义框架下对齐泽克“激进之爱”的一个内部质疑.md",
+    "_index.md",
+    "Lacanian/唯一之爱与复数欲望：从弗洛伊德、拉康到齐泽克的“同一对象约束”之争.md",
+    "Foucault/家庭式生命权力：通过儒家的家国体系重读福柯的生命政治理论在东亚的实践.md",
+    "Lacanian AI.md",
+    "Foucault/Commentary on the Collage.md",
+    "Foucault/Commentary on Foucault's The Order of Things.md"
+  ]
 }
