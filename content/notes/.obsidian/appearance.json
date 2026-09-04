@@ -1,13 +1,13 @@
 {
   "theme": "system",
   "accentColor": "",
-  "textFontFamily": "NewComputerModern10",
+  "textFontFamily": "",
   "translucency": true,
   "cssTheme": "Handwriting (Kalam)",
   "baseFontSize": 22,
   "baseFontSizeAction": true,
   "interfaceFontFamily": "",
-  "monospaceFontFamily": "NewComputerModern10",
+  "monospaceFontFamily": "",
   "showViewHeader": true,
   "enabledCssSnippets": [],
   "showRibbon": true
