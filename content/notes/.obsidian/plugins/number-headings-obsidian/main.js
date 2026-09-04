@@ -263,6 +263,10 @@ const DEFAULT_SETTINGS = {
     contents: '',
     skipHeadings: '',
     startAt: '',
+    // Local customization: treat the shallowest heading in each file as level 1.
+    normalizeHeadingLevels: true,
+    // Local customization: a leading outline number in the filename is a virtual parent.
+    inheritFilenameNumber: true,
     off: false
 };
 function isValidNumberingStyleString(s) {
@@ -639,6 +643,30 @@ function replaceRangeEconomically(editor, changes, range, text) {
         });
     }
 }
+// LOCAL CUSTOMIZATION
+// Obsidian allows a note to begin at any Markdown heading depth. Number relative to
+// the shallowest heading actually present so a document beginning with ## starts at
+// 1 instead of 0.1. If the filename begins with an outline number such as
+// "3. Heat Equation" or "3.2. Boundary Data", use that number as a virtual parent,
+// making the first in-file heading 3.1 or 3.2.1 respectively.
+function getShallowestHeadingLevel(headings) {
+    if (headings.length === 0)
+        return 1;
+    return headings.reduce((minimum, heading) => Math.min(minimum, heading.level), 6);
+}
+function getFilenameNumberingTokens(viewInfo, settings) {
+    if (!settings.inheritFilenameNumber)
+        return [];
+    const activeView = viewInfo.activeView;
+    const file = activeView ? activeView.file : undefined;
+    const basename = file && file.basename ? file.basename : '';
+    // Require a final dot or right parenthesis, followed by whitespace/end, so a
+    // date-like filename such as 2026-09-03 is not mistaken for an outline number.
+    const match = basename.match(/^\s*(\d+(?:\.\d+)*)[.)](?:\s+|$)/);
+    if (!match)
+        return [];
+    return match[1].split('.').map(value => ({ style: '1', value: parseInt(value) }));
+}
 const updateHeadingNumbering = (viewInfo, settings) => {
     var _a;
     if (!viewInfo)
@@ -646,8 +674,14 @@ const updateHeadingNumbering = (viewInfo, settings) => {
     const headings = (_a = viewInfo.data.headings) !== null && _a !== void 0 ? _a : [];
     const editor = viewInfo.editor;
     const supportFlags = createSupportFlagsFromSettings(settings.styleLevel1, settings.styleLevelOther);
+    const shallowestHeadingLevel = settings.normalizeHeadingLevels ? getShallowestHeadingLevel(headings) : 1;
+    const filenameNumberingTokens = getFilenameNumberingTokens(viewInfo, settings);
+    const firstInFileHeadingStyle = filenameNumberingTokens.length > 0 ? settings.styleLevelOther : settings.styleLevel1;
+    const makeInitialNumberingStack = () => filenameNumberingTokens.concat([
+        startAtOrZerothInStyle(settings.startAt, firstInFileHeadingStyle)
+    ]);
     let previousLevel = 1;
-    let numberingStack = [startAtOrZerothInStyle(settings.startAt, settings.styleLevel1)];
+    let numberingStack = makeInitialNumberingStack();
     if (settings.firstLevel > 1) {
         previousLevel = settings.firstLevel;
     }
@@ -655,27 +689,39 @@ const updateHeadingNumbering = (viewInfo, settings) => {
         previousLevel = 2;
     }
     const changes = [];
+    let numberingStarted = false;
     for (const heading of headings) {
         // Update the numbering stack based on the level and previous level
-        const level = heading.level;
+        const level = settings.normalizeHeadingLevels
+            ? heading.level - shallowestHeadingLevel + 1
+            : heading.level;
         // Handle skipped & ignored levels.
         if ((settings.firstLevel > level) || (settings.skipTopLevel && level === 1)) {
             // Resets the numbering when a level is skipped.
             // Note: This leaves headings as they are, allowing people to have numbers at the start of
             // ignored headings.
-            numberingStack = [startAtOrZerothInStyle(settings.startAt, settings.styleLevel1)];
+            numberingStack = makeInitialNumberingStack();
             if (settings.firstLevel > 1) {
                 previousLevel = settings.firstLevel;
             }
             else if (settings.skipTopLevel) {
                 previousLevel = 2;
             }
+            numberingStarted = false;
             continue;
         }
         // Handle skipped headings
         if (settings.skipHeadings.length > 0) {
             if (heading.heading.endsWith(settings.skipHeadings)) {
                 continue;
+            }
+        }
+        // If the document begins with a deeper relative level, create its missing
+        // parent as 1 (or the configured start value), never as 0.
+        if (!numberingStarted && level > previousLevel) {
+            const x = numberingStack.pop();
+            if (x !== undefined) {
+                numberingStack.push(nextNumberingToken(x));
             }
         }
         // Adjust numbering stack
@@ -701,6 +747,7 @@ const updateHeadingNumbering = (viewInfo, settings) => {
         }
         // Set the previous level to this level for the next iteration
         previousLevel = level;
+        numberingStarted = true;
         if (level > settings.maxLevel) {
             // If we are above the max level, just don't number it
             continue;
@@ -924,6 +971,26 @@ class NumberHeadingsPluginSettingTab extends obsidian.PluginSettingTab {
         li100.createEl('b', { text: 'Numbering off' });
         li100.createEl('span', { text: ': If \'off\' appears, the document will not be numbered.' });
         new obsidian.Setting(containerEl)
+            .setName('Normalize heading hierarchy')
+            .setDesc('Treat the shallowest heading present in each file as level 1. A file beginning with ## will start at 1 instead of 0.1.')
+            .addToggle(toggle => toggle
+            .setValue(this.plugin.settings.normalizeHeadingLevels)
+            .setTooltip('Normalize heading hierarchy')
+            .onChange((value) => __awaiter(this, void 0, void 0, function* () {
+            this.plugin.settings.normalizeHeadingLevels = value;
+            yield this.plugin.saveSettings();
+        })));
+        new obsidian.Setting(containerEl)
+            .setName('Inherit number from filename')
+            .setDesc('Use a leading outline number such as "3. Heat Equation" as a virtual parent, so the shallowest in-file heading starts at 3.1.')
+            .addToggle(toggle => toggle
+            .setValue(this.plugin.settings.inheritFilenameNumber)
+            .setTooltip('Inherit number from filename')
+            .onChange((value) => __awaiter(this, void 0, void 0, function* () {
+            this.plugin.settings.inheritFilenameNumber = value;
+            yield this.plugin.saveSettings();
+        })));
+        new obsidian.Setting(containerEl)
             .setName('Skip top heading level')
             .setDesc('If selected, numbering will not be applied to the top heading level.')
             .addToggle(toggle => toggle
@@ -935,7 +1002,7 @@ class NumberHeadingsPluginSettingTab extends obsidian.PluginSettingTab {
         })));
         new obsidian.Setting(containerEl)
             .setName('First heading level')
-            .setDesc('First heading level to number.')
+            .setDesc('First relative heading level to number. With normalization enabled, level 1 means the shallowest heading present in the file.')
             .addSlider(slider => slider
             .setLimits(1, 6, 1)
             .setValue(this.plugin.settings.firstLevel)
@@ -955,7 +1022,7 @@ class NumberHeadingsPluginSettingTab extends obsidian.PluginSettingTab {
         })));
         new obsidian.Setting(containerEl)
             .setName('Maximum heading level')
-            .setDesc('Maximum heading level to number.')
+            .setDesc('Maximum relative heading level to number. With normalization enabled, levels are counted from the shallowest heading present.')
             .addSlider(slider => slider
             .setLimits(1, 6, 1)
             .setValue(this.plugin.settings.maxLevel)
