@@ -21,8 +21,21 @@
               "icon": "lucide-file",
               "title": "Lecture 1"
             }
+          },
+          {
+            "id": "1e37968249f9bbee",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.13.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.13.7"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -78,19 +91,7 @@
             }
           },
           {
-            "id": "608a098e2a99e46a",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "com.maxymillion.zen",
-              "state": {},
-              "pinned": true,
-              "icon": "lucide-ghost",
-              "title": "com.maxymillion.zen"
-            }
-          },
-          {
-            "id": "e012309f8538d107",
+            "id": "09c379452744c7b8",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -211,7 +212,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "bd10274eaac19094",
+  "active": "1e37968249f9bbee",
   "lastOpenFiles": [
     "理论/PDEs/Partial Differential Equations/Lecture 1.md",
     "理论/Numerical Linear Algbera/Lecture 1.md",

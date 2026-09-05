@@ -37,7 +37,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -72,6 +74,18 @@
           },
           {
             "id": "85ac5f6ecf96e2ce",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "com.maxymillion.zen",
+              "state": {},
+              "pinned": true,
+              "icon": "lucide-ghost",
+              "title": "com.maxymillion.zen"
+            }
+          },
+          {
+            "id": "2b9ae98cbe3baf77",
             "type": "leaf",
             "pinned": true,
             "state": {
