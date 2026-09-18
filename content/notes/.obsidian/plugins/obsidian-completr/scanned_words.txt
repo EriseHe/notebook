@@ -773,6 +773,7 @@ Converting
 Consecutive
 Cancellation
 Correct
+Cache
 font
 for
 functions
@@ -3452,6 +3453,8 @@ PETSc
 Prob
 Propagation
 PHOTO
+Perturbations
+PLACEHOLER
 In
 Implicit
 Invertibility
@@ -4040,6 +4043,7 @@ Intensity
 Incidence
 Intensities
 Integers
+Integer
 the
 terms
 that
@@ -4811,6 +4815,8 @@ transient
 trigger
 tilted
 trapping
+trirangular
+terminaters
 system
 solvability
 such
@@ -6153,6 +6159,7 @@ settles
 strikes
 significand
 storing
+symtotpic
 discuss
 determine
 described
@@ -8649,6 +8656,7 @@ otimes
 optics
 oblique
 oral
+overwrite
 near
 neighborhood
 necessary
@@ -9248,6 +9256,8 @@ numeric
 natively
 nonsteady
 native
+nun
+nonsingular
 Does
 Determine
 Differentiability
@@ -9830,6 +9840,7 @@ Docker
 DOCKER
 DUSER
 Designed
+Division
 map
 matrix
 mapping
@@ -12505,6 +12516,7 @@ Signed
 Store
 Spacing
 Semilinear
+Singular
 equations
 equation
 exists
@@ -13383,6 +13395,7 @@ extinguished
 encodings
 equispaced
 erroneous
+exceptionally
 whether
 written
 which
@@ -16458,6 +16471,7 @@ Neutral
 Node
 Nitsche
 NETCDF
+News
 Recall
 Rigorous
 Respect
@@ -17054,6 +17068,7 @@ Restrict
 Radiation
 Relate
 Rounding
+RAM
 requirement
 respect
 rule
@@ -18743,7 +18758,6 @@ pathology
 puzzle
 parse
 placement
-placeholder
 prescribes
 parametrize
 prepares
@@ -19063,6 +19077,8 @@ polarizes
 polished
 prose
 proves
+pivot
+pivots
 Ex
 Evaluate
 Evaluating
@@ -19649,6 +19665,9 @@ Electromotive
 Emf
 Exam
 EXAMPLE
+Elimination
+Elementary
+End
 We
 What
 With
@@ -20627,6 +20646,8 @@ TIME
 TimeDependentOperator
 Transversality
 Transmission
+Triangular
+Tiling
 Hence
 Here
 Hypotheses
@@ -21144,6 +21165,7 @@ Hat
 Hölder
 Hypre
 Highest
+Historically
 By
 Because
 Below
@@ -21693,6 +21715,7 @@ BoomerAMG
 Boundaries
 Brewster
 Boothby
+Balance
 Function
 For
 FT
@@ -22262,6 +22285,7 @@ Focused
 Fresnel
 Floating
 Fully
+Flop
 Jacobian
 Jobcobian
 John
@@ -23382,6 +23406,9 @@ ANALYSIS
 Applies
 Averages
 Arithmetic
+Attempt
+Ansatz
+Alegbra
 via
 variables
 view
@@ -25545,6 +25572,7 @@ Motional
 Matter
 Monochromatic
 Mike
+Much
 Using
 Up
 Ut

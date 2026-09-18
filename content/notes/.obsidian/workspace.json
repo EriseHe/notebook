@@ -13,29 +13,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/Numerical Linear Algbera/Lecture 1.md",
+                "file": "理论/Numerical Linear Algbera/3. Lecture.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Lecture 1"
-            }
-          },
-          {
-            "id": "1e37968249f9bbee",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.13.7"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.13.7"
+              "title": "3. Lecture"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -91,7 +78,7 @@
             }
           },
           {
-            "id": "09c379452744c7b8",
+            "id": "74b05c67f578332a",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -206,20 +193,26 @@
       "command-palette:Open command palette": false,
       "markdown-importer:Open format converter": false,
       "obsidian-focus-mode:Toggle Focus Mode (Shift + Click to show active pane only)": false,
+      "transfer-latex-from-gpt:Convert LaTeX to MathJax": false,
       "obsidian-matrix:Obsidian Matrix": false,
       "callout-manager:Insert Callout": false,
-      "transfer-latex-from-gpt:Convert LaTeX to MathJax": false,
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1e37968249f9bbee",
+  "active": "bd10274eaac19094",
   "lastOpenFiles": [
+    "理论/Numerical Linear Algbera/2. Storing Matrices & Vectors.md",
+    "理论/Numerical Linear Algbera/1. Vectors and Matrices.md",
+    "理论/Numerical Linear Algbera/3. Lecture.md",
+    "Untitled.base",
+    "计算/Untitled.md",
+    "计算/Methods in Applied Mathematics/2. Lecture 2.md",
+    "计算/Methods in Applied Mathematics",
     "理论/PDEs/数值PDEs/Final Project.md",
     "理论/PDEs/Partial Differential Equations/2. Transport equation.md",
     "理论/PDEs/Partial Differential Equations/1. Notation and Classification.md",
     "理论/PDEs/Partial Differential Equations/0. Syllabus.md",
     "理论/PDEs/Partial Differential Equations/Lecture 1.md",
-    "理论/Numerical Linear Algbera/Lecture 1.md",
     "理论/Numerical Linear Algbera",
     "理论/PDEs/Partial Differential Equations/Untitled.md",
     "理论/PDEs/Untitled 1.md",
@@ -238,18 +231,11 @@
     "理论/电磁学/Midterm3/pdflatex46533.fls",
     "理论/电磁学/Midterm3/pdflatex46300.fls",
     "理论/电磁学/Midterm3/pdflatex46299.fls",
-    "理论/电磁学/Midterm3/pdflatex46130.fls",
-    "理论/电磁学/Midterm3/pdflatex46129.fls",
     "理论/电磁学/7 Electrodynamics/Chapter 7.3 Maxwell's Equations Cheat Sheet.md",
     "理论/电磁学/7 Electrodynamics/7.4 The Field of a Rotating Magnet.md",
     "理论/电磁学/8 Conservation Laws/8.1.md",
     "理论/电磁学/9 Electromagnetic Waves/9.2 Electromagnetic Waves in Vacuum.md",
     "理论/电磁学/9 Electromagnetic Waves/9.3 Electromagnetic Waves in Matter.md",
-    "理论/电磁学/7 Electrodynamics/Practice Problem.md",
-    "理论/电磁学/7 Electrodynamics/7.2 Electromagnetic Induction.md",
-    "理论/电磁学/7 Electrodynamics/7.1 Electromotive Force.md",
-    "理论/电磁学/6 Magnetic Fields in Matter/6.2 The Field of a Magnetized.md",
-    "理论/PDEs/MFEM/2. Finite Element Hello World!.md",
     "image.png",
     "image-1.png",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",
