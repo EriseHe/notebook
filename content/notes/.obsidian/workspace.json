@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "理论/Numerical Linear Algbera/3. Lecture.md",
+                "file": "计算/Methods in Applied Mathematics/2. Lecture 2.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3. Lecture"
+              "title": "2. Lecture 2"
             }
           }
         ]
@@ -56,7 +56,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "simple Riemannian manifold",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -201,9 +201,9 @@
   },
   "active": "bd10274eaac19094",
   "lastOpenFiles": [
+    "理论/Numerical Linear Algbera/3. Lecture.md",
     "理论/Numerical Linear Algbera/2. Storing Matrices & Vectors.md",
     "理论/Numerical Linear Algbera/1. Vectors and Matrices.md",
-    "理论/Numerical Linear Algbera/3. Lecture.md",
     "Untitled.base",
     "计算/Untitled.md",
     "计算/Methods in Applied Mathematics/2. Lecture 2.md",
