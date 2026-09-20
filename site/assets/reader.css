@@ -233,14 +233,8 @@ button[hidden],
 .reader-layout {
   height: calc(100dvh - var(--toolbar));
   display: grid;
+  /* Every page uses the same symmetric frame, including absent or hidden panels. */
   grid-template-columns: var(--left) minmax(0, 1fr) var(--right);
-}
-/* Panel availability determines the grid; toggling visibility never reallocates it. */
-body[data-has-notes='false'] {
-  --left: 0px;
-}
-body[data-has-outline='false'] {
-  --right: 0px;
 }
 .notes-sidebar,
 .outline-sidebar {

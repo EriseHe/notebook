@@ -464,6 +464,49 @@ try {
   );
   await page.click('#outline-toggle');
   assert.deepEqual(await readingGeometry(), aboutGeometry, 'About page stays fixed when its TOC returns');
+
+  console.log('Checking one centered layout across every panel-availability combination…');
+  const layouts = [
+    { route: pde, notes: 'true', outline: 'true' },
+    { route: 'about.html', notes: 'false', outline: 'true' },
+    { route: 'content/notes/理论/PDEs/index.html', notes: 'true', outline: 'false' },
+    { route: 'content/notes/index.html', notes: 'false', outline: 'false' },
+  ];
+  for (const width of [1440, 2560, 1366, 390]) {
+    await page.setViewport({ width, height: 1000 });
+    let sharedGeometry;
+    for (const layout of layouts) {
+      await go(layout.route);
+      assert.deepEqual(
+        await page.$eval('body', (node) => ({
+          notes: node.dataset.hasNotes,
+          outline: node.dataset.hasOutline,
+        })),
+        { notes: layout.notes, outline: layout.outline },
+      );
+      const { x, width: articleWidth, viewportWidth } = await readingGeometry();
+      const geometry = { x, width: articleWidth, viewportWidth };
+      assert.ok(
+        Math.abs(x + articleWidth / 2 - width / 2) < 0.5,
+        `${layout.route} must be centered in a ${width}px window`,
+      );
+      assert.equal(articleWidth, width >= 768 ? 720 : width - 48);
+      sharedGeometry ||= geometry;
+      assert.deepEqual(
+        geometry,
+        sharedGeometry,
+        'Absent panels must use exactly the same reading frame as present panels',
+      );
+      if (width === 1440 && layout.route === 'about.html') {
+        await page.click('#outline-toggle');
+        const hidden = await readingGeometry();
+        assert.equal(hidden.x, x);
+        assert.equal(hidden.width, articleWidth);
+        await page.screenshot({ path: path.join(artifacts, 'reader-about-centered.png') });
+        await page.click('#outline-toggle');
+      }
+    }
+  }
   await fs.writeFile(
     path.join(artifacts, 'browser-report.json'),
     JSON.stringify(
