@@ -47,6 +47,20 @@ async function go(route, math = true) {
   await page.evaluate(() => document.fonts.ready);
 }
 
+async function readingGeometry() {
+  return page.evaluate(() => {
+    const article = document.querySelector('.article').getBoundingClientRect();
+    const viewport = document.querySelector('#reading-viewport');
+    return {
+      x: article.x,
+      width: article.width,
+      height: article.height,
+      scrollTop: viewport.scrollTop,
+      viewportWidth: viewport.clientWidth,
+    };
+  });
+}
+
 try {
   console.log('Checking all generated page and attachment links…');
   const htmlFiles = (await walkFiles(result.outputDir)).filter((file) => file.endsWith('.html'));
@@ -195,6 +209,16 @@ try {
     /1\. Notation and Classification\.html$/,
   );
 
+  const fixedReadingGeometry = await readingGeometry();
+  // Both open → left hidden → both hidden → right hidden → both open.
+  for (const toggle of ['notes', 'outline', 'notes', 'outline']) {
+    await page.click(`#${toggle}-toggle`);
+    assert.deepEqual(
+      await readingGeometry(),
+      fixedReadingGeometry,
+      'Sidebar toggles must not move, resize, reflow, or scroll the article',
+    );
+  }
   await page.click('#notes-toggle');
   assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'false');
   assert.equal(await page.$eval('body', (node) => node.dataset.outlineOpen), 'true');
@@ -379,10 +403,21 @@ try {
     ),
   );
   await page.screenshot({ path: path.join(artifacts, 'reader-mobile.png') });
+  const mobileReadingGeometry = await readingGeometry();
   await page.click('#outline-toggle');
+  assert.deepEqual(
+    await readingGeometry(),
+    mobileReadingGeometry,
+    'TOC drawer overlays the unchanged article',
+  );
   assert.equal(await page.$eval('body', (node) => node.dataset.outlineOpen), 'true');
   await page.screenshot({ path: path.join(artifacts, 'reader-mobile-outline.png') });
   await page.click('#notes-toggle');
+  assert.deepEqual(
+    await readingGeometry(),
+    mobileReadingGeometry,
+    'Menu drawer overlays the unchanged article',
+  );
   assert.equal(await page.$eval('body', (node) => node.dataset.outlineOpen), 'false');
   assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'true');
   await page.keyboard.press('Escape');
@@ -418,6 +453,17 @@ try {
       `${route}: ${await page.$$eval('mjx-container', (nodes) => nodes.length)} formulas, ${localImages.length} local images.`,
     );
   }
+  await go('about.html', false);
+  const aboutGeometry = await readingGeometry();
+  assert.equal(await page.$eval('body', (node) => node.dataset.hasNotes), 'false');
+  await page.click('#outline-toggle');
+  assert.deepEqual(
+    await readingGeometry(),
+    aboutGeometry,
+    'About page stays fixed when its sole panel is hidden',
+  );
+  await page.click('#outline-toggle');
+  assert.deepEqual(await readingGeometry(), aboutGeometry, 'About page stays fixed when its TOC returns');
   await fs.writeFile(
     path.join(artifacts, 'browser-report.json'),
     JSON.stringify(

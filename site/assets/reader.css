@@ -235,11 +235,10 @@ button[hidden],
   display: grid;
   grid-template-columns: var(--left) minmax(0, 1fr) var(--right);
 }
-body[data-notes-open='false'],
+/* Panel availability determines the grid; toggling visibility never reallocates it. */
 body[data-has-notes='false'] {
   --left: 0px;
 }
-body[data-outline-open='false'],
 body[data-has-outline='false'] {
   --right: 0px;
 }
@@ -271,6 +270,9 @@ body[data-has-notes='false'] .notes-sidebar,
 body[data-outline-open='false'] .outline-sidebar,
 body[data-has-outline='false'] .outline-sidebar {
   visibility: hidden;
+}
+body[data-has-notes='false'] .notes-sidebar,
+body[data-has-outline='false'] .outline-sidebar {
   padding: 0;
   border: 0;
 }
