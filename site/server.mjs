@@ -16,6 +16,7 @@ const types = {
   '.gif': 'image/gif',
   '.webp': 'image/webp',
   '.avif': 'image/avif',
+  '.otf': 'font/otf',
   '.woff2': 'font/woff2',
   '.woff': 'font/woff',
   '.pdf': 'application/pdf',

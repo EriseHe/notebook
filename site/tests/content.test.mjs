@@ -10,6 +10,7 @@ import { stripComments, parsePage, renderPage, normalizeMath } from '../render.m
 import { findPandoc } from '../setup.mjs';
 import { repoRoot, normalizeBasePath } from '../build.mjs';
 import { startServer } from '../server.mjs';
+import { pageTemplate } from '../template.mjs';
 
 test('frontmatter is separate, optional and not rewritten', () => {
   assert.deepEqual(frontmatter('## A\nText'), { meta: {}, body: '## A\nText' });
@@ -18,6 +19,97 @@ test('frontmatter is separate, optional and not rewritten', () => {
     body: '## A',
   });
   assert.throws(() => frontmatter('---\n[bad\n---\nText'), /Invalid YAML/);
+});
+
+test('folder notes render as documents; only pure folders get directory pages and tree-only buttons', async (t) => {
+  const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'notebook-folder-test-'));
+  t.after(async () => {
+    assert.ok(within(os.tmpdir(), temp) && path.basename(temp).startsWith('notebook-folder-test-'));
+    await fs.rm(temp, { recursive: true, force: true });
+  });
+  const fixtures = {
+    'notes/理论/Pure/Child.md': 'A child document.',
+    'notes/理论/Pure/index.md': '---\ntitle: Pure\n---\n',
+    'notes/理论/Authored/Authored.md': '## Real content\n\nA genuine folder note.',
+    'notes/理论/Authored/index.md': '---\ntitle: Authored\n---\n',
+    'notes/理论/Authored/Second.md': 'Second note.',
+    'notes/理论/Empty/Empty.md': '---\ntitle: Empty\n---\n',
+    'notes/理论/Introduction/index.md': '## Introduction\n\nVisible index content.',
+    'notes/理论/Introduction/Sub/One.md': 'Nested note.',
+    'posts/First.md': 'A post.',
+    'research/Project.md': 'Research.',
+  };
+  const source = path.join(temp, 'content');
+  for (const [relative, body] of Object.entries(fixtures)) {
+    const file = path.join(source, relative);
+    await fs.mkdir(path.dirname(file), { recursive: true });
+    await fs.writeFile(file, body);
+  }
+  const context = Object.assign(await catalog(config, temp, source), config, {
+    repoRoot,
+    cacheDir: path.join(temp, 'cache'),
+    pandoc: await findPandoc(),
+  });
+  for (const page of context.pages) await parsePage(page, context);
+  for (const page of context.pages) await renderPage(page, context);
+  assert.deepEqual(
+    context.sections.map((section) => section.label),
+    ['notes', 'posts', 'research'],
+  );
+  const authored = context.dirs.get('content/notes/理论/Authored');
+  const pure = context.dirs.get('content/notes/理论/Pure');
+  const intro = context.dirs.get('content/notes/理论/Introduction');
+  const empty = context.dirs.get('content/notes/理论/Empty');
+  assert.equal(pure.page, null);
+  assert.equal(authored.page.rel, 'content/notes/理论/Authored/Authored.md');
+  assert.deepEqual(
+    authored.pages.map((page) => path.basename(page.rel)),
+    ['Second.md'],
+  );
+  assert.equal(intro.page.rel, 'content/notes/理论/Introduction/index.md');
+  assert.equal(empty.page.rel, 'content/notes/理论/Empty/Empty.md');
+  const emptyHtml = load(pageTemplate(empty.page, context));
+  assert.equal(emptyHtml('body').attr('data-layout'), 'reader');
+  assert.match(emptyHtml('#article-body').text(), /This note is empty/);
+  assert.match(
+    targetHref(resolveTarget('Authored#Real content', authored.page, context), context),
+    /Authored\/Authored.html#real-content$/,
+  );
+  const html = load(pageTemplate(authored.page, context));
+  assert.equal(html('body').attr('data-layout'), 'reader');
+  assert.match(html('#article-body').text(), /genuine folder note/);
+  assert.equal(html('.directory-description').length, 0);
+  assert.equal(html('[data-folder="content/notes/理论/Pure"] > .folder-row a').length, 0);
+  assert.equal(html('[data-folder="content/notes/理论/Pure"] > .folder-row button').length, 1);
+  assert.match(
+    html('[data-folder="content/notes/理论/Authored"] > .folder-row a').attr('href'),
+    /Authored\/Authored.html$/,
+  );
+  assert.equal(html('.notes-tree .folder-node .tree-children .file-node').length > 0, true);
+  assert.deepEqual(
+    html('.top-navigation a')
+      .map((_, node) => html(node).text())
+      .get(),
+    ['Notes', 'Posts', 'Research'],
+  );
+  const introHtml = load(pageTemplate(intro.page, context));
+  assert.match(introHtml('#article-body').text(), /Visible index content/);
+  const pureHtml = load(
+    pageTemplate(
+      {
+        directory: pure,
+        rel: pure.rel + '/index.md',
+        route: pure.route,
+        title: pure.label,
+        isDirectory: true,
+      },
+      context,
+    ),
+  );
+  assert.equal(pureHtml('body').attr('data-layout'), 'directory');
+  assert.match(pureHtml('#article-body').text(), /Child/);
+  for (const [relative, body] of Object.entries(fixtures))
+    assert.equal(await fs.readFile(path.join(source, relative), 'utf8'), body);
 });
 
 test('relative heading numbering starts at 1 regardless of Markdown level', () => {

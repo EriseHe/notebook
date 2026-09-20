@@ -31,7 +31,7 @@
 | `notes/理论/index.md` | `微分几何笔记/index.md`（实际文件夹名称不同） |
 | `research/Advanced Lab/Module 1 LabVIEW.md` | `SetupPhase/learning-setup/scripts/test%201.py`（未找到对应目标） |
 
-新版目录页面由实际笔记文件生成，因此正常浏览不依赖前两处旧目录链接。旧介绍正文仍保留在 “About this collection” 中，未解析链接显示为非点击文本。
+侧栏层级由实际笔记文件生成，因此正常浏览不依赖前两处旧目录链接。有正文的索引文件直接显示为 Markdown 页面；同名文件夹笔记优先作为侧栏可点击的文件夹名称。未解析的旧正文链接仍显示为非点击文本。
 
 ## 明确的边界
 
