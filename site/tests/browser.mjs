@@ -115,8 +115,9 @@ try {
   assert.equal(await page.$eval('.note-link.is-current', (node) => getComputedStyle(node).paddingTop), '4px');
   assert.equal(
     await page.$eval('.note-link.is-current', (node) => getComputedStyle(node).paddingLeft),
-    '8px',
+    '12px',
   );
+  assert.equal(await page.$eval('.note-link.is-current', (node) => getComputedStyle(node).columnGap), '8px');
   const menuRow = await page.$eval('.note-link.is-current', (node) => ({
     height: node.getBoundingClientRect().height,
     minHeight: getComputedStyle(node).minHeight,
@@ -127,7 +128,7 @@ try {
   // Native UI fonts differ by OS; aligning the smaller number on the title's
   // baseline can add 1–2px without adding padding or making the menu loose.
   assert.ok(menuRow.height >= 26 && menuRow.height <= 28, 'Single-line menu rows stay compact');
-  assert.equal(await page.$eval('.tree-children', (node) => getComputedStyle(node).paddingLeft), '10px');
+  assert.equal(await page.$eval('.tree-children', (node) => getComputedStyle(node).paddingLeft), '14px');
   assert.equal(design.articleWidth, 720);
   assert.equal(design.sidebar, 'rgb(29, 29, 31)');
   assert.equal(design.inactiveOutline, 'rgb(110, 110, 115)');
