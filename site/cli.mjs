@@ -73,6 +73,18 @@ async function main() {
       timer = setTimeout(rebuild, 500);
     }),
   );
+  const homeFile = result.context.pages.find((page) => page.isHome)?.file;
+  if (homeFile) {
+    console.log(`Watching home page ${homeFile} (read-only).`);
+    // Watch its parent so atomic saves/replacements in Obsidian are also detected.
+    watchers.push(
+      watch(path.dirname(homeFile), (_, filename) => {
+        if (filename && String(filename) !== path.basename(homeFile)) return;
+        clearTimeout(timer);
+        timer = setTimeout(rebuild, 500);
+      }),
+    );
+  }
   const close = () => {
     clearTimeout(timer);
     for (const watcher of watchers) watcher.close();

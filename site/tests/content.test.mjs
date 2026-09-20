@@ -21,6 +21,58 @@ test('frontmatter is separate, optional and not rewritten', () => {
   assert.throws(() => frontmatter('---\n[bad\n---\nText'), /Invalid YAML/);
 });
 
+test('the authored home Markdown renders at the root and prefers the original content source', async (t) => {
+  const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'notebook-home-test-'));
+  t.after(async () => {
+    assert.ok(within(os.tmpdir(), temp) && path.basename(temp).startsWith('notebook-home-test-'));
+    await fs.rm(temp, { recursive: true, force: true });
+  });
+  const project = path.join(temp, 'project'),
+    source = path.join(temp, 'original', 'content');
+  await fs.mkdir(project, { recursive: true });
+  for (const section of ['notes', 'posts', 'research']) {
+    await fs.mkdir(path.join(source, section), { recursive: true });
+    await fs.writeFile(path.join(source, section, 'index.md'), `An introduction to ${section}.`);
+  }
+  const raw =
+    '---\ntitle: E.H. Notebook\n---\nOriginal welcome and disclaimer.\n\n- [Notes](content/notes/index.md)\n- [Posts](content/posts/index.md)\n- [Research](content/research/index.md)\n';
+  const homeFile = path.join(temp, 'original', 'index.md');
+  await fs.writeFile(homeFile, raw);
+  await fs.writeFile(path.join(project, 'index.md'), 'Stale worktree welcome.');
+  const settings = { ...config, publishRoots: ['notes', 'posts', 'research'] };
+  const context = Object.assign(await catalog(settings, project, source), settings, {
+    repoRoot,
+    cacheDir: path.join(temp, 'cache'),
+    pandoc: await findPandoc(),
+  });
+  for (const page of context.pages) await parsePage(page, context);
+  for (const page of context.pages) await renderPage(page, context);
+  const home = context.pages.find((page) => page.isHome);
+  assert.equal(home.file, homeFile);
+  assert.equal(home.route, 'index.html');
+  assert.equal(context.pages.filter((page) => page.route === 'about.html').length, 0);
+  const html = load(pageTemplate(home, context));
+  assert.equal(html('title').text(), 'E.H. Notebook');
+  assert.equal(html('.brand').text(), 'E.H. Notebook');
+  assert.equal(html('.brand').attr('href'), '/notebook/');
+  assert.match(html('#article-body').text(), /Original welcome and disclaimer/);
+  assert.deepEqual(
+    html('.home-navigation a > span:first-child')
+      .map((_, n) => html(n).text())
+      .get(),
+    ['Notes', 'Posts', 'Research'],
+  );
+  assert.deepEqual(
+    html('.home-navigation a')
+      .map((_, n) => html(n).attr('href'))
+      .get(),
+    ['notes', 'posts', 'research'].map((name) => `/notebook/content/${name}/index.html`),
+  );
+  assert.equal(html('.library-about').length, 0);
+  assert.equal(await fs.readFile(homeFile, 'utf8'), raw);
+  assert.equal(await fs.readFile(path.join(project, 'index.md'), 'utf8'), 'Stale worktree welcome.');
+});
+
 test('folder notes render as documents; only pure folders get directory pages and tree-only buttons', async (t) => {
   const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'notebook-folder-test-'));
   t.after(async () => {

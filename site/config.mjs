@@ -1,5 +1,5 @@
 export default {
-  title: 'Erise’s Notebook',
+  title: 'E.H. Notebook',
   repository: 'https://github.com/EriseHe/notebook',
   basePath: '/notebook/',
   contentDir: 'content',

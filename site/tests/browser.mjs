@@ -6,6 +6,7 @@ import { load } from 'cheerio';
 import { build, repoRoot } from '../build.mjs';
 import { startServer } from '../server.mjs';
 import { encodePath, walkFiles, within } from '../content.mjs';
+import { pageTemplate } from '../template.mjs';
 
 const result = await build({ contentRoot: process.env.NOTEBOOK_CONTENT_ROOT, onProgress: console.log });
 const preview = await startServer({ ...result, port: 0 });
@@ -111,6 +112,13 @@ try {
   assert.match(design.font, /TeX Gyre Termes/);
   assert.equal(design.leftWidth, 300);
   assert.equal(design.rightWidth, 300);
+  assert.equal(await page.$eval('.note-link.is-current', (node) => getComputedStyle(node).paddingTop), '4px');
+  assert.equal(
+    await page.$eval('.note-link.is-current', (node) => getComputedStyle(node).paddingLeft),
+    '8px',
+  );
+  assert.equal(await page.$eval('.note-link.is-current', (node) => node.getBoundingClientRect().height), 26);
+  assert.equal(await page.$eval('.tree-children', (node) => getComputedStyle(node).paddingLeft), '10px');
   assert.equal(design.articleWidth, 720);
   assert.equal(design.sidebar, 'rgb(29, 29, 31)');
   assert.equal(design.inactiveOutline, 'rgb(110, 110, 115)');
@@ -271,10 +279,31 @@ try {
     'rgb(29, 29, 31)',
   );
   await go('index.html', false);
+  assert.equal(await page.$eval('.brand', (node) => node.textContent), 'E.H. Notebook');
+  assert.equal(await page.$eval('h1', (node) => node.textContent), 'E.H. Notebook');
+  assert.match(await page.$eval('#article-body', (node) => node.textContent), /私人笔记/);
+  assert.ok(!(await page.$eval('#article-body', (node) => node.textContent.includes('README'))));
+  assert.deepEqual(
+    await page.$$eval('.home-navigation a > span:first-child', (nodes) =>
+      nodes.map((node) => node.textContent),
+    ),
+    ['Notes', 'Posts', 'Research'],
+  );
   await page.hover('.directory-list a');
   assert.equal(await page.$eval('.directory-list a', (node) => getComputedStyle(node).paddingLeft), '16px');
   assert.equal(await page.$eval('.directory-list a', (node) => getComputedStyle(node).paddingRight), '16px');
-  await page.screenshot({ path: path.join(artifacts, 'reader-library.png') });
+  await page.screenshot({ path: path.join(artifacts, 'reader-home.png') });
+  const homeLinks = await page.$$eval('.home-navigation a', (nodes) => nodes.map((node) => node.href));
+  for (const href of homeLinks) {
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: 'networkidle0' }),
+      page.$eval(`.home-navigation a[href="${new URL(href).pathname}"]`, (node) => node.click()),
+    ]);
+    assert.equal(page.url(), href);
+    await Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0' }), page.click('.brand')]);
+    assert.equal(page.url(), preview.url, 'The brand always returns to the authored root page');
+    assert.ok(await page.$('.home-navigation'));
+  }
 
   await Promise.all([
     page.waitForNavigation({ waitUntil: 'networkidle0' }),
@@ -454,29 +483,37 @@ try {
     );
   }
   await go('about.html', false);
-  const aboutGeometry = await readingGeometry();
-  assert.equal(await page.$eval('body', (node) => node.dataset.hasNotes), 'false');
-  await page.click('#outline-toggle');
-  assert.deepEqual(
-    await readingGeometry(),
-    aboutGeometry,
-    'About page stays fixed when its sole panel is hidden',
-  );
-  await page.click('#outline-toggle');
-  assert.deepEqual(await readingGeometry(), aboutGeometry, 'About page stays fixed when its TOC returns');
+  await page.waitForFunction((home) => location.href === home, {}, preview.url);
+  assert.equal(await page.$eval('h1', (node) => node.textContent), 'E.H. Notebook');
 
   console.log('Checking one centered layout across every panel-availability combination…');
   const layouts = [
     { route: pde, notes: 'true', outline: 'true' },
-    { route: 'about.html', notes: 'false', outline: 'true' },
+    { route: 'outline-only fixture', notes: 'false', outline: 'true', fixture: true },
     { route: 'content/notes/理论/PDEs/index.html', notes: 'true', outline: 'false' },
     { route: 'content/notes/index.html', notes: 'false', outline: 'false' },
+    { route: 'index.html', notes: 'false', outline: 'false' },
   ];
   for (const width of [1440, 2560, 1366, 390]) {
     await page.setViewport({ width, height: 1000 });
     let sharedGeometry;
     for (const layout of layouts) {
-      await go(layout.route);
+      if (layout.fixture) {
+        await page.setContent(
+          pageTemplate(
+            {
+              rel: 'layout-fixture.md',
+              title: 'Layout test',
+              meta: {},
+              html: '<h2 id="fixture-heading">A heading</h2><p>A document with an outline and no menu.</p>',
+              headings: [{ id: 'fixture-heading', display: 'A heading', depth: 0 }],
+            },
+            result.context,
+          ),
+          { waitUntil: 'load' },
+        );
+        await page.evaluate(() => document.fonts.ready);
+      } else await go(layout.route);
       assert.deepEqual(
         await page.$eval('body', (node) => ({
           notes: node.dataset.hasNotes,
@@ -497,14 +534,15 @@ try {
         sharedGeometry,
         'Absent panels must use exactly the same reading frame as present panels',
       );
-      if (width === 1440 && layout.route === 'about.html') {
+      if (width === 1440 && layout.fixture) {
         await page.click('#outline-toggle');
         const hidden = await readingGeometry();
         assert.equal(hidden.x, x);
         assert.equal(hidden.width, articleWidth);
-        await page.screenshot({ path: path.join(artifacts, 'reader-about-centered.png') });
         await page.click('#outline-toggle');
       }
+      if (width === 390 && layout.route === 'index.html')
+        await page.screenshot({ path: path.join(artifacts, 'reader-home-mobile.png') });
     }
   }
   await fs.writeFile(
