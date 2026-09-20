@@ -305,7 +305,7 @@ body[data-has-outline='false'] .outline-sidebar {
 }
 .note-link {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   align-items: baseline;
   padding: 4px 6px;
   min-height: 26px;
@@ -319,7 +319,7 @@ body[data-has-outline='false'] .outline-sidebar {
   margin: 0;
 }
 .tree-children {
-  padding-left: 10px;
+  padding-left: 14px;
 }
 .folder-row {
   display: flex;
@@ -366,7 +366,7 @@ body[data-has-outline='false'] .outline-sidebar {
   padding: 4px;
 }
 .notes-tree .file-node .note-link {
-  padding-left: 8px;
+  padding-left: 12px;
 }
 .notes-tree .note-link {
   overflow-wrap: anywhere;
