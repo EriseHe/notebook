@@ -1,0 +1,10 @@
+# Paths are relative to content/. These are presentation settings, not publication rules.
+# A folder note's own `display_content` property takes precedence over these defaults.
+# false = directory landing page, hidden from the reading sidebar; its children start new trees.
+# true = ordinary Markdown/folder behavior. Unlisted folders default to true.
+notes:
+  display_content: false
+notes/理论:
+  display_content: false
+notes/计算:
+  display_content: false

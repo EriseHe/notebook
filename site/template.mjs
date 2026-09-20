@@ -1,5 +1,13 @@
 import path from 'node:path';
-import { cleanNumber, digest, escapeHtml as e, numberPrefix, siteUrl, stem } from './content.mjs';
+import {
+  cleanNumber,
+  digest,
+  escapeHtml as e,
+  folderRoute,
+  numberPrefix,
+  siteUrl,
+  stem,
+} from './content.mjs';
 
 const icon = (context, name) =>
   `<img src="${siteUrl(context.basePath, `assets/icons/${name}.svg`)}" alt="" width="20" height="20">`;
@@ -9,7 +17,7 @@ function directoryRows(dir, context) {
   const items = [
     ...dir.children.map(
       (child) =>
-        `<li><a href="${siteUrl(context.basePath, child.page?.route || child.route)}"><span>${e(child.label)}</span><span class="chevron" aria-hidden="true">›</span></a></li>`,
+        `<li><a href="${siteUrl(context.basePath, folderRoute(child))}"><span>${e(child.label)}</span><span class="chevron" aria-hidden="true">›</span></a></li>`,
     ),
     ...dir.pages.map(
       (page) =>
@@ -20,7 +28,19 @@ function directoryRows(dir, context) {
 }
 
 export function directoryBody(dir, context) {
-  return directoryRows(dir, context);
+  const sections = dir.children.filter((child) => child.displayContent === false);
+  if (!sections.length) return directoryRows(dir, context);
+  const groups = sections.map(
+    (child) =>
+      `<section class="directory-section" data-directory-section="${e(child.rel)}"><h2><a href="${siteUrl(context.basePath, folderRoute(child))}"><span>${e(child.label)}</span><span class="chevron" aria-hidden="true">›</span></a></h2>${directoryRows(child, context)}</section>`,
+  );
+  const others = {
+    children: dir.children.filter((child) => child.displayContent !== false),
+    pages: dir.pages,
+  };
+  return (
+    groups.join('') + (others.children.length || others.pages.length ? directoryRows(others, context) : '')
+  );
 }
 
 export function libraryBody(context) {
@@ -34,37 +54,55 @@ function sectionOf(page, context) {
   return context.sections?.find((section) => page.rel.startsWith(`${section.rel}/`));
 }
 
+function sidebarRoot(page, context) {
+  const section = sectionOf(page, context);
+  if (!section) return null;
+  let child = page.directory || page.folder || context.dirs.get(path.posix.dirname(page.rel));
+  if (!child || child.displayContent === false) return null;
+  while (child !== section) {
+    const parent = context.dirs.get(path.posix.dirname(child.rel));
+    if (!parent) break;
+    if (parent.displayContent === false) return child;
+    child = parent;
+  }
+  return section;
+}
+
 function topNavigation(page, context) {
   const section = sectionOf(page, context);
   return `<nav class="top-navigation" aria-label="Notebook sections">${context.sections
     .map((item) => {
       const label = item.label[0].toUpperCase() + item.label.slice(1);
-      return `<a href="${siteUrl(context.basePath, item.page?.route || item.route)}"${item === section ? ' aria-current="page"' : ''}>${e(label)}</a>`;
+      return `<a href="${siteUrl(context.basePath, folderRoute(item))}"${item === section ? ' aria-current="page"' : ''}>${e(label)}</a>`;
     })
     .join('')}</nav>`;
 }
 
 function sidebar(page, context) {
-  const section = sectionOf(page, context);
-  if (!section) return '';
+  const root = sidebarRoot(page, context);
+  if (!root) return '';
   function children(dir) {
-    const folders = dir.children.map((child) => {
-      const id = `folder-${digest(child.rel).slice(0, 12)}`;
-      const activeBranch = page.rel.startsWith(`${child.rel}/`);
-      const current = child.page?.rel === page.rel || (page.isDirectory && page.directory.rel === child.rel);
-      const arrow = `<img src="${siteUrl(context.basePath, 'assets/icons/chevron.svg')}" width="12" height="12" alt="">`;
-      const label = child.page
-        ? `<button class="tree-toggle" aria-label="Fold ${e(child.label)}" aria-controls="${id}" aria-expanded="${activeBranch}">${arrow}</button><a class="note-link folder-link${current ? ' is-current' : ''}"${current ? ' aria-current="page"' : ''} href="${siteUrl(context.basePath, child.page.route)}">${e(child.label)}</a>`
-        : `<button class="tree-toggle folder-label${current ? ' is-current' : ''}" aria-controls="${id}" aria-expanded="${activeBranch}"${current ? ' aria-current="page"' : ''}>${arrow}<span>${e(child.label)}</span></button>`;
-      return `<li class="folder-node" data-folder="${e(child.rel)}" data-active-branch="${activeBranch}"><div class="folder-row">${label}</div><ul class="tree-children" id="${id}"${!activeBranch ? ' hidden' : ''}>${children(child)}</ul></li>`;
-    });
+    const folders = dir.children
+      .filter((child) => child.displayContent !== false)
+      .map((child) => {
+        const id = `folder-${digest(child.rel).slice(0, 12)}`;
+        const activeBranch = page.rel.startsWith(`${child.rel}/`);
+        const current =
+          child.page?.rel === page.rel || (page.isDirectory && page.directory.rel === child.rel);
+        const arrow = `<img src="${siteUrl(context.basePath, 'assets/icons/chevron.svg')}" width="12" height="12" alt="">`;
+        const label = child.page
+          ? `<button class="tree-toggle" aria-label="Fold ${e(child.label)}" aria-controls="${id}" aria-expanded="${activeBranch}">${arrow}</button><a class="note-link folder-link${current ? ' is-current' : ''}"${current ? ' aria-current="page"' : ''} href="${siteUrl(context.basePath, child.page.route)}">${e(child.label)}</a>`
+          : `<button class="tree-toggle folder-label${current ? ' is-current' : ''}" aria-controls="${id}" aria-expanded="${activeBranch}"${current ? ' aria-current="page"' : ''}>${arrow}<span>${e(child.label)}</span></button>`;
+        return `<li class="folder-node" data-folder="${e(child.rel)}" data-active-branch="${activeBranch}"><div class="folder-row">${label}</div><ul class="tree-children" id="${id}"${!activeBranch ? ' hidden' : ''}>${children(child)}</ul></li>`;
+      });
     const files = dir.pages.map((item) => {
       const current = item.rel === page.rel;
       return `<li class="file-node"><a class="note-link${current ? ' is-current' : ''}"${current ? ' aria-current="page"' : ''} href="${siteUrl(context.basePath, item.route)}">${titleParts(stem(item.rel))}</a></li>`;
     });
     return [...folders, ...files].join('');
   }
-  return `<nav aria-label="${e(section.label)} file hierarchy"><ul class="notes-tree">${children(section)}</ul></nav>`;
+  const current = page.folder === root || (page.isDirectory && page.directory === root);
+  return `<nav aria-label="${e(root.label)} file hierarchy" data-sidebar-root="${e(root.rel)}"><a class="sidebar-root${current ? ' is-current' : ''}"${current ? ' aria-current="page"' : ''} href="${siteUrl(context.basePath, folderRoute(root))}">${e(root.label)}</a><ul class="notes-tree">${children(root)}</ul></nav>`;
 }
 
 function outline(page, context) {
@@ -74,7 +112,7 @@ function outline(page, context) {
         `<li style="--depth:${heading.depth}"><a href="#${encodeURIComponent(heading.id)}"${index === 0 ? ' class="is-active" aria-current="location"' : ''}>${e(heading.display)}</a></li>`,
     )
     .join('');
-  return `<h2>Outline</h2><div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="${siteUrl(context.basePath, 'assets/icons/chevron.svg')}" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">${e(page.title)}</a></div><ol id="outline-items">${rows}</ol>`;
+  return `<div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="${siteUrl(context.basePath, 'assets/icons/chevron.svg')}" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">${e(page.title)}</a></div><div class="outline-contents" id="outline-contents"><div id="outline-progress" class="outline-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-controls="reading-viewport"><span class="outline-marker"></span></div><ol id="outline-items">${rows}</ol></div>`;
 }
 
 function pageNavigation(page, context) {
@@ -99,18 +137,24 @@ function breadcrumb(page, context) {
   const chain = [];
   while (context.dirs.has(rel)) {
     const dir = context.dirs.get(rel);
-    chain.unshift(`<a href="${siteUrl(context.basePath, dir.page?.route || dir.route)}">${e(dir.label)}</a>`);
+    // The top-level section already has a tab; breadcrumbs start one level below it.
+    if (context.sections.includes(dir)) break;
+    chain.unshift(`<a href="${siteUrl(context.basePath, folderRoute(dir))}">${e(dir.label)}</a>`);
     rel = path.posix.dirname(rel);
   }
-  if (!chain.length) chain.push(`<a href="${siteUrl(context.basePath, 'index.html')}">Notebook</a>`);
   const source = String(page.meta?.source || '').match(/Evans\s*§\s*[\d.]+/i)?.[0];
   if (source) chain.push(`<span>${e(source)}</span>`);
+  if (!chain.length) return '';
   return `<nav class="breadcrumb" aria-label="Breadcrumb">${chain.join('<span aria-hidden="true"> / </span>')}</nav>`;
 }
 
 export function pageTemplate(page, context) {
+  if (page.isFolderNote && page.folder.displayContent === false)
+    page = { ...page, directory: page.folder, isDirectory: true, title: page.folder.label };
+  if (page.isDirectory && context.sections.includes(page.directory))
+    page = { ...page, title: page.directory.label[0].toUpperCase() + page.directory.label.slice(1) };
   const isDirectory = page.isDirectory || page.isLibrary;
-  const hasSidebar = !!sectionOf(page, context);
+  const hasSidebar = !!sidebarRoot(page, context);
   const hasOutline = !isDirectory && !!page.headings?.length;
   const metadata = page.meta?.date
     ? `<p class="article-meta">${e(String(page.meta.date).slice(0, 10))}${Array.isArray(page.meta.tags) ? ` · ${page.meta.tags.map(e).join(' · ')}` : ''}</p>`
@@ -129,7 +173,7 @@ export function pageTemplate(page, context) {
 <meta name="description" content="${e((page.plainText || 'Mathematics and physics study notes.').slice(0, 170))}">
 <link rel="stylesheet" href="${asset('reader.css')}"><link rel="preload" href="${asset('fonts/texgyretermes-regular.otf')}" as="font" type="font/otf" crossorigin>
 <script defer src="${asset('reader.js')}"></script>
-${page.html?.includes('class="math ') ? `<script src="${asset('math-config.js')}"></script><script defer id="MathJax-script" src="${asset('vendor/mathjax/tex-chtml-full.js')}"></script>` : ''}
+${!isDirectory && page.html?.includes('class="math ') ? `<script src="${asset('math-config.js')}"></script><script defer id="MathJax-script" src="${asset('vendor/mathjax/tex-chtml-full.js')}"></script>` : ''}
 </head><body data-layout="${isDirectory ? 'directory' : 'reader'}" data-has-notes="${hasSidebar}" data-has-outline="${hasOutline}" data-notes-open="${hasSidebar}" data-outline-open="${hasOutline}" data-search-index="${asset('search.json')}">
 <a class="skip-link" href="#article-body">Skip to content</a>
 <header class="toolbar"><div class="identity"><button class="icon-button" id="notes-toggle" aria-label="Toggle notes sidebar" aria-controls="notes-sidebar" aria-expanded="${hasSidebar}" ${!hasSidebar ? 'disabled' : ''}>${icon(context, 'sidebar')}</button><a class="brand" href="${siteUrl(context.basePath, 'index.html')}">${e(context.title)}</a></div>

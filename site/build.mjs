@@ -105,7 +105,7 @@ export async function build(options = {}) {
   for (const page of context.pages.filter((page) => !page.isIndex)) await emit(page);
   for (const directory of context.dirs.values()) {
     const document = directory.indexPage?.body.trim() ? directory.indexPage : directory.page;
-    if (document) await emit({ ...document, route: directory.route });
+    if (document && directory.displayContent !== false) await emit({ ...document, route: directory.route });
     else
       await emit({
         directory,
@@ -146,6 +146,7 @@ export async function build(options = {}) {
   await copy(path.join(mathRoot, 'LICENSE'), 'assets/vendor/mathjax/LICENSE.txt');
   for (const asset of context.usedAssets.values()) await copy(asset.file, asset.rel);
   const search = context.pages
+    .filter((page) => page.folder?.displayContent !== false)
     .filter((page) => !page.isIndex || page.body.trim())
     .map((page) => ({
       title: page.title,
