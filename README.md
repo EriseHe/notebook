@@ -40,9 +40,10 @@ Browser tests use installed Chrome/Edge, `BROWSER_PATH`, or Puppeteer’s instal
 
 ## Reading experience
 
-- Compact STIX Two Text prose, 18px body / 27px line height, 28px page titles, and self-hosted LaTeX-style MathJax formulas.
-- Independent left notes sidebar and right Obsidian-like outline; both remember desktop preferences. On small screens they open as separate drawers.
-- Gray/black course directories and sidebar links. Only article links, reader breadcrumbs, previous/next links, and the active outline item use blue.
+- Compact TeX Gyre Termes prose, 18px body / approximately 26px desktop line height, 28px page titles, and self-hosted LaTeX-style MathJax formulas. The Aa control switches between this traditional Times-family font and the original STIX Two Text. Chinese uses the available serif/Song-style system fallback. Termes is an approximation of a traditional mathematics textbook style, not an identification of Baby Rudin's original printing font.
+- Notes, Posts, and Research are top-level tabs derived from the actual published folders. The left sidebar recursively preserves their directory hierarchy, naturally sorts entries, and remembers folder expansion. Only the active section's tree is shown.
+- Independent 300px left sidebar and 300px right outline, with no separating rule at the outline's left edge. Desktop article width remains 720px. Below 1400px the panels become drawers rather than squeezing the article; on phones the top navigation uses a second toolbar row.
+- Gray/black course directories and sidebar links. Only article links, reader breadcrumbs, previous/next links, and the active outline item use blue. Link hover underlines are globally disabled, with keyboard focus indicators retained. Scrollbars use a narrow transparent track and a thumb that appears during scrolling and then disappears.
 - Natural chapter ordering, previous/next navigation, GitHub link, local full-text search (`Ctrl/Cmd K`), text size controls, keyboard focus states, and a clean print layout.
 - Original note text and authored headings are preserved. A note beginning with `##` starts at `1`, not `0.1`. In `3. Heat Equation.md`, the largest unnumbered heading becomes `3.1`. Existing numbers are retained. Set `number-headings: false` in frontmatter to disable generated numbers for one document.
 
@@ -58,7 +59,9 @@ The renderer uses Pandoc, the same Markdown engine as the existing Quarto site. 
 - Obsidian-style manual equation tags inside `aligned`/`gathered` are adapted to MathJax-compatible notation in the rendered copy only; the source formulas and their labels stay unchanged.
 - Code is displayed, **not executed**. Obsidian-only plugin views (such as Dataview queries or live TikZ rendering) are not executed by the website. The old optional `npm run render-tikz` utility remains available separately.
 
-Only the old publication roots are included: `notes/理论`, `notes/计算`, `posts`, `research`, and `notes/index.md`. Hidden files, `.obsidian`, symlinked files, other vault folders, `_index.md`, and notes marked `draft: true`, `publish: false`, or `published: false` are excluded. Only attachments referenced by published pages are copied. The existing welcome/disclaimer page is preserved at `about.html`; existing collection introductions remain under “About this collection”.
+Only the old publication roots are included: `notes/理论`, `notes/计算`, `posts`, `research`, and `notes/index.md`. Hidden files, `.obsidian`, symlinked files, other vault folders, `_index.md`, and notes marked `draft: true`, `publish: false`, or `published: false` are excluded. Only attachments referenced by published pages are copied. The existing welcome/disclaimer page is preserved at `about.html`.
+
+Folder notes follow the current Obsidian convention, `Folder/Folder.md`. Such a folder's label opens its Markdown while its arrow independently folds the children; the note is not repeated as a child item. A nonempty `index.md` is also rendered as a normal Markdown document, not hidden behind a generated listing. Pure folders (including empty legacy indexes) only fold in the sidebar and receive a generated listing when their directory URL is opened. Existing `index.html` URLs are preserved, including aliases to folder notes. No Markdown is rewritten to generate this tree.
 
 Missing or ambiguous links produce a readable non-clickable label and a diagnostic in `.quiet-reader/build-report.json`; the builder never guesses between equally plausible targets. Fix those links in Obsidian when convenient. Previously generated pages are removed from the output if they become private/deleted; source files are never removed.
 

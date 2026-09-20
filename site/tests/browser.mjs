@@ -94,14 +94,29 @@ try {
   }));
   assert.equal(design.titleSize, '28px');
   assert.equal(design.bodySize, '18px');
-  assert.match(design.font, /STIX Two Text/);
-  assert.equal(design.leftWidth, 248);
-  assert.equal(design.rightWidth, 248);
+  assert.match(design.font, /TeX Gyre Termes/);
+  assert.equal(design.leftWidth, 300);
+  assert.equal(design.rightWidth, 300);
   assert.equal(design.articleWidth, 720);
   assert.equal(design.sidebar, 'rgb(29, 29, 31)');
   assert.equal(design.inactiveOutline, 'rgb(110, 110, 115)');
   assert.equal(design.breadcrumb, 'rgb(0, 102, 204)');
   assert.equal(design.activeOutline, 'rgb(0, 102, 204)');
+  assert.equal(await page.$eval('.outline-sidebar', (node) => getComputedStyle(node).borderLeftWidth), '0px');
+  assert.deepEqual(await page.$$eval('.top-navigation a', (nodes) => nodes.map((node) => node.textContent)), [
+    'Notes',
+    'Posts',
+    'Research',
+  ]);
+  await page.hover('.breadcrumb a');
+  assert.equal(
+    await page.$eval('.breadcrumb a:hover', (node) => getComputedStyle(node).textDecorationLine),
+    'none',
+  );
+  assert.equal(
+    await page.$eval('.reading-viewport', (node) => getComputedStyle(node, '::-webkit-scrollbar').width),
+    '6px',
+  );
   assert.equal(await page.$eval('.github-link', (node) => node.href), 'https://github.com/EriseHe/notebook');
   await page.screenshot({ path: path.join(artifacts, 'reader-desktop.png') });
   await page.click('#outline-fold');
@@ -139,6 +154,9 @@ try {
   assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'true');
   await page.click('#outline-toggle');
   await page.click('#appearance-toggle');
+  await page.click('[data-font="stix"]');
+  assert.match(await page.$eval('.prose', (node) => getComputedStyle(node).fontFamily), /^"STIX Two Text"/);
+  await page.click('[data-font="termes"]');
   await page.click('[data-size="20"]');
   assert.equal(await page.$eval('.prose', (node) => getComputedStyle(node).fontSize), '20px');
   await page.click('[data-size="18"]');
@@ -158,7 +176,7 @@ try {
   await page.$eval('#reading-viewport', (node) => node.scrollTo({ top: 0, behavior: 'instant' }));
   await Promise.all([
     page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 5000 }),
-    page.click('.breadcrumb a'),
+    page.click('.breadcrumb a:last-of-type'),
   ]).catch(async (error) => {
     console.log(
       await page.evaluate(() => ({
@@ -179,6 +197,59 @@ try {
   await go('index.html', false);
   await page.screenshot({ path: path.join(artifacts, 'reader-library.png') });
 
+  console.log('Checking actual folder-note pages, section navigation, and uncompressed reading width…');
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: 'networkidle0' }),
+    page.click('.top-navigation a:last-child'),
+  ]);
+  assert.equal(await page.$eval('body', (node) => node.dataset.layout), 'reader');
+  assert.equal(await page.$eval('.top-navigation a[aria-current]', (node) => node.textContent), 'Research');
+  assert.equal(await page.$$eval('#article-body > .directory-list', (nodes) => nodes.length), 0);
+  assert.match(await page.$eval('#article-body', (node) => node.textContent), /Research/);
+  const folderPath = 'content/notes/理论/PDEs/数值PDEs/3. Advection-Diffusion';
+  await go(folderPath + '/index.html');
+  assert.equal(await page.$eval('body', (node) => node.dataset.layout), 'reader');
+  assert.ok(await page.$eval('#article-body', (node) => node.textContent.length > 300));
+  assert.match(
+    await page.$eval(`[data-folder="${folderPath}"] > .folder-row > a`, (node) =>
+      decodeURIComponent(node.pathname),
+    ),
+    /3\. Advection-Diffusion\/3\. Advection-Diffusion\.html$/,
+  );
+  await page.screenshot({ path: path.join(artifacts, 'reader-folder-note.png') });
+  const pureFolder = '[data-folder="content/notes/理论/PDEs/Partial Differential Equations"]';
+  const before = page.url();
+  await page.click(pureFolder + ' > .folder-row > .folder-label');
+  assert.equal(page.url(), before, 'A pure folder folds, it does not open an invented Markdown document');
+  assert.equal(await page.$eval(pureFolder + ' > .tree-children', (node) => node.hidden), false);
+  await page.click(pureFolder + ' > .folder-row > .folder-label');
+  assert.equal(await page.$eval(pureFolder + ' > .tree-children', (node) => node.hidden), true);
+  await go('content/notes/理论/PDEs/经典二阶PDEs/Heat Equation/index.html');
+  assert.equal(await page.$eval('body', (node) => node.dataset.layout), 'reader');
+  assert.ok(await page.$eval('#article-body', (node) => node.textContent.length > 500));
+  await go('content/notes/计算/量子力学讲义/波函数存在于在Hilbert空间中.html');
+  assert.equal(await page.$$eval('mjx-merror', (nodes) => nodes.length), 0);
+  await page.screenshot({ path: path.join(artifacts, 'reader-quantum.png') });
+  await page.$eval('#reading-viewport', (node) => node.scrollTo({ top: 120, behavior: 'instant' }));
+  await page.waitForFunction(() =>
+    document.querySelector('#reading-viewport').classList.contains('is-scrolling'),
+  );
+  await page.waitForFunction(
+    () => !document.querySelector('#reading-viewport').classList.contains('is-scrolling'),
+  );
+  assert.equal(
+    await page.$eval(
+      '#reading-viewport',
+      (node) => getComputedStyle(node, '::-webkit-scrollbar-thumb').backgroundColor,
+    ),
+    'rgba(0, 0, 0, 0)',
+  );
+  await page.setViewport({ width: 1400, height: 1000 });
+  assert.equal(await page.$eval('.article', (node) => node.getBoundingClientRect().width), 720);
+  await page.setViewport({ width: 1366, height: 1000 });
+  assert.equal(await page.$eval('.article', (node) => node.getBoundingClientRect().width), 720);
+  assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'false');
+
   console.log('Checking mobile navigation and long mathematical pages…');
   await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
   await go(pde);
@@ -186,6 +257,15 @@ try {
   assert.equal(await page.$eval('body', (node) => node.dataset.outlineOpen), 'false');
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   assert.ok(await page.$eval('#reading-viewport', (node) => node.scrollWidth <= node.clientWidth));
+  assert.equal(await page.$eval('.toolbar', (node) => node.getBoundingClientRect().height), 96);
+  assert.ok(
+    await page.$eval(
+      '.top-navigation',
+      (node) =>
+        node.getBoundingClientRect().bottom <=
+        document.querySelector('.toolbar').getBoundingClientRect().bottom,
+    ),
+  );
   await page.screenshot({ path: path.join(artifacts, 'reader-mobile.png') });
   await page.click('#outline-toggle');
   assert.equal(await page.$eval('body', (node) => node.dataset.outlineOpen), 'true');

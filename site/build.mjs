@@ -104,16 +104,18 @@ export async function build(options = {}) {
   }
   for (const page of context.pages.filter((page) => !page.isIndex)) await emit(page);
   for (const directory of context.dirs.values()) {
-    await emit({
-      ...directory.page,
-      directory,
-      rel: `${directory.rel}/index.md`,
-      route: directory.route,
-      title: directory.title,
-      isDirectory: true,
-    });
+    const document = directory.indexPage?.body.trim() ? directory.indexPage : directory.page;
+    if (document) await emit({ ...document, route: directory.route });
+    else
+      await emit({
+        directory,
+        rel: `${directory.rel}/index.md`,
+        route: directory.route,
+        title: directory.label,
+        isDirectory: true,
+      });
   }
-  await emit({ rel: 'index.md', route: 'index.html', title: 'Notes', isLibrary: true });
+  await emit({ rel: 'index.md', route: 'index.html', title: 'Notebook', isLibrary: true });
   await write(
     '404.html',
     pageTemplate(
@@ -144,7 +146,7 @@ export async function build(options = {}) {
   await copy(path.join(mathRoot, 'LICENSE'), 'assets/vendor/mathjax/LICENSE.txt');
   for (const asset of context.usedAssets.values()) await copy(asset.file, asset.rel);
   const search = context.pages
-    .filter((page) => !page.isIndex)
+    .filter((page) => !page.isIndex || page.body.trim())
     .map((page) => ({
       title: page.title,
       url: siteUrl(basePath, page.route),

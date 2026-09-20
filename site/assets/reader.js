@@ -2,7 +2,8 @@
   'use strict';
   const body = document.body;
   const viewport = document.querySelector('#reading-viewport');
-  const mobile = window.matchMedia('(max-width:1100px)');
+  // 300px sidebars + 720px article + 64px reading gutters; never squeeze the article.
+  const mobile = window.matchMedia('(max-width:1399px)');
   const storage = {
     get(key) {
       try {
@@ -38,6 +39,34 @@
       setSidebar(name, !mobile.matches && storage.get(`quiet-reader-${name}`) !== 'false', false);
   }
   initializePanels();
+  for (const folder of document.querySelectorAll('.folder-node')) {
+    const row = folder.querySelector(':scope > .folder-row');
+    const children = folder.querySelector(':scope > .tree-children');
+    const buttons = row.querySelectorAll('.tree-toggle');
+    const key = `quiet-reader-folder:${folder.dataset.folder}`;
+    function setExpanded(open, save = true) {
+      children.hidden = !open;
+      for (const button of buttons) button.setAttribute('aria-expanded', String(open));
+      if (save) storage.set(key, String(open));
+    }
+    setExpanded(folder.dataset.activeBranch === 'true' || storage.get(key) === 'true', false);
+    for (const button of buttons) button.addEventListener('click', () => setExpanded(children.hidden));
+  }
+  const scrollTimers = new WeakMap();
+  document.addEventListener(
+    'scroll',
+    (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) return;
+      target.classList.add('is-scrolling');
+      clearTimeout(scrollTimers.get(target));
+      scrollTimers.set(
+        target,
+        setTimeout(() => target.classList.remove('is-scrolling'), 800),
+      );
+    },
+    { capture: true, passive: true },
+  );
   mobile.addEventListener('change', initializePanels);
   for (const name of ['notes', 'outline'])
     toggles[name].addEventListener('click', () => {
@@ -124,6 +153,16 @@
 
   const appearance = document.querySelector('#appearance-dialog');
   document.querySelector('#appearance-toggle').addEventListener('click', () => appearance.showModal());
+  function setFont(font) {
+    if (!['termes', 'stix'].includes(font)) font = 'termes';
+    document.documentElement.dataset.readerFont = font;
+    for (const button of appearance.querySelectorAll('[data-font]'))
+      button.setAttribute('aria-pressed', String(button.dataset.font === font));
+    storage.set('quiet-reader-font', font);
+  }
+  setFont(storage.get('quiet-reader-font') || 'termes');
+  for (const button of appearance.querySelectorAll('[data-font]'))
+    button.addEventListener('click', () => setFont(button.dataset.font));
   function setSize(size) {
     if (![18, 20, 22].includes(size)) size = 18;
     document.documentElement.style.setProperty('--reader-size', `${size}px`);

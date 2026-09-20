@@ -117,16 +117,28 @@ export async function catalog(config, repoRoot, contentRoot) {
     }
   }
   for (const dir of dirs.values()) {
-    dir.page = pages.find((page) => page.route === dir.route);
-    dir.title = dir.page?.title || dir.title;
+    dir.label = path.posix.basename(dir.rel);
+    dir.indexPage = pages.find((page) => page.route === dir.route);
+    // Match this vault's Folder Notes convention: Folder/Folder.md. A nonempty
+    // index.md is also a real authored page; empty legacy indexes are directories.
+    dir.folderNote = pages.find((page) => page.rel === `${dir.rel}/${dir.label}.md`);
+    dir.page = dir.folderNote || (dir.indexPage?.body.trim() ? dir.indexPage : null);
+    dir.title = dir.page?.title || dir.label;
+    if (dir.page) {
+      dir.page.folder = dir;
+      dir.page.isFolderNote = true;
+    }
     dir.pages = pages
-      .filter((page) => path.posix.dirname(page.rel) === dir.rel && !page.isIndex)
+      .filter((page) => path.posix.dirname(page.rel) === dir.rel && !page.isIndex && page !== dir.folderNote)
       .sort((a, b) => natural.compare(stem(a.rel), stem(b.rel)));
     dir.children = [...dirs.values()]
       .filter((child) => path.posix.dirname(child.rel) === dir.rel)
-      .sort((a, b) => natural.compare(a.title, b.title));
+      .sort((a, b) => natural.compare(path.posix.basename(a.rel), path.posix.basename(b.rel)));
   }
-  return { pages, assets, dirs, contentRoot, repoRoot, warnings: [], usedAssets: new Map() };
+  const sections = [...dirs.values()]
+    .filter((dir) => path.posix.dirname(dir.rel) === 'content')
+    .sort((a, b) => natural.compare(a.label, b.label));
+  return { pages, assets, dirs, sections, contentRoot, repoRoot, warnings: [], usedAssets: new Map() };
 }
 
 export function textOf(value) {
@@ -247,11 +259,12 @@ export function resolveTarget(target, origin, context) {
 
 export function targetHref(result, context) {
   if (result.external) return result.href;
-  const item = result.page || result.directory || result.asset;
+  const linkedPage = result.page || result.directory?.page;
+  const item = linkedPage || result.directory || result.asset;
   if (!item) return null;
   let fragment = result.fragment || '';
-  if (result.page && fragment) {
-    const match = result.page.headings?.find((h) =>
+  if (linkedPage && fragment) {
+    const match = linkedPage.headings?.find((h) =>
       [h.id, h.text, h.display, cleanNumber(h.text)].some(
         (value) => comparable(value) === comparable(fragment),
       ),
