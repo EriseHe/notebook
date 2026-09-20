@@ -33,6 +33,7 @@
     if (save && !mobile.matches) storage.set(`quiet-reader-${name}`, String(open));
     scrim.hidden =
       !mobile.matches || !(body.dataset.notesOpen === 'true' || body.dataset.outlineOpen === 'true');
+    if (name === 'outline' && open) requestAnimationFrame(() => updateOutline());
   }
   function initializePanels() {
     for (const name of ['notes', 'outline'])
@@ -96,15 +97,23 @@
     const items = document.querySelector('#outline-items');
     items.hidden = !items.hidden;
     outlineFold.setAttribute('aria-expanded', String(!items.hidden));
+    updateOutline();
   });
+  const outlinePanel = document.querySelector('#outline-sidebar');
+  const outlineContents = document.querySelector('#outline-contents');
+  const outlineProgress = document.querySelector('#outline-progress');
   const outlineLinks = [...document.querySelectorAll('.outline-sidebar ol a')];
   const pairs = outlineLinks
     .map((link) => ({ link, heading: document.getElementById(decodeURIComponent(link.hash.slice(1))) }))
     .filter((pair) => pair.heading);
   let pending = false;
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   function updateOutline() {
     pending = false;
+    if (!pairs.length) return;
     const top = viewport.getBoundingClientRect().top + 90;
+    const maxScroll = Math.max(0, viewport.scrollHeight - viewport.clientHeight);
+    const scroll = clamp(viewport.scrollTop, 0, maxScroll);
     const atEnd =
       viewport.scrollHeight > viewport.clientHeight &&
       viewport.scrollTop + viewport.clientHeight >= viewport.scrollHeight - 2;
@@ -116,18 +125,48 @@
       if (pair === active) pair.link.setAttribute('aria-current', 'location');
       else pair.link.removeAttribute('aria-current');
     }
+    if (!outlineProgress) return;
+    const percent = maxScroll ? Math.round((scroll / maxScroll) * 100) : 100;
+    outlineProgress.setAttribute('aria-valuenow', String(percent));
+    outlineProgress.setAttribute('aria-valuetext', `${percent}% read`);
+    outlineProgress.hidden = document.querySelector('#outline-items').hidden;
+    if (outlineProgress.hidden || body.dataset.outlineOpen !== 'true') return;
+
+    // Map progress through each prose section onto the space between its TOC entries.
+    // The marker travels continuously, rather than jumping only at heading boundaries.
+    const next = pairs[pairs.indexOf(active) + 1];
+    const start = clamp(active.heading.getBoundingClientRect().top - top + scroll, 0, maxScroll);
+    const end = next
+      ? clamp(next.heading.getBoundingClientRect().top - top + scroll, 0, maxScroll)
+      : maxScroll;
+    const fraction = end > start ? clamp((scroll - start) / (end - start), 0, 1) : 0;
+    const contentsTop = outlineContents.getBoundingClientRect().top;
+    const center = (pair) => {
+      const rect = pair.link.getBoundingClientRect();
+      return rect.top - contentsTop + rect.height / 2;
+    };
+    const from = center(active),
+      to = next ? center(next) : from;
+    const offset = Math.max(0, from + (to - from) * fraction - 9);
+    outlineProgress.style.setProperty('--outline-offset', `${offset}px`);
+
+    // Keep the location marker visible on long outlines, moving only the TOC itself.
+    const panel = outlinePanel.getBoundingClientRect();
+    const markerTop = contentsTop + offset;
+    if (markerTop < panel.top + 24) outlinePanel.scrollTop += markerTop - panel.top - 24;
+    else if (markerTop + 18 > panel.bottom - 24) outlinePanel.scrollTop += markerTop + 18 - panel.bottom + 24;
   }
-  viewport.addEventListener(
-    'scroll',
-    () => {
-      if (!pending) {
-        pending = true;
-        requestAnimationFrame(updateOutline);
-      }
-    },
-    { passive: true },
-  );
-  window.addEventListener('resize', updateOutline);
+  function scheduleOutline() {
+    if (!pending) {
+      pending = true;
+      requestAnimationFrame(updateOutline);
+    }
+  }
+  viewport.addEventListener('scroll', scheduleOutline, { passive: true });
+  window.addEventListener('resize', scheduleOutline);
+  const outlineObserver = new ResizeObserver(scheduleOutline);
+  outlineObserver.observe(document.querySelector('.article'));
+  if (outlineContents) outlineObserver.observe(outlineContents);
   updateOutline();
   for (const link of document.querySelectorAll('.outline-sidebar a'))
     link.addEventListener('click', () => {

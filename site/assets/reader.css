@@ -277,6 +277,19 @@ body[data-has-outline='false'] .outline-sidebar {
 .notes-sidebar a {
   color: var(--ink);
 }
+.sidebar-root {
+  display: block;
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 600;
+  border-radius: 7px;
+}
+.sidebar-root:hover,
+.sidebar-root.is-current {
+  background: var(--selected);
+}
 .notes-sidebar .all-notes,
 .notes-sidebar .parent-course {
   color: var(--secondary);
@@ -395,13 +408,6 @@ body[data-has-outline='false'] .outline-sidebar {
 .subcourses .directory-list li {
   border: 0;
 }
-.outline-sidebar h2 {
-  font-family: var(--ui);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  margin: 0 0 32px;
-}
 .outline-sidebar a {
   color: var(--secondary);
   display: block;
@@ -433,6 +439,24 @@ body[data-has-outline='false'] .outline-sidebar {
 .outline-sidebar a.is-active {
   color: var(--link);
   font-weight: 500;
+}
+.outline-contents {
+  position: relative;
+}
+.outline-progress {
+  position: absolute;
+  inset: 0 auto 0 1px;
+  width: 2px;
+  pointer-events: none;
+}
+.outline-marker {
+  display: block;
+  width: 2px;
+  height: 18px;
+  border-radius: 2px;
+  background: var(--link);
+  transform: translate3d(0, var(--outline-offset, 9px), 0);
+  transition: transform 180ms cubic-bezier(0.2, 0.7, 0.3, 1);
 }
 .reading-viewport {
   min-width: 0;
@@ -802,7 +826,7 @@ code span.dv {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 14px 0;
+  padding: 14px 16px;
   min-height: 52px;
   font-size: 16px;
   line-height: 24px;
@@ -816,6 +840,28 @@ code span.dv {
 .chevron {
   color: var(--secondary);
   font-size: 20px;
+  flex-shrink: 0;
+}
+.directory-section {
+  margin: 0 0 36px;
+}
+.directory-section h2 {
+  margin: 0 0 4px;
+  font: 600 20px/28px var(--book);
+}
+.directory-section h2 a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  color: var(--ink);
+}
+.directory-section h2 a:hover {
+  background: #fafafa;
+}
+.directory-section .directory-list {
+  margin-left: 16px;
 }
 .directory .breadcrumb a,
 .library-about a {
@@ -998,6 +1044,15 @@ dialog {
   ::-webkit-scrollbar-thumb:hover {
     background: #6e6e7388;
   }
+}
+/* The TOC marker replaces the main reading scrollbar, without disabling scrolling. */
+.reading-viewport {
+  scrollbar-width: none;
+}
+.reading-viewport::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 .sidebar-scrim {
   position: fixed;

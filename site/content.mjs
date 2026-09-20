@@ -29,6 +29,27 @@ export const within = (root, file) => {
   return rel === '' || (!rel.startsWith(`..${path.sep}`) && rel !== '..' && !path.isAbsolute(rel));
 };
 export const siteUrl = (base, route) => `${base.replace(/\/$/, '')}/${encodePath(route)}`;
+export const folderRoute = (dir) => (dir.displayContent === false ? dir.route : dir.page?.route || dir.route);
+
+async function readFolderSettings(config, repoRoot) {
+  if (!config.folderSettings) return {};
+  let settings;
+  try {
+    settings = parseYaml(await fs.readFile(path.resolve(repoRoot, config.folderSettings), 'utf8')) || {};
+  } catch (error) {
+    if (error.code === 'ENOENT') return {};
+    throw error;
+  }
+  if (typeof settings !== 'object' || Array.isArray(settings))
+    throw new Error('Folder settings must map content-relative folder paths to properties.');
+  for (const [rel, value] of Object.entries(settings)) {
+    if (!value || typeof value !== 'object' || Array.isArray(value))
+      throw new Error(`Invalid folder settings for ${rel}.`);
+    if (value.display_content !== undefined && typeof value.display_content !== 'boolean')
+      throw new Error(`display_content must be true or false for ${rel}.`);
+  }
+  return settings;
+}
 
 export function frontmatter(raw, filename = '') {
   const text = raw.replace(/^\uFEFF/, '').replaceAll('\r\n', '\n');
@@ -58,6 +79,7 @@ export async function walkFiles(root) {
 }
 
 export async function catalog(config, repoRoot, contentRoot) {
+  const folderSettings = await readFolderSettings(config, repoRoot);
   const files = await walkFiles(contentRoot);
   const pages = [];
   const assets = [];
@@ -123,10 +145,17 @@ export async function catalog(config, repoRoot, contentRoot) {
     // index.md is also a real authored page; empty legacy indexes are directories.
     dir.folderNote = pages.find((page) => page.rel === `${dir.rel}/${dir.label}.md`);
     dir.page = dir.folderNote || (dir.indexPage?.body.trim() ? dir.indexPage : null);
+    dir.displayContent =
+      dir.folderNote?.meta.display_content ??
+      dir.indexPage?.meta.display_content ??
+      folderSettings[dir.rel.slice('content/'.length)]?.display_content ??
+      true;
+    if (typeof dir.displayContent !== 'boolean')
+      throw new Error(`display_content must be true or false for ${dir.rel}.`);
     dir.title = dir.page?.title || dir.label;
-    if (dir.page) {
-      dir.page.folder = dir;
-      dir.page.isFolderNote = true;
+    for (const document of [dir.indexPage, dir.folderNote].filter(Boolean)) {
+      document.folder = dir;
+      document.isFolderNote = true;
     }
     dir.pages = pages
       .filter((page) => path.posix.dirname(page.rel) === dir.rel && !page.isIndex && page !== dir.folderNote)
@@ -259,10 +288,13 @@ export function resolveTarget(target, origin, context) {
 
 export function targetHref(result, context) {
   if (result.external) return result.href;
-  const linkedPage = result.page || result.directory?.page;
-  const item = linkedPage || result.directory || result.asset;
+  const hiddenFolder = result.page?.folder?.displayContent === false ? result.page.folder : null;
+  const linkedPage = hiddenFolder
+    ? null
+    : result.page || (result.directory?.displayContent !== false ? result.directory?.page : null);
+  const item = hiddenFolder || linkedPage || result.directory || result.asset;
   if (!item) return null;
-  let fragment = result.fragment || '';
+  let fragment = hiddenFolder || result.directory?.displayContent === false ? '' : result.fragment || '';
   if (linkedPage && fragment) {
     const match = linkedPage.headings?.find((h) =>
       [h.id, h.text, h.display, cleanNumber(h.text)].some(

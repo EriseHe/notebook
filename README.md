@@ -41,9 +41,9 @@ Browser tests use installed Chrome/Edge, `BROWSER_PATH`, or Puppeteer’s instal
 ## Reading experience
 
 - Compact TeX Gyre Termes prose, 18px body / approximately 26px desktop line height, 28px page titles, and self-hosted LaTeX-style MathJax formulas. The Aa control switches between this traditional Times-family font and the original STIX Two Text. Chinese uses the available serif/Song-style system fallback. Termes is an approximation of a traditional mathematics textbook style, not an identification of Baby Rudin's original printing font.
-- Notes, Posts, and Research are top-level tabs derived from the actual published folders. The left sidebar recursively preserves their directory hierarchy, naturally sorts entries, and remembers folder expansion. Only the active section's tree is shown.
+- Notes, Posts, and Research are top-level tabs derived from the actual published folders, so they are not repeated in breadcrumbs. The left sidebar preserves the actual hierarchy within the selected subject, naturally sorts entries, and remembers folder expansion. Directory-only sections define where a new reading tree starts; for example, inside PDEs the sidebar starts at PDEs, not at Notes or 理论.
 - Independent 300px left sidebar and 300px right outline, with no separating rule at the outline's left edge. Desktop article width remains 720px. Below 1400px the panels become drawers rather than squeezing the article; on phones the top navigation uses a second toolbar row.
-- Gray/black course directories and sidebar links. Only article links, reader breadcrumbs, previous/next links, and the active outline item use blue. Link hover underlines are globally disabled, with keyboard focus indicators retained. Scrollbars use a narrow transparent track and a thumb that appears during scrolling and then disappears.
+- Gray/black course directories and sidebar links, with 16px horizontal padding inside directory rows. Only article links, reader breadcrumbs, previous/next links, and the active outline item use blue. Link hover underlines are globally disabled, with keyboard focus indicators retained. The main reading scrollbar is completely hidden; a small animated marker inside the TOC tracks progress continuously between headings. Long TOCs follow the marker, and reduced-motion preferences disable its animation. There is no redundant “Outline” heading or full-height vertical rule. Other scrollable panels keep their subtle auto-hiding native thumbs.
 - Natural chapter ordering, previous/next navigation, GitHub link, local full-text search (`Ctrl/Cmd K`), text size controls, keyboard focus states, and a clean print layout.
 - Original note text and authored headings are preserved. A note beginning with `##` starts at `1`, not `0.1`. In `3. Heat Equation.md`, the largest unnumbered heading becomes `3.1`. Existing numbers are retained. Set `number-headings: false` in frontmatter to disable generated numbers for one document.
 
@@ -62,6 +62,20 @@ The renderer uses Pandoc, the same Markdown engine as the existing Quarto site. 
 Only the old publication roots are included: `notes/理论`, `notes/计算`, `posts`, `research`, and `notes/index.md`. Hidden files, `.obsidian`, symlinked files, other vault folders, `_index.md`, and notes marked `draft: true`, `publish: false`, or `published: false` are excluded. Only attachments referenced by published pages are copied. The existing welcome/disclaimer page is preserved at `about.html`.
 
 Folder notes follow the current Obsidian convention, `Folder/Folder.md`. Such a folder's label opens its Markdown while its arrow independently folds the children; the note is not repeated as a child item. A nonempty `index.md` is also rendered as a normal Markdown document, not hidden behind a generated listing. Pure folders (including empty legacy indexes) only fold in the sidebar and receive a generated listing when their directory URL is opened. Existing `index.html` URLs are preserved, including aliases to folder notes. No Markdown is rewritten to generate this tree.
+
+### Directory-only sections
+
+Set the boolean Obsidian property `display_content: false` in a folder's same-name Markdown note or `index.md` to make it a directory section:
+
+```yaml
+---
+display_content: false
+---
+```
+
+The setting has three effects: the folder opens a generated directory instead of its authored body; it does not appear in a reading sidebar; and entering one of its child subjects starts a new sidebar at that subject. Breadcrumbs provide the way back to the parent directory. On a parent landing page, directory-only children appear as sections with their immediate subitems. For example, Notes lists 理论 and 计算 as two sections, while entering PDEs shows its Markdown and a PDEs-only reading tree. An ordinary pure folder without this explicit setting still only folds in its subject's tree.
+
+`site/folders.yaml` supplies the initial `false` defaults for Notes, 理论, and 计算 without modifying the existing vault. Keys are exact paths relative to `content/`; the renderer does not special-case those names. A folder note's own property takes precedence, followed by `index.md`, then this configuration. Set `display_content: true` to restore normal Markdown/folder rendering and sidebar participation; unlisted folders default to `true`. The settings file is re-read on every build. These are **display settings, not privacy controls or publication rules**: use `publish: false` for unpublished notes, and add any new publication root to `site/config.mjs` explicitly.
 
 Missing or ambiguous links produce a readable non-clickable label and a diagnostic in `.quiet-reader/build-report.json`; the builder never guesses between equally plausible targets. Fix those links in Obsidian when convenient. Previously generated pages are removed from the output if they become private/deleted; source files are never removed.
 

@@ -103,6 +103,23 @@ try {
   assert.equal(design.breadcrumb, 'rgb(0, 102, 204)');
   assert.equal(design.activeOutline, 'rgb(0, 102, 204)');
   assert.equal(await page.$eval('.outline-sidebar', (node) => getComputedStyle(node).borderLeftWidth), '0px');
+  assert.equal(await page.$$eval('.outline-sidebar h2', (nodes) => nodes.length), 0);
+  assert.deepEqual(await page.$$eval('.breadcrumb a', (nodes) => nodes.map((node) => node.textContent)), [
+    '理论',
+    'PDEs',
+    'Partial Differential Equations',
+  ]);
+  assert.equal(
+    await page.$eval('[data-sidebar-root]', (node) => node.dataset.sidebarRoot),
+    'content/notes/理论/PDEs',
+  );
+  assert.equal(
+    await page.$$eval(
+      '.notes-sidebar [data-folder="content/notes/理论"], .notes-sidebar [data-folder="content/notes/计算"]',
+      (nodes) => nodes.length,
+    ),
+    0,
+  );
   assert.deepEqual(await page.$$eval('.top-navigation a', (nodes) => nodes.map((node) => node.textContent)), [
     'Notes',
     'Posts',
@@ -115,12 +132,44 @@ try {
   );
   assert.equal(
     await page.$eval('.reading-viewport', (node) => getComputedStyle(node, '::-webkit-scrollbar').width),
-    '6px',
+    '0px',
+  );
+  assert.equal(
+    await page.$eval('.reading-viewport', (node) => getComputedStyle(node).scrollbarWidth),
+    'none',
   );
   assert.equal(await page.$eval('.github-link', (node) => node.href), 'https://github.com/EriseHe/notebook');
   await page.screenshot({ path: path.join(artifacts, 'reader-desktop.png') });
+  const initialMarker = await page.$eval('#outline-progress', (node) =>
+    parseFloat(node.style.getPropertyValue('--outline-offset')),
+  );
+  await page.$eval('#reading-viewport', (node) =>
+    node.scrollTo({ top: (node.scrollHeight - node.clientHeight) * 0.4, behavior: 'instant' }),
+  );
+  await page.waitForFunction(
+    () => document.querySelector('#outline-progress').getAttribute('aria-valuenow') === '40',
+  );
+  assert.ok(
+    await page.$eval(
+      '#outline-progress',
+      (node, initial) => parseFloat(node.style.getPropertyValue('--outline-offset')) > initial,
+      initialMarker,
+    ),
+  );
+  await page.screenshot({ path: path.join(artifacts, 'reader-progress.png') });
+  await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
+  assert.equal(
+    await page.$eval('.outline-marker', (node) => getComputedStyle(node).transitionDuration),
+    '0s',
+  );
+  await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'no-preference' }]);
+  await page.$eval('#reading-viewport', (node) => node.scrollTo({ top: 0, behavior: 'instant' }));
+  await page.waitForFunction(
+    () => document.querySelector('#outline-progress').getAttribute('aria-valuenow') === '0',
+  );
   await page.click('#outline-fold');
   assert.equal(await page.$eval('#outline-items', (node) => node.hidden), true);
+  assert.equal(await page.$eval('#outline-progress', (node) => node.hidden), true);
   await page.click('#outline-fold');
 
   const outlineTarget = await page.$$eval('.outline-sidebar ol a', (links) =>
@@ -136,6 +185,9 @@ try {
     node.style.scrollBehavior = 'auto';
     node.scrollTop = node.scrollHeight;
   });
+  await page.waitForFunction(
+    () => document.querySelector('#outline-progress').getAttribute('aria-valuenow') === '100',
+  );
   await page.screenshot({ path: path.join(artifacts, 'reader-footer.png') });
   assert.equal(await page.$$eval('.page-navigation a[rel=next]', (nodes) => nodes.length), 0);
   assert.match(
@@ -195,7 +247,45 @@ try {
     'rgb(29, 29, 31)',
   );
   await go('index.html', false);
+  await page.hover('.directory-list a');
+  assert.equal(await page.$eval('.directory-list a', (node) => getComputedStyle(node).paddingLeft), '16px');
+  assert.equal(await page.$eval('.directory-list a', (node) => getComputedStyle(node).paddingRight), '16px');
   await page.screenshot({ path: path.join(artifacts, 'reader-library.png') });
+
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: 'networkidle0' }),
+    page.click('.top-navigation a:first-child'),
+  ]);
+  assert.equal(await page.$eval('body', (node) => node.dataset.layout), 'directory');
+  assert.equal(await page.$eval('body', (node) => node.dataset.hasNotes), 'false');
+  assert.deepEqual(
+    await page.$$eval('.directory-section h2', (nodes) =>
+      nodes.map((node) => node.textContent.replace('›', '')),
+    ),
+    ['理论', '计算'],
+  );
+  assert.ok(
+    await page.$('[data-directory-section="content/notes/理论"] .directory-list a[href*="PDEs/index.html"]'),
+  );
+  await page.screenshot({ path: path.join(artifacts, 'reader-notes-sections.png') });
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: 'networkidle0' }),
+    page.click('[data-directory-section="content/notes/理论"] h2 a'),
+  ]);
+  assert.equal(await page.$eval('body', (node) => node.dataset.layout), 'directory');
+  assert.equal(await page.$eval('body', (node) => node.dataset.hasNotes), 'false');
+  assert.equal(await page.$$eval('.breadcrumb a', (nodes) => nodes.length), 0);
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: 'networkidle0' }),
+    page.click('.directory-list a[href*="PDEs/index.html"]'),
+  ]);
+  assert.equal(await page.$eval('body', (node) => node.dataset.layout), 'reader');
+  assert.equal(await page.$eval('.sidebar-root', (node) => node.textContent), 'PDEs');
+  assert.match(await page.$eval('#article-body', (node) => node.textContent), /偏微分方程/);
+  assert.deepEqual(await page.$$eval('.breadcrumb a', (nodes) => nodes.map((node) => node.textContent)), [
+    '理论',
+  ]);
+  await page.screenshot({ path: path.join(artifacts, 'reader-pde-root.png') });
 
   console.log('Checking actual folder-note pages, section navigation, and uncompressed reading width…');
   await Promise.all([
@@ -244,6 +334,28 @@ try {
     ),
     'rgba(0, 0, 0, 0)',
   );
+  await page.setViewport({ width: 1440, height: 700 });
+  await page.$eval('#reading-viewport', (node) =>
+    node.scrollTo({ top: node.scrollHeight, behavior: 'instant' }),
+  );
+  await page.waitForFunction(
+    () => document.querySelector('#outline-progress').getAttribute('aria-valuenow') === '100',
+  );
+  await page.waitForFunction(() => {
+    const marker = document.querySelector('.outline-marker').getBoundingClientRect();
+    const toc = document.querySelector('#outline-sidebar').getBoundingClientRect();
+    const active = document.querySelector('#outline-items a.is-active').getBoundingClientRect();
+    return (
+      marker.top >= toc.top &&
+      marker.bottom <= toc.bottom &&
+      Math.abs(marker.top + marker.height / 2 - active.top - active.height / 2) < 1
+    );
+  });
+  assert.ok(
+    await page.$eval('#outline-sidebar', (node) => node.scrollTop > 0),
+    'Long outlines follow reading progress without moving the body',
+  );
+  await page.screenshot({ path: path.join(artifacts, 'reader-long-toc-progress.png') });
   await page.setViewport({ width: 1400, height: 1000 });
   assert.equal(await page.$eval('.article', (node) => node.getBoundingClientRect().width), 720);
   await page.setViewport({ width: 1366, height: 1000 });

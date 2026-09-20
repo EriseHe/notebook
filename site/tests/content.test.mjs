@@ -149,6 +149,95 @@ test('relative heading numbering starts at 1 regardless of Markdown level', () =
   );
 });
 
+test('display_content defines configurable directory sections and scoped reading trees', async (t) => {
+  const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'notebook-section-test-'));
+  t.after(async () => {
+    assert.ok(within(os.tmpdir(), temp) && path.basename(temp).startsWith('notebook-section-test-'));
+    await fs.rm(temp, { recursive: true, force: true });
+  });
+  const source = path.join(temp, 'content');
+  const fixtures = {
+    'notes/index.md': 'The old landing-page text.',
+    'notes/Alpha/index.md': 'An authored introduction replaced by a directory.',
+    'notes/Alpha/Subject/Subject.md': '## Introduction\n\nA normal subject note.',
+    'notes/Alpha/Subject/Chapter.md': '## A heading\n\nChapter text.',
+    'notes/Alpha/Subject/Nested/More.md': 'A nested note.',
+    'notes/Alpha/Subject/Group/Group.md': '---\ndisplay_content: false\n---\nHidden group introduction.',
+    'notes/Alpha/Subject/Group/Deep/Item.md': 'Inside a nested directory section.',
+    'notes/Beta/index.md': '---\ndisplay_content: false\n---\n',
+    'notes/Beta/Computation/First.md': 'A computation note.',
+    'notes/Gamma/index.md': '---\ndisplay_content: true\n---\nA restored normal Markdown page.',
+    'notes/Gamma/First.md': 'A visible Gamma note.',
+  };
+  for (const [relative, body] of Object.entries(fixtures)) {
+    const file = path.join(source, relative);
+    await fs.mkdir(path.dirname(file), { recursive: true });
+    await fs.writeFile(file, body);
+  }
+  await fs.writeFile(
+    path.join(temp, 'folders.yaml'),
+    'notes:\n  display_content: false\nnotes/Alpha:\n  display_content: false\nnotes/Gamma:\n  display_content: false\n',
+  );
+  const settings = { ...config, publishRoots: ['notes'], folderSettings: 'folders.yaml' };
+  const context = Object.assign(await catalog(settings, temp, source), settings, {
+    repoRoot,
+    cacheDir: path.join(temp, 'cache'),
+    pandoc: await findPandoc(),
+  });
+  for (const page of context.pages) await parsePage(page, context);
+  for (const page of context.pages) await renderPage(page, context);
+  const dir = (relative) => context.dirs.get(`content/notes/${relative}`);
+  const note = (relative) => context.pages.find((page) => page.rel === `content/notes/${relative}`);
+  const landing = load(pageTemplate(note('index.md'), context));
+  assert.equal(landing('body').attr('data-layout'), 'directory');
+  assert.equal(landing('body').attr('data-has-notes'), 'false');
+  assert.deepEqual(
+    landing('.directory-section h2')
+      .map((_, n) => landing(n).text().replace('›', ''))
+      .get(),
+    ['Alpha', 'Beta'],
+  );
+  assert.match(landing('[data-directory-section="content/notes/Alpha"]').text(), /Subject/);
+  assert.match(landing('[data-directory-section="content/notes/Beta"]').text(), /Computation/);
+  assert.ok(!landing('#article-body').text().includes('old landing-page text'));
+  const alpha = load(pageTemplate(dir('Alpha').page, context));
+  assert.equal(alpha('body').attr('data-layout'), 'directory');
+  assert.equal(alpha('.notes-tree').length, 0);
+  assert.equal(alpha('.breadcrumb').length, 0, 'Top-level tab names are not repeated in breadcrumbs');
+  const chapter = load(pageTemplate(note('Alpha/Subject/Chapter.md'), context));
+  assert.equal(chapter('[data-sidebar-root]').attr('data-sidebar-root'), 'content/notes/Alpha/Subject');
+  assert.equal(chapter('.sidebar-root').text(), 'Subject');
+  assert.equal(chapter('.notes-sidebar [data-folder="content/notes/Alpha"]').length, 0);
+  assert.equal(chapter('.notes-sidebar [data-folder="content/notes/Alpha/Subject/Group"]').length, 0);
+  assert.deepEqual(
+    chapter('.breadcrumb a')
+      .map((_, n) => chapter(n).text())
+      .get(),
+    ['Alpha', 'Subject'],
+  );
+  const deep = load(pageTemplate(note('Alpha/Subject/Group/Deep/Item.md'), context));
+  assert.equal(
+    deep('[data-sidebar-root]').attr('data-sidebar-root'),
+    'content/notes/Alpha/Subject/Group/Deep',
+  );
+  const hiddenNote = load(pageTemplate(dir('Alpha/Subject/Group').page, context));
+  assert.equal(hiddenNote('body').attr('data-layout'), 'directory');
+  assert.ok(!hiddenNote('#article-body').text().includes('Hidden group introduction'));
+  assert.match(
+    targetHref(resolveTarget('Group', note('Alpha/Subject/Chapter.md'), context), context),
+    /Group\/index.html$/,
+  );
+  assert.equal(dir('Gamma').displayContent, true, 'Explicit Obsidian properties override site defaults');
+  const gamma = load(pageTemplate(dir('Gamma').page, context));
+  assert.equal(gamma('body').attr('data-layout'), 'reader');
+  assert.equal(gamma('.sidebar-root').text(), 'Gamma');
+  assert.match(gamma('#article-body').text(), /restored normal Markdown/);
+  for (const [relative, body] of Object.entries(fixtures))
+    assert.equal(await fs.readFile(path.join(source, relative), 'utf8'), body);
+  await fs.writeFile(path.join(source, 'notes/Beta/index.md'), '---\ndisplay_content: "false"\n---\n');
+  await assert.rejects(catalog(settings, temp, source), /display_content must be true or false/);
+});
+
 test('Obsidian comments are stripped but code and math remain verbatim', () => {
   const body =
     'visible %% hidden %% text\n```js\nconst n = "%% code %%";\n```\n`%% inline %%` $x%%y$ \\(a%%b\\)';
