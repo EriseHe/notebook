@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import config from './config.mjs';
-import { catalog, digest, siteUrl, slash, walkFiles, within } from './content.mjs';
+import { catalog, digest, escapeHtml, siteUrl, slash, walkFiles, within } from './content.mjs';
 import { parsePage, renderPage, runPandoc } from './render.mjs';
 import { pageTemplate } from './template.mjs';
 import { findPandoc } from './setup.mjs';
@@ -56,6 +56,8 @@ export async function build(options = {}) {
     pandocVersion,
     cacheDir: path.join(root, '.quiet-reader', 'cache'),
   });
+  if (!context.pages.some((page) => page.isHome))
+    throw new Error('The home page needs an index.md beside the content directory or in the project root.');
   // Legacy /public attachments are only copied when a published note refers to them.
   const publicRoots = new Set([path.join(root, 'public'), path.resolve(contentRoot, '..', 'public')]);
   for (const publicRoot of publicRoots) {
@@ -115,7 +117,12 @@ export async function build(options = {}) {
         isDirectory: true,
       });
   }
-  await emit({ rel: 'index.md', route: 'index.html', title: 'Notebook', isLibrary: true });
+  // Keep old bookmarks working, without maintaining a second introduction page.
+  const homeUrl = escapeHtml(siteUrl(basePath, ''));
+  await write(
+    'about.html',
+    `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${homeUrl}"><link rel="canonical" href="${homeUrl}"><title>${escapeHtml(settings.title)}</title></head><body><p><a href="${homeUrl}">Continue to the notebook</a></p></body></html>`,
+  );
   await write(
     '404.html',
     pageTemplate(

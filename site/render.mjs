@@ -5,9 +5,11 @@ import { load } from 'cheerio';
 import {
   digest,
   escapeHtml,
+  folderRoute,
   headingNumbers,
   numberPrefix,
   resolveTarget,
+  siteUrl,
   targetHref,
   textOf,
   visitAst,
@@ -142,10 +144,10 @@ export async function parsePage(page, context) {
       !numberPrefix(heading.text) &&
       page.meta['number-headings'] !== false &&
       !page.isIndex &&
-      !page.isAbout
+      !page.isHome
     ) {
       heading.node.c[2].unshift({ t: 'Str', c: heading.number }, { t: 'Space' });
-    } else if (page.isIndex || page.isAbout || page.meta['number-headings'] === false)
+    } else if (page.isIndex || page.isHome || page.meta['number-headings'] === false)
       heading.display = heading.text;
     heading.node.c[1][2].push(['data-original-heading', heading.text]);
   }
@@ -358,6 +360,30 @@ export async function renderPage(page, context) {
       .append(node.children('.theorem-content'));
     node.replaceWith(details);
   });
+  if (page.isHome) {
+    const sectionUrls = new Set(
+      context.sections.map((section) => siteUrl(context.basePath, folderRoute(section))),
+    );
+    // The Markdown owns the entries, order, labels, and destinations. Only style
+    // a plain list of section links as navigation; do not invent home-page text.
+    $('ul').each((_, element) => {
+      const list = $(element),
+        items = list.children('li'),
+        links = items.children('a');
+      if (
+        !items.length ||
+        links.length !== items.length ||
+        links.toArray().some((link) => !sectionUrls.has($(link).attr('href')))
+      )
+        return;
+      list
+        .addClass('directory-list')
+        .wrap('<nav class="home-navigation" aria-label="Notebook sections"></nav>');
+      links.each((_, link) =>
+        $(link).wrapInner('<span></span>').append('<span class="chevron" aria-hidden="true">›</span>'),
+      );
+    });
+  }
   page.html = $.html();
   return page.html;
 }

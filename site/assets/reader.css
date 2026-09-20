@@ -245,12 +245,12 @@ button[hidden],
 .notes-sidebar {
   background: var(--sidebar);
   border-right: 1px solid var(--divider);
-  padding: 20px 14px;
+  padding: 16px 14px;
   display: flex;
   flex-direction: column;
   gap: 24px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 18px;
 }
 .outline-sidebar {
   border-left: 0;
@@ -275,10 +275,10 @@ body[data-has-outline='false'] .outline-sidebar {
 }
 .sidebar-root {
   display: block;
-  margin: 0 0 12px;
-  padding: 8px 12px;
+  margin: 0 0 8px;
+  padding: 6px 10px;
   font-size: 15px;
-  line-height: 22px;
+  line-height: 20px;
   font-weight: 600;
   border-radius: 7px;
 }
@@ -305,12 +305,12 @@ body[data-has-outline='false'] .outline-sidebar {
 }
 .note-link {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   align-items: baseline;
-  padding: 8px;
-  min-height: 36px;
+  padding: 4px 6px;
+  min-height: 26px;
   border-radius: 7px;
-  line-height: 20px;
+  line-height: 18px;
 }
 .notes-tree,
 .tree-children {
@@ -319,7 +319,7 @@ body[data-has-outline='false'] .outline-sidebar {
   margin: 0;
 }
 .tree-children {
-  padding-left: 16px;
+  padding-left: 10px;
 }
 .folder-row {
   display: flex;
@@ -328,7 +328,7 @@ body[data-has-outline='false'] .outline-sidebar {
 }
 .folder-node,
 .file-node {
-  margin: 2px 0;
+  margin: 0;
 }
 .tree-toggle {
   border: 0;
@@ -337,8 +337,8 @@ body[data-has-outline='false'] .outline-sidebar {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 4px;
-  min-height: 36px;
+  padding: 4px;
+  min-height: 26px;
   flex-shrink: 0;
 }
 .tree-toggle img {
@@ -353,7 +353,7 @@ body[data-has-outline='false'] .outline-sidebar {
   width: 100%;
   text-align: left;
   font: inherit;
-  line-height: 20px;
+  line-height: 18px;
   border-radius: 6px;
 }
 .folder-label span {
@@ -363,10 +363,10 @@ body[data-has-outline='false'] .outline-sidebar {
 .folder-link {
   flex: 1;
   min-width: 0;
-  padding: 8px 4px;
+  padding: 4px;
 }
 .notes-tree .file-node .note-link {
-  padding-left: 24px;
+  padding-left: 8px;
 }
 .notes-tree .note-link {
   overflow-wrap: anywhere;
@@ -797,6 +797,18 @@ code span.dv {
 }
 .directory-body {
   font-family: var(--ui);
+}
+.home-navigation {
+  margin-top: 28px;
+  font-family: var(--ui);
+}
+.prose .home-navigation ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.prose .home-navigation li {
+  margin: 0;
 }
 .library-group {
   margin: 0 0 32px;

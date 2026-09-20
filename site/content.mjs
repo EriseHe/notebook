@@ -109,28 +109,32 @@ export async function catalog(config, repoRoot, contentRoot) {
       isIndex,
     });
   }
-  // Keep the original welcome/disclaimer document available without changing it.
-  const aboutFile = path.join(repoRoot, 'index.md');
-  try {
-    const raw = await fs.readFile(aboutFile, 'utf8');
-    const { meta, body } = frontmatter(raw, aboutFile);
-    pages.push({
-      file: aboutFile,
-      rel: 'index.md',
-      vaultRel: null,
-      route: 'about.html',
-      meta,
-      body,
-      hash: digest(raw),
-      title: String(meta.title || 'About these notes'),
-      isIndex: false,
-      isAbout: true,
-    });
-  } catch (error) {
-    if (error.code !== 'ENOENT') throw error;
+  // The authored welcome note is the home page. With an external content root,
+  // prefer its adjacent index.md so editing the original Markdown updates preview.
+  const homeFiles = new Set([path.resolve(contentRoot, '..', 'index.md'), path.join(repoRoot, 'index.md')]);
+  for (const homeFile of homeFiles) {
+    try {
+      const raw = await fs.readFile(homeFile, 'utf8');
+      const { meta, body } = frontmatter(raw, homeFile);
+      pages.push({
+        file: homeFile,
+        rel: 'index.md',
+        vaultRel: null,
+        route: 'index.html',
+        meta,
+        body,
+        hash: digest(raw),
+        title: String(meta.title || config.title || 'Notebook'),
+        isIndex: false,
+        isHome: true,
+      });
+      break;
+    } catch (error) {
+      if (error.code !== 'ENOENT') throw error;
+    }
   }
   const dirs = new Map();
-  for (const page of pages.filter((page) => !page.isAbout)) {
+  for (const page of pages.filter((page) => !page.isHome)) {
     let dir = path.posix.dirname(page.rel);
     while (dir !== '.' && dir !== 'content') {
       if (!dirs.has(dir))
