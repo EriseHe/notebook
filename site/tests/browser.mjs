@@ -1,0 +1,251 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import puppeteer from 'puppeteer';
+import { load } from 'cheerio';
+import { build, repoRoot } from '../build.mjs';
+import { startServer } from '../server.mjs';
+import { encodePath, walkFiles, within } from '../content.mjs';
+
+const result = await build({ contentRoot: process.env.NOTEBOOK_CONTENT_ROOT, onProgress: console.log });
+const preview = await startServer({ ...result, port: 0 });
+const artifacts = path.join(repoRoot, '.preview-artifacts');
+await fs.mkdir(artifacts, { recursive: true });
+const candidates = [
+  process.env.BROWSER_PATH,
+  'C:/Program Files/Google/Chrome/Application/chrome.exe',
+  'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
+  '/usr/bin/google-chrome',
+  '/usr/bin/chromium',
+];
+let executablePath;
+for (const candidate of candidates.filter(Boolean)) {
+  try {
+    await fs.access(candidate);
+    executablePath = candidate;
+    break;
+  } catch {}
+}
+const browser = await puppeteer.launch({
+  executablePath,
+  headless: true,
+  args: process.env.CI ? ['--no-sandbox'] : [],
+});
+const page = await browser.newPage();
+const errors = [],
+  failedLocal = [];
+page.on('pageerror', (error) => errors.push(error.message));
+page.on('response', (response) => {
+  if (response.url().startsWith(preview.url) && response.status() >= 400)
+    failedLocal.push(`${response.status()} ${response.url()}`);
+});
+const origin = new URL(preview.url).origin;
+const pde = 'content/notes/理论/PDEs/Partial Differential Equations/2. Transport equation.html';
+async function go(route, math = true) {
+  await page.goto(preview.url + encodePath(route), { waitUntil: 'networkidle0' });
+  if (math && (await page.$('#MathJax-script'))) await page.evaluate(() => window.MathJax.startup.promise);
+  await page.evaluate(() => document.fonts.ready);
+}
+
+try {
+  console.log('Checking all generated page and attachment links…');
+  const htmlFiles = (await walkFiles(result.outputDir)).filter((file) => file.endsWith('.html'));
+  const broken = [];
+  for (const file of htmlFiles) {
+    const $ = load(await fs.readFile(file, 'utf8'));
+    for (const node of $('a[href],img[src],script[src],link[href],object[data]').toArray()) {
+      const href = $(node).attr('href') || $(node).attr('src') || $(node).attr('data');
+      if (!href?.startsWith(result.basePath)) continue;
+      const target = path.resolve(
+        result.outputDir,
+        decodeURIComponent(new URL(href, origin).pathname.slice(result.basePath.length)),
+      );
+      if (!within(result.outputDir, target)) {
+        broken.push(href);
+        continue;
+      }
+      try {
+        await fs.access(target);
+      } catch {
+        broken.push(`${path.relative(result.outputDir, file)} → ${href}`);
+      }
+    }
+  }
+  assert.deepEqual(broken, [], 'All emitted local links must point to generated files');
+  await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 1 });
+  await go(pde);
+  assert.ok(await page.$('mjx-container'), 'Math is typeset, not raw TeX');
+  assert.equal(await page.$$eval('mjx-merror', (nodes) => nodes.length), 0);
+  assert.match(
+    await page.$eval('.math-theorem[data-callout=danger]', (node) => node.textContent),
+    /Wrong:[\s\S]*Correct:/,
+  );
+  const design = await page.evaluate(() => ({
+    titleSize: getComputedStyle(document.querySelector('h1')).fontSize,
+    bodySize: getComputedStyle(document.querySelector('.prose')).fontSize,
+    font: getComputedStyle(document.querySelector('.prose')).fontFamily,
+    leftWidth: document.querySelector('.notes-sidebar').getBoundingClientRect().width,
+    rightWidth: document.querySelector('.outline-sidebar').getBoundingClientRect().width,
+    articleWidth: document.querySelector('.article').getBoundingClientRect().width,
+    sidebar: getComputedStyle(document.querySelector('.note-link.is-current')).color,
+    breadcrumb: getComputedStyle(document.querySelector('.breadcrumb a')).color,
+    inactiveOutline: getComputedStyle(document.querySelector('.outline-sidebar ol a:not(.is-active)')).color,
+    activeOutline: getComputedStyle(document.querySelector('.outline-sidebar a.is-active')).color,
+  }));
+  assert.equal(design.titleSize, '28px');
+  assert.equal(design.bodySize, '18px');
+  assert.match(design.font, /STIX Two Text/);
+  assert.equal(design.leftWidth, 248);
+  assert.equal(design.rightWidth, 248);
+  assert.equal(design.articleWidth, 720);
+  assert.equal(design.sidebar, 'rgb(29, 29, 31)');
+  assert.equal(design.inactiveOutline, 'rgb(110, 110, 115)');
+  assert.equal(design.breadcrumb, 'rgb(0, 102, 204)');
+  assert.equal(design.activeOutline, 'rgb(0, 102, 204)');
+  assert.equal(await page.$eval('.github-link', (node) => node.href), 'https://github.com/EriseHe/notebook');
+  await page.screenshot({ path: path.join(artifacts, 'reader-desktop.png') });
+  await page.click('#outline-fold');
+  assert.equal(await page.$eval('#outline-items', (node) => node.hidden), true);
+  await page.click('#outline-fold');
+
+  const outlineTarget = await page.$$eval('.outline-sidebar ol a', (links) =>
+    links.at(-1).getAttribute('href'),
+  );
+  await page.evaluate(() => document.querySelector('.outline-sidebar ol li:last-child a').click());
+  await page.waitForFunction(
+    (hash) => document.querySelector('.outline-sidebar a.is-active')?.getAttribute('href') === hash,
+    {},
+    outlineTarget,
+  );
+  await page.$eval('#reading-viewport', (node) => {
+    node.style.scrollBehavior = 'auto';
+    node.scrollTop = node.scrollHeight;
+  });
+  await page.screenshot({ path: path.join(artifacts, 'reader-footer.png') });
+  assert.equal(await page.$$eval('.page-navigation a[rel=next]', (nodes) => nodes.length), 0);
+  assert.match(
+    await page.$eval('.page-navigation a[rel=prev]', (node) => decodeURIComponent(node.pathname)),
+    /1\. Notation and Classification\.html$/,
+  );
+
+  await page.click('#notes-toggle');
+  assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'false');
+  assert.equal(await page.$eval('body', (node) => node.dataset.outlineOpen), 'true');
+  await page.reload({ waitUntil: 'networkidle0' });
+  assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'false');
+  await page.click('#notes-toggle');
+  await page.click('#outline-toggle');
+  assert.equal(await page.$eval('body', (node) => node.dataset.outlineOpen), 'false');
+  assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'true');
+  await page.click('#outline-toggle');
+  await page.click('#appearance-toggle');
+  await page.click('[data-size="20"]');
+  assert.equal(await page.$eval('.prose', (node) => getComputedStyle(node).fontSize), '20px');
+  await page.click('[data-size="18"]');
+  await page.keyboard.press('Escape');
+  await page.keyboard.down('Control');
+  await page.keyboard.press('k');
+  await page.keyboard.up('Control');
+  await page.type('#search-input', 'characteristic');
+  await page.waitForSelector('#search-results a');
+  assert.ok(
+    await page.$$eval('#search-results a', (links) =>
+      links.some((link) => link.textContent.includes('Transport equation')),
+    ),
+  );
+  await page.screenshot({ path: path.join(artifacts, 'reader-search.png') });
+  await page.keyboard.press('Escape');
+  await page.$eval('#reading-viewport', (node) => node.scrollTo({ top: 0, behavior: 'instant' }));
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 5000 }),
+    page.click('.breadcrumb a'),
+  ]).catch(async (error) => {
+    console.log(
+      await page.evaluate(() => ({
+        url: location.href,
+        dialogs: [...document.querySelectorAll('dialog')].map((n) => [n.id, n.open]),
+        link: document.querySelector('.breadcrumb a')?.outerHTML,
+        scroll: document.querySelector('#reading-viewport')?.scrollTop,
+      })),
+    );
+    await page.screenshot({ path: path.join(artifacts, 'navigation-debug.png') });
+    throw error;
+  });
+  assert.equal(await page.$eval('body', (node) => node.dataset.layout), 'directory');
+  assert.equal(
+    await page.$eval('.directory-list a', (node) => getComputedStyle(node).color),
+    'rgb(29, 29, 31)',
+  );
+  await go('index.html', false);
+  await page.screenshot({ path: path.join(artifacts, 'reader-library.png') });
+
+  console.log('Checking mobile navigation and long mathematical pages…');
+  await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
+  await go(pde);
+  assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'false');
+  assert.equal(await page.$eval('body', (node) => node.dataset.outlineOpen), 'false');
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  assert.ok(await page.$eval('#reading-viewport', (node) => node.scrollWidth <= node.clientWidth));
+  await page.screenshot({ path: path.join(artifacts, 'reader-mobile.png') });
+  await page.click('#outline-toggle');
+  assert.equal(await page.$eval('body', (node) => node.dataset.outlineOpen), 'true');
+  await page.screenshot({ path: path.join(artifacts, 'reader-mobile-outline.png') });
+  await page.click('#notes-toggle');
+  assert.equal(await page.$eval('body', (node) => node.dataset.outlineOpen), 'false');
+  assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'true');
+  await page.keyboard.press('Escape');
+  assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'false');
+  const samples = [
+    'content/notes/理论/PDEs/经典二阶PDEs/Heat Equation/The Fourier Series.html',
+    'content/notes/理论/广义相对论/Ch. 10 — Particle Orbits.html',
+  ];
+  const mathIssues = [];
+  await page.setViewport({ width: 1440, height: 1000, deviceScaleFactor: 1 });
+  for (const route of samples) {
+    await go(route);
+    const issues = await page.$$eval('mjx-merror', (nodes) =>
+      nodes.map((node) => ({ message: node.getAttribute('data-mjx-error'), tex: node.textContent })),
+    );
+    if (issues.length) mathIssues.push({ route, issues });
+    const localImages = await page.$$eval('.prose img', (nodes) =>
+      nodes
+        .filter((node) => node.src.startsWith(location.origin))
+        .map((node) => ({ src: node.src, okay: node.complete && node.naturalWidth > 0 })),
+    );
+    // Bring lazy-loaded images into the viewport before checking their intrinsic size.
+    for (const image of await page.$$('.prose img')) {
+      await image.scrollIntoView();
+    }
+    await page.waitForFunction(() =>
+      [...document.querySelectorAll('.prose img')]
+        .filter((node) => node.src.startsWith(location.origin))
+        .every((node) => node.complete && node.naturalWidth > 0),
+    );
+    assert.ok(await page.$eval('#reading-viewport', (node) => node.scrollWidth <= node.clientWidth));
+    console.log(
+      `${route}: ${await page.$$eval('mjx-container', (nodes) => nodes.length)} formulas, ${localImages.length} local images.`,
+    );
+  }
+  await fs.writeFile(
+    path.join(artifacts, 'browser-report.json'),
+    JSON.stringify(
+      {
+        design,
+        mathIssues,
+        errors,
+        failedLocal,
+        checkedLinks: htmlFiles.length,
+        sourceReport: result.report,
+      },
+      null,
+      2,
+    ),
+  );
+  assert.deepEqual(errors, [], 'No browser runtime errors');
+  assert.deepEqual(failedLocal, [], 'No missing local resources');
+  assert.deepEqual(mathIssues, [], 'Representative notes must have no math errors');
+  console.log(`Browser checks passed; ${htmlFiles.length} pages audited. Screenshots: .preview-artifacts/`);
+} finally {
+  await browser.close();
+  await preview.close();
+}

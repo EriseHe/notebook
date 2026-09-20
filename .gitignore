@@ -25,3 +25,8 @@ Thumbs.db
 /.quarto/
 
 **/*.quarto_ipynb
+
+# Quiet Reader output and local toolchain (never write into the vault)
+/.quiet-reader/
+/.tools/
+/.preview-artifacts/

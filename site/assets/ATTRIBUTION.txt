@@ -1,0 +1,8 @@
+Quiet Reader UI
+Design reference: https://www.figma.com/design/RjULRTUH4yd9FcAQriMuss?node-id=9-2
+The sidebar, outline, search, GitHub and chevron SVG assets were exported directly
+from the user's Figma design through its design-context asset URLs. They are
+preserved as supplied; no Apple system font files are redistributed.
+
+STIX Two Text: SIL Open Font License 1.1. See fonts/LICENSE.txt.
+MathJax 3.2.2: Apache License 2.0. See vendor/mathjax/LICENSE.txt.
