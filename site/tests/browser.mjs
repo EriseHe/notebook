@@ -117,7 +117,16 @@ try {
     await page.$eval('.note-link.is-current', (node) => getComputedStyle(node).paddingLeft),
     '8px',
   );
-  assert.equal(await page.$eval('.note-link.is-current', (node) => node.getBoundingClientRect().height), 26);
+  const menuRow = await page.$eval('.note-link.is-current', (node) => ({
+    height: node.getBoundingClientRect().height,
+    minHeight: getComputedStyle(node).minHeight,
+    lineHeight: getComputedStyle(node).lineHeight,
+  }));
+  assert.equal(menuRow.minHeight, '26px');
+  assert.equal(menuRow.lineHeight, '18px');
+  // Native UI fonts differ by OS; aligning the smaller number on the title's
+  // baseline can add 1–2px without adding padding or making the menu loose.
+  assert.ok(menuRow.height >= 26 && menuRow.height <= 28, 'Single-line menu rows stay compact');
   assert.equal(await page.$eval('.tree-children', (node) => getComputedStyle(node).paddingLeft), '10px');
   assert.equal(design.articleWidth, 720);
   assert.equal(design.sidebar, 'rgb(29, 29, 31)');
@@ -564,6 +573,9 @@ try {
   assert.deepEqual(failedLocal, [], 'No missing local resources');
   assert.deepEqual(mathIssues, [], 'Representative notes must have no math errors');
   console.log(`Browser checks passed; ${htmlFiles.length} pages audited. Screenshots: .preview-artifacts/`);
+} catch (error) {
+  await page.screenshot({ path: path.join(artifacts, 'browser-failure.png') }).catch(() => {});
+  throw error;
 } finally {
   await browser.close();
   await preview.close();
