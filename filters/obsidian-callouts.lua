@@ -1,5 +1,5 @@
--- Convert Obsidian-style math callouts (e.g. > [!theorem|1.2] Title)
--- into Quarto theorem blocks with original styling.
+-- Convert Obsidian callouts (e.g. > [!theorem|1.2] Title) into semantic HTML
+-- blocks shared by the Quarto site and the new standalone reader.
 
 local alias_map = {
   definition = "definition",
@@ -18,6 +18,9 @@ local alias_map = {
   ex = "example",
   proof = "proof",
   warning = "warning",
+  danger = "danger",
+  tip = "tip",
+  info = "info",
   caution = "caution",
   assumption = "assumption",
   claim = "claim"
@@ -34,6 +37,9 @@ local display_map = {
   example = "Example",
   proof = "Proof",
   warning = "Warning",
+  danger = "Correction",
+  tip = "Tip",
+  info = "Info",
   caution = "Caution",
   assumption = "Assumption",
   claim = "Claim"
@@ -41,17 +47,6 @@ local display_map = {
 
 local function trim(s)
   return (s or ""):gsub("^%s+", ""):gsub("%s+$", "")
-end
-
-local function parse_inlines(str)
-  if not str or trim(str) == "" then
-    return pandoc.List()
-  end
-  local doc = pandoc.read(str, "markdown")
-  if #doc.blocks > 0 and doc.blocks[1].t == "Para" then
-    return doc.blocks[1].content
-  end
-  return pandoc.List({ pandoc.Str(trim(str)) })
 end
 
 local function resolve_type(t)
@@ -81,6 +76,7 @@ local function callout_from_blockquote(block)
   end
 
   local marker_text = first_inline.text
+  local fold = marker_text:match("%]([+-])$")
   local ctype, label = marker_text:match("^%[!([%w%-]+)%|([^%]]-)%]")
   if not ctype then
     ctype = marker_text:match("^%[!([%w%-]+)%]")
@@ -120,11 +116,7 @@ local function callout_from_blockquote(block)
     end
   end
 
-  -- If we did not find a break, keep content for body and leave header to default caption
-  if not saw_break and #title_inlines > 0 then
-    body_lead = title_inlines
-    title_inlines = pandoc.List()
-  end
+  -- Text on the marker's line is the callout title; later lines are body.
 
   local body_blocks = pandoc.List()
   if #body_lead > 0 then
@@ -144,9 +136,6 @@ local function callout_from_blockquote(block)
   local badge_span = pandoc.Span(pandoc.List({ pandoc.Str(badge_label) }), pandoc.Attr("", { "theorem-badge" }))
 
   local header_children = pandoc.List({ badge_span })
-  if #title_inlines == 0 then
-    title_inlines = parse_inlines(display)
-  end
   if #title_inlines > 0 then
     header_children:insert(pandoc.Span(title_inlines, pandoc.Attr("", { "theorem-title" })))
   end
@@ -156,6 +145,7 @@ local function callout_from_blockquote(block)
 
   local classes = { "math-theorem", callout_type }
   local attributes = { ["data-callout"] = callout_type }
+  if fold then attributes["data-fold"] = fold end
   if label then
     attributes["data-label"] = label
   end

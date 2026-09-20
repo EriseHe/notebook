@@ -3,10 +3,28 @@
   "private": true,
   "scripts": {
     "render-tikz": "node scripts/render-tikz.js",
-    "build": "quarto render --output-dir docs",
-    "preview": "quarto preview"
+    "setup": "node site/setup.mjs",
+    "build": "node site/cli.mjs build",
+    "preview": "node site/cli.mjs preview",
+    "test": "node --test site/tests/*.test.mjs",
+    "test:browser": "node site/tests/browser.mjs",
+    "test:math": "node site/tests/math-audit.mjs",
+    "format": "prettier --write \"site/**/*.mjs\" \"site/assets/*.js\" \"site/assets/*.css\" package.json",
+    "format:check": "prettier --check \"site/**/*.mjs\" \"site/assets/*.js\" \"site/assets/*.css\" package.json",
+    "build:legacy": "quarto render --output-dir docs",
+    "preview:legacy": "quarto preview"
   },
   "dependencies": {
-    "puppeteer": "22.10.0"
+    "@fontsource/stix-two-text": "^5.2.6",
+    "cheerio": "^1.1.2",
+    "mathjax": "3.2.2",
+    "puppeteer": "25.11.0",
+    "yaml": "^2.8.1"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.8"
   }
 }
