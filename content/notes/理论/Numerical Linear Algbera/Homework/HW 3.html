@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>HW 3 — E.H. Notebook</title>
+<meta name="description" content="1 Numerical Methods I, Homework 3Schäfer, Fall 2026Deadline: Oct. 19 Monday, 4:55 pmSubmit your answers as a PDF file (report the results that you obtain using programmin">
+<link rel="stylesheet" href="/notebook/assets/reader.css"><link rel="preload" href="/notebook/assets/fonts/texgyretermes-regular.otf" as="font" type="font/otf" crossorigin>
+<script defer src="/notebook/assets/reader.js"></script>
+<script src="/notebook/assets/math-config.js"></script><script defer id="MathJax-script" src="/notebook/assets/vendor/mathjax/tex-chtml-full.js"></script>
+</head><body data-layout="reader" data-has-notes="true" data-has-outline="true" data-notes-open="true" data-outline-open="true" data-search-index="/notebook/assets/search.json">
+<a class="skip-link" href="#article-body">Skip to content</a>
+<header class="toolbar"><div class="identity"><button class="icon-button" id="notes-toggle" aria-label="Toggle notes sidebar" aria-controls="notes-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/sidebar.svg" alt="" width="20" height="20"></button><a class="brand" href="/notebook/">E.H. Notebook</a></div>
+<nav class="top-navigation" aria-label="Notebook sections"><a href="/notebook/content/notes/index.html" aria-current="page">Notes</a><a href="/notebook/content/posts/index.html">Posts</a><a href="/notebook/content/research/index.html">Research</a></nav>
+<div class="reading-tools"><button class="icon-button appearance-toggle" id="appearance-toggle" aria-label="Reading text size" aria-controls="appearance-dialog">Aa</button><button class="icon-button" id="search-toggle" aria-label="Search notes" aria-keyshortcuts="Control+k Meta+k"><img src="/notebook/assets/icons/search.svg" alt="" width="20" height="20"></button><a class="icon-button github-link" href="https://github.com/EriseHe/notebook" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><img src="/notebook/assets/icons/github.svg" alt="" width="20" height="20"></a><button class="icon-button" id="outline-toggle" aria-label="Toggle outline" aria-controls="outline-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/outline.svg" alt="" width="20" height="20"></button></div></header>
+<div class="reader-layout"><aside class="notes-sidebar" id="notes-sidebar" aria-label="Notes navigation"><nav aria-label="Numerical Linear Algbera file hierarchy" data-sidebar-root="content/notes/理论/Numerical Linear Algbera"><a class="sidebar-root" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><ul class="notes-tree"><li class="folder-node" data-folder="content/notes/理论/Numerical Linear Algbera/Homework" data-active-branch="true"><div class="folder-row"><button class="tree-toggle folder-label" aria-controls="folder-209a64aec9e6" aria-expanded="true"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""><span>Homework</span></button></div><ul class="tree-children" id="folder-209a64aec9e6"><li class="file-node"><a class="note-link is-current" aria-current="page" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span class="page-number"></span><span>HW 3</span></a></li></ul></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html"><span class="page-number">1</span><span>Vectors and Matrices</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span class="page-number">2</span><span>Storing Matrices &amp; Vectors</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span class="page-number">3</span><span>Lecture</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span class="page-number">4</span><span>LU Factorization with Pivoting</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span class="page-number">5</span><span>Least Squares and Gram-Schmidt</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html"><span class="page-number">6</span><span>Error Bounds and Householder QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span class="page-number">7</span><span>Orthogonal Transformations and QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html"><span class="page-number">8</span><span>Least Squares and Normal Equations</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span class="page-number">9</span><span>Cholesky Factorization and Schur Complements</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span class="page-number">10</span><span>Eigenvalues and Iterative Methods</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span class="page-number"></span><span>Midterm Study Plan</span></a></li></ul></nav></aside>
+<main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/index.html">Homework</a></nav><h1 id="reader-title">HW 3</h1></header><div id="article-body" class="prose"><h2 data-original-heading="Numerical Methods I, Homework 3" id="numerical-methods-i-homework-3">1 Numerical Methods I, Homework 3</h2>
+<p>Schäfer, Fall 2026</p>
+<p>Deadline: Oct.&nbsp;19 Monday, 4:55 pm</p>
+<ul>
+<li>Submit your answers as a PDF file (report the results that you obtain using programming by using plots, tables, and a description of your implementation like you would when writing a paper.) Also submit your code in a zip file.</li>
+<li>Programming questions are posted in Julia. You are allowed to use basic library functions like sorting, plotting, matrix-vector products etc, but nothing that renders the problem itself trivial. Please use your common sense and ask the instructors if you are unsure. You should never add additional packages to the environment.</li>
+<li>Homework is due at the beginning of class. Deadlines are sharp.</li>
+<li>We recommend the use of LaTeX for typing up your solutions. No credit will be given to unreadable handwriting.</li>
+</ul>
+<h3 data-original-heading="1 Schur Complements I [25 pts]" id="schur-complements-i-25-pts">1 Schur Complements I [25 pts]</h3>
+<p>Consider the matrix</p>
+<p><span class="math display">\[
+\mathbf{M}
+\coloneqq
+\begin{pmatrix}
+\mathbf{A} &amp; \mathbf{B}\\
+\mathbf{C} &amp; \mathbf{D}
+\end{pmatrix},
+\tag{1}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{A} \in \mathbb{K}^{m \times m}\)</span> and <span class="math inline">\(\mathbf{D} \in \mathbb{K}^{n \times n}\)</span> are square matrices and <span class="math inline">\(\mathbf{A}\)</span> is invertible. The matrix <span class="math inline">\(\mathbf{M}/\mathbf{A} \coloneqq \mathbf{D} - \mathbf{C} \mathbf{A}^{-1} \mathbf{B}\)</span> is called the Schur complement of <span class="math inline">\(\mathbf{A}\)</span> in <span class="math inline">\(\mathbf{M}\)</span>.</p>
+<h4 data-original-heading="(a) [5 pts]" id="a-5-pts">1.1.1 (a) [5 pts]</h4>
+<p>Relate the Schur complement <span class="math inline">\(\mathbf{M} / \mathbf{A}\)</span> to the block LU factorization of <span class="math inline">\(\mathbf{M}\)</span>.</p>
+<h5 data-original-heading="Solution to 1(a)" id="solution-to-1a">1.1.1.1 Solution to 1(a)</h5>
+<h4 data-original-heading="(b) [5 pts]" id="b-5-pts">1.1.2 (b) [5 pts]</h4>
+<p>Show that the determinant of <span class="math inline">\(\mathbf{M}\)</span> is given by <span class="math inline">\(\det\left(\mathbf{A}\right) \det\left(\mathbf{M} / \mathbf{A}\right)\)</span>.</p>
+<h5 data-original-heading="Solution to 1(b)" id="solution-to-1b">1.1.2.1 Solution to 1(b)</h5>
+<h4 data-original-heading="(c) [7.5 pts]" id="c-7.5-pts">1.1.3 (c) [7.5 pts]</h4>
+<p>Let <span class="math inline">\(\mathbf{M} = \mathbf{L} \mathbf{U}\)</span> be the LU factorization of <span class="math inline">\(\mathbf{M}\)</span>. Split its factors into block matrices</p>
+<p><span class="math display">\[
+\mathbf{L} =
+\begin{pmatrix}
+\mathbf{L}_{1, 1} &amp; \mathbf{0} \\
+\mathbf{L}_{2, 1} &amp; \mathbf{L}_{2, 2}
+\end{pmatrix},
+\quad
+\mathbf{U} =
+\begin{pmatrix}
+\mathbf{U}_{1, 1} &amp; \mathbf{U}_{1, 2} \\
+\mathbf{0} &amp; \mathbf{U}_{2, 2}
+\end{pmatrix}
+\tag{2}
+\]</span></p>
+<p>according to the same blocking as <span class="math inline">\(\mathbf{M}\)</span>. Show that <span class="math inline">\(\mathbf{M} / \mathbf{A} = \mathbf{L}_{2, 2} \mathbf{U}_{2, 2}\)</span>.</p>
+<h5 data-original-heading="Solution to 1(c)" id="solution-to-1c">1.1.3.1 Solution to 1(c)</h5>
+<p>Multiplying the blocks of <span class="math inline">\(\mathbf{L}\mathbf{U}\)</span> and comparing with <span class="math inline">\(\mathbf{M}\)</span> gives <span class="math display">\[
+\begin{aligned}
+\mathbf{A}&amp;=\mathbf{L}_{1,1}\mathbf{U}_{1,1}\\
+\mathbf{B}&amp;=\mathbf{L}_{1,1}\mathbf{U}_{1,2}\\
+\mathbf{C}&amp;=\mathbf{L}_{2,1}\mathbf{U}_{1,1}\\
+\mathbf{D}&amp;=\mathbf{L}_{2,1}\mathbf{U}_{1,2}
+           +\mathbf{L}_{2,2}\mathbf{U}_{2,2}
+\end{aligned}
+\]</span></p>
+<p>Since we know that <span class="math inline">\(\mathbf{A}\)</span> is invertible, its square factors <span class="math inline">\(\mathbf{L}_{1,1}\)</span> and <span class="math inline">\(\mathbf{U}_{1,1}\)</span> are also invertible. Therefore <span class="math display">\[
+\begin{aligned}
+\mathbf{C}\mathbf{A}^{-1}\mathbf{B}
+&amp;=(\mathbf{L}_{2,1}\mathbf{U}_{1,1})
+  (\mathbf{U}_{1,1}^{-1}\mathbf{L}_{1,1}^{-1})
+  (\mathbf{L}_{1,1}\mathbf{U}_{1,2})\\
+&amp;=\mathbf{L}_{2,1}\mathbf{U}_{1,2}
+\end{aligned}
+\]</span></p>
+<p>Subtracting this from <span class="math inline">\(\mathbf{D}\)</span> give us that <span class="math display">\[
+\begin{aligned}
+\mathbf{M}/\mathbf{A}
+&amp;=\mathbf{D}-\mathbf{C}\mathbf{A}^{-1}\mathbf{B}\\
+&amp;=\mathbf{L}_{2,1}\mathbf{U}_{1,2}
+ +\mathbf{L}_{2,2}\mathbf{U}_{2,2}
+ -\mathbf{L}_{2,1}\mathbf{U}_{1,2}\\
+&amp;=\boxed{\mathbf{L}_{2,2}\mathbf{U}_{2,2}}
+\end{aligned}
+\]</span></p>
+<h4 data-original-heading="(d) [7.5 pts]" id="d-7.5-pts">1.1.4 (d) [7.5 pts]</h4>
+<p>Now consider the <span class="math inline">\(3 \times 3\)</span> block matrix</p>
+<p><span class="math display">\[
+\mathbf{N} =
+\begin{pmatrix}
+\mathbf{N}_{1, 1} &amp; \mathbf{N}_{1, 2} &amp; \mathbf{N}_{1, 3} \\
+\mathbf{N}_{2, 1} &amp; \mathbf{N}_{2, 2} &amp; \mathbf{N}_{2, 3} \\
+\mathbf{N}_{3, 1} &amp; \mathbf{N}_{3, 2} &amp; \mathbf{N}_{3, 3}
+\end{pmatrix}.
+\tag{3}
+\]</span></p>
+<p>Prove the <em>Quotient Property</em> of Schur complements</p>
+<p><span class="math display">\[
+\left(\mathbf{N} / \mathbf{N}_{1, 1}\right) / \left(\mathbf{N} / \mathbf{N}_{1, 1}\right)_{1, 1}
+=
+\mathbf{N} \Big /
+\begin{pmatrix}
+\mathbf{N}_{1, 1} &amp; \mathbf{N}_{1, 2} \\
+\mathbf{N}_{2, 1} &amp; \mathbf{N}_{2, 2}
+\end{pmatrix}.
+\tag{4}
+\]</span></p>
+<p>Here, <span class="math inline">\(\left(\mathbf{N} / \mathbf{N}_{1, 1}\right)_{1, 1}\)</span> is the top left block of <span class="math inline">\(\mathbf{N} / \mathbf{N}_{1, 1}\)</span>, and the blocks <span class="math inline">\(\mathbf{N}_{1,1}\)</span> and <span class="math inline">\(\begin{pmatrix} \mathbf{N}_{1, 1} &amp; \mathbf{N}_{1, 2} \\ \mathbf{N}_{2, 1} &amp; \mathbf{N}_{2, 2} \end{pmatrix}\)</span> are assumed to be invertible.</p>
+<!-- BEGIN SOLUTION 1(d) -->
+<h5 data-original-heading="Solution to 1(d)" id="solution-to-1d">1.1.4.1 Solution to 1(d)</h5>
+<p>Write</p>
+<p><span class="math display">\[
+\mathbf{S}\coloneqq\mathbf{N}/\mathbf{N}_{1,1}
+=\begin{pmatrix}
+\mathbf{S}_{1,1}&amp;\mathbf{S}_{1,2}\\
+\mathbf{S}_{2,1}&amp;\mathbf{S}_{2,2}
+\end{pmatrix}
+\]</span></p>
+<p>where the four blocks are</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{S}_{1,1}
+&amp;=\mathbf{N}_{2,2}-\mathbf{N}_{2,1}\mathbf{N}_{1,1}^{-1}\mathbf{N}_{1,2}\\
+\mathbf{S}_{1,2}
+&amp;=\mathbf{N}_{2,3}-\mathbf{N}_{2,1}\mathbf{N}_{1,1}^{-1}\mathbf{N}_{1,3}\\
+\mathbf{S}_{2,1}
+&amp;=\mathbf{N}_{3,2}-\mathbf{N}_{3,1}\mathbf{N}_{1,1}^{-1}\mathbf{N}_{1,2}\\
+\mathbf{S}_{2,2}
+&amp;=\mathbf{N}_{3,3}-\mathbf{N}_{3,1}\mathbf{N}_{1,1}^{-1}\mathbf{N}_{1,3}
+\end{aligned}
+\]</span></p>
+<p>Let <span class="math inline">\(\mathbf{K}\)</span> denote the leading two-by-two block matrix on the right-hand side of (4). By part (b),</p>
+<p><span class="math display">\[
+\det(\mathbf{K})
+=\det(\mathbf{N}_{1,1})\det(\mathbf{S}_{1,1})
+\]</span></p>
+<p>The two assumed inverses therefore imply that <span class="math inline">\(\mathbf{S}_{1,1}\)</span> is invertible.</p>
+<p>To evaluate the Schur complement with respect to <span class="math inline">\(\mathbf{K}\)</span>, solve</p>
+<p><span class="math display">\[
+\mathbf{K}
+\begin{pmatrix}\mathbf{X}\\\mathbf{Y}\end{pmatrix}
+=\begin{pmatrix}\mathbf{N}_{1,3}\\\mathbf{N}_{2,3}\end{pmatrix}
+\]</span></p>
+<p>Elimination in this block system gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{X}
+&amp;=\mathbf{N}_{1,1}^{-1}
+  (\mathbf{N}_{1,3}-\mathbf{N}_{1,2}\mathbf{Y})\\
+\mathbf{S}_{1,1}\mathbf{Y}&amp;=\mathbf{S}_{1,2}\\
+\mathbf{Y}&amp;=\mathbf{S}_{1,1}^{-1}\mathbf{S}_{1,2}
+\end{aligned}
+\]</span></p>
+<p>Substitute these expressions into <span class="math inline">\(\mathbf{N}/\mathbf{K}\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{N}/\mathbf{K}
+&amp;=\mathbf{N}_{3,3}
+ -\mathbf{N}_{3,1}\mathbf{X}-\mathbf{N}_{3,2}\mathbf{Y}\\
+&amp;=\mathbf{N}_{3,3}
+ -\mathbf{N}_{3,1}\mathbf{N}_{1,1}^{-1}\mathbf{N}_{1,3}\\
+&amp;\quad-\bigl(\mathbf{N}_{3,2}
+ -\mathbf{N}_{3,1}\mathbf{N}_{1,1}^{-1}\mathbf{N}_{1,2}\bigr)
+ \mathbf{S}_{1,1}^{-1}\mathbf{S}_{1,2}\\
+&amp;=\mathbf{S}_{2,2}
+ -\mathbf{S}_{2,1}\mathbf{S}_{1,1}^{-1}\mathbf{S}_{1,2}\\
+&amp;=\mathbf{S}/\mathbf{S}_{1,1}
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(\mathbf{S}=\mathbf{N}/\mathbf{N}_{1,1}\)</span>, this is precisely the quotient property (4): successive elimination and elimination of the combined block give the same Schur complement.</p>
+<!-- END SOLUTION 1(d) -->
+<h3 data-original-heading="2 Schur Complements II [25 pts + 10 bonus]" id="schur-complements-ii-25-pts-10-bonus">2 Schur Complements II [25 pts + 10 bonus]</h3>
+<p>Let <span class="math inline">\(\mathbf{M}\)</span> be as in the previous problem.</p>
+<h4 data-original-heading="(a) [5 pts]" id="a-5-pts-1">1.2.1 (a) [5 pts]</h4>
+<p>Divide the inverse of <span class="math inline">\(\mathbf{M}\)</span> into blocks (of the same size as those of <span class="math inline">\(\mathbf{M}\)</span>) as</p>
+<p><span class="math display">\[
+\mathbf{M}^{-1} =
+\begin{pmatrix}
+\boldsymbol{\alpha} &amp; \boldsymbol{\beta} \\
+\boldsymbol{\gamma} &amp; \boldsymbol{\delta}
+\end{pmatrix}.
+\tag{5}
+\]</span></p>
+<p>Show that the Schur complement <span class="math inline">\(\mathbf{M} / \mathbf{A}\)</span> is the inverse of <span class="math inline">\(\boldsymbol{\delta}\)</span>.</p>
+<!-- BEGIN SOLUTION 2(a) -->
+<h5 data-original-heading="Solution to 2(a)" id="solution-to-2a">1.2.1.1 Solution to 2(a)</h5>
+<p>Write <span class="math inline">\(\mathbf{S}=\mathbf{M}/\mathbf{A}\)</span>. Since <span class="math inline">\(\mathbf{M}\)</span> and <span class="math inline">\(\mathbf{A}\)</span> are invertible, Question 1(b) implies that <span class="math inline">\(\mathbf{S}\)</span> is invertible. Invert the block LU factors from Question 1(a) in reverse order:</p>
+<p><span class="math display">\[
+\mathbf{M}^{-1}
+=
+\begin{pmatrix}
+\mathbf{A}^{-1}&amp;-\mathbf{A}^{-1}\mathbf{B}\mathbf{S}^{-1}\\
+\mathbf{0}&amp;\mathbf{S}^{-1}
+\end{pmatrix}
+\begin{pmatrix}
+\mathbf{I}_m&amp;\mathbf{0}\\
+-\mathbf{C}\mathbf{A}^{-1}&amp;\mathbf{I}_n
+\end{pmatrix}
+\]</span></p>
+<p>The lower-right block of this product is <span class="math inline">\(\mathbf{S}^{-1}\)</span>. Comparing with (5),</p>
+<p><span class="math display">\[
+\boldsymbol{\delta}=\mathbf{S}^{-1}
+\quad\Longrightarrow\quad
+\boxed{\mathbf{M}/\mathbf{A}=\boldsymbol{\delta}^{-1}}
+\]</span></p>
+<!-- END SOLUTION 2(a) -->
+<h4 data-original-heading="(b) [5 pts]" id="b-5-pts-1">1.2.2 (b) [5 pts]</h4>
+<p>For <span class="math inline">\(\mathbf{M}\)</span> symmetric positive definite (symmetric meaning Hermitian in the complex case), show that if <span class="math inline">\(\lambda\)</span> is an eigenvalue of <span class="math inline">\(\mathbf{M} / \mathbf{A}\)</span>, then <span class="math inline">\(\lambda_{\min}\left(\mathbf{M} \right) \leq \lambda \leq \lambda_{\max}\left(\mathbf{M}\right)\)</span>.</p>
+<!-- BEGIN SOLUTION 2(b) -->
+<h5 data-original-heading="Solution to 2(b)" id="solution-to-2b">1.2.2.1 Solution to 2(b)</h5>
+<p>Because <span class="math inline">\(\mathbf{M}\)</span> is Hermitian positive definite, so is <span class="math inline">\(\mathbf{M}^{-1}\)</span>. Its lower-right principal block <span class="math inline">\(\boldsymbol{\delta}\)</span> is positive definite, since for <span class="math inline">\(\boldsymbol{y}\ne\boldsymbol{0}\)</span>,</p>
+<p><span class="math display">\[
+\boldsymbol{y}^*\boldsymbol{\delta}\boldsymbol{y}
+=
+\begin{pmatrix}\boldsymbol{0}\\\boldsymbol{y}\end{pmatrix}^*
+\mathbf{M}^{-1}
+\begin{pmatrix}\boldsymbol{0}\\\boldsymbol{y}\end{pmatrix}&gt;0
+\]</span></p>
+<p>Thus <span class="math inline">\(\mathbf{S}=\mathbf{M}/\mathbf{A}=\boldsymbol{\delta}^{-1}\)</span> is also Hermitian positive definite.</p>
+<p>The eigendecomposition used in Lecture 8 gives, for every vector <span class="math inline">\(\boldsymbol{z}\)</span>,</p>
+<p><span class="math display">\[
+\frac{\|\boldsymbol{z}\|_2^2}{\lambda_{\max}(\mathbf{M})}
+\le \boldsymbol{z}^*\mathbf{M}^{-1}\boldsymbol{z}
+\le \frac{\|\boldsymbol{z}\|_2^2}{\lambda_{\min}(\mathbf{M})}
+\]</span></p>
+<p>Indeed, in an orthonormal eigenbasis, the quadratic form is a sum of squared coordinate magnitudes weighted by the eigenvalues <span class="math inline">\(1/\lambda_j(\mathbf{M})\)</span>.</p>
+<p>Now take an eigenvector <span class="math inline">\(\boldsymbol{y}\ne\boldsymbol{0}\)</span> with <span class="math inline">\(\mathbf{S}\boldsymbol{y}=\lambda\boldsymbol{y}\)</span>. Then <span class="math inline">\(\boldsymbol{\delta}\boldsymbol{y}=\lambda^{-1}\boldsymbol{y}\)</span>. Applying the preceding bound to <span class="math inline">\(\boldsymbol{z}=(\boldsymbol{0},\boldsymbol{y})^T\)</span> yields</p>
+<p><span class="math display">\[
+\frac{\|\boldsymbol{y}\|_2^2}{\lambda_{\max}(\mathbf{M})}
+\le \frac{\|\boldsymbol{y}\|_2^2}{\lambda}
+\le \frac{\|\boldsymbol{y}\|_2^2}{\lambda_{\min}(\mathbf{M})}
+\]</span></p>
+<p>Divide by <span class="math inline">\(\|\boldsymbol{y}\|_2^2\)</span> and take reciprocals, reversing the inequalities:</p>
+<p><span class="math display">\[
+\boxed{\lambda_{\min}(\mathbf{M})
+\le\lambda\le\lambda_{\max}(\mathbf{M})}
+\]</span></p>
+<!-- END SOLUTION 2(b) -->
+<h4 data-original-heading="(c) [7.5 pts]" id="c-7.5-pts-1">1.2.3 (c) [7.5 pts]</h4>
+<p>Show that the size of the pivots occurring in the Cholesky or LU factorization of a s.p.d. matrix <span class="math inline">\(\mathbf{M}\)</span> is lower bounded by <span class="math inline">\(\left\|\mathbf{M}^{-1}\right\|^{-1}\)</span>, where <span class="math inline">\(\|\cdot\|\)</span> denotes the spectral norm.</p>
+<!-- BEGIN SOLUTION 2(c) -->
+<h5 data-original-heading="Solution to 2(c)" id="solution-to-2c">1.2.3.1 Solution to 2(c)</h5>
+<p>As in Lecture 9, a pivot is the diagonal entry of the active matrix <strong>before</strong> taking a square root. After eliminating the first <span class="math inline">\(k-1\)</span> variables, the active matrix is</p>
+<p><span class="math display">\[
+\mathbf{S}^{(k-1)}
+=\mathbf{M}/\mathbf{M}_{1:k-1,\,1:k-1}
+\qquad (k\ge2)
+\]</span></p>
+<p>The next pivot is <span class="math inline">\(p_k=(\mathbf{S}^{(k-1)})_{1,1}\)</span>. The leading principal block is positive definite, so this Schur complement exists. By part (b) and the quadratic-form bound,</p>
+<p><span class="math display">\[
+\begin{aligned}
+p_k
+&amp;=\boldsymbol{e}_1^*\mathbf{S}^{(k-1)}\boldsymbol{e}_1\\
+&amp;\ge\lambda_{\min}(\mathbf{S}^{(k-1)})\\
+&amp;\ge\lambda_{\min}(\mathbf{M})
+\end{aligned}
+\]</span></p>
+<p>For the first pivot, the same bound follows directly from <span class="math inline">\(p_1=\boldsymbol{e}_1^*\mathbf{M}\boldsymbol{e}_1\)</span>. Since <span class="math inline">\(\mathbf{M}\)</span> is positive definite,</p>
+<p><span class="math display">\[
+\|\mathbf{M}^{-1}\|_2
+=\frac{1}{\lambda_{\min}(\mathbf{M})}
+\]</span></p>
+<p>Therefore every elimination pivot satisfies</p>
+<p><span class="math display">\[
+\boxed{p_k\ge\|\mathbf{M}^{-1}\|_2^{-1}}
+\]</span></p>
+<p>In unit-lower-triangular LU, <span class="math inline">\(p_k=U_{k,k}\)</span>. In Cholesky, <span class="math inline">\(p_k=L_{k,k}^2\)</span>, so the factor’s positive diagonal entries satisfy <span class="math inline">\(L_{k,k}\ge\|\mathbf{M}^{-1}\|_2^{-1/2}\)</span>.</p>
+<!-- END SOLUTION 2(c) -->
+<h4 data-original-heading="(d) [7.5 pts]" id="d-7.5-pts-1">1.2.4 (d) [7.5 pts]</h4>
+<p>For <span class="math inline">\(\mathbf{M}\)</span> s.p.d, show that</p>
+<p><span class="math display">\[
+\boldsymbol{y}^* \left(\mathbf{M} / \mathbf{A}\right) \boldsymbol{y} = \min \limits_{\boldsymbol{x} \in \mathbb{K}^{m}}
+\begin{pmatrix}
+\boldsymbol{x}\\
+\boldsymbol{y}
+\end{pmatrix}^*
+\mathbf{M}
+\begin{pmatrix}
+\boldsymbol{x}\\
+\boldsymbol{y}
+\end{pmatrix}.
+\tag{6}
+\]</span></p>
+<!-- BEGIN SOLUTION 2(d) -->
+<h5 data-original-heading="Solution to 2(d)" id="solution-to-2d">1.2.4.1 Solution to 2(d)</h5>
+<p>Hermitian symmetry gives <span class="math inline">\(\mathbf{C}=\mathbf{B}^*\)</span> and <span class="math inline">\((\mathbf{A}^{-1})^*=\mathbf{A}^{-1}\)</span>. Expand and complete the square:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\begin{pmatrix}\boldsymbol{x}\\\boldsymbol{y}\end{pmatrix}^*
+\mathbf{M}
+\begin{pmatrix}\boldsymbol{x}\\\boldsymbol{y}\end{pmatrix}
+&amp;=\boldsymbol{x}^*\mathbf{A}\boldsymbol{x}
+ +\boldsymbol{x}^*\mathbf{B}\boldsymbol{y}
+ +\boldsymbol{y}^*\mathbf{B}^*\boldsymbol{x}
+ +\boldsymbol{y}^*\mathbf{D}\boldsymbol{y}\\
+&amp;=(\boldsymbol{x}+\mathbf{A}^{-1}\mathbf{B}\boldsymbol{y})^*
+ \mathbf{A}
+ (\boldsymbol{x}+\mathbf{A}^{-1}\mathbf{B}\boldsymbol{y})\\
+&amp;\quad+\boldsymbol{y}^*
+ (\mathbf{D}-\mathbf{B}^*\mathbf{A}^{-1}\mathbf{B})
+ \boldsymbol{y}
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(\mathbf{A}\)</span> is positive definite, the first term is nonnegative and vanishes exactly at</p>
+<p><span class="math display">\[
+\boldsymbol{x}=-\mathbf{A}^{-1}\mathbf{B}\boldsymbol{y}
+\]</span></p>
+<p>The second term is <span class="math inline">\(\boldsymbol{y}^*(\mathbf{M}/\mathbf{A})\boldsymbol{y}\)</span>. Consequently,</p>
+<p><span class="math display">\[
+\boxed{
+\min_{\boldsymbol{x}\in\mathbb{K}^m}
+\begin{pmatrix}\boldsymbol{x}\\\boldsymbol{y}\end{pmatrix}^*
+\mathbf{M}
+\begin{pmatrix}\boldsymbol{x}\\\boldsymbol{y}\end{pmatrix}
+=\boldsymbol{y}^*(\mathbf{M}/\mathbf{A})\boldsymbol{y}
+}
+\]</span></p>
+<!-- END SOLUTION 2(d) -->
+<h4 data-original-heading="(e) [10 bonus pts]" id="e-10-bonus-pts">1.2.5 (e) [10 bonus pts]</h4>
+<p>By replacing the <span class="math inline">\(\min\)</span> with a <span class="math inline">\(\min \max\)</span> over suitable variables, derive a version of the results of (d) that is valid for general <span class="math inline">\(\mathbf{M}\)</span>.</p>
+<!-- BEGIN SOLUTION 2(e) -->
+<h5 data-original-heading="Solution to 2(e)" id="solution-to-2e">1.2.5.1 Solution to 2(e)</h5>
+<p>Introduce an independent vector <span class="math inline">\(\boldsymbol{z}\in\mathbb{K}^m\)</span> in the left argument and define</p>
+<p><span class="math display">\[
+\begin{aligned}
+F(\boldsymbol{x},\boldsymbol{z})
+&amp;=\begin{pmatrix}\boldsymbol{z}\\\boldsymbol{y}\end{pmatrix}^*
+\mathbf{M}
+\begin{pmatrix}\boldsymbol{x}\\\boldsymbol{y}\end{pmatrix}\\
+&amp;=\boldsymbol{z}^*(\mathbf{A}\boldsymbol{x}+\mathbf{B}\boldsymbol{y})
+ +\boldsymbol{y}^*(\mathbf{C}\boldsymbol{x}+\mathbf{D}\boldsymbol{y})
+\end{aligned}
+\]</span></p>
+<p>First let <span class="math inline">\(\mathbb{K}=\mathbb{R}\)</span>. For fixed <span class="math inline">\(\boldsymbol{x}\)</span>, write <span class="math inline">\(\boldsymbol{r}=\mathbf{A}\boldsymbol{x}+\mathbf{B}\boldsymbol{y}\)</span>. If <span class="math inline">\(\boldsymbol{r}\ne\boldsymbol{0}\)</span>, choosing <span class="math inline">\(\boldsymbol{z}=t\boldsymbol{r}\)</span> and letting <span class="math inline">\(t\to+\infty\)</span> makes <span class="math inline">\(F\)</span> tend to <span class="math inline">\(+\infty\)</span>. If <span class="math inline">\(\boldsymbol{r}=\boldsymbol{0}\)</span>, the expression is independent of <span class="math inline">\(\boldsymbol{z}\)</span>. Thus</p>
+<p><span class="math display">\[
+\sup_{\boldsymbol{z}}F(\boldsymbol{x},\boldsymbol{z})
+=\begin{cases}
+\boldsymbol{y}^*(\mathbf{C}\boldsymbol{x}+\mathbf{D}\boldsymbol{y})
+&amp;\mathbf{A}\boldsymbol{x}+\mathbf{B}\boldsymbol{y}=\boldsymbol{0}\\
++\infty&amp;\text{otherwise}
+\end{cases}
+\]</span></p>
+<p>Since <span class="math inline">\(\mathbf{A}\)</span> is invertible, the only finite case is <span class="math inline">\(\boldsymbol{x}=-\mathbf{A}^{-1}\mathbf{B}\boldsymbol{y}\)</span>. Substitution gives the general real-matrix version:</p>
+<p><span class="math display">\[
+\boxed{
+\boldsymbol{y}^*(\mathbf{M}/\mathbf{A})\boldsymbol{y}
+=\min_{\boldsymbol{x}\in\mathbb{R}^m}
+ \sup_{\boldsymbol{z}\in\mathbb{R}^m}
+ F(\boldsymbol{x},\boldsymbol{z})
+}
+\]</span></p>
+<p>The supremum allows the value <span class="math inline">\(+\infty\)</span> away from the constraint; at the minimizing <span class="math inline">\(\boldsymbol{x}\)</span>, every <span class="math inline">\(\boldsymbol{z}\)</span> attains the inner maximum. Neither symmetry nor positive definiteness is required.</p>
+<p>For a general <strong>complex</strong> matrix, the scalar on the left may be complex, so apply minimization and maximization to its real and imaginary parts:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Re}\!\left(\boldsymbol{y}^*(\mathbf{M}/\mathbf{A})\boldsymbol{y}\right)
+&amp;=\min_{\boldsymbol{x}\in\mathbb{C}^m}
+  \sup_{\boldsymbol{z}\in\mathbb{C}^m}
+  \operatorname{Re}F(\boldsymbol{x},\boldsymbol{z})\\
+\operatorname{Im}\!\left(\boldsymbol{y}^*(\mathbf{M}/\mathbf{A})\boldsymbol{y}\right)
+&amp;=\min_{\boldsymbol{x}\in\mathbb{C}^m}
+  \sup_{\boldsymbol{z}\in\mathbb{C}^m}
+  \operatorname{Im}F(\boldsymbol{x},\boldsymbol{z})
+\end{aligned}
+\]</span></p>
+<p>The same proof uses <span class="math inline">\(\boldsymbol{z}=t\boldsymbol{r}\)</span> for the real part and <span class="math inline">\(\boldsymbol{z}=-it\boldsymbol{r}\)</span> for the imaginary part. For Hermitian <span class="math inline">\(\mathbf{M}\)</span>, the Schur-complement quadratic form is real, so the first identity alone gives its value.</p>
+<!-- END SOLUTION 2(e) -->
+<h3 data-original-heading="3 Cholesky and QR [25 pts]" id="cholesky-and-qr-25-pts">3 Cholesky and QR [25 pts]</h3>
+<h4 data-original-heading="(a) [5 pts]" id="a-5-pts-2">1.3.1 (a) [5 pts]</h4>
+<p>Assume that the invertible matrix <span class="math inline">\(\mathbf{A} \in \mathbb{K}^{m \times m}\)</span> satisfies <span class="math inline">\(\mathbf{A} = \mathbf{L} \mathbf{U}\)</span>. Derive a way to write <span class="math inline">\(\mathbf{A}\)</span> as the sum of rank-one matrices in outer product form.</p>
+<!-- BEGIN SOLUTION 3(a) -->
+<h5 data-original-heading="Solution to 3(a)" id="solution-to-3a">1.3.1.1 Solution to 3(a)</h5>
+<p>Insert <span class="math inline">\(\mathbf{I}=\sum_{k=1}^m\boldsymbol{e}_k\boldsymbol{e}_k^*\)</span> between the factors:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{A}
+&amp;=\mathbf{L}\mathbf{U}\\
+&amp;=\sum_{k=1}^m
+  (\mathbf{L}\boldsymbol{e}_k)(\boldsymbol{e}_k^*\mathbf{U})\\
+&amp;=\boxed{\sum_{k=1}^m\mathbf{L}_{:,k}\mathbf{U}_{k,:}}
+\end{aligned}
+\]</span></p>
+<p>Each summand is the outer product of column <span class="math inline">\(k\)</span> of <span class="math inline">\(\mathbf{L}\)</span> and row <span class="math inline">\(k\)</span> of <span class="math inline">\(\mathbf{U}\)</span>. Equivalently, set <span class="math inline">\(\boldsymbol{\ell}_k=\mathbf{L}\boldsymbol{e}_k\)</span> and <span class="math inline">\(\boldsymbol{u}_k=\mathbf{U}^*\boldsymbol{e}_k\)</span> to obtain <span class="math inline">\(\mathbf{A}=\sum_k\boldsymbol{\ell}_k\boldsymbol{u}_k^*\)</span>. Both factors are invertible, so these vectors are nonzero and every summand has rank one.</p>
+<!-- END SOLUTION 3(a) -->
+<h4 data-original-heading="(b) [5 pts]" id="b-5-pts-2">1.3.2 (b) [5 pts]</h4>
+<p>Show that the LU factorization of an invertible matrix <span class="math inline">\(\mathbf{A} \in \mathbb{K}^{m \times m}\)</span>, with <span class="math inline">\(\mathbf{L}\)</span> unit lower triangular, is unique (when it exists).</p>
+<!-- BEGIN SOLUTION 3(b) -->
+<h5 data-original-heading="Solution to 3(b)" id="solution-to-3b">1.3.2.1 Solution to 3(b)</h5>
+<p>Suppose there are two such factorizations:</p>
+<p><span class="math display">\[
+\mathbf{A}=\mathbf{L}\mathbf{U}
+=\widetilde{\mathbf{L}}\widetilde{\mathbf{U}}
+\]</span></p>
+<p>All factors are invertible because <span class="math inline">\(\mathbf{A}\)</span> is invertible. Rearranging gives</p>
+<p><span class="math display">\[
+\mathbf{L}^{-1}\widetilde{\mathbf{L}}
+=\mathbf{U}\widetilde{\mathbf{U}}^{-1}
+\]</span></p>
+<p>The left-hand side is unit lower triangular; the right-hand side is upper triangular. Their common value is therefore diagonal, and its diagonal entries are all <span class="math inline">\(1\)</span>. Hence</p>
+<p><span class="math display">\[
+\mathbf{L}^{-1}\widetilde{\mathbf{L}}=\mathbf{I}
+\quad\Longrightarrow\quad
+\boxed{\widetilde{\mathbf{L}}=\mathbf{L}
+\qquad\widetilde{\mathbf{U}}=\mathbf{U}}
+\]</span></p>
+<!-- END SOLUTION 3(b) -->
+<h4 data-original-heading="(c) [5 pts]" id="c-5-pts">1.3.3 (c) [5 pts]</h4>
+<p>Assume that we factor <span class="math inline">\(\mathbf{A} \in \mathbb{K}^{m \times m}\)</span> as <span class="math inline">\(\mathbf{A} = \mathbf{L} \mathbf{L}^{*}\)</span> for lower triangular <span class="math inline">\(\mathbf{L}\)</span>. Up to which choices is this factorization unique? Prove your results (as always) and make sure to treat the case <span class="math inline">\(\mathbb{K} = \mathbb{C}\)</span>.</p>
+<!-- BEGIN SOLUTION 3(c) -->
+<h5 data-original-heading="Solution to 3(c)" id="solution-to-3c">1.3.3.1 Solution to 3(c)</h5>
+<p><strong>Nonsingular case.</strong> If <span class="math inline">\(\mathbf{A}\)</span> is invertible, then every <span class="math inline">\(L_{k,k}\ne0\)</span>. Define</p>
+<p><span class="math display">\[
+\mathbf{D}=\operatorname{diag}(L_{1,1},\ldots,L_{m,m})
+\]</span></p>
+<p>Normalize the lower factor to obtain a unit-lower-triangular LU factorization:</p>
+<p><span class="math display">\[
+\mathbf{A}
+=\underbrace{(\mathbf{L}\mathbf{D}^{-1})}_{\text{unit lower triangular}}
+ \underbrace{(\mathbf{D}\mathbf{L}^*)}_{\text{upper triangular}}
+\]</span></p>
+<p>By part (b), these two normalized factors are unique. Moreover,</p>
+<p><span class="math display">\[
+(\mathbf{D}\mathbf{L}^*)_{k,k}=|L_{k,k}|^2
+\]</span></p>
+<p>so the magnitudes of the diagonal entries of <span class="math inline">\(\mathbf{L}\)</span> are fixed.</p>
+<p>For another factor <span class="math inline">\(\widetilde{\mathbf{L}}\)</span>, let <span class="math inline">\(\widetilde{\mathbf{D}}\)</span> contain its diagonal entries. Uniqueness of the normalized lower factor gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{L}\mathbf{D}^{-1}
+&amp;=\widetilde{\mathbf{L}}\widetilde{\mathbf{D}}^{-1}\\
+\widetilde{\mathbf{L}}
+&amp;=\mathbf{L}\mathbf{D}^{-1}\widetilde{\mathbf{D}}\\
+&amp;=\mathbf{L}\operatorname{diag}(\omega_1,\ldots,\omega_m)
+\end{aligned}
+\]</span></p>
+<p>Here <span class="math inline">\(\omega_k=\widetilde L_{k,k}/L_{k,k}\)</span> and <span class="math inline">\(|\omega_k|=1\)</span>. Conversely, multiplying columns by such scalars preserves the factorization, since</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{W}&amp;=\operatorname{diag}(\omega_1,\ldots,\omega_m)\\
+(\mathbf{L}\mathbf{W})(\mathbf{L}\mathbf{W})^*
+&amp;=\mathbf{L}\mathbf{W}\mathbf{W}^*\mathbf{L}^*
+=\mathbf{L}\mathbf{L}^*
+\end{aligned}
+\]</span></p>
+<p>Thus the factor is unique up to <strong>independent column signs</strong> over <span class="math inline">\(\mathbb{R}\)</span> and <strong>independent column phases</strong> <span class="math inline">\(\omega_k=e^{i\theta_k}\)</span> over <span class="math inline">\(\mathbb{C}\)</span>. Requiring every <span class="math inline">\(L_{k,k}\)</span> to be positive real removes this freedom and gives the unique Cholesky factor.</p>
+<p><strong>If <span class="math inline">\(\mathbf{A}\)</span> is singular</strong>, uniqueness up to column phases need not hold. For example,</p>
+<p><span class="math display">\[
+\mathbf{A}=\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix}
+\qquad
+\mathbf{L}=\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix}
+\qquad
+\widetilde{\mathbf{L}}=\begin{pmatrix}0&amp;0\\1&amp;0\end{pmatrix}
+\]</span></p>
+<p>Both lower-triangular factors satisfy <span class="math inline">\(\mathbf{L}\mathbf{L}^*=\widetilde{\mathbf{L}}\widetilde{\mathbf{L}}^*=\mathbf{A}\)</span>, but column phases cannot move a nonzero entry from one column to another. The sign/phase uniqueness conclusion therefore requires nonsingularity.</p>
+<!-- END SOLUTION 3(c) -->
+<h4 data-original-heading="(d) [5 pts]" id="d-5-pts">1.3.4 (d) [5 pts]</h4>
+<p>Using these results, prove and explain the relationship between the Cholesky factor of <span class="math inline">\(\mathbf{B}^* \mathbf{B}\)</span> and the QR factorization of <span class="math inline">\(\mathbf{B}\)</span>, for <span class="math inline">\(\mathbf{B} \in \mathbb{K}^{m \times n}\)</span> with <span class="math inline">\(m \geq n\)</span> and full column rank.</p>
+<!-- BEGIN SOLUTION 3(d) -->
+<h5 data-original-heading="Solution to 3(d)" id="solution-to-3d">1.3.4.1 Solution to 3(d)</h5>
+<p>Since <span class="math inline">\(\mathbf{B}\)</span> has full column rank, <span class="math inline">\(\mathbf{B}^*\mathbf{B}\)</span> is positive definite:</p>
+<p><span class="math display">\[
+\boldsymbol{x}^*\mathbf{B}^*\mathbf{B}\boldsymbol{x}
+=\|\mathbf{B}\boldsymbol{x}\|_2^2&gt;0
+\qquad(\boldsymbol{x}\ne\boldsymbol{0})
+\]</span></p>
+<p>Take the reduced QR factorization <span class="math inline">\(\mathbf{B}=\mathbf{Q}\mathbf{R}\)</span> with <span class="math inline">\(\mathbf{Q}^*\mathbf{Q}=\mathbf{I}_n\)</span> and positive real diagonal entries in <span class="math inline">\(\mathbf{R}\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{B}^*\mathbf{B}
+&amp;=(\mathbf{Q}\mathbf{R})^*(\mathbf{Q}\mathbf{R})\\
+&amp;=\mathbf{R}^*\mathbf{Q}^*\mathbf{Q}\mathbf{R}\\
+&amp;=\mathbf{R}^*\mathbf{R}
+\end{aligned}
+\]</span></p>
+<p>The matrix <span class="math inline">\(\mathbf{R}^*\)</span> is lower triangular with positive real diagonal. By part (c), it is the unique lower Cholesky factor:</p>
+<p><span class="math display">\[
+\boxed{\mathbf{L}=\mathbf{R}^*}
+\]</span></p>
+<p>Conversely, given <span class="math inline">\(\mathbf{B}^*\mathbf{B}=\mathbf{L}\mathbf{L}^*\)</span>, set <span class="math inline">\(\mathbf{R}=\mathbf{L}^*\)</span> and <span class="math inline">\(\mathbf{Q}=\mathbf{B}\mathbf{R}^{-1}\)</span>. Then <span class="math inline">\(\mathbf{B}=\mathbf{Q}\mathbf{R}\)</span> and</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{Q}^*\mathbf{Q}
+&amp;=(\mathbf{R}^{-1})^*\mathbf{B}^*\mathbf{B}\mathbf{R}^{-1}\\
+&amp;=(\mathbf{R}^*)^{-1}\mathbf{R}^*\mathbf{R}\mathbf{R}^{-1}\\
+&amp;=\mathbf{I}_n
+\end{aligned}
+\]</span></p>
+<p>Thus the upper Cholesky factor of the Gram matrix is exactly the triangular factor in reduced QR, with the same positive-diagonal convention.</p>
+<!-- END SOLUTION 3(d) -->
+<h4 data-original-heading="(e) [5 pts]" id="e-5-pts">1.3.5 (e) [5 pts]</h4>
+<p>For <span class="math inline">\(\mathbf{A} = \mathbf{B}^* \mathbf{B}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> as in (d), write</p>
+<p><span class="math display">\[
+\mathbf{A} =
+\begin{pmatrix}
+\mathbf{A}_{1,1}&amp; \mathbf{A}_{1,2} \\
+\mathbf{A}_{2,1}&amp; \mathbf{A}_{2,2}
+\end{pmatrix},
+\quad
+\mathbf{B} =
+\begin{pmatrix}
+\mathbf{B}_{1} &amp;  \mathbf{B}_{2}
+\end{pmatrix}.
+\tag{7}
+\]</span></p>
+<p>Relate the Schur complement <span class="math inline">\(\mathbf{A}_{2,2} - \mathbf{A}_{2,1} \left(\mathbf{A}_{1, 1}\right)^{-1} \mathbf{A}_{1,2}\)</span> to the Gram-matrix of the columns of <span class="math inline">\(\mathbf{B}_2\)</span>, projected onto the orthogonal complement of the column space of <span class="math inline">\(\mathbf{B}_1\)</span>. Use this result to refine your comment in (d) on the relationship of Cholesky and QR factorization.</p>
+<!-- BEGIN SOLUTION 3(e) -->
+<h5 data-original-heading="Solution to 3(e)" id="solution-to-3e">1.3.5.1 Solution to 3(e)</h5>
+<p>The blocks of the Gram matrix are</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{A}_{1,1}&amp;=\mathbf{B}_1^*\mathbf{B}_1
+&amp;\mathbf{A}_{1,2}&amp;=\mathbf{B}_1^*\mathbf{B}_2\\
+\mathbf{A}_{2,1}&amp;=\mathbf{B}_2^*\mathbf{B}_1
+&amp;\mathbf{A}_{2,2}&amp;=\mathbf{B}_2^*\mathbf{B}_2
+\end{aligned}
+\]</span></p>
+<p>Because <span class="math inline">\(\mathbf{B}_1\)</span> has full column rank, the orthogonal projector onto its column space is</p>
+<p><span class="math display">\[
+\mathbf{P}_1
+=\mathbf{B}_1(\mathbf{B}_1^*\mathbf{B}_1)^{-1}\mathbf{B}_1^*
+\qquad
+\mathbf{P}_1^*=\mathbf{P}_1
+\qquad
+\mathbf{P}_1^2=\mathbf{P}_1
+\]</span></p>
+<p>Let <span class="math inline">\(\widehat{\mathbf{B}}_2=(\mathbf{I}-\mathbf{P}_1)\mathbf{B}_2\)</span> be the projected columns. Since <span class="math inline">\(\mathbf{I}-\mathbf{P}_1\)</span> is also Hermitian and idempotent,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\widehat{\mathbf{B}}_2^*\widehat{\mathbf{B}}_2
+&amp;=\mathbf{B}_2^*(\mathbf{I}-\mathbf{P}_1)^*(\mathbf{I}-\mathbf{P}_1)\mathbf{B}_2\\
+&amp;=\mathbf{B}_2^*(\mathbf{I}-\mathbf{P}_1)\mathbf{B}_2\\
+&amp;=\mathbf{B}_2^*\mathbf{B}_2
+ -\mathbf{B}_2^*\mathbf{B}_1
+  (\mathbf{B}_1^*\mathbf{B}_1)^{-1}\mathbf{B}_1^*\mathbf{B}_2\\
+&amp;=\boxed{\mathbf{A}_{2,2}
+ -\mathbf{A}_{2,1}\mathbf{A}_{1,1}^{-1}\mathbf{A}_{1,2}}
+\end{aligned}
+\]</span></p>
+<p>Thus the Schur complement is the Gram matrix of the columns of <span class="math inline">\(\mathbf{B}_2\)</span> after removing their projections onto <span class="math inline">\(\operatorname{range}(\mathbf{B}_1)\)</span>.</p>
+<p>To connect this with part (d), partition the reduced QR factorization in the same way:</p>
+<p><span class="math display">\[
+\begin{pmatrix}\mathbf{B}_1&amp;\mathbf{B}_2\end{pmatrix}
+=
+\begin{pmatrix}\mathbf{Q}_1&amp;\mathbf{Q}_2\end{pmatrix}
+\begin{pmatrix}
+\mathbf{R}_{1,1}&amp;\mathbf{R}_{1,2}\\
+\mathbf{0}&amp;\mathbf{R}_{2,2}
+\end{pmatrix}
+\]</span></p>
+<p>The block equations give</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{B}_1&amp;=\mathbf{Q}_1\mathbf{R}_{1,1}\\
+\mathbf{B}_2&amp;=\mathbf{Q}_1\mathbf{R}_{1,2}
+             +\mathbf{Q}_2\mathbf{R}_{2,2}
+\end{aligned}
+\]</span></p>
+<p>Here <span class="math inline">\(\mathbf{P}_1=\mathbf{Q}_1\mathbf{Q}_1^*\)</span> and <span class="math inline">\(\mathbf{Q}_1^*\mathbf{Q}_2=\mathbf{0}\)</span>. Hence</p>
+<p><span class="math display">\[
+\widehat{\mathbf{B}}_2
+=(\mathbf{I}-\mathbf{Q}_1\mathbf{Q}_1^*)\mathbf{B}_2
+=\mathbf{Q}_2\mathbf{R}_{2,2}
+\]</span></p>
+<p>Taking its Gram matrix yields</p>
+<p><span class="math display">\[
+\boxed{
+\mathbf{A}/\mathbf{A}_{1,1}
+=\widehat{\mathbf{B}}_2^*\widehat{\mathbf{B}}_2
+=\mathbf{R}_{2,2}^*\mathbf{R}_{2,2}
+}
+\]</span></p>
+<p>Therefore <span class="math inline">\(\mathbf{L}_{2,2}=\mathbf{R}_{2,2}^*\)</span> under the positive-diagonal convention. Cholesky’s trailing Schur-complement update corresponds exactly to Gram–Schmidt’s projection step: the updated matrix stores the inner products of the remaining orthogonalized columns.</p>
+<!-- END SOLUTION 3(e) -->
+<h3 data-original-heading="4 QRs [25 pts]" id="qrs-25-pts">4 QRs [25 pts]</h3>
+<h4 data-original-heading="(a) [5 pts]" id="a-5-pts-3">1.4.1 (a) [5 pts]</h4>
+<p>Go to section (a) of the file <code>HW3_your_code.jl</code> and implement a function that uses the classical Gram-Schmidt algorithm for computing a reduced QR factorization.</p>
+<h4 data-original-heading="(b) [5 pts]" id="b-5-pts-3">1.4.2 (b) [5 pts]</h4>
+<p>Go to section (b) of the file <code>HW3_your_code.jl</code> and implement a function that uses the modified Gram-Schmidt algorithm for computing a reduced QR factorization.</p>
+<h4 data-original-heading="(c) [5 pts]" id="c-5-pts-1">1.4.3 (c) [5 pts]</h4>
+<p>Go to section (c) of the file <code>HW3_your_code.jl</code> and implement a function that computes the QR factorization using Householder reflections. Your algorithm should operate in place, overwriting the input matrix and not allocating additional memory.</p>
+<h4 data-original-heading="(d) [5 pts]" id="d-5-pts-1">1.4.4 (d) [5 pts]</h4>
+<p>Go to section (d) of the file <code>HW3_your_code.jl</code> and implement functions that use the QR factorization matrix computed in (c) to multiply a vector with <span class="math inline">\(\mathbf{Q} \mathbf{R}\)</span> (multiplication) or with <span class="math inline">\(\mathbf{R}^{-1}\mathbf{Q}^*\)</span> (solving the overdetermined least squares problem). Your functions should take a preallocated output vector as input in which to store the result. No additional allocation should be performed; the least squares solver may overwrite its right-hand side.</p>
+<h4 data-original-heading="(e) [5 pts]" id="e-5-pts-1">1.4.5 (e) [5 pts]</h4>
+<p>Using what you learned in class, design an experiment that compares the numerical stability of the different methods. For instance, compute the accuracy of the different approaches over matrices of increasing size or condition number and provide a plot of your results. Use what you learned in class to make sure that you include examples highlighting the lack of stability of classical Gram-Schmidt.</p></div><footer class="article-footer"></footer></article></main>
+<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"><div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">HW 3</a></div><div class="outline-contents" id="outline-contents"><div id="outline-progress" class="outline-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-controls="reading-viewport"><span class="outline-marker"></span></div><ol id="outline-items"><li style="--depth:0"><a href="#numerical-methods-i-homework-3" class="is-active" aria-current="location">1 Numerical Methods I, Homework 3</a></li><li style="--depth:1"><a href="#schur-complements-i-25-pts">1 Schur Complements I [25 pts]</a></li><li style="--depth:2"><a href="#a-5-pts">1.1.1 (a) [5 pts]</a></li><li style="--depth:3"><a href="#solution-to-1a">1.1.1.1 Solution to 1(a)</a></li><li style="--depth:2"><a href="#b-5-pts">1.1.2 (b) [5 pts]</a></li><li style="--depth:3"><a href="#solution-to-1b">1.1.2.1 Solution to 1(b)</a></li><li style="--depth:2"><a href="#c-7.5-pts">1.1.3 (c) [7.5 pts]</a></li><li style="--depth:3"><a href="#solution-to-1c">1.1.3.1 Solution to 1(c)</a></li><li style="--depth:2"><a href="#d-7.5-pts">1.1.4 (d) [7.5 pts]</a></li><li style="--depth:3"><a href="#solution-to-1d">1.1.4.1 Solution to 1(d)</a></li><li style="--depth:1"><a href="#schur-complements-ii-25-pts-10-bonus">2 Schur Complements II [25 pts + 10 bonus]</a></li><li style="--depth:2"><a href="#a-5-pts-1">1.2.1 (a) [5 pts]</a></li><li style="--depth:3"><a href="#solution-to-2a">1.2.1.1 Solution to 2(a)</a></li><li style="--depth:2"><a href="#b-5-pts-1">1.2.2 (b) [5 pts]</a></li><li style="--depth:3"><a href="#solution-to-2b">1.2.2.1 Solution to 2(b)</a></li><li style="--depth:2"><a href="#c-7.5-pts-1">1.2.3 (c) [7.5 pts]</a></li><li style="--depth:3"><a href="#solution-to-2c">1.2.3.1 Solution to 2(c)</a></li><li style="--depth:2"><a href="#d-7.5-pts-1">1.2.4 (d) [7.5 pts]</a></li><li style="--depth:3"><a href="#solution-to-2d">1.2.4.1 Solution to 2(d)</a></li><li style="--depth:2"><a href="#e-10-bonus-pts">1.2.5 (e) [10 bonus pts]</a></li><li style="--depth:3"><a href="#solution-to-2e">1.2.5.1 Solution to 2(e)</a></li><li style="--depth:1"><a href="#cholesky-and-qr-25-pts">3 Cholesky and QR [25 pts]</a></li><li style="--depth:2"><a href="#a-5-pts-2">1.3.1 (a) [5 pts]</a></li><li style="--depth:3"><a href="#solution-to-3a">1.3.1.1 Solution to 3(a)</a></li><li style="--depth:2"><a href="#b-5-pts-2">1.3.2 (b) [5 pts]</a></li><li style="--depth:3"><a href="#solution-to-3b">1.3.2.1 Solution to 3(b)</a></li><li style="--depth:2"><a href="#c-5-pts">1.3.3 (c) [5 pts]</a></li><li style="--depth:3"><a href="#solution-to-3c">1.3.3.1 Solution to 3(c)</a></li><li style="--depth:2"><a href="#d-5-pts">1.3.4 (d) [5 pts]</a></li><li style="--depth:3"><a href="#solution-to-3d">1.3.4.1 Solution to 3(d)</a></li><li style="--depth:2"><a href="#e-5-pts">1.3.5 (e) [5 pts]</a></li><li style="--depth:3"><a href="#solution-to-3e">1.3.5.1 Solution to 3(e)</a></li><li style="--depth:1"><a href="#qrs-25-pts">4 QRs [25 pts]</a></li><li style="--depth:2"><a href="#a-5-pts-3">1.4.1 (a) [5 pts]</a></li><li style="--depth:2"><a href="#b-5-pts-3">1.4.2 (b) [5 pts]</a></li><li style="--depth:2"><a href="#c-5-pts-1">1.4.3 (c) [5 pts]</a></li><li style="--depth:2"><a href="#d-5-pts-1">1.4.4 (d) [5 pts]</a></li><li style="--depth:2"><a href="#e-5-pts-1">1.4.5 (e) [5 pts]</a></li></ol></div></aside></div>
+<button class="sidebar-scrim" tabindex="-1" aria-label="Close sidebar" hidden></button>
+<dialog id="search-dialog" class="search-dialog" aria-labelledby="search-label"><form method="dialog" class="search-heading"><label id="search-label" for="search-input">Search notes</label><button value="close" aria-label="Close search">×</button></form><input id="search-input" type="search" placeholder="Title, topic, or phrase…" autocomplete="off"><p id="search-status" role="status">Search the published notes on this site.</p><ol id="search-results"></ol></dialog>
+<dialog id="appearance-dialog" class="appearance-dialog" aria-labelledby="appearance-label"><form method="dialog"><h2 id="appearance-label">Reading appearance</h2><button aria-label="Close text settings">×</button></form><p class="settings-label">Typeface</p><div class="font-options"><button data-font="termes">Classic textbook<small>TeX Gyre Termes</small></button><button data-font="stix">STIX Two Text<small>Original reader</small></button></div><p class="settings-label">Text size</p><div class="size-options"><button data-size="18">Compact</button><button data-size="20">Comfortable</button><button data-size="22">Large</button></div></dialog>
+</body></html>

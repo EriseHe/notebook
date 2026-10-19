@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>8. Least Squares and Normal Equations — E.H. Notebook</title>
+<meta name="description" content="Numerical Methods I — Florian Schaefer. Source: Lecture 08.pdf, pp. 1–9.Throughout, \mathbb K is \mathbb R or \mathbb C, * denotes conjugate transpose, and \langle u,v\ra">
+<link rel="stylesheet" href="/notebook/assets/reader.css"><link rel="preload" href="/notebook/assets/fonts/texgyretermes-regular.otf" as="font" type="font/otf" crossorigin>
+<script defer src="/notebook/assets/reader.js"></script>
+<script src="/notebook/assets/math-config.js"></script><script defer id="MathJax-script" src="/notebook/assets/vendor/mathjax/tex-chtml-full.js"></script>
+</head><body data-layout="reader" data-has-notes="true" data-has-outline="true" data-notes-open="true" data-outline-open="true" data-search-index="/notebook/assets/search.json">
+<a class="skip-link" href="#article-body">Skip to content</a>
+<header class="toolbar"><div class="identity"><button class="icon-button" id="notes-toggle" aria-label="Toggle notes sidebar" aria-controls="notes-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/sidebar.svg" alt="" width="20" height="20"></button><a class="brand" href="/notebook/">E.H. Notebook</a></div>
+<nav class="top-navigation" aria-label="Notebook sections"><a href="/notebook/content/notes/index.html" aria-current="page">Notes</a><a href="/notebook/content/posts/index.html">Posts</a><a href="/notebook/content/research/index.html">Research</a></nav>
+<div class="reading-tools"><button class="icon-button appearance-toggle" id="appearance-toggle" aria-label="Reading text size" aria-controls="appearance-dialog">Aa</button><button class="icon-button" id="search-toggle" aria-label="Search notes" aria-keyshortcuts="Control+k Meta+k"><img src="/notebook/assets/icons/search.svg" alt="" width="20" height="20"></button><a class="icon-button github-link" href="https://github.com/EriseHe/notebook" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><img src="/notebook/assets/icons/github.svg" alt="" width="20" height="20"></a><button class="icon-button" id="outline-toggle" aria-label="Toggle outline" aria-controls="outline-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/outline.svg" alt="" width="20" height="20"></button></div></header>
+<div class="reader-layout"><aside class="notes-sidebar" id="notes-sidebar" aria-label="Notes navigation"><nav aria-label="Numerical Linear Algbera file hierarchy" data-sidebar-root="content/notes/理论/Numerical Linear Algbera"><a class="sidebar-root" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><ul class="notes-tree"><li class="folder-node" data-folder="content/notes/理论/Numerical Linear Algbera/Homework" data-active-branch="false"><div class="folder-row"><button class="tree-toggle folder-label" aria-controls="folder-209a64aec9e6" aria-expanded="false"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""><span>Homework</span></button></div><ul class="tree-children" id="folder-209a64aec9e6" hidden><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span class="page-number"></span><span>HW 3</span></a></li></ul></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html"><span class="page-number">1</span><span>Vectors and Matrices</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span class="page-number">2</span><span>Storing Matrices &amp; Vectors</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span class="page-number">3</span><span>Lecture</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span class="page-number">4</span><span>LU Factorization with Pivoting</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span class="page-number">5</span><span>Least Squares and Gram-Schmidt</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html"><span class="page-number">6</span><span>Error Bounds and Householder QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span class="page-number">7</span><span>Orthogonal Transformations and QR</span></a></li><li class="file-node"><a class="note-link is-current" aria-current="page" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html"><span class="page-number">8</span><span>Least Squares and Normal Equations</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span class="page-number">9</span><span>Cholesky Factorization and Schur Complements</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span class="page-number">10</span><span>Eigenvalues and Iterative Methods</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span class="page-number"></span><span>Midterm Study Plan</span></a></li></ul></nav></aside>
+<main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a></nav><h1 id="reader-title">8. Least Squares and Normal Equations</h1><p class="article-meta">2026-09-30</p></header><div id="article-body" class="prose"><p><em>Numerical Methods I — Florian Schaefer. Source: <a href="https://brightspace.nyu.edu/content/enforced/609409-FA26_MATH-GA_2010_1_001_crse/Lecture%2008.pdf">Lecture 08.pdf</a>, pp.&nbsp;1–9.</em></p>
+<p>Throughout, <span class="math inline">\(\mathbb K\)</span> is <span class="math inline">\(\mathbb R\)</span> or <span class="math inline">\(\mathbb C\)</span>, <span class="math inline">\(*\)</span> denotes conjugate transpose, and <span class="math inline">\(\langle u,v\rangle=u^*v\)</span>.</p>
+<h2 data-original-heading="8.1 Recap: Orthogonal Transformations and QR" id="recap-orthogonal-transformations-and-qr">8.1 Recap: Orthogonal Transformations and QR</h2>
+<!-- Source: Lecture 08.pdf, p. 1. -->
+<p><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html" class="wikilink">Lecture 7</a> constructed QR using Householder reflections and Givens rotations, then discussed full and reduced QR and their existence and uniqueness.</p>
+<p>If</p>
+<p><span class="math display">\[
+\begin{gathered}
+Q=H_1\cdots H_n,\qquad
+H_k=\begin{pmatrix}I_{k-1}&amp;0\\0&amp;F_k\end{pmatrix},\\
+F_k=I-2\frac{v_kv_k^*}{v_k^*v_k},
+\end{gathered}
+\]</span></p>
+<p>we can apply <span class="math inline">\(Q\)</span> or <span class="math inline">\(Q^*\)</span> using the stored vectors alone. Each step updates the active part of a vector:</p>
+<p><span class="math display">\[
+b_{k:m}\leftarrow b_{k:m}
+-2v_k\frac{v_k^*b_{k:m}}{v_k^*v_k}.
+\]</span></p>
+<p>For <span class="math inline">\(Q^*b\)</span>, use <span class="math inline">\(k=1,\ldots,n\)</span>; for <span class="math inline">\(Qb\)</span>, use <span class="math inline">\(k=n,\ldots,1\)</span>. The order follows from <span class="math inline">\(Q^*=H_n\cdots H_1\)</span>, with the rightmost factor acting first.</p>
+<p>A real Givens rotation acts on just two coordinates:</p>
+<p><span class="math display">\[
+\begin{gathered}
+\begin{pmatrix}c&amp;s\\-s&amp;c\end{pmatrix}
+\begin{pmatrix}a\\b\end{pmatrix}
+=
+\begin{pmatrix}\sqrt{a^2+b^2}\\0\end{pmatrix},\\[4pt]
+c=\frac{a}{\sqrt{a^2+b^2}},\qquad
+s=\frac{b}{\sqrt{a^2+b^2}}.
+\end{gathered}
+\]</span></p>
+<p>Here <span class="math inline">\((a,b)\ne(0,0)\)</span>; an already zero pair needs no rotation. Repeated orthogonal transformations give a full QR factorization. Its first <span class="math inline">\(n\)</span> columns give the reduced factorization.</p>
+<h2 data-original-heading="8.2 The Overdetermined Least-Squares Problem" id="the-overdetermined-least-squares-problem">8.2 The Overdetermined Least-Squares Problem</h2>
+<!-- Source: Lecture 08.pdf, p. 2. -->
+<p>Let <span class="math inline">\(A\in\mathbb K^{m\times n}\)</span> with <span class="math inline">\(m\ge n\)</span>, and let <span class="math inline">\(b\in\mathbb K^m\)</span>. We seek</p>
+<p><span class="math display">\[
+\min_{x\in\mathbb K^n}\|Ax-b\|_2^2.
+\]</span></p>
+<p>Suppose <span class="math inline">\(A\)</span> has full column rank and write its reduced QR factorization as</p>
+<p><span class="math display">\[
+A=QR,
+\qquad Q^*Q=I_n,
+\qquad R\in\mathbb K^{n\times n}.
+\]</span></p>
+<p>The proposed solution is</p>
+<p><span class="math display">\[
+\boxed{Rx=Q^*b,\qquad x=R^{-1}Q^*b.}
+\]</span></p>
+<p>Computationally, we apply <span class="math inline">\(Q^*\)</span> and solve the upper triangular system. Geometrically, the columns of <span class="math inline">\(Q\)</span> give orthonormal coordinates in the column space of <span class="math inline">\(A\)</span>: <span class="math inline">\(Q^*b\)</span> gives the coordinates of the projection, and <span class="math inline">\(QQ^*b\)</span> is the projected vector itself.</p>
+<p><img src="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/figures/lecture08-projection-coordinates.svg" alt="The coordinates Q*b describe the projection of b onto the plane spanned by the orthonormal columns q1 and q2." loading="lazy" decoding="async"></p>
+<p>To justify this construction, we first characterize a least-squares minimizer.</p>
+<h2 data-original-heading="8.3 Optimality: The Residual Must Be Orthogonal" id="optimality-the-residual-must-be-orthogonal">8.3 Optimality: The Residual Must Be Orthogonal</h2>
+<!-- Source: Lecture 08.pdf, p. 3. -->
+<p>If <span class="math inline">\(x\)</span> minimizes the squared residual, every perturbation <span class="math inline">\(\varepsilon\in\mathbb K^n\)</span> satisfies</p>
+<p><span class="math display">\[
+\|A(x+\varepsilon)-b\|_2^2
+\ge \|Ax-b\|_2^2.
+\]</span></p>
+<p>Write <span class="math inline">\(r=Ax-b\)</span>. Expanding the difference gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+0
+&amp;\le \|A\varepsilon+r\|_2^2-\|r\|_2^2\\
+&amp;=\langle A\varepsilon+r,A\varepsilon+r\rangle
+  -\langle r,r\rangle\\
+&amp;=\langle A\varepsilon,A\varepsilon\rangle
+  +\langle A\varepsilon,r\rangle
+  +\langle r,A\varepsilon\rangle\\
+&amp;=\|A\varepsilon\|_2^2
+  +2\operatorname{Re}\langle A\varepsilon,r\rangle.
+\end{aligned}
+\]</span></p>
+<p>Fix an arbitrary direction <span class="math inline">\(\bar\varepsilon\in\mathbb K^n\)</span> and set <span class="math inline">\(\varepsilon=\delta\bar\varepsilon\)</span>, where <span class="math inline">\(\delta\in\mathbb R\)</span>. Then, for every real <span class="math inline">\(\delta\)</span>,</p>
+<p><span class="math display">\[
+0\le
+\delta^2\|A\bar\varepsilon\|_2^2
++2\delta\operatorname{Re}\langle A\bar\varepsilon,r\rangle.
+\]</span></p>
+<p>For <span class="math inline">\(\delta&gt;0\)</span>, divide by <span class="math inline">\(\delta\)</span> and let <span class="math inline">\(\delta\to0^+\)</span>:</p>
+<p><span class="math display">\[
+\begin{gathered}
+0\le \delta\|A\bar\varepsilon\|_2^2
++2\operatorname{Re}\langle A\bar\varepsilon,r\rangle\\
+\Longrightarrow\quad
+0\le\operatorname{Re}\langle A\bar\varepsilon,r\rangle.
+\end{gathered}
+\]</span></p>
+<p>For <span class="math inline">\(\delta&lt;0\)</span>, division reverses the inequality. Letting <span class="math inline">\(\delta\to0^-\)</span> gives</p>
+<p><span class="math display">\[
+\begin{gathered}
+0\ge \delta\|A\bar\varepsilon\|_2^2
++2\operatorname{Re}\langle A\bar\varepsilon,r\rangle\\
+\Longrightarrow\quad
+0\ge\operatorname{Re}\langle A\bar\varepsilon,r\rangle.
+\end{gathered}
+\]</span></p>
+<p>Consequently,</p>
+<p><span class="math display">\[
+\operatorname{Re}\langle A\bar\varepsilon,r\rangle=0
+\qquad\text{for every }\bar\varepsilon.
+\]</span></p>
+<p>Over <span class="math inline">\(\mathbb R\)</span>, this is already the desired orthogonality. Over <span class="math inline">\(\mathbb C\)</span>, use the direction <span class="math inline">\(i\bar\varepsilon\)</span> as well. Since the first argument of the inner product is conjugate-linear,</p>
+<p><span class="math display">\[
+\langle A(i\bar\varepsilon),r\rangle
+=-i\langle A\bar\varepsilon,r\rangle.
+\]</span></p>
+<p>Its real part is the imaginary part of <span class="math inline">\(\langle A\bar\varepsilon,r\rangle\)</span>, so that imaginary part must also vanish.</p>
+<div class="math-theorem theorem" data-callout="theorem">
+<div class="theorem-header">
+<p><span class="theorem-badge">Theorem</span><span class="theorem-title">Least-squares optimality condition</span></p>
+</div>
+<div class="theorem-content">
+<p>A vector <span class="math inline">\(x\)</span> minimizes <span class="math inline">\(\|Ax-b\|_2^2\)</span> if and only if <span class="math display">\[
+\langle A\bar\varepsilon,Ax-b\rangle=0
+\qquad\text{for every }\bar\varepsilon\in\mathbb K^n.
+\]</span> Equivalently, <span class="math inline">\(Ax-b\)</span> is orthogonal to the column space of <span class="math inline">\(A\)</span>.</p>
+</div>
+</div>
+<p>The calculation above proves necessity. For the converse, if the cross terms vanish, then for any <span class="math inline">\(\varepsilon\)</span>,</p>
+<p><span class="math display">\[
+\|A(x+\varepsilon)-b\|_2^2-\|Ax-b\|_2^2
+=\|A\varepsilon\|_2^2\ge0.
+\]</span></p>
+<p>The same condition can be written as</p>
+<p><span class="math display">\[
+\boxed{
+\langle A\bar\varepsilon,Ax\rangle
+=\langle A\bar\varepsilon,b\rangle
+\quad\text{for all }\bar\varepsilon.
+}
+\]</span></p>
+<h2 data-original-heading="8.4 Why the QR Solution Works" id="why-the-qr-solution-works">8.4 Why the QR Solution Works</h2>
+<!-- Source: Lecture 08.pdf, p. 4. -->
+<h3 data-original-heading="8.4.1 Square and Rectangular Systems" id="square-and-rectangular-systems">8.4.1 Square and Rectangular Systems</h3>
+<p>If <span class="math inline">\(A\)</span> is square and nonsingular, choose</p>
+<p><span class="math display">\[
+\bar\varepsilon=A^{-1}(Ax-b).
+\]</span></p>
+<p>The optimality condition then implies</p>
+<p><span class="math display">\[
+\begin{aligned}
+0&amp;=\langle A\bar\varepsilon,Ax-b\rangle\\
+&amp;=\langle Ax-b,Ax-b\rangle\\
+&amp;=\|Ax-b\|_2^2.
+\end{aligned}
+\]</span></p>
+<p>Thus <span class="math inline">\(Ax=b\)</span>. In this case, every vector in the ambient space is available as <span class="math inline">\(A\bar\varepsilon\)</span>.</p>
+<p>For tall or singular <span class="math inline">\(A\)</span>, the vectors <span class="math inline">\(A\bar\varepsilon\)</span> range only over the column space of <span class="math inline">\(A\)</span>. A residual can be nonzero while remaining orthogonal to that space.</p>
+<p><img src="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/figures/lecture08-residual-orthogonality.svg" alt="The fitted vector Ax lies in the column space of A. At a least-squares solution, b minus Ax is perpendicular to that space." loading="lazy" decoding="async"></p>
+<h3 data-original-heading="8.4.2 Substitution of the QR Formula" id="substitution-of-the-qr-formula">8.4.2 Substitution of the QR Formula</h3>
+<p>For full-column-rank <span class="math inline">\(A=QR\)</span>, let <span class="math inline">\(x=R^{-1}Q^*b\)</span>. For every <span class="math inline">\(\bar\varepsilon\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\langle A\bar\varepsilon,Ax-b\rangle
+&amp;=\langle QR\bar\varepsilon,
+          QR R^{-1}Q^*b-b\rangle\\
+&amp;=\langle QR\bar\varepsilon,QQ^*b-b\rangle\\
+&amp;=\langle R\bar\varepsilon,Q^*(QQ^*b-b)\rangle\\
+&amp;=\langle R\bar\varepsilon,Q^*Q Q^*b-Q^*b\rangle\\
+&amp;=\langle R\bar\varepsilon,Q^*b-Q^*b\rangle\\
+&amp;=0.
+\end{aligned}
+\]</span></p>
+<p>This satisfies the optimality condition. Hence solving <span class="math inline">\(Rx=Q^*b\)</span> gives a least-squares minimizer. Full column rank makes it unique: in the difference formula above, <span class="math inline">\(\|A\varepsilon\|_2^2&gt;0\)</span> whenever <span class="math inline">\(\varepsilon\ne0\)</span>.</p>
+<h2 data-original-heading="8.5 The Normal Equations" id="the-normal-equations">8.5 The Normal Equations</h2>
+<!-- Source: Lecture 08.pdf, p. 5. -->
+<p>We can also obtain a square system directly from the optimality condition. Move <span class="math inline">\(A\)</span> to the other side of the inner product:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\langle A\bar\varepsilon,Ax\rangle
+&amp;=\langle A\bar\varepsilon,b\rangle
+&amp;&amp;\text{for every }\bar\varepsilon,\\
+\langle\bar\varepsilon,A^*Ax\rangle
+&amp;=\langle\bar\varepsilon,A^*b\rangle
+&amp;&amp;\text{for every }\bar\varepsilon.
+\end{aligned}
+\]</span></p>
+<p>A vector orthogonal to every <span class="math inline">\(\bar\varepsilon\in\mathbb K^n\)</span> must be zero. Therefore</p>
+<p><span class="math display">\[
+\boxed{A^*Ax=A^*b.}
+\]</span></p>
+<p>These are the <strong>normal equations</strong>. Their coefficient matrix has two useful properties:</p>
+<ul>
+<li><span class="math inline">\(A^*A\)</span> is <span class="math inline">\(n\times n\)</span>, even when <span class="math inline">\(A\)</span> is rectangular.</li>
+<li><span class="math inline">\((A^*A)^*=A^*A\)</span>, so it is Hermitian, or symmetric over <span class="math inline">\(\mathbb R\)</span>.</li>
+</ul>
+<p>The drawback is the squared condition number. For full-column-rank <span class="math inline">\(A\)</span>, in the Euclidean norm,</p>
+<p><span class="math display">\[
+\kappa_2(A^*A)=\kappa_2(A)^2.
+\]</span></p>
+<p>Thus passing to the normal equations can amplify sensitivity and lead to a loss of accuracy. The structure of <span class="math inline">\(A^*A\)</span> motivates the next part of the lecture.</p>
+<h2 data-original-heading="8.6 Hermitian Matrices and Positivity" id="hermitian-matrices-and-positivity">8.6 Hermitian Matrices and Positivity</h2>
+<!-- Source: Lecture 08.pdf, p. 6. -->
+<h3 data-original-heading="8.6.1 Symmetry and Eigenvalues" id="symmetry-and-eigenvalues">8.6.1 Symmetry and Eigenvalues</h3>
+<div class="math-theorem definition" data-callout="definition">
+<div class="theorem-header">
+<p><span class="theorem-badge">Definition</span><span class="theorem-title">Hermitian and skew-Hermitian matrices</span></p>
+</div>
+<div class="theorem-content">
+<p>A square matrix is <strong>Hermitian</strong> if <span class="math inline">\(A^*=A\)</span>, and <strong>skew-Hermitian</strong> if <span class="math inline">\(A^*=-A\)</span>.</p>
+</div>
+</div>
+<p>For real matrices, these are the symmetric and skew-symmetric cases. Hermitian matrices have real eigenvalues; skew-Hermitian matrices have purely imaginary eigenvalues, with zero allowed.</p>
+<h3 data-original-heading="8.6.2 Positive Semidefinite and Positive Definite Matrices" id="positive-semidefinite-and-positive-definite-matrices">8.6.2 Positive Semidefinite and Positive Definite Matrices</h3>
+<div class="math-theorem definition" data-callout="definition">
+<div class="theorem-header">
+<p><span class="theorem-badge">Definition</span><span class="theorem-title">Positivity</span></p>
+</div>
+<div class="theorem-content">
+<p>A Hermitian matrix <span class="math inline">\(A\)</span> is <strong>positive semidefinite</strong> if <span class="math display">\[
+v^*Av\ge0\qquad\text{for every }v.
+\]</span> It is <strong>positive definite</strong> if <span class="math display">\[
+v^*Av&gt;0\qquad\text{for every }v\ne0.
+\]</span></p>
+</div>
+</div>
+<h3 data-original-heading="8.6.3 Polar Decomposition" id="polar-decomposition">8.6.3 Polar Decomposition</h3>
+<p>A square complex matrix can be written as</p>
+<p><span class="math display">\[
+A=US,
+\]</span></p>
+<p>where <span class="math inline">\(U\)</span> is unitary and <span class="math inline">\(S\)</span> is Hermitian positive semidefinite. This is the <strong>polar decomposition</strong>: <span class="math inline">\(S\)</span> provides a positive stretching factor, followed by the length-preserving transformation <span class="math inline">\(U\)</span>.</p>
+<h2 data-original-heading="8.7 Gram Matrices" id="gram-matrices">8.7 Gram Matrices</h2>
+<!-- Source: Lecture 08.pdf, pp. 7–8 (repeated statement and proof), then p. 9. -->
+<p>For a least-squares matrix <span class="math inline">\(B\)</span>, the normal equations take the form</p>
+<p><span class="math display">\[
+B^*Bx=B^*b.
+\]</span></p>
+<p>The coefficient matrix <span class="math inline">\(B^*B\)</span> is called a <strong>Gram matrix</strong>, or <strong>inner-product matrix</strong>. Its entries are the inner products of the columns of <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+(B^*B)_{ij}
+&amp;=\langle e_i,B^*Be_j\rangle\\
+&amp;=\langle Be_i,Be_j\rangle\\
+&amp;=\langle B_{:,i},B_{:,j}\rangle.
+\end{aligned}
+\]</span></p>
+<div class="math-theorem theorem" data-callout="theorem">
+<div class="theorem-header">
+<p><span class="theorem-badge">Theorem</span><span class="theorem-title">Gram matrices and positivity</span></p>
+</div>
+<div class="theorem-content">
+<ol type="1">
+<li>A square matrix <span class="math inline">\(A\)</span> is Hermitian positive semidefinite if and only if <span class="math inline">\(A=B^*B\)</span> for some matrix <span class="math inline">\(B\)</span>.</li>
+<li>The Gram matrix <span class="math inline">\(B^*B\)</span> is positive definite if and only if <span class="math inline">\(B\)</span> has full column rank.</li>
+</ol>
+</div>
+</div>
+<h3 data-original-heading="8.7.1 A Gram Matrix Is Hermitian Positive Semidefinite" id="a-gram-matrix-is-hermitian-positive-semidefinite">8.7.1 A Gram Matrix Is Hermitian Positive Semidefinite</h3>
+<p>If <span class="math inline">\(A=B^*B\)</span>, then</p>
+<p><span class="math display">\[
+A^*=(B^*B)^*=B^*(B^*)^*=B^*B=A.
+\]</span></p>
+<p>Also, for every <span class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+x^*Ax&amp;=x^*B^*Bx=(Bx)^*(Bx)\\
+&amp;=\|Bx\|_2^2\ge0.
+\end{aligned}
+\]</span></p>
+<p>So <span class="math inline">\(A\)</span> is Hermitian and positive semidefinite.</p>
+<h3 data-original-heading="8.7.2 A Hermitian Positive Semidefinite Matrix Is a Gram Matrix" id="a-hermitian-positive-semidefinite-matrix-is-a-gram-matrix">8.7.2 A Hermitian Positive Semidefinite Matrix Is a Gram Matrix</h3>
+<p>Let <span class="math inline">\(A\)</span> be Hermitian positive semidefinite. Its eigendecomposition is</p>
+<p><span class="math display">\[
+\begin{gathered}
+A=U^*\Lambda U,\qquad UU^*=U^*U=I,\\
+\Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_n).
+\end{gathered}
+\]</span></p>
+<p>Hermitian symmetry makes the eigenvalues real. Positivity makes them nonnegative: for an eigenvector <span class="math inline">\(z_i\ne0\)</span>,</p>
+<p><span class="math display">\[
+0\le z_i^*Az_i
+=\lambda_i\|z_i\|_2^2
+\quad\Longrightarrow\quad\lambda_i\ge0.
+\]</span></p>
+<p>We can therefore form</p>
+<p><span class="math display">\[
+\sqrt\Lambda
+=\operatorname{diag}(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_n}).
+\]</span></p>
+<p>Insert <span class="math inline">\(UU^*=I\)</span> between the two square-root factors:</p>
+<p><span class="math display">\[
+\begin{aligned}
+A
+&amp;=U^*\Lambda U\\
+&amp;=U^*\sqrt\Lambda\,\sqrt\Lambda U\\
+&amp;=U^*\sqrt\Lambda\,(UU^*)\sqrt\Lambda U\\
+&amp;=(U^*\sqrt\Lambda U)(U^*\sqrt\Lambda U).
+\end{aligned}
+\]</span></p>
+<p>Set <span class="math inline">\(C=U^*\sqrt\Lambda U\)</span>. Since <span class="math inline">\(\sqrt\Lambda\)</span> is real diagonal,</p>
+<p><span class="math display">\[
+C^*=(U^*\sqrt\Lambda U)^*
+=U^*\sqrt\Lambda U=C.
+\]</span></p>
+<p>Hence the factorization above is</p>
+<p><span class="math display">\[
+\boxed{A=C^*C,\qquad C=U^*\sqrt\Lambda U.}
+\]</span></p>
+<p>This proves that <span class="math inline">\(A\)</span> is a Gram matrix.</p>
+<h3 data-original-heading="8.7.3 Positive Definiteness and Full Column Rank" id="positive-definiteness-and-full-column-rank">8.7.3 Positive Definiteness and Full Column Rank</h3>
+<!-- Source: Lecture 08.pdf, p. 9. -->
+<p>A matrix <span class="math inline">\(B\)</span> fails to have full column rank exactly when it has a nonzero null vector. Using the identity from the first part,</p>
+<p><span class="math display">\[
+\begin{gathered}
+B\text{ is column-rank deficient}\\
+\iff \exists x\ne0:\ Bx=0\\
+\iff \exists x\ne0:\ \|Bx\|_2^2=0\\
+\iff \exists x\ne0:\ x^*B^*Bx=0.
+\end{gathered}
+\]</span></p>
+<p>Since <span class="math inline">\(B^*B\)</span> is already positive semidefinite, this is precisely the failure of positive definiteness. Thus</p>
+<p><span class="math display">\[
+\boxed{\begin{gathered}
+B^*B\text{ is positive definite}\\
+\iff B\text{ has full column rank}.
+\end{gathered}}
+\]</span></p>
+<h2 data-original-heading="8.8 Corrections to the Handwritten Notes" id="corrections-to-the-handwritten-notes">8.8 Corrections to the Handwritten Notes</h2>
+<ol type="1">
+<li><p><strong>Cross-term signs (p.&nbsp;3).</strong> With <span class="math inline">\(r=Ax-b\)</span>, expanding <span class="math inline">\(\langle A\varepsilon+r,A\varepsilon+r\rangle\)</span> gives two <strong>plus</strong> cross terms. The handwritten intermediate signs are inconsistent. The expansion and subsequent inequalities above use the corrected signs.</p></li>
+<li><p><strong>The complex case in the optimality argument (p.&nbsp;3).</strong> Real scaling first proves that the real part of <span class="math inline">\(\langle A\bar\varepsilon,r\rangle\)</span> vanishes. To conclude that the full inner product is zero over <span class="math inline">\(\mathbb C\)</span>, one must also use the direction <span class="math inline">\(i\bar\varepsilon\)</span>. That missing step is included above.</p></li>
+<li><p><strong>Meaning of “positive” (p.&nbsp;6).</strong> The non-strict inequality <span class="math inline">\(v^*Av\ge0\)</span> defines positive <strong>semidefiniteness</strong>. Positive definiteness requires strict inequality for every nonzero <span class="math inline">\(v\)</span>. The two terms are distinguished consistently above; zero eigenvalues are allowed in the semidefinite case.</p></li>
+<li><p><strong>Gram-matrix dimensions and names (pp.&nbsp;7–8).</strong> A Hermitian matrix is square. In the rank statement, the relevant condition is that the factor <span class="math inline">\(B\)</span> has full column rank: <span class="math inline">\(B^*B\)</span> is positive definite if and only if <span class="math inline">\(B\)</span> has full column rank. The handwritten statement switches matrix names.</p></li>
+<li><p><strong>The squared norm (pp.&nbsp;7–8).</strong> The correct identity is <span class="math inline">\(x^*B^*Bx=\|Bx\|_2^2\)</span>, with a square on the norm.</p></li>
+</ol></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
+    <a rel="prev" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span>← Previous page</span><span>7. Orthogonal Transformations and QR</span></a>
+    <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span>Next page →</span><span>9. Cholesky Factorization and Schur Complements</span></a>
+  </nav></footer></article></main>
+<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"><div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">8. Least Squares and Normal Equations</a></div><div class="outline-contents" id="outline-contents"><div id="outline-progress" class="outline-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-controls="reading-viewport"><span class="outline-marker"></span></div><ol id="outline-items"><li style="--depth:0"><a href="#recap-orthogonal-transformations-and-qr" class="is-active" aria-current="location">8.1 Recap: Orthogonal Transformations and QR</a></li><li style="--depth:0"><a href="#the-overdetermined-least-squares-problem">8.2 The Overdetermined Least-Squares Problem</a></li><li style="--depth:0"><a href="#optimality-the-residual-must-be-orthogonal">8.3 Optimality: The Residual Must Be Orthogonal</a></li><li style="--depth:0"><a href="#why-the-qr-solution-works">8.4 Why the QR Solution Works</a></li><li style="--depth:1"><a href="#square-and-rectangular-systems">8.4.1 Square and Rectangular Systems</a></li><li style="--depth:1"><a href="#substitution-of-the-qr-formula">8.4.2 Substitution of the QR Formula</a></li><li style="--depth:0"><a href="#the-normal-equations">8.5 The Normal Equations</a></li><li style="--depth:0"><a href="#hermitian-matrices-and-positivity">8.6 Hermitian Matrices and Positivity</a></li><li style="--depth:1"><a href="#symmetry-and-eigenvalues">8.6.1 Symmetry and Eigenvalues</a></li><li style="--depth:1"><a href="#positive-semidefinite-and-positive-definite-matrices">8.6.2 Positive Semidefinite and Positive Definite Matrices</a></li><li style="--depth:1"><a href="#polar-decomposition">8.6.3 Polar Decomposition</a></li><li style="--depth:0"><a href="#gram-matrices">8.7 Gram Matrices</a></li><li style="--depth:1"><a href="#a-gram-matrix-is-hermitian-positive-semidefinite">8.7.1 A Gram Matrix Is Hermitian Positive Semidefinite</a></li><li style="--depth:1"><a href="#a-hermitian-positive-semidefinite-matrix-is-a-gram-matrix">8.7.2 A Hermitian Positive Semidefinite Matrix Is a Gram Matrix</a></li><li style="--depth:1"><a href="#positive-definiteness-and-full-column-rank">8.7.3 Positive Definiteness and Full Column Rank</a></li><li style="--depth:0"><a href="#corrections-to-the-handwritten-notes">8.8 Corrections to the Handwritten Notes</a></li></ol></div></aside></div>
+<button class="sidebar-scrim" tabindex="-1" aria-label="Close sidebar" hidden></button>
+<dialog id="search-dialog" class="search-dialog" aria-labelledby="search-label"><form method="dialog" class="search-heading"><label id="search-label" for="search-input">Search notes</label><button value="close" aria-label="Close search">×</button></form><input id="search-input" type="search" placeholder="Title, topic, or phrase…" autocomplete="off"><p id="search-status" role="status">Search the published notes on this site.</p><ol id="search-results"></ol></dialog>
+<dialog id="appearance-dialog" class="appearance-dialog" aria-labelledby="appearance-label"><form method="dialog"><h2 id="appearance-label">Reading appearance</h2><button aria-label="Close text settings">×</button></form><p class="settings-label">Typeface</p><div class="font-options"><button data-font="termes">Classic textbook<small>TeX Gyre Termes</small></button><button data-font="stix">STIX Two Text<small>Original reader</small></button></div><p class="settings-label">Text size</p><div class="size-options"><button data-size="18">Compact</button><button data-size="20">Comfortable</button><button data-size="22">Large</button></div></dialog>
+</body></html>
