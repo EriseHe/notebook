@@ -367,6 +367,7 @@ body[data-has-outline='false'] .outline-sidebar {
 }
 .folder-row .folder-label,
 .folder-row .folder-link {
+  padding-left: 6px;
   color: var(--secondary);
   font-size: 12px;
   font-weight: 600;
@@ -375,9 +376,6 @@ body[data-has-outline='false'] .outline-sidebar {
 }
 .folder-row .folder-link {
   align-items: center;
-}
-.folder-label .folder-chevron {
-  margin-left: auto;
 }
 .notes-tree .file-node .note-link {
   padding-left: 12px;
