@@ -346,7 +346,7 @@ body[data-has-outline='false'] .outline-sidebar {
   height: 12px;
   flex-shrink: 0;
 }
-.tree-toggle[aria-expanded='false'] img {
+.tree-toggle[aria-expanded='false'] .folder-chevron {
   transform: rotate(-90deg);
 }
 .folder-label {
@@ -364,6 +364,21 @@ body[data-has-outline='false'] .outline-sidebar {
   flex: 1;
   min-width: 0;
   padding: 4px;
+}
+.folder-row .folder-label,
+.folder-row .folder-link {
+  font-weight: 600;
+}
+.folder-row .folder-link {
+  align-items: center;
+}
+.folder-row .folder-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.folder-label .folder-chevron {
+  margin-left: auto;
 }
 .notes-tree .file-node .note-link {
   padding-left: 12px;
