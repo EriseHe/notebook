@@ -56,52 +56,51 @@ A_{11}&amp;\cdots&amp;A_{1,k-1}&amp;A_{1k}&amp;A_{1,k+1}&amp;\cdots&amp;A_{1m}\\
 0&amp;\cdots&amp;0&amp;0&amp;\widetilde A_{m,k+1}&amp;\cdots&amp;\widetilde A_{mm}
 \end{pmatrix}
 \]</span></p>
-<p>Thus the first <span class="math inline">\(k\)</span> columns are zero below their diagonals. The row operation behind the matrix picture is</p>
-<p><span class="math display">\[
-\text{row}_i\leftarrow\text{row}_i-\frac{A_{ik}}{A_{kk}}\text{row}_k,
-\qquad i&gt;k
-\]</span></p>
-<p>In particular,</p>
+<p>Rows <span class="math inline">\(1,\ldots,k\)</span> are unchanged. For <span class="math inline">\(i&gt;k\)</span>, multiplication by <span class="math inline">\(L_k\)</span> subtracts <span class="math inline">\(A_{ik}/A_{kk}\)</span> times row <span class="math inline">\(k\)</span> from row <span class="math inline">\(i\)</span>. Entrywise,</p>
 <p><span class="math display">\[
 \begin{aligned}
-(L_kA)_{ik}&amp;=A_{ik}-\frac{A_{ik}}{A_{kk}}A_{kk}=0\\
-\widetilde A_{ij}&amp;=A_{ij}-\frac{A_{ik}}{A_{kk}}A_{kj},
-\qquad i,j&gt;k
+(L_kA)_{ij}
+&amp;=\sum_{r=1}^m(L_k)_{ir}A_{rj}
+ =A_{ij}-\frac{A_{ik}}{A_{kk}}A_{kj}\\
+j&lt;k:\quad (L_kA)_{ij}
+&amp;=0-\frac{A_{ik}}{A_{kk}}\,0=0\\
+j=k:\quad (L_kA)_{ik}
+&amp;=A_{ik}-\frac{A_{ik}}{A_{kk}}A_{kk}=0\\
+j&gt;k:\quad \widetilde A_{ij}
+&amp;=A_{ij}-\frac{A_{ik}}{A_{kk}}A_{kj}
 \end{aligned}
 \]</span></p>
+<p>The earlier zeros are preserved, column <span class="math inline">\(k\)</span> is eliminated below its diagonal, and the trailing block is updated.</p>
 <h2 data-original-heading="3.3 LU Factorization" id="lu-factorization">3.3 LU Factorization</h2>
 <!-- Source: Lecture 03.pdf, p. 3. -->
-<p>Successive elimination gives an upper-triangular matrix</p>
+<p>Successive elimination gives an upper-triangular matrix <span class="math inline">\(U\)</span>. The last factor is trivial, <span class="math inline">\(L_m=I\)</span>. Applying the transformations to both sides of <span class="math inline">\(Ax=b\)</span> gives</p>
 <p><span class="math display">\[
-U=L_m\cdots L_1A
+\begin{aligned}
+U&amp;=L_m\cdots L_1A\\
+Ux&amp;=L_m\cdots L_1b
+\end{aligned}
 \]</span></p>
-<p>Here the last factor is trivial: <span class="math inline">\(L_m=I\)</span>. Applying the same transformations to <span class="math inline">\(Ax=b\)</span> gives</p>
+<p>Define <span class="math inline">\(L\)</span> by reversing the order of the inverses. Multiplying the first identity by this inverse product gives</p>
 <p><span class="math display">\[
-\underbrace{L_m\cdots L_1A}_{U}x=L_m\cdots L_1b
-\]</span></p>
-<p>Set</p>
-<p><span class="math display">\[
-L=(L_m\cdots L_1)^{-1}=L_1^{-1}\cdots L_m^{-1}
-\]</span></p>
-<p>Then</p>
-<p><span class="math display">\[
-A=LU
+\begin{aligned}
+L&amp;=(L_m\cdots L_1)^{-1}=L_1^{-1}\cdots L_m^{-1}\\
+A&amp;=(L_m\cdots L_1)^{-1}U=LU
+\end{aligned}
 \]</span></p>
 <p>Is <span class="math inline">\(L\)</span> lower triangular, and can we compute it efficiently?</p>
 <h2 data-original-heading="3.4 Algebra of Lower-Triangular Matrices" id="algebra-of-lower-triangular-matrices">3.4 Algebra of Lower-Triangular Matrices</h2>
 <!-- Source: Lecture 03.pdf, p. 4. -->
 <p><strong>Theorem 2.</strong> Lower-triangular matrices in <span class="math inline">\(\mathbb K^{m\times m}\)</span> are closed under addition, scalar multiplication, and matrix multiplication. The inverse of a nonsingular lower-triangular matrix is lower triangular.</p>
-<p>Addition and scalar multiplication preserve the zeros above the diagonal. For multiplication,</p>
+<p>Addition and scalar multiplication preserve the zeros above the diagonal. In a product, <span class="math inline">\(L_{ik}\)</span> can be nonzero only if <span class="math inline">\(k\le i\)</span>, and <span class="math inline">\(\widetilde L_{kj}\)</span> only if <span class="math inline">\(j\le k\)</span>. Hence</p>
 <p><span class="math display">\[
-(L\widetilde L)_{ij}=\sum_{k=1}^m L_{ik}\widetilde L_{kj}
+\begin{aligned}
+(L\widetilde L)_{ij}
+&amp;=\sum_{k=1}^m L_{ik}\widetilde L_{kj}\\
+&amp;=\sum_{k=j}^{i}L_{ik}\widetilde L_{kj}\\
+&amp;=0,\qquad i&lt;j
+\end{aligned}
 \]</span></p>
-<p>A nonzero term requires</p>
-<p><span class="math display">\[
-L_{ik}\widetilde L_{kj}\ne0
-\quad\Longrightarrow\quad
-i\ge k\ge j
-\]</span></p>
-<p>Therefore <span class="math inline">\((L\widetilde L)_{ij}=0\)</span> when <span class="math inline">\(i&lt;j\)</span>. The inversion claim is addressed after the elementary factors.</p>
+<p>The last sum is empty when <span class="math inline">\(i&lt;j\)</span>, proving closure under multiplication. The inversion claim is addressed after the elementary factors.</p>
 <h2 data-original-heading="3.5 Elementary Lower-Triangular Matrices" id="elementary-lower-triangular-matrices">3.5 Elementary Lower-Triangular Matrices</h2>
 <!-- Source: Lecture 03.pdf, pp. 4–5. -->
 <p>Write <span class="math inline">\(\ell_{ik}=A_{ik}/A_{kk}\)</span> for the multipliers at step <span class="math inline">\(k\)</span>.</p>
@@ -162,35 +161,56 @@ L_k=I-\ell_ke_k^*,
 (I+\ell_ke_k^*)(I-\ell_ke_k^*)
 &amp;=I+\ell_ke_k^*-\ell_ke_k^*
   -\ell_k(e_k^*\ell_k)e_k^*\\
-&amp;=I
+&amp;=I\\
+L_k^{-1}&amp;=I+\ell_ke_k^*
 \end{aligned}
 \]</span></p>
-<p>Hence <span class="math inline">\(L_k^{-1}=I+\ell_ke_k^*\)</span>.</p>
 <h3 data-original-heading="3.5.2 Proof of the Product Formula" id="proof-of-the-product-formula">3.5.2 Proof of the Product Formula</h3>
-<p>The lecture computes the <span class="math inline">\((i,j)\)</span> entry:</p>
+<p>First check how the factors act on <span class="math inline">\(e_j\)</span> and <span class="math inline">\(\ell_j\)</span>. Since <span class="math inline">\(e_r^*e_j=0\)</span> for <span class="math inline">\(r\ne j\)</span>, and the first <span class="math inline">\(j\)</span> entries of <span class="math inline">\(\ell_j\)</span> are zero,</p>
+<p><span class="math display">\[
+\begin{aligned}
+(I+\ell_re_r^*)e_j
+&amp;=e_j+\ell_r(e_r^*e_j)=e_j,
+&amp;&amp;r\ne j\\
+(I+\ell_je_j^*)e_j
+&amp;=e_j+\ell_j(e_j^*e_j)=e_j+\ell_j\\
+(I+\ell_re_r^*)\ell_j
+&amp;=\ell_j+\ell_r(e_r^*\ell_j)=\ell_j,
+&amp;&amp;r&lt;j
+\end{aligned}
+\]</span></p>
+<p>Now apply the product from right to left. Factors with index greater than <span class="math inline">\(j\)</span> leave <span class="math inline">\(e_j\)</span> unchanged; the <span class="math inline">\(j\)</span>-th factor produces <span class="math inline">\(e_j+\ell_j\)</span>; earlier factors leave both terms unchanged. Thus</p>
 <p><span class="math display">\[
 \begin{aligned}
 (L_1^{-1}\cdots L_m^{-1})_{ij}
 &amp;=e_i^*(I+\ell_1e_1^*)\cdots(I+\ell_me_m^*)e_j\\
 &amp;=e_i^*(I+\ell_1e_1^*)\cdots
   (I+\ell_{j-1}e_{j-1}^*)(e_j+\ell_j)\\
-&amp;=e_i^*(I+\ell_1e_1^*)\cdots
-  (I+\ell_{j-1}e_{j-1}^*)\ell_j+e_i^*e_j\\
-&amp;=e_i^*\ell_j+e_i^*e_j
+&amp;=e_i^*e_j+e_i^*\ell_j\\
+&amp;=\begin{cases}
+0,&amp;i&lt;j\\
+1,&amp;i=j\\
+\ell_{ij},&amp;i&gt;j
+\end{cases}
 \end{aligned}
 \]</span></p>
-<p>Factors with index greater than <span class="math inline">\(j\)</span> leave <span class="math inline">\(e_j\)</span> unchanged. Factors with index less than <span class="math inline">\(j\)</span> leave both <span class="math inline">\(e_j\)</span> and <span class="math inline">\(\ell_j\)</span> unchanged. The product therefore has ones on the diagonal and the multipliers below it.</p>
+<p>This gives exactly the unit lower-triangular matrix in Theorem 3.</p>
 <h3 data-original-heading="3.5.3 Inversion of a Lower-Triangular Matrix" id="inversion-of-a-lower-triangular-matrix">3.5.3 Inversion of a Lower-Triangular Matrix</h3>
 <p>For the elimination product, Theorem 3 gives</p>
 <p><span class="math display">\[
 (L_m\cdots L_1)^{-1}=L_1^{-1}\cdots L_m^{-1}
 \]</span></p>
 <p>Each factor is lower triangular, so their product is lower triangular by Theorem 2.</p>
-<p>For a general nonsingular lower-triangular matrix <span class="math inline">\(L\)</span>, solve <span class="math inline">\(Lx=e_j\)</span> by forward substitution. Its first <span class="math inline">\(j-1\)</span> equations give</p>
+<p>For a general nonsingular lower-triangular matrix <span class="math inline">\(L\)</span>, every diagonal entry is nonzero. Solve <span class="math inline">\(Lx=e_j\)</span> by forward substitution. When <span class="math inline">\(j&gt;1\)</span>, the equations above row <span class="math inline">\(j\)</span> give successively</p>
 <p><span class="math display">\[
-x_1=\cdots=x_{j-1}=0
+\begin{aligned}
+L_{11}x_1&amp;=0
+&amp;&amp;\Longrightarrow\quad x_1=0\\
+L_{ii}x_i&amp;=-\sum_{r=1}^{i-1}L_{ir}x_r=0
+&amp;&amp;\Longrightarrow\quad x_i=0,\qquad 1&lt;i&lt;j
+\end{aligned}
 \]</span></p>
-<p>Since <span class="math inline">\(x\)</span> is column <span class="math inline">\(j\)</span> of <span class="math inline">\(L^{-1}\)</span>, the inverse has zeros above its diagonal.</p>
+<p>In the second line, the earlier entries <span class="math inline">\(x_1,\ldots,x_{i-1}\)</span> are already zero. Thus <span class="math inline">\(x_1=\cdots=x_{j-1}=0\)</span>. Since <span class="math inline">\(x\)</span> is column <span class="math inline">\(j\)</span> of <span class="math inline">\(L^{-1}\)</span>, the inverse has zeros above its diagonal. For <span class="math inline">\(j=1\)</span>, there are no entries above the diagonal to check.</p>
 <h2 data-original-heading="3.6 Computing LU in Place" id="computing-lu-in-place">3.6 Computing LU in Place</h2>
 <!-- Source: Lecture 03.pdf, p. 6. -->
 <p>Transform <span class="math inline">\(A\)</span> into <span class="math inline">\(U\)</span> while storing the multipliers in the entries that elimination would otherwise set to zero. The final array has the form</p>
@@ -226,16 +246,20 @@ A=\begin{pmatrix}0&amp;1\\1&amp;1\end{pmatrix}
 \]</span></p>
 <p>This matrix is invertible, but its first pivot is zero.</p>
 <p><strong>Theorem.</strong> If the first <span class="math inline">\(k-1\)</span> pivots are nonzero and the <span class="math inline">\(k\)</span>-th pivot is zero, then <span class="math inline">\(A[1\!:\!k,1\!:\!k]\)</span> is singular. Elimination has nonzero pivots throughout if and only if all leading principal submatrices are nonsingular.</p>
-<p><em>Proof.</em> The triangular structure gives the leading-block relation</p>
+<p><em>Proof.</em> At the beginning of step <span class="math inline">\(k\)</span>, the leading <span class="math inline">\(k\times k\)</span> block of <span class="math inline">\(L\)</span> is already determined by the earlier multipliers and its unit diagonal. The corresponding block of <span class="math inline">\(U\)</span> is upper triangular, with <span class="math inline">\(U_{kk}\)</span> equal to the current pivot. Restricting the elimination relations to these blocks gives</p>
 <p><span class="math display">\[
 \begin{aligned}
 A[1\!:\!k,1\!:\!k]
-&amp;=L[1\!:\!k,:]\,U[:,1\!:\!k]\\
 &amp;=\underbrace{L[1\!:\!k,1\!:\!k]}_{\text{unit lower triangular}}
-  \underbrace{U[1\!:\!k,1\!:\!k]}_{\text{upper triangular}}
+  \underbrace{U[1\!:\!k,1\!:\!k]}_{\text{upper triangular}}\\
+\det A[1\!:\!k,1\!:\!k]
+&amp;=\det L[1\!:\!k,1\!:\!k]\,
+  \det U[1\!:\!k,1\!:\!k]\\
+&amp;=1\cdot\prod_{j=1}^{k}U_{jj}\\
+&amp;=\left(\prod_{j=1}^{k-1}U_{jj}\right)U_{kk}
 \end{aligned}
 \]</span></p>
-<p>The first factor is nonsingular. The second is nonsingular precisely when its first <span class="math inline">\(k\)</span> pivots are nonzero. At step <span class="math inline">\(k\)</span>, this relation already holds for the leading blocks before division by the current pivot, so a zero pivot makes the leading block singular. Conversely, nonsingularity of each leading block allows the next elimination step.</p>
+<p>The earlier pivots are nonzero, so the product in parentheses is nonzero. Therefore the current pivot is zero exactly when the leading submatrix is singular. If every leading submatrix is nonsingular, this argument allows elimination to continue at each step.</p>
 <h2 data-original-heading="3.8 Small Pivots" id="small-pivots">3.8 Small Pivots</h2>
 <!-- Source: Lecture 03.pdf, p. 7. -->
 <p>Avoiding zero pivots is not sufficient. Consider</p>
@@ -243,30 +267,35 @@ A[1\!:\!k,1\!:\!k]
 A=\begin{pmatrix}\epsilon&amp;1\\1&amp;1\end{pmatrix},
 \qquad 0&lt;\epsilon\ll1
 \]</span></p>
-<p>Its exact factors are</p>
+<p>The first multiplier and the remaining diagonal entry are</p>
 <p><span class="math display">\[
-L=\begin{pmatrix}1&amp;0\\\epsilon^{-1}&amp;1\end{pmatrix},
+\begin{aligned}
+\ell_{21}&amp;=\frac{A_{21}}{A_{11}}=\epsilon^{-1}\\
+U_{22}&amp;=A_{22}-\ell_{21}U_{12}=1-\epsilon^{-1}\\
+L&amp;=\begin{pmatrix}1&amp;0\\\epsilon^{-1}&amp;1\end{pmatrix},
 \qquad
 U=\begin{pmatrix}\epsilon&amp;1\\0&amp;1-\epsilon^{-1}\end{pmatrix}
+\end{aligned}
 \]</span></p>
 <p>In exact arithmetic,</p>
 <p><span class="math display">\[
-LU=
-\begin{pmatrix}
+\begin{aligned}
+LU
+&amp;=\begin{pmatrix}
 \epsilon&amp;1\\
 1&amp;\epsilon^{-1}+(1-\epsilon^{-1})
-\end{pmatrix}
-=
-\begin{pmatrix}\epsilon&amp;1\\1&amp;1\end{pmatrix}
+\end{pmatrix}\\
+&amp;=\begin{pmatrix}\epsilon&amp;1\\1&amp;1\end{pmatrix}=A
+\end{aligned}
 \]</span></p>
 <p>If floating-point arithmetic loses the <span class="math inline">\(1\)</span> in <span class="math inline">\(1-\epsilon^{-1}\)</span>, the computed factors instead have the product</p>
 <p><span class="math display">\[
+\begin{aligned}
 \begin{pmatrix}1&amp;0\\\epsilon^{-1}&amp;1\end{pmatrix}
 \begin{pmatrix}\epsilon&amp;1\\0&amp;-\epsilon^{-1}\end{pmatrix}
-=
-\begin{pmatrix}\epsilon&amp;1\\1&amp;0\end{pmatrix}
-\approx
-\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}
+&amp;=\begin{pmatrix}\epsilon&amp;1\\1&amp;0\end{pmatrix}\\
+&amp;\approx\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}
+\end{aligned}
 \]</span></p>
 <p>The small pivot produces large entries whose cancellation loses the desired result.</p>
 <h2 data-original-heading="3.9 Error Analysis for LU Factorization" id="error-analysis-for-lu-factorization">3.9 Error Analysis for LU Factorization</h2>
@@ -280,10 +309,11 @@ A=LU+E,
 <p>Absolute values and the inequality are entrywise; <span class="math inline">\(|L|\,|U|\)</span> is an ordinary matrix product. Lecture 4 develops the proof.</p>
 <h2 data-original-heading="Corrections and Clarifications to the Source" id="corrections-and-clarifications-to-the-source">3.10 Corrections and Clarifications to the Source</h2>
 <ul>
-<li><strong>Page 3:</strong> Restored the missing <span class="math inline">\(x\)</span> in the transformed equation for <span class="math inline">\(Ax=b\)</span>.</li>
-<li><strong>Page 5:</strong> The handwritten inversion argument establishes the claim for products of elementary factors. The short forward-substitution argument completes the stated claim for any nonsingular lower-triangular matrix.</li>
-<li><strong>Page 7:</strong> Corrected the lower-right product entry to <span class="math inline">\(\epsilon^{-1}+(1-\epsilon^{-1})\)</span>. The source’s arrow to <span class="math inline">\(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\)</span> illustrates loss of accuracy in floating-point arithmetic; it is not the exact-arithmetic limit of <span class="math inline">\(LU\)</span>.</li>
-<li><strong>Page 8:</strong> The source writes <span class="math inline">\(\le m\epsilon|L||U|\)</span> while suppressing higher-order rounding factors. Here <span class="math inline">\(\lesssim\)</span> marks that first-order convention; overflow and underflow outside the relative-error model are not included.</li>
+<li><p><strong>Page 3:</strong> Restored the missing <span class="math inline">\(x\)</span> in the transformed equation for <span class="math inline">\(Ax=b\)</span>.</p></li>
+<li><p><strong>Page 5:</strong> The handwritten inversion argument establishes the claim for products of elementary factors. The short forward-substitution argument completes the stated claim for any nonsingular lower-triangular matrix.</p></li>
+<li><p><strong>Page 7:</strong> Corrected the lower-right product entry to <span class="math inline">\(\epsilon^{-1}+(1-\epsilon^{-1})\)</span>. The source’s arrow to <span class="math inline">\(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\)</span> illustrates loss of accuracy in floating-point arithmetic; it is not the exact-arithmetic limit of <span class="math inline">\(LU\)</span>.</p></li>
+<li><p><strong>Page 8:</strong> The source writes <span class="math inline">\(\le m\epsilon|L||U|\)</span> while suppressing higher-order rounding factors. Here <span class="math inline">\(\lesssim\)</span> marks that first-order convention; overflow and underflow outside the relative-error model are not included.</p></li>
+<li><p><strong>Expanded derivations:</strong> The intermediate entrywise calculations, factor actions, forward substitution, and determinant calculation spell out steps implicit in the lecture. They do not introduce additional topics.</p></li>
 </ul></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
     <a rel="prev" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span>← Previous page</span><span>2. Memory, Computational Cost, and Gaussian Elimination</span></a>
     <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span>Next page →</span><span>4. LU Error Analysis and Row Pivoting</span></a>

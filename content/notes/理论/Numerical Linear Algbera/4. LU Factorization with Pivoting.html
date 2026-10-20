@@ -47,15 +47,23 @@ A=LU+E,
 (|L|\,|U|)_{ik}=\sum_{j=1}^m |L_{ij}|\,|U_{jk}|
 \]</span></p>
 <h3 data-original-heading="4.2.1 Entrywise Relations" id="entrywise-relations">4.2.1 Entrywise Relations</h3>
-<p>From <span class="math inline">\(A=LU\)</span> in exact arithmetic and <span class="math inline">\(L_{ii}=1\)</span>, the entries are computed as</p>
+<p>In exact arithmetic, triangularity gives <span class="math inline">\(A_{ik}=\sum_{j=1}^{\min(i,k)}L_{ij}U_{jk}\)</span>. If <span class="math inline">\(i\le k\)</span>, isolate the term with <span class="math inline">\(j=i\)</span> and use <span class="math inline">\(L_{ii}=1\)</span>:</p>
 <p><span class="math display">\[
-U_{ik}=A_{ik}-\sum_{j=1}^{i-1}L_{ij}U_{jk},
-\qquad i\le k
+\begin{aligned}
+A_{ik}
+&amp;=\sum_{j=1}^{i-1}L_{ij}U_{jk}+\underbrace{L_{ii}}_{1}U_{ik}\\
+U_{ik}
+&amp;=A_{ik}-\sum_{j=1}^{i-1}L_{ij}U_{jk}
+\end{aligned}
 \]</span></p>
-<p>and</p>
+<p>If <span class="math inline">\(i&gt;k\)</span>, isolate the term with <span class="math inline">\(j=k\)</span> and divide by the nonzero pivot <span class="math inline">\(U_{kk}\)</span>:</p>
 <p><span class="math display">\[
-L_{ik}=\frac{A_{ik}-\displaystyle\sum_{j=1}^{k-1}L_{ij}U_{jk}}{U_{kk}},
-\qquad i&gt;k
+\begin{aligned}
+A_{ik}
+&amp;=\sum_{j=1}^{k-1}L_{ij}U_{jk}+L_{ik}U_{kk}\\
+L_{ik}
+&amp;=\frac{A_{ik}-\displaystyle\sum_{j=1}^{k-1}L_{ij}U_{jk}}{U_{kk}}
+\end{aligned}
 \]</span></p>
 <h3 data-original-heading="4.2.2 Floating-Point Summation" id="floating-point-summation">4.2.2 Floating-Point Summation</h3>
 <p>The lecture uses the dot-product estimate from HW2, to first order:</p>
@@ -69,61 +77,78 @@ L_{ik}=\frac{A_{ik}-\displaystyle\sum_{j=1}^{k-1}L_{ij}U_{jk}}{U_{kk}},
 <h3 data-original-heading="4.2.3 Error in an Entry of U" id="error-in-an-entry-of-u">4.2.3 Error in an Entry of U</h3>
 <p>For <span class="math inline">\(i\le k\)</span>, the computed entry satisfies</p>
 <p><span class="math display">\[
-U_{ik}=
-\left(A_{ik}-\sum_{j=1}^{i-1}L_{ij}U_{jk}(1+\delta_j')\right)(1+\delta')
-\]</span></p>
-<p>with</p>
-<p><span class="math display">\[
-|\delta_j'|\lesssim(i-1)\epsilon,
+\begin{aligned}
+U_{ik}
+&amp;=\left(A_{ik}-\sum_{j=1}^{i-1}L_{ij}U_{jk}(1+\delta_j')\right)(1+\delta')\\
+|\delta_j'|&amp;\lesssim(i-1)\epsilon,
 \qquad |\delta'|\le\epsilon
+\end{aligned}
 \]</span></p>
-<p>Rearrange as in the lecture:</p>
+<p>To collect all rounding terms into one error sum, define</p>
+<p><span class="math display">\[
+\begin{aligned}
+\delta_j&amp;=\delta_j',\qquad j&lt;i\\
+\delta_i&amp;=\frac{1}{1+\delta'}-1
+=-\frac{\delta'}{1+\delta'}\\
+|\delta_i|&amp;\le\frac{\epsilon}{1-\epsilon}\lesssim\epsilon
+\end{aligned}
+\]</span></p>
+<p>Thus every coefficient satisfies <span class="math inline">\(|\delta_j|\lesssim m\epsilon\)</span> to first order. Rearranging the computed-entry formula and then bounding its error gives one chain:</p>
 <p><span class="math display">\[
 \begin{aligned}
 A_{ik}
 &amp;=\frac{L_{ii}U_{ik}}{1+\delta'}
   +\sum_{j=1}^{i-1}L_{ij}U_{jk}(1+\delta_j')\\
+&amp;=L_{ii}U_{ik}(1+\delta_i)
+  +\sum_{j=1}^{i-1}L_{ij}U_{jk}(1+\delta_j)\\
 &amp;=\sum_{j=1}^{i}L_{ij}U_{jk}
-  +\underbrace{\sum_{j=1}^{i}L_{ij}U_{jk}\delta_j}_{E_{ik}}
-\end{aligned}
-\]</span></p>
-<p>Here</p>
-<p><span class="math display">\[
-\delta_j=\delta_j'\quad(j&lt;i),
-\qquad
-1+\delta_i=\frac{1}{1+\delta'}
-\]</span></p>
-<p>Using the first-order bound <span class="math inline">\(|\delta_j|\lesssim m\epsilon\)</span> gives</p>
-<p><span class="math display">\[
-\begin{aligned}
+  +\underbrace{\sum_{j=1}^{i}L_{ij}U_{jk}\delta_j}_{E_{ik}}\\
 |E_{ik}|
 &amp;\le\sum_{j=1}^{i}|L_{ij}|\,|U_{jk}|\,|\delta_j|\\
 &amp;\lesssim m\epsilon\sum_{j=1}^{i}|L_{ij}|\,|U_{jk}|\\
 &amp;=m\epsilon\,(|L|\,|U|)_{ik}
 \end{aligned}
 \]</span></p>
-<p>Terms with <span class="math inline">\(j&gt;i\)</span> vanish by triangularity.</p>
+<p>The last equality holds because <span class="math inline">\(L_{ij}=0\)</span> for <span class="math inline">\(j&gt;i\)</span>.</p>
 <h3 data-original-heading="4.2.4 Error in an Entry of L" id="error-in-an-entry-of-l">4.2.4 Error in an Entry of L</h3>
 <p>For <span class="math inline">\(i&gt;k\)</span>, division by <span class="math inline">\(U_{kk}\)</span> introduces one more rounding factor:</p>
 <p><span class="math display">\[
-L_{ik}=(1+\delta'')
-\frac{(1+\delta')\left(A_{ik}-\displaystyle\sum_{j=1}^{k-1}L_{ij}U_{jk}(1+\delta_j')\right)}{U_{kk}},
-\qquad |\delta''|\le\epsilon
+\begin{aligned}
+L_{ik}
+&amp;=(1+\delta'')
+\frac{(1+\delta')\left(A_{ik}-\displaystyle\sum_{j=1}^{k-1}L_{ij}U_{jk}(1+\delta_j')\right)}{U_{kk}}\\
+|\delta_j'|&amp;\lesssim(k-1)\epsilon,
+\qquad |\delta'|,|\delta''|\le\epsilon
+\end{aligned}
 \]</span></p>
-<p>Thus</p>
+<p>As in the preceding case, absorb the reciprocal rounding factors into the coefficient of the last term:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\delta_j&amp;=\delta_j',\qquad j&lt;k\\
+\delta_k&amp;=\frac{1}{(1+\delta')(1+\delta'')}-1\\
+&amp;=-\frac{\delta'+\delta''+\delta'\delta''}
+{(1+\delta')(1+\delta'')}\\
+|\delta_k|&amp;\le\frac{2\epsilon+\epsilon^2}{(1-\epsilon)^2}
+\lesssim2\epsilon\le m\epsilon
+\end{aligned}
+\]</span></p>
+<p>Here <span class="math inline">\(|1+\delta'|,|1+\delta''|\ge1-\epsilon\)</span>, and <span class="math inline">\(m\ge2\)</span> because <span class="math inline">\(i&gt;k\)</span>. Therefore <span class="math inline">\(|\delta_j|\lesssim m\epsilon\)</span> for every coefficient in this case as well. Now</p>
 <p><span class="math display">\[
 \begin{aligned}
 A_{ik}
 &amp;=\frac{L_{ik}U_{kk}}{(1+\delta')(1+\delta'')}
   +\sum_{j=1}^{k-1}L_{ij}U_{jk}(1+\delta_j')\\
-&amp;=\sum_{j=1}^{k}L_{ij}U_{jk}+E_{ik}
+&amp;=L_{ik}U_{kk}(1+\delta_k)
+  +\sum_{j=1}^{k-1}L_{ij}U_{jk}(1+\delta_j)\\
+&amp;=\sum_{j=1}^{k}L_{ij}U_{jk}
+  +\underbrace{\sum_{j=1}^{k}L_{ij}U_{jk}\delta_j}_{E_{ik}}\\
+|E_{ik}|
+&amp;\le\sum_{j=1}^{k}|L_{ij}|\,|U_{jk}|\,|\delta_j|\\
+&amp;\lesssim m\epsilon\sum_{j=1}^{k}|L_{ij}|\,|U_{jk}|\\
+&amp;=m\epsilon\,(|L|\,|U|)_{ik}
 \end{aligned}
 \]</span></p>
-<p>The same argument gives</p>
-<p><span class="math display">\[
-|E_{ik}|\lesssim m\epsilon\,(|L|\,|U|)_{ik}
-\]</span></p>
-<p>Combining both cases proves the componentwise estimate. Large intermediate entries in <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span> can make this bound large.</p>
+<p>Terms with <span class="math inline">\(j&gt;k\)</span> vanish because <span class="math inline">\(U_{jk}=0\)</span>. Both cases therefore give the componentwise estimate in the theorem. Large intermediate entries in <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span> can make this bound large.</p>
 <h2 data-original-heading="4.3 Pivots" id="pivots">4.3 Pivots</h2>
 <!-- Source: Lecture 04.pdf, p. 4. -->
 <p>Before step <span class="math inline">\(k\)</span>, the packed array has the form</p>
@@ -151,24 +176,19 @@ L_{m1}&amp;\cdots&amp;L_{m,k-1}&amp;L_{mk}&amp;\ast&amp;\cdots&amp;\ast
 \end{pmatrix}
 \]</span></p>
 <p>The stars denote the updated trailing block. The entries below the pivot store multipliers rather than the zeros of the mathematical elimination matrix.</p>
-<p>The entry <span class="math inline">\(\widetilde A_{kk}\)</span> is the <strong>pivot</strong>. At this step,</p>
+<p>The entry <span class="math inline">\(\widetilde A_{kk}\)</span> is the <strong>pivot</strong>. The new multipliers, pivot row, and products in the trailing update satisfy</p>
 <p><span class="math display">\[
-L_{ik}=\frac{\widetilde A_{ik}}{\widetilde A_{kk}},
-\qquad
-U_{kj}=\widetilde A_{kj}
-\]</span></p>
-<p>so the products used in the trailing update are</p>
-<p><span class="math display">\[
-L_{ik}U_{kj}=
-\frac{\widetilde A_{ik}\widetilde A_{kj}}{\widetilde A_{kk}}
-\]</span></p>
-<p>Their largest magnitude is</p>
-<p><span class="math display">\[
+\begin{aligned}
+L_{ik}&amp;=\frac{\widetilde A_{ik}}{\widetilde A_{kk}},\qquad i&gt;k\\
+U_{kj}&amp;=\widetilde A_{kj},\qquad j\ge k\\
+L_{ik}U_{kj}
+&amp;=\frac{\widetilde A_{ik}\widetilde A_{kj}}{\widetilde A_{kk}}\\
 \max_{i,j&gt;k}|L_{ik}U_{kj}|
-=
-\frac{\displaystyle\max_{i,j&gt;k}|\widetilde A_{ik}\widetilde A_{kj}|}
+&amp;=\frac{\displaystyle\max_{i,j&gt;k}|\widetilde A_{ik}\widetilde A_{kj}|}
 {|\widetilde A_{kk}|}
+\end{aligned}
 \]</span></p>
+<p>Each star in the trailing block is the updated value <span class="math inline">\(\widetilde A_{ij}-L_{ik}U_{kj}\)</span>. A small denominator can make the subtracted product large.</p>
 <p>We need to avoid zero pivots and would also like to avoid small pivots.</p>
 <h2 data-original-heading="4.4 How to Pivot: Row Pivoting" id="how-to-pivot-row-pivoting">4.4 How to Pivot: Row Pivoting</h2>
 <!-- Source: Lecture 04.pdf, p. 5. -->
@@ -201,10 +221,17 @@ L_{ik}U_{kj}=
 \]</span></p>
 <p>The row swap places the chosen entry on the diagonal; elimination then zeros the entries below it. If the chosen pivot is nonzero,</p>
 <p><span class="math display">\[
-|L_{ik}|=
-\frac{|(P_k\widetilde A)_{ik}|}{|(P_k\widetilde A)_{kk}|}
-\le1,
-\qquad i&gt;k
+\begin{aligned}
+|(P_k\widetilde A)_{kk}|
+&amp;=|\widetilde A_{\kappa k}|
+=\max_{r=k,\ldots,m}|\widetilde A_{rk}|\\
+|(P_k\widetilde A)_{ik}|
+&amp;\le\max_{r=k,\ldots,m}|\widetilde A_{rk}|
+=|(P_k\widetilde A)_{kk}|\\
+|L_{ik}|
+&amp;=\frac{|(P_k\widetilde A)_{ik}|}{|(P_k\widetilde A)_{kk}|}
+\le1,\qquad i&gt;k
+\end{aligned}
 \]</span></p>
 <p>Thus row pivoting bounds the multipliers. It does not by itself bound all entries of <span class="math inline">\(U\)</span>.</p>
 <h2 data-original-heading="4.5 Commuting Permutations" id="commuting-permutations">4.5 Commuting Permutations</h2>
@@ -215,10 +242,13 @@ U=L_mP_m\cdots L_1P_1A
 \]</span></p>
 <p>Let <span class="math inline">\(P_\ell\)</span> be a later row swap, so <span class="math inline">\(\ell&gt;k\)</span>. Since <span class="math inline">\(P_\ell^2=I\)</span>,</p>
 <p><span class="math display">\[
+\begin{aligned}
 P_\ell L_k
-=\underbrace{(P_\ell L_kP_\ell)}_{\text{swap rows and columns of }L_k}P_\ell
+&amp;=P_\ell L_k\underbrace{P_\ell P_\ell}_{I}\\
+&amp;=\underbrace{(P_\ell L_kP_\ell)}_{\text{swap rows and columns of }L_k}P_\ell
+\end{aligned}
 \]</span></p>
-<p>The professor’s diagram swaps two entries below the diagonal in column <span class="math inline">\(k\)</span>. Write these entries as <span class="math inline">\(\delta_\ell\)</span> and <span class="math inline">\(\delta_i\)</span>, where <span class="math inline">\(k&lt;\ell&lt;i\)</span>. On rows and columns <span class="math inline">\((k,\ell,i)\)</span>, the two operations are</p>
+<p>The row and column swaps exchange two entries below the diagonal in column <span class="math inline">\(k\)</span>. Write these entries as <span class="math inline">\(\delta_\ell\)</span> and <span class="math inline">\(\delta_i\)</span>, where <span class="math inline">\(k&lt;\ell&lt;i\)</span>. On rows and columns <span class="math inline">\((k,\ell,i)\)</span>, the two operations are</p>
 <p><span class="math display">\[
 \begin{pmatrix}
 1&amp;0&amp;0\\
@@ -238,50 +268,59 @@ P_\ell L_k
 \delta_\ell&amp;0&amp;1
 \end{pmatrix}
 \]</span></p>
-<p>The other multiplier entries are unchanged. In particular, the conjugated matrix is still elementary lower triangular. Equivalently, since the later swap leaves <span class="math inline">\(e_k\)</span> fixed,</p>
+<p>The other multiplier entries are unchanged. Since the later swap acts only on indices greater than <span class="math inline">\(k\)</span>, it leaves <span class="math inline">\(e_k\)</span> fixed. The rank-one form from Lecture 3 gives</p>
 <p><span class="math display">\[
-P_\ell L_kP_\ell=I-(P_\ell\ell_k)e_k^*
+\begin{aligned}
+P_\ell L_kP_\ell
+&amp;=P_\ell(I-\ell_ke_k^*)P_\ell\\
+&amp;=P_\ell^2-(P_\ell\ell_k)(e_k^*P_\ell)\\
+&amp;=I-(P_\ell\ell_k)e_k^*
+\end{aligned}
 \]</span></p>
-<p>Commuting the permutations to the right repeatedly gives</p>
+<p>The first <span class="math inline">\(k\)</span> entries of <span class="math inline">\(P_\ell\ell_k\)</span> are still zero, so this is again elementary lower triangular. For the first two elimination steps, the rearrangement reads</p>
 <p><span class="math display">\[
-U=\widetilde L_m\cdots\widetilde L_1
-\underbrace{P_m\cdots P_1}_{P}A
+L_2P_2L_1P_1A
+=L_2(P_2L_1P_2)(P_2P_1)A
 \]</span></p>
-<p>The tildes denote elementary factors with reordered multipliers. Hence</p>
+<p>Repeating this operation moves all permutations to the right. The tildes below denote the elementary factors after their multipliers have been reordered:</p>
 <p><span class="math display">\[
-PA=LU,
-\qquad
-L=(\widetilde L_m\cdots\widetilde L_1)^{-1}
+\begin{aligned}
+U
+&amp;=\widetilde L_m\cdots\widetilde L_1
+\underbrace{P_m\cdots P_1}_{P}A\\
+PA
+&amp;=(\widetilde L_m\cdots\widetilde L_1)^{-1}U\\
+&amp;=\underbrace{\widetilde L_1^{-1}\cdots\widetilde L_m^{-1}}_{L}U\\
+&amp;=LU
+\end{aligned}
 \]</span></p>
+<p>The inverse factors are unit lower triangular, so their product <span class="math inline">\(L\)</span> is unit lower triangular as well.</p>
 <h2 data-original-heading="4.6 Updating the Packed Factorization" id="updating-the-packed-factorization">4.6 Updating the Packed Factorization</h2>
 <!-- Source: Lecture 04.pdf, p. 7. -->
 <p>Suppose the current elimination state satisfies</p>
 <p><span class="math display">\[
 L_k\cdots L_1PA=U_k
 \]</span></p>
-<p>The next row swap and elimination step give</p>
+<p>For the next row swap <span class="math inline">\(P_{k+1}\)</span>, define</p>
 <p><span class="math display">\[
-L_{k+1}P_{k+1}L_k\cdots L_1PA
-=L_{k+1}P_{k+1}U_k
-\]</span></p>
-<p>For <span class="math inline">\(j=1,\ldots,k\)</span>, set</p>
-<p><span class="math display">\[
-L_j'=P_{k+1}L_jP_{k+1},
+L_j'=P_{k+1}L_jP_{k+1},\quad j=1,\ldots,k,
 \qquad P'=P_{k+1}P
 \]</span></p>
-<p>Moving the permutation past the earlier factors yields</p>
+<p>The new elimination state follows by inserting <span class="math inline">\(P_{k+1}^2=I\)</span> between the earlier factors:</p>
 <p><span class="math display">\[
 \begin{aligned}
-L_{k+1}L_k'\cdots L_1'
-\underbrace{P_{k+1}P}_{P'}A
-&amp;=\underbrace{L_{k+1}P_{k+1}U_k}_{U_{k+1}}\\
-L_{k+1}L_k'\cdots L_1'P'A&amp;=U_{k+1}
+U_{k+1}
+&amp;=L_{k+1}P_{k+1}U_k\\
+&amp;=L_{k+1}P_{k+1}L_k\cdots L_1PA\\
+&amp;=L_{k+1}(P_{k+1}L_kP_{k+1})\cdots
+(P_{k+1}L_1P_{k+1})P_{k+1}PA\\
+&amp;=L_{k+1}L_k'\cdots L_1'P'A
 \end{aligned}
 \]</span></p>
 <p>Conjugating the earlier elementary factors reorders the multipliers already stored in the first <span class="math inline">\(k\)</span> columns. Therefore <strong>swap the complete rows of the packed array</strong>, including those earlier columns. Also swap the corresponding rows of <span class="math inline">\(P\)</span>.</p>
 <h2 data-original-heading="4.7 Algorithm: LU Factorization with Row Pivoting" id="algorithm-lu-factorization-with-row-pivoting">4.7 Algorithm: LU Factorization with Row Pivoting</h2>
 <!-- Source: Lecture 04.pdf, p. 8. -->
-<p>The lecture’s pseudocode, in Julia notation, assumes each selected pivot is nonzero:</p>
+<p>The lecture’s pseudocode, in Julia notation, assumes each selected pivot is nonzero. The index returned by <code>argmax</code> is relative to <code>A[k:m, k]</code>, so adding <code>k - 1</code> converts it to a row index of <span class="math inline">\(A\)</span>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">LinearAlgebra</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="fu">size</span>(A, <span class="fl">1</span>)</span>
@@ -311,12 +350,13 @@ P A_{\mathrm{original}}=LU
 \]</span></p>
 <h2 data-original-heading="Corrections and Clarifications to the Source" id="corrections-and-clarifications-to-the-source">4.8 Corrections and Clarifications to the Source</h2>
 <ul>
-<li><strong>Page 1:</strong> Restored the missing <span class="math inline">\(x\)</span> in the recap of the transformed linear system. The small-pivot example uses the corrected product described at the end of Lecture 3.</li>
-<li><strong>Pages 2–3:</strong> Restored the factor <span class="math inline">\(m\epsilon\)</span> missing from the theorem statement on p.&nbsp;2. The proof and Lecture 3 both include it. The bounds are first-order estimates, marked by <span class="math inline">\(\lesssim\)</span>, rather than exact finite-precision coefficients.</li>
-<li><strong>Page 2:</strong> In the formula for <span class="math inline">\(L_{ik}\)</span> with <span class="math inline">\(i&gt;k\)</span>, corrected the summation limit from <span class="math inline">\(i-1\)</span> to <span class="math inline">\(k-1\)</span>, as used on p.&nbsp;3.</li>
-<li><strong>Page 3:</strong> The reciprocal factor satisfies <span class="math inline">\(\delta_i=-\delta'/(1+\delta')\)</span>. The common first-order bound <span class="math inline">\(m\epsilon\)</span> is used instead of the handwritten coefficient bound, which does not cover every displayed coefficient as an exact inequality.</li>
-<li><strong>Page 4:</strong> Made the magnitudes and current-matrix tildes explicit in the maximum of intermediate products.</li>
-<li><strong>Pages 6–7:</strong> Completed the unfinished product using the displayed permutation-conjugation identity. The primes and tildes distinguish reordered elementary factors.</li>
+<li><p><strong>Page 1:</strong> Restored the missing <span class="math inline">\(x\)</span> in the recap of the transformed linear system. The small-pivot example uses the corrected product described at the end of Lecture 3.</p></li>
+<li><p><strong>Pages 2–3:</strong> Restored the factor <span class="math inline">\(m\epsilon\)</span> missing from the theorem statement on p.&nbsp;2. The proof and Lecture 3 both include it. The bounds are first-order estimates, marked by <span class="math inline">\(\lesssim\)</span>, rather than exact finite-precision coefficients.</p></li>
+<li><p><strong>Page 2:</strong> In the formula for <span class="math inline">\(L_{ik}\)</span> with <span class="math inline">\(i&gt;k\)</span>, corrected the summation limit from <span class="math inline">\(i-1\)</span> to <span class="math inline">\(k-1\)</span>, as used on p.&nbsp;3.</p></li>
+<li><p><strong>Page 3:</strong> The reciprocal factor satisfies <span class="math inline">\(\delta_i=-\delta'/(1+\delta')\)</span>. The common first-order bound <span class="math inline">\(m\epsilon\)</span> is used instead of the handwritten coefficient bound, which does not cover every displayed coefficient as an exact inequality.</p></li>
+<li><p><strong>Page 4:</strong> Made the magnitudes and current-matrix tildes explicit in the maximum of intermediate products.</p></li>
+<li><p><strong>Pages 6–7:</strong> Completed the unfinished product using the displayed permutation-conjugation identity. The primes and tildes distinguish reordered elementary factors.</p></li>
+<li><p><strong>Expanded derivations:</strong> The coefficient definitions and error sums in §4.2, the multiplier bound in §4.4, and the permutation rearrangements in §§4.5–4.6 make intermediate algebra explicit without changing the lecture algorithms.</p></li>
 </ul></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
     <a rel="prev" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span>← Previous page</span><span>3. LU Factorization and Zero Pivots</span></a>
     <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span>Next page →</span><span>5. Least Squares and Gram-Schmidt</span></a>
