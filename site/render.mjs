@@ -319,7 +319,7 @@ export async function renderPage(page, context) {
       '--wrap=none',
       '--mathjax',
       '--lua-filter',
-      path.join(context.repoRoot, 'filters/obsidian-callouts.lua'),
+      path.join(context.repoRoot, 'site/filters/obsidian-callouts.lua'),
     ],
     JSON.stringify(ast),
   );

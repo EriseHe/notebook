@@ -59,7 +59,7 @@ async function main() {
     } while (pending);
     running = false;
   }
-  const roots = [result.context.contentRoot, path.join(repoRoot, 'site'), path.join(repoRoot, 'filters')];
+  const roots = [result.context.contentRoot, path.join(repoRoot, 'site')];
   const watchers = roots.map((root) =>
     watch(root, { recursive: true }, (_, filename) => {
       if (

@@ -27,6 +27,8 @@ const types = {
 };
 
 export async function startServer({ outputDir, basePath = '/notebook/', port = 4173 }) {
+  // macOS may expose the same temporary directory through /var and /private/var.
+  outputDir = await fs.realpath(outputDir);
   const base = normalizeBasePath(basePath);
   const server = http.createServer(async (request, response) => {
     try {

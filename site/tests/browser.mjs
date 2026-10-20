@@ -14,6 +14,7 @@ const artifacts = path.join(repoRoot, '.preview-artifacts');
 await fs.mkdir(artifacts, { recursive: true });
 const candidates = [
   process.env.BROWSER_PATH,
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
   'C:/Program Files/Google/Chrome/Application/chrome.exe',
   'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
   '/usr/bin/google-chrome',

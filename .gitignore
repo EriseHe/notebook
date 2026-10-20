@@ -1,12 +1,13 @@
-# Hugo build files
-/public/
-/docs/
-/resources/_gen/
+# Dependencies, local toolchain, and generated website
+node_modules
+/.tools
+/.quiet-reader/
+/.preview-artifacts/
 
-# Node modules
-node_modules/
+# Personal Obsidian configuration, plugins, and workspace state
+.obsidian/
 
-# OS generated files
+# OS and editor files
 .DS_Store
 .DS_Store?
 ._*
@@ -14,19 +15,9 @@ node_modules/
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# IDE files
 .vscode/
 .idea/
 
-# Hugo cache
-.hugo_build.lock
-
-/.quarto/
-
-**/*.quarto_ipynb
-
-# Quiet Reader output and local toolchain (never write into the vault)
-/.quiet-reader/
-/.tools/
-/.preview-artifacts/
+# Local R session state
+.RData
+.Rhistory

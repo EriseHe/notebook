@@ -2,7 +2,6 @@
   "name": "notebook-build-tools",
   "private": true,
   "scripts": {
-    "render-tikz": "node scripts/render-tikz.js",
     "setup": "node site/setup.mjs",
     "build": "node site/cli.mjs build",
     "preview": "node site/cli.mjs preview",
@@ -10,9 +9,7 @@
     "test:browser": "node site/tests/browser.mjs",
     "test:math": "node site/tests/math-audit.mjs",
     "format": "prettier --write \"site/**/*.mjs\" \"site/assets/*.js\" \"site/assets/*.css\" package.json",
-    "format:check": "prettier --check \"site/**/*.mjs\" \"site/assets/*.js\" \"site/assets/*.css\" package.json",
-    "build:legacy": "quarto render --output-dir docs",
-    "preview:legacy": "quarto preview"
+    "format:check": "prettier --check \"site/**/*.mjs\" \"site/assets/*.js\" \"site/assets/*.css\" package.json"
   },
   "dependencies": {
     "@fontsource/stix-two-text": "^5.2.6",
