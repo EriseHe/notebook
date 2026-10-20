@@ -83,10 +83,9 @@ function sidebar(page, context) {
         const current =
           child.page?.rel === page.rel || (page.isDirectory && page.directory.rel === child.rel);
         const arrow = `<img class="folder-chevron" src="${siteUrl(context.basePath, 'assets/icons/chevron.svg')}" width="12" height="12" alt="">`;
-        const folderIcon = `<img class="folder-icon" src="${siteUrl(context.basePath, 'assets/icons/folder.svg')}" width="16" height="16" alt="">`;
         const label = child.page
-          ? `<a class="note-link folder-link${current ? ' is-current' : ''}"${current ? ' aria-current="page"' : ''} href="${siteUrl(context.basePath, child.page.route)}">${folderIcon}<span>${e(child.label)}</span></a><button class="tree-toggle" aria-label="Fold ${e(child.label)}" aria-controls="${id}" aria-expanded="${activeBranch}">${arrow}</button>`
-          : `<button class="tree-toggle folder-label${current ? ' is-current' : ''}" aria-controls="${id}" aria-expanded="${activeBranch}"${current ? ' aria-current="page"' : ''}>${folderIcon}<span>${e(child.label)}</span>${arrow}</button>`;
+          ? `<a class="note-link folder-link${current ? ' is-current' : ''}"${current ? ' aria-current="page"' : ''} href="${siteUrl(context.basePath, child.page.route)}"><span>${e(child.label)}</span></a><button class="tree-toggle" aria-label="Fold ${e(child.label)}" aria-controls="${id}" aria-expanded="${activeBranch}">${arrow}</button>`
+          : `<button class="tree-toggle folder-label${current ? ' is-current' : ''}" aria-controls="${id}" aria-expanded="${activeBranch}"${current ? ' aria-current="page"' : ''}><span>${e(child.label)}</span>${arrow}</button>`;
         return `<li class="folder-node" data-folder="${e(child.rel)}" data-active-branch="${activeBranch}"><div class="folder-row">${label}</div><ul class="tree-children" id="${id}"${!activeBranch ? ' hidden' : ''}>${children(child)}</ul></li>`;
       });
     const files = dir.pages.map((item) => {
