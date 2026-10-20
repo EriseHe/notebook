@@ -4,8 +4,8 @@ node_modules
 /.quiet-reader/
 /.preview-artifacts/
 
-# Personal Obsidian configuration, plugins, and workspace state
-.obsidian/
+# Generated copies of Obsidian state from the retired website
+/public/**/.obsidian/
 
 # OS and editor files
 .DS_Store

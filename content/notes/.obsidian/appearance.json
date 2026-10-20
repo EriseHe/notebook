@@ -1,0 +1,14 @@
+{
+  "theme": "system",
+  "accentColor": "",
+  "textFontFamily": "",
+  "translucency": true,
+  "cssTheme": "Typewriter",
+  "baseFontSize": 22,
+  "baseFontSizeAction": true,
+  "interfaceFontFamily": "",
+  "monospaceFontFamily": "",
+  "showViewHeader": true,
+  "enabledCssSnippets": [],
+  "showRibbon": true
+}

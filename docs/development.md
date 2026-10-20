@@ -4,7 +4,7 @@
 
 `site/cli.mjs` handles build/preview commands. `content.mjs` discovers published notes and resolves links; `render.mjs` adapts Obsidian syntax through Pandoc and `site/filters/obsidian-callouts.lua`; `template.mjs` supplies page markup. `build.mjs` writes `.quiet-reader/dist/`, and `server.mjs` serves it locally. Publication scope and URL prefix are in `site/config.mjs`; folder display defaults are in `site/folders.yaml`.
 
-Keep notes and attachments in their current locations to preserve URLs. `public/` contains original images used by older notes, not a generated site. Only referenced attachments are copied into the build. Personal `.obsidian/` folders remain local and are not versioned.
+Keep notes and attachments in their current locations to preserve URLs. `public/` contains original images used by older notes, not a generated site. Only referenced attachments are copied into the build. Obsidian `.obsidian/` settings, plugins, themes, and workspace state under `content/` are versioned so they sync between devices. The website renderer excludes these folders from published output.
 
 ## Preview and checks
 

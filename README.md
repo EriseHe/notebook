@@ -34,7 +34,7 @@ npm run format:check
 | `docs/` | Authoring, development, styling, and compatibility documentation |
 | `.github/workflows/check.yml` | Checks for pull requests and manual runs |
 
-Generated output, dependencies, local tools, and personal Obsidian settings are ignored. `main` contains website source; `gh-pages` contains only the compiled website. Builds and publication are run locally, so source pushes do not start a GitHub Actions build.
+Obsidian settings and plugins under `content/` are tracked for syncing between devices. Generated output, dependencies, and local tools are ignored. `main` contains website source; `gh-pages` contains only the compiled website. Builds and publication are run locally, so source pushes do not start a GitHub Actions build.
 
 ## Documentation
 
