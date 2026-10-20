@@ -27,7 +27,7 @@
 <p>In previous section, we think of PDE as a “problem operator” <span class="math display">\[
 P:\ d \longmapsto u = P(d),
 \]</span> where <span class="math inline">\(d\)</span> is the data (forcing term, boundary values, initial condition, coefficients) and <span class="math inline">\(u\)</span> is the solution. Functional analysis provides the right spaces <span class="math inline">\(X\)</span> where this <strong>mapping</strong> is <em>well-defined</em> and <em>stable</em>.</p>
-<div class="math-theorem definition" data-label="1.2.1" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.1</span><span class="theorem-title">Functional</span></p>
 </div>
@@ -38,7 +38,7 @@ P:\ d \longmapsto u = P(d),
 </div>
 </div>
 <p><strong>Interpretation.</strong> A functional takes a <em>function</em> and returns a <em>number</em> (think: “measurement”). Linearity means the measurement respects superposition.</p>
-<div class="math-theorem example" data-label="1.2.2" data-callout="example">
+<div class="math-theorem example" data-callout="example" data-label="1.2.2">
 <div class="theorem-header">
 <p><span class="theorem-badge">Example 1.2.2</span><span class="theorem-title">A functional</span></p>
 </div>
@@ -49,7 +49,7 @@ P:\ d \longmapsto u = P(d),
 </div>
 </div>
 <p><strong>Why it matters.</strong> Weak formulations are built out of integrals of the solution against test functions; those are functionals.</p>
-<div class="math-theorem definition" data-label="1.2.3" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.3">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.3</span><span class="theorem-title">Form</span></p>
 </div>
@@ -62,7 +62,7 @@ P:\ d \longmapsto u = P(d),
 </div>
 </div>
 <p><strong>Remark.</strong> A bilinear form takes two functions and returns a number.</p>
-<div class="math-theorem definition" data-label="1.2.4" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.4">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.4</span><span class="theorem-title">Space</span></p>
 </div>
@@ -80,7 +80,7 @@ It’s needed so we can add trial functions, scale solutions, etc.</p>
 <h2 data-original-heading="0.2 Metrics, completeness, and norms" id="metrics-completeness-and-norms">0.2 Metrics, completeness, and norms</h2>
 <h3 data-original-heading="0.2.1 Why do we need a distance?" id="why-do-we-need-a-distance">0.2.1 Why do we need a distance?</h3>
 <p>To talk about convergence of numerical methods, we need a notion of “<span class="math inline">\(u_h \to u\)</span>”. That requires a <strong>distance</strong> or <strong>metric</strong>, and usually we obtain it from a norm.</p>
-<div class="math-theorem definition" data-label="1.2.5" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.5">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.5</span><span class="theorem-title">Distance</span></p>
 </div>
@@ -94,7 +94,7 @@ It’s needed so we can add trial functions, scale solutions, etc.</p>
 <p>A space with a distance is a <strong>metric space</strong>.</p>
 </div>
 </div>
-<div class="math-theorem definition" data-label="1.2.6" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.6">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.6</span><span class="theorem-title">Completeness</span></p>
 </div>
@@ -111,7 +111,7 @@ d(f_n,f_m) \le d(f_n,f) + d(f,f_m)
 </div>
 </div>
 <p><strong>Why completeness matters in PDE.</strong> If a method produces a Cauchy sequence of approximations, completeness guarantees a limit <em>exists in the same space</em>. That’s crucial for existence arguments and for convergence proofs.</p>
-<div class="math-theorem definition" data-label="1.2.7" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.7">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.7</span><span class="theorem-title">Norm</span></p>
 </div>
@@ -130,7 +130,7 @@ d(f,g) = \|f-g\|_X
 </div>
 <p><strong>Comment.</strong> Most numerical error estimates are statements like <span class="math inline">\(\|u-u_h\|_X \le C h^p\)</span>.<br>
 That only makes sense after we choose a norm <span class="math inline">\(\|\cdot\|_X\)</span>.</p>
-<div class="math-theorem definition" data-label="1.2.8" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.8">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.8</span><span class="theorem-title">Banach Space</span></p>
 </div>
@@ -144,7 +144,7 @@ That only makes sense after we choose a norm <span class="math inline">\(\|\cdot
 <h3 data-original-heading="0.3.1 Why inner products show up in FEM" id="why-inner-products-show-up-in-fem">0.3.1 Why inner products show up in FEM</h3>
 <p>Galerkin methods are built from orthogonality conditions like <span class="math inline">\((u-u_h, v_h)=0\)</span>.<br>
 That requires an inner product structure.</p>
-<div class="math-theorem definition" data-label="1.2.9" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.9">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.9</span><span class="theorem-title">Scalar Product</span></p>
 </div>
@@ -162,7 +162,7 @@ That requires an inner product structure.</p>
 </div>
 <p><strong>Key point.</strong> Inner product <span class="math inline">\(\Rightarrow\)</span> norm <span class="math inline">\(\Rightarrow\)</span> metric <span class="math inline">\(\Rightarrow\)</span> talk about convergence.</p>
 <h3 data-original-heading="0.3.2 Example 1.2.10" id="example-1.2.10">0.3.2 Example 1.2.10</h3>
-<div class="math-theorem example" data-label="1.2.10" data-callout="example">
+<div class="math-theorem example" data-callout="example" data-label="1.2.10">
 <div class="theorem-header">
 <p><span class="theorem-badge">Example 1.2.10</span><span class="theorem-title">A standard estimate from the scalar product</span></p>
 </div>
@@ -180,7 +180,7 @@ That requires an inner product structure.</p>
 <p><strong>Note (typo fix in words only).</strong> The last line should read: <span class="math display">\[
 \|f_1+f_2\|_X \le \|f_1\|_X + \|f_2\|_X,
 \]</span> which is exactly the triangle inequality for the induced norm.</p>
-<div class="math-theorem definition" data-label="1.2.11" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.11">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.11</span><span class="theorem-title">Hilbert Space</span></p>
 </div>
@@ -190,7 +190,7 @@ That requires an inner product structure.</p>
 </div>
 <p><strong>Practical takeaway.</strong> Hilbert = “complete + inner product”.<br>
 Most FEM theory lives in Hilbert spaces (especially <span class="math inline">\(L^2\)</span>, <span class="math inline">\(H^1\)</span>, <span class="math inline">\(H_0^1\)</span>).</p>
-<div class="math-theorem definition" data-label="1.2.12" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.12">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.12</span><span class="theorem-title">Orthogonality</span></p>
 </div>
@@ -237,7 +237,7 @@ So “best approximation” = “orthogonal projection”.</p>
 <li>still make integrals meaningful,</li>
 <li>provide norms used in stability/error estimates.</li>
 </ul>
-<div class="math-theorem definition" data-label="1.2.13" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.13">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.13</span><span class="theorem-title"><span class="math inline">\(L^p\)</span> Spaces</span></p>
 </div>
@@ -268,7 +268,7 @@ L^\infty(a,b) = \left\{\, f:\ \text{bounded (up to all-measurable intervals) in 
 \end{aligned}
 \]</span></p>
 <p><strong>Why <span class="math inline">\(L^2\)</span> is special.</strong> It has an inner product, so we get orthogonality/projection tools.</p>
-<div class="math-theorem definition" data-label="1.2.14" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.14">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.14</span><span class="theorem-title">Conjugate Spaces</span></p>
 </div>
@@ -281,7 +281,7 @@ L^\infty(a,b) = \left\{\, f:\ \text{bounded (up to all-measurable intervals) in 
 </div>
 </div>
 <p><strong>Context.</strong> This is the setup for Hölder’s inequality and for defining dual pairings <span class="math inline">\(L^q = (L^p)'\)</span> (for <span class="math inline">\(1&lt;p&lt;\infty\)</span>).</p>
-<div class="math-theorem remark" data-label="1.2.14" data-callout="remark">
+<div class="math-theorem remark" data-callout="remark" data-label="1.2.14">
 <div class="theorem-header">
 <p><span class="theorem-badge">Remark 1.2.14</span><span class="theorem-title"><span class="math inline">\(L^2\)</span> is conjugate with itself</span></p>
 </div>
@@ -298,7 +298,7 @@ L^\infty(a,b) = \left\{\, f:\ \text{bounded (up to all-measurable intervals) in 
 <p>In PDE, solutions may have jumps, corners, or only be <span class="math inline">\(L^2\)</span>.<br>
 Classical derivatives may not exist, but we still want a “derivative” compatible with integration by parts (weak form).<br>
 Distributions are the clean framework.</p>
-<div class="math-theorem definition" data-label="1.2.15" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.15">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.15</span><span class="theorem-title">Dual Spaces</span></p>
 </div>
@@ -310,7 +310,7 @@ X' = \left\{\mathcal{F}(f)\ \text{for } f\in X,\ \text{linear and s.t.}\ \|\math
 </div>
 <p><strong>Interpretation.</strong> Elements of <span class="math inline">\(X'\)</span> are “bounded measurements” on <span class="math inline">\(X\)</span>.<br>
 Boundedness (<span class="math inline">\(\|\mathcal{F}(f)\|\le c\|f\|_X\)</span>) is what makes the functional continuous and stable.</p>
-<div class="math-theorem theorem" data-label="1.2.16" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="1.2.16">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 1.2.16</span><span class="theorem-title">Riesz Representation Theorem</span></p>
 </div>
@@ -322,7 +322,7 @@ Boundedness (<span class="math inline">\(\|\mathcal{F}(f)\|\le c\|f\|_X\)</span>
 <p><strong>Practical meaning.</strong> Every bounded linear functional on <span class="math inline">\(L^2\)</span> can be written as an <span class="math inline">\(L^2\)</span> inner product with some <span class="math inline">\(g\in L^2\)</span>: <span class="math display">\[
 \mathcal{F}(f) = (g,f)_{L^2}.
 \]</span> (You don’t need the full proof here; you use it later when deriving weak forms.)</p>
-<div class="math-theorem definition" data-label="1.2.17" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.17">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.17</span><span class="theorem-title">Support</span></p>
 </div>
@@ -331,7 +331,7 @@ Boundedness (<span class="math inline">\(\|\mathcal{F}(f)\|\le c\|f\|_X\)</span>
 </div>
 </div>
 <p><strong>Why compact support matters.</strong> It kills boundary terms in integration by parts (no “leakage” at infinity).</p>
-<div class="math-theorem definition" data-label="1.2.18" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.18">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.18</span><span class="theorem-title">The Space <span class="math inline">\(\mathcal{D}\)</span></span></p>
 </div>
@@ -352,7 +352,7 @@ Boundedness (<span class="math inline">\(\|\mathcal{F}(f)\|\le c\|f\|_X\)</span>
 <li><span class="math inline">\(\mathcal{D}\)</span> = smooth test functions that vanish outside a bounded set.</li>
 <li><span class="math inline">\(\mathcal{D}'\)</span> = all continuous linear functionals acting on <span class="math inline">\(\mathcal{D}\)</span>. These are the “generalized functions”.</li>
 </ul>
-<div class="math-theorem example" data-label="1.2.19" data-callout="example">
+<div class="math-theorem example" data-callout="example" data-label="1.2.19">
 <div class="theorem-header">
 <p><span class="theorem-badge">Example 1.2.19</span><span class="theorem-title">A distribution coming from a step function</span></p>
 </div>
@@ -375,7 +375,7 @@ H(x)=
 <li><span class="math inline">\(f \mapsto \int_0^\infty f\)</span> (integration against a possibly discontinuous function <span class="math inline">\(H\)</span>),</li>
 <li><span class="math inline">\(f \mapsto f(0)\)</span> (evaluation at a point), which is not continuous on many <span class="math inline">\(L^p\)</span> spaces but <em>is</em> meaningful on <span class="math inline">\(\mathcal{D}\)</span>.</li>
 </ul>
-<div class="math-theorem definition" data-label="1.2.20" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.20">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.20</span><span class="theorem-title">Distributions</span></p>
 </div>
@@ -385,7 +385,7 @@ H(x)=
 </div>
 <hr>
 <h2 data-original-heading="0.7 Weak derivative" id="weak-derivative">0.7 Weak derivative</h2>
-<div class="math-theorem theorem" data-label="1.2.21" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="1.2.21">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 1.2.21</span><span class="theorem-title">Distributional derivative identity</span></p>
 </div>
@@ -404,7 +404,7 @@ H(x)=
 &amp;= -\langle g, f'\rangle
 \end{aligned}
 \]</span> Note that <span class="math inline">\(\big[g f\big]_{-\infty}^{+\infty}=0\)</span> because <span class="math inline">\(\lim_{x\to\infty} f=0\)</span>, and <span class="math inline">\(f\)</span> has compact support.</p>
-<div class="math-theorem example" data-label="1.2.22" data-callout="example">
+<div class="math-theorem example" data-callout="example" data-label="1.2.22">
 <div class="theorem-header">
 <p><span class="theorem-badge">Example 1.2.22</span><span class="theorem-title">Differentiating the step function gives the Dirac impulse</span></p>
 </div>
@@ -428,7 +428,7 @@ H(x)=
 </div>
 </div>
 <p><strong>Interpretation.</strong> <span class="math inline">\(H\)</span> has a jump at <span class="math inline">\(0\)</span>. Its classical derivative is “zero everywhere except at 0”, which is captured by <span class="math inline">\(\delta\)</span>.</p>
-<div class="math-theorem definition" data-label="1.2.23" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.23">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.23</span><span class="theorem-title">Dirac-<span class="math inline">\(\delta\)</span></span></p>
 </div>
@@ -438,7 +438,7 @@ H(x)=
 \]</span> We know that <span class="math inline">\(H'=\delta\)</span>.</p>
 </div>
 </div>
-<div class="math-theorem theorem" data-label="1.2.24" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="1.2.24">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 1.2.24</span><span class="theorem-title">Inclusion into <span class="math inline">\(\mathcal{D}'\)</span></span></p>
 </div>
@@ -460,7 +460,7 @@ L^2 \subset \mathcal{D}'
 <li>regularity,</li>
 <li>FEM error estimates.</li>
 </ul>
-<div class="math-theorem definition" data-label="1.2.25" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.25">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.25</span><span class="theorem-title">Sobolev Spaces</span></p>
 </div>
@@ -484,7 +484,7 @@ W^{k,p}=\left\{\, f\ \text{s.t.}\ f,f',\ldots,f^{(k)}\in L^p \right\}
 <li><span class="math inline">\(H^1\)</span> means <span class="math inline">\(f\in L^2\)</span> and its weak derivative <span class="math inline">\(f'\in L^2\)</span>.</li>
 <li>Higher <span class="math inline">\(k\)</span> means more (weak) smoothness.</li>
 </ul>
-<div class="math-theorem theorem" data-label="1.2.26" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="1.2.26">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 1.2.26</span><span class="theorem-title">Properties of <span class="math inline">\(H^k\)</span></span></p>
 </div>
@@ -508,7 +508,7 @@ H^{k+1} \subset H^k \subset \cdots \subset L^2
 <p><strong>Why this nesting matters.</strong> More derivatives in <span class="math inline">\(L^2\)</span> implies stronger control on the function, hence a “smaller” space.</p>
 <hr>
 <h2 data-original-heading="0.9 Boundary values and trace (why H^1 is subtle)" id="boundary-values-and-trace-why-h1-is-subtle">0.9 Boundary values and trace (why <span class="math inline">\(H^1\)</span> is subtle)</h2>
-<div class="math-theorem definition" data-label="1.2.27" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.27">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.27</span><span class="theorem-title">Trace Operator</span></p>
 </div>
@@ -523,7 +523,7 @@ H^{k+1} \subset H^k \subset \cdots \subset L^2
 <li>Functions in <span class="math inline">\(H^1(\Omega)\)</span> may not be classically continuous, yet they have a well-defined boundary value in an appropriate sense.</li>
 <li>The trace map “costs” a half-derivative of regularity.</li>
 </ul>
-<div class="math-theorem definition" data-label="1.2.28" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.28">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.28</span><span class="theorem-title">The Space <span class="math inline">\(H_0^1\)</span></span></p>
 </div>
@@ -534,7 +534,7 @@ H^{k+1} \subset H^k \subset \cdots \subset L^2
 <p><strong>Practical meaning.</strong> This is the natural space for homogeneous Dirichlet boundary conditions <span class="math inline">\(u=0\)</span> on <span class="math inline">\(\partial\Omega\)</span>.</p>
 <hr>
 <h2 data-original-heading="0.10 Poincaré inequality and equivalent norms (the energy norm idea)" id="poincaré-inequality-and-equivalent-norms-the-energy-norm-idea">0.10 Poincaré inequality and equivalent norms (the energy norm idea)</h2>
-<div class="math-theorem theorem" data-label="1.2.29" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="1.2.29">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 1.2.29</span><span class="theorem-title">Poincare Inequality</span></p>
 </div>
@@ -555,7 +555,7 @@ H^{k+1} \subset H^k \subset \cdots \subset L^2
 <li>On <span class="math inline">\(H_0^1(\Omega)\)</span>, controlling <span class="math inline">\(\|\nabla f\|_{L^2}\)</span> automatically controls <span class="math inline">\(\|f\|_{L^2}\)</span>.</li>
 <li>So the “energy seminorm” <span class="math inline">\(\|\nabla f\|_{L^2}\)</span> is effectively a full norm on <span class="math inline">\(H_0^1\)</span>.</li>
 </ul>
-<div class="math-theorem remark" data-label="1.2.29" data-callout="remark">
+<div class="math-theorem remark" data-callout="remark" data-label="1.2.29">
 <div class="theorem-header">
 <p><span class="theorem-badge">Remark 1.2.29</span><span class="theorem-title">Equivalent norms (abstract form)</span></p>
 </div>
@@ -566,7 +566,7 @@ H^{k+1} \subset H^k \subset \cdots \subset L^2
 </div>
 </div>
 <p><strong>Why we care.</strong> Equivalent norms define the same notion of convergence and stability. In PDE, we often switch between norms that are easier to estimate.</p>
-<div class="math-theorem definition" data-label="1.2.30" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2.30">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2.30</span><span class="theorem-title">Dual of <span class="math inline">\(H_0^1\)</span>: <span class="math inline">\(H^{-1}\)</span></span></p>
 </div>
@@ -591,7 +591,7 @@ L^p(0,T;H^k(\Omega))
 <p>In short, we denote it as <span class="math inline">\(L^p(H^k)\)</span>. We will use <span class="math inline">\(L^2(H_0^1)\)</span> and <span class="math inline">\(L^\infty(L^2)\)</span>.</p>
 <hr>
 <h2 data-original-heading="0.12 Sobolev embeddings (turn derivatives into integrability/continuity)" id="sobolev-embeddings-turn-derivatives-into-integrabilitycontinuity">0.12 Sobolev embeddings (turn derivatives into integrability/continuity)</h2>
-<div class="math-theorem theorem" data-label="1.2.31" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="1.2.31">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 1.2.31</span><span class="theorem-title">Embedding Theorems</span></p>
 </div>
@@ -610,7 +610,7 @@ L^p(0,T;H^k(\Omega))
 <li>Enough Sobolev regularity forces better integrability (<span class="math inline">\(L^q\)</span>) and eventually continuity.</li>
 <li>This is how “weak derivatives” translate into classical-looking properties.</li>
 </ul>
-<div class="math-theorem remark" data-label="1.2.31" data-callout="remark">
+<div class="math-theorem remark" data-callout="remark" data-label="1.2.31">
 <div class="theorem-header">
 <p><span class="theorem-badge">Remark 1.2.31</span><span class="theorem-title">A boundary constraint can break linear-space structure</span></p>
 </div>

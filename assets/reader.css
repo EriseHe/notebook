@@ -319,7 +319,19 @@ body[data-has-outline='false'] .outline-sidebar {
   margin: 0;
 }
 .tree-children {
+  position: relative;
   padding-left: 14px;
+  margin-bottom: 6px;
+}
+.tree-children::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 12px;
+  width: 1px;
+  background: #d1d1d6;
+  pointer-events: none;
 }
 .folder-row {
   display: flex;

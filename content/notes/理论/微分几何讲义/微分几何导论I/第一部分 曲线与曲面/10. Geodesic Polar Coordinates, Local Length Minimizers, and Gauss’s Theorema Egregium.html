@@ -15,7 +15,7 @@
 <p>Fix a point <span class="math inline">\(p\in S\)</span> and an orthonormal basis <span class="math inline">\((E_1,E_2)\)</span> of <span class="math inline">\(T_pS\)</span>. Define the <strong>geodesic polar map</strong> <span class="math display">\[\Psi:(r,\theta)\ \longmapsto\ \exp_p\!\big(r(\cos\theta\,E_1+\sin\theta\,E_2)\big),\]</span> for <span class="math inline">\(0\le r&lt;r_\ast(\theta)\)</span>. In such a patch the metric has the form <span class="math display">\[\begin{aligned}
 \boxed{\ ds^{2} \;=\; dr^{2}\;+\; h(r,\theta)^{2}\,d\theta^{2}\ } \text{ where }  h(r,\theta)&gt;0 \text{ for }0&lt;r&lt;r_\ast(\theta)
 \end{aligned}\]</span> and <span class="math inline">\(h(0,\theta)=0,\quad \partial_r h(0,\theta)=1\)</span>.</p>
-<div class="math-theorem remark" data-label="1.1" data-callout="remark">
+<div class="math-theorem remark" data-callout="remark" data-label="1.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Remark 1.1</span></p>
 </div>
@@ -25,7 +25,7 @@
 </div>
 <h2 data-original-heading="2 Local Length Minimizers inside a Geodesic Polar Patch" id="local-length-minimizers-inside-a-geodesic-polar-patch">2 Local Length Minimizers inside a Geodesic Polar Patch</h2>
 <p>Let <span class="math inline">\(q=\Psi(r_0,\theta_0)\)</span> with <span class="math inline">\(0&lt;r_0&lt;r_\ast(\theta_0)\)</span>.</p>
-<div class="math-theorem proposition" data-label="2.1" data-callout="proposition">
+<div class="math-theorem proposition" data-callout="proposition" data-label="2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Proposition 2.1</span><span class="theorem-title">radial geodesics minimize length locally</span></p>
 </div>
@@ -37,7 +37,7 @@
 = \int_0^1 \sqrt{\dot r^2 + h(r,\theta)^2\,\dot\theta^2}\,dt
 \ \ge\ \int_0^1 |\dot r|\,dt
 \ \ge\ r_0,\]</span> with equality iff <span class="math inline">\(\dot\theta\equiv 0\)</span> and <span class="math inline">\(\dot r\ge 0\)</span>, i.e., the <strong>radial geodesic</strong>. (Cauchy–Schwarz and the boundary condition <span class="math inline">\(r(0)=0,\ r(1)=r_0\)</span>.)</p>
-<div class="math-theorem remark" data-label="2.2" data-callout="remark">
+<div class="math-theorem remark" data-callout="remark" data-label="2.2">
 <div class="theorem-header">
 <p><span class="theorem-badge">Remark 2.2</span></p>
 </div>
@@ -48,7 +48,7 @@
 <h2 data-original-heading="3 Gaussian Curvature in Geodesic Polar Coordinates" id="gaussian-curvature-in-geodesic-polar-coordinates">3 Gaussian Curvature in Geodesic Polar Coordinates</h2>
 <p>For a metric <span class="math inline">\(ds^2=dr^2+h(r,\theta)^2\,d\theta^2\)</span> with <span class="math inline">\(r\)</span> the geodesic distance from <span class="math inline">\(p\)</span>, the Gaussian curvature has the intrinsic form <span class="math display">\[\boxed{\ K(r,\theta)\;=\;-\;\frac{\partial_r^2 h(r,\theta)}{\,h(r,\theta)\,}\ }\qquad(0&lt;r&lt;r_\ast(\theta)).\]</span> In particular, at the center <span class="math inline">\(p\)</span> (take the limit <span class="math inline">\(r\to 0\)</span>) one has the expansion <span class="math display">\[\boxed{\ h(r,\theta)=r\;-\;\frac{K(p)}{6}\,r^3\;+\;O(r^4),\qquad
 K(p) \;=\; -\,3\,\partial_r^3 h(0,\theta)\ }.\]</span> These formulas follow by computing the Levi–Civita connection in the orthonormal frame <span class="math inline">\(\{e_r=\partial_r,\ e_\theta=\tfrac{1}{h}\partial_\theta\}\)</span> and using the structure equations; only the <strong>first fundamental form</strong> enters.</p>
-<div class="math-theorem theorem" data-label="3.1" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="3.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 3.1</span><span class="theorem-title">Gauss’s <em>Theorema Egregium</em> (patch version)</span></p>
 </div>
@@ -67,7 +67,7 @@ K(p) \;=\; -\,3\,\partial_r^3 h(0,\theta)\ }.\]</span> These formulas follow by 
 <p><span class="math display">\[h(r)=\sinh r,\qquad K=-\frac{(\sinh r)''}{\sinh r}=-1.\]</span> All three examples realize the single formula <span class="math inline">\(K=-h''/h\)</span>. # 5 Geodesic Circles: Length and Area Expansions</p>
 <p>Define the <strong>geodesic circle</strong> <span class="math inline">\(C_r=\{(r,\theta):\ 0\le\theta&lt;2\pi\}\)</span> and the <strong>geodesic disk</strong> <span class="math inline">\(D_r=\{(s,\theta):\ 0\le s\le r\}\)</span>.</p>
 <p>Using <span class="math inline">\(ds^2=dr^2+h(r,\theta)^2\,d\theta^2\)</span> and the expansion of <span class="math inline">\(h\)</span>, we obtain the classical small-radius asymptotics at <span class="math inline">\(p\)</span>:</p>
-<div class="math-theorem proposition" data-label="5.1" data-callout="proposition">
+<div class="math-theorem proposition" data-callout="proposition" data-label="5.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Proposition 5.1</span><span class="theorem-title">circumference and area (small <span class="math inline">\(r\)</span>)</span></p>
 </div>
@@ -94,7 +94,7 @@ K(p) \;=\; -\,3\,\partial_r^3 h(0,\theta)\ }.\]</span> These formulas follow by 
 &amp;= 2\pi\!\left[\tfrac{s^2}{2} - \tfrac{K(p)}{24}s^4 + O(s^5)\right]_{s=0}^{r}
 = \pi r^2 - \tfrac{K(p)}{12}\pi r^4 + O(r^5).
 \end{aligned}\]</span></p>
-<div class="math-theorem remark" data-label="5.2" data-callout="remark">
+<div class="math-theorem remark" data-callout="remark" data-label="5.2">
 <div class="theorem-header">
 <p><span class="theorem-badge">Remark 5.2</span></p>
 </div>
