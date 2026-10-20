@@ -422,7 +422,7 @@ try {
   await page.setViewport({ width: 1400, height: 1000 });
   assert.equal(await page.$eval('.article', (node) => node.getBoundingClientRect().width), 736);
   await page.setViewport({ width: 1366, height: 1000 });
-  assert.equal(await page.$eval('.article', (node) => node.getBoundingClientRect().width), 1200);
+  assert.equal(await page.$eval('.article', (node) => node.getBoundingClientRect().width), 960);
   assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'false');
 
   console.log('Checking mobile navigation and long mathematical pages…');
@@ -506,9 +506,9 @@ try {
   ];
   for (const [width, expectedWidth] of [
     [1440, 776],
-    [1920, 1200],
-    [2560, 1200],
-    [1366, 1200],
+    [1920, 960],
+    [2560, 960],
+    [1366, 960],
     [390, 342],
   ]) {
     await page.setViewport({ width, height: 1000 });
