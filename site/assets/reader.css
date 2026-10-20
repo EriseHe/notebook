@@ -465,7 +465,7 @@ body[data-has-outline='false'] .outline-sidebar {
 }
 .article {
   width: 100%;
-  max-width: 720px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .article-header {

@@ -129,7 +129,7 @@ try {
   // baseline can add 1–2px without adding padding or making the menu loose.
   assert.ok(menuRow.height >= 26 && menuRow.height <= 28, 'Single-line menu rows stay compact');
   assert.equal(await page.$eval('.tree-children', (node) => getComputedStyle(node).paddingLeft), '14px');
-  assert.equal(design.articleWidth, 720);
+  assert.equal(design.articleWidth, 776);
   assert.equal(design.sidebar, 'rgb(29, 29, 31)');
   assert.equal(design.inactiveOutline, 'rgb(110, 110, 115)');
   assert.equal(design.breadcrumb, 'rgb(0, 102, 204)');
@@ -420,9 +420,9 @@ try {
   );
   await page.screenshot({ path: path.join(artifacts, 'reader-long-toc-progress.png') });
   await page.setViewport({ width: 1400, height: 1000 });
-  assert.equal(await page.$eval('.article', (node) => node.getBoundingClientRect().width), 720);
+  assert.equal(await page.$eval('.article', (node) => node.getBoundingClientRect().width), 736);
   await page.setViewport({ width: 1366, height: 1000 });
-  assert.equal(await page.$eval('.article', (node) => node.getBoundingClientRect().width), 720);
+  assert.equal(await page.$eval('.article', (node) => node.getBoundingClientRect().width), 1200);
   assert.equal(await page.$eval('body', (node) => node.dataset.notesOpen), 'false');
 
   console.log('Checking mobile navigation and long mathematical pages…');
@@ -504,7 +504,13 @@ try {
     { route: 'content/notes/index.html', notes: 'false', outline: 'false' },
     { route: 'index.html', notes: 'false', outline: 'false' },
   ];
-  for (const width of [1440, 2560, 1366, 390]) {
+  for (const [width, expectedWidth] of [
+    [1440, 776],
+    [1920, 1200],
+    [2560, 1200],
+    [1366, 1200],
+    [390, 342],
+  ]) {
     await page.setViewport({ width, height: 1000 });
     let sharedGeometry;
     for (const layout of layouts) {
@@ -537,7 +543,7 @@ try {
         Math.abs(x + articleWidth / 2 - width / 2) < 0.5,
         `${layout.route} must be centered in a ${width}px window`,
       );
-      assert.equal(articleWidth, width >= 768 ? 720 : width - 48);
+      assert.equal(articleWidth, expectedWidth);
       sharedGeometry ||= geometry;
       assert.deepEqual(
         geometry,
