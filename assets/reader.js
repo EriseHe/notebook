@@ -2,7 +2,7 @@
   'use strict';
   const body = document.body;
   const viewport = document.querySelector('#reading-viewport');
-  // 300px sidebars + 720px article + 64px reading gutters; never squeeze the article.
+  // Below this breakpoint, use sidebar drawers to preserve room for reading.
   const mobile = window.matchMedia('(max-width:1399px)');
   const storage = {
     get(key) {
