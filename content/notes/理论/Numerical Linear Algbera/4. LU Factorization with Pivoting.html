@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light"><title>4. LU Error Analysis and Row Pivoting — E.H. Notebook</title>
-<meta name="description" content="Numerical Methods I — Florian Schaefer. Source: Lecture 04.pdf, pp. 1–8.4.1 RecapGaussian elimination produces elementary lower-triangular matrices L_k. When the required">
+<meta name="description" content="Numerical Methods I — Florian Schaefer. Source: Lecture 04.pdf, pp. 1–8.4.1 RecapGaussian elimination applies elementary lower-triangular matrices to obtain \underbrace{L">
 <link rel="stylesheet" href="/notebook/assets/reader.css"><link rel="preload" href="/notebook/assets/fonts/texgyretermes-regular.otf" as="font" type="font/otf" crossorigin>
 <script defer src="/notebook/assets/reader.js"></script>
 <script src="/notebook/assets/math-config.js"></script><script defer id="MathJax-script" src="/notebook/assets/vendor/mathjax/tex-chtml-full.js"></script>
@@ -14,326 +14,314 @@
 <main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a></nav><h1 id="reader-title">4. LU Error Analysis and Row Pivoting</h1><p class="article-meta">2026-09-16</p></header><div id="article-body" class="prose"><p><em>Numerical Methods I — Florian Schaefer. Source: <a href="https://brightspace.nyu.edu/content/enforced/609409-FA26_MATH-GA_2010_1_001_crse/Lecture%2004.pdf">Lecture 04.pdf</a>, pp.&nbsp;1–8.</em></p>
 <h2 data-original-heading="4.1 Recap" id="recap">4.1 Recap</h2>
 <!-- Source: Lecture 04.pdf, p. 1. -->
-<p>Gaussian elimination produces elementary lower-triangular matrices <span class="math inline">\(L_k\)</span>. When the required pivots are nonzero,</p>
+<p>Gaussian elimination applies elementary lower-triangular matrices to obtain</p>
 <p><span class="math display">\[
-\underbrace{L_m\cdots L_1A}_{U}x=L_m\cdots L_1b,
-\qquad
+\underbrace{L_m\cdots L_1A}_{U}x=L_m\cdots L_1b
+\]</span></p>
+<p>Since the inverses of the elementary matrices are lower triangular,</p>
+<p><span class="math display">\[
 A=LU,
 \qquad
-L=L_1^{-1}\cdots L_m^{-1}.
+L=L_1^{-1}\cdots L_m^{-1}
 \]</span></p>
-<p>The matrix <span class="math inline">\(U\)</span> is upper triangular, and <span class="math inline">\(L\)</span> is unit lower triangular. The elimination multipliers can be stored below the diagonal in the same array that holds <span class="math inline">\(U\)</span> on and above the diagonal.</p>
-<p>A zero pivot can prevent the factorization even when <span class="math inline">\(A\)</span> is invertible. A very small pivot can instead produce large intermediate entries and loss of accuracy. This lecture develops the error estimate behind that concern and introduces row pivoting.</p>
-<h2 data-original-heading="4.2 Componentwise Error Analysis for LU" id="componentwise-error-analysis-for-lu">4.2 Componentwise Error Analysis for LU</h2>
-<!-- Source: Lecture 04.pdf, pp. 2–3. -->
-<p>Here <span class="math inline">\(\epsilon\)</span> denotes machine precision. The notation <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span> is retained for the <strong>computed</strong> factors, as on the sheet.</p>
-<p>For a matrix <span class="math inline">\(M\)</span>, <span class="math inline">\(|M|\)</span> denotes its entrywise absolute value. A matrix inequality is interpreted entrywise, and <span class="math inline">\(|L|\,|U|\)</span> denotes ordinary matrix multiplication:</p>
+<p>The upper triangle of the overwritten array stores <span class="math inline">\(U\)</span>, and its strict lower triangle stores the multipliers of <span class="math inline">\(L\)</span>. A zero pivot can stop elimination even for an invertible matrix. The small-pivot example</p>
 <p><span class="math display">\[
-(|L|\,|U|)_{ik}=\sum_{j=1}^m|L_{ij}|\,|U_{jk}|.
+A=\begin{pmatrix}\epsilon&amp;1\\1&amp;1\end{pmatrix},
+\qquad
+L=\begin{pmatrix}1&amp;0\\\epsilon^{-1}&amp;1\end{pmatrix},
+\qquad
+U=\begin{pmatrix}\epsilon&amp;1\\0&amp;1-\epsilon^{-1}\end{pmatrix}
 \]</span></p>
-<div class="math-theorem theorem" data-callout="theorem">
-<div class="theorem-header">
-<p><span class="theorem-badge">Theorem</span><span class="theorem-title">LU error estimate — lecture’s first-order form</span></p>
-</div>
-<div class="theorem-content">
-<p>Suppose LU factorization terminates without a zero pivot and its operations satisfy the relative rounding-error model. Then <span class="math display">\[
+<p>also shows why nonzero but very small pivots can cause loss of accuracy.</p>
+<h2 data-original-heading="4.2 Error Analysis for LU Factorization" id="error-analysis-for-lu-factorization">4.2 Error Analysis for LU Factorization</h2>
+<!-- Source: Lecture 04.pdf, pp. 2–3. -->
+<p>Here <span class="math inline">\(\epsilon\)</span> is machine precision, and <span class="math inline">\(L,U\)</span> denote the computed factors. Absolute values and matrix inequalities are interpreted entrywise.</p>
+<p><strong>Theorem — first-order form.</strong> Suppose LU factorization terminates without a zero pivot and the operations satisfy the relative rounding-error model. Then</p>
+<p><span class="math display">\[
 A=LU+E,
 \qquad
-\boxed{|E|\lesssim m\epsilon\,|L|\,|U|.}
-\]</span> The estimate is componentwise and is stated to first order in <span class="math inline">\(\epsilon\)</span>.</p>
-</div>
-</div>
-<p>The factor <span class="math inline">\(m\epsilon\)</span> is absent from the theorem line on p.&nbsp;2 but present in the proof on p.&nbsp;3 and in Lecture 03. It has been restored here. Throughout this section, <span class="math inline">\(\lesssim\)</span> indicates that the lecture’s higher-order rounding factors are being suppressed; the displayed coefficient is not being asserted as an exact finite-<span class="math inline">\(\epsilon\)</span> bound.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<h3 data-original-heading="4.2.1 Entrywise Relations in Exact Arithmetic" id="entrywise-relations-in-exact-arithmetic">4.2.1 Entrywise Relations in Exact Arithmetic</h3>
-<p>Because <span class="math inline">\(L\)</span> is unit lower triangular and <span class="math inline">\(U\)</span> is upper triangular,</p>
-<p><span class="math display">\[
-A_{ik}=\sum_{j=1}^{\min(i,k)}L_{ij}U_{jk}.
+|E|\lesssim m\epsilon\,|L|\,|U|
 \]</span></p>
-<p>For <span class="math inline">\(i\le k\)</span>, isolating the contribution with <span class="math inline">\(j=i\)</span> gives</p>
+<p>The product on the right is ordinary matrix multiplication:</p>
 <p><span class="math display">\[
-\begin{aligned}
-A_{ik}
-&amp;=\sum_{j=1}^{i-1}L_{ij}U_{jk}
-  +\underbrace{L_{ii}}_{1}U_{ik},\\
-U_{ik}
-&amp;=A_{ik}-\sum_{j=1}^{i-1}L_{ij}U_{jk}.
-\end{aligned}
+(|L|\,|U|)_{ik}=\sum_{j=1}^m |L_{ij}|\,|U_{jk}|
 \]</span></p>
-<p>For <span class="math inline">\(i&gt;k\)</span>, isolating the contribution with <span class="math inline">\(j=k\)</span> instead gives<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<h3 data-original-heading="4.2.1 Entrywise Relations" id="entrywise-relations">4.2.1 Entrywise Relations</h3>
+<p>From <span class="math inline">\(A=LU\)</span> in exact arithmetic and <span class="math inline">\(L_{ii}=1\)</span>, the entries are computed as</p>
 <p><span class="math display">\[
-\begin{aligned}
-A_{ik}
-&amp;=\sum_{j=1}^{k-1}L_{ij}U_{jk}+L_{ik}U_{kk},\\
-L_{ik}
-&amp;=\frac{A_{ik}-\displaystyle\sum_{j=1}^{k-1}L_{ij}U_{jk}}{U_{kk}}.
-\end{aligned}
+U_{ik}=A_{ik}-\sum_{j=1}^{i-1}L_{ij}U_{jk},
+\qquad i\le k
 \]</span></p>
-<p>The different upper limits matter: the first relation computes an entry of <span class="math inline">\(U\)</span>; the second computes an entry of <span class="math inline">\(L\)</span> below the diagonal.</p>
+<p>and</p>
+<p><span class="math display">\[
+L_{ik}=\frac{A_{ik}-\displaystyle\sum_{j=1}^{k-1}L_{ij}U_{jk}}{U_{kk}},
+\qquad i&gt;k
+\]</span></p>
 <h3 data-original-heading="4.2.2 Floating-Point Summation" id="floating-point-summation">4.2.2 Floating-Point Summation</h3>
-<p>The lecture uses the following first-order description of a computed dot product, referring to it as “HW2”:</p>
+<p>The lecture uses the dot-product estimate from HW2, to first order:</p>
 <p><span class="math display">\[
 \operatorname{fl}\!\left(\sum_{i=1}^m x_i y_i\right)
 =\sum_{i=1}^m x_i y_i(1+\delta_i),
 \qquad
-|\delta_i|\lesssim m\epsilon.
+|\delta_i|\lesssim m\epsilon
 \]</span></p>
-<p>Here <span class="math inline">\(\operatorname{fl}\)</span> marks a computed quantity; it is inserted to distinguish the floating-point evaluation from the exact sum. The sheet does not include the homework problem itself or its proof.</p>
+<p>Here <span class="math inline">\(\operatorname{fl}\)</span> indicates floating-point evaluation.</p>
 <h3 data-original-heading="4.2.3 Error in an Entry of U" id="error-in-an-entry-of-u">4.2.3 Error in an Entry of U</h3>
-<p>For <span class="math inline">\(i\le k\)</span>, the sheet models the computed entry as</p>
+<p>For <span class="math inline">\(i\le k\)</span>, the computed entry satisfies</p>
 <p><span class="math display">\[
-U_{ik}
-=\left(
-A_{ik}-\sum_{j=1}^{i-1}L_{ij}U_{jk}(1+\delta_j')
-\right)(1+\delta'),
+U_{ik}=
+\left(A_{ik}-\sum_{j=1}^{i-1}L_{ij}U_{jk}(1+\delta_j')\right)(1+\delta')
 \]</span></p>
-<p>where, to the order retained in the lecture,</p>
+<p>with</p>
 <p><span class="math display">\[
 |\delta_j'|\lesssim(i-1)\epsilon,
-\qquad |\delta'|\le\epsilon.
+\qquad |\delta'|\le\epsilon
 \]</span></p>
-<p>Rearrange this identity using <span class="math inline">\(L_{ii}=1\)</span>:</p>
+<p>Rearrange as in the lecture:</p>
 <p><span class="math display">\[
 \begin{aligned}
 A_{ik}
 &amp;=\frac{L_{ii}U_{ik}}{1+\delta'}
   +\sum_{j=1}^{i-1}L_{ij}U_{jk}(1+\delta_j')\\
 &amp;=\sum_{j=1}^{i}L_{ij}U_{jk}
-  +\underbrace{\sum_{j=1}^{i}L_{ij}U_{jk}\delta_j}_{E_{ik}},
+  +\underbrace{\sum_{j=1}^{i}L_{ij}U_{jk}\delta_j}_{E_{ik}}
 \end{aligned}
 \]</span></p>
-<p>where</p>
+<p>Here</p>
 <p><span class="math display">\[
 \delta_j=\delta_j'\quad(j&lt;i),
 \qquad
-1+\delta_i=\frac{1}{1+\delta'}.
+1+\delta_i=\frac{1}{1+\delta'}
 \]</span></p>
-<p>In particular,</p>
-<p><span class="math display">\[
-\delta_i=-\frac{\delta'}{1+\delta'},
-\qquad
-|\delta_i|\le\frac{\epsilon}{1-\epsilon}
-\quad\text{when }\epsilon&lt;1.
-\]</span></p>
-<p>The last identity makes explicit why the reciprocal rounding factor is only of size <span class="math inline">\(\epsilon\)</span> <strong>to first order</strong>. Using a common first-order bound for the coefficients,<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>Using the first-order bound <span class="math inline">\(|\delta_j|\lesssim m\epsilon\)</span> gives</p>
 <p><span class="math display">\[
 \begin{aligned}
 |E_{ik}|
-&amp;=\left|\sum_{j=1}^{i}L_{ij}U_{jk}\delta_j\right|\\
 &amp;\le\sum_{j=1}^{i}|L_{ij}|\,|U_{jk}|\,|\delta_j|\\
 &amp;\lesssim m\epsilon\sum_{j=1}^{i}|L_{ij}|\,|U_{jk}|\\
-&amp;=m\epsilon\,(|L|\,|U|)_{ik}.
+&amp;=m\epsilon\,(|L|\,|U|)_{ik}
 \end{aligned}
 \]</span></p>
-<p>The final equality uses the triangular zeros: terms with <span class="math inline">\(j&gt;i\)</span> vanish.</p>
+<p>Terms with <span class="math inline">\(j&gt;i\)</span> vanish by triangularity.</p>
 <h3 data-original-heading="4.2.4 Error in an Entry of L" id="error-in-an-entry-of-l">4.2.4 Error in an Entry of L</h3>
-<p>For <span class="math inline">\(i&gt;k\)</span>, there is also a rounding error from division by <span class="math inline">\(U_{kk}\)</span>. The sheet writes the computed multiplier in the form</p>
+<p>For <span class="math inline">\(i&gt;k\)</span>, division by <span class="math inline">\(U_{kk}\)</span> introduces one more rounding factor:</p>
 <p><span class="math display">\[
-L_{ik}
-=(1+\delta'')
-\frac{(1+\delta')\left(
-A_{ik}-\displaystyle\sum_{j=1}^{k-1}L_{ij}U_{jk}(1+\delta_j')
-\right)}{U_{kk}},
-\qquad |\delta''|\le\epsilon.
+L_{ik}=(1+\delta'')
+\frac{(1+\delta')\left(A_{ik}-\displaystyle\sum_{j=1}^{k-1}L_{ij}U_{jk}(1+\delta_j')\right)}{U_{kk}},
+\qquad |\delta''|\le\epsilon
 \]</span></p>
-<p>Rearranging yields</p>
+<p>Thus</p>
 <p><span class="math display">\[
 \begin{aligned}
 A_{ik}
 &amp;=\frac{L_{ik}U_{kk}}{(1+\delta')(1+\delta'')}
   +\sum_{j=1}^{k-1}L_{ij}U_{jk}(1+\delta_j')\\
-&amp;=\sum_{j=1}^{k}L_{ij}U_{jk}+E_{ik}.
+&amp;=\sum_{j=1}^{k}L_{ij}U_{jk}+E_{ik}
 \end{aligned}
 \]</span></p>
-<p>The same first-order reasoning gives</p>
+<p>The same argument gives</p>
 <p><span class="math display">\[
-|E_{ik}|\lesssim m\epsilon\,(|L|\,|U|)_{ik}.
+|E_{ik}|\lesssim m\epsilon\,(|L|\,|U|)_{ik}
 \]</span></p>
-<p>Combining the entries of <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span> gives</p>
-<p><span class="math display">\[
-\boxed{A=LU+E,\qquad |E|\lesssim m\epsilon\,|L|\,|U|.}
-\]</span></p>
-<p>The estimate draws attention to the size of the computed factors. Small pivots can create large factors, making this error bound large even when the original entries of <span class="math inline">\(A\)</span> are modest.</p>
-<h2 data-original-heading="4.3 Pivots and Intermediate Products" id="pivots-and-intermediate-products">4.3 Pivots and Intermediate Products</h2>
+<p>Combining both cases proves the componentwise estimate. Large intermediate entries in <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span> can make this bound large.</p>
+<h2 data-original-heading="4.3 Pivots" id="pivots">4.3 Pivots</h2>
 <!-- Source: Lecture 04.pdf, p. 4. -->
-<p>Consider the <span class="math inline">\(k\)</span>-th step of elimination. Let <span class="math inline">\(\widetilde{A}\)</span> denote the current matrix in the still-active part of the calculation, after the preceding steps. In the packed storage diagram, the earlier columns already contain the multipliers belonging to <span class="math inline">\(L\)</span>, and the completed rows belong to <span class="math inline">\(U\)</span>.</p>
-<div class="math-theorem definition" data-callout="definition">
-<div class="theorem-header">
-<p><span class="theorem-badge">Definition</span><span class="theorem-title">Pivot</span></p>
-</div>
-<div class="theorem-content">
-<p>At step <span class="math inline">\(k\)</span>, the current entry <span class="math inline">\(\widetilde{A}_{kk}\)</span> used to divide the entries below it is the <strong>pivot</strong>.</p>
-</div>
-</div>
-<p>The new entries are</p>
+<p>Before step <span class="math inline">\(k\)</span>, the packed array has the form</p>
 <p><span class="math display">\[
-L_{ik}=\frac{\widetilde{A}_{ik}}{\widetilde{A}_{kk}},\qquad i&gt;k,
+\begin{pmatrix}
+U_{11}&amp;\cdots&amp;U_{1,k-1}&amp;U_{1k}&amp;U_{1,k+1}&amp;\cdots&amp;U_{1m}\\
+L_{21}&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots&amp;&amp;\vdots\\
+\vdots&amp;\ddots&amp;U_{k-1,k-1}&amp;U_{k-1,k}&amp;U_{k-1,k+1}&amp;\cdots&amp;U_{k-1,m}\\
+L_{k1}&amp;\cdots&amp;L_{k,k-1}&amp;\widetilde A_{kk}&amp;\widetilde A_{k,k+1}&amp;\cdots&amp;\widetilde A_{km}\\
+L_{k+1,1}&amp;\cdots&amp;L_{k+1,k-1}&amp;\widetilde A_{k+1,k}&amp;\widetilde A_{k+1,k+1}&amp;\cdots&amp;\widetilde A_{k+1,m}\\
+\vdots&amp;&amp;\vdots&amp;\vdots&amp;\vdots&amp;&amp;\vdots\\
+L_{m1}&amp;\cdots&amp;L_{m,k-1}&amp;\widetilde A_{mk}&amp;\widetilde A_{m,k+1}&amp;\cdots&amp;\widetilde A_{mm}
+\end{pmatrix}
+\]</span></p>
+<p>The tildes denote the current active entries. After the step, the array has the form</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+U_{11}&amp;\cdots&amp;U_{1,k-1}&amp;U_{1k}&amp;U_{1,k+1}&amp;\cdots&amp;U_{1m}\\
+L_{21}&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots&amp;&amp;\vdots\\
+\vdots&amp;\ddots&amp;U_{k-1,k-1}&amp;U_{k-1,k}&amp;U_{k-1,k+1}&amp;\cdots&amp;U_{k-1,m}\\
+L_{k1}&amp;\cdots&amp;L_{k,k-1}&amp;U_{kk}&amp;U_{k,k+1}&amp;\cdots&amp;U_{km}\\
+L_{k+1,1}&amp;\cdots&amp;L_{k+1,k-1}&amp;L_{k+1,k}&amp;\ast&amp;\cdots&amp;\ast\\
+\vdots&amp;&amp;\vdots&amp;\vdots&amp;\vdots&amp;&amp;\vdots\\
+L_{m1}&amp;\cdots&amp;L_{m,k-1}&amp;L_{mk}&amp;\ast&amp;\cdots&amp;\ast
+\end{pmatrix}
+\]</span></p>
+<p>The stars denote the updated trailing block. The entries below the pivot store multipliers rather than the zeros of the mathematical elimination matrix.</p>
+<p>The entry <span class="math inline">\(\widetilde A_{kk}\)</span> is the <strong>pivot</strong>. At this step,</p>
+<p><span class="math display">\[
+L_{ik}=\frac{\widetilde A_{ik}}{\widetilde A_{kk}},
 \qquad
-U_{kj}=\widetilde{A}_{kj},\qquad j\ge k.
+U_{kj}=\widetilde A_{kj}
 \]</span></p>
-<p>The trailing update involves products</p>
+<p>so the products used in the trailing update are</p>
 <p><span class="math display">\[
-L_{ik}U_{kj}
-=\frac{\widetilde{A}_{ik}\widetilde{A}_{kj}}{\widetilde{A}_{kk}}.
+L_{ik}U_{kj}=
+\frac{\widetilde A_{ik}\widetilde A_{kj}}{\widetilde A_{kk}}
 \]</span></p>
-<p>Consequently, the largest magnitude of such a product in the active trailing block is<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>Their largest magnitude is</p>
 <p><span class="math display">\[
 \max_{i,j&gt;k}|L_{ik}U_{kj}|
 =
-\frac{\displaystyle\max_{i,j&gt;k}
-|\widetilde{A}_{ik}\widetilde{A}_{kj}|}
-{|\widetilde{A}_{kk}|}.
+\frac{\displaystyle\max_{i,j&gt;k}|\widetilde A_{ik}\widetilde A_{kj}|}
+{|\widetilde A_{kk}|}
 \]</span></p>
-<p>A small denominator can produce large intermediate quantities. We therefore need to avoid zero pivots and would also like to avoid small pivots.</p>
-<h2 data-original-heading="4.4 Row Pivoting" id="row-pivoting">4.4 Row Pivoting</h2>
+<p>We need to avoid zero pivots and would also like to avoid small pivots.</p>
+<h2 data-original-heading="4.4 How to Pivot: Row Pivoting" id="how-to-pivot-row-pivoting">4.4 How to Pivot: Row Pivoting</h2>
 <!-- Source: Lecture 04.pdf, p. 5. -->
-<p>The strategy developed in the lecture chooses the largest-magnitude entry in the active part of the current column:</p>
+<p>Choose the largest-magnitude entry in the active part of column <span class="math inline">\(k\)</span>:</p>
 <p><span class="math display">\[
-\kappa\in\operatorname*{arg\,max}_{i=k,\ldots,m}
-|\widetilde{A}_{ik}|.
+\kappa\in\operatorname*{arg\,max}_{i=k,\ldots,m}|\widetilde A_{ik}|
 \]</span></p>
-<p>Swap rows <span class="math inline">\(k\)</span> and <span class="math inline">\(\kappa\)</span>, so that the selected entry becomes the pivot. Write <span class="math inline">\(P_k\)</span> for the permutation matrix performing that row swap.</p>
-<p>The step is now</p>
+<p>Let <span class="math inline">\(P_k\)</span> swap rows <span class="math inline">\(k\)</span> and <span class="math inline">\(\kappa\)</span>. On the active rows and columns, the matrix picture is</p>
 <p><span class="math display">\[
-\widetilde{A}
-\xrightarrow{\;P_k\;}
-P_k\widetilde{A}
-\xrightarrow{\;L_k\;}
-L_kP_k\widetilde{A}.
+\begin{pmatrix}
+\widetilde A_{kk}&amp;\cdots&amp;\widetilde A_{km}\\
+\vdots&amp;&amp;\vdots\\
+\widetilde A_{\kappa k}&amp;\cdots&amp;\widetilde A_{\kappa m}\\
+\vdots&amp;&amp;\vdots
+\end{pmatrix}
+\xrightarrow{\ P_k\ }
+\begin{pmatrix}
+\widetilde A_{\kappa k}&amp;\cdots&amp;\widetilde A_{\kappa m}\\
+\vdots&amp;&amp;\vdots\\
+\widetilde A_{kk}&amp;\cdots&amp;\widetilde A_{km}\\
+\vdots&amp;&amp;\vdots
+\end{pmatrix}
+\xrightarrow{\ L_k\ }
+\begin{pmatrix}
+\widetilde A_{\kappa k}&amp;\cdots&amp;\widetilde A_{\kappa m}\\
+0&amp;\ast&amp;\ast\\
+\vdots&amp;\vdots&amp;\vdots\\
+0&amp;\ast&amp;\ast
+\end{pmatrix}
 \]</span></p>
-<p>The diagram on the sheet compares this with elimination directly from the original diagonal entry.</p>
-<p>If the chosen pivot is nonzero, its maximal magnitude in the active column gives</p>
+<p>The row swap places the chosen entry on the diagonal; elimination then zeros the entries below it. If the chosen pivot is nonzero,</p>
 <p><span class="math display">\[
-|L_{ik}|
-=\frac{|(P_k\widetilde{A})_{ik}|}
-{|(P_k\widetilde{A})_{kk}|}
+|L_{ik}|=
+\frac{|(P_k\widetilde A)_{ik}|}{|(P_k\widetilde A)_{kk}|}
 \le1,
-\qquad i&gt;k.
+\qquad i&gt;k
 \]</span></p>
-<p>Thus this pivot choice prevents large elimination multipliers caused by selecting a small entry when a larger one is available in the same column. This observation by itself is not a bound on all entries of <span class="math inline">\(U\)</span>.</p>
-<h2 data-original-heading="4.5 Commuting Permutations Past Elimination Matrices" id="commuting-permutations-past-elimination-matrices">4.5 Commuting Permutations Past Elimination Matrices</h2>
+<p>Thus row pivoting bounds the multipliers. It does not by itself bound all entries of <span class="math inline">\(U\)</span>.</p>
+<h2 data-original-heading="4.5 Commuting Permutations" id="commuting-permutations">4.5 Commuting Permutations</h2>
 <!-- Source: Lecture 04.pdf, p. 6. -->
-<p>With row permutations interleaved with elimination, the overall transformation is</p>
+<p>With row swaps interleaved with elimination,</p>
 <p><span class="math display">\[
-U=L_mP_m\cdots L_1P_1A.
+U=L_mP_m\cdots L_1P_1A
 \]</span></p>
-<p>To recover a factorization with one permutation matrix, we need to move the permutations to the right while keeping track of their effect on the elementary matrices.</p>
-<p>Let <span class="math inline">\(P_\ell\)</span> be a later row swap, with <span class="math inline">\(\ell&gt;k\)</span>. Since a single row swap is its own inverse,</p>
+<p>Let <span class="math inline">\(P_\ell\)</span> be a later row swap, so <span class="math inline">\(\ell&gt;k\)</span>. Since <span class="math inline">\(P_\ell^2=I\)</span>,</p>
 <p><span class="math display">\[
-P_\ell^2=I.
-\]</span></p>
-<p>Insert this identity:</p>
-<p><span class="math display">\[
-\begin{aligned}
 P_\ell L_k
-&amp;=P_\ell L_k\underbrace{P_\ell P_\ell}_{I}\\
-&amp;=\underbrace{(P_\ell L_kP_\ell)}_{\text{permute rows and columns of }L_k}\,P_\ell.
-\end{aligned}
+=\underbrace{(P_\ell L_kP_\ell)}_{\text{swap rows and columns of }L_k}P_\ell
 \]</span></p>
-<p>The source illustrates this conjugation by swapping both a row and a column of <span class="math inline">\(L_k\)</span>. Because this later swap acts only on indices greater than <span class="math inline">\(k\)</span>, the <span class="math inline">\(k\)</span>-th coordinate vector is unchanged. Using <span class="math inline">\(L_k=I-\ell_ke_k^*\)</span>,</p>
+<p>The professor’s diagram swaps two entries below the diagonal in column <span class="math inline">\(k\)</span>. Write these entries as <span class="math inline">\(\delta_\ell\)</span> and <span class="math inline">\(\delta_i\)</span>, where <span class="math inline">\(k&lt;\ell&lt;i\)</span>. On rows and columns <span class="math inline">\((k,\ell,i)\)</span>, the two operations are</p>
 <p><span class="math display">\[
-P_\ell L_kP_\ell
-=I-(P_\ell\ell_k)e_k^*.
+\begin{pmatrix}
+1&amp;0&amp;0\\
+\delta_\ell&amp;1&amp;0\\
+\delta_i&amp;0&amp;1
+\end{pmatrix}
+\xrightarrow{\ \text{swap rows }\ell,i\ }
+\begin{pmatrix}
+1&amp;0&amp;0\\
+\delta_i&amp;0&amp;1\\
+\delta_\ell&amp;1&amp;0
+\end{pmatrix}
+\xrightarrow{\ \text{swap columns }\ell,i\ }
+\begin{pmatrix}
+1&amp;0&amp;0\\
+\delta_i&amp;1&amp;0\\
+\delta_\ell&amp;0&amp;1
+\end{pmatrix}
 \]</span></p>
-<p>The matrix remains elementary lower triangular; its multiplier entries below row <span class="math inline">\(k\)</span> have simply been reordered.</p>
-<p>Repeating this rearrangement gives the factorization implicit in the lecture’s diagrams:<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>The other multiplier entries are unchanged. In particular, the conjugated matrix is still elementary lower triangular. Equivalently, since the later swap leaves <span class="math inline">\(e_k\)</span> fixed,</p>
 <p><span class="math display">\[
-\begin{aligned}
-U
-&amp;=\widetilde{L}_m\cdots\widetilde{L}_1
-  \underbrace{P_m\cdots P_1}_{P}A,\\
-PA
-&amp;=\underbrace{(\widetilde{L}_m\cdots\widetilde{L}_1)^{-1}}_L U.
-\end{aligned}
+P_\ell L_kP_\ell=I-(P_\ell\ell_k)e_k^*
 \]</span></p>
-<p>Here the tildes distinguish the elementary matrices after their multipliers have been permuted. Therefore,</p>
+<p>Commuting the permutations to the right repeatedly gives</p>
 <p><span class="math display">\[
-\boxed{PA=LU.}
+U=\widetilde L_m\cdots\widetilde L_1
+\underbrace{P_m\cdots P_1}_{P}A
 \]</span></p>
-<p>The matrix <span class="math inline">\(P\)</span> records all row swaps, <span class="math inline">\(L\)</span> is unit lower triangular, and <span class="math inline">\(U\)</span> is upper triangular.</p>
+<p>The tildes denote elementary factors with reordered multipliers. Hence</p>
+<p><span class="math display">\[
+PA=LU,
+\qquad
+L=(\widetilde L_m\cdots\widetilde L_1)^{-1}
+\]</span></p>
 <h2 data-original-heading="4.6 Updating the Packed Factorization" id="updating-the-packed-factorization">4.6 Updating the Packed Factorization</h2>
 <!-- Source: Lecture 04.pdf, p. 7. -->
-<p>Suppose the current mathematical elimination state satisfies</p>
+<p>Suppose the current elimination state satisfies</p>
 <p><span class="math display">\[
-L_k\cdots L_1PA=U_k.
+L_k\cdots L_1PA=U_k
 \]</span></p>
-<p>Here <span class="math inline">\(U_k\)</span> is the partially eliminated matrix. The implementation additionally stores the earlier multipliers in the positions below its completed diagonal entries.</p>
-<p>Apply the next row swap and elimination step:</p>
+<p>The next row swap and elimination step give</p>
 <p><span class="math display">\[
 L_{k+1}P_{k+1}L_k\cdots L_1PA
-=L_{k+1}P_{k+1}U_k.
+=L_{k+1}P_{k+1}U_k
 \]</span></p>
-<p>For each earlier elementary matrix, define</p>
+<p>For <span class="math inline">\(j=1,\ldots,k\)</span>, set</p>
 <p><span class="math display">\[
-L_j'=P_{k+1}L_jP_{k+1},\qquad j=1,\ldots,k,
-\qquad
-P'=P_{k+1}P.
+L_j'=P_{k+1}L_jP_{k+1},
+\qquad P'=P_{k+1}P
 \]</span></p>
-<p>Commuting the new permutation to the right gives</p>
+<p>Moving the permutation past the earlier factors yields</p>
 <p><span class="math display">\[
 \begin{aligned}
 L_{k+1}L_k'\cdots L_1'
 \underbrace{P_{k+1}P}_{P'}A
-&amp;=\underbrace{L_{k+1}P_{k+1}U_k}_{U_{k+1}},\\
-L_{k+1}L_k'\cdots L_1'P'A&amp;=U_{k+1}.
+&amp;=\underbrace{L_{k+1}P_{k+1}U_k}_{U_{k+1}}\\
+L_{k+1}L_k'\cdots L_1'P'A&amp;=U_{k+1}
 \end{aligned}
 \]</span></p>
-<p>This explains an important implementation detail: <strong>a row swap must also reorder the multipliers already stored in earlier columns.</strong> Swapping the complete rows of the packed array performs both operations at once: it moves the active matrix entries and the previously stored entries of <span class="math inline">\(L\)</span>.</p>
+<p>Conjugating the earlier elementary factors reorders the multipliers already stored in the first <span class="math inline">\(k\)</span> columns. Therefore <strong>swap the complete rows of the packed array</strong>, including those earlier columns. Also swap the corresponding rows of <span class="math inline">\(P\)</span>.</p>
 <h2 data-original-heading="4.7 Algorithm: LU Factorization with Row Pivoting" id="algorithm-lu-factorization-with-row-pivoting">4.7 Algorithm: LU Factorization with Row Pivoting</h2>
 <!-- Source: Lecture 04.pdf, p. 8. -->
-<p>The sheet initializes <span class="math inline">\(P=I\)</span> and then, for each column, selects a pivot, swaps the corresponding rows in both <span class="math inline">\(A\)</span> and <span class="math inline">\(P\)</span>, stores the multipliers, and updates the trailing block.</p>
-<p>The following Julia-style transcription assumes that <span class="math inline">\(A\)</span> is a square floating-point array. The original array is overwritten. The explicit identity-matrix construction and zero-pivot guard are implementation clarifications.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<p>The lecture’s pseudocode, in Julia notation, assumes each selected pivot is nonzero:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">LinearAlgebra</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="fu">size</span>(A, <span class="fl">1</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> <span class="fu">Matrix</span><span class="dt">{Int}</span>(I, m, m)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>m</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># argmax returns an index local to the active part of the column.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    κ <span class="op">=</span> k <span class="op">-</span> <span class="fl">1</span> <span class="op">+</span> <span class="fu">argmax</span>(<span class="fu">abs</span>.(<span class="pp">@view</span> A[k<span class="op">:</span>m, k]))</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Swap complete rows, including multipliers in earlier columns.</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>m</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        A[κ, j], A[k, j] <span class="op">=</span> A[k, j], A[κ, j]</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        P[κ, j], P[k, j] <span class="op">=</span> P[k, j], P[κ, j]</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="fu">iszero</span>(A[k, k])</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">error</span>(<span class="st">"Zero pivot after row pivoting."</span>)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> (k <span class="op">+</span> <span class="fl">1</span>)<span class="op">:</span>m</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        A[i, k] <span class="op">/=</span> A[k, k]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    κ <span class="op">=</span> k <span class="op">-</span> <span class="fl">1</span> <span class="op">+</span> <span class="fu">argmax</span>(<span class="fu">abs</span>.(A[k<span class="op">:</span>m, k]))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>m</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        A[κ, j], A[k, j] <span class="op">=</span> A[k, j], A[κ, j]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        P[κ, j], P[k, j] <span class="op">=</span> P[k, j], P[κ, j]</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> (k <span class="op">+</span> <span class="fl">1</span>)<span class="op">:</span>m</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        A[i, k] <span class="op">/=</span> A[k, k]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> (k <span class="op">+</span> <span class="fl">1</span>)<span class="op">:</span>m</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> (k <span class="op">+</span> <span class="fl">1</span>)<span class="op">:</span>m</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            A[i, j] <span class="op">-=</span> A[i, k] <span class="op">*</span> A[k, j]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> (k <span class="op">+</span> <span class="fl">1</span>)<span class="op">:</span>m</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> (k <span class="op">+</span> <span class="fl">1</span>)<span class="op">:</span>m</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>            A[i, j] <span class="op">-=</span> A[i, k] <span class="op">*</span> A[k, j]</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div>
-<p>On exit, the strict lower triangle of the stored array contains the off-diagonal entries of <span class="math inline">\(L\)</span>, and the diagonal and upper triangle contain <span class="math inline">\(U\)</span>. The diagonal of <span class="math inline">\(L\)</span> is understood to consist of ones. In Julia, these factors can be viewed as</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> <span class="fu">UnitLowerTriangular</span>(A)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>U <span class="op">=</span> <span class="fu">UpperTriangular</span>(A)</span></code></pre></div>
-<p>Both views refer to the packed array. The factorization identity concerns the matrix <strong>before it was overwritten</strong>:</p>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div>
+<p>The strict lower triangle stores <span class="math inline">\(L\)</span> without its unit diagonal; the diagonal and upper triangle store <span class="math inline">\(U\)</span>. Relative to the original, unmodified input,</p>
 <p><span class="math display">\[
-\boxed{P A_{\mathrm{original}}=LU.}
+P A_{\mathrm{original}}=LU
 \]</span></p>
-<hr>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Lecture 04, p.&nbsp;2 omits <span class="math inline">\(m\epsilon\)</span> from the theorem statement; p.&nbsp;3 restores it in both entrywise conclusions, as does Lecture 03, p.&nbsp;8. The error factors in the handwritten proof are treated to first order. The restored factor and this interpretation are explicit editorial decisions, not a literal reproduction of the p.&nbsp;2 inequality.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>The formula for <span class="math inline">\(L_{ik}\)</span> on p.&nbsp;2 uses an upper summation limit that reads <span class="math inline">\(i-1\)</span>. For <span class="math inline">\(i&gt;k\)</span>, it must be <span class="math inline">\(k-1\)</span> when solving for <span class="math inline">\(L_{ik}\)</span>; otherwise the sum includes the very term being solved for. Page 3 uses <span class="math inline">\(k-1\)</span> in the corresponding computation.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Page 3 gives an index-dependent coefficient bound that cannot be read as a valid uniform exact bound for all displayed coefficients; the reciprocal coefficient also equals <span class="math inline">\(-\delta'/(1+\delta')\)</span>, not simply <span class="math inline">\(-\delta'\)</span>. The transcription retains the common first-order <span class="math inline">\(m\epsilon\)</span> estimate used in the proof’s conclusion, and displays the reciprocal exactly.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Page 4 writes a maximum of products without consistently indicating absolute values or the current-matrix tilde. Since the discussion concerns sizes of intermediate entries and allows <span class="math inline">\(\mathbb{K}=\mathbb{C}\)</span>, the expression is made explicit as a maximum of magnitudes of current entries.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>The first product on p.&nbsp;6 is left unfinished. The displayed conjugation identity, diagram, and step relation on p.&nbsp;7 determine the completed relation <span class="math inline">\(PA=LU\)</span>. The tildes distinguish reordered elementary factors rather than silently identifying them with the original ones.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>Page 8 uses handwritten pseudocode. <code>Matrix{Int}(I, m, m)</code> makes <span class="math inline">\(P\)</span> a mutable identity matrix; <code>abs.(@view A[k:m, k])</code> makes entrywise magnitude selection explicit; the offset converts the local pivot index to a row of <span class="math inline">\(A\)</span>. The guard reports a zero selected pivot instead of dividing by zero. The two triangular-view lines spell out the storage convention already shown in the notes; they are not additional factorization steps.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
+<h2 data-original-heading="Corrections and Clarifications to the Source" id="corrections-and-clarifications-to-the-source">4.8 Corrections and Clarifications to the Source</h2>
+<ul>
+<li><strong>Page 1:</strong> Restored the missing <span class="math inline">\(x\)</span> in the recap of the transformed linear system. The small-pivot example uses the corrected product described at the end of Lecture 3.</li>
+<li><strong>Pages 2–3:</strong> Restored the factor <span class="math inline">\(m\epsilon\)</span> missing from the theorem statement on p.&nbsp;2. The proof and Lecture 3 both include it. The bounds are first-order estimates, marked by <span class="math inline">\(\lesssim\)</span>, rather than exact finite-precision coefficients.</li>
+<li><strong>Page 2:</strong> In the formula for <span class="math inline">\(L_{ik}\)</span> with <span class="math inline">\(i&gt;k\)</span>, corrected the summation limit from <span class="math inline">\(i-1\)</span> to <span class="math inline">\(k-1\)</span>, as used on p.&nbsp;3.</li>
+<li><strong>Page 3:</strong> The reciprocal factor satisfies <span class="math inline">\(\delta_i=-\delta'/(1+\delta')\)</span>. The common first-order bound <span class="math inline">\(m\epsilon\)</span> is used instead of the handwritten coefficient bound, which does not cover every displayed coefficient as an exact inequality.</li>
+<li><strong>Page 4:</strong> Made the magnitudes and current-matrix tildes explicit in the maximum of intermediate products.</li>
+<li><strong>Pages 6–7:</strong> Completed the unfinished product using the displayed permutation-conjugation identity. The primes and tildes distinguish reordered elementary factors.</li>
+</ul></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
     <a rel="prev" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span>← Previous page</span><span>3. LU Factorization and Zero Pivots</span></a>
     <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span>Next page →</span><span>5. Least Squares and Gram-Schmidt</span></a>
   </nav></footer></article></main>
-<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"><div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">4. LU Error Analysis and Row Pivoting</a></div><div class="outline-contents" id="outline-contents"><div id="outline-progress" class="outline-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-controls="reading-viewport"><span class="outline-marker"></span></div><ol id="outline-items"><li style="--depth:0"><a href="#recap" class="is-active" aria-current="location">4.1 Recap</a></li><li style="--depth:0"><a href="#componentwise-error-analysis-for-lu">4.2 Componentwise Error Analysis for LU</a></li><li style="--depth:1"><a href="#entrywise-relations-in-exact-arithmetic">4.2.1 Entrywise Relations in Exact Arithmetic</a></li><li style="--depth:1"><a href="#floating-point-summation">4.2.2 Floating-Point Summation</a></li><li style="--depth:1"><a href="#error-in-an-entry-of-u">4.2.3 Error in an Entry of U</a></li><li style="--depth:1"><a href="#error-in-an-entry-of-l">4.2.4 Error in an Entry of L</a></li><li style="--depth:0"><a href="#pivots-and-intermediate-products">4.3 Pivots and Intermediate Products</a></li><li style="--depth:0"><a href="#row-pivoting">4.4 Row Pivoting</a></li><li style="--depth:0"><a href="#commuting-permutations-past-elimination-matrices">4.5 Commuting Permutations Past Elimination Matrices</a></li><li style="--depth:0"><a href="#updating-the-packed-factorization">4.6 Updating the Packed Factorization</a></li><li style="--depth:0"><a href="#algorithm-lu-factorization-with-row-pivoting">4.7 Algorithm: LU Factorization with Row Pivoting</a></li></ol></div></aside></div>
+<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"><div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">4. LU Error Analysis and Row Pivoting</a></div><div class="outline-contents" id="outline-contents"><div id="outline-progress" class="outline-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-controls="reading-viewport"><span class="outline-marker"></span></div><ol id="outline-items"><li style="--depth:0"><a href="#recap" class="is-active" aria-current="location">4.1 Recap</a></li><li style="--depth:0"><a href="#error-analysis-for-lu-factorization">4.2 Error Analysis for LU Factorization</a></li><li style="--depth:1"><a href="#entrywise-relations">4.2.1 Entrywise Relations</a></li><li style="--depth:1"><a href="#floating-point-summation">4.2.2 Floating-Point Summation</a></li><li style="--depth:1"><a href="#error-in-an-entry-of-u">4.2.3 Error in an Entry of U</a></li><li style="--depth:1"><a href="#error-in-an-entry-of-l">4.2.4 Error in an Entry of L</a></li><li style="--depth:0"><a href="#pivots">4.3 Pivots</a></li><li style="--depth:0"><a href="#how-to-pivot-row-pivoting">4.4 How to Pivot: Row Pivoting</a></li><li style="--depth:0"><a href="#commuting-permutations">4.5 Commuting Permutations</a></li><li style="--depth:0"><a href="#updating-the-packed-factorization">4.6 Updating the Packed Factorization</a></li><li style="--depth:0"><a href="#algorithm-lu-factorization-with-row-pivoting">4.7 Algorithm: LU Factorization with Row Pivoting</a></li><li style="--depth:0"><a href="#corrections-and-clarifications-to-the-source">4.8 Corrections and Clarifications to the Source</a></li></ol></div></aside></div>
 <button class="sidebar-scrim" tabindex="-1" aria-label="Close sidebar" hidden></button>
 <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-label"><form method="dialog" class="search-heading"><label id="search-label" for="search-input">Search notes</label><button value="close" aria-label="Close search">×</button></form><input id="search-input" type="search" placeholder="Title, topic, or phrase…" autocomplete="off"><p id="search-status" role="status">Search the published notes on this site.</p><ol id="search-results"></ol></dialog>
 <dialog id="appearance-dialog" class="appearance-dialog" aria-labelledby="appearance-label"><form method="dialog"><h2 id="appearance-label">Reading appearance</h2><button aria-label="Close text settings">×</button></form><p class="settings-label">Typeface</p><div class="font-options"><button data-font="termes">Classic textbook<small>TeX Gyre Termes</small></button><button data-font="stix">STIX Two Text<small>Original reader</small></button></div><p class="settings-label">Text size</p><div class="size-options"><button data-size="18">Compact</button><button data-size="20">Comfortable</button><button data-size="22">Large</button></div></dialog>

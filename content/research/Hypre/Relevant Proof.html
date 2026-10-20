@@ -35,7 +35,7 @@
 <h4 data-original-heading="1.1.4. Spectral Radius and Convergence" id="spectral-radius-and-convergence">1.1.4. Spectral Radius and Convergence</h4>
 <p>The <strong>asymptotic convergence rate</strong> is determined by the spectral radius <span class="math inline">\(\rho(\mathbf{C}_\omega)\)</span>: <span class="math display">\[\rho(\mathbf{C}_\omega) = \max \{ |\lambda| : \lambda \in \text{eig}(\mathbf{C}_\omega) \}\]</span> where <span class="math inline">\(\rho(\mathbf{C}_\omega) &lt; 1\)</span> (convergence condition for SOR). As <span class="math inline">\(k \to \infty\)</span>, the error reduction per iteration approaches <span class="math inline">\(\rho(\mathbf{C}_\omega)\)</span>: <span class="math display">\[\lim_{k \to \infty} \sqrt[k]{\|\mathbf{C}_\omega^k\|_2} = \rho(\mathbf{C}_\omega)\]</span></p>
 <h3 data-original-heading="1.2 From \rho to Iteration Count U(\omega)" id="from-rho-to-iteration-count-uomega">1.2 From <span class="math inline">\(\rho\)</span> to Iteration Count <span class="math inline">\(U(\omega)\)</span></h3>
-<div class="math-theorem assumption" data-label="2.1" data-callout="assumption">
+<div class="math-theorem assumption" data-callout="assumption" data-label="2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Assumption 2.1</span><span class="theorem-title">near-asymptotic</span></p>
 </div>
@@ -51,7 +51,7 @@
 \]</span> for the iteration index <span class="math inline">\(k =\min\Bigl\{\, i \;\big|\;|\mathbf{C}_\omega^{\,i+1}\mathbf{b}\|_2&lt;\varepsilon \|\mathbf{b}\|_2\Bigr\}.\)</span></p>
 </div>
 </div>
-<div class="math-theorem remark" data-label="2.2" data-callout="remark">
+<div class="math-theorem remark" data-callout="remark" data-label="2.2">
 <div class="theorem-header">
 <p><span class="theorem-badge">Remark 2.2</span><span class="theorem-title">interpretation of the near-asymptotic regime</span></p>
 </div>
@@ -76,7 +76,7 @@ k   \geq \frac{\log \epsilon}{\log \left(\rho\left(\mathbf{C}_\omega\right)+\tau
 <p><strong>Lemma 2.1</strong>, <strong>Theorem B.3</strong>, <strong>Theorem B.4</strong>, <strong>Theorem 2.1</strong>, and <strong>Theorem 2.3</strong> (plus <strong>F.3–F.4</strong> if we want the “smooth in expectation” trick).</p>
 </blockquote>
 <h3 data-original-heading="Lemma 2.1" id="lemma-2.1">2.1 Lemma 2.1</h3>
-<div class="math-theorem lemma" data-label="2.1" data-callout="lemma">
+<div class="math-theorem lemma" data-callout="lemma" data-label="2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Lemma 2.1</span><span class="theorem-title">iteration bound and regularity of the SOR iteration count</span></p>
 </div>
@@ -117,7 +117,7 @@ U(\omega)
 </ol>
 </div>
 </div>
-<div class="math-theorem remark" data-label="2.3" data-callout="remark">
+<div class="math-theorem remark" data-callout="remark" data-label="2.3">
 <div class="theorem-header">
 <p><span class="theorem-badge">Remark 2.3</span><span class="theorem-title">interpretation of the spectral difficulty parameter</span></p>
 </div>
@@ -153,7 +153,7 @@ l - 1  &amp; &gt; U(\omega) - 1 = \frac{\log \epsilon}{\log(\rho + \tau(1 - \rho
 \alpha_\omega  &amp; = \rho + \tau(1-\rho)\\ 
  &amp; =\tau + (1 - \tau)(\omega - 1)
 \end{align}\]</span> Then using the chain rule, we compute <span class="math inline">\(\partial_\omega U(\omega) = \frac{dU}{d\alpha} \cdot \frac{d\alpha}{d\omega}\)</span>: <span class="math display">\[\begin{aligned} \partial_\omega U(\omega) &amp;= \frac{d}{d\omega} \left[ 1 + \frac{\log \varepsilon}{\log(\alpha_\omega)} \right] \\ &amp;= (\log \varepsilon) \cdot \frac{d}{d\omega} \left[ (\log \alpha_\omega)^{-1} \right] \\ &amp;= (\log \varepsilon) \cdot \underbrace{\left[ -(\log \alpha_\omega)^{-2} \cdot \frac{1}{\alpha_\omega} \right]}_{\text{Outer Derivative } \frac{dU}{d\alpha}} \cdot \underbrace{\frac{d}{d\omega} \left[ \tau + (1 - \tau)(\omega - 1) \right]}_{\text{Inner Derivative } \frac{d\alpha}{d\omega}} \\ &amp;= (\log \varepsilon) \cdot \left[ \frac{-1}{\alpha_\omega \log^2 \alpha_\omega} \right] \cdot \left[ 1 - \tau \right] \\ &amp;= \frac{-(1 - \tau) \log \varepsilon}{\alpha_\omega \log^2 \alpha_\omega} \end{aligned}\]</span> Therefore, we have obtained <span class="math display">\[\lvert \partial_\omega U(\omega) \rvert = \frac{(\tau - 1) \log \varepsilon}{(\tau + (1-\tau)(\omega - 1)) \log^2(\tau + (1-\tau)(\omega - 1))}\]</span> We want to show the Lipschitz continuity of <span class="math inline">\(U(\omega)\)</span>, that is, to show its derivative is <strong>bounded by a constant</strong>. Here, the numerator is a constant, and denominator is basically in a form of <span class="math display">\[f(\alpha) = \alpha \ln^2 \alpha\]</span>To ensure the slope of the cost function <span class="math inline">\(|\partial_\omega U(\omega)|\)</span> does not blow up to infinity, we must ensure <span class="math inline">\(f(\alpha)\)</span> stays away from zero. So, <span class="math display">\[\begin{aligned} f'(\alpha) &amp;= \frac{d}{d\alpha} (\alpha \ln^2 \alpha) \\ &amp;= (1) \cdot \ln^2 \alpha + \alpha \cdot \left( 2 \ln \alpha \cdot \frac{1}{\alpha} \right) \\ &amp;= \ln^2 \alpha + 2 \ln \alpha \\ &amp;= \ln \alpha (\ln \alpha + 2) \end{aligned}\]</span> Set this to <span class="math inline">\(0\)</span>, we get <span class="math inline">\(\alpha = 1, \frac{1}{e^{2}}\)</span>, so the paper assumes <span class="math inline">\(\tau \geq 1/e^2\)</span> to avoid any explosion. For our <span class="math inline">\(\alpha_\omega\)</span>, it starts at <span class="math inline">\(\tau\)</span> and only grows larger as <span class="math inline">\(\omega\)</span> increases. Then ## Theorem 2.1</p>
-<div class="math-theorem theorem" data-label="2.1" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 2.1</span><span class="theorem-title">Regret bound for the automated SOR parameter selection</span></p>
 </div>
@@ -172,7 +172,7 @@ then the expected number of iterations is bounded as: <span class="math display"
 </ul>
 </div>
 </div>
-<div class="math-theorem remark" data-label="2.1" data-callout="remark">
+<div class="math-theorem remark" data-callout="remark" data-label="2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Remark 2.1</span></p>
 </div>
@@ -195,7 +195,7 @@ then the expected number of iterations is bounded as: <span class="math display"
 <p>We consider a sequence of adaptively chosen loss functions <span class="math inline">\(\ell_1,\ldots,\ell_T : [a,b] \mapsto [0,K]\)</span> on an interval <span class="math inline">\([a,b]\subset \mathbb{R}\)</span> and upper bounds <span class="math inline">\(u_1,\ldots,u_T : [a,b] \mapsto \mathbb{R}\)</span> satisfying <span class="math inline">\(u_t(x) \ge \ell_t(x)\ \forall t \in [T],\ x \in [a,b]\)</span>, where <span class="math inline">\([T]\)</span> denotes the set of integers from <span class="math inline">\(1\)</span> to <span class="math inline">\(T\)</span>. Our analysis will focus on the Tsallis-INF algorithm of Abernethy et al.&nbsp;(2015), which we write in its general form in Algorithm 4, although the analysis extends easily to the better-known (but sub-optimal) Exp3 (Auer et al., 2002). For Tsallis-INF, the following two facts follow directly from known results:</p>
 <hr>
 <h3 data-original-heading="Theorem B.1" id="theorem-b.1">4.1 Theorem B.1</h3>
-<div class="math-theorem theorem" data-label="B.1" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="B.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem B.1</span><span class="theorem-title">(Corollary of Abernethy et al.&nbsp;(2015, Corollary 3.2))</span></p>
 </div>
@@ -207,7 +207,7 @@ then the expected number of iterations is bounded as: <span class="math display"
 </div>
 <hr>
 <h3 data-original-heading="Theorem B.2" id="theorem-b.2">4.2 Theorem B.2</h3>
-<div class="math-theorem theorem" data-label="B.2" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="B.2">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem B.2</span><span class="theorem-title">(Corollary of Zimmert &amp; Seldin (2021, Theorem 1))</span></p>
 </div>
@@ -220,7 +220,7 @@ then the expected number of iterations is bounded as: <span class="math display"
 <hr>
 <p>We now define a generalization of the Lipschitzness condition that trivially generalizes regular <span class="math inline">\(L\)</span>-Lipschitz functions, as well as the notion of one-sided Lipschitz functions studied in the stochastic setting by Dütting et al.&nbsp;(2023).</p>
 <h3 data-original-heading="Definition B.1" id="definition-b.1">4.3 Definition B.1</h3>
-<div class="math-theorem definition" data-label="B.1" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="B.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition B.1</span></p>
 </div>
@@ -233,7 +233,7 @@ f(x) - f(y) \le L|x-y|\ \forall x,y\ \text{s.t.}\ |x-z| \le |y-z|.
 <hr>
 <p>We now show that Tsallis-INF with bandit access to <span class="math inline">\(\ell_t\)</span> on a discretization of <span class="math inline">\([a,b]\)</span> attains <span class="math inline">\(O(T^{2/3})\)</span> regret w.r.t. any fixed <span class="math inline">\(x \in [a,b]\)</span> evaluated by any comparator sequence of semi-Lipschitz upper bounds <span class="math inline">\(u_t\)</span>. Note that guarantees for the standard comparator can be recovered by just setting <span class="math inline">\(\ell_t = u_t\ \forall t \in [T]\)</span>, and that the rate is optimal by Kleinberg (2004, Theorem 4.2).</p>
 <h3 data-original-heading="Theorem B.3" id="theorem-b.3">4.4 Theorem B.3</h3>
-<div class="math-theorem theorem" data-label="B.3" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="B.3">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem B.3</span></p>
 </div>
@@ -254,7 +254,7 @@ f(x) - f(y) \le L|x-y|\ \forall x,y\ \text{s.t.}\ |x-z| \le |y-z|.
 \]</span></p>
 <p>For contextual bandits, we restrict to <span class="math inline">\((L_t,b)\)</span>-semi-Lipschitz functions and <span class="math inline">\(L_f\)</span>-Lipschitz policies, obtaining <span class="math inline">\(O(T^{3/4})\)</span> regret; this rate matches known upper and lower bounds for the case where losses are Lipschitz in both actions and contexts (Lu et al., 2010, Theorem 1), although this does not imply optimality of our result.</p>
 <h3 data-original-heading="Theorem B.4" id="theorem-b.4">4.5 Theorem B.4</h3>
-<div class="math-theorem theorem" data-label="B.4" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="B.4">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem B.4</span></p>
 </div>

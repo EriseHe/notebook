@@ -20,7 +20,7 @@
 <p>For a single point charge <span class="math inline">\(q\)</span> at the origin, the electric field at position <span class="math inline">\(\mathbf{r}\)</span> is: <span class="math display">\[ \mathbf{E}(\mathbf{r}) = \frac{1}{4\pi\epsilon_0} \frac{q}{r^2} \hat{\mathbf{r}} \]</span> where <span class="math inline">\(\epsilon_0 \approx 8.85 \times 10^{-12}\)</span> C<span class="math inline">\(^2\)</span>/N<span class="math inline">\(\cdot\)</span>m<span class="math inline">\(^2\)</span> is the permittivity of free space.</p>
 <h4 data-original-heading="2.1.3 Continuous Charge Distributions" id="continuous-charge-distributions">2.1.3 Continuous Charge Distributions</h4>
 <p>Using the <strong>Principle of Superposition</strong>, the field from a collection of charges is the vector sum of their individual fields. For a continuous distribution with volume charge density <span class="math inline">\(\rho(\mathbf{r}')\)</span>, the sum becomes an integral:</p>
-<div class="math-theorem definition" data-label="2.1" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 2.1</span><span class="theorem-title">(Electric Field of Continuous Charge)</span></p>
 </div>
@@ -35,7 +35,7 @@
 <h4 data-original-heading="2.2.1 Field Lines, Flux, and Gauss’s Law" id="field-lines-flux-and-gausss-law">2.2.1 Field Lines, Flux, and Gauss’s Law</h4>
 <p>Electric field lines originate on positive charges and terminate on negative charges. The “amount” of field passing through a surface is the <strong>Electric Flux</strong> (<span class="math inline">\(\Phi_E\)</span>): <span class="math display">\[ \Phi_E \equiv \int_{\mathcal{S}} \mathbf{E} \cdot d\mathbf{a} \]</span></p>
 <p>For a single point charge <span class="math inline">\(q\)</span> at the origin, the flux through a sphere of radius <span class="math inline">\(r\)</span> is: <span class="math display">\[ \oint \mathbf{E} \cdot d\mathbf{a} = \int \left( \frac{1}{4\pi\epsilon_0} \frac{q}{r^2} \hat{\mathbf{r}} \right) \cdot (r^2 \sin\theta \, d\theta \, d\phi \, \hat{\mathbf{r}}) = \frac{q}{\epsilon_0} \]</span> Remarkably, this result is independent of the radius. Because field lines are continuous, any surface enclosing <span class="math inline">\(q\)</span> will intercept the same flux.</p>
-<div class="math-theorem theorem" data-label="2.1" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 2.1</span><span class="theorem-title">(Gauss’s Law - Integral Form)</span></p>
 </div>
@@ -44,7 +44,7 @@
 </div>
 </div>
 <p>Applying the Divergence Theorem, we convert this to differential form: <span class="math display">\[ \int_{\mathcal{V}} (\nabla \cdot \mathbf{E}) d\tau = \oint_{\mathcal{S}} \mathbf{E} \cdot d\mathbf{a} = \frac{1}{\epsilon_0} \int_{\mathcal{V}} \rho \, d\tau \]</span></p>
-<div class="math-theorem theorem" data-label="2.2" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="2.2">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 2.2</span><span class="theorem-title">(Gauss’s Law - Differential Form)</span></p>
 </div>
@@ -55,7 +55,7 @@
 <p>This is the first of Maxwell’s equations. It states that charge density is the source of divergence in <span class="math inline">\(\mathbf{E}\)</span>.</p>
 <h4 data-original-heading="2.2.2 The Curl of E" id="the-curl-of-e">2.2.2 The Curl of E</h4>
 <p>Because the Coulomb force is central (acting along the line joining charges), it is <strong>conservative</strong>. The work done moving a charge around a closed path is zero. Consequently, the line integral of <span class="math inline">\(\mathbf{E}\)</span> around any closed loop is zero: <span class="math display">\[ \oint \mathbf{E} \cdot d\mathbf{l} = 0 \]</span> Applying Stokes’ Theorem:</p>
-<div class="math-theorem theorem" data-label="2.3" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="2.3">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 2.3</span><span class="theorem-title">(Curl of Electrostatic Field)</span></p>
 </div>
@@ -68,7 +68,7 @@
 <h3 data-original-heading="2.3 Electric Potential" id="electric-potential">2.3 Electric Potential</h3>
 <h4 data-original-heading="2.3.1 Introduction to Potential" id="introduction-to-potential">2.3.1 Introduction to Potential</h4>
 <p>Because <span class="math inline">\(\nabla \times \mathbf{E} = 0\)</span>, we can (by the Helmholtz Theorem) define <span class="math inline">\(\mathbf{E}\)</span> as the gradient of a scalar function. We define the <strong>Electric Potential</strong> <span class="math inline">\(V\)</span> such that:</p>
-<div class="math-theorem definition" data-label="2.2" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="2.2">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 2.2</span><span class="theorem-title">(Electric Potential)</span></p>
 </div>
@@ -84,7 +84,7 @@
 </ol>
 <h4 data-original-heading="2.3.2 Poisson’s and Laplace’s Equations" id="poissons-and-laplaces-equations">2.3.2 Poisson’s and Laplace’s Equations</h4>
 <p>Combining the definition of potential (<span class="math inline">\(\mathbf{E} = -\nabla V\)</span>) with Gauss’s Law (<span class="math inline">\(\nabla \cdot \mathbf{E} = \rho/\epsilon_0\)</span>), we derive the fundamental differential equation of electrostatics:</p>
-<div class="math-theorem theorem" data-label="2.4" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="2.4">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 2.4</span><span class="theorem-title">(Poisson’s Equation)</span></p>
 </div>
@@ -108,7 +108,7 @@
 <p>To assemble a system of point charges, we must do work to bring them in from infinity against each other’s fields. <span class="math display">\[ W = \frac{1}{2} \sum_{i=1}^n q_i V(\mathbf{r}_i) \]</span> where <span class="math inline">\(V(\mathbf{r}_i)\)</span> is the potential at point <span class="math inline">\(i\)</span> due to <em>all other</em> charges.</p>
 <h4 data-original-heading="2.4.3 Energy of a Continuous Charge Distribution" id="energy-of-a-continuous-charge-distribution">2.4.3 Energy of a Continuous Charge Distribution</h4>
 <p>For continuous charge, the sum becomes an integral. Using <span class="math inline">\(\rho = \epsilon_0 \nabla \cdot \mathbf{E}\)</span> and integration by parts, we find the energy stored in the field itself:</p>
-<div class="math-theorem proposition" data-label="2.1" data-callout="proposition">
+<div class="math-theorem proposition" data-callout="proposition" data-label="2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Proposition 2.1</span><span class="theorem-title">(Energy in Electric Field)</span></p>
 </div>
@@ -130,7 +130,7 @@
 </ol>
 <h4 data-original-heading="2.5.4 Capacitors" id="capacitors">2.5.4 Capacitors</h4>
 <p>Since a conductor is an equipotential, if we have two conductors with charges <span class="math inline">\(+Q\)</span> and <span class="math inline">\(-Q\)</span>, there is a fixed potential difference <span class="math inline">\(V\)</span> between them. The ratio is geometric:</p>
-<div class="math-theorem definition" data-label="2.3" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="2.3">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 2.3</span><span class="theorem-title">(Capacitance)</span></p>
 </div>
