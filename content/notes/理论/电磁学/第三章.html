@@ -18,7 +18,7 @@
 <h3 data-original-heading="3.1 Laplace’s Equation" id="laplaces-equation">3.1 Laplace’s Equation</h3>
 <h4 data-original-heading="3.1.1 Introduction and Poisson’s Equation" id="introduction-and-poissons-equation">3.1.1 Introduction and Poisson’s Equation</h4>
 <p>The primary equation for electrostatics is Poisson’s equation, derived from Gauss’s Law (<span class="math inline">\(\nabla \cdot \mathbf{E} = \rho/\epsilon_0\)</span>) and the definition of potential (<span class="math inline">\(\mathbf{E} = -\nabla V\)</span>):</p>
-<div class="math-theorem definition" data-callout="definition" data-label="3.1">
+<div class="math-theorem definition" data-label="3.1" data-callout="definition">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 3.1</span><span class="theorem-title">(Poisson’s Equation)</span></p>
 </div>
@@ -27,7 +27,7 @@
 </div>
 </div>
 <p>In regions where there is no charge (<span class="math inline">\(\rho = 0\)</span>), this simplifies to <strong>Laplace’s Equation</strong>. This is the fundamental equation we solve throughout this chapter:</p>
-<div class="math-theorem definition" data-callout="definition" data-label="3.2">
+<div class="math-theorem definition" data-label="3.2" data-callout="definition">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 3.2</span><span class="theorem-title">(Laplace’s Equation)</span></p>
 </div>
@@ -41,7 +41,7 @@
 <p><strong>2. No Local Extrema</strong> As a consequence of the averaging property, <span class="math inline">\(V\)</span> cannot have local maxima or minima within a charge-free region. Extreme values must occur at the boundaries. This makes physical sense: a local maximum would require a positive charge at that point to “push” the potential up, which violates the condition <span class="math inline">\(\rho=0\)</span>.</p>
 <h4 data-original-heading="3.1.5 Uniqueness Theorems" id="uniqueness-theorems">3.1.5 Uniqueness Theorems</h4>
 <p>Before learning techniques to find solutions, we must ensure that a solution found is the <em>only</em> solution. If we can simply guess a function that satisfies Laplace’s equation and the boundary conditions, these theorems guarantee it is the correct answer.</p>
-<div class="math-theorem theorem" data-callout="theorem" data-label="3.1">
+<div class="math-theorem theorem" data-label="3.1" data-callout="theorem">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 3.1</span><span class="theorem-title">(First Uniqueness Theorem)</span></p>
 </div>
@@ -49,7 +49,7 @@
 <p>The solution to Laplace’s equation in some volume <span class="math inline">\(\mathcal{V}\)</span> is uniquely determined if <span class="math inline">\(V\)</span> is specified on the boundary surface <span class="math inline">\(\mathcal{S}\)</span> of <span class="math inline">\(\mathcal{V}\)</span>.</p>
 </div>
 </div>
-<div class="math-theorem theorem" data-callout="theorem" data-label="3.2">
+<div class="math-theorem theorem" data-label="3.2" data-callout="theorem">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 3.2</span><span class="theorem-title">(Second Uniqueness Theorem)</span></p>
 </div>
@@ -102,7 +102,7 @@ b &amp;= \frac{R^2}{a}
 <li><strong>Radial Equation:</strong> Solutions are powers of <span class="math inline">\(r\)</span>. <span class="math display">\[ R(r) = A r^l + \frac{B}{r^{l+1}} \]</span></li>
 <li><strong>Angular Equation:</strong> Solutions are Legendre Polynomials <span class="math inline">\(P_l(\cos\theta)\)</span>.</li>
 </ol>
-<div class="math-theorem proposition" data-callout="proposition" data-label="3.1">
+<div class="math-theorem proposition" data-label="3.1" data-callout="proposition">
 <div class="theorem-header">
 <p><span class="theorem-badge">Proposition 3.1</span><span class="theorem-title">(General Spherical Solution with Azimuthal Symmetry)</span></p>
 </div>
@@ -132,7 +132,7 @@ V(\mathbf{r}) = \frac{1}{4\pi\epsilon_0} \left[ \underbrace{\frac{Q}{r}}_{\text{
 <li><strong>Monopole Moment (<span class="math inline">\(Q\)</span>):</strong> The total net charge. At very large distances, any point charge distribution looks like a single point charge <span class="math inline">\(Q\)</span>.</li>
 <li><strong>Dipole Moment (<span class="math inline">\(\mathbf{p}\)</span>):</strong> If the total charge is zero, the dominant term is the dipole. <span class="math display">\[ \mathbf{p} = \sum_{i} q_i \mathbf{r}'_i \quad \text{or} \quad \mathbf{p} = \int \mathbf{r}' \rho(\mathbf{r}') \, d\tau' \]</span> The dipole contribution to the potential is: <span class="math display">\[ V_{\text{dip}}(\mathbf{r}) = \frac{1}{4\pi\epsilon_0} \frac{\mathbf{p} \cdot \hat{\mathbf{r}}}{r^2} \]</span></li>
 </ol>
-<div class="math-theorem remark" data-callout="remark" data-label="3.1">
+<div class="math-theorem remark" data-label="3.1" data-callout="remark">
 <div class="theorem-header">
 <p><span class="theorem-badge">Remark 3.1</span><span class="theorem-title">(Coordinate Independence)</span></p>
 </div>
@@ -142,7 +142,7 @@ V(\mathbf{r}) = \frac{1}{4\pi\epsilon_0} \left[ \underbrace{\frac{Q}{r}}_{\text{
 </div>
 <h4 data-original-heading="3.4.3 Electric Field of a Dipole" id="electric-field-of-a-dipole">3.4.3 Electric Field of a Dipole</h4>
 <p>Taking the negative gradient of the dipole potential (<span class="math inline">\(V_{\text{dip}}\)</span>) in spherical coordinates gives the field of a pure dipole:</p>
-<div class="math-theorem proposition" data-callout="proposition" data-label="3.2">
+<div class="math-theorem proposition" data-label="3.2" data-callout="proposition">
 <div class="theorem-header">
 <p><span class="theorem-badge">Proposition 3.2</span><span class="theorem-title">(Dipole Electric Field)</span></p>
 </div>

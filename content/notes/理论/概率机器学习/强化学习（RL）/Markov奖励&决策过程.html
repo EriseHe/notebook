@@ -33,7 +33,7 @@ G_t &amp;= r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \cdots + \gamma^{H-1} r_{t+
 \end{aligned}
 \]</span> &gt; Horizon → determines which rewards you sum → defines the return</p>
 <h3 data-original-heading="1.2 State Value function V(s)" id="state-value-function-vs">1.2 State Value function <span class="math inline">\(V(s)\)</span></h3>
-<div class="math-theorem definition" data-label="1.2" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="1.2">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 1.2</span><span class="theorem-title">State Value Function</span></p>
 </div>
@@ -58,7 +58,7 @@ V(s) &amp; =\mathbb{E}\left[\sum_{k=0}^{\infty} \gamma^k r_{t+k} \mid s_t=s\righ
 &amp; =R(s)+\gamma \sum_{s^{\prime}} P\left(s^{\prime} \mid s\right) V\left(s^{\prime}\right) 
 \end{aligned}
 \]</span> where <span class="math inline">\(R(s)=\mathbb{E}[r_{t}|s_{t}=s]\)</span>. Therefore, in this formulation, we have:</p>
-<div class="math-theorem theorem" data-label="1.2.1" data-callout="theorem">
+<div class="math-theorem theorem" data-callout="theorem" data-label="1.2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Theorem 1.2.1</span><span class="theorem-title">Bellman Expectation Equation</span></p>
 </div>
@@ -87,7 +87,7 @@ V_k(s)&amp;=R+\gamma PV_{k-1}\\
 \end{aligned}
 \]</span> Computational complexity: <span class="math inline">\(O\left(|S|^2\right)\)</span> for each iteration <span class="math inline">\((|S|=N)\)</span></p>
 <h2 data-original-heading="2 Markov Decision Processes (MDPs)" id="markov-decision-processes-mdps">2 Markov Decision Processes (MDPs)</h2>
-<div class="math-theorem definition" data-label="2.0" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="2.0">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 2.0</span></p>
 </div>
@@ -109,7 +109,7 @@ V_k(s)&amp;=R+\gamma PV_{k-1}\\
 <li>can be deterministic or stochastic</li>
 <li>a probability distribution over action given a state</li>
 </ul>
-<div class="math-theorem definition" data-label="2.1" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 2.1</span><span class="theorem-title">Policy (π)</span></p>
 </div>
