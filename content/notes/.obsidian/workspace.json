@@ -14,8 +14,8 @@
               "type": "markdown",
               "state": {
                 "file": "理论/Numerical Linear Algbera/3. LU Factorization and Zero Pivots.md",
-                "mode": "source",
-                "source": false,
+                "mode": "preview",
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
@@ -200,8 +200,9 @@
   },
   "active": "1a7075100885f982",
   "lastOpenFiles": [
-    "理论/Numerical Linear Algbera/Midterm Study Plan.md",
+    "理论/Numerical Linear Algbera/4. LU Factorization with Pivoting.md",
     "理论/Numerical Linear Algbera/3. LU Factorization and Zero Pivots.md",
+    "理论/Numerical Linear Algbera/Midterm Study Plan.md",
     "理论/Numerical Linear Algbera/5. Least Squares and Gram-Schmidt.md",
     "理论/Numerical Linear Algbera/1. Vectors and Matrices.md",
     "理论/Numerical Linear Algbera/Homework/HW 3.md",
@@ -235,7 +236,6 @@
     "理论/电磁学/Midterm3/pdflatex46300.fls",
     "理论/电磁学/7 Electrodynamics/Chapter 7.3 Maxwell's Equations Cheat Sheet.md",
     "理论/电磁学/7 Electrodynamics/7.4 The Field of a Rotating Magnet.md",
-    "理论/电磁学/8 Conservation Laws/8.1.md",
     "image.png",
     "image-1.png",
     "Screenshot 2025-10-01 at 1.18.16 AM.png",

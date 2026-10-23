@@ -787,6 +787,11 @@ Completing
 Componentwise
 Calendar
 Complete
+Commuting
+Conjugating
+Corrections
+Completed
+Corrected
 font
 for
 functions
@@ -2842,6 +2847,7 @@ calendar
 coursework
 courses
 cutoff
+conjugation
 Problem
 Partial
 Putting
@@ -3487,6 +3493,9 @@ Pivots
 Plan
 Perform
 Prioritize
+Pivot
+Permutations
+Packed
 In
 Implicit
 Invertibility
@@ -4863,6 +4872,8 @@ terminates
 timing
 tomorrow
 timed
+triangularity
+tildes
 system
 solvability
 such
@@ -6219,6 +6230,12 @@ submatrices
 strongest
 secure
 shorten
+subtracted
+sidebar
+subtracts
+successively
+suppressing
+spell
 discuss
 determine
 described
@@ -8113,6 +8130,7 @@ informal
 informally
 incur
 individually
+interleaved
 of
 our
 out
@@ -8742,6 +8760,7 @@ optimality
 orthonormalization
 overwrites
 overflow
+overwritten
 near
 neighborhood
 necessary
@@ -12641,6 +12660,7 @@ Sat
 Shifted
 Spend
 Storing
+Successive
 equations
 equation
 exists
@@ -14761,6 +14781,7 @@ band
 beneath
 badly
 bonus
+bounding
 allow
 and
 as
@@ -17224,6 +17245,8 @@ Reconstruct
 Revisit
 Rework
 Redo
+Restored
+Restricting
 requirement
 respect
 rule
@@ -18155,6 +18178,9 @@ redo
 reflectors
 repairs
 rested
+rearrangement
+reordered
+rearrangements
 partials
 partial
 point
@@ -19252,6 +19278,7 @@ pivoting
 packed
 permute
 perturbs
+pseudocode
 Ex
 Evaluate
 Evaluating
@@ -19842,6 +19869,8 @@ Elimination
 Elementary
 End
 END
+Entrywise
+Entry
 We
 What
 With
@@ -24663,6 +24692,9 @@ unrestricted
 underflow
 unshifted
 unresolved
+unmodified
+unfinished
+unspecified
 guarantees
 gives
 give
@@ -25793,6 +25825,7 @@ Monday
 Modified
 MGS
 Midterm
+Made
 Using
 Up
 Ut
@@ -26176,6 +26209,7 @@ Unequal
 Unsigned
 Unnecessarily
 Underdetermined
+Updating
 quotient
 question
 quickly

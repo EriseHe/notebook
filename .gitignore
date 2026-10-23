@@ -21,3 +21,6 @@ Thumbs.db
 # Local R session state
 .RData
 .Rhistory
+*.pdf
+/content/notes/.obsidian/plugins/obsidian-completr
+/content/notes/.obsidian/plugins/obsidian-completr
