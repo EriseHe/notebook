@@ -101,7 +101,7 @@ export async function catalog(config, repoRoot, contentRoot) {
       file,
       rel: `content/${rel}`,
       vaultRel: rel,
-      route: `content/${rel.replace(/\.(md|qmd)$/i, '.html')}`,
+      route: config.pageRoutes?.[rel] || `content/${rel.replace(/\.(md|qmd)$/i, '.html')}`,
       meta,
       body,
       hash: digest(raw),

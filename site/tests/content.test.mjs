@@ -21,6 +21,28 @@ test('frontmatter is separate, optional and not rewritten', () => {
   assert.throws(() => frontmatter('---\n[bad\n---\nText'), /Invalid YAML/);
 });
 
+test('the renamed Lecture 3 keeps its published URL and resolves links by filename or URL', async (t) => {
+  const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'notebook-routes-test-'));
+  t.after(async () => {
+    assert.ok(within(os.tmpdir(), temp) && path.basename(temp).startsWith('notebook-routes-test-'));
+    await fs.rm(temp, { recursive: true, force: true });
+  });
+  const source = path.join(temp, 'content');
+  const rel = 'notes/理论/Numerical Linear Algbera/3. LU Factorization and Zero Pivots.md';
+  const file = path.join(source, rel);
+  await fs.mkdir(path.dirname(file), { recursive: true });
+  await fs.writeFile(file, '---\ntitle: 3. LU Factorization and Zero Pivots\n---\n## Gaussian Elimination\n');
+  const context = Object.assign(await catalog(config, repoRoot, source), config);
+  const page = context.pages.find((item) => item.vaultRel === rel);
+  assert.equal(page.route, 'content/notes/理论/Numerical Linear Algbera/3. Lecture.html');
+  const oldUrl = '/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html';
+  const byFilename = resolveTarget('./3. LU Factorization and Zero Pivots.md', page, context);
+  const byUrl = resolveTarget(oldUrl, page, context);
+  assert.equal(byFilename.page, page);
+  assert.equal(byUrl.page, page);
+  assert.equal(targetHref(byFilename, context), oldUrl);
+});
+
 test('the authored home Markdown renders at the root and prefers the original content source', async (t) => {
   const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'notebook-home-test-'));
   t.after(async () => {

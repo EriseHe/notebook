@@ -6,6 +6,10 @@
 
 Keep notes and attachments in their current locations to preserve URLs. `public/` contains original images used by older notes, not a generated site. Only referenced attachments are copied into the build. Obsidian `.obsidian/` settings, plugins, themes, and workspace state under `content/` are versioned so they sync between devices. The website renderer excludes these folders from published output.
 
+When renaming a note, `pageRoutes` in `site/config.mjs` can retain its existing website URL while links in Obsidian use the new filename. Lecture 3 uses this mapping; keep a single source note.
+
+Keep the notebook checkout's `main` synchronized with `origin/main`. If source changes are published from another worktree, also bring those commits into this checkout. Verification worktrees should start from the committed source being checked, and publication should include only committed notes.
+
 ## Preview and checks
 
 ```sh

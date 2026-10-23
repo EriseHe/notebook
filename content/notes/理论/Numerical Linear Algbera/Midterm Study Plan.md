@@ -60,4 +60,4 @@ A topic counts as learned when you can solve a fresh question and reconstruct it
 
 **Lecture links**
 
-[L1](<1. Vectors and Matrices.md>) · [L2](<2. Storing Matrices & Vectors.md>) · [L3](<3. Lecture.md>) · [L4](<4. LU Factorization with Pivoting.md>) · [L5](<5. Least Squares and Gram-Schmidt.md>) · [L6](<6. Error Bounds and Householder QR.md>) · [L7](<7. Orthogonal Transformations and QR.md>) · [L8](<8. Least Squares and Normal Equations.md>) · [L9](<9. Cholesky Factorization and Schur Complements.md>) · [L10](<10. Eigenvalues and Iterative Methods.md>) · [HW3](<Homework/HW 3.md>)
+[L1](<1. Vectors and Matrices.md>) · [L2](<2. Storing Matrices & Vectors.md>) · [L3](<3. LU Factorization and Zero Pivots.md>) · [L4](<4. LU Factorization with Pivoting.md>) · [L5](<5. Least Squares and Gram-Schmidt.md>) · [L6](<6. Error Bounds and Householder QR.md>) · [L7](<7. Orthogonal Transformations and QR.md>) · [L8](<8. Least Squares and Normal Equations.md>) · [L9](<9. Cholesky Factorization and Schur Complements.md>) · [L10](<10. Eigenvalues and Iterative Methods.md>) · [HW3](<Homework/HW 3.md>)
