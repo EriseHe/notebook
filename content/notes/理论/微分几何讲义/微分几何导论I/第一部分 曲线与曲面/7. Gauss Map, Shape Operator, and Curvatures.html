@@ -14,7 +14,7 @@
 <main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/%E5%BE%AE%E5%88%86%E5%87%A0%E4%BD%95%E8%AE%B2%E4%B9%89/index.html">微分几何讲义</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/%E5%BE%AE%E5%88%86%E5%87%A0%E4%BD%95%E8%AE%B2%E4%B9%89/%E5%BE%AE%E5%88%86%E5%87%A0%E4%BD%95%E5%AF%BC%E8%AE%BAI/index.html">微分几何导论I</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/%E5%BE%AE%E5%88%86%E5%87%A0%E4%BD%95%E8%AE%B2%E4%B9%89/%E5%BE%AE%E5%88%86%E5%87%A0%E4%BD%95%E5%AF%BC%E8%AE%BAI/%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%20%E6%9B%B2%E7%BA%BF%E4%B8%8E%E6%9B%B2%E9%9D%A2/index.html">第一部分 曲线与曲面</a></nav><h1 id="reader-title">7. 高斯映射：形算子与曲率</h1><p class="article-meta">2025-09-22</p></header><div id="article-body" class="prose"><h2 data-original-heading="1 Gauss Map and Its Differential" id="gauss-map-and-its-differential">1 Gauss Map and Its Differential</h2>
 <p>Let <span class="math inline">\(S\subset\mathbb{R}^3\)</span> be a regular surface with (chosen) unit normal field <span class="math inline">\(N\)</span>. The <strong>Gauss map</strong> is <span class="math display">\[N:\ S\longrightarrow \mathbb{S}^2,\qquad p\mapsto N(p).\]</span></p>
 <p>At a point <span class="math inline">\(p\in S\)</span>, the tangent space <span class="math inline">\(T_{N(p)}\mathbb{S}^2\)</span> is the plane through <span class="math inline">\(N(p)\)</span> orthogonal to <span class="math inline">\(N(p)\)</span>. Since <span class="math inline">\(T_pS\)</span> is also orthogonal to <span class="math inline">\(N(p)\)</span>, we identify <span class="math display">\[T_{N(p)}\mathbb{S}^2\ \cong\ T_pS\subset\mathbb{R}^3,\]</span> and regard the differential of the Gauss map as a linear endomorphism <span class="math display">\[dN_p:\ T_pS\longrightarrow T_pS. \ \ \, \text{(via the above identification)}\]</span> :contentReference<span data-index="0">oaicite:0</span></p>
-<div class="math-theorem proposition" data-label="1.1" data-callout="proposition">
+<div class="math-theorem proposition" data-callout="proposition" data-label="1.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Proposition 1.1</span><span class="theorem-title">first–second fundamental forms via <span class="math inline">\(dN\)</span> (Weingarten formula)</span></p>
 </div>
@@ -32,7 +32,7 @@
 \end{aligned}\]</span> Thus <span class="math inline">\(\langle dN(\partial_i),\sigma_j\rangle = -\,\mathrm{II}_{ij}\)</span>, i.e.&nbsp;<span class="math inline">\(\mathrm{II}(\partial_i,\partial_j)=-\,g\big(dN(\partial_i),\partial_j\big)\)</span>. By bilinearity the identity holds for all <span class="math inline">\(X,Y\)</span>. <span class="math inline">\(\square\)</span> :contentReference<span data-index="2">oaicite:2</span></p>
 <hr>
 <h2 data-original-heading="2 Shape Operator, K and H" id="shape-operator-k-and-h">2 Shape Operator, <span class="math inline">\(K\)</span> and <span class="math inline">\(H\)</span></h2>
-<div class="math-theorem definition" data-label="2.1" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="2.1">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 2.1</span><span class="theorem-title">shape operator (Weingarten map)</span></p>
 </div>
@@ -42,7 +42,7 @@
 \]</span> Equivalently, <span class="math inline">\(\mathrm{II}_{ij}=g_{ik}\,W^k{}_j\)</span>. :contentReference<span data-index="3">oaicite:3</span></p>
 </div>
 </div>
-<div class="math-theorem definition" data-label="2.2" data-callout="definition">
+<div class="math-theorem definition" data-callout="definition" data-label="2.2">
 <div class="theorem-header">
 <p><span class="theorem-badge">Definition 2.2</span><span class="theorem-title">curvatures</span></p>
 </div>
