@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>HW 2 — E.H. Notebook</title>
+<meta name="description" content="1 Numerical Methods I, Homework 2Schäfer, Fall 2026Deadline: Oct. 05 Monday, 4:55 pm1 One-upping [20 pts]Let \boldsymbol{A} \in \mathbb{R}^{m \times m} have full rank. As">
+<link rel="stylesheet" href="/notebook/assets/reader.css"><link rel="preload" href="/notebook/assets/fonts/texgyretermes-regular.otf" as="font" type="font/otf" crossorigin>
+<script defer src="/notebook/assets/reader.js"></script>
+<script src="/notebook/assets/math-config.js"></script><script defer id="MathJax-script" src="/notebook/assets/vendor/mathjax/tex-chtml-full.js"></script>
+</head><body data-layout="reader" data-has-notes="true" data-has-outline="true" data-notes-open="true" data-outline-open="true" data-search-index="/notebook/assets/search.json">
+<a class="skip-link" href="#article-body">Skip to content</a>
+<header class="toolbar"><div class="identity"><button class="icon-button" id="notes-toggle" aria-label="Toggle notes sidebar" aria-controls="notes-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/sidebar.svg" alt="" width="20" height="20"></button><a class="brand" href="/notebook/">E.H. Notebook</a></div>
+<nav class="top-navigation" aria-label="Notebook sections"><a href="/notebook/content/notes/index.html" aria-current="page">Notes</a><a href="/notebook/content/posts/index.html">Posts</a><a href="/notebook/content/research/index.html">Research</a></nav>
+<div class="reading-tools"><button class="icon-button appearance-toggle" id="appearance-toggle" aria-label="Reading text size" aria-controls="appearance-dialog">Aa</button><button class="icon-button" id="search-toggle" aria-label="Search notes" aria-keyshortcuts="Control+k Meta+k"><img src="/notebook/assets/icons/search.svg" alt="" width="20" height="20"></button><a class="icon-button github-link" href="https://github.com/EriseHe/notebook" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><img src="/notebook/assets/icons/github.svg" alt="" width="20" height="20"></a><button class="icon-button" id="outline-toggle" aria-label="Toggle outline" aria-controls="outline-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/outline.svg" alt="" width="20" height="20"></button></div></header>
+<div class="reader-layout"><aside class="notes-sidebar" id="notes-sidebar" aria-label="Notes navigation"><nav aria-label="Numerical Linear Algbera file hierarchy" data-sidebar-root="content/notes/理论/Numerical Linear Algbera"><a class="sidebar-root" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><ul class="notes-tree"><li class="folder-node" data-folder="content/notes/理论/Numerical Linear Algbera/Homework" data-active-branch="true"><div class="folder-row"><button class="tree-toggle folder-label" aria-controls="folder-209a64aec9e6" aria-expanded="true"><img class="folder-chevron" src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""><span>Homework</span></button></div><ul class="tree-children" id="folder-209a64aec9e6"><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html"><span class="page-number"></span><span>HW 1</span></a></li><li class="file-node"><a class="note-link is-current" aria-current="page" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span class="page-number"></span><span>HW 2</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span class="page-number"></span><span>HW 3</span></a></li></ul></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html"><span class="page-number">1</span><span>Vectors and Matrices</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span class="page-number">2</span><span>Storing Matrices &amp; Vectors</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span class="page-number">3</span><span>LU Factorization and Zero Pivots</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span class="page-number">4</span><span>LU Factorization with Pivoting</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span class="page-number">5</span><span>Least Squares and Gram-Schmidt</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html"><span class="page-number">6</span><span>Error Bounds and Householder QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span class="page-number">7</span><span>Orthogonal Transformations and QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html"><span class="page-number">8</span><span>Least Squares and Normal Equations</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span class="page-number">9</span><span>Cholesky Factorization and Schur Complements</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span class="page-number">10</span><span>Eigenvalues and Iterative Methods</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/11.%20Schur%20Factorization.html"><span class="page-number">11</span><span>Schur Factorization</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/12.%20Orthogonal%20Iteration.html"><span class="page-number">12</span><span>Orthogonal Iteration</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/13.%20QR%20without%20Shifts.html"><span class="page-number">13</span><span>QR without Shifts</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span class="page-number"></span><span>Midterm Study Plan</span></a></li></ul></nav></aside>
+<main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/index.html">Homework</a></nav><h1 id="reader-title">HW 2</h1></header><div id="article-body" class="prose"><h2 data-original-heading="Numerical Methods I, Homework 2" id="numerical-methods-i-homework-2">1 Numerical Methods I, Homework 2</h2>
+<p>Schäfer, Fall 2026</p>
+<p>Deadline: Oct.&nbsp;05 Monday, 4:55 pm</p>
+<h3 data-original-heading="1 One-upping [20 pts]" id="one-upping-20-pts">1 One-upping [20 pts]</h3>
+<p>Let <span class="math inline">\(\boldsymbol{A} \in \mathbb{R}^{m \times m}\)</span> have full rank. Assume that we have already computed the QR decomposition of <span class="math inline">\(\boldsymbol{A}\)</span>. For <span class="math inline">\(\boldsymbol{u}, \boldsymbol{v} \in \mathbb{R}^m\)</span>, we call the matrix <span class="math inline">\(\boldsymbol{B} = \boldsymbol{A} + \boldsymbol{u}\boldsymbol{v}^{T}\)</span> a rank-1 update of <span class="math inline">\(\boldsymbol{A}\)</span>.</p>
+<h4 data-original-heading="(a) [5 pts]" id="a-5-pts">1.1.1 (a) [5 pts]</h4>
+<p>Prove that if <span class="math inline">\(\boldsymbol{v}^{T} \boldsymbol{A}^{-1} \boldsymbol{u} \neq - 1\)</span>, then <span class="math inline">\(\boldsymbol{B}\)</span> is invertible.</p>
+<blockquote>
+<p><em>Proof.</em> Set <span class="math inline">\(\boldsymbol{z}=\boldsymbol{A}^{-1}\boldsymbol{u}\)</span> and <span class="math inline">\(\alpha=\boldsymbol{v}^T\boldsymbol{z}\ne-1\)</span>. If <span class="math inline">\(\boldsymbol{B}\boldsymbol{x}=\boldsymbol{0}\)</span>, then <span class="math display">\[
+\begin{aligned}
+\boldsymbol{A}\boldsymbol{x}+\boldsymbol{u}(\boldsymbol{v}^T\boldsymbol{x})&amp;=\boldsymbol{0}\\
+\boldsymbol{x}&amp;=-\boldsymbol{z}(\boldsymbol{v}^T\boldsymbol{x})\\
+\boldsymbol{v}^T\boldsymbol{x}&amp;=-\alpha(\boldsymbol{v}^T\boldsymbol{x})\\
+(1+\alpha)\boldsymbol{v}^T\boldsymbol{x}&amp;=0
+\end{aligned}
+\]</span> Thus <span class="math inline">\(\boldsymbol{v}^T\boldsymbol{x}=0\)</span>, hence <span class="math inline">\(\boldsymbol{x}=\boldsymbol{0}\)</span>. Therefore the square matrix <span class="math inline">\(\boldsymbol{B}\)</span> is invertible.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(b) [7.5 pts]" id="b-7.5-pts">1.1.2 (b) [7.5 pts]</h4>
+<p>Design an algorithm that provably solves the system of equations <span class="math inline">\(\boldsymbol{B} \boldsymbol{x} = \boldsymbol{b}\)</span> in <span class="math inline">\(O(m^2)\)</span> operations.</p>
+<blockquote>
+<p><em>Solution.</em> Under the condition in (a), use the given factorization <span class="math inline">\(\boldsymbol{A}=\boldsymbol{Q}\boldsymbol{R}\)</span>. Apply <span class="math inline">\(\boldsymbol{Q}^T\)</span> and use backward substitution to compute <span class="math inline">\(\boldsymbol{y}\)</span> and <span class="math inline">\(\boldsymbol{z}\)</span>, then set <span class="math display">\[
+\begin{aligned}
+\boldsymbol{R}\boldsymbol{y}&amp;=\boldsymbol{Q}^T\boldsymbol{b},
+&amp;\boldsymbol{R}\boldsymbol{z}&amp;=\boldsymbol{Q}^T\boldsymbol{u}\\
+c&amp;=\frac{\boldsymbol{v}^T\boldsymbol{y}}{1+\boldsymbol{v}^T\boldsymbol{z}},
+&amp;\boldsymbol{x}&amp;=\boldsymbol{y}-c\boldsymbol{z}
+\end{aligned}
+\]</span> Since <span class="math inline">\(\boldsymbol{A}\boldsymbol{y}=\boldsymbol{b}\)</span> and <span class="math inline">\(\boldsymbol{A}\boldsymbol{z}=\boldsymbol{u}\)</span>, <span class="math display">\[
+\begin{aligned}
+\boldsymbol{B}\boldsymbol{x}
+&amp;=\boldsymbol{b}-c\boldsymbol{u}
+  +\boldsymbol{u}\bigl(\boldsymbol{v}^T\boldsymbol{y}-c\boldsymbol{v}^T\boldsymbol{z}\bigr)\\
+&amp;=\boldsymbol{b}+\boldsymbol{u}\underbrace{
+  \bigl(\boldsymbol{v}^T\boldsymbol{y}-c(1+\boldsymbol{v}^T\boldsymbol{z})\bigr)}_{0}
+=\boldsymbol{b}
+\end{aligned}
+\]</span> Since each application of <span class="math inline">\(\boldsymbol{Q}^T\)</span> and each triangular solve costs <span class="math inline">\(O(m^2)\)</span>, and the dot products and final update cost <span class="math inline">\(O(m)\)</span>, the total is <span class="math inline">\(O(m^2)\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(c) r-upping [7.5 pts]" id="c-r-upping-7.5-pts">1.1.3 (c) r-upping [7.5 pts]</h4>
+<p>Extend the algorithm from the previous exercise to the case of <span class="math inline">\(\boldsymbol{B} = \boldsymbol{A} + \boldsymbol{U}\boldsymbol{V}^{T}\)</span>, for <span class="math inline">\(\boldsymbol{U},\boldsymbol{V} \in \mathbb{R}^{m \times r}\)</span> and <span class="math inline">\(r \ll m\)</span>. Calculate the asymptotic complexity of the resulting algorithm.</p>
+<blockquote>
+<p><em>Solution.</em> Compute <span class="math inline">\(\boldsymbol{y}\)</span> and the columns of <span class="math inline">\(\boldsymbol{Z}\)</span> using the existing QR factors: <span class="math display">\[
+\begin{aligned}
+\boldsymbol{R}\boldsymbol{y}&amp;=\boldsymbol{Q}^T\boldsymbol{b},
+&amp;\boldsymbol{R}\boldsymbol{Z}&amp;=\boldsymbol{Q}^T\boldsymbol{U}\\
+\boldsymbol{S}&amp;=\mathbf{I}_r+\boldsymbol{V}^T\boldsymbol{Z},
+&amp;\boldsymbol{S}\boldsymbol{t}&amp;=\boldsymbol{V}^T\boldsymbol{y}\\
+\boldsymbol{x}&amp;=\boldsymbol{y}-\boldsymbol{Z}\boldsymbol{t}
+\end{aligned}
+\]</span> Assume <span class="math inline">\(\boldsymbol{S}\)</span> is nonsingular, the rank-<span class="math inline">\(r\)</span> analogue of the condition in (a). Since <span class="math inline">\(\boldsymbol{A}\boldsymbol{y}=\boldsymbol{b}\)</span> and <span class="math inline">\(\boldsymbol{A}\boldsymbol{Z}=\boldsymbol{U}\)</span>, <span class="math display">\[
+\begin{aligned}
+\boldsymbol{B}\boldsymbol{x}
+&amp;=\boldsymbol{b}-\boldsymbol{U}\boldsymbol{t}
+  +\boldsymbol{U}\boldsymbol{V}^T(\boldsymbol{y}-\boldsymbol{Z}\boldsymbol{t})\\
+&amp;=\boldsymbol{b}+\boldsymbol{U}\underbrace{
+  \bigl(\boldsymbol{V}^T\boldsymbol{y}-\boldsymbol{S}\boldsymbol{t}\bigr)}_{\boldsymbol{0}}
+=\boldsymbol{b}
+\end{aligned}
+\]</span> The costs are <span class="math display">\[
+\begin{aligned}
+&amp;\underbrace{O(m^2(r+1))}_{\text{$r+1$ QR solves}}
++\underbrace{O(mr^2)}_{\boldsymbol{V}^T\boldsymbol{Z}}
++\underbrace{O(r^3)}_{\text{solve in }\boldsymbol{S}}
++\underbrace{O(mr)}_{\text{remaining products}}\\
+&amp;\hspace{2em}=O(m^2r+mr^2+r^3)=O(m^2r)
+\end{aligned}
+\]</span> for <span class="math inline">\(1\le r\ll m\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h3 data-original-heading="2 You Factor [30 pts]" id="you-factor-30-pts">2 You Factor [30 pts]</h3>
+<p>For <span class="math inline">\(\varepsilon\)</span> the unit roundoff error and <span class="math inline">\(\tilde{\boldsymbol{L}}, \tilde{\boldsymbol{U}}\)</span> the LU factors computed in finite precision, and <span class="math inline">\(|\cdot|\)</span> the element-wise absolute value, we have derived in class that, for all <span class="math inline">\(1 \leq i,j \leq m\)</span>, <span class="math display">\[
+\tilde{\boldsymbol{L}} \tilde{\boldsymbol{U}} = \boldsymbol{A} + \boldsymbol{E}, \quad \text{with} \quad \left|\boldsymbol{E}\right|_{ij} \leq m \varepsilon \left(\left|\tilde{\boldsymbol{L}} \right| \left|\tilde{\boldsymbol{U}}\right|\right)_{ij}
+\tag{1}
+\]</span> But <u>this result is only true up to terms quadratic in <span class="math inline">\(m \varepsilon\)</span>.</u> In this problem, we remove this caveat and draw its conclusions for row-pivoted LU factorization.</p>
+<h4 data-original-heading="(a) [7.5 pts]" id="a-7.5-pts">1.2.1 (a) [7.5 pts]</h4>
+<p>Assuming <span class="math inline">\(m \varepsilon &lt; 1\)</span> and defining the quantity <span class="math inline">\(\gamma_m = \frac{m \varepsilon}{1 - m \varepsilon}\)</span>, prove that for <span class="math inline">\(\boldsymbol{x}, \boldsymbol{y} \in \mathbb{R}^m\)</span>, we have <span class="math display">\[
+\mathrm{float.}\left( \sum \limits_{i = 1}^{m} x_i y_i \right) = \sum \limits_{i = 1}^{m} x_i y_i (1 + \delta_i), \quad \text{with} \quad |\delta_i| \leq \gamma_m
+\tag{2}
+\]</span> if the operations on the left side are performed in floating point arithmetic with unit roundoff <span class="math inline">\(\varepsilon\)</span> and no overflow or underflow occurs.</p>
+<blockquote>
+<p><em>Proof.</em> Writing <span class="math inline">\(\operatorname{fl}\)</span> for <span class="math inline">\(\mathrm{float.}\)</span>, we use <span class="math inline">\(\operatorname{fl}(a\mathbin{\circ}b)=(a\mathbin{\circ}b)(1+\eta)\)</span>, <span class="math inline">\(|\eta|\le\varepsilon\)</span>, for the operations in question. For <span class="math inline">\(p\varepsilon&lt;1\)</span>, <span class="math inline">\(|\eta_t|\le\varepsilon\)</span>, and <span class="math inline">\(q_t\in\{-1,1\}\)</span>, each factor <span class="math inline">\((1+\eta_t)^{q_t}\)</span> lies between <span class="math inline">\(1-\varepsilon\)</span> and <span class="math inline">\((1-\varepsilon)^{-1}\)</span>. Hence Bernoulli’s inequality gives <span class="math display">\[
+\begin{aligned}
+1-p\varepsilon
+&amp;\le(1-\varepsilon)^p
+\le\prod_{t=1}^{p}(1+\eta_t)^{q_t}
+\le(1-\varepsilon)^{-p}
+\le\frac{1}{1-p\varepsilon}\\
+\left|\prod_{t=1}^{p}(1+\eta_t)^{q_t}-1\right|
+&amp;\le\frac{p\varepsilon}{1-p\varepsilon}=\gamma_p
+\end{aligned}
+\]</span> For ordinary sequential accumulation, let <span class="math display">\[
+\begin{aligned}
+p_i&amp;=\operatorname{fl}(x_i y_i)=x_i y_i(1+\alpha_i),
+&amp;&amp;|\alpha_i|\le\varepsilon\\
+s_1&amp;=p_1\\
+s_k&amp;=\operatorname{fl}(s_{k-1}+p_k)
+=(s_{k-1}+p_k)(1+\beta_k),
+&amp;&amp;|\beta_k|\le\varepsilon\quad(k\ge2)
+\end{aligned}
+\]</span> Expanding the recurrence, <span class="math display">\[
+\begin{aligned}
+s_m
+&amp;=x_1y_1(1+\alpha_1)\prod_{k=2}^{m}(1+\beta_k)
+ +\sum_{i=2}^{m}x_i y_i(1+\alpha_i)\prod_{k=i}^{m}(1+\beta_k)\\
+&amp;=\sum_{i=1}^{m}x_i y_i(1+\delta_i)
+\end{aligned}
+\]</span> Each coefficient contains at most <span class="math inline">\(m\)</span> rounding factors, so the product bound gives <span class="math inline">\(|\delta_i|\le\gamma_m\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(b) [7.5 pts]" id="b-7.5-pts-1">1.2.2 (b) [7.5 pts]</h4>
+<p>Assume that the entries of the computed factors are obtained by first evaluating the sum, then subtracting it from the corresponding entry of <span class="math inline">\(\boldsymbol{A}\)</span>, and finally dividing by the pivot, i.e. <span class="math display">\[
+\tilde{\boldsymbol{U}}_{jk} = \mathrm{float.}\left(\boldsymbol{A}_{jk} - \mathrm{float.}\left(\sum \limits_{i = 1}^{j - 1} \tilde{\boldsymbol{L}}_{ji} \tilde{\boldsymbol{U}}_{ik}\right)\right) \quad \text{for } j \leq k
+\tag{3}
+\]</span></p>
+<p><span class="math display">\[
+\tilde{\boldsymbol{L}}_{jk} = \mathrm{float.}\left(\mathrm{float.}\left(\boldsymbol{A}_{jk} - \mathrm{float.}\left(\sum \limits_{i = 1}^{k - 1} \tilde{\boldsymbol{L}}_{ji} \tilde{\boldsymbol{U}}_{ik}\right)\right) \Big/ \tilde{\boldsymbol{U}}_{kk}\right) \quad \text{for } j &gt; k
+\tag{4}
+\]</span> Use the previous result to show that <span class="math display">\[
+\left|\boldsymbol{E}\right|_{ij} \leq \gamma_m \left(\left|\tilde{\boldsymbol{L}} \right| \left|\tilde{\boldsymbol{U}}\right|\right)_{ij}
+\tag{5}
+\]</span></p>
+<blockquote>
+<p><em>Proof.</em> Set <span class="math inline">\(\gamma_0=0\)</span> and <span class="math inline">\(\boldsymbol{E}=\tilde{\boldsymbol{L}}\tilde{\boldsymbol{U}}-\boldsymbol{A}\)</span>. Fix <span class="math inline">\(j,k\)</span> and abbreviate <span class="math inline">\(t_i=\tilde{L}_{ji}\tilde{U}_{ik}\)</span>. For <span class="math inline">\(j\le k\)</span>, part (a) and the subtraction give <span class="math display">\[
+\begin{aligned}
+\tilde{U}_{jk}
+ &amp;=\left(A_{jk}-\sum_{i=1}^{j-1}t_i(1+\delta_i)\right)(1+\alpha)\\
+A_{jk}
+&amp;=\sum_{i=1}^{j-1}t_i(1+\delta_i)+t_j(1+\theta)\\
+E_{jk}&amp;=-\sum_{i=1}^{j-1}t_i\delta_i-t_j\theta
+\end{aligned}
+\]</span> Here <span class="math inline">\(|\delta_i|\le\gamma_{j-1}\)</span>, <span class="math inline">\(|\alpha|\le\varepsilon\)</span>, and <span class="math inline">\(t_j=\tilde{U}_{jk}\)</span> because <span class="math inline">\(\tilde{L}_{jj}=1\)</span>. We have <span class="math inline">\(1+\theta=(1+\alpha)^{-1}\)</span>, so <span class="math inline">\(|\theta|\le\gamma_1\)</span> by (a). For <span class="math inline">\(j&gt;k\)</span>, include the rounding of the final division: <span class="math display">\[
+\begin{aligned}
+\tilde{L}_{jk}
+&amp;=\frac{A_{jk}-\displaystyle\sum_{i=1}^{k-1}t_i(1+\delta_i)}
+ {\tilde{U}_{kk}}(1+\alpha)(1+\beta)\\
+A_{jk}
+&amp;=\sum_{i=1}^{k-1}t_i(1+\delta_i)+t_k(1+\theta)\\
+E_{jk}&amp;=-\sum_{i=1}^{k-1}t_i\delta_i-t_k\theta
+\end{aligned}
+\]</span> where <span class="math display">\[
+|\delta_i|\le\gamma_{k-1},\qquad
+|\alpha|,|\beta|\le\varepsilon,\qquad
+1+\theta=\frac{1}{(1+\alpha)(1+\beta)}
+\]</span> The reciprocal-product bound from (a) gives <span class="math inline">\(|\theta|\le\gamma_2\le\gamma_m\)</span>; this case has <span class="math inline">\(m\ge2\)</span>. In both cases, triangularity and monotonicity of <span class="math inline">\(\gamma_p\)</span> give the exact bound <span class="math display">\[
+\begin{aligned}
+|E_{jk}|
+&amp;\le\gamma_m\sum_{i=1}^{\min(j,k)}
+ |\tilde{L}_{ji}|\,|\tilde{U}_{ik}|\\
+&amp;=\gamma_m\bigl(|\tilde{\boldsymbol{L}}|\,|\tilde{\boldsymbol{U}}|\bigr)_{jk}
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(c) [5 pts]" id="c-5-pts">1.2.3 (c) [5 pts]</h4>
+<p>Deduce that under row-pivoted <span class="math inline">\(LU\)</span> factorization and taking <span class="math inline">\(\| \cdot \|_{\infty}\)</span> to signify the vector-infinity norm, we have <span class="math display">\[
+\left\|\boldsymbol{E}\right\|_{\infty} \leq m \gamma_{m} \left\|\tilde{\boldsymbol{U}}\right\|_{\infty}
+\tag{6}
+\]</span> This prompts us to investigate the growth factor <span class="math inline">\(\rho \coloneqq \frac{\left\| \boldsymbol{U} \right\|_{\infty}}{\left\|\boldsymbol{A}\right\|_{\infty}}\)</span> of row-pivoted LU factorization. After justification, you may use that row-pivoted LU factorization reduces to unpivoted LU factorization on a permuted matrix <span class="math inline">\(\boldsymbol{P}\boldsymbol{A}\)</span>, where <span class="math inline">\(\boldsymbol{P}\)</span> is a permutation matrix.</p>
+<blockquote>
+<p><em>Proof.</em> Use the entrywise norm <span class="math inline">\(\|\boldsymbol{M}\|_\infty=\max_{i,j}|M_{ij}|\)</span>.</p>
+<p>A later row swap <span class="math inline">\(\boldsymbol{T}_\ell\)</span> can be moved past an earlier elementary elimination matrix <span class="math inline">\(\boldsymbol{F}_k\)</span> by <span class="math display">\[
+\boldsymbol{T}_\ell\boldsymbol{F}_k
+=(\boldsymbol{T}_\ell\boldsymbol{F}_k\boldsymbol{T}_\ell)\boldsymbol{T}_\ell
+\qquad(\ell&gt;k)
+\]</span> The conjugation only reorders the multipliers below the <span class="math inline">\(k\)</span>th diagonal entry. Repeating this operation gives an unpivoted factorization of <span class="math inline">\(\boldsymbol{P}\boldsymbol{A}\)</span>, where <span class="math inline">\(\boldsymbol{P}=\boldsymbol{T}_m\cdots\boldsymbol{T}_1\)</span>. Thus (b) applies with <span class="math inline">\(\tilde{\boldsymbol{L}}\tilde{\boldsymbol{U}}=\boldsymbol{P}\boldsymbol{A}+\boldsymbol{E}\)</span>.</p>
+<p>Row pivoting selects a largest-magnitude entry in the active column, so every multiplier has magnitude at most <span class="math inline">\(1\)</span>, including after rounding since <span class="math inline">\(\pm1\)</span> are representable. Thus <span class="math inline">\(|\tilde{L}_{ik}|\le1\)</span>, and (b) gives <span class="math display">\[
+\begin{aligned}
+\|\boldsymbol{E}\|_\infty
+&amp;\le\gamma_m\max_{i,j}\sum_{k=1}^{m}
+ |\tilde{L}_{ik}|\,|\tilde{U}_{kj}|\\
+&amp;\le m\gamma_m\|\tilde{\boldsymbol{U}}\|_\infty
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(d) [5 pts]" id="d-5-pts">1.2.4 (d) [5 pts]</h4>
+<p>Verify that the rows <span class="math inline">\(\boldsymbol{u}_{i}^{T}, \boldsymbol{a}_{i}^{T}\)</span> of <span class="math inline">\(\boldsymbol{U}, \boldsymbol{A}\)</span> satisfy <span class="math display">\[
+\boldsymbol{u}_{i}^{T} = \boldsymbol{a}_i^T - \sum \limits_{j = 1}^{i - 1} \boldsymbol{L}_{ij} \boldsymbol{u}_{j}^T
+\tag{7}
+\]</span></p>
+<blockquote>
+<p><em>Proof.</em> For <span class="math inline">\(\boldsymbol{A}=\boldsymbol{L}\boldsymbol{U}\)</span>, <span class="math inline">\(L_{ii}=1\)</span> and <span class="math inline">\(L_{ij}=0\)</span> for <span class="math inline">\(j&gt;i\)</span> give <span class="math display">\[
+\begin{aligned}
+\boldsymbol{a}_i^T
+&amp;=\sum_{j=1}^{m}L_{ij}\boldsymbol{u}_j^T
+=\boldsymbol{u}_i^T+\sum_{j=1}^{i-1}L_{ij}\boldsymbol{u}_j^T\\
+\boldsymbol{u}_i^T
+&amp;=\boldsymbol{a}_i^T-\sum_{j=1}^{i-1}L_{ij}\boldsymbol{u}_j^T
+\end{aligned}
+\]</span> Under row pivoting, replace <span class="math inline">\(\boldsymbol{a}_i^T\)</span> by <span class="math inline">\(\boldsymbol{a}_{\pi(i)}^T\)</span>, the <span class="math inline">\(i\)</span>th row of <span class="math inline">\(\boldsymbol{P}\boldsymbol{A}\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(e) [5 pts]" id="e-5-pts">1.2.5 (e) [5 pts]</h4>
+<p>Use part (d) to show that under row pivoting, <span class="math inline">\(\left\|\boldsymbol{U}\right\|_{\infty} \leq 2^{m - 1} \left\| \boldsymbol{A}\right\|_{\infty}\)</span>. Give an example of a family of matrices <span class="math inline">\(\boldsymbol{A}^{(m)} \in \mathbb{R}^{m \times m}\)</span> that saturates this bound (up to constant factors).</p>
+<blockquote>
+<p><em>Proof.</em> Set <span class="math inline">\(a=\|\boldsymbol{A}\|_\infty\)</span>. By (d), row pivoting, and induction, <span class="math display">\[
+\begin{aligned}
+\|\boldsymbol{u}_1\|_\infty&amp;\le a\\
+\|\boldsymbol{u}_i\|_\infty
+&amp;\le\|\boldsymbol{a}_{\pi(i)}\|_\infty
+  +\sum_{j=1}^{i-1}|L_{ij}|\,\|\boldsymbol{u}_j\|_\infty\\
+&amp;\le a+\sum_{j=1}^{i-1}2^{j-1}a
+=2^{i-1}a\\
+\|\boldsymbol{U}\|_\infty
+&amp;=\max_i\|\boldsymbol{u}_i\|_\infty
+\le2^{m-1}\|\boldsymbol{A}\|_\infty
+\end{aligned}
+\]</span> For a family attaining the bound, take <span class="math display">\[
+A^{(m)}_{ij}=
+\begin{cases}
+1,&amp;i=j\text{ or }j=m\\
+-1,&amp;i&gt;j,\ j&lt;m\\
+0,&amp;\text{otherwise}
+\end{cases}
+\]</span> Retain the current pivot on ties. No swaps occur; <span class="math inline">\(L_{ij}=-1\)</span> for <span class="math inline">\(i&gt;j\)</span>, and the first <span class="math inline">\(m-1\)</span> columns of <span class="math inline">\(\boldsymbol{U}\)</span> equal those of <span class="math inline">\(\mathbf{I}\)</span>. The last column satisfies <span class="math display">\[
+\begin{aligned}
+U_{1m}&amp;=1\\
+U_{im}&amp;=1+\sum_{j=1}^{i-1}U_{jm}
+=1+\sum_{j=1}^{i-1}2^{j-1}=2^{i-1}\\
+\|\boldsymbol{A}^{(m)}\|_\infty&amp;=1,
+\qquad\|\boldsymbol{U}\|_\infty=2^{m-1},
+\qquad\rho=2^{m-1}
+\end{aligned}
+\]</span> Thus the bound is attained exactly.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h3 data-original-heading="3 Diagonal Dominance [25 pts]" id="diagonal-dominance-25-pts">3 Diagonal Dominance [25 pts]</h3>
+<p>Suppose that <span class="math inline">\(\boldsymbol{A} \in \mathbb{K}^{m \times m}\)</span> is strictly column diagonally dominant, meaning that for all <span class="math inline">\(1 \leq k \leq m\)</span>, <span class="math display">\[
+\left|\boldsymbol{A}_{kk}\right| &gt; \sum \limits_{j \neq k} \left|\boldsymbol{A}_{jk}\right|
+\tag{8}
+\]</span> Show that if LU factorization with row pivoting is applied to <span class="math inline">\(\boldsymbol{A}\)</span>, no row interchange takes place.</p>
+<blockquote>
+<p><em>Proof.</em> Let <span class="math inline">\(\boldsymbol{C}\)</span> be a strictly column diagonally dominant active matrix. In its first column, <span class="math display">\[
+|C_{11}|&gt;\sum_{i&gt;1}|C_{i1}|\ge|C_{j1}|\qquad(j&gt;1)
+\]</span> Hence the first pivot is nonzero and uniquely largest in magnitude. The remaining matrix is the Schur complement <span class="math display">\[
+S_{ij}=C_{ij}-\frac{C_{i1}C_{1j}}{C_{11}},\qquad i,j\ge2
+\]</span> For each remaining column <span class="math inline">\(j\)</span>, the triangle inequalities give <span class="math display">\[
+\begin{aligned}
+|S_{jj}|-\sum_{\substack{i\ge2\\i\ne j}}|S_{ij}|
+&amp;\ge|C_{jj}|-\sum_{\substack{i\ge2\\i\ne j}}|C_{ij}|
+  -\frac{|C_{1j}|}{|C_{11}|}\sum_{i\ge2}|C_{i1}|\\
+&amp;=\underbrace{|C_{jj}|-\sum_{i\ne j}|C_{ij}|}_{&gt;0}
+ +|C_{1j}|\underbrace{
+ \left(1-\frac{\sum_{i\ge2}|C_{i1}|}{|C_{11}|}\right)}_{&gt;0}
+&gt;0
+\end{aligned}
+\]</span> Thus the Schur complement is again strictly column diagonally dominant. Starting with <span class="math inline">\(\boldsymbol{C}=\boldsymbol{A}\)</span> and repeating proves that every diagonal pivot is chosen without a row interchange.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
+    <a rel="prev" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html"><span>← Previous page</span><span>HW 1</span></a>
+    <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span>Next page →</span><span>HW 3</span></a>
+  </nav></footer></article></main>
+<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"><div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">HW 2</a></div><div class="outline-contents" id="outline-contents"><div id="outline-progress" class="outline-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-controls="reading-viewport"><span class="outline-marker"></span></div><ol id="outline-items"><li style="--depth:0"><a href="#numerical-methods-i-homework-2" class="is-active" aria-current="location">1 Numerical Methods I, Homework 2</a></li><li style="--depth:1"><a href="#one-upping-20-pts">1 One-upping [20 pts]</a></li><li style="--depth:2"><a href="#a-5-pts">1.1.1 (a) [5 pts]</a></li><li style="--depth:2"><a href="#b-7.5-pts">1.1.2 (b) [7.5 pts]</a></li><li style="--depth:2"><a href="#c-r-upping-7.5-pts">1.1.3 (c) r-upping [7.5 pts]</a></li><li style="--depth:1"><a href="#you-factor-30-pts">2 You Factor [30 pts]</a></li><li style="--depth:2"><a href="#a-7.5-pts">1.2.1 (a) [7.5 pts]</a></li><li style="--depth:2"><a href="#b-7.5-pts-1">1.2.2 (b) [7.5 pts]</a></li><li style="--depth:2"><a href="#c-5-pts">1.2.3 (c) [5 pts]</a></li><li style="--depth:2"><a href="#d-5-pts">1.2.4 (d) [5 pts]</a></li><li style="--depth:2"><a href="#e-5-pts">1.2.5 (e) [5 pts]</a></li><li style="--depth:1"><a href="#diagonal-dominance-25-pts">3 Diagonal Dominance [25 pts]</a></li></ol></div></aside></div>
+<button class="sidebar-scrim" tabindex="-1" aria-label="Close sidebar" hidden></button>
+<dialog id="search-dialog" class="search-dialog" aria-labelledby="search-label"><form method="dialog" class="search-heading"><label id="search-label" for="search-input">Search notes</label><button value="close" aria-label="Close search">×</button></form><input id="search-input" type="search" placeholder="Title, topic, or phrase…" autocomplete="off"><p id="search-status" role="status">Search the published notes on this site.</p><ol id="search-results"></ol></dialog>
+<dialog id="appearance-dialog" class="appearance-dialog" aria-labelledby="appearance-label"><form method="dialog"><h2 id="appearance-label">Reading appearance</h2><button aria-label="Close text settings">×</button></form><p class="settings-label">Typeface</p><div class="font-options"><button data-font="termes">Classic textbook<small>TeX Gyre Termes</small></button><button data-font="stix">STIX Two Text<small>Original reader</small></button></div><p class="settings-label">Text size</p><div class="size-options"><button data-size="18">Compact</button><button data-size="20">Comfortable</button><button data-size="22">Large</button></div></dialog>
+</body></html>

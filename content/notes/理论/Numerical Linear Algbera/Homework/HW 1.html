@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>HW 1 — E.H. Notebook</title>
+<meta name="description" content="1 Numerical Methods I, Homework 1Schäfer, Fall 2026Deadline: Sep. 21 Monday, 4:55 pm1 Less positive [12.5 pts]Consider a symmetric positive definite matrix \boldsymbol{A}">
+<link rel="stylesheet" href="/notebook/assets/reader.css"><link rel="preload" href="/notebook/assets/fonts/texgyretermes-regular.otf" as="font" type="font/otf" crossorigin>
+<script defer src="/notebook/assets/reader.js"></script>
+<script src="/notebook/assets/math-config.js"></script><script defer id="MathJax-script" src="/notebook/assets/vendor/mathjax/tex-chtml-full.js"></script>
+</head><body data-layout="reader" data-has-notes="true" data-has-outline="true" data-notes-open="true" data-outline-open="true" data-search-index="/notebook/assets/search.json">
+<a class="skip-link" href="#article-body">Skip to content</a>
+<header class="toolbar"><div class="identity"><button class="icon-button" id="notes-toggle" aria-label="Toggle notes sidebar" aria-controls="notes-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/sidebar.svg" alt="" width="20" height="20"></button><a class="brand" href="/notebook/">E.H. Notebook</a></div>
+<nav class="top-navigation" aria-label="Notebook sections"><a href="/notebook/content/notes/index.html" aria-current="page">Notes</a><a href="/notebook/content/posts/index.html">Posts</a><a href="/notebook/content/research/index.html">Research</a></nav>
+<div class="reading-tools"><button class="icon-button appearance-toggle" id="appearance-toggle" aria-label="Reading text size" aria-controls="appearance-dialog">Aa</button><button class="icon-button" id="search-toggle" aria-label="Search notes" aria-keyshortcuts="Control+k Meta+k"><img src="/notebook/assets/icons/search.svg" alt="" width="20" height="20"></button><a class="icon-button github-link" href="https://github.com/EriseHe/notebook" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><img src="/notebook/assets/icons/github.svg" alt="" width="20" height="20"></a><button class="icon-button" id="outline-toggle" aria-label="Toggle outline" aria-controls="outline-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/outline.svg" alt="" width="20" height="20"></button></div></header>
+<div class="reader-layout"><aside class="notes-sidebar" id="notes-sidebar" aria-label="Notes navigation"><nav aria-label="Numerical Linear Algbera file hierarchy" data-sidebar-root="content/notes/理论/Numerical Linear Algbera"><a class="sidebar-root" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><ul class="notes-tree"><li class="folder-node" data-folder="content/notes/理论/Numerical Linear Algbera/Homework" data-active-branch="true"><div class="folder-row"><button class="tree-toggle folder-label" aria-controls="folder-209a64aec9e6" aria-expanded="true"><img class="folder-chevron" src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""><span>Homework</span></button></div><ul class="tree-children" id="folder-209a64aec9e6"><li class="file-node"><a class="note-link is-current" aria-current="page" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html"><span class="page-number"></span><span>HW 1</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span class="page-number"></span><span>HW 2</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span class="page-number"></span><span>HW 3</span></a></li></ul></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html"><span class="page-number">1</span><span>Vectors and Matrices</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span class="page-number">2</span><span>Storing Matrices &amp; Vectors</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span class="page-number">3</span><span>LU Factorization and Zero Pivots</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span class="page-number">4</span><span>LU Factorization with Pivoting</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span class="page-number">5</span><span>Least Squares and Gram-Schmidt</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html"><span class="page-number">6</span><span>Error Bounds and Householder QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span class="page-number">7</span><span>Orthogonal Transformations and QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html"><span class="page-number">8</span><span>Least Squares and Normal Equations</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span class="page-number">9</span><span>Cholesky Factorization and Schur Complements</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span class="page-number">10</span><span>Eigenvalues and Iterative Methods</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/11.%20Schur%20Factorization.html"><span class="page-number">11</span><span>Schur Factorization</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/12.%20Orthogonal%20Iteration.html"><span class="page-number">12</span><span>Orthogonal Iteration</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/13.%20QR%20without%20Shifts.html"><span class="page-number">13</span><span>QR without Shifts</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span class="page-number"></span><span>Midterm Study Plan</span></a></li></ul></nav></aside>
+<main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/index.html">Homework</a></nav><h1 id="reader-title">HW 1</h1></header><div id="article-body" class="prose"><h2 data-original-heading="Numerical Methods I, Homework 1" id="numerical-methods-i-homework-1">1 Numerical Methods I, Homework 1</h2>
+<p>Schäfer, Fall 2026</p>
+<p>Deadline: Sep.&nbsp;21 Monday, 4:55 pm</p>
+<h3 data-original-heading="1 Less positive [12.5 pts]" id="less-positive-12.5-pts">1 Less positive [12.5 pts]</h3>
+<p>Consider a symmetric positive definite matrix <span class="math inline">\(\boldsymbol{A}\)</span> separated into subblocks according to <span class="math display">\[
+\boldsymbol{A} = \begin{pmatrix}
+    \boldsymbol{A}_{1, 1} &amp; \boldsymbol{A}_{1, 2} \\
+    \boldsymbol{A}_{2, 1} &amp; \boldsymbol{A}_{2, 2}
+  \end{pmatrix}
+\]</span> Show that the matrix <span class="math inline">\(\boldsymbol{A}_{2,2} - \boldsymbol{A}_{2,1} \boldsymbol{A}_{1,1}^{-1} \boldsymbol{A}_{1,2}\)</span> is symmetric and positive definite.</p>
+<blockquote>
+<p><em>Proof.</em> For every <span class="math inline">\(\boldsymbol{x}\ne\boldsymbol{0}\)</span>, <span class="math display">\[
+\boldsymbol{x}^T\boldsymbol{A}_{1,1}\boldsymbol{x}
+=
+\begin{pmatrix}\boldsymbol{x}\\\boldsymbol{0}\end{pmatrix}^{\!T}
+\boldsymbol{A}
+\begin{pmatrix}\boldsymbol{x}\\\boldsymbol{0}\end{pmatrix}&gt;0
+\]</span> Thus <span class="math inline">\(\boldsymbol{A}_{1,1}\)</span> is symmetric positive definite and invertible. Let <span class="math inline">\(\boldsymbol{S}=\boldsymbol{A}_{2,2}-\boldsymbol{A}_{2,1}\boldsymbol{A}_{1,1}^{-1}\boldsymbol{A}_{1,2}\)</span>. Since <span class="math inline">\(\boldsymbol{A}_{2,1}=\boldsymbol{A}_{1,2}^T\)</span>, then <span class="math display">\[
+\begin{aligned}
+\boldsymbol{S}^T
+&amp;=\boldsymbol{A}_{2,2}^T
+  -\boldsymbol{A}_{1,2}^T(\boldsymbol{A}_{1,1}^{-1})^T\boldsymbol{A}_{2,1}^T\\
+&amp;=\boldsymbol{A}_{2,2}
+  -\boldsymbol{A}_{2,1}\boldsymbol{A}_{1,1}^{-1}\boldsymbol{A}_{1,2}
+=\boldsymbol{S}
+\end{aligned}
+\]</span> For <span class="math inline">\(\boldsymbol{y}\ne\boldsymbol{0}\)</span>, set <span class="math display">\[
+\begin{aligned}
+\boldsymbol{z}
+&amp;=\begin{pmatrix}
+-\boldsymbol{A}_{1,1}^{-1}\boldsymbol{A}_{1,2}\boldsymbol{y}\\
+\boldsymbol{y}
+\end{pmatrix}\ne\boldsymbol{0},
+&amp;
+\boldsymbol{A}\boldsymbol{z}
+&amp;=\begin{pmatrix}\boldsymbol{0}\\\boldsymbol{S}\boldsymbol{y}\end{pmatrix}
+\end{aligned}
+\]</span> then we know <span class="math inline">\(0&lt;\boldsymbol{z}^T\boldsymbol{A}\boldsymbol{z}=\boldsymbol{y}^T\boldsymbol{S}\boldsymbol{y}\)</span>. Hence <span class="math inline">\(\boldsymbol{S}\)</span> is symmetric positive definite.</p>
+</blockquote>
+<h3 data-original-heading="2 Just one [12.5 pts]" id="just-one-12.5-pts">2 Just one [12.5 pts]</h3>
+<p>Consider a matrix <span class="math inline">\(\boldsymbol{A} \in \mathbb{R}^{m \times m}\)</span>, with (unpivoted) LU-factorization given by <span class="math inline">\(\boldsymbol{A} = \boldsymbol{L} \boldsymbol{U}\)</span>. Propose an algorithm for computing the <span class="math inline">\((i, j)\)</span>-th entry of <span class="math inline">\(\boldsymbol{A}^{-1}\)</span> using only <span class="math inline">\(\mathcal{O}\left(\left(m + 1 - j\right)^2 + \left(m + 1 - i\right)^2\right)\)</span> floating point operations.</p>
+<blockquote>
+<p><em>Proof.</em> Using the given factors, we want to solve <span class="math inline">\(\boldsymbol{L}\boldsymbol{y}=\boldsymbol{e}_j\)</span> and <span class="math inline">\(\boldsymbol{U}\boldsymbol{x}=\boldsymbol{y}\)</span>, so then <span class="math display">\[
+\boldsymbol{x}=\boldsymbol{U}^{-1}\boldsymbol{L}^{-1}\boldsymbol{e}_j
+=\boldsymbol{A}^{-1}\boldsymbol{e}_j,
+\qquad x_i=(\boldsymbol{A}^{-1})_{ij}
+\]</span> We know that <span class="math inline">\(L_{kk}=1\)</span>, so forward substitution starts at <span class="math inline">\(j\)</span>; and backward substitution stops at <span class="math inline">\(i\)</span>: <span class="math display">\[
+\begin{aligned}
+y_k&amp;=0, &amp;&amp;k&lt;j\\
+y_j&amp;=1,\\
+y_k&amp;=-\sum_{s=j}^{k-1}L_{ks}y_s,
+&amp;&amp;k=j+1,\ldots,m\\
+x_k&amp;=\frac{y_k-\displaystyle\sum_{s=k+1}^{m}U_{ks}x_s}{U_{kk}},
+&amp;&amp;k=m,m-1,\ldots,i
+\end{aligned}
+\]</span> Return <span class="math inline">\(x_i\)</span>. Then the operation count is bounded by <span class="math display">\[
+\begin{aligned}
+N_{\mathrm{flop}}
+&amp;\le
+\underbrace{2\sum_{k=j+1}^{m}(k-j)}_{\text{forward}}
++\underbrace{\sum_{k=i}^{m}\bigl(2(m-k)+1\bigr)}_{\text{backward}}\\
+&amp;=(m-j)(m-j+1)+(m-i+1)^2\\
+&amp;=\mathcal{O}\bigl((m+1-j)^2+(m+1-i)^2\bigr)
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h3 data-original-heading="3 SVD [25 pts]" id="svd-25-pts">3 SVD [25 pts]</h3>
+<p>Use the recommended literature from the class syllabus to catch up on the SVD applied to non-square matrices, as well as the eigendecomposition of square matrices. The vector-two norm of a vector <span class="math inline">\(\boldsymbol{x} \in \mathbb{R}^n\)</span> is defined as <span class="math display">\[
+\|\boldsymbol{x}\|_2 = \sqrt{\sum_{i=1}^{n} x_i^2}.
+\]</span> The associated matrix-two norm of a matrix <span class="math inline">\(\boldsymbol{A} \in \mathbb{R}^{m \times n}\)</span> is defined as <span class="math display">\[
+\|\boldsymbol{A}\|_2 = \sup \limits_{\boldsymbol{x} \in \mathbb{R}^n \setminus \{\boldsymbol{0}\}} \frac{\|\boldsymbol{A}\boldsymbol{x}\|_2}{\|\boldsymbol{x}\|_2}.
+\]</span></p>
+<p>We denote as <span class="math inline">\(\sigma_{\mathrm{min}}\)</span> and <span class="math inline">\(\sigma_{\mathrm{max}}\)</span> the smallest and largest singular value of a matrix and by <span class="math inline">\(\lambda_{i}\)</span> its <span class="math inline">\(i\)</span>-th eigenvalue. We consider general matrices <span class="math inline">\(\boldsymbol{A} \in \mathbb{R}^{m \times n}\)</span> and <span class="math inline">\(\boldsymbol{B} \in \mathbb{R}^{n \times l}\)</span>. Show that the following results hold,</p>
+<h4 data-original-heading="(a) [4 pts]" id="a-4-pts">1.3.1 (a) [4 pts]</h4>
+<p><span class="math display">\[
+\sigma_{\mathrm{max}}(\boldsymbol{A}) \|\boldsymbol{x}\|_2 \geq \|\boldsymbol{A} \boldsymbol{x}\|_2, \forall \boldsymbol{x} \in \mathbb{R}^n.
+\]</span> Conclude that <span class="math inline">\(\sigma_{\mathrm{max}}(\boldsymbol{A}) = \|\boldsymbol{A}\|_2\)</span>.</p>
+<blockquote>
+<p><em>Proof.</em> We write <span class="math display">\[
+\boldsymbol{A}=\boldsymbol{U}\boldsymbol{\Sigma}\boldsymbol{V}^T,
+\qquad
+\sigma_1\ge\cdots\ge\sigma_r\ge0,
+\qquad r=\min(m,n),
+\]</span> with <span class="math inline">\(\boldsymbol{U},\boldsymbol{V}\)</span> orthogonal. Let <span class="math inline">\(\boldsymbol{v}_k\)</span> be the <span class="math inline">\(k\)</span>-th column of <span class="math inline">\(\boldsymbol{V}\)</span> and set <span class="math inline">\(\boldsymbol{y}=\boldsymbol{V}^T\boldsymbol{x}\)</span>, so <span class="math inline">\(\|\boldsymbol{y}\|_2=\|\boldsymbol{x}\|_2\)</span>. <span class="math display">\[
+\begin{aligned}
+\|\boldsymbol{A}\boldsymbol{x}\|_2^2
+&amp;=\|\boldsymbol{\Sigma}\boldsymbol{y}\|_2^2
+=\sum_{k=1}^{r}\sigma_k^2y_k^2\\
+&amp;\le\sigma_1^2\sum_{k=1}^{n}y_k^2
+=\sigma_{\max}(\boldsymbol{A})^2\|\boldsymbol{x}\|_2^2
+\end{aligned}
+\]</span> Taking square roots gives the inequality. Equality is attained at <span class="math inline">\(\boldsymbol{x}=\boldsymbol{v}_1\)</span>, hence <span class="math display">\[
+\sigma_{\max}(\boldsymbol{A})
+=\frac{\|\boldsymbol{A}\boldsymbol{v}_1\|_2}{\|\boldsymbol{v}_1\|_2}
+\le\|\boldsymbol{A}\|_2
+\le\sigma_{\max}(\boldsymbol{A})
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(b) [4 pts]" id="b-4-pts">1.3.2 (b) [4 pts]</h4>
+<p><span class="math display">\[
+m \geq n \Rightarrow \|\boldsymbol{A}\boldsymbol{x}\|_2 \geq \sigma_{\mathrm{min}}\left(\boldsymbol{A}\right) \|\boldsymbol{x}\|_2, \forall \boldsymbol{x} \in \mathbb{R}^n
+\]</span></p>
+<blockquote>
+<p><em>Proof.</em> For <span class="math inline">\(m\ge n\)</span>, <span class="math inline">\(r=n\)</span>, and <span class="math display">\[
+\begin{aligned}
+\|\boldsymbol{A}\boldsymbol{x}\|_2^2
+&amp;=\sum_{k=1}^{n}\sigma_k^2y_k^2
+\ge\sigma_n^2\sum_{k=1}^{n}y_k^2
+=\sigma_{\min}(\boldsymbol{A})^2\|\boldsymbol{x}\|_2^2\\
+\|\boldsymbol{A}\boldsymbol{x}\|_2
+&amp;\ge\sigma_{\min}(\boldsymbol{A})\|\boldsymbol{x}\|_2
+\end{aligned}
+\]</span> Equality is attained for <span class="math inline">\(\boldsymbol{x}=\boldsymbol{v}_n\)</span>, since <span class="math display">\[
+\|\boldsymbol{A}\boldsymbol{v}_n\|_2=\|\sigma_n\boldsymbol{u}_n\|_2=\sigma_n=\sigma_{\min}(\boldsymbol{A})
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(c) [4 pts]" id="c-4-pts">1.3.3 (c) [4 pts]</h4>
+<p><span class="math display">\[
+m = n \Rightarrow \sigma_{\mathrm{min}}\left(\boldsymbol{A}\right) \leq \left|\lambda_{i}\left(\boldsymbol{A}\right)\right| \leq \sigma_{\mathrm{max}}\left(\boldsymbol{A}\right), \forall i
+\]</span></p>
+<blockquote>
+<p><em>Proof.</em> The same bounds hold for complex vectors, using <span class="math inline">\(|y_k|^2\)</span> in the sums. For an eigenvector <span class="math inline">\(\boldsymbol{z}\in\mathbb{C}^m\setminus\{\boldsymbol{0}\}\)</span>, we know that <span class="math display">\[
+\begin{aligned}
+\sigma_{\min}(\boldsymbol{A})\|\boldsymbol{z}\|_2
+&amp;\le\|\boldsymbol{A}\boldsymbol{z}\|_2
+=|\lambda_i(\boldsymbol{A})|\|\boldsymbol{z}\|_2
+\le\sigma_{\max}(\boldsymbol{A})\|\boldsymbol{z}\|_2\\
+\sigma_{\min}(\boldsymbol{A})
+&amp;\le|\lambda_i(\boldsymbol{A})|
+\le\sigma_{\max}(\boldsymbol{A})
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(d) [4 pts]" id="d-4-pts">1.3.4 (d) [4 pts]</h4>
+<p><span class="math display">\[
+\sigma_{\mathrm{max}}\left(\boldsymbol{A}\right) = 1 / \sigma_{\mathrm{min}}\left(\boldsymbol{A}^{-1}\right)\text{, if $\boldsymbol{A}^{-1}$ exists}
+\]</span></p>
+<blockquote>
+<p><em>Proof.</em> Let <span class="math display">\[
+\boldsymbol{A}=\boldsymbol{U}\boldsymbol{\Sigma}\boldsymbol{V}^T,\qquad\sigma_1\ge\cdots\ge\sigma_m&gt;0
+\]</span> Since <span class="math inline">\(\boldsymbol{A}\)</span> is invertible, <span class="math display">\[
+\boldsymbol{A}^{-1}=\boldsymbol{V}\boldsymbol{\Sigma}^{-1}\boldsymbol{U}^T.
+\]</span> Thus the singular values of <span class="math inline">\(\boldsymbol{A}^{-1}\)</span> are <span class="math display">\[
+\frac{1}{\sigma_1},\ldots,\frac{1}{\sigma_m}
+\]</span> Therefore <span class="math display">\[
+\begin{aligned}
+\sigma_{\min}(\boldsymbol{A}^{-1})
+&amp;=\min_{1\le k\le m}\frac{1}{\sigma_k(\boldsymbol{A})}\\
+&amp;=\frac{1}{\sigma_{\max}(\boldsymbol{A})}
+\end{aligned}
+\]</span> as desired.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(e) [4 pts]" id="e-4-pts">1.3.5 (e) [4 pts]</h4>
+<p>Find the most general conditions on <span class="math inline">\(m\)</span>, <span class="math inline">\(n\)</span>, and <span class="math inline">\(l\)</span>, under which <span class="math inline">\(\sigma_{\mathrm{min}}\left(\boldsymbol{A}\boldsymbol{B}\right) \geq \sigma_{\mathrm{min}}\left(\boldsymbol{A}\right) \sigma_{\mathrm{min}}\left(\boldsymbol{B}\right)\)</span>.</p>
+<blockquote>
+<p><em>Proof.</em> We know that the necessary and sufficient dimensional condition for the inequality to hold for all <span class="math inline">\(\boldsymbol{A},\boldsymbol{B}\)</span> is <span class="math display">\[
+\min(m,l)\le n\le\max(m,l)
+\]</span> SO transposing replaces <span class="math inline">\(\boldsymbol{A}\boldsymbol{B}\)</span> by <span class="math inline">\(\boldsymbol{B}^T\boldsymbol{A}^T\)</span> without changing singular values, so it suffices to consider <span class="math inline">\(m\ge l\)</span>. If <span class="math inline">\(m\ge n\ge l\)</span>, part (b) would give <span class="math display">\[
+\begin{aligned}
+\|\boldsymbol{A}\boldsymbol{B}\boldsymbol{x}\|_2
+&amp;\ge\sigma_{\min}(\boldsymbol{A})\|\boldsymbol{B}\boldsymbol{x}\|_2\\
+&amp;\ge\sigma_{\min}(\boldsymbol{A})\sigma_{\min}(\boldsymbol{B})\|\boldsymbol{x}\|_2,\\
+\sigma_{\min}(\boldsymbol{A}\boldsymbol{B})
+&amp;=\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
+\frac{\|\boldsymbol{A}\boldsymbol{B}\boldsymbol{x}\|_2}{\|\boldsymbol{x}\|_2}
+\ge\sigma_{\min}(\boldsymbol{A})\sigma_{\min}(\boldsymbol{B})
+\end{aligned}
+\]</span> To show this to be true, we retain <span class="math inline">\(m\ge l\)</span>. If <span class="math inline">\(n&lt;l\)</span>, choose <span class="math display">\[
+\boldsymbol{A}=\begin{pmatrix}\mathbf{I}_n\\\boldsymbol{0}\end{pmatrix},
+\qquad
+\boldsymbol{B}=\begin{pmatrix}\mathbf{I}_n&amp;\boldsymbol{0}\end{pmatrix}
+\]</span> Then <span class="math inline">\(\operatorname{rank}(\boldsymbol{A}\boldsymbol{B})=n&lt;l\)</span>. If <span class="math inline">\(n&gt;m\)</span>, choose, with <span class="math inline">\(\boldsymbol{e}_k\in\mathbb{R}^n\)</span>, <span class="math display">\[
+\boldsymbol{A}=\begin{pmatrix}\mathbf{I}_m&amp;\boldsymbol{0}\end{pmatrix},
+\qquad
+\boldsymbol{B}=\begin{pmatrix}
+\boldsymbol{e}_1&amp;\cdots&amp;\boldsymbol{e}_{l-1}&amp;\boldsymbol{e}_{m+1}
+\end{pmatrix}
+\]</span> Then <span class="math inline">\(\operatorname{rank}(\boldsymbol{A}\boldsymbol{B})=l-1\)</span>. Both choices satisfy <span class="math display">\[
+\sigma_{\min}(\boldsymbol{A})=\sigma_{\min}(\boldsymbol{B})=1,
+\qquad
+\sigma_{\min}(\boldsymbol{A}\boldsymbol{B})=0,
+\]</span> so the inequality fails outside of the stated range as demonstrated</p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(f) [5 pts]" id="f-5-pts">1.3.6 (f) [5 pts]</h4>
+<p>In class, we have defined the condition number of a scalar function <span class="math inline">\(f\)</span> at a point <span class="math inline">\(x\)</span> as <span class="math display">\[
+\kappa_f(x) = \lim_{\varepsilon \to 0} \sup_{0 &lt; |\delta x| \leq \varepsilon} \frac{|f(x + \delta x)
+- f(x)|}{|f(x)|} \big/ \frac{|\delta x|}{|x|}.
+\]</span> Similarly, we can define the two-norm condition number of a vector-valued function <span class="math inline">\(\boldsymbol{f}:\mathbb{R}^n \to \mathbb{R}^m\)</span> at a point <span class="math inline">\(\boldsymbol{x} \in \mathbb{R}^n\)</span> as <span class="math display">\[
+\kappa_{\boldsymbol{f}}(\boldsymbol{x}) = \lim_{\varepsilon \to 0} \sup_{0 &lt; \|\delta \boldsymbol{x}\|_2 \leq \varepsilon} \frac{\|\boldsymbol{f}(\boldsymbol{x} + \delta \boldsymbol{x}) - \boldsymbol{f}(\boldsymbol{x})\|_2}{\|\boldsymbol{f}(\boldsymbol{x})\|_2}
+  \big/ \frac{\|\delta \boldsymbol{x}\|_2}{\|\boldsymbol{x}\|_2}
+.
+\]</span> Show that the condition number of the function <span class="math inline">\(\boldsymbol{f}(\boldsymbol{x}) = \boldsymbol{A}\boldsymbol{x}\)</span> is given by <span class="math display">\[
+\kappa_{\boldsymbol{f}}(\boldsymbol{x}) = \frac{\|\boldsymbol{A}\|_2 \|\boldsymbol{x}\|_2}{\|\boldsymbol{A}\boldsymbol{x}\|_2}.
+\]</span> For <span class="math inline">\(m \geq n\)</span> and <span class="math inline">\(\boldsymbol{A}\)</span> having full column rank, conclude that the worst-case condition number of the function <span class="math inline">\(\boldsymbol{f}(\boldsymbol{x}) = \boldsymbol{A}\boldsymbol{x}\)</span> is given by <span class="math display">\[
+\kappa_{\boldsymbol{f}} = \sup_{\boldsymbol{x} \in \mathbb{R}^n \setminus \{\boldsymbol{0}\}} \kappa_{\boldsymbol{f}}(\boldsymbol{x}) = \frac{\sigma_{\mathrm{max}}\left(\boldsymbol{A}\right)}{\sigma_{\mathrm{min}}\left(\boldsymbol{A}\right)}  \eqcolon \kappa(\boldsymbol{A}).
+\]</span> For invertible square <span class="math inline">\(\boldsymbol{A}\)</span>, find an expression of <span class="math inline">\(\kappa(\boldsymbol{A})\)</span> only in terms of operator norms.</p>
+<blockquote>
+<p><em>Proof.</em> For <span class="math inline">\(\boldsymbol{x}\ne\boldsymbol{0}\)</span> with <span class="math inline">\(\boldsymbol{A}\boldsymbol{x}\ne\boldsymbol{0}\)</span>, linearity and homogeneity give us <span class="math display">\[
+\begin{aligned}
+\kappa_{\boldsymbol{f}}(\boldsymbol{x})
+&amp;=\frac{\|\boldsymbol{x}\|_2}{\|\boldsymbol{A}\boldsymbol{x}\|_2}
+\lim_{\varepsilon\to0}
+\sup_{0&lt;\|\delta\boldsymbol{x}\|_2\le\varepsilon}
+\frac{\|\boldsymbol{A}\delta\boldsymbol{x}\|_2}{\|\delta\boldsymbol{x}\|_2}\\
+&amp;=\frac{\|\boldsymbol{A}\|_2\|\boldsymbol{x}\|_2}{\|\boldsymbol{A}\boldsymbol{x}\|_2}
+\end{aligned}
+\]</span> If <span class="math inline">\(m\ge n\)</span> and <span class="math inline">\(\boldsymbol{A}\)</span> has full column rank, then <span class="math display">\[
+\begin{aligned}
+\kappa_{\boldsymbol{f}}(\boldsymbol{x})
+&amp;\le\frac{\sigma_{\max}(\boldsymbol{A})}{\sigma_{\min}(\boldsymbol{A})}\\
+\kappa_{\boldsymbol{f}}(\boldsymbol{v}_n)
+&amp;=\frac{\sigma_{\max}(\boldsymbol{A})}{\sigma_{\min}(\boldsymbol{A})}\\
+\kappa_{\boldsymbol{f}}
+&amp;=\sup_{\boldsymbol{x}\ne\boldsymbol{0}}\kappa_{\boldsymbol{f}}(\boldsymbol{x})
+=\frac{\sigma_{\max}(\boldsymbol{A})}{\sigma_{\min}(\boldsymbol{A})}
+=\kappa(\boldsymbol{A})
+\end{aligned}
+\]</span> For invertible square <span class="math inline">\(\boldsymbol{A}\)</span>, <span class="math display">\[
+\kappa(\boldsymbol{A})
+=\sigma_{\max}(\boldsymbol{A})\sigma_{\max}(\boldsymbol{A}^{-1})
+=\|\boldsymbol{A}\|_2\|\boldsymbol{A}^{-1}\|_2
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h3 data-original-heading="4 Inverses [25 pts]" id="inverses-25-pts">4 Inverses [25 pts]</h3>
+<p>We consider <span class="math inline">\(\boldsymbol{A} \in \mathbb{R}^{m \times m}\)</span> and assume that <span class="math inline">\(\boldsymbol{A}^{-1}\)</span> exists. You may use without proof that if <span class="math inline">\(\boldsymbol{A}\)</span> is symmetric, its largest and smallest eigenvalues are characterized as <span class="math display">\[
+\lambda_{\mathrm{max}}\left(\boldsymbol{A}\right) = \sup \limits_{\boldsymbol{x} \in \mathbb{R}^m \setminus \{\boldsymbol{0}\}} \frac{\boldsymbol{x}^T \boldsymbol{A}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}
+\]</span> and <span class="math display">\[
+\lambda_{\mathrm{min}}\left(\boldsymbol{A}\right) = \inf \limits_{\boldsymbol{x} \in \mathbb{R}^m \setminus \{\boldsymbol{0}\}} \frac{\boldsymbol{x}^T \boldsymbol{A}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}
+\]</span></p>
+<h4 data-original-heading="(a) [5 pts]" id="a-5-pts">1.4.1 (a) [5 pts]</h4>
+<p>Show that <span class="math display">\[
+\left\|\boldsymbol{A}^{-1}\right\|_2^{-1} = \inf \limits_{\boldsymbol{x} \in \mathbb{R}^m \setminus \{\boldsymbol{0}\}} \frac{\|\boldsymbol{A}\boldsymbol{x}\|_2}{\|\boldsymbol{x}\|_2}
+\tag{1}
+\]</span></p>
+<blockquote>
+<p><em>Proof.</em> Since <span class="math inline">\(\boldsymbol{y}=\boldsymbol{A}\boldsymbol{x}\)</span> bijects the nonzero vectors, <span class="math display">\[
+\begin{aligned}
+\|\boldsymbol{A}^{-1}\|_2^{-1}
+&amp;=\left(\sup_{\boldsymbol{y}\ne\boldsymbol{0}}
+\frac{\|\boldsymbol{A}^{-1}\boldsymbol{y}\|_2}{\|\boldsymbol{y}\|_2}\right)^{-1}\\
+&amp;=\left(\sup_{\boldsymbol{x}\ne\boldsymbol{0}}
+\frac{\|\boldsymbol{x}\|_2}{\|\boldsymbol{A}\boldsymbol{x}\|_2}\right)^{-1}
+=\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
+\frac{\|\boldsymbol{A}\boldsymbol{x}\|_2}{\|\boldsymbol{x}\|_2}
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(b) [5 pts]" id="b-5-pts">1.4.2 (b) [5 pts]</h4>
+<p>Show that <span class="math display">\[
+\left\|\boldsymbol{A}^{-1}\right\|_2^{-1} \geq \inf \limits_{\boldsymbol{x} \in \mathbb{R}^m \setminus \{\boldsymbol{0}\}} \frac{|\boldsymbol{x}^T \boldsymbol{A}\boldsymbol{x}|}{\|\boldsymbol{x}\|_2^2}
+\tag{2}
+\]</span></p>
+<blockquote>
+<p><em>Proof.</em> By Cauchy–Schwarz and part (a), <span class="math display">\[
+\begin{aligned}
+\frac{|\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}|}{\|\boldsymbol{x}\|_2^2}
+&amp;\le\frac{\|\boldsymbol{x}\|_2\|\boldsymbol{A}\boldsymbol{x}\|_2}{\|\boldsymbol{x}\|_2^2}
+=\frac{\|\boldsymbol{A}\boldsymbol{x}\|_2}{\|\boldsymbol{x}\|_2}\\
+\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
+\frac{|\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}|}{\|\boldsymbol{x}\|_2^2}
+&amp;\le\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
+\frac{\|\boldsymbol{A}\boldsymbol{x}\|_2}{\|\boldsymbol{x}\|_2}
+=\|\boldsymbol{A}^{-1}\|_2^{-1}
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(c) [5 pts]" id="c-5-pts">1.4.3 (c) [5 pts]</h4>
+<p>Show that for symmetric matrices <span class="math inline">\(\boldsymbol{M}, \boldsymbol{N} \in \mathbb{R}^{m \times m}\)</span>, <span class="math display">\[
+\lambda_{\mathrm{min}}(\boldsymbol{M} + \boldsymbol{N}) \geq \lambda_{\mathrm{min}}\left(\boldsymbol{M}\right) + \lambda_{\mathrm{min}}\left(\boldsymbol{N}\right)
+\tag{3}
+\]</span></p>
+<blockquote>
+<p><em>Proof.</em> By the given Rayleigh-quotient characterization, <span class="math display">\[
+\begin{aligned}
+\lambda_{\min}(\boldsymbol{M}+\boldsymbol{N})
+&amp;=\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
+\left(\frac{\boldsymbol{x}^T\boldsymbol{M}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}
++\frac{\boldsymbol{x}^T\boldsymbol{N}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}\right)\\
+&amp;\ge\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
+\frac{\boldsymbol{x}^T\boldsymbol{M}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}
++\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
+\frac{\boldsymbol{x}^T\boldsymbol{N}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}\\
+&amp;=\lambda_{\min}(\boldsymbol{M})+\lambda_{\min}(\boldsymbol{N})
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(d) [5 pts]" id="d-5-pts">1.4.4 (d) [5 pts]</h4>
+<p>In the same setting as (c), show that <span class="math display">\[
+\lambda_{\mathrm{max}}(\boldsymbol{M} + \boldsymbol{N}) \leq \lambda_{\mathrm{max}}\left(\boldsymbol{M}\right) + \lambda_{\mathrm{max}}\left(\boldsymbol{N}\right)
+\tag{4}
+\]</span></p>
+<blockquote>
+<p><em>Proof.</em> Similarly, <span class="math display">\[
+\begin{aligned}
+\lambda_{\max}(\boldsymbol{M}+\boldsymbol{N})
+&amp;=\sup_{\boldsymbol{x}\ne\boldsymbol{0}}
+\left(\frac{\boldsymbol{x}^T\boldsymbol{M}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}
++\frac{\boldsymbol{x}^T\boldsymbol{N}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}\right)\\
+&amp;\le\sup_{\boldsymbol{x}\ne\boldsymbol{0}}
+\frac{\boldsymbol{x}^T\boldsymbol{M}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}
++\sup_{\boldsymbol{x}\ne\boldsymbol{0}}
+\frac{\boldsymbol{x}^T\boldsymbol{N}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}\\
+&amp;=\lambda_{\max}(\boldsymbol{M})+\lambda_{\max}(\boldsymbol{N})
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote>
+<h4 data-original-heading="(e) [5 pts]" id="e-5-pts">1.4.5 (e) [5 pts]</h4>
+<p>For <span class="math inline">\(\boldsymbol{A}\)</span> symmetric positive definite, show that <span class="math display">\[
+\|\boldsymbol{A}^{-1}\|_{2}^{-1} = \inf \limits_{\boldsymbol{x} \in \mathbb{R}^m \setminus \{\boldsymbol{0}\}} \frac{\boldsymbol{x}^T \boldsymbol{A} \boldsymbol{x}}{\|\boldsymbol{x}\|^2_2}
+\]</span></p>
+<blockquote>
+<p><em>Proof.</em> Let <span class="math inline">\(\boldsymbol{A}\boldsymbol{q}=\lambda_{\min}(\boldsymbol{A})\boldsymbol{q}\)</span>, <span class="math inline">\(\boldsymbol{q}\ne\boldsymbol{0}\)</span>. Since <span class="math inline">\(\boldsymbol{A}\)</span> is positive definite, <span class="math inline">\(\lambda_{\min}(\boldsymbol{A})&gt;0\)</span>. Parts (b) and (a), respectively, give <span class="math display">\[
+\begin{aligned}
+\|\boldsymbol{A}^{-1}\|_2^{-1}
+&amp;\ge\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
+\frac{\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}
+=\lambda_{\min}(\boldsymbol{A}),\\
+\|\boldsymbol{A}^{-1}\|_2^{-1}
+&amp;\le\frac{\|\boldsymbol{A}\boldsymbol{q}\|_2}{\|\boldsymbol{q}\|_2}
+=\lambda_{\min}(\boldsymbol{A}).
+\end{aligned}
+\]</span> Therefore <span class="math display">\[
+\|\boldsymbol{A}^{-1}\|_2^{-1}
+=\lambda_{\min}(\boldsymbol{A})
+=\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
+\frac{\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</blockquote></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
+    <span class="unavailable" aria-disabled="true"><span>← Previous page</span><span>First page</span></span>
+    <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span>Next page →</span><span>HW 2</span></a>
+  </nav></footer></article></main>
+<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"><div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">HW 1</a></div><div class="outline-contents" id="outline-contents"><div id="outline-progress" class="outline-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-controls="reading-viewport"><span class="outline-marker"></span></div><ol id="outline-items"><li style="--depth:0"><a href="#numerical-methods-i-homework-1" class="is-active" aria-current="location">1 Numerical Methods I, Homework 1</a></li><li style="--depth:1"><a href="#less-positive-12.5-pts">1 Less positive [12.5 pts]</a></li><li style="--depth:1"><a href="#just-one-12.5-pts">2 Just one [12.5 pts]</a></li><li style="--depth:1"><a href="#svd-25-pts">3 SVD [25 pts]</a></li><li style="--depth:2"><a href="#a-4-pts">1.3.1 (a) [4 pts]</a></li><li style="--depth:2"><a href="#b-4-pts">1.3.2 (b) [4 pts]</a></li><li style="--depth:2"><a href="#c-4-pts">1.3.3 (c) [4 pts]</a></li><li style="--depth:2"><a href="#d-4-pts">1.3.4 (d) [4 pts]</a></li><li style="--depth:2"><a href="#e-4-pts">1.3.5 (e) [4 pts]</a></li><li style="--depth:2"><a href="#f-5-pts">1.3.6 (f) [5 pts]</a></li><li style="--depth:1"><a href="#inverses-25-pts">4 Inverses [25 pts]</a></li><li style="--depth:2"><a href="#a-5-pts">1.4.1 (a) [5 pts]</a></li><li style="--depth:2"><a href="#b-5-pts">1.4.2 (b) [5 pts]</a></li><li style="--depth:2"><a href="#c-5-pts">1.4.3 (c) [5 pts]</a></li><li style="--depth:2"><a href="#d-5-pts">1.4.4 (d) [5 pts]</a></li><li style="--depth:2"><a href="#e-5-pts">1.4.5 (e) [5 pts]</a></li></ol></div></aside></div>
+<button class="sidebar-scrim" tabindex="-1" aria-label="Close sidebar" hidden></button>
+<dialog id="search-dialog" class="search-dialog" aria-labelledby="search-label"><form method="dialog" class="search-heading"><label id="search-label" for="search-input">Search notes</label><button value="close" aria-label="Close search">×</button></form><input id="search-input" type="search" placeholder="Title, topic, or phrase…" autocomplete="off"><p id="search-status" role="status">Search the published notes on this site.</p><ol id="search-results"></ol></dialog>
+<dialog id="appearance-dialog" class="appearance-dialog" aria-labelledby="appearance-label"><form method="dialog"><h2 id="appearance-label">Reading appearance</h2><button aria-label="Close text settings">×</button></form><p class="settings-label">Typeface</p><div class="font-options"><button data-font="termes">Classic textbook<small>TeX Gyre Termes</small></button><button data-font="stix">STIX Two Text<small>Original reader</small></button></div><p class="settings-label">Text size</p><div class="size-options"><button data-size="18">Compact</button><button data-size="20">Comfortable</button><button data-size="22">Large</button></div></dialog>
+</body></html>
