@@ -4,6 +4,8 @@ Schäfer, Fall 2026
 
 Deadline: Oct. 19 Monday, 4:55 pm
 
+Submitted solutions are unchanged. Each added study block expands the derivation and cites its lecture prerequisites.
+
 ## 1 Schur Complements I [25 pts]
 Consider the matrix
 $$
@@ -55,6 +57,39 @@ The matrix $\boldsymbol{M}/\boldsymbol{A} \coloneqq \boldsymbol{D} - \boldsymbol
 > thus, the $\boldsymbol{M}/\boldsymbol{A}$ is the trailing block of the block upper-triangular factor after eliminating $\boldsymbol{C}$.
 
 
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> The block-LU construction is in [Lecture 9 §9.9](<../9. Cholesky Factorization and Schur Complements.md#the-block-inverse-identity>), following [block elimination in §9.8](<../9. Cholesky Factorization and Schur Complements.md#block-cholesky-and-schur-complements>). Set $S=D-CA^{-1}B$. The four blocks of the product are
+>
+> $$
+> \begin{aligned}
+> (EM)_{11}&=I_mA+0C=A,\\
+> (EM)_{12}&=I_mB+0D=B,\\
+> (EM)_{21}&=(-CA^{-1})A+I_nC=-C+C=0,\\
+> (EM)_{22}&=(-CA^{-1})B+I_nD=S.
+> \end{aligned}
+> $$
+>
+> To invert $E$, check both products:
+>
+> $$
+> \begin{aligned}
+> E&=\begin{pmatrix}I&0\\-CA^{-1}&I\end{pmatrix},
+> &F&=\begin{pmatrix}I&0\\CA^{-1}&I\end{pmatrix},\\
+> EF&=\begin{pmatrix}I&0\\-CA^{-1}+CA^{-1}&I\end{pmatrix}=I,
+> &FE&=I,\\
+> M&=E^{-1}(EM)
+> =\begin{pmatrix}I&0\\CA^{-1}&I\end{pmatrix}
+>  \begin{pmatrix}A&B\\0&S\end{pmatrix}.
+> \end{aligned}
+> $$
+>
+> Only $A$ must be invertible; $M$ and $S$ may be singular here.
+
+
 ### (b) [5 pts]
   Show that the determinant of $\boldsymbol{M}$ is given by $\det\left(\boldsymbol{A}\right) \det\left(\boldsymbol{M} / \boldsymbol{A}\right)$.
 
@@ -70,6 +105,27 @@ The matrix $\boldsymbol{M}/\boldsymbol{A} \coloneqq \boldsymbol{D} - \boldsymbol
 > &=\det(\boldsymbol{A})\det(\boldsymbol{M}/\boldsymbol{A})
 > \end{aligned}
 > $$
+
+
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> The determinant calculation for triangular LU factors appears in [Lecture 3 §3.7](<../3. LU Factorization and Zero Pivots.md#zero-pivots>); the block factors are from [Lecture 9 §9.9](<../9. Cholesky Factorization and Schur Complements.md#the-block-inverse-identity>). Write the factors in 1(a) as $\mathcal L,\mathcal U$. Then
+>
+> $$
+> \begin{aligned}
+> \det M&=\det(\mathcal L\mathcal U)
+>        =\det\mathcal L\,\det\mathcal U,\\
+> \det\mathcal L&=\prod_{i=1}^{m+n}\mathcal L_{ii}=1,\\
+> \det\mathcal U&=\det\begin{pmatrix}A&B\\0&S\end{pmatrix}
+>                 =\det A\,\det S,\\
+> \det M&=1\cdot\det A\,\det S.
+> \end{aligned}
+> $$
+>
+> For the block determinant step, a nonzero term in the determinant's permutation expansion must assign the last $n$ rows to the last $n$ columns: entries in their first $m$ columns are zero. The first $m$ rows then use the first $m$ columns. The two permutation sums are exactly $\det A$ and $\det S$; the block $B$ contributes no term. This also covers singular $S$.
 
 
 ### (c) [7.5 pts]
@@ -127,6 +183,39 @@ $$
 > &=\boldsymbol{L}_{2,2}\boldsymbol{U}_{2,2}
 > \end{aligned}
 > $$
+
+
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> Use [Lecture 9 §9.8's block multiplication](<../9. Cholesky Factorization and Schur Complements.md#block-cholesky-and-schur-complements>) with general LU factors. From $A=L_{11}U_{11}$ and $\det A\ne0$,
+>
+> $$
+> \begin{aligned}
+> 0\ne\det A&=\det L_{11}\det U_{11},\\
+> A^{-1}&=U_{11}^{-1}L_{11}^{-1},\\
+> A(U_{11}^{-1}L_{11}^{-1})
+> &=L_{11}(U_{11}U_{11}^{-1})L_{11}^{-1}=I.
+> \end{aligned}
+> $$
+>
+> Substitute the four block equations, retaining the order of multiplication:
+>
+> $$
+> \begin{aligned}
+> CA^{-1}B
+> &=L_{21}U_{11}U_{11}^{-1}L_{11}^{-1}L_{11}U_{12}\\
+> &=L_{21}(U_{11}U_{11}^{-1})(L_{11}^{-1}L_{11})U_{12}\\
+> &=L_{21}U_{12},\\
+> M/A&=D-CA^{-1}B\\
+> &=(L_{21}U_{12}+L_{22}U_{22})-L_{21}U_{12}\\
+> &=L_{22}U_{22}.
+> \end{aligned}
+> $$
+>
+> No inverse of $L_{22}$ or $U_{22}$ is used.
 
 
 ### (d) [7.5 pts]
@@ -228,6 +317,53 @@ Here, $\left(\boldsymbol{N} / \boldsymbol{N}_{1, 1}\right)_{1, 1}$ is the top le
 > Since $\boldsymbol{S}=\boldsymbol{N}/\boldsymbol{N}_{1,1}$, this is then precisely the quotient property (4).
 
 
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> This quotient identity is a homework derivation from the [Schur-complement definition in Lecture 9 §9.8](<../9. Cholesky Factorization and Schur Complements.md#block-cholesky-and-schur-complements>), not an additional cited lecture theorem. Use $S_{ij}$ and $K$ defined above. Part 1(b) gives
+>
+> $$
+> \begin{aligned}
+> \det K&=\det N_{11}\det S_{11},\\
+> \det K\ne0,\quad\det N_{11}\ne0
+> &\Longrightarrow\det S_{11}\ne0.
+> \end{aligned}
+> $$
+>
+> Expand the block system for $K^{-1}(N_{13},N_{23})^T$:
+>
+> $$
+> \begin{aligned}
+> N_{11}X+N_{12}Y&=N_{13},\\
+> N_{21}X+N_{22}Y&=N_{23},\\
+> X&=N_{11}^{-1}N_{13}-N_{11}^{-1}N_{12}Y,\\
+> N_{21}N_{11}^{-1}N_{13}
+> -N_{21}N_{11}^{-1}N_{12}Y+N_{22}Y&=N_{23},\\
+> (N_{22}-N_{21}N_{11}^{-1}N_{12})Y
+> &=N_{23}-N_{21}N_{11}^{-1}N_{13},\\
+> S_{11}Y&=S_{12},\qquad Y=S_{11}^{-1}S_{12}.
+> \end{aligned}
+> $$
+>
+> Now eliminate $X$ before grouping the remaining terms:
+>
+> $$
+> \begin{aligned}
+> N/K&=N_{33}-(N_{31},N_{32})K^{-1}
+>                  \begin{pmatrix}N_{13}\\N_{23}\end{pmatrix}\\
+> &=N_{33}-N_{31}X-N_{32}Y\\
+> &=N_{33}-N_{31}N_{11}^{-1}N_{13}
+>   +N_{31}N_{11}^{-1}N_{12}Y-N_{32}Y\\
+> &=(N_{33}-N_{31}N_{11}^{-1}N_{13})
+>  -(N_{32}-N_{31}N_{11}^{-1}N_{12})Y\\
+> &=S_{22}-S_{21}S_{11}^{-1}S_{12}
+>  =(N/N_{11})/S_{11}.
+> \end{aligned}
+> $$
+
+
 ## 2 Schur Complements II [25 pts + 10 bonus]
 Let $\boldsymbol{M}$ be as in the previous problem.
 
@@ -269,6 +405,39 @@ Show that the Schur complement $\boldsymbol{M} / \boldsymbol{A}$ is the inverse 
 > $$
 
 
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> This is the [block-inverse lemma, Lecture 9 §9.9](<../9. Cholesky Factorization and Schur Complements.md#the-block-inverse-identity>). Here both $M$ and $A$ must be invertible. By 1(b), $\det S=\det M/\det A\ne0$. For $\mathcal U=\begin{pmatrix}A&B\\0&S\end{pmatrix}$, solve $\mathcal U\mathcal U^{-1}=I$ block by block:
+>
+> $$
+> \begin{aligned}
+> \mathcal U^{-1}&=\begin{pmatrix}X&Y\\Z&W\end{pmatrix},\\
+> SZ=0&\Longrightarrow Z=0,\\
+> SW=I&\Longrightarrow W=S^{-1},\\
+> AX+BZ=I&\Longrightarrow X=A^{-1},\\
+> AY+BW=0&\Longrightarrow Y=-A^{-1}BS^{-1}.
+> \end{aligned}
+> $$
+>
+> Multiplication by $\mathcal L^{-1}$ now gives the whole inverse:
+>
+> $$
+> \begin{aligned}
+> M^{-1}
+> &=\begin{pmatrix}A^{-1}&-A^{-1}BS^{-1}\\0&S^{-1}\end{pmatrix}
+>   \begin{pmatrix}I&0\\-CA^{-1}&I\end{pmatrix}\\
+> &=\begin{pmatrix}
+> A^{-1}+A^{-1}BS^{-1}CA^{-1}&-A^{-1}BS^{-1}\\
+> -S^{-1}CA^{-1}&S^{-1}
+> \end{pmatrix},\\
+> \delta&=S^{-1}\Longrightarrow\delta^{-1}=S=M/A.
+> \end{aligned}
+> $$
+
+
 ### (b) [5 pts]
 For $\boldsymbol{M}$ symmetric positive definite (symmetric meaning Hermitian in the complex case), show that if $\lambda$ is an eigenvalue of $\boldsymbol{M} / \boldsymbol{A}$, then $\lambda_{\min}\left(\boldsymbol{M} \right) \leq \lambda \leq \lambda_{\max}\left(\boldsymbol{M}\right)$.
 
@@ -304,6 +473,51 @@ For $\boldsymbol{M}$ symmetric positive definite (symmetric meaning Hermitian in
 > &\le \lambda \le \lambda_{\max}(M)
 > \end{aligned}
 > $$
+
+
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> The Hermitian eigendecomposition is used in [Lecture 8 §8.7.2](<../8. Least Squares and Normal Equations.md#a-hermitian-positive-semidefinite-matrix-is-a-gram-matrix>); the orthonormal-eigenbasis statement is explicit in [Lecture 10 §10.2.1](<../10. Eigenvalues and Iterative Methods.md#hermitian-matrices>). Write $M=V\operatorname{diag}(\mu_i)V^*$, with $V^*V=I$ and $0<\mu_{\min}\le\mu_i\le\mu_{\max}$. For $c=V^*z$,
+>
+> $$
+> \begin{aligned}
+> M^{-1}&=V\operatorname{diag}(\mu_i^{-1})V^*,\\
+> z^*M^{-1}z&=\sum_i\frac{|c_i|^2}{\mu_i},
+> &\|c\|_2^2&=\|z\|_2^2,\\
+> \frac{\|z\|_2^2}{\mu_{\max}}
+> &\le\sum_i\frac{|c_i|^2}{\mu_i}
+> \le\frac{\|z\|_2^2}{\mu_{\min}}.
+> \end{aligned}
+> $$
+>
+> This also proves $M^{-1}$ positive definite. Setting $z=(0,y)^T$ proves $y^*\delta y>0$ for $y\ne0$. Apply the same eigendecomposition argument to $\delta=W\operatorname{diag}(d_i)W^*$, where $d_i>0$. By [the block-inverse identity](<../9. Cholesky Factorization and Schur Complements.md#the-block-inverse-identity>),
+>
+> $$
+> \begin{aligned}
+> S&=\delta^{-1}=W\operatorname{diag}(d_i^{-1})W^*=S^*,\\
+> y^*Sy&=\sum_i d_i^{-1}|w_i^*y|^2>0\quad(y\ne0).
+> \end{aligned}
+> $$
+>
+> Thus $S$ is Hermitian positive definite. If $Sy=\lambda y$, then
+>
+> $$
+> \begin{aligned}
+> \lambda&=\frac{y^*Sy}{\|y\|_2^2}>0,\\
+> \delta Sy&=y\Longrightarrow\lambda\delta y=y
+> \Longrightarrow\delta y=\lambda^{-1}y,\\
+> \frac{\|y\|_2^2}{\mu_{\max}}
+> &\le y^*\delta y=\lambda^{-1}\|y\|_2^2
+> \le\frac{\|y\|_2^2}{\mu_{\min}},\\
+> \frac1{\mu_{\max}}&\le\frac1\lambda\le\frac1{\mu_{\min}},\\
+> \mu_{\min}&\le\lambda\le\mu_{\max}.
+> \end{aligned}
+> $$
+>
+> Division uses $\|y\|_2^2>0$; taking reciprocals reverses each inequality because all three scalars are positive.
 
 
 ### (c) [7.5 pts]
@@ -344,6 +558,50 @@ Show that the size of the pivots occurring in the Cholesky or LU factorization o
 > $$
 >
 > In unit lower-triangular LU, $p_k=U_{k,k}$. In Cholesky, $p_k=L_{k,k}^2$, so the factor's positive diagonal entries satisfy $L_{k,k}\ge\|\boldsymbol{M}^{-1}\|_2^{-1/2}$.
+
+
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> [Lecture 9 §9.5](<../9. Cholesky Factorization and Schur Complements.md#why-the-pivots-stay-positive>) proves positive pivots by congruence; [§9.5.1](<../9. Cholesky Factorization and Schur Complements.md#quantitative-pivot-bound>) distinguishes the elimination pivot from its square root. Every leading principal block $H$ is positive definite, since
+>
+> $$
+> \begin{aligned}
+> x^*Hx&=\begin{pmatrix}x\\0\end{pmatrix}^*
+>  M\begin{pmatrix}x\\0\end{pmatrix}>0\quad(x\ne0).
+> \end{aligned}
+> $$
+>
+> Thus its inverse exists. The quotient property in 1(d) identifies successive trailing matrices with $S^{(k-1)}=M/M_{1:k-1,1:k-1}$. Apply 2(b), then expand the Rayleigh bound using the eigenbasis cited there:
+>
+> $$
+> \begin{aligned}
+> p_k&=e_1^*S^{(k-1)}e_1
+> =\sum_j\lambda_j(S^{(k-1)})|v_j^*e_1|^2\\
+> &\ge\lambda_{\min}(S^{(k-1)})\sum_j|v_j^*e_1|^2\\
+> &=\lambda_{\min}(S^{(k-1)})\|e_1\|_2^2
+> \ge\lambda_{\min}(M).
+> \end{aligned}
+> $$
+>
+> The same calculation uses $S^{(0)}=M$ for $k=1$. For $\|z\|_2=1$ and $M=V\operatorname{diag}(\mu_i)V^*$,
+>
+> $$
+> \begin{aligned}
+> \|M^{-1}z\|_2^2
+> &=\sum_i\mu_i^{-2}|v_i^*z|^2
+> \le\mu_{\min}^{-2}\sum_i|v_i^*z|^2
+> =\mu_{\min}^{-2},\\
+> \|M^{-1}v_{\min}\|_2&=\mu_{\min}^{-1},\\
+> \|M^{-1}\|_2&=\mu_{\min}^{-1},\\
+> p_k&\ge\|M^{-1}\|_2^{-1},\qquad
+> L_{kk}=\sqrt{p_k}\ge\|M^{-1}\|_2^{-1/2}.
+> \end{aligned}
+> $$
+>
+> The bound $\|M^{-1}\|_2^{-1}$ applies to the pivot **before** the Cholesky square root. It is not generally a bound for $L_{kk}$ itself: $M=4I$ gives $p_k=4$ but $L_{kk}=2$.
 
 
 ### (d) [7.5 pts]
@@ -399,6 +657,41 @@ $$
 > \begin{pmatrix}\boldsymbol{x}\\\boldsymbol{y}\end{pmatrix}
 > =\boldsymbol{y}^*(\boldsymbol{M}/\boldsymbol{A})\boldsymbol{y}
 > $$
+
+
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> Use [positive definiteness, Lecture 8 §8.6.2](<../8. Least Squares and Normal Equations.md#positive-semidefinite-and-positive-definite-matrices>), and the [Schur complement, Lecture 9 §9.8](<../9. Cholesky Factorization and Schur Complements.md#block-cholesky-and-schur-complements>). This minimization identity is derived here. The principal block $A$ is positive definite by the zero-padding argument in 2(c). Put $h=A^{-1}By$. Since $A=A^*$,
+>
+> $$
+> \begin{aligned}
+> (A^{-1})^*&=(A^*)^{-1}=A^{-1},\\
+> Ah&=By,\qquad h^*A=y^*B^*,\\
+> h^*Ah&=y^*B^*A^{-1}By,\\
+> (x+h)^*A(x+h)
+> &=x^*Ax+x^*Ah+h^*Ax+h^*Ah\\
+> &=x^*Ax+x^*By+y^*B^*x+y^*B^*A^{-1}By,\\
+> \begin{pmatrix}x\\y\end{pmatrix}^*M\begin{pmatrix}x\\y\end{pmatrix}
+> &=(x+h)^*A(x+h)+y^*(D-B^*A^{-1}B)y\\
+> &=(x+h)^*A(x+h)+y^*Sy.
+> \end{aligned}
+> $$
+>
+> For fixed $y$, only the first term depends on $x$:
+>
+> $$
+> \begin{aligned}
+> (x+h)^*A(x+h)&\ge0,\\
+> (x+h)^*A(x+h)=0&\iff x+h=0\iff x=-A^{-1}By,\\
+> \min_x\begin{pmatrix}x\\y\end{pmatrix}^*M\begin{pmatrix}x\\y\end{pmatrix}
+> &=0+y^*Sy.
+> \end{aligned}
+> $$
+>
+> The minimizer is unique because $A$ is positive definite.
 
 
 ### (e) [10 bonus pts]
@@ -457,6 +750,41 @@ By replacing the $\min$ with a $\min \max$ over suitable variables, derive a ver
 > The same proof uses $\boldsymbol{z}=t\boldsymbol{r}$ for the real part and $\boldsymbol{z}=-it\boldsymbol{r}$ for the imaginary part. For Hermitian $\boldsymbol{M}$, the Schur-complement quadratic form is real, so the first identity alone gives its value.
 
 
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> This is a homework min/sup construction, not a theorem stated in the lectures. Its ingredients are the [Schur-complement definition, Lecture 9 §9.8](<../9. Cholesky Factorization and Schur Complements.md#block-cholesky-and-schur-complements>) and [the separation of real and imaginary parts, Lecture 8 §8.3](<../8. Least Squares and Normal Equations.md#optimality-the-residual-must-be-orthogonal>). Fix $y$ and assume only $A$ invertible. Write $r=Ax+By$ and $c=y^*(Cx+Dy)$. Over $\mathbb R$,
+>
+> $$
+> \begin{aligned}
+> F(x,z)&=z^Tr+c,\\
+> r\ne0,\quad z=tr
+> &\Longrightarrow F(x,tr)=t\|r\|_2^2+c\longrightarrow+\infty,\\
+> r=0&\Longrightarrow F(x,z)=c\quad\text{for every }z,\\
+> r=0&\iff Ax=-By\iff x=x_*=-A^{-1}By,\\
+> c(x_*)&=y^*(C(-A^{-1}By)+Dy)
+> =y^*(D-CA^{-1}B)y,\\
+> \min_x\sup_zF(x,z)&=c(x_*)=y^*(M/A)y.
+> \end{aligned}
+> $$
+>
+> For $\mathbb C$, a complex scalar has no order suitable for a minimum. Treat its two real components separately. For $t\in\mathbb R$,
+>
+> $$
+> \begin{aligned}
+> z=tr&\Longrightarrow
+> \operatorname{Re}F(x,z)=t\|r\|_2^2+\operatorname{Re}c,\\
+> z=-itr&\Longrightarrow z^*=it r^*,\\
+> &\hphantom{\Longrightarrow}
+> \operatorname{Im}F(x,z)=t\|r\|_2^2+\operatorname{Im}c.
+> \end{aligned}
+> $$
+>
+> When $r\ne0$, both suprema are $+\infty$; when $r=0$, each equals the corresponding component of $c(x_*)$. This proves both displayed complex identities above. The inner operation is a **supremum**: away from the constraint no finite maximum exists. At $x_*$ every $z$ is a maximizer. No interchange of minimum and supremum is used.
+
+
 ## 3 Cholesky and QR [25 pts]
 
 ### (a) [5 pts]
@@ -478,6 +806,35 @@ Derive a way to write $\boldsymbol{A}$ as the sum of rank-one matrices in outer 
 > $$
 >
 > Each summand is the outer product of column $k$ of $\boldsymbol{L}$ and row $k$ of $\boldsymbol{U}$. Equivalently, set $\boldsymbol{\ell}_k=\boldsymbol{L}\boldsymbol{e}_k$ and $\boldsymbol{u}_k=\boldsymbol{U}^*\boldsymbol{e}_k$ to obtain $\boldsymbol{A}=\sum_k\boldsymbol{\ell}_k\boldsymbol{u}_k^*$. Both factors are invertible, so these vectors are nonzero and every summand has rank one.
+
+
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> Use the [LU product, Lecture 3 §3.3](<../3. LU Factorization and Zero Pivots.md#lu-factorization>); the outer-product organization is also used in [§3.6](<../3. LU Factorization and Zero Pivots.md#computing-lu-in-place>). For the standard basis, $(e_ke_k^*)_{ij}=1$ only when $i=j=k$, so $\sum_ke_ke_k^*=I$. Hence
+>
+> $$
+> \begin{aligned}
+> A&=LIU=L\left(\sum_{k=1}^me_ke_k^*\right)U\\
+> &=\sum_{k=1}^m(Le_k)(e_k^*U)
+> =\sum_{k=1}^m\ell_ku_k^*,\\
+> \ell_k&=Le_k=L_{:,k},\qquad
+> u_k=U^*e_k,\qquad u_k^*=e_k^*U=U_{k,:},\\
+> (\ell_ku_k^*)_{ij}&=L_{ik}U_{kj},\\
+> \left(\sum_k\ell_ku_k^*\right)_{ij}
+> &=\sum_kL_{ik}U_{kj}=(LU)_{ij}=A_{ij}.
+> \end{aligned}
+> $$
+>
+> Here $L,U$ are invertible because their square product is invertible. Thus $\ell_k,u_k\ne0$. Every output of $\ell_ku_k^*$ is a multiple of $\ell_k$, and
+>
+> $$
+> (\ell_ku_k^*)u_k=\ell_k\|u_k\|_2^2\ne0.
+> $$
+>
+> Its range is therefore exactly $\operatorname{span}(\ell_k)$, which has dimension one.
 
 
 ### (b) [5 pts]
@@ -507,6 +864,38 @@ Show that the LU factorization of an invertible matrix $\boldsymbol{A} \in \math
 > \widetilde{\boldsymbol{L}}=\boldsymbol{L}
 > \qquad\widetilde{\boldsymbol{U}}=\boldsymbol{U}
 > $$
+
+
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> The closure and inverse facts are [Lecture 3 §3.4, Theorem 2](<../3. LU Factorization and Zero Pivots.md#algebra-of-lower-triangular-matrices>), with the [inverse proof in §3.5.3](<../3. LU Factorization and Zero Pivots.md#inversion-of-a-lower-triangular-matrix>). The upper-triangular versions follow by taking adjoints. The uniqueness argument is derived here:
+>
+> $$
+> \begin{aligned}
+> LU&=\widetilde L\widetilde U,\\
+> L^{-1}(LU)\widetilde U^{-1}
+> &=L^{-1}(\widetilde L\widetilde U)\widetilde U^{-1},\\
+> U\widetilde U^{-1}&=L^{-1}\widetilde L=:H.
+> \end{aligned}
+> $$
+>
+> $H$ is lower triangular by its right expression and upper triangular by its left expression. Therefore $H_{ij}=0$ whenever $i\ne j$. Its diagonal is
+>
+> $$
+> \begin{aligned}
+> (L^{-1})_{ii}L_{ii}&=(L^{-1}L)_{ii}=1,\\
+> L_{ii}=\widetilde L_{ii}=1
+> &\Longrightarrow H_{ii}=(L^{-1})_{ii}\widetilde L_{ii}=1,\\
+> H&=I,\\
+> L^{-1}\widetilde L=I&\Longrightarrow\widetilde L=L,\\
+> U\widetilde U^{-1}=I&\Longrightarrow U=\widetilde U.
+> \end{aligned}
+> $$
+>
+> The unit-diagonal normalization is essential: otherwise a nonsingular diagonal matrix can be moved between the two factors.
 
 
 ### (c) [5 pts]
@@ -576,6 +965,55 @@ Prove your results (as always) and make sure to treat the case $\mathbb{K} = \ma
 > Both lower-triangular factors satisfy $\boldsymbol{L}\boldsymbol{L}^*=\widetilde{\boldsymbol{L}}\widetilde{\boldsymbol{L}}^*=\boldsymbol{A}$, but column phases cannot move a nonzero entry from one column to another. The sign/phase uniqueness conclusion therefore requires nonsingularity.
 
 
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> The positive-diagonal Cholesky convention is [Lecture 9 §9.3](<../9. Cholesky Factorization and Schur Complements.md#cholesky-factorization>). The phase convention is analogous to [Lecture 7 §7.6](<../7. Orthogonal Transformations and QR.md#uniqueness-of-qr>); the following Cholesky uniqueness proof uses homework 3(b).
+>
+> If $A$ is nonsingular and $A=LL^*$, then $L$ is nonsingular, so each diagonal $L_{kk}\ne0$. Define $D=\operatorname{diag}(L_{kk})$. Both factors in
+>
+> $$
+> \begin{aligned}
+> A&=(LD^{-1})(DL^*),\\
+> (LD^{-1})_{kk}&=L_{kk}/L_{kk}=1,\\
+> (DL^*)_{kk}&=L_{kk}\overline{L_{kk}}=|L_{kk}|^2
+> \end{aligned}
+> $$
+>
+> have the required triangular form. Applying 3(b) to a second factor $\widetilde L$ yields
+>
+> $$
+> \begin{aligned}
+> LD^{-1}&=\widetilde L\widetilde D^{-1},
+> &|L_{kk}|^2&=|\widetilde L_{kk}|^2,\\
+> \widetilde L&=LD^{-1}\widetilde D=LW,
+> &W&=\operatorname{diag}(\omega_k),\\
+> \omega_k&=\widetilde L_{kk}/L_{kk},
+> &|\omega_k|&=1,\\
+> (LW)(LW)^*&=LWW^*L^*=LIL^*=A.
+> \end{aligned}
+> $$
+>
+> Over $\mathbb R$, $|\omega_k|=1$ means $\omega_k=\pm1$. Over $\mathbb C$, it means $\omega_k=e^{i\theta_k}$. Positive real diagonals force $\omega_k=1$ for every $k$.
+>
+> For the submitted singular counterexample, multiplication gives
+>
+> $$
+> \begin{aligned}
+> \begin{pmatrix}0&0\\0&1\end{pmatrix}
+> \begin{pmatrix}0&0\\0&1\end{pmatrix}^*
+> &=\begin{pmatrix}0&0\\0&1\end{pmatrix},\\
+> \begin{pmatrix}0&0\\1&0\end{pmatrix}
+> \begin{pmatrix}0&0\\1&0\end{pmatrix}^*
+> &=\begin{pmatrix}0&0\\0&1\end{pmatrix}.
+> \end{aligned}
+> $$
+>
+> Multiplying a zero column by a phase keeps it zero, so no diagonal phase matrix relates these two factors. Nonsingularity is necessary for the sign/phase-only uniqueness claim.
+
+
 ### (d) [5 pts]
 Using these results, prove and explain the relationship between the Cholesky factor of $\boldsymbol{B}^* \boldsymbol{B}$ and the QR factorization of $\boldsymbol{B}$, for $\boldsymbol{B} \in \mathbb{K}^{m \times n}$ with $m \geq n$ and full column rank.
 
@@ -618,6 +1056,38 @@ Using these results, prove and explain the relationship between the Cholesky fac
 > $$
 >
 > Thus the upper Cholesky factor of the Gram matrix is exactly the triangular factor in reduced QR, with the same positive-diagonal convention.
+
+
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> Use [Lecture 8 §8.7.3's full-rank Gram characterization](<../8. Least Squares and Normal Equations.md#positive-definiteness-and-full-column-rank>), [reduced QR in Lecture 7 §7.4.1](<../7. Orthogonal Transformations and QR.md#reduced-qr>), and the [positive-diagonal convention in §7.6.2](<../7. Orthogonal Transformations and QR.md#positive-diagonal-entries-remove-the-ambiguity>). Their connection is stated in [Lecture 9 §9.10](<../9. Cholesky Factorization and Schur Complements.md#cholesky-and-qr>).
+>
+> $$
+> \begin{aligned}
+> x\ne0&\Longrightarrow Bx\ne0
+> \Longrightarrow x^*B^*Bx=\|Bx\|_2^2>0,\\
+> B&=QR,\qquad Q^*Q=I_n,\\
+> B^*B&=R^*Q^*QR=R^*I_nR=R^*R,\\
+> L&:=R^*\quad\Longrightarrow\quad LL^*=R^*R=B^*B.
+> \end{aligned}
+> $$
+>
+> $R^*$ is lower triangular and $(R^*)_{kk}=\overline{R_{kk}}=R_{kk}>0$, so 3(c) identifies it as the unique normalized Cholesky factor. Conversely, start from $B^*B=LL^*$ and set $R=L^*$:
+>
+> $$
+> \begin{aligned}
+> Q&=BR^{-1},\\
+> QR&=BR^{-1}R=B,\\
+> Q^*Q&=(R^{-1})^*B^*BR^{-1}\\
+> &=(R^*)^{-1}(R^*R)R^{-1}\\
+> &=((R^*)^{-1}R^*)(RR^{-1})=I_n.
+> \end{aligned}
+> $$
+>
+> Thus $Q,R$ satisfy reduced QR with the same diagonal normalization.
 
 
 ### (e) [5 pts]
@@ -716,3 +1186,51 @@ Use this result to refine your comment in (d) on the relationship of Cholesky an
 > $$
 >
 > Therefore $\boldsymbol{L}_{2,2}=\boldsymbol{R}_{2,2}^*$ under the positive-diagonal convention. Cholesky's trailing Schur-complement update corresponds exactly to Gram-Schmidt's projection step: the updated matrix stores the inner products of the remaining orthogonalized columns.
+
+
+<!-- End submitted solution; added study explanation follows. -->
+
+> **Derivation details — added study explanation.**
+>
+> The prerequisites are [Gram-matrix block products, Lecture 8 §8.7](<../8. Least Squares and Normal Equations.md#gram-matrices>), [orthogonal projection, Lecture 5 §5.5](<../5. Least Squares and Gram-Schmidt.md#least-squares-with-orthonormal-columns>), [Gram–Schmidt, §5.7](<../5. Least Squares and Gram-Schmidt.md#classical-gramschmidt>), and [block Cholesky, Lecture 9 §9.8](<../9. Cholesky Factorization and Schur Complements.md#block-cholesky-and-schur-complements>). This combines them to derive the requested identity.
+>
+> A subset of the independent columns of $B$ is independent, so $G=B_1^*B_1$ is positive definite by [Lecture 8 §8.7.3](<../8. Least Squares and Normal Equations.md#positive-definiteness-and-full-column-rank>). For $P=B_1G^{-1}B_1^*$,
+>
+> $$
+> \begin{aligned}
+> P^*&=B_1(G^{-1})^*B_1^*=B_1G^{-1}B_1^*=P,\\
+> P^2&=B_1G^{-1}(B_1^*B_1)G^{-1}B_1^*=P,\\
+> B_1^*(I-P)&=B_1^*-(B_1^*B_1)G^{-1}B_1^*=0,\\
+> (I-P)^*(I-P)&=(I-P)^2=I-2P+P^2=I-P.
+> \end{aligned}
+> $$
+>
+> Thus $(I-P)B_2$ consists of columns orthogonal to $B_1$, and
+>
+> $$
+> \begin{aligned}
+> \widehat B_2^*\widehat B_2
+> &=B_2^*(I-P)^*(I-P)B_2\\
+> &=B_2^*B_2-B_2^*B_1G^{-1}B_1^*B_2\\
+> &=A_{22}-A_{21}A_{11}^{-1}A_{12}=A/A_{11}.
+> \end{aligned}
+> $$
+>
+> For the partitioned reduced QR, $B_1=Q_1R_{11}$ and $Q_1^*Q_1=I$. Hence
+>
+> $$
+> \begin{aligned}
+> G&=R_{11}^*R_{11},\qquad
+> G^{-1}=R_{11}^{-1}(R_{11}^*)^{-1},\\
+> P&=Q_1R_{11}R_{11}^{-1}(R_{11}^*)^{-1}R_{11}^*Q_1^*
+> =Q_1Q_1^*,\\
+> (I-P)B_2
+> &=(I-Q_1Q_1^*)(Q_1R_{12}+Q_2R_{22})\\
+> &=(Q_1-Q_1(Q_1^*Q_1))R_{12}
+>  +(Q_2-Q_1(Q_1^*Q_2))R_{22}\\
+> &=0+Q_2R_{22},\\
+> A/A_{11}&=R_{22}^*Q_2^*Q_2R_{22}=R_{22}^*R_{22}.
+> \end{aligned}
+> $$
+>
+> By [Lecture 9 §9.8](<../9. Cholesky Factorization and Schur Complements.md#block-cholesky-and-schur-complements>), this same Schur complement is $L_{22}L_{22}^*$. Both $L_{22}$ and $R_{22}^*$ have positive real diagonal, so 3(c) gives $L_{22}=R_{22}^*$. Schur-complement elimination and orthogonal projection therefore produce the same trailing Gram matrix.
