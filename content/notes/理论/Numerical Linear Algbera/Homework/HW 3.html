@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light"><title>HW 3 — E.H. Notebook</title>
-<meta name="description" content="1 Numerical Methods I, Homework 3Schäfer, Fall 2026Deadline: Oct. 19 Monday, 4:55 pm1 Schur Complements I [25 pts]Consider the matrix \boldsymbol{M} \coloneqq \begin{pmat">
+<meta name="description" content="1 Numerical Methods I, Homework 3Schäfer, Fall 2026Deadline: Oct. 19 Monday, 4:55 pmSubmitted solutions are unchanged. Each added study block expands the derivation and c">
 <link rel="stylesheet" href="/notebook/assets/reader.css"><link rel="preload" href="/notebook/assets/fonts/texgyretermes-regular.otf" as="font" type="font/otf" crossorigin>
 <script defer src="/notebook/assets/reader.js"></script>
 <script src="/notebook/assets/math-config.js"></script><script defer id="MathJax-script" src="/notebook/assets/vendor/mathjax/tex-chtml-full.js"></script>
@@ -14,6 +14,7 @@
 <main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/index.html">Homework</a></nav><h1 id="reader-title">HW 3</h1></header><div id="article-body" class="prose"><h2 data-original-heading="Numerical Methods I, Homework 3" id="numerical-methods-i-homework-3">1 Numerical Methods I, Homework 3</h2>
 <p>Schäfer, Fall 2026</p>
 <p>Deadline: Oct.&nbsp;19 Monday, 4:55 pm</p>
+<p>Submitted solutions are unchanged. Each added study block expands the derivation and cites its lecture prerequisites.</p>
 <h3 data-original-heading="1 Schur Complements I [25 pts]" id="schur-complements-i-25-pts">1 Schur Complements I [25 pts]</h3>
 <p>Consider the matrix <span class="math display">\[
 \boldsymbol{M}
@@ -55,6 +56,32 @@
 \]</span></p>
 <p>thus, the <span class="math inline">\(\boldsymbol{M}/\boldsymbol{A}\)</span> is the trailing block of the block upper-triangular factor after eliminating <span class="math inline">\(\boldsymbol{C}\)</span>.</p>
 </blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>The block-LU construction is in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#the-block-inverse-identity">Lecture 9 §9.9</a>, following <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#block-cholesky-and-schur-complements">block elimination in §9.8</a>. Set <span class="math inline">\(S=D-CA^{-1}B\)</span>. The four blocks of the product are</p>
+<p><span class="math display">\[
+\begin{aligned}
+(EM)_{11}&amp;=I_mA+0C=A,\\
+(EM)_{12}&amp;=I_mB+0D=B,\\
+(EM)_{21}&amp;=(-CA^{-1})A+I_nC=-C+C=0,\\
+(EM)_{22}&amp;=(-CA^{-1})B+I_nD=S.
+\end{aligned}
+\]</span></p>
+<p>To invert <span class="math inline">\(E\)</span>, check both products:</p>
+<p><span class="math display">\[
+\begin{aligned}
+E&amp;=\begin{pmatrix}I&amp;0\\-CA^{-1}&amp;I\end{pmatrix},
+&amp;F&amp;=\begin{pmatrix}I&amp;0\\CA^{-1}&amp;I\end{pmatrix},\\
+EF&amp;=\begin{pmatrix}I&amp;0\\-CA^{-1}+CA^{-1}&amp;I\end{pmatrix}=I,
+&amp;FE&amp;=I,\\
+M&amp;=E^{-1}(EM)
+=\begin{pmatrix}I&amp;0\\CA^{-1}&amp;I\end{pmatrix}
+ \begin{pmatrix}A&amp;B\\0&amp;S\end{pmatrix}.
+\end{aligned}
+\]</span></p>
+<p>Only <span class="math inline">\(A\)</span> must be invertible; <span class="math inline">\(M\)</span> and <span class="math inline">\(S\)</span> may be singular here.</p>
+</blockquote>
 <h4 data-original-heading="(b) [5 pts]" id="b-5-pts">1.1.2 (b) [5 pts]</h4>
 <p>Show that the determinant of <span class="math inline">\(\boldsymbol{M}\)</span> is given by <span class="math inline">\(\det\left(\boldsymbol{A}\right) \det\left(\boldsymbol{M} / \boldsymbol{A}\right)\)</span>.</p>
 <h5 data-original-heading="Solution to 1(b)" id="solution-to-1b">1.1.2.1 Solution to 1(b)</h5>
@@ -68,6 +95,22 @@
 &amp;=\det(\boldsymbol{A})\det(\boldsymbol{M}/\boldsymbol{A})
 \end{aligned}
 \]</span></p>
+</blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>The determinant calculation for triangular LU factors appears in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html#zero-pivots">Lecture 3 §3.7</a>; the block factors are from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#the-block-inverse-identity">Lecture 9 §9.9</a>. Write the factors in 1(a) as <span class="math inline">\(\mathcal L,\mathcal U\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\det M&amp;=\det(\mathcal L\mathcal U)
+       =\det\mathcal L\,\det\mathcal U,\\
+\det\mathcal L&amp;=\prod_{i=1}^{m+n}\mathcal L_{ii}=1,\\
+\det\mathcal U&amp;=\det\begin{pmatrix}A&amp;B\\0&amp;S\end{pmatrix}
+                =\det A\,\det S,\\
+\det M&amp;=1\cdot\det A\,\det S.
+\end{aligned}
+\]</span></p>
+<p>For the block determinant step, a nonzero term in the determinant’s permutation expansion must assign the last <span class="math inline">\(n\)</span> rows to the last <span class="math inline">\(n\)</span> columns: entries in their first <span class="math inline">\(m\)</span> columns are zero. The first <span class="math inline">\(m\)</span> rows then use the first <span class="math inline">\(m\)</span> columns. The two permutation sums are exactly <span class="math inline">\(\det A\)</span> and <span class="math inline">\(\det S\)</span>; the block <span class="math inline">\(B\)</span> contributes no term. This also covers singular <span class="math inline">\(S\)</span>.</p>
 </blockquote>
 <h4 data-original-heading="(c) [7.5 pts]" id="c-7.5-pts">1.1.3 (c) [7.5 pts]</h4>
 <p>Let <span class="math inline">\(\boldsymbol{M} = \boldsymbol{L} \boldsymbol{U}\)</span> be the LU factorization of <span class="math inline">\(\boldsymbol{M}\)</span>. Split its factors into block matrices <span class="math display">\[
@@ -114,6 +157,32 @@
 &amp;=\boldsymbol{L}_{2,2}\boldsymbol{U}_{2,2}
 \end{aligned}
 \]</span></p>
+</blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>Use <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#block-cholesky-and-schur-complements">Lecture 9 §9.8’s block multiplication</a> with general LU factors. From <span class="math inline">\(A=L_{11}U_{11}\)</span> and <span class="math inline">\(\det A\ne0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+0\ne\det A&amp;=\det L_{11}\det U_{11},\\
+A^{-1}&amp;=U_{11}^{-1}L_{11}^{-1},\\
+A(U_{11}^{-1}L_{11}^{-1})
+&amp;=L_{11}(U_{11}U_{11}^{-1})L_{11}^{-1}=I.
+\end{aligned}
+\]</span></p>
+<p>Substitute the four block equations, retaining the order of multiplication:</p>
+<p><span class="math display">\[
+\begin{aligned}
+CA^{-1}B
+&amp;=L_{21}U_{11}U_{11}^{-1}L_{11}^{-1}L_{11}U_{12}\\
+&amp;=L_{21}(U_{11}U_{11}^{-1})(L_{11}^{-1}L_{11})U_{12}\\
+&amp;=L_{21}U_{12},\\
+M/A&amp;=D-CA^{-1}B\\
+&amp;=(L_{21}U_{12}+L_{22}U_{22})-L_{21}U_{12}\\
+&amp;=L_{22}U_{22}.
+\end{aligned}
+\]</span></p>
+<p>No inverse of <span class="math inline">\(L_{22}\)</span> or <span class="math inline">\(U_{22}\)</span> is used.</p>
 </blockquote>
 <h4 data-original-heading="(d) [7.5 pts]" id="d-7.5-pts">1.1.4 (d) [7.5 pts]</h4>
 <p>Now consider the <span class="math inline">\(3 \times 3\)</span> block matrix <span class="math display">\[
@@ -196,6 +265,45 @@
 \]</span></p>
 <p>Since <span class="math inline">\(\boldsymbol{S}=\boldsymbol{N}/\boldsymbol{N}_{1,1}\)</span>, this is then precisely the quotient property (4).</p>
 </blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>This quotient identity is a homework derivation from the <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#block-cholesky-and-schur-complements">Schur-complement definition in Lecture 9 §9.8</a>, not an additional cited lecture theorem. Use <span class="math inline">\(S_{ij}\)</span> and <span class="math inline">\(K\)</span> defined above. Part 1(b) gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\det K&amp;=\det N_{11}\det S_{11},\\
+\det K\ne0,\quad\det N_{11}\ne0
+&amp;\Longrightarrow\det S_{11}\ne0.
+\end{aligned}
+\]</span></p>
+<p>Expand the block system for <span class="math inline">\(K^{-1}(N_{13},N_{23})^T\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+N_{11}X+N_{12}Y&amp;=N_{13},\\
+N_{21}X+N_{22}Y&amp;=N_{23},\\
+X&amp;=N_{11}^{-1}N_{13}-N_{11}^{-1}N_{12}Y,\\
+N_{21}N_{11}^{-1}N_{13}
+-N_{21}N_{11}^{-1}N_{12}Y+N_{22}Y&amp;=N_{23},\\
+(N_{22}-N_{21}N_{11}^{-1}N_{12})Y
+&amp;=N_{23}-N_{21}N_{11}^{-1}N_{13},\\
+S_{11}Y&amp;=S_{12},\qquad Y=S_{11}^{-1}S_{12}.
+\end{aligned}
+\]</span></p>
+<p>Now eliminate <span class="math inline">\(X\)</span> before grouping the remaining terms:</p>
+<p><span class="math display">\[
+\begin{aligned}
+N/K&amp;=N_{33}-(N_{31},N_{32})K^{-1}
+                 \begin{pmatrix}N_{13}\\N_{23}\end{pmatrix}\\
+&amp;=N_{33}-N_{31}X-N_{32}Y\\
+&amp;=N_{33}-N_{31}N_{11}^{-1}N_{13}
+  +N_{31}N_{11}^{-1}N_{12}Y-N_{32}Y\\
+&amp;=(N_{33}-N_{31}N_{11}^{-1}N_{13})
+ -(N_{32}-N_{31}N_{11}^{-1}N_{12})Y\\
+&amp;=S_{22}-S_{21}S_{11}^{-1}S_{12}
+ =(N/N_{11})/S_{11}.
+\end{aligned}
+\]</span></p>
+</blockquote>
 <h3 data-original-heading="2 Schur Complements II [25 pts + 10 bonus]" id="schur-complements-ii-25-pts-10-bonus">2 Schur Complements II [25 pts + 10 bonus]</h3>
 <p>Let <span class="math inline">\(\boldsymbol{M}\)</span> be as in the previous problem.</p>
 <h4 data-original-heading="(a) [5 pts]" id="a-5-pts-1">1.2.1 (a) [5 pts]</h4>
@@ -227,6 +335,33 @@
 \boldsymbol{\delta}=\boldsymbol{S}^{-1}
 \quad\Longrightarrow\quad
 \boldsymbol{M}/\boldsymbol{A}=\boldsymbol{\delta}^{-1}
+\]</span></p>
+</blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>This is the <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#the-block-inverse-identity">block-inverse lemma, Lecture 9 §9.9</a>. Here both <span class="math inline">\(M\)</span> and <span class="math inline">\(A\)</span> must be invertible. By 1(b), <span class="math inline">\(\det S=\det M/\det A\ne0\)</span>. For <span class="math inline">\(\mathcal U=\begin{pmatrix}A&amp;B\\0&amp;S\end{pmatrix}\)</span>, solve <span class="math inline">\(\mathcal U\mathcal U^{-1}=I\)</span> block by block:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathcal U^{-1}&amp;=\begin{pmatrix}X&amp;Y\\Z&amp;W\end{pmatrix},\\
+SZ=0&amp;\Longrightarrow Z=0,\\
+SW=I&amp;\Longrightarrow W=S^{-1},\\
+AX+BZ=I&amp;\Longrightarrow X=A^{-1},\\
+AY+BW=0&amp;\Longrightarrow Y=-A^{-1}BS^{-1}.
+\end{aligned}
+\]</span></p>
+<p>Multiplication by <span class="math inline">\(\mathcal L^{-1}\)</span> now gives the whole inverse:</p>
+<p><span class="math display">\[
+\begin{aligned}
+M^{-1}
+&amp;=\begin{pmatrix}A^{-1}&amp;-A^{-1}BS^{-1}\\0&amp;S^{-1}\end{pmatrix}
+  \begin{pmatrix}I&amp;0\\-CA^{-1}&amp;I\end{pmatrix}\\
+&amp;=\begin{pmatrix}
+A^{-1}+A^{-1}BS^{-1}CA^{-1}&amp;-A^{-1}BS^{-1}\\
+-S^{-1}CA^{-1}&amp;S^{-1}
+\end{pmatrix},\\
+\delta&amp;=S^{-1}\Longrightarrow\delta^{-1}=S=M/A.
+\end{aligned}
 \]</span></p>
 </blockquote>
 <h4 data-original-heading="(b) [5 pts]" id="b-5-pts-1">1.2.2 (b) [5 pts]</h4>
@@ -261,6 +396,42 @@ M^{-1}
 \end{aligned}
 \]</span></p>
 </blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>The Hermitian eigendecomposition is used in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#a-hermitian-positive-semidefinite-matrix-is-a-gram-matrix">Lecture 8 §8.7.2</a>; the orthonormal-eigenbasis statement is explicit in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10 §10.2.1</a>. Write <span class="math inline">\(M=V\operatorname{diag}(\mu_i)V^*\)</span>, with <span class="math inline">\(V^*V=I\)</span> and <span class="math inline">\(0&lt;\mu_{\min}\le\mu_i\le\mu_{\max}\)</span>. For <span class="math inline">\(c=V^*z\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+M^{-1}&amp;=V\operatorname{diag}(\mu_i^{-1})V^*,\\
+z^*M^{-1}z&amp;=\sum_i\frac{|c_i|^2}{\mu_i},
+&amp;\|c\|_2^2&amp;=\|z\|_2^2,\\
+\frac{\|z\|_2^2}{\mu_{\max}}
+&amp;\le\sum_i\frac{|c_i|^2}{\mu_i}
+\le\frac{\|z\|_2^2}{\mu_{\min}}.
+\end{aligned}
+\]</span></p>
+<p>This also proves <span class="math inline">\(M^{-1}\)</span> positive definite. Setting <span class="math inline">\(z=(0,y)^T\)</span> proves <span class="math inline">\(y^*\delta y&gt;0\)</span> for <span class="math inline">\(y\ne0\)</span>. Apply the same eigendecomposition argument to <span class="math inline">\(\delta=W\operatorname{diag}(d_i)W^*\)</span>, where <span class="math inline">\(d_i&gt;0\)</span>. By <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#the-block-inverse-identity">the block-inverse identity</a>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+S&amp;=\delta^{-1}=W\operatorname{diag}(d_i^{-1})W^*=S^*,\\
+y^*Sy&amp;=\sum_i d_i^{-1}|w_i^*y|^2&gt;0\quad(y\ne0).
+\end{aligned}
+\]</span></p>
+<p>Thus <span class="math inline">\(S\)</span> is Hermitian positive definite. If <span class="math inline">\(Sy=\lambda y\)</span>, then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lambda&amp;=\frac{y^*Sy}{\|y\|_2^2}&gt;0,\\
+\delta Sy&amp;=y\Longrightarrow\lambda\delta y=y
+\Longrightarrow\delta y=\lambda^{-1}y,\\
+\frac{\|y\|_2^2}{\mu_{\max}}
+&amp;\le y^*\delta y=\lambda^{-1}\|y\|_2^2
+\le\frac{\|y\|_2^2}{\mu_{\min}},\\
+\frac1{\mu_{\max}}&amp;\le\frac1\lambda\le\frac1{\mu_{\min}},\\
+\mu_{\min}&amp;\le\lambda\le\mu_{\max}.
+\end{aligned}
+\]</span></p>
+<p>Division uses <span class="math inline">\(\|y\|_2^2&gt;0\)</span>; taking reciprocals reverses each inequality because all three scalars are positive.</p>
+</blockquote>
 <h4 data-original-heading="(c) [7.5 pts]" id="c-7.5-pts-1">1.2.3 (c) [7.5 pts]</h4>
 <p>Show that the size of the pivots occurring in the Cholesky or LU factorization of a s.p.d. matrix <span class="math inline">\(\boldsymbol{M}\)</span> is lower bounded by <span class="math inline">\(\left\|\boldsymbol{M}^{-1}\right\|^{-1}\)</span>, where <span class="math inline">\(\|\cdot\|\)</span> denotes the spectral norm.</p>
 <h5 data-original-heading="Solution to 2(c)" id="solution-to-2c">1.2.3.1 Solution to 2(c)</h5>
@@ -290,6 +461,41 @@ p_k
 p_k\ge\|\boldsymbol{M}^{-1}\|_2^{-1}
 \]</span></p>
 <p>In unit lower-triangular LU, <span class="math inline">\(p_k=U_{k,k}\)</span>. In Cholesky, <span class="math inline">\(p_k=L_{k,k}^2\)</span>, so the factor’s positive diagonal entries satisfy <span class="math inline">\(L_{k,k}\ge\|\boldsymbol{M}^{-1}\|_2^{-1/2}\)</span>.</p>
+</blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#why-the-pivots-stay-positive">Lecture 9 §9.5</a> proves positive pivots by congruence; <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#quantitative-pivot-bound">§9.5.1</a> distinguishes the elimination pivot from its square root. Every leading principal block <span class="math inline">\(H\)</span> is positive definite, since</p>
+<p><span class="math display">\[
+\begin{aligned}
+x^*Hx&amp;=\begin{pmatrix}x\\0\end{pmatrix}^*
+ M\begin{pmatrix}x\\0\end{pmatrix}&gt;0\quad(x\ne0).
+\end{aligned}
+\]</span></p>
+<p>Thus its inverse exists. The quotient property in 1(d) identifies successive trailing matrices with <span class="math inline">\(S^{(k-1)}=M/M_{1:k-1,1:k-1}\)</span>. Apply 2(b), then expand the Rayleigh bound using the eigenbasis cited there:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p_k&amp;=e_1^*S^{(k-1)}e_1
+=\sum_j\lambda_j(S^{(k-1)})|v_j^*e_1|^2\\
+&amp;\ge\lambda_{\min}(S^{(k-1)})\sum_j|v_j^*e_1|^2\\
+&amp;=\lambda_{\min}(S^{(k-1)})\|e_1\|_2^2
+\ge\lambda_{\min}(M).
+\end{aligned}
+\]</span></p>
+<p>The same calculation uses <span class="math inline">\(S^{(0)}=M\)</span> for <span class="math inline">\(k=1\)</span>. For <span class="math inline">\(\|z\|_2=1\)</span> and <span class="math inline">\(M=V\operatorname{diag}(\mu_i)V^*\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\|M^{-1}z\|_2^2
+&amp;=\sum_i\mu_i^{-2}|v_i^*z|^2
+\le\mu_{\min}^{-2}\sum_i|v_i^*z|^2
+=\mu_{\min}^{-2},\\
+\|M^{-1}v_{\min}\|_2&amp;=\mu_{\min}^{-1},\\
+\|M^{-1}\|_2&amp;=\mu_{\min}^{-1},\\
+p_k&amp;\ge\|M^{-1}\|_2^{-1},\qquad
+L_{kk}=\sqrt{p_k}\ge\|M^{-1}\|_2^{-1/2}.
+\end{aligned}
+\]</span></p>
+<p>The bound <span class="math inline">\(\|M^{-1}\|_2^{-1}\)</span> applies to the pivot <strong>before</strong> the Cholesky square root. It is not generally a bound for <span class="math inline">\(L_{kk}\)</span> itself: <span class="math inline">\(M=4I\)</span> gives <span class="math inline">\(p_k=4\)</span> but <span class="math inline">\(L_{kk}=2\)</span>.</p>
 </blockquote>
 <h4 data-original-heading="(d) [7.5 pts]" id="d-7.5-pts-1">1.2.4 (d) [7.5 pts]</h4>
 <p>For <span class="math inline">\(\boldsymbol{M}\)</span> s.p.d, show that <span class="math display">\[
@@ -338,6 +544,34 @@ p_k\ge\|\boldsymbol{M}^{-1}\|_2^{-1}
 =\boldsymbol{y}^*(\boldsymbol{M}/\boldsymbol{A})\boldsymbol{y}
 \]</span></p>
 </blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>Use <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#positive-semidefinite-and-positive-definite-matrices">positive definiteness, Lecture 8 §8.6.2</a>, and the <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#block-cholesky-and-schur-complements">Schur complement, Lecture 9 §9.8</a>. This minimization identity is derived here. The principal block <span class="math inline">\(A\)</span> is positive definite by the zero-padding argument in 2(c). Put <span class="math inline">\(h=A^{-1}By\)</span>. Since <span class="math inline">\(A=A^*\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+(A^{-1})^*&amp;=(A^*)^{-1}=A^{-1},\\
+Ah&amp;=By,\qquad h^*A=y^*B^*,\\
+h^*Ah&amp;=y^*B^*A^{-1}By,\\
+(x+h)^*A(x+h)
+&amp;=x^*Ax+x^*Ah+h^*Ax+h^*Ah\\
+&amp;=x^*Ax+x^*By+y^*B^*x+y^*B^*A^{-1}By,\\
+\begin{pmatrix}x\\y\end{pmatrix}^*M\begin{pmatrix}x\\y\end{pmatrix}
+&amp;=(x+h)^*A(x+h)+y^*(D-B^*A^{-1}B)y\\
+&amp;=(x+h)^*A(x+h)+y^*Sy.
+\end{aligned}
+\]</span></p>
+<p>For fixed <span class="math inline">\(y\)</span>, only the first term depends on <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+(x+h)^*A(x+h)&amp;\ge0,\\
+(x+h)^*A(x+h)=0&amp;\iff x+h=0\iff x=-A^{-1}By,\\
+\min_x\begin{pmatrix}x\\y\end{pmatrix}^*M\begin{pmatrix}x\\y\end{pmatrix}
+&amp;=0+y^*Sy.
+\end{aligned}
+\]</span></p>
+<p>The minimizer is unique because <span class="math inline">\(A\)</span> is positive definite.</p>
+</blockquote>
 <h4 data-original-heading="(e) [10 bonus pts]" id="e-10-bonus-pts">1.2.5 (e) [10 bonus pts]</h4>
 <p>By replacing the <span class="math inline">\(\min\)</span> with a <span class="math inline">\(\min \max\)</span> over suitable variables, derive a version of the results of (d) that is valid for general <span class="math inline">\(\boldsymbol{M}\)</span>.</p>
 <h5 data-original-heading="Solution to 2(e)" id="solution-to-2e">1.2.5.1 Solution to 2(e)</h5>
@@ -384,6 +618,34 @@ F(\boldsymbol{x},\boldsymbol{z})
 \]</span></p>
 <p>The same proof uses <span class="math inline">\(\boldsymbol{z}=t\boldsymbol{r}\)</span> for the real part and <span class="math inline">\(\boldsymbol{z}=-it\boldsymbol{r}\)</span> for the imaginary part. For Hermitian <span class="math inline">\(\boldsymbol{M}\)</span>, the Schur-complement quadratic form is real, so the first identity alone gives its value.</p>
 </blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>This is a homework min/sup construction, not a theorem stated in the lectures. Its ingredients are the <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#block-cholesky-and-schur-complements">Schur-complement definition, Lecture 9 §9.8</a> and <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#optimality-the-residual-must-be-orthogonal">the separation of real and imaginary parts, Lecture 8 §8.3</a>. Fix <span class="math inline">\(y\)</span> and assume only <span class="math inline">\(A\)</span> invertible. Write <span class="math inline">\(r=Ax+By\)</span> and <span class="math inline">\(c=y^*(Cx+Dy)\)</span>. Over <span class="math inline">\(\mathbb R\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+F(x,z)&amp;=z^Tr+c,\\
+r\ne0,\quad z=tr
+&amp;\Longrightarrow F(x,tr)=t\|r\|_2^2+c\longrightarrow+\infty,\\
+r=0&amp;\Longrightarrow F(x,z)=c\quad\text{for every }z,\\
+r=0&amp;\iff Ax=-By\iff x=x_*=-A^{-1}By,\\
+c(x_*)&amp;=y^*(C(-A^{-1}By)+Dy)
+=y^*(D-CA^{-1}B)y,\\
+\min_x\sup_zF(x,z)&amp;=c(x_*)=y^*(M/A)y.
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(\mathbb C\)</span>, a complex scalar has no order suitable for a minimum. Treat its two real components separately. For <span class="math inline">\(t\in\mathbb R\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+z=tr&amp;\Longrightarrow
+\operatorname{Re}F(x,z)=t\|r\|_2^2+\operatorname{Re}c,\\
+z=-itr&amp;\Longrightarrow z^*=it r^*,\\
+&amp;\hphantom{\Longrightarrow}
+\operatorname{Im}F(x,z)=t\|r\|_2^2+\operatorname{Im}c.
+\end{aligned}
+\]</span></p>
+<p>When <span class="math inline">\(r\ne0\)</span>, both suprema are <span class="math inline">\(+\infty\)</span>; when <span class="math inline">\(r=0\)</span>, each equals the corresponding component of <span class="math inline">\(c(x_*)\)</span>. This proves both displayed complex identities above. The inner operation is a <strong>supremum</strong>: away from the constraint no finite maximum exists. At <span class="math inline">\(x_*\)</span> every <span class="math inline">\(z\)</span> is a maximizer. No interchange of minimum and supremum is used.</p>
+</blockquote>
 <h3 data-original-heading="3 Cholesky and QR [25 pts]" id="cholesky-and-qr-25-pts">3 Cholesky and QR [25 pts]</h3>
 <h4 data-original-heading="(a) [5 pts]" id="a-5-pts-2">1.3.1 (a) [5 pts]</h4>
 <p>Assume that the invertible matrix <span class="math inline">\(\boldsymbol{A} \in \mathbb{K}^{m \times m}\)</span> satisfies <span class="math inline">\(\boldsymbol{A} = \boldsymbol{L} \boldsymbol{U}\)</span>. Derive a way to write <span class="math inline">\(\boldsymbol{A}\)</span> as the sum of rank-one matrices in outer product form.</p>
@@ -400,6 +662,28 @@ F(\boldsymbol{x},\boldsymbol{z})
 \end{aligned}
 \]</span></p>
 <p>Each summand is the outer product of column <span class="math inline">\(k\)</span> of <span class="math inline">\(\boldsymbol{L}\)</span> and row <span class="math inline">\(k\)</span> of <span class="math inline">\(\boldsymbol{U}\)</span>. Equivalently, set <span class="math inline">\(\boldsymbol{\ell}_k=\boldsymbol{L}\boldsymbol{e}_k\)</span> and <span class="math inline">\(\boldsymbol{u}_k=\boldsymbol{U}^*\boldsymbol{e}_k\)</span> to obtain <span class="math inline">\(\boldsymbol{A}=\sum_k\boldsymbol{\ell}_k\boldsymbol{u}_k^*\)</span>. Both factors are invertible, so these vectors are nonzero and every summand has rank one.</p>
+</blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>Use the <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html#lu-factorization">LU product, Lecture 3 §3.3</a>; the outer-product organization is also used in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html#computing-lu-in-place">§3.6</a>. For the standard basis, <span class="math inline">\((e_ke_k^*)_{ij}=1\)</span> only when <span class="math inline">\(i=j=k\)</span>, so <span class="math inline">\(\sum_ke_ke_k^*=I\)</span>. Hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+A&amp;=LIU=L\left(\sum_{k=1}^me_ke_k^*\right)U\\
+&amp;=\sum_{k=1}^m(Le_k)(e_k^*U)
+=\sum_{k=1}^m\ell_ku_k^*,\\
+\ell_k&amp;=Le_k=L_{:,k},\qquad
+u_k=U^*e_k,\qquad u_k^*=e_k^*U=U_{k,:},\\
+(\ell_ku_k^*)_{ij}&amp;=L_{ik}U_{kj},\\
+\left(\sum_k\ell_ku_k^*\right)_{ij}
+&amp;=\sum_kL_{ik}U_{kj}=(LU)_{ij}=A_{ij}.
+\end{aligned}
+\]</span></p>
+<p>Here <span class="math inline">\(L,U\)</span> are invertible because their square product is invertible. Thus <span class="math inline">\(\ell_k,u_k\ne0\)</span>. Every output of <span class="math inline">\(\ell_ku_k^*\)</span> is a multiple of <span class="math inline">\(\ell_k\)</span>, and</p>
+<p><span class="math display">\[
+(\ell_ku_k^*)u_k=\ell_k\|u_k\|_2^2\ne0.
+\]</span></p>
+<p>Its range is therefore exactly <span class="math inline">\(\operatorname{span}(\ell_k)\)</span>, which has dimension one.</p>
 </blockquote>
 <h4 data-original-heading="(b) [5 pts]" id="b-5-pts-2">1.3.2 (b) [5 pts]</h4>
 <p>Show that the LU factorization of an invertible matrix <span class="math inline">\(\boldsymbol{A} \in \mathbb{K}^{m \times m}\)</span>, with <span class="math inline">\(\boldsymbol{L}\)</span> unit lower triangular, is unique (when it exists).</p>
@@ -422,6 +706,31 @@ F(\boldsymbol{x},\boldsymbol{z})
 \widetilde{\boldsymbol{L}}=\boldsymbol{L}
 \qquad\widetilde{\boldsymbol{U}}=\boldsymbol{U}
 \]</span></p>
+</blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>The closure and inverse facts are <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html#algebra-of-lower-triangular-matrices">Lecture 3 §3.4, Theorem 2</a>, with the <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html#inversion-of-a-lower-triangular-matrix">inverse proof in §3.5.3</a>. The upper-triangular versions follow by taking adjoints. The uniqueness argument is derived here:</p>
+<p><span class="math display">\[
+\begin{aligned}
+LU&amp;=\widetilde L\widetilde U,\\
+L^{-1}(LU)\widetilde U^{-1}
+&amp;=L^{-1}(\widetilde L\widetilde U)\widetilde U^{-1},\\
+U\widetilde U^{-1}&amp;=L^{-1}\widetilde L=:H.
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(H\)</span> is lower triangular by its right expression and upper triangular by its left expression. Therefore <span class="math inline">\(H_{ij}=0\)</span> whenever <span class="math inline">\(i\ne j\)</span>. Its diagonal is</p>
+<p><span class="math display">\[
+\begin{aligned}
+(L^{-1})_{ii}L_{ii}&amp;=(L^{-1}L)_{ii}=1,\\
+L_{ii}=\widetilde L_{ii}=1
+&amp;\Longrightarrow H_{ii}=(L^{-1})_{ii}\widetilde L_{ii}=1,\\
+H&amp;=I,\\
+L^{-1}\widetilde L=I&amp;\Longrightarrow\widetilde L=L,\\
+U\widetilde U^{-1}=I&amp;\Longrightarrow U=\widetilde U.
+\end{aligned}
+\]</span></p>
+<p>The unit-diagonal normalization is essential: otherwise a nonsingular diagonal matrix can be moved between the two factors.</p>
 </blockquote>
 <h4 data-original-heading="(c) [5 pts]" id="c-5-pts">1.3.3 (c) [5 pts]</h4>
 <p>Assume that we factor <span class="math inline">\(\boldsymbol{A} \in \mathbb{K}^{m \times m}\)</span> as <span class="math inline">\(\boldsymbol{A} = \boldsymbol{L} \boldsymbol{L}^{*}\)</span> for lower triangular <span class="math inline">\(\boldsymbol{L}\)</span>. Up to which choices is this factorization unique? Prove your results (as always) and make sure to treat the case <span class="math inline">\(\mathbb{K} = \mathbb{C}\)</span>.</p>
@@ -472,6 +781,44 @@ F(\boldsymbol{x},\boldsymbol{z})
 \]</span></p>
 <p>Both lower-triangular factors satisfy <span class="math inline">\(\boldsymbol{L}\boldsymbol{L}^*=\widetilde{\boldsymbol{L}}\widetilde{\boldsymbol{L}}^*=\boldsymbol{A}\)</span>, but column phases cannot move a nonzero entry from one column to another. The sign/phase uniqueness conclusion therefore requires nonsingularity.</p>
 </blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>The positive-diagonal Cholesky convention is <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#cholesky-factorization">Lecture 9 §9.3</a>. The phase convention is analogous to <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html#uniqueness-of-qr">Lecture 7 §7.6</a>; the following Cholesky uniqueness proof uses homework 3(b).</p>
+<p>If <span class="math inline">\(A\)</span> is nonsingular and <span class="math inline">\(A=LL^*\)</span>, then <span class="math inline">\(L\)</span> is nonsingular, so each diagonal <span class="math inline">\(L_{kk}\ne0\)</span>. Define <span class="math inline">\(D=\operatorname{diag}(L_{kk})\)</span>. Both factors in</p>
+<p><span class="math display">\[
+\begin{aligned}
+A&amp;=(LD^{-1})(DL^*),\\
+(LD^{-1})_{kk}&amp;=L_{kk}/L_{kk}=1,\\
+(DL^*)_{kk}&amp;=L_{kk}\overline{L_{kk}}=|L_{kk}|^2
+\end{aligned}
+\]</span></p>
+<p>have the required triangular form. Applying 3(b) to a second factor <span class="math inline">\(\widetilde L\)</span> yields</p>
+<p><span class="math display">\[
+\begin{aligned}
+LD^{-1}&amp;=\widetilde L\widetilde D^{-1},
+&amp;|L_{kk}|^2&amp;=|\widetilde L_{kk}|^2,\\
+\widetilde L&amp;=LD^{-1}\widetilde D=LW,
+&amp;W&amp;=\operatorname{diag}(\omega_k),\\
+\omega_k&amp;=\widetilde L_{kk}/L_{kk},
+&amp;|\omega_k|&amp;=1,\\
+(LW)(LW)^*&amp;=LWW^*L^*=LIL^*=A.
+\end{aligned}
+\]</span></p>
+<p>Over <span class="math inline">\(\mathbb R\)</span>, <span class="math inline">\(|\omega_k|=1\)</span> means <span class="math inline">\(\omega_k=\pm1\)</span>. Over <span class="math inline">\(\mathbb C\)</span>, it means <span class="math inline">\(\omega_k=e^{i\theta_k}\)</span>. Positive real diagonals force <span class="math inline">\(\omega_k=1\)</span> for every <span class="math inline">\(k\)</span>.</p>
+<p>For the submitted singular counterexample, multiplication gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix}
+\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix}^*
+&amp;=\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix},\\
+\begin{pmatrix}0&amp;0\\1&amp;0\end{pmatrix}
+\begin{pmatrix}0&amp;0\\1&amp;0\end{pmatrix}^*
+&amp;=\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix}.
+\end{aligned}
+\]</span></p>
+<p>Multiplying a zero column by a phase keeps it zero, so no diagonal phase matrix relates these two factors. Nonsingularity is necessary for the sign/phase-only uniqueness claim.</p>
+</blockquote>
 <h4 data-original-heading="(d) [5 pts]" id="d-5-pts">1.3.4 (d) [5 pts]</h4>
 <p>Using these results, prove and explain the relationship between the Cholesky factor of <span class="math inline">\(\boldsymbol{B}^* \boldsymbol{B}\)</span> and the QR factorization of <span class="math inline">\(\boldsymbol{B}\)</span>, for <span class="math inline">\(\boldsymbol{B} \in \mathbb{K}^{m \times n}\)</span> with <span class="math inline">\(m \geq n\)</span> and full column rank.</p>
 <h5 data-original-heading="Solution to 3(d)" id="solution-to-3d">1.3.4.1 Solution to 3(d)</h5>
@@ -505,6 +852,31 @@ F(\boldsymbol{x},\boldsymbol{z})
 \end{aligned}
 \]</span></p>
 <p>Thus the upper Cholesky factor of the Gram matrix is exactly the triangular factor in reduced QR, with the same positive-diagonal convention.</p>
+</blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>Use <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#positive-definiteness-and-full-column-rank">Lecture 8 §8.7.3’s full-rank Gram characterization</a>, <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html#reduced-qr">reduced QR in Lecture 7 §7.4.1</a>, and the <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html#positive-diagonal-entries-remove-the-ambiguity">positive-diagonal convention in §7.6.2</a>. Their connection is stated in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#cholesky-and-qr">Lecture 9 §9.10</a>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+x\ne0&amp;\Longrightarrow Bx\ne0
+\Longrightarrow x^*B^*Bx=\|Bx\|_2^2&gt;0,\\
+B&amp;=QR,\qquad Q^*Q=I_n,\\
+B^*B&amp;=R^*Q^*QR=R^*I_nR=R^*R,\\
+L&amp;:=R^*\quad\Longrightarrow\quad LL^*=R^*R=B^*B.
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(R^*\)</span> is lower triangular and <span class="math inline">\((R^*)_{kk}=\overline{R_{kk}}=R_{kk}&gt;0\)</span>, so 3(c) identifies it as the unique normalized Cholesky factor. Conversely, start from <span class="math inline">\(B^*B=LL^*\)</span> and set <span class="math inline">\(R=L^*\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Q&amp;=BR^{-1},\\
+QR&amp;=BR^{-1}R=B,\\
+Q^*Q&amp;=(R^{-1})^*B^*BR^{-1}\\
+&amp;=(R^*)^{-1}(R^*R)R^{-1}\\
+&amp;=((R^*)^{-1}R^*)(RR^{-1})=I_n.
+\end{aligned}
+\]</span></p>
+<p>Thus <span class="math inline">\(Q,R\)</span> satisfy reduced QR with the same diagonal normalization.</p>
 </blockquote>
 <h4 data-original-heading="(e) [5 pts]" id="e-5-pts">1.3.5 (e) [5 pts]</h4>
 <p>For <span class="math inline">\(\boldsymbol{A} = \boldsymbol{B}^* \boldsymbol{B}\)</span> and <span class="math inline">\(\boldsymbol{B}\)</span> as in (d), write <span class="math display">\[
@@ -584,6 +956,45 @@ F(\boldsymbol{x},\boldsymbol{z})
 =\boldsymbol{R}_{2,2}^*\boldsymbol{R}_{2,2}
 \]</span></p>
 <p>Therefore <span class="math inline">\(\boldsymbol{L}_{2,2}=\boldsymbol{R}_{2,2}^*\)</span> under the positive-diagonal convention. Cholesky’s trailing Schur-complement update corresponds exactly to Gram-Schmidt’s projection step: the updated matrix stores the inner products of the remaining orthogonalized columns.</p>
+</blockquote>
+<!-- End submitted solution; added study explanation follows. -->
+<blockquote>
+<p><strong>Derivation details — added study explanation.</strong></p>
+<p>The prerequisites are <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#gram-matrices">Gram-matrix block products, Lecture 8 §8.7</a>, <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html#least-squares-with-orthonormal-columns">orthogonal projection, Lecture 5 §5.5</a>, <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html#classical-gramschmidt">Gram–Schmidt, §5.7</a>, and <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#block-cholesky-and-schur-complements">block Cholesky, Lecture 9 §9.8</a>. This combines them to derive the requested identity.</p>
+<p>A subset of the independent columns of <span class="math inline">\(B\)</span> is independent, so <span class="math inline">\(G=B_1^*B_1\)</span> is positive definite by <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#positive-definiteness-and-full-column-rank">Lecture 8 §8.7.3</a>. For <span class="math inline">\(P=B_1G^{-1}B_1^*\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P^*&amp;=B_1(G^{-1})^*B_1^*=B_1G^{-1}B_1^*=P,\\
+P^2&amp;=B_1G^{-1}(B_1^*B_1)G^{-1}B_1^*=P,\\
+B_1^*(I-P)&amp;=B_1^*-(B_1^*B_1)G^{-1}B_1^*=0,\\
+(I-P)^*(I-P)&amp;=(I-P)^2=I-2P+P^2=I-P.
+\end{aligned}
+\]</span></p>
+<p>Thus <span class="math inline">\((I-P)B_2\)</span> consists of columns orthogonal to <span class="math inline">\(B_1\)</span>, and</p>
+<p><span class="math display">\[
+\begin{aligned}
+\widehat B_2^*\widehat B_2
+&amp;=B_2^*(I-P)^*(I-P)B_2\\
+&amp;=B_2^*B_2-B_2^*B_1G^{-1}B_1^*B_2\\
+&amp;=A_{22}-A_{21}A_{11}^{-1}A_{12}=A/A_{11}.
+\end{aligned}
+\]</span></p>
+<p>For the partitioned reduced QR, <span class="math inline">\(B_1=Q_1R_{11}\)</span> and <span class="math inline">\(Q_1^*Q_1=I\)</span>. Hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+G&amp;=R_{11}^*R_{11},\qquad
+G^{-1}=R_{11}^{-1}(R_{11}^*)^{-1},\\
+P&amp;=Q_1R_{11}R_{11}^{-1}(R_{11}^*)^{-1}R_{11}^*Q_1^*
+=Q_1Q_1^*,\\
+(I-P)B_2
+&amp;=(I-Q_1Q_1^*)(Q_1R_{12}+Q_2R_{22})\\
+&amp;=(Q_1-Q_1(Q_1^*Q_1))R_{12}
+ +(Q_2-Q_1(Q_1^*Q_2))R_{22}\\
+&amp;=0+Q_2R_{22},\\
+A/A_{11}&amp;=R_{22}^*Q_2^*Q_2R_{22}=R_{22}^*R_{22}.
+\end{aligned}
+\]</span></p>
+<p>By <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#block-cholesky-and-schur-complements">Lecture 9 §9.8</a>, this same Schur complement is <span class="math inline">\(L_{22}L_{22}^*\)</span>. Both <span class="math inline">\(L_{22}\)</span> and <span class="math inline">\(R_{22}^*\)</span> have positive real diagonal, so 3(c) gives <span class="math inline">\(L_{22}=R_{22}^*\)</span>. Schur-complement elimination and orthogonal projection therefore produce the same trailing Gram matrix.</p>
 </blockquote></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
     <a rel="prev" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span>← Previous page</span><span>HW 2</span></a>
     <span class="unavailable" aria-disabled="true"><span>Next page →</span><span>No later page yet</span></span>
