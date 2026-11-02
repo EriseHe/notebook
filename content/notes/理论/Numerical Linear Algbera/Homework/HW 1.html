@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light"><title>HW 1 — E.H. Notebook</title>
-<meta name="description" content="1 Numerical Methods I, Homework 1Schäfer, Fall 2026Deadline: Sep. 21 Monday, 4:55 pmThe submitted solutions are preserved below. Each is followed by a separate block of a">
+<meta name="description" content="1 Numerical Methods I, Homework 1Schäfer, Fall 2026Deadline: Sep. 21 Monday, 4:55 pm1 Less positive [12.5 pts]Consider a symmetric positive definite matrix \boldsymbol{A}">
 <link rel="stylesheet" href="/notebook/assets/reader.css"><link rel="preload" href="/notebook/assets/fonts/texgyretermes-regular.otf" as="font" type="font/otf" crossorigin>
 <script defer src="/notebook/assets/reader.js"></script>
 <script src="/notebook/assets/math-config.js"></script><script defer id="MathJax-script" src="/notebook/assets/vendor/mathjax/tex-chtml-full.js"></script>
@@ -14,7 +14,6 @@
 <main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/index.html">Homework</a></nav><h1 id="reader-title">HW 1</h1></header><div id="article-body" class="prose"><h2 data-original-heading="Numerical Methods I, Homework 1" id="numerical-methods-i-homework-1">1 Numerical Methods I, Homework 1</h2>
 <p>Schäfer, Fall 2026</p>
 <p>Deadline: Sep.&nbsp;21 Monday, 4:55 pm</p>
-<p>The submitted solutions are preserved below. Each is followed by a separate block of added derivation details and lecture references.</p>
 <h3 data-original-heading="1 Less positive [12.5 pts]" id="less-positive-12.5-pts">1 Less positive [12.5 pts]</h3>
 <p>Consider a symmetric positive definite matrix <span class="math inline">\(\boldsymbol{A}\)</span> separated into subblocks according to <span class="math display">\[
 \boldsymbol{A} = \begin{pmatrix}
@@ -29,8 +28,14 @@
 \begin{pmatrix}\boldsymbol{x}\\\boldsymbol{0}\end{pmatrix}^{\!T}
 \boldsymbol{A}
 \begin{pmatrix}\boldsymbol{x}\\\boldsymbol{0}\end{pmatrix}&gt;0
-\]</span> Thus <span class="math inline">\(\boldsymbol{A}_{1,1}\)</span> is symmetric positive definite and invertible. Let <span class="math inline">\(\boldsymbol{S}=\boldsymbol{A}_{2,2}-\boldsymbol{A}_{2,1}\boldsymbol{A}_{1,1}^{-1}\boldsymbol{A}_{1,2}\)</span>. Since <span class="math inline">\(\boldsymbol{A}_{2,1}=\boldsymbol{A}_{1,2}^T\)</span>, then <span class="math display">\[
+\]</span> Thus <span class="math inline">\(\boldsymbol{A}_{1,1}\)</span> is symmetric positive definite and invertible. This uses the quadratic-form definition in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#positive-semidefinite-and-positive-definite-matrices">Lecture 8, §8.6.2</a> and the nullspace criterion in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html#linear-systems">Lecture 2, §2.5</a>: <span class="math display">\[
 \begin{aligned}
+A_{11}u=0&amp;\Longrightarrow u^TA_{11}u=0\\
+&amp;\Longrightarrow u=0.
+\end{aligned}
+\]</span> Let <span class="math inline">\(\boldsymbol{S}=\boldsymbol{A}_{2,2}-\boldsymbol{A}_{2,1}\boldsymbol{A}_{1,1}^{-1}\boldsymbol{A}_{1,2}\)</span>. This is the Schur complement from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#block-cholesky-and-schur-complements">Lecture 9, §9.8</a>. Since <span class="math inline">\(\boldsymbol{A}_{2,1}=\boldsymbol{A}_{1,2}^T\)</span>, then <span class="math display">\[
+\begin{aligned}
+(A_{11}^{-1})^T&amp;=(A_{11}^T)^{-1}=A_{11}^{-1},\\
 \boldsymbol{S}^T
 &amp;=\boldsymbol{A}_{2,2}^T
   -\boldsymbol{A}_{1,2}^T(\boldsymbol{A}_{1,1}^{-1})^T\boldsymbol{A}_{2,1}^T\\
@@ -47,34 +52,13 @@
 \end{pmatrix}\ne\boldsymbol{0},
 &amp;
 \boldsymbol{A}\boldsymbol{z}
-&amp;=\begin{pmatrix}\boldsymbol{0}\\\boldsymbol{S}\boldsymbol{y}\end{pmatrix}
+&amp;=\begin{pmatrix}
+-A_{11}A_{11}^{-1}A_{12}y+A_{12}y\\
+-A_{21}A_{11}^{-1}A_{12}y+A_{22}y
+\end{pmatrix}\\
+&amp;&amp;&amp;=\begin{pmatrix}\boldsymbol{0}\\\boldsymbol{S}\boldsymbol{y}\end{pmatrix}
 \end{aligned}
 \]</span> then we know <span class="math inline">\(0&lt;\boldsymbol{z}^T\boldsymbol{A}\boldsymbol{z}=\boldsymbol{y}^T\boldsymbol{S}\boldsymbol{y}\)</span>. Hence <span class="math inline">\(\boldsymbol{S}\)</span> is symmetric positive definite.</p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>Use the positive-definite quadratic-form definition in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#positive-semidefinite-and-positive-definite-matrices">Lecture 8, §8.6.2</a>. The block <span class="math inline">\(S\)</span> is the Schur complement defined in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#block-cholesky-and-schur-complements">Lecture 9, §9.8</a>.</p>
-<p>First, <span class="math inline">\(A_{11}\)</span> is symmetric. For <span class="math inline">\(u\ne0\)</span>, <span class="math inline">\((u,0)^T\ne0\)</span> and <span class="math display">\[
-\begin{aligned}
-u^TA_{11}u
-&amp;=\begin{pmatrix}u\\0\end{pmatrix}^TA\begin{pmatrix}u\\0\end{pmatrix}&gt;0,\\
-A_{11}u=0&amp;\Longrightarrow u^TA_{11}u=0\Longrightarrow u=0.
-\end{aligned}
-\]</span> Thus <span class="math inline">\(A_{11}\)</span> is invertible by the nullspace criterion in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html#linear-systems">Lecture 2, §2.5</a>. Transposing <span class="math inline">\(A_{11}A_{11}^{-1}=I\)</span> gives <span class="math inline">\((A_{11}^{-1})^T=(A_{11}^T)^{-1}=A_{11}^{-1}\)</span>. Hence <span class="math display">\[
-\begin{aligned}
-S^T
-&amp;=A_{22}^T-A_{12}^T(A_{11}^{-1})^TA_{21}^T\\
-&amp;=A_{22}-A_{21}A_{11}^{-1}A_{12}=S.
-\end{aligned}
-\]</span> For <span class="math inline">\(y\ne0\)</span>, set <span class="math inline">\(w=-A_{11}^{-1}A_{12}y\)</span> and <span class="math inline">\(z=(w,y)^T\ne0\)</span>. Block multiplication gives <span class="math display">\[
-\begin{aligned}
-Az&amp;=\begin{pmatrix}A_{11}w+A_{12}y\\A_{21}w+A_{22}y\end{pmatrix}
-=\begin{pmatrix}-A_{12}y+A_{12}y\\-A_{21}A_{11}^{-1}A_{12}y+A_{22}y\end{pmatrix}
-=\begin{pmatrix}0\\Sy\end{pmatrix},\\
-0&lt;z^TAz&amp;=\begin{pmatrix}w^T&amp;y^T\end{pmatrix}\begin{pmatrix}0\\Sy\end{pmatrix}=y^TSy.
-\end{aligned}
-\]</span> This proves both required properties.</p>
 </blockquote>
 <h3 data-original-heading="2 Just one [12.5 pts]" id="just-one-12.5-pts">2 Just one [12.5 pts]</h3>
 <p>Consider a matrix <span class="math inline">\(\boldsymbol{A} \in \mathbb{R}^{m \times m}\)</span>, with (unpivoted) LU-factorization given by <span class="math inline">\(\boldsymbol{A} = \boldsymbol{L} \boldsymbol{U}\)</span>. Propose an algorithm for computing the <span class="math inline">\((i, j)\)</span>-th entry of <span class="math inline">\(\boldsymbol{A}^{-1}\)</span> using only <span class="math inline">\(\mathcal{O}\left(\left(m + 1 - j\right)^2 + \left(m + 1 - i\right)^2\right)\)</span> floating point operations.</p>
@@ -83,52 +67,32 @@ Az&amp;=\begin{pmatrix}A_{11}w+A_{12}y\\A_{21}w+A_{22}y\end{pmatrix}
 \boldsymbol{x}=\boldsymbol{U}^{-1}\boldsymbol{L}^{-1}\boldsymbol{e}_j
 =\boldsymbol{A}^{-1}\boldsymbol{e}_j,
 \qquad x_i=(\boldsymbol{A}^{-1})_{ij}
-\]</span> We know that <span class="math inline">\(L_{kk}=1\)</span>, so forward substitution starts at <span class="math inline">\(j\)</span>; and backward substitution stops at <span class="math inline">\(i\)</span>: <span class="math display">\[
+\]</span> Use the unit-lower LU convention from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html#elementary-lower-triangular-matrices">Lecture 3, §3.5</a>, with <span class="math inline">\(A\)</span> invertible. We know that <span class="math inline">\(L_{kk}=1\)</span>, so forward substitution starts at <span class="math inline">\(j\)</span>; and backward substitution stops at <span class="math inline">\(i\)</span>: see <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html#lower-triangular-systems">Lecture 2, §§2.6.1</a> and <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html#upper-triangular-systems">2.6.2</a>. <span class="math display">\[
 \begin{aligned}
+\sum_{s=1}^{k-1}L_{ks}y_s+y_k&amp;=(e_j)_k,\\
 y_k&amp;=0, &amp;&amp;k&lt;j\\
 y_j&amp;=1,\\
-y_k&amp;=-\sum_{s=j}^{k-1}L_{ks}y_s,
+y_k&amp;=-\sum_{s=1}^{k-1}L_{ks}y_s
+=-\sum_{s=j}^{k-1}L_{ks}y_s,
 &amp;&amp;k=j+1,\ldots,m\\
+U_{kk}x_k+\sum_{s=k+1}^mU_{ks}x_s&amp;=y_k,\\
 x_k&amp;=\frac{y_k-\displaystyle\sum_{s=k+1}^{m}U_{ks}x_s}{U_{kk}},
 &amp;&amp;k=m,m-1,\ldots,i
 \end{aligned}
-\]</span> Return <span class="math inline">\(x_i\)</span>. Then the operation count is bounded by <span class="math display">\[
+\]</span> Return <span class="math inline">\(x_i\)</span>. Then the operation count is bounded by (counting multiplication and addition separately, as in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html#algorithms-and-computational-cost">Lecture 2, §2.3</a>) <span class="math display">\[
 \begin{aligned}
 N_{\mathrm{flop}}
 &amp;\le
 \underbrace{2\sum_{k=j+1}^{m}(k-j)}_{\text{forward}}
 +\underbrace{\sum_{k=i}^{m}\bigl(2(m-k)+1\bigr)}_{\text{backward}}\\
+&amp;=2\sum_{t=1}^{m-j}t+2\sum_{t=0}^{m-i}t+(m-i+1)\\
+&amp;=(m-j)(m-j+1)+(m-i)(m-i+1)+(m-i+1)\\
 &amp;=(m-j)(m-j+1)+(m-i+1)^2\\
 &amp;=\mathcal{O}\bigl((m+1-j)^2+(m+1-i)^2\bigr)
 \end{aligned}
 \]</span></p>
+<p>For nonunit <span class="math inline">\(L\)</span>, forward substitution also divides by <span class="math inline">\(L_{kk}\)</span>; the asymptotic bound is unchanged.</p>
 <p><span class="math inline">\(\square\)</span></p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>Use <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html#lower-triangular-systems">forward substitution, Lecture 2 §2.6.1</a>, <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html#upper-triangular-systems">back substitution, §2.6.2</a> and the unit-lower elimination factors in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html#elementary-lower-triangular-matrices">Lecture 3, §3.5</a>. We need <span class="math inline">\(A\)</span> invertible; the submitted formulas use <span class="math inline">\(L_{kk}=1\)</span>.</p>
-<p>The <span class="math inline">\(j\)</span>th column of <span class="math inline">\(A^{-1}\)</span> solves <span class="math inline">\(Ax=e_j\)</span>. Since <span class="math inline">\(A=LU\)</span>, <span class="math display">\[
-\begin{aligned}
-Ax=e_j&amp;\Longleftrightarrow LUx=e_j,\\
-y=L^{-1}e_j,\quad x=U^{-1}y
-&amp;\Longrightarrow x=A^{-1}e_j,\qquad x_i=(A^{-1})_{ij}.
-\end{aligned}
-\]</span> For <span class="math inline">\(k&lt;j\)</span>, the lower-triangular equations successively give <span class="math inline">\(y_k=0\)</span>. Row <span class="math inline">\(j\)</span> gives <span class="math inline">\(y_j=1\)</span>. Later rows give <span class="math display">\[
-\begin{aligned}
-\sum_{s=1}^{k-1}L_{ks}y_s+y_k&amp;=0,\\
-y_k&amp;=-\sum_{s=j}^{k-1}L_{ks}y_s\qquad(k&gt;j),\\
-\sum_{s=k+1}^mU_{ks}x_s+U_{kk}x_k&amp;=y_k,\\
-x_k&amp;=\frac{y_k-\sum_{s=k+1}^mU_{ks}x_s}{U_{kk}}\qquad(k=m,\ldots,i).
-\end{aligned}
-\]</span> Rows below <span class="math inline">\(i\)</span> determine <span class="math inline">\(x_i\)</span>; rows above <span class="math inline">\(i\)</span> need not be solved. Counting multiply/add operations separately, as in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html#algorithms-and-computational-cost">Lecture 2, §2.3</a>, <span class="math display">\[
-\begin{aligned}
-N_{\mathrm{forward}}&amp;\le2\sum_{t=1}^{m-j}t=(m-j)(m-j+1),\\
-N_{\mathrm{backward}}&amp;\le\sum_{t=0}^{m-i}(2t+1)=(m-i+1)^2,\\
-N_{\mathrm{total}}&amp;\le(m-j)(m-j+1)+(m-i+1)^2\\
-&amp;=O\bigl((m+1-j)^2+(m+1-i)^2\bigr).
-\end{aligned}
-\]</span> For a nonunit <span class="math inline">\(L\)</span>, divide each forward-substitution row by <span class="math inline">\(L_{kk}\)</span>; the same asymptotic bound holds.</p>
 </blockquote>
 <h3 data-original-heading="3 SVD [25 pts]" id="svd-25-pts">3 SVD [25 pts]</h3>
 <p>Use the recommended literature from the class syllabus to catch up on the SVD applied to non-square matrices, as well as the eigendecomposition of square matrices. The vector-two norm of a vector <span class="math inline">\(\boldsymbol{x} \in \mathbb{R}^n\)</span> is defined as <span class="math display">\[
@@ -147,15 +111,30 @@ N_{\mathrm{total}}&amp;\le(m-j)(m-j+1)+(m-i+1)^2\\
 \qquad
 \sigma_1\ge\cdots\ge\sigma_r\ge0,
 \qquad r=\min(m,n),
-\]</span> with <span class="math inline">\(\boldsymbol{U},\boldsymbol{V}\)</span> orthogonal. Let <span class="math inline">\(\boldsymbol{v}_k\)</span> be the <span class="math inline">\(k\)</span>-th column of <span class="math inline">\(\boldsymbol{V}\)</span> and set <span class="math inline">\(\boldsymbol{y}=\boldsymbol{V}^T\boldsymbol{x}\)</span>, so <span class="math inline">\(\|\boldsymbol{y}\|_2=\|\boldsymbol{x}\|_2\)</span>. <span class="math display">\[
+\]</span> with <span class="math inline">\(\boldsymbol{U},\boldsymbol{V}\)</span> orthogonal. The SVD can be obtained from the Gram matrix (<a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#a-gram-matrix-is-hermitian-positive-semidefinite">Lecture 8, §8.7.1</a>) and the spectral theorem (<a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>): <span class="math display">\[
 \begin{aligned}
+A^TA&amp;=V\operatorname{diag}(\mu_1,\ldots,\mu_n)V^T,\qquad \mu_1\ge\cdots\ge\mu_n\ge0,\\
+\mu_k&amp;=v_k^TA^TAv_k=\|Av_k\|_2^2\ge0,\\
+\sigma_k&amp;=\sqrt{\mu_k},\qquad u_k=Av_k/\sigma_k\quad(\sigma_k&gt;0),\\
+u_i^Tu_j&amp;=\frac{v_i^TA^TAv_j}{\sigma_i\sigma_j}
+=\frac{\mu_jv_i^Tv_j}{\sigma_i\sigma_j}=\delta_{ij},\\
+\sigma_k=0&amp;\Longrightarrow\|Av_k\|_2^2=\mu_k=0
+\Longrightarrow Av_k=0.
+\end{aligned}
+\]</span> Complete the nonzero-image <span class="math inline">\(u_k\)</span> to an orthonormal basis (<a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html#completing-to-full-qr">Lecture 7, §7.5.3</a>). Then <span class="math inline">\(AV=U\Sigma\)</span>, so <span class="math inline">\(A=U\Sigma V^T\)</span>; when <span class="math inline">\(m&lt;n\)</span>, omit the <span class="math inline">\(n-m\)</span> additional zero eigenvalues from the list of <span class="math inline">\(r\)</span> singular values. Let <span class="math inline">\(\boldsymbol{v}_k\)</span> be the <span class="math inline">\(k\)</span>-th column of <span class="math inline">\(\boldsymbol{V}\)</span> and set <span class="math inline">\(\boldsymbol{y}=\boldsymbol{V}^T\boldsymbol{x}\)</span>, so <span class="math inline">\(\|\boldsymbol{y}\|_2=\|\boldsymbol{x}\|_2\)</span>. <span class="math display">\[
+\begin{aligned}
+\|y\|_2^2&amp;=x^TVV^Tx=x^Tx=\|x\|_2^2,\\
 \|\boldsymbol{A}\boldsymbol{x}\|_2^2
+&amp;=(U\Sigma y)^T(U\Sigma y)\\
+&amp;=y^T\Sigma^TU^TU\Sigma y
+=y^T\Sigma^T\Sigma y\\
 &amp;=\|\boldsymbol{\Sigma}\boldsymbol{y}\|_2^2
 =\sum_{k=1}^{r}\sigma_k^2y_k^2\\
-&amp;\le\sigma_1^2\sum_{k=1}^{n}y_k^2
+&amp;\le\sigma_1^2\sum_{k=1}^{r}y_k^2
+\le\sigma_1^2\sum_{k=1}^{n}y_k^2
 =\sigma_{\max}(\boldsymbol{A})^2\|\boldsymbol{x}\|_2^2
 \end{aligned}
-\]</span> Taking square roots gives the inequality. Equality is attained at <span class="math inline">\(\boldsymbol{x}=\boldsymbol{v}_1\)</span>, hence <span class="math display">\[
+\]</span> Taking square roots gives the inequality. At the unit vector <span class="math inline">\(v_1\)</span>, <span class="math inline">\(Av_1=\sigma_1u_1\)</span> and <span class="math inline">\(\|Av_1\|_2=\sigma_1\)</span> (also when <span class="math inline">\(\sigma_1=0\)</span>). Equality is attained at <span class="math inline">\(\boldsymbol{x}=\boldsymbol{v}_1\)</span>, hence <span class="math display">\[
 \sigma_{\max}(\boldsymbol{A})
 =\frac{\|\boldsymbol{A}\boldsymbol{v}_1\|_2}{\|\boldsymbol{v}_1\|_2}
 \le\|\boldsymbol{A}\|_2
@@ -163,112 +142,48 @@ N_{\mathrm{total}}&amp;\le(m-j)(m-j+1)+(m-i+1)^2\\
 \]</span></p>
 <p><span class="math inline">\(\square\)</span></p>
 </blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>The rectangular SVD is assigned background in this problem, rather than a theorem proved in the available lecture notes. Its needed norm identity follows from the Gram matrix in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#a-gram-matrix-is-hermitian-positive-semidefinite">Lecture 8, §8.7.1</a> and the Hermitian spectral theorem in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>.</p>
-<p>Write <span class="math inline">\(A^TA=V\operatorname{diag}(\mu_1,\ldots,\mu_n)V^T\)</span>, with <span class="math inline">\(\mu_1\ge\cdots\ge\mu_n\ge0\)</span>. Put <span class="math inline">\(y=V^Tx\)</span>. Orthogonality gives <span class="math display">\[
-\begin{aligned}
-\|y\|_2^2&amp;=x^TVV^Tx=x^Tx=\|x\|_2^2,\\
-\|Ax\|_2^2&amp;=x^TA^TAx\\
-&amp;=y^T\operatorname{diag}(\mu_1,\ldots,\mu_n)y\\
-&amp;=\sum_{k=1}^n\mu_ky_k^2
-\le\mu_1\sum_{k=1}^ny_k^2
-=\mu_1\|x\|_2^2.
-\end{aligned}
-\]</span> To recover the SVD, set <span class="math inline">\(\sigma_k=\sqrt{\mu_k}\)</span> and <span class="math inline">\(u_k=Av_k/\sigma_k\)</span> whenever <span class="math inline">\(\sigma_k&gt;0\)</span>. Then <span class="math display">\[
-\begin{aligned}
-u_i^Tu_j&amp;=\frac{v_i^TA^TAv_j}{\sigma_i\sigma_j}
-=\frac{\mu_jv_i^Tv_j}{\sigma_i\sigma_j}
-=\delta_{ij},\\
-\sigma_k=0&amp;\Longrightarrow\|Av_k\|_2^2=\mu_k=0
-\Longrightarrow Av_k=0.
-\end{aligned}
-\]</span> Complete the nonzero-image <span class="math inline">\(u_k\)</span> to an orthonormal basis, as in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html#completing-to-full-qr">Lecture 7, §7.5.3</a>. With these columns forming <span class="math inline">\(U\)</span> and the rectangular diagonal matrix <span class="math inline">\(\Sigma\)</span>, <span class="math display">\[
-\begin{aligned}
-Av_k&amp;=\sigma_ku_k\quad(\sigma_k&gt;0),\qquad Av_k=0\quad(\sigma_k=0),\\
-AV&amp;=U\Sigma,\\
-A&amp;=U\Sigma V^T.
-\end{aligned}
-\]</span> Thus the singular values are the square roots of the Gram eigenvalues, with the additional structural zeros omitted when <span class="math inline">\(m&lt;n\)</span>; <span class="math inline">\(\sigma_{\max}(A)=\sqrt{\mu_1}\)</span>. Taking nonnegative square roots in the norm bound and dividing by <span class="math inline">\(\|x\|_2\)</span> for <span class="math inline">\(x\ne0\)</span> gives <span class="math inline">\(\|A\|_2\le\sigma_{\max}(A)\)</span>. For the unit eigenvector <span class="math inline">\(v_1\)</span>, <span class="math display">\[
-\begin{aligned}
-\|Av_1\|_2^2&amp;=v_1^TA^TAv_1=\mu_1v_1^Tv_1=\mu_1,\\
-\|A\|_2&amp;\ge\frac{\|Av_1\|_2}{\|v_1\|_2}=\sqrt{\mu_1}=\sigma_{\max}(A).
-\end{aligned}
-\]</span> Both inequalities also hold when <span class="math inline">\(A=0\)</span>.</p>
-</blockquote>
 <h4 data-original-heading="(b) [4 pts]" id="b-4-pts">1.3.2 (b) [4 pts]</h4>
 <p><span class="math display">\[
 m \geq n \Rightarrow \|\boldsymbol{A}\boldsymbol{x}\|_2 \geq \sigma_{\mathrm{min}}\left(\boldsymbol{A}\right) \|\boldsymbol{x}\|_2, \forall \boldsymbol{x} \in \mathbb{R}^n
 \]</span></p>
 <blockquote>
-<p><em>Proof.</em> For <span class="math inline">\(m\ge n\)</span>, <span class="math inline">\(r=n\)</span>, and <span class="math display">\[
+<p><em>Proof.</em> For <span class="math inline">\(m\ge n\)</span>, <span class="math inline">\(r=n\)</span>, and (using <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#a-4-pts">3(a)</a> and the spectral theorem in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>) <span class="math display">\[
 \begin{aligned}
 \|\boldsymbol{A}\boldsymbol{x}\|_2^2
 &amp;=\sum_{k=1}^{n}\sigma_k^2y_k^2
-\ge\sigma_n^2\sum_{k=1}^{n}y_k^2
+=\sum_{k=1}^n\bigl(\sigma_n^2+(\sigma_k^2-\sigma_n^2)\bigr)y_k^2\\
+&amp;\ge\sigma_n^2\sum_{k=1}^{n}y_k^2
 =\sigma_{\min}(\boldsymbol{A})^2\|\boldsymbol{x}\|_2^2\\
 \|\boldsymbol{A}\boldsymbol{x}\|_2
 &amp;\ge\sigma_{\min}(\boldsymbol{A})\|\boldsymbol{x}\|_2
 \end{aligned}
 \]</span> Equality is attained for <span class="math inline">\(\boldsymbol{x}=\boldsymbol{v}_n\)</span>, since <span class="math display">\[
-\|\boldsymbol{A}\boldsymbol{v}_n\|_2=\|\sigma_n\boldsymbol{u}_n\|_2=\sigma_n=\sigma_{\min}(\boldsymbol{A})
+\|\boldsymbol{A}\boldsymbol{v}_n\|_2=\|\sigma_n\boldsymbol{u}_n\|_2=\sigma_n\|u_n\|_2=\sigma_n=\sigma_{\min}(\boldsymbol{A})
 \]</span></p>
+<p>Consequently <span class="math inline">\(\inf_{x\ne0}\|Ax\|_2/\|x\|_2=\sigma_{\min}(A)\)</span>, with equality at <span class="math inline">\(v_n\)</span>. Full column rank is not required; if rank is deficient, both sides of this minimum are zero.</p>
 <p><span class="math inline">\(\square\)</span></p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>Use the Gram-matrix spectral expansion derived in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#a-4-pts">3(a)</a>, based on <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>. When <span class="math inline">\(m\ge n\)</span>, all <span class="math inline">\(n\)</span> singular values occur in <span class="math inline">\(A^TA\)</span>, so <span class="math inline">\(\mu_n=\sigma_{\min}(A)^2\)</span>. <span class="math display">\[
-\begin{aligned}
-\|Ax\|_2^2-\sigma_{\min}(A)^2\|x\|_2^2
-&amp;=\sum_{k=1}^n\bigl(\mu_k-\mu_n\bigr)y_k^2\ge0,\\
-\|Ax\|_2&amp;\ge\sigma_{\min}(A)\|x\|_2.
-\end{aligned}
-\]</span> For <span class="math inline">\(x=v_n\)</span>, <span class="math inline">\(y=e_n\)</span>, so every term in the difference vanishes: <span class="math display">\[
-\begin{aligned}
-\|Av_n\|_2^2&amp;=v_n^TA^TAv_n=\mu_n,\\
-\|Av_n\|_2&amp;=\sqrt{\mu_n}=\sigma_{\min}(A),\\
-\inf_{x\ne0}\frac{\|Ax\|_2}{\|x\|_2}&amp;=\sigma_{\min}(A).
-\end{aligned}
-\]</span> Full column rank is unnecessary for the inequality; rank deficiency makes the lower bound zero. The condition <span class="math inline">\(m\ge n\)</span> matters: a wide full-row-rank matrix has a nonzero null vector even when its listed smallest singular value is positive.</p>
 </blockquote>
 <h4 data-original-heading="(c) [4 pts]" id="c-4-pts">1.3.3 (c) [4 pts]</h4>
 <p><span class="math display">\[
 m = n \Rightarrow \sigma_{\mathrm{min}}\left(\boldsymbol{A}\right) \leq \left|\lambda_{i}\left(\boldsymbol{A}\right)\right| \leq \sigma_{\mathrm{max}}\left(\boldsymbol{A}\right), \forall i
 \]</span></p>
 <blockquote>
-<p><em>Proof.</em> The same bounds hold for complex vectors, using <span class="math inline">\(|y_k|^2\)</span> in the sums. For an eigenvector <span class="math inline">\(\boldsymbol{z}\in\mathbb{C}^m\setminus\{\boldsymbol{0}\}\)</span>, we know that <span class="math display">\[
+<p><em>Proof.</em> The same bounds hold for complex vectors, using <span class="math inline">\(|y_k|^2\)</span> in the sums. Use the eigenpair definition and spectral theorem from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §§10.2–10.2.1</a>. For an eigenvector <span class="math inline">\(\boldsymbol{z}\in\mathbb{C}^m\setminus\{\boldsymbol{0}\}\)</span>, we know that <span class="math display">\[
 \begin{aligned}
+y=V^*z&amp;\Longrightarrow\sum_k|y_k|^2=z^*VV^*z=\|z\|_2^2,\\
+\|Az\|_2^2&amp;=\sum_k\sigma_k^2|y_k|^2,\\
+\sigma_{\min}(A)^2\|z\|_2^2&amp;\le\|Az\|_2^2\le\sigma_{\max}(A)^2\|z\|_2^2,\\
 \sigma_{\min}(\boldsymbol{A})\|\boldsymbol{z}\|_2
 &amp;\le\|\boldsymbol{A}\boldsymbol{z}\|_2
-=|\lambda_i(\boldsymbol{A})|\|\boldsymbol{z}\|_2
+=\|\lambda_i(A)z\|_2=|\lambda_i(\boldsymbol{A})|\|\boldsymbol{z}\|_2
 \le\sigma_{\max}(\boldsymbol{A})\|\boldsymbol{z}\|_2\\
 \sigma_{\min}(\boldsymbol{A})
 &amp;\le|\lambda_i(\boldsymbol{A})|
 \le\sigma_{\max}(\boldsymbol{A})
 \end{aligned}
 \]</span></p>
+<p>The last line divides by <span class="math inline">\(\|z\|_2&gt;0\)</span>; it does not assume that <span class="math inline">\(A\)</span> is diagonalizable.</p>
 <p><span class="math inline">\(\square\)</span></p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>Eigenvalues and complex eigenvectors are defined in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#eigenvalues-and-eigenvectors">Lecture 10, §10.2</a>. No diagonalizability of <span class="math inline">\(A\)</span> is needed. The Gram-matrix spectral theorem from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">§10.2.1</a> extends the previous bounds to complex vectors: <span class="math display">\[
-\begin{aligned}
-y=V^*z&amp;\Longrightarrow\|y\|_2^2=\sum_k|y_k|^2=\|z\|_2^2,\\
-\|Az\|_2^2&amp;=\sum_k\sigma_k^2|y_k|^2,\\
-\sigma_{\min}(A)^2\|z\|_2^2
-&amp;\le\|Az\|_2^2\le\sigma_{\max}(A)^2\|z\|_2^2.
-\end{aligned}
-\]</span> For any eigenpair <span class="math inline">\(Az=\lambda_i z\)</span> with <span class="math inline">\(z\ne0\)</span>, <span class="math display">\[
-\begin{aligned}
-\|Az\|_2^2&amp;=\sum_k|\lambda_i z_k|^2
-=|\lambda_i|^2\|z\|_2^2,\\
-\sigma_{\min}(A)^2&amp;\le|\lambda_i|^2\le\sigma_{\max}(A)^2,\\
-\sigma_{\min}(A)&amp;\le|\lambda_i|\le\sigma_{\max}(A).
-\end{aligned}
-\]</span> Division is valid because <span class="math inline">\(\|z\|_2^2&gt;0\)</span>.</p>
 </blockquote>
 <h4 data-original-heading="(d) [4 pts]" id="d-4-pts">1.3.4 (d) [4 pts]</h4>
 <p><span class="math display">\[
@@ -277,46 +192,35 @@ y=V^*z&amp;\Longrightarrow\|y\|_2^2=\sum_k|y_k|^2=\|z\|_2^2,\\
 <blockquote>
 <p><em>Proof.</em> Let <span class="math display">\[
 \boldsymbol{A}=\boldsymbol{U}\boldsymbol{\Sigma}\boldsymbol{V}^T,\qquad\sigma_1\ge\cdots\ge\sigma_m&gt;0
-\]</span> Since <span class="math inline">\(\boldsymbol{A}\)</span> is invertible, <span class="math display">\[
-\boldsymbol{A}^{-1}=\boldsymbol{V}\boldsymbol{\Sigma}^{-1}\boldsymbol{U}^T.
+\]</span> Since <span class="math inline">\(\boldsymbol{A}\)</span> is invertible, <span class="math inline">\(A^TA\)</span> is positive definite (<a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#positive-definiteness-and-full-column-rank">Lecture 8, §8.7.3</a>), so every <span class="math inline">\(\sigma_k&gt;0\)</span>. Using <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#a-4-pts">3(a)</a>, <span class="math display">\[
+\begin{aligned}
+A^{-1}&amp;=(U\Sigma V^T)^{-1}
+=(V^T)^{-1}\Sigma^{-1}U^{-1}\\
+&amp;=\boldsymbol{V}\boldsymbol{\Sigma}^{-1}\boldsymbol{U}^T,\\
+(A^{-1})^TA^{-1}
+&amp;=U\Sigma^{-1}V^TV\Sigma^{-1}U^T\\
+&amp;=U\operatorname{diag}(\sigma_1^{-2},\ldots,\sigma_m^{-2})U^T.
+\end{aligned}
 \]</span> Thus the singular values of <span class="math inline">\(\boldsymbol{A}^{-1}\)</span> are <span class="math display">\[
 \frac{1}{\sigma_1},\ldots,\frac{1}{\sigma_m}
 \]</span> Therefore <span class="math display">\[
 \begin{aligned}
 \sigma_{\min}(\boldsymbol{A}^{-1})
 &amp;=\min_{1\le k\le m}\frac{1}{\sigma_k(\boldsymbol{A})}\\
+&amp;=\frac1{\sigma_1(A)}
+\quad\text{since }\sigma_1\ge\cdots\ge\sigma_m&gt;0\\
 &amp;=\frac{1}{\sigma_{\max}(\boldsymbol{A})}
 \end{aligned}
 \]</span> as desired.</p>
 <p><span class="math inline">\(\square\)</span></p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>Use the assigned SVD notation from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#a-4-pts">3(a)</a>. Invertibility makes <span class="math inline">\(A^TA\)</span> positive definite: <span class="math inline">\(x\ne0\)</span> implies <span class="math inline">\(Ax\ne0\)</span>, so <span class="math inline">\(x^TA^TAx=\|Ax\|_2^2&gt;0\)</span> (<a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#positive-definiteness-and-full-column-rank">Lecture 8, §8.7.3</a>). Thus each <span class="math inline">\(\sigma_k&gt;0\)</span>. <span class="math display">\[
-\begin{aligned}
-A&amp;=U\Sigma V^T,\qquad U^{-1}=U^T,\quad V^{-1}=V^T,\\
-A^{-1}&amp;=(U\Sigma V^T)^{-1}
-=(V^T)^{-1}\Sigma^{-1}U^{-1}
-=V\Sigma^{-1}U^T,\\
-(A^{-1})^TA^{-1}
-&amp;=U\Sigma^{-1}V^TV\Sigma^{-1}U^T
-=U\operatorname{diag}(\sigma_1^{-2},\ldots,\sigma_m^{-2})U^T.
-\end{aligned}
-\]</span> Hence the singular values of <span class="math inline">\(A^{-1}\)</span> are <span class="math inline">\(1/\sigma_k\)</span>, in reversed size order: <span class="math display">\[
-\begin{aligned}
-\sigma_1\ge\cdots\ge\sigma_m&gt;0
-&amp;\Longrightarrow \frac1{\sigma_1}\le\cdots\le\frac1{\sigma_m},\\
-\sigma_{\min}(A^{-1})&amp;=\frac1{\sigma_1}=\frac1{\sigma_{\max}(A)},\\
-\sigma_{\max}(A)&amp;=\frac1{\sigma_{\min}(A^{-1})}.
-\end{aligned}
-\]</span></p>
 </blockquote>
 <h4 data-original-heading="(e) [4 pts]" id="e-4-pts">1.3.5 (e) [4 pts]</h4>
 <p>Find the most general conditions on <span class="math inline">\(m\)</span>, <span class="math inline">\(n\)</span>, and <span class="math inline">\(l\)</span>, under which <span class="math inline">\(\sigma_{\mathrm{min}}\left(\boldsymbol{A}\boldsymbol{B}\right) \geq \sigma_{\mathrm{min}}\left(\boldsymbol{A}\right) \sigma_{\mathrm{min}}\left(\boldsymbol{B}\right)\)</span>.</p>
 <blockquote>
 <p><em>Proof.</em> We know that the necessary and sufficient dimensional condition for the inequality to hold for all <span class="math inline">\(\boldsymbol{A},\boldsymbol{B}\)</span> is <span class="math display">\[
 \min(m,l)\le n\le\max(m,l)
+\]</span> The singular-value identities follow from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#a-4-pts">3(a)</a>; the lower norm bound is <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#b-4-pts">3(b)</a>, both based on <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>. In particular, <span class="math display">\[
+A^T=(U\Sigma V^T)^T=V\Sigma^TU^T.
 \]</span> SO transposing replaces <span class="math inline">\(\boldsymbol{A}\boldsymbol{B}\)</span> by <span class="math inline">\(\boldsymbol{B}^T\boldsymbol{A}^T\)</span> without changing singular values, so it suffices to consider <span class="math inline">\(m\ge l\)</span>. If <span class="math inline">\(m\ge n\ge l\)</span>, part (b) would give <span class="math display">\[
 \begin{aligned}
 \|\boldsymbol{A}\boldsymbol{B}\boldsymbol{x}\|_2
@@ -328,51 +232,33 @@ A^{-1}&amp;=(U\Sigma V^T)^{-1}
 \ge\sigma_{\min}(\boldsymbol{A})\sigma_{\min}(\boldsymbol{B})
 \end{aligned}
 \]</span> To show this to be true, we retain <span class="math inline">\(m\ge l\)</span>. If <span class="math inline">\(n&lt;l\)</span>, choose <span class="math display">\[
-\boldsymbol{A}=\begin{pmatrix}\mathbf{I}_n\\\boldsymbol{0}\end{pmatrix},
+\boldsymbol{A}=\begin{pmatrix}\mathbf{I}_n\\0_{(m-n)\times n}\end{pmatrix},
 \qquad
-\boldsymbol{B}=\begin{pmatrix}\mathbf{I}_n&amp;\boldsymbol{0}\end{pmatrix}
-\]</span> Then <span class="math inline">\(\operatorname{rank}(\boldsymbol{A}\boldsymbol{B})=n&lt;l\)</span>. If <span class="math inline">\(n&gt;m\)</span>, choose, with <span class="math inline">\(\boldsymbol{e}_k\in\mathbb{R}^n\)</span>, <span class="math display">\[
+\boldsymbol{B}=\begin{pmatrix}\mathbf{I}_n&amp;0_{n\times(l-n)}\end{pmatrix}
+\]</span> Then <span class="math inline">\(\operatorname{rank}(\boldsymbol{A}\boldsymbol{B})=n&lt;l\)</span>. <span class="math display">\[
+\begin{aligned}
+A^TA&amp;=I_n,\qquad BB^T=I_n,\\
+AB&amp;=\begin{pmatrix}I_n&amp;0\\0&amp;0\end{pmatrix}_{m\times l},\\
+(AB)^TAB&amp;=\operatorname{diag}(\underbrace{1,\ldots,1}_{n},\underbrace{0,\ldots,0}_{l-n}).
+\end{aligned}
+\]</span> If <span class="math inline">\(n&gt;m\)</span>, choose, with <span class="math inline">\(\boldsymbol{e}_k\in\mathbb{R}^n\)</span>, <span class="math display">\[
 \boldsymbol{A}=\begin{pmatrix}\mathbf{I}_m&amp;\boldsymbol{0}\end{pmatrix},
 \qquad
 \boldsymbol{B}=\begin{pmatrix}
 \boldsymbol{e}_1&amp;\cdots&amp;\boldsymbol{e}_{l-1}&amp;\boldsymbol{e}_{m+1}
 \end{pmatrix}
-\]</span> Then <span class="math inline">\(\operatorname{rank}(\boldsymbol{A}\boldsymbol{B})=l-1\)</span>. Both choices satisfy <span class="math display">\[
+\]</span> Then <span class="math inline">\(\operatorname{rank}(\boldsymbol{A}\boldsymbol{B})=l-1\)</span>. <span class="math display">\[
+\begin{aligned}
+AA^T&amp;=I_m,\qquad B^TB=I_l,\\
+AB&amp;=\begin{pmatrix}e_1^{(m)}&amp;\cdots&amp;e_{l-1}^{(m)}&amp;0\end{pmatrix},\\
+(AB)^TAB&amp;=\operatorname{diag}(\underbrace{1,\ldots,1}_{l-1},0).
+\end{aligned}
+\]</span> Here <span class="math inline">\(e_k^{(m)}\)</span> is an <span class="math inline">\(m\)</span>-dimensional coordinate vector; for <span class="math inline">\(l=1\)</span>, the first <span class="math inline">\(l-1\)</span> columns are absent. Both choices satisfy <span class="math display">\[
 \sigma_{\min}(\boldsymbol{A})=\sigma_{\min}(\boldsymbol{B})=1,
 \qquad
 \sigma_{\min}(\boldsymbol{A}\boldsymbol{B})=0,
 \]</span> so the inequality fails outside of the stated range as demonstrated</p>
 <p><span class="math inline">\(\square\)</span></p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>The norm bounds are derived in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#b-4-pts">3(b)</a> from the Hermitian spectral theorem (<a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>). The dimensional criterion itself is proved here, rather than attributed to a lecture.</p>
-<p>Transposing the assigned SVD gives <span class="math inline">\(A^T=V\Sigma^TU^T\)</span>, so transposition preserves its listed singular values. Since <span class="math inline">\((AB)^T=B^TA^T\)</span>, it suffices to treat <span class="math inline">\(m\ge l\)</span>. If <span class="math inline">\(m\ge n\ge l\)</span>, both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are tall, and for every <span class="math inline">\(x\ne0\)</span>, <span class="math display">\[
-\begin{aligned}
-\|ABx\|_2
-&amp;\ge\sigma_{\min}(A)\|Bx\|_2\\
-&amp;\ge\sigma_{\min}(A)\sigma_{\min}(B)\|x\|_2,\\
-\sigma_{\min}(AB)
-&amp;=\inf_{x\ne0}\frac{\|ABx\|_2}{\|x\|_2}
-\ge\sigma_{\min}(A)\sigma_{\min}(B).
-\end{aligned}
-\]</span> For the opposite ordering <span class="math inline">\(m\le l\)</span>, transposition gives the same argument with <span class="math inline">\(l\ge n\ge m\)</span>.</p>
-<p>For necessity, keep <span class="math inline">\(m\ge l\)</span>. If <span class="math inline">\(n&lt;l\)</span>, choose <span class="math display">\[
-\begin{aligned}
-A&amp;=\begin{pmatrix}I_n\\0_{(m-n)\times n}\end{pmatrix},
-&amp;B&amp;=\begin{pmatrix}I_n&amp;0_{n\times(l-n)}\end{pmatrix},\\
-A^TA&amp;=I_n,&amp;BB^T&amp;=I_n,\\
-AB&amp;=\begin{pmatrix}I_n&amp;0\\0&amp;0\end{pmatrix}_{m\times l}.
-\end{aligned}
-\]</span> Thus <span class="math inline">\(\sigma_{\min}(A)=\sigma_{\min}(B)=1\)</span>, but <span class="math inline">\(AB\)</span> has <span class="math inline">\(l-n\)</span> zero singular values. If <span class="math inline">\(n&gt;m\)</span>, choose <span class="math display">\[
-\begin{aligned}
-A&amp;=\begin{pmatrix}I_m&amp;0\end{pmatrix},
-&amp;B&amp;=\begin{pmatrix}e_1&amp;\cdots&amp;e_{l-1}&amp;e_{m+1}\end{pmatrix},\\
-AA^T&amp;=I_m,&amp;B^TB&amp;=I_l,\\
-AB&amp;=\begin{pmatrix}e_1^{(m)}&amp;\cdots&amp;e_{l-1}^{(m)}&amp;0\end{pmatrix}.
-\end{aligned}
-\]</span> Here <span class="math inline">\(e_k\in\mathbb R^n\)</span>; the last display uses <span class="math inline">\(m\)</span>-dimensional vectors. Again the individual smallest singular values are <span class="math inline">\(1\)</span>, but the product’s is <span class="math inline">\(0\)</span>. When <span class="math inline">\(l=1\)</span>, the first <span class="math inline">\(l-1\)</span> columns are absent. These two failures exclude exactly the dimensions outside <span class="math inline">\(\min(m,l)\le n\le\max(m,l)\)</span>.</p>
 </blockquote>
 <h4 data-original-heading="(f) [5 pts]" id="f-5-pts">1.3.6 (f) [5 pts]</h4>
 <p>In class, we have defined the condition number of a scalar function <span class="math inline">\(f\)</span> at a point <span class="math inline">\(x\)</span> as <span class="math display">\[
@@ -388,62 +274,46 @@ AB&amp;=\begin{pmatrix}e_1^{(m)}&amp;\cdots&amp;e_{l-1}^{(m)}&amp;0\end{pmatrix}
 \kappa_{\boldsymbol{f}} = \sup_{\boldsymbol{x} \in \mathbb{R}^n \setminus \{\boldsymbol{0}\}} \kappa_{\boldsymbol{f}}(\boldsymbol{x}) = \frac{\sigma_{\mathrm{max}}\left(\boldsymbol{A}\right)}{\sigma_{\mathrm{min}}\left(\boldsymbol{A}\right)}  \eqcolon \kappa(\boldsymbol{A}).
 \]</span> For invertible square <span class="math inline">\(\boldsymbol{A}\)</span>, find an expression of <span class="math inline">\(\kappa(\boldsymbol{A})\)</span> only in terms of operator norms.</p>
 <blockquote>
-<p><em>Proof.</em> For <span class="math inline">\(\boldsymbol{x}\ne\boldsymbol{0}\)</span> with <span class="math inline">\(\boldsymbol{A}\boldsymbol{x}\ne\boldsymbol{0}\)</span>, linearity and homogeneity give us <span class="math display">\[
+<p><em>Proof.</em> For <span class="math inline">\(\boldsymbol{x}\ne\boldsymbol{0}\)</span> with <span class="math inline">\(\boldsymbol{A}\boldsymbol{x}\ne\boldsymbol{0}\)</span>, linearity and homogeneity give us (using the relative-perturbation definition in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html#conditioning">Lecture 1, §1.5</a>) <span class="math display">\[
 \begin{aligned}
 \kappa_{\boldsymbol{f}}(\boldsymbol{x})
 &amp;=\frac{\|\boldsymbol{x}\|_2}{\|\boldsymbol{A}\boldsymbol{x}\|_2}
 \lim_{\varepsilon\to0}
 \sup_{0&lt;\|\delta\boldsymbol{x}\|_2\le\varepsilon}
 \frac{\|\boldsymbol{A}\delta\boldsymbol{x}\|_2}{\|\delta\boldsymbol{x}\|_2}\\
+&amp;=\frac{\|x\|_2}{\|Ax\|_2}\lim_{\varepsilon\to0}\|A\|_2\\
 &amp;=\frac{\|\boldsymbol{A}\|_2\|\boldsymbol{x}\|_2}{\|\boldsymbol{A}\boldsymbol{x}\|_2}
+\end{aligned}
+\]</span> Indeed, <span class="math inline">\(f(x+\delta x)-f(x)=A\delta x\)</span>. For every <span class="math inline">\(\varepsilon&gt;0\)</span>, scale any nonzero direction <span class="math inline">\(v\)</span> to <span class="math inline">\(\delta x=\varepsilon v/(2\|v\|_2)\)</span>: <span class="math display">\[
+\begin{aligned}
+0&lt;\|\delta x\|_2&amp;=\varepsilon/2\le\varepsilon,\\
+\frac{\|A\delta x\|_2}{\|\delta x\|_2}&amp;=\frac{\|Av\|_2}{\|v\|_2},\\
+\sup_{0&lt;\|\delta x\|_2\le\varepsilon}\frac{\|A\delta x\|_2}{\|\delta x\|_2}
+&amp;=\sup_{v\ne0}\frac{\|Av\|_2}{\|v\|_2}=\|A\|_2.
 \end{aligned}
 \]</span> If <span class="math inline">\(m\ge n\)</span> and <span class="math inline">\(\boldsymbol{A}\)</span> has full column rank, then <span class="math display">\[
 \begin{aligned}
 \kappa_{\boldsymbol{f}}(\boldsymbol{x})
+&amp;=\frac{\sigma_{\max}(A)\|x\|_2}{\|Ax\|_2}
+\le\frac{\sigma_{\max}(A)\|x\|_2}{\sigma_{\min}(A)\|x\|_2}\\
 &amp;\le\frac{\sigma_{\max}(\boldsymbol{A})}{\sigma_{\min}(\boldsymbol{A})}\\
 \kappa_{\boldsymbol{f}}(\boldsymbol{v}_n)
+&amp;=\frac{\sigma_{\max}(A)\|v_n\|_2}{\|Av_n\|_2}
+=\frac{\sigma_{\max}(A)}{\sigma_n}\quad\text{by 3(b)}\\
 &amp;=\frac{\sigma_{\max}(\boldsymbol{A})}{\sigma_{\min}(\boldsymbol{A})}\\
 \kappa_{\boldsymbol{f}}
 &amp;=\sup_{\boldsymbol{x}\ne\boldsymbol{0}}\kappa_{\boldsymbol{f}}(\boldsymbol{x})
 =\frac{\sigma_{\max}(\boldsymbol{A})}{\sigma_{\min}(\boldsymbol{A})}
 =\kappa(\boldsymbol{A})
 \end{aligned}
-\]</span> For invertible square <span class="math inline">\(\boldsymbol{A}\)</span>, <span class="math display">\[
+\]</span> Use <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#a-4-pts">3(a)</a> and <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#b-4-pts">3(b)</a> for these norm bounds. For invertible square <span class="math inline">\(\boldsymbol{A}\)</span>, <span class="math display">\[
 \kappa(\boldsymbol{A})
+=\frac{\sigma_{\max}(A)}{\sigma_{\min}(A)}
 =\sigma_{\max}(\boldsymbol{A})\sigma_{\max}(\boldsymbol{A}^{-1})
 =\|\boldsymbol{A}\|_2\|\boldsymbol{A}^{-1}\|_2
 \]</span></p>
+<p>The last equality uses <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#d-4-pts">3(d)</a> and agrees with the definition in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html#turning-a-local-error-into-a-backward-error">Lecture 6, §6.3.1</a>.</p>
 <p><span class="math inline">\(\square\)</span></p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>The relative-perturbation definition comes from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html#conditioning">Lecture 1, §1.5</a>. The vector version is specified in this problem. It requires <span class="math inline">\(x\ne0\)</span> and <span class="math inline">\(Ax\ne0\)</span>; otherwise the relative error denominator vanishes. <span class="math display">\[
-\begin{aligned}
-f(x+\delta x)-f(x)&amp;=A(x+\delta x)-Ax=A\delta x,\\
-\frac{\|f(x+\delta x)-f(x)\|_2/\|f(x)\|_2}
-     {\|\delta x\|_2/\|x\|_2}
-&amp;=\frac{\|x\|_2}{\|Ax\|_2}
-\frac{\|A\delta x\|_2}{\|\delta x\|_2}.
-\end{aligned}
-\]</span> For every <span class="math inline">\(\varepsilon&gt;0\)</span>, every nonzero direction <span class="math inline">\(v\)</span> can be scaled to <span class="math inline">\(\delta x=\varepsilon v/(2\|v\|_2)\)</span>. Therefore <span class="math display">\[
-\begin{aligned}
-0&lt;\|\delta x\|_2&amp;=\varepsilon/2\le\varepsilon,\\
-\frac{\|A\delta x\|_2}{\|\delta x\|_2}
-&amp;=\frac{\|Av\|_2}{\|v\|_2},\\
-\sup_{0&lt;\|\delta x\|_2\le\varepsilon}
-\frac{\|A\delta x\|_2}{\|\delta x\|_2}
-&amp;=\sup_{v\ne0}\frac{\|Av\|_2}{\|v\|_2}=\|A\|_2,\\
-\kappa_f(x)&amp;=\frac{\|A\|_2\|x\|_2}{\|Ax\|_2}.
-\end{aligned}
-\]</span> The supremum is independent of <span class="math inline">\(\varepsilon\)</span>, so taking the limit changes nothing. For full column rank, <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#a-4-pts">3(a)–3(b)</a> give <span class="math display">\[
-\begin{aligned}
-\kappa_f(x)&amp;\le\frac{\sigma_{\max}(A)}{\sigma_{\min}(A)},\\
-\kappa_f(v_n)&amp;=\frac{\sigma_{\max}(A)\|v_n\|_2}{\|Av_n\|_2}
-=\frac{\sigma_{\max}(A)}{\sigma_{\min}(A)},\\
-\sup_{x\ne0}\kappa_f(x)&amp;=\frac{\sigma_{\max}(A)}{\sigma_{\min}(A)}.
-\end{aligned}
-\]</span> For square invertible <span class="math inline">\(A\)</span>, <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#d-4-pts">3(d)</a> yields <span class="math inline">\(\sigma_{\max}(A^{-1})=1/\sigma_{\min}(A)\)</span>, hence <span class="math inline">\(\kappa(A)=\|A\|_2\|A^{-1}\|_2\)</span>. This is also the definition used in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html#turning-a-local-error-into-a-backward-error">Lecture 6, §6.3.1</a>.</p>
 </blockquote>
 <h3 data-original-heading="4 Inverses [25 pts]" id="inverses-25-pts">4 Inverses [25 pts]</h3>
 <p>We consider <span class="math inline">\(\boldsymbol{A} \in \mathbb{R}^{m \times m}\)</span> and assume that <span class="math inline">\(\boldsymbol{A}^{-1}\)</span> exists. You may use without proof that if <span class="math inline">\(\boldsymbol{A}\)</span> is symmetric, its largest and smallest eigenvalues are characterized as <span class="math display">\[
@@ -457,36 +327,24 @@ f(x+\delta x)-f(x)&amp;=A(x+\delta x)-Ax=A\delta x,\\
 \tag{1}
 \]</span></p>
 <blockquote>
-<p><em>Proof.</em> Since <span class="math inline">\(\boldsymbol{y}=\boldsymbol{A}\boldsymbol{x}\)</span> bijects the nonzero vectors, <span class="math display">\[
+<p><em>Proof.</em> Since <span class="math inline">\(\boldsymbol{y}=\boldsymbol{A}\boldsymbol{x}\)</span> bijects the nonzero vectors, by invertibility (<a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html#linear-systems">Lecture 2, §2.5</a>), <span class="math display">\[
 \begin{aligned}
 \|\boldsymbol{A}^{-1}\|_2^{-1}
 &amp;=\left(\sup_{\boldsymbol{y}\ne\boldsymbol{0}}
 \frac{\|\boldsymbol{A}^{-1}\boldsymbol{y}\|_2}{\|\boldsymbol{y}\|_2}\right)^{-1}\\
+&amp;=\left(\sup_{x\ne0}\frac{\|A^{-1}Ax\|_2}{\|Ax\|_2}\right)^{-1}\\
 &amp;=\left(\sup_{\boldsymbol{x}\ne\boldsymbol{0}}
 \frac{\|\boldsymbol{x}\|_2}{\|\boldsymbol{A}\boldsymbol{x}\|_2}\right)^{-1}
 =\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
 \frac{\|\boldsymbol{A}\boldsymbol{x}\|_2}{\|\boldsymbol{x}\|_2}
 \end{aligned}
 \]</span></p>
+<p>For the reciprocal step, <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#b-4-pts">3(b)</a> gives <span class="math inline">\(a=\inf_{x\ne0}\|Ax\|_2/\|x\|_2=\sigma_{\min}(A)&gt;0\)</span>. Writing this ratio as <span class="math inline">\(r(x)\)</span>, for every <span class="math inline">\(\eta&gt;0\)</span> some <span class="math inline">\(x\)</span> has <span class="math inline">\(a\le r(x)&lt;a+\eta\)</span>, so <span class="math display">\[
+\frac1{a+\eta}&lt;\sup_{x\ne0}\frac1{r(x)}\le\frac1a
+\quad\xrightarrow{\eta\downarrow0}\quad
+\sup_{x\ne0}\frac1{r(x)}=\frac1a.
+\]</span></p>
 <p><span class="math inline">\(\square\)</span></p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>Invertibility gives a bijection <span class="math inline">\(y=Ax\)</span> between nonzero vectors; the equivalent characterization of nonsingularity appears in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html#linear-systems">Lecture 2, §2.5</a>. Set <span class="math inline">\(a=\inf_{x\ne0}\|Ax\|_2/\|x\|_2\)</span>. By <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#b-4-pts">3(b)</a>, <span class="math inline">\(a=\sigma_{\min}(A)&gt;0\)</span>. <span class="math display">\[
-\begin{aligned}
-\|A^{-1}\|_2
-&amp;=\sup_{y\ne0}\frac{\|A^{-1}y\|_2}{\|y\|_2}\\
-&amp;=\sup_{x\ne0}\frac{\|A^{-1}Ax\|_2}{\|Ax\|_2}\\
-&amp;=\sup_{x\ne0}\frac{\|x\|_2}{\|Ax\|_2}
-=\sup_{x\ne0}\frac1{\|Ax\|_2/\|x\|_2}.
-\end{aligned}
-\]</span> Every denominator is at least <span class="math inline">\(a\)</span>, so this supremum is at most <span class="math inline">\(1/a\)</span>. Conversely, for every <span class="math inline">\(\eta&gt;0\)</span>, the definition of infimum gives some <span class="math inline">\(x\ne0\)</span> with ratio below <span class="math inline">\(a+\eta\)</span>; its reciprocal exceeds <span class="math inline">\(1/(a+\eta)\)</span>. Letting <span class="math inline">\(\eta\downarrow0\)</span> gives <span class="math display">\[
-\begin{aligned}
-\|A^{-1}\|_2&amp;=1/a,\\
-\|A^{-1}\|_2^{-1}&amp;=a=\inf_{x\ne0}\frac{\|Ax\|_2}{\|x\|_2}.
-\end{aligned}
-\]</span> The positivity of <span class="math inline">\(a\)</span> is essential when taking reciprocals.</p>
 </blockquote>
 <h4 data-original-heading="(b) [5 pts]" id="b-5-pts">1.4.2 (b) [5 pts]</h4>
 <p>Show that <span class="math display">\[
@@ -494,8 +352,13 @@ f(x+\delta x)-f(x)&amp;=A(x+\delta x)-Ax=A\delta x,\\
 \tag{2}
 \]</span></p>
 <blockquote>
-<p><em>Proof.</em> By Cauchy–Schwarz and part (a), <span class="math display">\[
+<p><em>Proof.</em> By Cauchy–Schwarz and part (a), using <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#roundoff-and-element-growth">Lecture 9, §9.6</a> and <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#a-5-pts">4(a)</a>, <span class="math display">\[
 \begin{aligned}
+t&amp;=\frac{x^TAx}{\|x\|_2^2},\\
+0\le\|Ax-tx\|_2^2
+&amp;=\|Ax\|_2^2-2t\,x^TAx+t^2\|x\|_2^2\\
+&amp;=\|Ax\|_2^2-\frac{(x^TAx)^2}{\|x\|_2^2},\\
+|x^TAx|&amp;\le\|x\|_2\|Ax\|_2,\\
 \frac{|\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}|}{\|\boldsymbol{x}\|_2^2}
 &amp;\le\frac{\|\boldsymbol{x}\|_2\|\boldsymbol{A}\boldsymbol{x}\|_2}{\|\boldsymbol{x}\|_2^2}
 =\frac{\|\boldsymbol{A}\boldsymbol{x}\|_2}{\|\boldsymbol{x}\|_2}\\
@@ -506,31 +369,8 @@ f(x+\delta x)-f(x)&amp;=A(x+\delta x)-Ax=A\delta x,\\
 =\|\boldsymbol{A}^{-1}\|_2^{-1}
 \end{aligned}
 \]</span></p>
+<p>The pointwise inequality holds for every <span class="math inline">\(x\ne0\)</span>, so taking the infimum on both sides preserves it.</p>
 <p><span class="math inline">\(\square\)</span></p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>Cauchy–Schwarz is used explicitly in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html#roundoff-and-element-growth">Lecture 9, §9.6</a>. For completeness, with <span class="math inline">\(v\ne0\)</span> and <span class="math inline">\(t=(u^Tv)/(v^Tv)\)</span>, <span class="math display">\[
-\begin{aligned}
-0\le\|u-tv\|_2^2
-&amp;=u^Tu-2t\,u^Tv+t^2v^Tv\\
-&amp;=\|u\|_2^2-\frac{(u^Tv)^2}{\|v\|_2^2},\\
-|u^Tv|&amp;\le\|u\|_2\|v\|_2.
-\end{aligned}
-\]</span> For <span class="math inline">\(v=0\)</span>, the last inequality is immediate. Apply it to <span class="math inline">\(u=x\)</span>, <span class="math inline">\(v=Ax\)</span>: <span class="math display">\[
-\begin{aligned}
-|x^TAx|&amp;\le\|x\|_2\|Ax\|_2,\\
-\frac{|x^TAx|}{\|x\|_2^2}
-&amp;\le\frac{\|Ax\|_2}{\|x\|_2}\qquad(x\ne0).
-\end{aligned}
-\]</span> To justify taking infima, let <span class="math inline">\(c\)</span> be the infimum of the left-hand ratio. For every <span class="math inline">\(x\ne0\)</span>, <span class="math inline">\(c\)</span> is at most that ratio and hence at most the right-hand ratio. Thus <span class="math inline">\(c\)</span> is a lower bound for all right-hand ratios: <span class="math display">\[
-\begin{aligned}
-\inf_{x\ne0}\frac{|x^TAx|}{\|x\|_2^2}
-&amp;\le\inf_{x\ne0}\frac{\|Ax\|_2}{\|x\|_2}
-=\|A^{-1}\|_2^{-1},
-\end{aligned}
-\]</span> where the final equality is <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#a-5-pts">4(a)</a>.</p>
 </blockquote>
 <h4 data-original-heading="(c) [5 pts]" id="c-5-pts">1.4.3 (c) [5 pts]</h4>
 <p>Show that for symmetric matrices <span class="math inline">\(\boldsymbol{M}, \boldsymbol{N} \in \mathbb{R}^{m \times m}\)</span>, <span class="math display">\[
@@ -538,7 +378,15 @@ f(x+\delta x)-f(x)&amp;=A(x+\delta x)-Ax=A\delta x,\\
 \tag{3}
 \]</span></p>
 <blockquote>
-<p><em>Proof.</em> By the given Rayleigh-quotient characterization, <span class="math display">\[
+<p><em>Proof.</em> By the given Rayleigh-quotient characterization, which follows from the spectral theorem in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>: for symmetric <span class="math inline">\(H=Q\Lambda Q^T\)</span>, put <span class="math inline">\(z=Q^Tx\)</span> and write <span class="math display">\[
+\begin{aligned}
+\frac{x^THx}{x^Tx}
+&amp;=\frac{z^T\Lambda z}{z^Tz}
+=\sum_k\lambda_k\frac{z_k^2}{\sum_jz_j^2},\\
+\sum_k\frac{z_k^2}{\sum_jz_j^2}&amp;=1,\qquad \frac{z_k^2}{\sum_jz_j^2}\ge0,\\
+\frac{x^THx}{x^Tx}&amp;\ge\lambda_{\min}(H).
+\end{aligned}
+\]</span> A minimum-eigenvalue eigenvector attains equality. Applying this to <span class="math inline">\(M\)</span>, <span class="math inline">\(N\)</span>, and <span class="math inline">\(M+N\)</span>, <span class="math display">\[
 \begin{aligned}
 \lambda_{\min}(\boldsymbol{M}+\boldsymbol{N})
 &amp;=\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
@@ -551,30 +399,8 @@ f(x+\delta x)-f(x)&amp;=A(x+\delta x)-Ax=A\delta x,\\
 &amp;=\lambda_{\min}(\boldsymbol{M})+\lambda_{\min}(\boldsymbol{N})
 \end{aligned}
 \]</span></p>
+<p>Indeed, each Rayleigh quotient is at least its own minimum; summing these pointwise lower bounds and then minimizing gives the displayed inequality. The minimizing vectors for <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> need not coincide.</p>
 <p><span class="math inline">\(\square\)</span></p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>The minimum Rayleigh-quotient characterization is supplied in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#inverses-25-pts">Problem 4</a>. It follows from the Hermitian spectral theorem in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>: for symmetric <span class="math inline">\(H=Q\Lambda Q^T\)</span> and <span class="math inline">\(z=Q^Tx\)</span>, <span class="math display">\[
-\begin{aligned}
-\frac{x^THx}{x^Tx}
-&amp;=\frac{z^T\Lambda z}{z^Tz}
-=\sum_k\lambda_k\frac{z_k^2}{\sum_jz_j^2},\\
-\frac{z_k^2}{\sum_jz_j^2}&amp;\ge0,
-\qquad\sum_k\frac{z_k^2}{\sum_jz_j^2}=1,\\
-\frac{x^THx}{x^Tx}&amp;\ge\lambda_{\min}(H).
-\end{aligned}
-\]</span> Equality holds at an eigenvector for <span class="math inline">\(\lambda_{\min}(H)\)</span>. Apply this bound separately to <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span>: <span class="math display">\[
-\begin{aligned}
-\frac{x^T(M+N)x}{\|x\|_2^2}
-&amp;=\frac{x^TMx}{\|x\|_2^2}+\frac{x^TNx}{\|x\|_2^2}\\
-&amp;\ge\lambda_{\min}(M)+\lambda_{\min}(N)\qquad(x\ne0),\\
-\lambda_{\min}(M+N)
-&amp;=\inf_{x\ne0}\frac{x^T(M+N)x}{\|x\|_2^2}\\
-&amp;\ge\lambda_{\min}(M)+\lambda_{\min}(N).
-\end{aligned}
-\]</span> The separate minimizing eigenvectors need not coincide; that is why this is an inequality.</p>
 </blockquote>
 <h4 data-original-heading="(d) [5 pts]" id="d-5-pts">1.4.4 (d) [5 pts]</h4>
 <p>In the same setting as (c), show that <span class="math display">\[
@@ -582,7 +408,13 @@ f(x+\delta x)-f(x)&amp;=A(x+\delta x)-Ax=A\delta x,\\
 \tag{4}
 \]</span></p>
 <blockquote>
-<p><em>Proof.</em> Similarly, <span class="math display">\[
+<p><em>Proof.</em> Similarly, use the weights from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#c-5-pts">4(c)</a>, based on <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>: <span class="math display">\[
+\begin{aligned}
+\frac{x^THx}{x^Tx}
+&amp;=\sum_k\lambda_kw_k\le\lambda_{\max}(H)\sum_kw_k=\lambda_{\max}(H),\\
+w_k&amp;=\frac{z_k^2}{\sum_jz_j^2}\ge0,\qquad\sum_kw_k=1.
+\end{aligned}
+\]</span> A maximum-eigenvalue eigenvector attains equality. Hence <span class="math display">\[
 \begin{aligned}
 \lambda_{\max}(\boldsymbol{M}+\boldsymbol{N})
 &amp;=\sup_{\boldsymbol{x}\ne\boldsymbol{0}}
@@ -595,35 +427,18 @@ f(x+\delta x)-f(x)&amp;=A(x+\delta x)-Ax=A\delta x,\\
 &amp;=\lambda_{\max}(\boldsymbol{M})+\lambda_{\max}(\boldsymbol{N})
 \end{aligned}
 \]</span></p>
+<p>Each quotient is bounded above by its own maximum; taking the supremum after adding preserves that upper bound.</p>
 <p><span class="math inline">\(\square\)</span></p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>Use the spectral expansion from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#c-5-pts">4(c)</a>, derived from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>. Its nonnegative weights also give <span class="math display">\[
-\begin{aligned}
-\frac{x^THx}{x^Tx}
-&amp;=\sum_k\lambda_kw_k\le\lambda_{\max}(H)\sum_kw_k
-=\lambda_{\max}(H),\\
-w_k&amp;=\frac{z_k^2}{\sum_jz_j^2}\ge0,\qquad\sum_kw_k=1.
-\end{aligned}
-\]</span> An eigenvector for <span class="math inline">\(\lambda_{\max}(H)\)</span> attains equality, proving the maximum characterization supplied in the problem. Consequently, <span class="math display">\[
-\begin{aligned}
-\frac{x^T(M+N)x}{\|x\|_2^2}
-&amp;=\frac{x^TMx}{\|x\|_2^2}+\frac{x^TNx}{\|x\|_2^2}\\
-&amp;\le\lambda_{\max}(M)+\lambda_{\max}(N)\qquad(x\ne0),\\
-\lambda_{\max}(M+N)
-&amp;=\sup_{x\ne0}\frac{x^T(M+N)x}{\|x\|_2^2}\\
-&amp;\le\lambda_{\max}(M)+\lambda_{\max}(N).
-\end{aligned}
-\]</span> No common eigenbasis for <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> is assumed.</p>
 </blockquote>
 <h4 data-original-heading="(e) [5 pts]" id="e-5-pts">1.4.5 (e) [5 pts]</h4>
 <p>For <span class="math inline">\(\boldsymbol{A}\)</span> symmetric positive definite, show that <span class="math display">\[
 \|\boldsymbol{A}^{-1}\|_{2}^{-1} = \inf \limits_{\boldsymbol{x} \in \mathbb{R}^m \setminus \{\boldsymbol{0}\}} \frac{\boldsymbol{x}^T \boldsymbol{A} \boldsymbol{x}}{\|\boldsymbol{x}\|^2_2}
 \]</span></p>
 <blockquote>
-<p><em>Proof.</em> Let <span class="math inline">\(\boldsymbol{A}\boldsymbol{q}=\lambda_{\min}(\boldsymbol{A})\boldsymbol{q}\)</span>, <span class="math inline">\(\boldsymbol{q}\ne\boldsymbol{0}\)</span>. Since <span class="math inline">\(\boldsymbol{A}\)</span> is positive definite, <span class="math inline">\(\lambda_{\min}(\boldsymbol{A})&gt;0\)</span>. Parts (b) and (a), respectively, give <span class="math display">\[
+<p><em>Proof.</em> Let <span class="math inline">\(\boldsymbol{A}\boldsymbol{q}=\lambda_{\min}(\boldsymbol{A})\boldsymbol{q}\)</span>, <span class="math inline">\(\boldsymbol{q}\ne\boldsymbol{0}\)</span>. Since <span class="math inline">\(\boldsymbol{A}\)</span> is positive definite, <span class="math inline">\(\lambda_{\min}(\boldsymbol{A})&gt;0\)</span>. This follows from the positivity definition (<a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#positive-semidefinite-and-positive-definite-matrices">Lecture 8, §8.6.2</a>): <span class="math display">\[
+0&lt;q^TAq=\lambda_{\min}(A)\|q\|_2^2
+\quad\Longrightarrow\quad\lambda_{\min}(A)&gt;0.
+\]</span> The Rayleigh characterization follows from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#c-5-pts">4(c)</a> and the spectral theorem (<a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>). Parts (b) and (a), respectively, give <span class="math display">\[
 \begin{aligned}
 \|\boldsymbol{A}^{-1}\|_2^{-1}
 &amp;\ge\inf_{\boldsymbol{x}\ne\boldsymbol{0}}
@@ -631,6 +446,8 @@ w_k&amp;=\frac{z_k^2}{\sum_jz_j^2}\ge0,\qquad\sum_kw_k=1.
 =\lambda_{\min}(\boldsymbol{A}),\\
 \|\boldsymbol{A}^{-1}\|_2^{-1}
 &amp;\le\frac{\|\boldsymbol{A}\boldsymbol{q}\|_2}{\|\boldsymbol{q}\|_2}
+=\frac{\|\lambda_{\min}(A)q\|_2}{\|q\|_2}\\
+&amp;=\frac{|\lambda_{\min}(A)|\|q\|_2}{\|q\|_2}
 =\lambda_{\min}(\boldsymbol{A}).
 \end{aligned}
 \]</span> Therefore <span class="math display">\[
@@ -640,33 +457,6 @@ w_k&amp;=\frac{z_k^2}{\sum_jz_j^2}\ge0,\qquad\sum_kw_k=1.
 \frac{\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}}{\|\boldsymbol{x}\|_2^2}
 \]</span></p>
 <p><span class="math inline">\(\square\)</span></p>
-</blockquote>
-<!-- Added study explanation; original submission above is unchanged. -->
-<blockquote>
-<p><strong>Derivation details — added study explanation.</strong></p>
-<p>Positive definiteness is defined in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#positive-semidefinite-and-positive-definite-matrices">Lecture 8, §8.6.2</a>. Its positive eigenvalues follow by applying that definition to each eigenvector, as in <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html#a-hermitian-positive-semidefinite-matrix-is-a-gram-matrix">§8.7.2</a>: <span class="math display">\[
-\begin{aligned}
-Aq_k&amp;=\lambda_kq_k,\quad q_k\ne0,\\
-0&lt;q_k^TAq_k&amp;=\lambda_k\|q_k\|_2^2
-\Longrightarrow\lambda_k&gt;0.
-\end{aligned}
-\]</span> Combine <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#a-5-pts">4(a)</a> and <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html#c-5-pts">4(c)</a> with the orthonormal spectral theorem from <a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html#hermitian-matrices">Lecture 10, §10.2.1</a>, write <span class="math inline">\(A=Q\Lambda Q^T\)</span> with <span class="math inline">\(0&lt;\lambda_{\min}\le\lambda_k\)</span>. For <span class="math inline">\(y=Q^Tx\)</span>, <span class="math display">\[
-\begin{aligned}
-\|Ax\|_2^2
-&amp;=\|Q\Lambda y\|_2^2
-=y^T\Lambda^2y
-=\sum_k\lambda_k^2y_k^2\\
-&amp;\ge\lambda_{\min}^2\sum_ky_k^2
-=\lambda_{\min}^2\|x\|_2^2,\\
-\inf_{x\ne0}\frac{\|Ax\|_2}{\|x\|_2}
-&amp;=\lambda_{\min}\qquad\text{(attained at a minimum-eigenvalue eigenvector)},\\
-\inf_{x\ne0}\frac{x^TAx}{\|x\|_2^2}
-&amp;=\lambda_{\min}\qquad\text{by the expansion in 4(c)},\\
-\|A^{-1}\|_2^{-1}
-&amp;=\lambda_{\min}
-=\inf_{x\ne0}\frac{x^TAx}{\|x\|_2^2}\qquad\text{by 4(a)}.
-\end{aligned}
-\]</span> Symmetry alone would not suffice: positivity ensures the smallest eigenvalue equals the smallest singular value.</p>
 </blockquote></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
     <span class="unavailable" aria-disabled="true"><span>← Previous page</span><span>First page</span></span>
     <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span>Next page →</span><span>HW 2</span></a>
