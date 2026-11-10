@@ -1,21 +1,290 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light"><title>12. Orthogonal Iteration — E.H. Notebook</title>
-<meta name="description" content="Numerical Methods I — Florian Schaefer. Source: Lecture 12.pdf, pp. 1–16.">
+<meta name="description" content="Numerical Methods I — Florian Schaefer. Source: Lecture 12.pdf, pp. 1–16.As in Lecture 10, \lambda_i denotes the eigenvalue written \delta_i on the source sheet. We use ^">
 <link rel="stylesheet" href="/notebook/assets/reader.css"><link rel="preload" href="/notebook/assets/fonts/texgyretermes-regular.otf" as="font" type="font/otf" crossorigin>
 <script defer src="/notebook/assets/reader.js"></script>
-
-</head><body data-layout="reader" data-has-notes="true" data-has-outline="false" data-notes-open="true" data-outline-open="false" data-search-index="/notebook/assets/search.json">
+<script src="/notebook/assets/math-config.js"></script><script defer id="MathJax-script" src="/notebook/assets/vendor/mathjax/tex-chtml-full.js"></script>
+</head><body data-layout="reader" data-has-notes="true" data-has-outline="true" data-notes-open="true" data-outline-open="true" data-search-index="/notebook/assets/search.json">
 <a class="skip-link" href="#article-body">Skip to content</a>
 <header class="toolbar"><div class="identity"><button class="icon-button" id="notes-toggle" aria-label="Toggle notes sidebar" aria-controls="notes-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/sidebar.svg" alt="" width="20" height="20"></button><a class="brand" href="/notebook/">E.H. Notebook</a></div>
 <nav class="top-navigation" aria-label="Notebook sections"><a href="/notebook/content/notes/index.html" aria-current="page">Notes</a><a href="/notebook/content/posts/index.html">Posts</a><a href="/notebook/content/research/index.html">Research</a></nav>
-<div class="reading-tools"><button class="icon-button appearance-toggle" id="appearance-toggle" aria-label="Reading text size" aria-controls="appearance-dialog">Aa</button><button class="icon-button" id="search-toggle" aria-label="Search notes" aria-keyshortcuts="Control+k Meta+k"><img src="/notebook/assets/icons/search.svg" alt="" width="20" height="20"></button><a class="icon-button github-link" href="https://github.com/EriseHe/notebook" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><img src="/notebook/assets/icons/github.svg" alt="" width="20" height="20"></a><button class="icon-button" id="outline-toggle" aria-label="Toggle outline" aria-controls="outline-sidebar" aria-expanded="false" disabled><img src="/notebook/assets/icons/outline.svg" alt="" width="20" height="20"></button></div></header>
-<div class="reader-layout"><aside class="notes-sidebar" id="notes-sidebar" aria-label="Notes navigation"><nav aria-label="Numerical Linear Algbera file hierarchy" data-sidebar-root="content/notes/理论/Numerical Linear Algbera"><a class="sidebar-root" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><ul class="notes-tree"><li class="folder-node" data-folder="content/notes/理论/Numerical Linear Algbera/Homework" data-active-branch="false"><div class="folder-row"><button class="tree-toggle folder-label" aria-controls="folder-209a64aec9e6" aria-expanded="false"><img class="folder-chevron" src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""><span>Homework</span></button></div><ul class="tree-children" id="folder-209a64aec9e6" hidden><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html"><span class="page-number"></span><span>HW 1</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span class="page-number"></span><span>HW 2</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span class="page-number"></span><span>HW 3</span></a></li></ul></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html"><span class="page-number">1</span><span>Vectors and Matrices</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span class="page-number">2</span><span>Storing Matrices &amp; Vectors</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span class="page-number">3</span><span>LU Factorization and Zero Pivots</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span class="page-number">4</span><span>LU Factorization with Pivoting</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span class="page-number">5</span><span>Least Squares and Gram-Schmidt</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html"><span class="page-number">6</span><span>Error Bounds and Householder QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span class="page-number">7</span><span>Orthogonal Transformations and QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html"><span class="page-number">8</span><span>Least Squares and Normal Equations</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span class="page-number">9</span><span>Cholesky Factorization and Schur Complements</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span class="page-number">10</span><span>Eigenvalues and Iterative Methods</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/11.%20Schur%20Factorization.html"><span class="page-number">11</span><span>Schur Factorization</span></a></li><li class="file-node"><a class="note-link is-current" aria-current="page" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/12.%20Orthogonal%20Iteration.html"><span class="page-number">12</span><span>Orthogonal Iteration</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/13.%20QR%20without%20Shifts.html"><span class="page-number">13</span><span>QR without Shifts</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span class="page-number"></span><span>Midterm Study Plan</span></a></li></ul></nav></aside>
-<main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a></nav><h1 id="reader-title">12. Orthogonal Iteration</h1><p class="article-meta">2026-10-19</p></header><div id="article-body" class="prose"><p><em>Numerical Methods I — Florian Schaefer. Source: <a href="https://brightspace.nyu.edu/content/enforced/609409-FA26_MATH-GA_2010_1_001_crse/Lecture%2012.pdf">Lecture 12.pdf</a>, pp.&nbsp;1–16.</em></p></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
+<div class="reading-tools"><button class="icon-button appearance-toggle" id="appearance-toggle" aria-label="Reading text size" aria-controls="appearance-dialog">Aa</button><button class="icon-button" id="search-toggle" aria-label="Search notes" aria-keyshortcuts="Control+k Meta+k"><img src="/notebook/assets/icons/search.svg" alt="" width="20" height="20"></button><a class="icon-button github-link" href="https://github.com/EriseHe/notebook" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><img src="/notebook/assets/icons/github.svg" alt="" width="20" height="20"></a><button class="icon-button" id="outline-toggle" aria-label="Toggle outline" aria-controls="outline-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/outline.svg" alt="" width="20" height="20"></button></div></header>
+<div class="reader-layout"><aside class="notes-sidebar" id="notes-sidebar" aria-label="Notes navigation"><nav aria-label="Numerical Linear Algbera file hierarchy" data-sidebar-root="content/notes/理论/Numerical Linear Algbera"><a class="sidebar-root" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><ul class="notes-tree"><li class="folder-node" data-folder="content/notes/理论/Numerical Linear Algbera/Homework" data-active-branch="false"><div class="folder-row"><button class="tree-toggle folder-label" aria-controls="folder-209a64aec9e6" aria-expanded="false"><img class="folder-chevron" src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""><span>Homework</span></button></div><ul class="tree-children" id="folder-209a64aec9e6" hidden><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html"><span class="page-number"></span><span>HW 1</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span class="page-number"></span><span>HW 2</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span class="page-number"></span><span>HW 3</span></a></li></ul></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html"><span class="page-number">1</span><span>Vectors and Matrices</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span class="page-number">2</span><span>Storing Matrices &amp; Vectors</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span class="page-number">3</span><span>LU Factorization and Zero Pivots</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span class="page-number">4</span><span>LU Factorization with Pivoting</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span class="page-number">5</span><span>Least Squares and Gram-Schmidt</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html"><span class="page-number">6</span><span>Error Bounds and Householder QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span class="page-number">7</span><span>Orthogonal Transformations and QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html"><span class="page-number">8</span><span>Least Squares and Normal Equations</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span class="page-number">9</span><span>Cholesky Factorization and Schur Complements</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span class="page-number">10</span><span>Eigenvalues and Iterative Methods</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/11.%20Schur%20Factorization.html"><span class="page-number">11</span><span>Schur Factorization</span></a></li><li class="file-node"><a class="note-link is-current" aria-current="page" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/12.%20Orthogonal%20Iteration.html"><span class="page-number">12</span><span>Orthogonal Iteration</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/13.%20QR%20without%20Shifts.html"><span class="page-number">13</span><span>QR without Shifts</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/14.%20Hessenberg%20QR%20and%20Bulge%20Chasing.html"><span class="page-number">14</span><span>Hessenberg QR and Bulge Chasing</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/15.%20Shifted%20QR%20Iteration.html"><span class="page-number">15</span><span>Shifted QR Iteration</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span class="page-number"></span><span>Midterm Study Plan</span></a></li></ul></nav></aside>
+<main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a></nav><h1 id="reader-title">12. Orthogonal Iteration</h1><p class="article-meta">2026-10-19</p></header><div id="article-body" class="prose"><p><em>Numerical Methods I — Florian Schaefer. Source: <a href="https://brightspace.nyu.edu/content/enforced/609409-FA26_MATH-GA_2010_1_001_crse/Lecture%2012.pdf">Lecture 12.pdf</a>, pp.&nbsp;1–16.</em></p>
+<p>As in Lecture 10, <span class="math inline">\(\lambda_i\)</span> denotes the eigenvalue written <span class="math inline">\(\delta_i\)</span> on the source sheet. We use <span class="math inline">\(^*\)</span> for conjugate transpose; on real matrices it is <span class="math inline">\(^T\)</span>.</p>
+<h2 data-original-heading="12.1 Recap: Deflation and Schur Factorization" id="recap-deflation-and-schur-factorization">12.1 Recap: Deflation and Schur Factorization</h2>
+<!-- Source: Lecture 12.pdf, p. 1. -->
+<p>For a normalized eigenvector <span class="math inline">\(x_1\)</span> with eigenvalue <span class="math inline">\(\lambda_1\)</span>, rank-one deflation removes the known eigenpair:</p>
+<p><span class="math display">\[
+A-\lambda_1\frac{x_1x_1^*}{x_1^*x_1}.
+\]</span></p>
+<p>The previous lecture motivated subspace iteration: multiplication of a single vector by <span class="math inline">\(A\)</span> finds at most one dominant eigenvector, whereas several eigenvectors require an invariant subspace. For a diagonalizable matrix, <span class="math inline">\(A=X\Lambda X^{-1}\)</span>. A defective matrix may have too few eigenvectors; its Jordan blocks need not be diagonal. The source draws a Jordan block as a triangular matrix with an eigenvalue repeated on its diagonal and ones immediately above it. The smallest example is</p>
+<p><span class="math display">\[
+J=\begin{pmatrix}\lambda&amp;1\\0&amp;\lambda\end{pmatrix};
+\qquad
+J_0=J\big|_{\lambda=0}=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix},
+\quad J_0^2=0,\ J_0\ne0.
+\]</span></p>
+<p>The Schur factorization is</p>
+<p><span class="math display">\[
+A=QTQ^*,
+\]</span></p>
+<p>where <span class="math inline">\(Q\)</span> is unitary and <span class="math inline">\(T\)</span> is upper triangular over <span class="math inline">\(\mathbb C\)</span>, with the eigenvalues on its diagonal.</p>
+<h2 data-original-heading="12.2 When Is the Schur Form Diagonal?" id="when-is-the-schur-form-diagonal">12.2 When Is the Schur Form Diagonal?</h2>
+<!-- Source: Lecture 12.pdf, p. 2. -->
+<p><strong>Definition.</strong> <span class="math inline">\(A\)</span> is <strong>normal</strong> if <span class="math inline">\(AA^*=A^*A\)</span>.</p>
+<p><strong>Theorem.</strong> <span class="math inline">\(A\)</span> is normal if and only if it has an orthonormal eigenbasis. Equivalently, its complex Schur factor <span class="math inline">\(T\)</span> is diagonal. If <span class="math inline">\(A=QTQ^*\)</span>, then</p>
+<p><span class="math display">\[
+QTT^*Q^*=AA^*=A^*A=QT^*TQ^*,
+\qquad TT^*=T^*T.
+\]</span></p>
+<p>Compare the <span class="math inline">\((1,1)\)</span> entries. Because <span class="math inline">\(T\)</span> is upper triangular,</p>
+<p><span class="math display">\[
+(TT^*)_{11}=\sum_{j=1}^{m}|T_{1j}|^2,
+\qquad
+(T^*T)_{11}=|T_{11}|^2.
+\]</span></p>
+<p>Thus <span class="math inline">\(T_{1j}=0\)</span> for every <span class="math inline">\(j&gt;1\)</span>. Repeating on the trailing triangular block zeros all strict upper-triangular entries. Conversely, <span class="math inline">\(A=Q\Lambda Q^*\)</span> gives <span class="math inline">\(AA^*=A^*A\)</span>.</p>
+<h2 data-original-heading="12.3 Orthogonal Iteration for Two Eigenpairs" id="orthogonal-iteration-for-two-eigenpairs">12.3 Orthogonal Iteration for Two Eigenpairs</h2>
+<!-- Source: Lecture 12.pdf, pp. 3–5. -->
+<p>Suppose the eigenvalues are ordered by magnitude, <span class="math inline">\(|\lambda_1|&gt;|\lambda_2|&gt;\cdots\)</span>, and we want two eigenpairs at once. Applying power iteration independently to random vectors <span class="math inline">\(q_1,q_2\)</span> generally sends both toward <span class="math inline">\(x_1\)</span>. Keep the second iterate orthogonal to the first. One step is</p>
+<p><span class="math display">\[
+\begin{aligned}
+q_1&amp;\leftarrow Aq_1,&amp;q_2&amp;\leftarrow Aq_2,\\
+q_2&amp;\leftarrow\left(I-\frac{q_1q_1^*}{q_1^*q_1}\right)q_2,\\
+q_1&amp;\leftarrow\frac{q_1}{\|q_1\|},&amp;
+q_2&amp;\leftarrow\frac{q_2}{\|q_2\|}.
+\end{aligned}
+\]</span></p>
+<p>The projection leaves <span class="math inline">\(q_1\)</span> unchanged, so after <span class="math inline">\(k\)</span> iterations,</p>
+<p><span class="math display">\[
+q_1^{(k)}=\frac{A^kq_1^{(0)}}{\|A^kq_1^{(0)}\|}
+\longrightarrow x_1
+\]</span></p>
+<p>up to a phase or sign, provided the initial vector has a nonzero <span class="math inline">\(x_1\)</span> component. Once <span class="math inline">\(q_1\approx x_1\)</span>, the direction of the second update is approximately</p>
+<p><span class="math display">\[
+q_2^{(k)}\approx (I-x_1x_1^*)Aq_2^{(k-1)}.
+\]</span></p>
+<p>For normal <span class="math inline">\(A\)</span>, <span class="math inline">\(x_1\)</span> is also a left eigenvector, and hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+(I-x_1x_1^*)A(I-x_1x_1^*)
+&amp;=A-2\lambda_1x_1x_1^*+\lambda_1x_1x_1^*\\
+&amp;=A-\lambda_1x_1x_1^*.
+\end{aligned}
+\]</span></p>
+<p>This is the deflation from the previous lecture. For <em>any</em> diagonalizable <span class="math inline">\(A\)</span>, let <span class="math inline">\(P=I-x_1x_1^*\)</span> and <span class="math inline">\(Ax_i=\lambda_i x_i\)</span>. Since <span class="math inline">\(Px_1=0\)</span> and <span class="math inline">\(x_1^*x_1=1\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+PAPx_i
+&amp;=P A(x_i-x_1x_1^*x_i)\\
+&amp;=P(\lambda_i x_i-\lambda_1x_1x_1^*x_i)\\
+&amp;=\lambda_i Px_i.
+\end{aligned}
+\]</span></p>
+<p>Thus the eigenpairs of <span class="math inline">\(PAP\)</span> include <span class="math inline">\((0,x_1)\)</span> and <span class="math inline">\((\lambda_i,Px_i)\)</span> for <span class="math inline">\(i\ge2\)</span> when <span class="math inline">\(Px_i\ne0\)</span>. In particular, the second iterate tends to the normalized direction <span class="math inline">\(Px_2\)</span>, not generally to <span class="math inline">\(x_2\)</span>. Nevertheless <span class="math inline">\(\operatorname{span}(x_1,Px_2)=\operatorname{span}(x_1,x_2)\)</span>, so the two-dimensional subspace tends to <span class="math inline">\(\operatorname{span}(x_1,x_2)\)</span> under the spectral-gap and nondegenerate-start assumptions.</p>
+<p>To estimate eigenvalues, let <span class="math inline">\(Q_k=[q_1^{(k)},q_2^{(k)}]\)</span> and form the <span class="math inline">\(2\times2\)</span> matrix</p>
+<p><span class="math display">\[
+T_k=Q_k^*AQ_k=
+\begin{pmatrix}
+q_1^*Aq_1&amp;q_1^*Aq_2\\
+q_2^*Aq_1&amp;q_2^*Aq_2
+\end{pmatrix}
+\approx
+\begin{pmatrix}\lambda_1&amp;*\\0&amp;\lambda_2\end{pmatrix}.
+\]</span></p>
+<p>As <span class="math inline">\(q_1\to x_1\)</span>, its lower-left entry satisfies</p>
+<p><span class="math display">\[
+q_2^*Aq_1\approx q_2^*Ax_1
+=\lambda_1q_2^*x_1\approx0.
+\]</span></p>
+<p>The eigenvalues of this nearly triangular <span class="math inline">\(T_k\)</span> approximate <span class="math inline">\(\lambda_1,\lambda_2\)</span>. If <span class="math inline">\(Q_kv_i\approx x_i\)</span>, then</p>
+<p><span class="math display">\[
+Q_k^*AQ_kv_i\approx Q_k^*Ax_i
+=\lambda_iQ_k^*x_i
+\approx\lambda_i Q_k^*Q_kv_i
+=\lambda_i v_i.
+\]</span></p>
+<p>This is the Rayleigh–Ritz calculation on the iterated subspace.</p>
+<h2 data-original-heading="12.4 Orthogonal Iteration in General" id="orthogonal-iteration-in-general">12.4 Orthogonal Iteration in General</h2>
+<!-- Source: Lecture 12.pdf, p. 6. -->
+<p>To compute <span class="math inline">\(r&gt;2\)</span> eigenpairs, start with an <span class="math inline">\(m\times r\)</span> matrix <span class="math inline">\(Q_0\)</span> with orthonormal columns. Multiply all columns by <span class="math inline">\(A\)</span>, then reorthogonalize by QR factorization:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>max_iter</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    Z <span class="op">=</span> A <span class="op">*</span> Q</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    Q, R <span class="op">=</span> <span class="fu">qr</span>(Z)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div>
+<p>Here <span class="math inline">\(Q_k^*Q_k=I_r\)</span>. The QR step prevents all columns from collapsing onto one dominant eigenvector. The eigenvalues of <span class="math inline">\(Q_k^*AQ_k\)</span> approximate the leading eigenvalues of <span class="math inline">\(A\)</span>.</p>
+<h2 data-original-heading="12.5 Eigenvector Estimates and the Schur Form" id="eigenvector-estimates-and-the-schur-form">12.5 Eigenvector Estimates and the Schur Form</h2>
+<!-- Source: Lecture 12.pdf, pp. 7–9. -->
+<p>For a Hermitian <span class="math inline">\(A\)</span>, distinct eigenvectors are orthogonal. Under magnitude gaps and initial-overlap assumptions, each column of orthogonal iteration tends to the corresponding eigenvector, up to a phase or sign. For a nonsymmetric matrix, eigenvectors need not be mutually orthogonal. Suppose</p>
+<p><span class="math display">\[
+A=X\Lambda X^{-1},
+\qquad X=[x_1\mid\cdots\mid x_m].
+\]</span></p>
+<p>Take the QR factorization of this eigenvector matrix, <span class="math inline">\(X=Q^{X}R^{X}\)</span>. Orthogonal iteration tends to the <em>orthogonalized eigenvector basis</em> <span class="math inline">\(Q^{X}\)</span>, up to column phases. The first column satisfies <span class="math inline">\(q_1\to q_1^{X}=x_1/\|x_1\|\)</span>, while</p>
+<p><span class="math display">\[
+\operatorname{span}(q_1^{(k)},q_2^{(k)})
+\longrightarrow \operatorname{span}(x_1,x_2)
+=\operatorname{span}(q_1^{X},q_2^{X}).
+\]</span></p>
+<p>Both <span class="math inline">\(q_2^{(k)}\)</span> and <span class="math inline">\(q_2^{X}\)</span> lie in that two-dimensional space and are orthogonal to <span class="math inline">\(q_1^{X}\)</span>, so they agree up to phase in the limit. Column by column, the source repeats the same argument:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{span}(x_1,\ldots,x_i)
+&amp;=\operatorname{span}(q_1^{(k)},\ldots,q_i^{(k)})\quad(k\to\infty)\\
+&amp;=\operatorname{span}(q_1^X,\ldots,q_i^X),\\
+q_i^{(k)}&amp;\perp\operatorname{span}(q_1^{(k)},\ldots,q_{i-1}^{(k)}),\\
+q_i^X&amp;\perp\operatorname{span}(q_1^X,\ldots,q_{i-1}^X).
+\end{aligned}
+\]</span></p>
+<p>Hence the <span class="math inline">\(i\)</span>th iterated column tends, up to phase, to the unique orthogonal direction added when the invariant subspace grows from dimension <span class="math inline">\(i-1\)</span> to <span class="math inline">\(i\)</span>.</p>
+<p>Since <span class="math inline">\(Q^{X}=X(R^{X})^{-1}\)</span> and <span class="math inline">\((Q^{X})^*=R^{X}X^{-1}\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+(Q^{X})^*AQ^{X}
+&amp;=R^{X}X^{-1}(X\Lambda X^{-1})X(R^{X})^{-1}\\
+&amp;=R^{X}\Lambda(R^{X})^{-1}.
+\end{aligned}
+\]</span></p>
+<p>This is upper triangular because <span class="math inline">\(R^{X}\)</span> and <span class="math inline">\((R^{X})^{-1}\)</span> are upper triangular. Its diagonal contains <span class="math inline">\(\lambda_1,\ldots,\lambda_m\)</span>, and its eigenvectors are <span class="math inline">\(R^{X}e_i\)</span>. Thus <span class="math inline">\(Q_k\)</span> and <span class="math inline">\(Q_k^*AQ_k\)</span> approach a Schur factorization, up to phase conventions, and the eigenvalues can be read from the diagonal.</p>
+<h2 data-original-heading="12.6 From Orthogonal Iteration to Basic QR Iteration" id="from-orthogonal-iteration-to-basic-qr-iteration">12.6 From Orthogonal Iteration to Basic QR Iteration</h2>
+<!-- Source: Lecture 12.pdf, pp. 10–11. -->
+<p>Forming <span class="math inline">\(T_k=Q_k^*AQ_k\)</span> directly would require both <span class="math inline">\(Q_k\)</span> and another multiplication with <span class="math inline">\(A\)</span>. The orthogonal iteration step supplies an update. For the full square case,</p>
+<p><span class="math display">\[
+AQ_k=Q_{k+1}R_{k+1}.
+\]</span></p>
+<p>Let <span class="math inline">\(U_{k+1}=Q_k^*Q_{k+1}\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+T_k=Q_k^*AQ_k
+&amp;=(Q_k^*Q_{k+1})R_{k+1}
+=U_{k+1}R_{k+1},\\
+T_{k+1}=Q_{k+1}^*AQ_{k+1}
+&amp;=R_{k+1}U_{k+1}.
+\end{aligned}
+\]</span></p>
+<p>Thus <span class="math inline">\(T_k\)</span> is factored as QR, and the next iterate is obtained by reversing those factors. The <strong>basic QR iteration</strong> does not need to store <span class="math inline">\(Q_k\)</span>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="fu">copy</span>(A)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>max_iter</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    U, R <span class="op">=</span> <span class="fu">qr</span>(T)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    T <span class="op">=</span> R <span class="op">*</span> U</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> <span class="fu">diag</span>(T)</span></code></pre></div>
+<p>To recover the Schur vectors, accumulate the orthogonal factors: <span class="math inline">\(Q_0=I\)</span> and <span class="math inline">\(Q_{k+1}=Q_kU_{k+1}\)</span>. Because <span class="math inline">\(U_{k+1}=Q_k^*Q_{k+1}\)</span>,</p>
+<p><span class="math display">\[
+U_1U_2\cdots U_{k+1}
+=Q_0^*Q_1Q_1^*Q_2\cdots Q_k^*Q_{k+1}
+=Q_{k+1}.
+\]</span></p>
+<p>The <span class="math inline">\(U_i\)</span> are successive orthogonal coordinate changes that take the initial basis toward the Schur basis.</p>
+<h2 data-original-heading="12.7 Why Preprocess to Hessenberg Form?" id="why-preprocess-to-hessenberg-form">12.7 Why Preprocess to Hessenberg Form?</h2>
+<!-- Source: Lecture 12.pdf, pp. 12–13. -->
+<p>A dense QR factorization costs <span class="math inline">\(O(m^3)\)</span>. If <span class="math inline">\(O(m)\)</span> QR steps are needed, unstructured iteration can cost <span class="math inline">\(O(m^4)\)</span>. First reduce <span class="math inline">\(A\)</span> by orthogonal similarity to upper Hessenberg form <span class="math inline">\(H\)</span>, whose entries below the first subdiagonal are zero:</p>
+<p><span class="math display">\[
+H=Q^*AQ,
+\qquad H_{ij}=0\quad(i&gt;j+1).
+\]</span></p>
+<p>The source constructs this reduction with Householder reflections. Choose <span class="math inline">\(P_1\)</span> to map the subvector <span class="math inline">\(A[2:m,1]\)</span> to a multiple of <span class="math inline">\(e_1\)</span>, and embed it as</p>
+<p><span class="math display">\[
+Q_1=\begin{pmatrix}1&amp;0\\0&amp;P_1\end{pmatrix}.
+\]</span></p>
+<p>Apply <span class="math inline">\(Q_1^*AQ_1\)</span>: left multiplication zeros the entries below the first subdiagonal in column 1. Right multiplication performs the same similarity transformation while preserving those zeros. Continue on the trailing <span class="math inline">\((m-2)\times(m-2)\)</span> block for column 2 and on later trailing blocks for subsequent columns. If <span class="math inline">\(Q=Q_1Q_2\cdots Q_{m-2}\)</span>, the result is <span class="math inline">\(H=Q^*AQ\)</span>.</p>
+<p>For a four-row sketch, the two-sided transformations have the pattern</p>
+<p><span class="math display">\[
+\underbrace{\begin{pmatrix}
+*&amp;*&amp;*&amp;*\\ *&amp;*&amp;*&amp;*\\ *&amp;*&amp;*&amp;*\\ *&amp;*&amp;*&amp;*
+\end{pmatrix}}_{A}
+\xrightarrow{\ Q_1^*(\cdot)Q_1\ }
+\begin{pmatrix}
+*&amp;*&amp;*&amp;*\\ *&amp;*&amp;*&amp;*\\ 0&amp;*&amp;*&amp;*\\ 0&amp;*&amp;*&amp;*
+\end{pmatrix}
+\xrightarrow{\ Q_2^*(\cdot)Q_2\ }
+\underbrace{\begin{pmatrix}
+*&amp;*&amp;*&amp;*\\ *&amp;*&amp;*&amp;*\\ 0&amp;*&amp;*&amp;*\\ 0&amp;0&amp;*&amp;*
+\end{pmatrix}}_{H}.
+\]</span></p>
+<p>Here <span class="math inline">\(Q_2=\operatorname{diag}(I_2,P_2)\)</span> acts only on the final two coordinates; larger matrices continue the staircase. The page asks why the same process cannot generally zero the first subdiagonal as well. It invokes Abel’s theorem: exact triangularization of arbitrary matrices by a fixed finite sequence of arithmetic and radical operations would expose characteristic roots, which in general have no radical formula from degree five onward. Numerical QR iteration can nevertheless converge to the Schur form. Hessenberg form is the inexpensive starting shape.</p>
+<h2 data-original-heading="12.8 QR Iteration on a Hessenberg Matrix" id="qr-iteration-on-a-hessenberg-matrix">12.8 QR Iteration on a Hessenberg Matrix</h2>
+<!-- Source: Lecture 12.pdf, pp. 14–16. -->
+<p>In the first part of a QR step, factor the current upper Hessenberg <span class="math inline">\(T_{k-1}\)</span> with Givens rotations <span class="math inline">\(G_1,\ldots,G_{m-1}\)</span>. Only one entry below the diagonal must be removed in each column, so</p>
+<p><span class="math display">\[
+R_k=G_{m-1}^*\cdots G_1^*T_{k-1},
+\qquad
+U_k=G_1\cdots G_{m-1},
+\qquad
+T_{k-1}=U_kR_k.
+\]</span></p>
+<p>Each rotation acts on two rows. There are <span class="math inline">\(m-1\)</span> rotations, and each costs <span class="math inline">\(O(m)\)</span>, so the QR factorization costs <span class="math inline">\(O(m^2)\)</span> rather than <span class="math inline">\(O(m^3)\)</span>. Then form</p>
+<p><span class="math display">\[
+T_k=R_kU_k=R_kG_1\cdots G_{m-1}
+\]</span></p>
+<p>in another <span class="math inline">\(O(m^2)\)</span>. Right multiplication by the rotations, in order, preserves the Hessenberg staircase shown on page 14. Thus <span class="math inline">\(O(m)\)</span> QR steps cost <span class="math inline">\(O(m^3)\)</span> after preprocessing.</p>
+<p>The two halves of the step have these structural patterns; <span class="math inline">\(\bullet\)</span> marks a possible nonzero entry and <span class="math inline">\(0\)</span> an enforced zero:</p>
+<p><span class="math display">\[
+\underbrace{\begin{pmatrix}
+\bullet&amp;\bullet&amp;\bullet&amp;\bullet\\
+\bullet&amp;\bullet&amp;\bullet&amp;\bullet\\
+0&amp;\bullet&amp;\bullet&amp;\bullet\\
+0&amp;0&amp;\bullet&amp;\bullet
+\end{pmatrix}}_{T_{k-1}\text{ upper Hessenberg}}
+\xrightarrow{\ G_{m-1}^*\cdots G_1^*\ }
+\underbrace{\begin{pmatrix}
+\bullet&amp;\bullet&amp;\bullet&amp;\bullet\\
+0&amp;\bullet&amp;\bullet&amp;\bullet\\
+0&amp;0&amp;\bullet&amp;\bullet\\
+0&amp;0&amp;0&amp;\bullet
+\end{pmatrix}}_{R_k}
+\xrightarrow{\ (\cdot)G_1\cdots G_{m-1}\ }
+\underbrace{\begin{pmatrix}
+\bullet&amp;\bullet&amp;\bullet&amp;\bullet\\
+\bullet&amp;\bullet&amp;\bullet&amp;\bullet\\
+0&amp;\bullet&amp;\bullet&amp;\bullet\\
+0&amp;0&amp;\bullet&amp;\bullet
+\end{pmatrix}}_{T_k}.
+\]</span></p>
+<p>The lecture then asks whether the left and right rotations can be applied <strong>simultaneously</strong>. The first interleaved similarity, <span class="math inline">\(G_1^*T_{k-1}G_1\)</span>, has a small out-of-place entry near the upper-left of the Hessenberg staircase, called a <strong>bulge</strong>. The second rotation must be chosen from <em>this bulged matrix</em>, not merely from the unreduced <span class="math inline">\(R_k\)</span>; it removes that entry while moving the bulge one position down the off-diagonal. Denote these interleaved rotations by <span class="math inline">\(\widehat G_j\)</span>, with <span class="math inline">\(\widehat G_1=G_1\)</span>. The successive matrices are</p>
+<p><span class="math display">\[
+\underbrace{\begin{pmatrix}
+\bullet&amp;\bullet&amp;\bullet&amp;\bullet\\
+\bullet&amp;\bullet&amp;\bullet&amp;\bullet\\
+\boxed{\bullet}&amp;\bullet&amp;\bullet&amp;\bullet\\
+0&amp;0&amp;\bullet&amp;\bullet
+\end{pmatrix}}_{B_1:\,\text{bulge at }(3,1)}
+\xrightarrow{\ \widehat G_2^*(\cdot)\widehat G_2\ }
+\underbrace{\begin{pmatrix}
+\bullet&amp;\bullet&amp;\bullet&amp;\bullet\\
+\bullet&amp;\bullet&amp;\bullet&amp;\bullet\\
+0&amp;\bullet&amp;\bullet&amp;\bullet\\
+0&amp;\boxed{\bullet}&amp;\bullet&amp;\bullet
+\end{pmatrix}}_{B_2:\,\text{bulge at }(4,2)}.
+\]</span></p>
+<p>For larger matrices the boxed entry continues down the off-diagonal until the last rotation removes it. Algebraically,</p>
+<p><span class="math display">\[
+\begin{aligned}
+B_1&amp;=\widehat G_1^*T_{k-1}\widehat G_1,\\
+B_2&amp;=\widehat G_2^*B_1\widehat G_2
+=\widehat G_2^*\widehat G_1^*T_{k-1}\widehat G_1\widehat G_2,\\
+&amp;\ \vdots\\
+B_{m-1}&amp;=\widehat G_{m-1}^*\cdots\widehat G_1^*
+T_{k-1}\widehat G_1\cdots\widehat G_{m-1}.
+\end{aligned}
+\]</span></p>
+<p>The final matrix has its Hessenberg structure restored. The source says one can show it equals the QR iterate <span class="math inline">\(T_k=R_kU_k\)</span>, and leaves the precise choice of each next bulge-removing rotation as an algorithmic question.</p>
+<h2 data-original-heading="Corrections and Clarifications to the Source" id="corrections-and-clarifications-to-the-source">12.9 Corrections and Clarifications to the Source</h2>
+<ul>
+<li><strong>Page 2:</strong> The upper-triangular normal-matrix argument uses conjugate transpose and absolute squares in general. For real matrices they reduce to the sheet’s transposes and squares.</li>
+<li><strong>Pages 3–5:</strong> The identity <span class="math inline">\(PAP=A-\lambda_1x_1x_1^*\)</span> requires normality, but <span class="math inline">\(PAPx_i=\lambda_iPx_i\)</span> holds for a general diagonalizable <span class="math inline">\(A\)</span>. The second vector tends to the projected direction <span class="math inline">\(Px_2\)</span> rather than to <span class="math inline">\(x_2\)</span> itself.</li>
+<li><strong>Page 7:</strong> Ordered-column convergence needs eigenvalue magnitude gaps and a nondegenerate initial subspace; column phases or signs may vary.</li>
+<li><strong>Page 9:</strong> From <span class="math inline">\((Q^{X})^*AQ^{X}=R^{X}\Lambda(R^{X})^{-1}\)</span>, its eigenvectors are <span class="math inline">\(R^{X}e_i\)</span>, not <span class="math inline">\((R^{X})^{-1}e_i\)</span> as written on the sheet.</li>
+<li><strong>Page 10:</strong> The update is expressed with <span class="math inline">\(T_k=U_{k+1}R_{k+1}\)</span> and <span class="math inline">\(T_{k+1}=R_{k+1}U_{k+1}\)</span> to keep the factors’ iteration indices consistent.</li>
+<li><strong>Page 13:</strong> The Householder product order is explicit: <span class="math inline">\(H=Q^*AQ\)</span> with <span class="math inline">\(Q=Q_1\cdots Q_{m-2}\)</span>.</li>
+<li><strong>Pages 15–16:</strong> The sheet poses the interleaved bulge chase as an open question. The displayed <span class="math inline">\(B_j\)</span> recurrence spells out its product order; the equality with <span class="math inline">\(R_kU_k\)</span> is stated as in the source, not assumed from the rotation symbols.</li>
+</ul></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
     <a rel="prev" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/11.%20Schur%20Factorization.html"><span>← Previous page</span><span>11. Schur Factorization</span></a>
     <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/13.%20QR%20without%20Shifts.html"><span>Next page →</span><span>13. QR without Shifts</span></a>
   </nav></footer></article></main>
-<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"></aside></div>
+<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"><div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">12. Orthogonal Iteration</a></div><div class="outline-contents" id="outline-contents"><div id="outline-progress" class="outline-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-controls="reading-viewport"><span class="outline-marker"></span></div><ol id="outline-items"><li style="--depth:0"><a href="#recap-deflation-and-schur-factorization" class="is-active" aria-current="location">12.1 Recap: Deflation and Schur Factorization</a></li><li style="--depth:0"><a href="#when-is-the-schur-form-diagonal">12.2 When Is the Schur Form Diagonal?</a></li><li style="--depth:0"><a href="#orthogonal-iteration-for-two-eigenpairs">12.3 Orthogonal Iteration for Two Eigenpairs</a></li><li style="--depth:0"><a href="#orthogonal-iteration-in-general">12.4 Orthogonal Iteration in General</a></li><li style="--depth:0"><a href="#eigenvector-estimates-and-the-schur-form">12.5 Eigenvector Estimates and the Schur Form</a></li><li style="--depth:0"><a href="#from-orthogonal-iteration-to-basic-qr-iteration">12.6 From Orthogonal Iteration to Basic QR Iteration</a></li><li style="--depth:0"><a href="#why-preprocess-to-hessenberg-form">12.7 Why Preprocess to Hessenberg Form?</a></li><li style="--depth:0"><a href="#qr-iteration-on-a-hessenberg-matrix">12.8 QR Iteration on a Hessenberg Matrix</a></li><li style="--depth:0"><a href="#corrections-and-clarifications-to-the-source">12.9 Corrections and Clarifications to the Source</a></li></ol></div></aside></div>
 <button class="sidebar-scrim" tabindex="-1" aria-label="Close sidebar" hidden></button>
 <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-label"><form method="dialog" class="search-heading"><label id="search-label" for="search-input">Search notes</label><button value="close" aria-label="Close search">×</button></form><input id="search-input" type="search" placeholder="Title, topic, or phrase…" autocomplete="off"><p id="search-status" role="status">Search the published notes on this site.</p><ol id="search-results"></ol></dialog>
 <dialog id="appearance-dialog" class="appearance-dialog" aria-labelledby="appearance-label"><form method="dialog"><h2 id="appearance-label">Reading appearance</h2><button aria-label="Close text settings">×</button></form><p class="settings-label">Typeface</p><div class="font-options"><button data-font="termes">Classic textbook<small>TeX Gyre Termes</small></button><button data-font="stix">STIX Two Text<small>Original reader</small></button></div><p class="settings-label">Text size</p><div class="size-options"><button data-size="18">Compact</button><button data-size="20">Comfortable</button><button data-size="22">Large</button></div></dialog>

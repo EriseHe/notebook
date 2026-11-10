@@ -1,21 +1,171 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light"><title>11. Schur Factorization — E.H. Notebook</title>
-<meta name="description" content="Numerical Methods I — Florian Schaefer. Source: Lecture 11.pdf, pp. 1–9.">
+<meta name="description" content="Numerical Methods I — Florian Schaefer. Source: Lecture 11.pdf, pp. 1–9.11.1 Recap: Eigenvalue ComputationsAn eigenvalue can be a root of a polynomial. For the monic poly">
 <link rel="stylesheet" href="/notebook/assets/reader.css"><link rel="preload" href="/notebook/assets/fonts/texgyretermes-regular.otf" as="font" type="font/otf" crossorigin>
 <script defer src="/notebook/assets/reader.js"></script>
-
-</head><body data-layout="reader" data-has-notes="true" data-has-outline="false" data-notes-open="true" data-outline-open="false" data-search-index="/notebook/assets/search.json">
+<script src="/notebook/assets/math-config.js"></script><script defer id="MathJax-script" src="/notebook/assets/vendor/mathjax/tex-chtml-full.js"></script>
+</head><body data-layout="reader" data-has-notes="true" data-has-outline="true" data-notes-open="true" data-outline-open="true" data-search-index="/notebook/assets/search.json">
 <a class="skip-link" href="#article-body">Skip to content</a>
 <header class="toolbar"><div class="identity"><button class="icon-button" id="notes-toggle" aria-label="Toggle notes sidebar" aria-controls="notes-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/sidebar.svg" alt="" width="20" height="20"></button><a class="brand" href="/notebook/">E.H. Notebook</a></div>
 <nav class="top-navigation" aria-label="Notebook sections"><a href="/notebook/content/notes/index.html" aria-current="page">Notes</a><a href="/notebook/content/posts/index.html">Posts</a><a href="/notebook/content/research/index.html">Research</a></nav>
-<div class="reading-tools"><button class="icon-button appearance-toggle" id="appearance-toggle" aria-label="Reading text size" aria-controls="appearance-dialog">Aa</button><button class="icon-button" id="search-toggle" aria-label="Search notes" aria-keyshortcuts="Control+k Meta+k"><img src="/notebook/assets/icons/search.svg" alt="" width="20" height="20"></button><a class="icon-button github-link" href="https://github.com/EriseHe/notebook" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><img src="/notebook/assets/icons/github.svg" alt="" width="20" height="20"></a><button class="icon-button" id="outline-toggle" aria-label="Toggle outline" aria-controls="outline-sidebar" aria-expanded="false" disabled><img src="/notebook/assets/icons/outline.svg" alt="" width="20" height="20"></button></div></header>
-<div class="reader-layout"><aside class="notes-sidebar" id="notes-sidebar" aria-label="Notes navigation"><nav aria-label="Numerical Linear Algbera file hierarchy" data-sidebar-root="content/notes/理论/Numerical Linear Algbera"><a class="sidebar-root" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><ul class="notes-tree"><li class="folder-node" data-folder="content/notes/理论/Numerical Linear Algbera/Homework" data-active-branch="false"><div class="folder-row"><button class="tree-toggle folder-label" aria-controls="folder-209a64aec9e6" aria-expanded="false"><img class="folder-chevron" src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""><span>Homework</span></button></div><ul class="tree-children" id="folder-209a64aec9e6" hidden><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html"><span class="page-number"></span><span>HW 1</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span class="page-number"></span><span>HW 2</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span class="page-number"></span><span>HW 3</span></a></li></ul></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html"><span class="page-number">1</span><span>Vectors and Matrices</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span class="page-number">2</span><span>Storing Matrices &amp; Vectors</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span class="page-number">3</span><span>LU Factorization and Zero Pivots</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span class="page-number">4</span><span>LU Factorization with Pivoting</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span class="page-number">5</span><span>Least Squares and Gram-Schmidt</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html"><span class="page-number">6</span><span>Error Bounds and Householder QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span class="page-number">7</span><span>Orthogonal Transformations and QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html"><span class="page-number">8</span><span>Least Squares and Normal Equations</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span class="page-number">9</span><span>Cholesky Factorization and Schur Complements</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span class="page-number">10</span><span>Eigenvalues and Iterative Methods</span></a></li><li class="file-node"><a class="note-link is-current" aria-current="page" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/11.%20Schur%20Factorization.html"><span class="page-number">11</span><span>Schur Factorization</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/12.%20Orthogonal%20Iteration.html"><span class="page-number">12</span><span>Orthogonal Iteration</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/13.%20QR%20without%20Shifts.html"><span class="page-number">13</span><span>QR without Shifts</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span class="page-number"></span><span>Midterm Study Plan</span></a></li></ul></nav></aside>
-<main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a></nav><h1 id="reader-title">11. Schur Factorization</h1><p class="article-meta">2026-10-14</p></header><div id="article-body" class="prose"><p><em>Numerical Methods I — Florian Schaefer. Source: <a href="https://brightspace.nyu.edu/content/enforced/609409-FA26_MATH-GA_2010_1_001_crse/Lecture%2011.pdf">Lecture 11.pdf</a>, pp.&nbsp;1–9.</em></p></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
+<div class="reading-tools"><button class="icon-button appearance-toggle" id="appearance-toggle" aria-label="Reading text size" aria-controls="appearance-dialog">Aa</button><button class="icon-button" id="search-toggle" aria-label="Search notes" aria-keyshortcuts="Control+k Meta+k"><img src="/notebook/assets/icons/search.svg" alt="" width="20" height="20"></button><a class="icon-button github-link" href="https://github.com/EriseHe/notebook" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><img src="/notebook/assets/icons/github.svg" alt="" width="20" height="20"></a><button class="icon-button" id="outline-toggle" aria-label="Toggle outline" aria-controls="outline-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/outline.svg" alt="" width="20" height="20"></button></div></header>
+<div class="reader-layout"><aside class="notes-sidebar" id="notes-sidebar" aria-label="Notes navigation"><nav aria-label="Numerical Linear Algbera file hierarchy" data-sidebar-root="content/notes/理论/Numerical Linear Algbera"><a class="sidebar-root" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><ul class="notes-tree"><li class="folder-node" data-folder="content/notes/理论/Numerical Linear Algbera/Homework" data-active-branch="false"><div class="folder-row"><button class="tree-toggle folder-label" aria-controls="folder-209a64aec9e6" aria-expanded="false"><img class="folder-chevron" src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""><span>Homework</span></button></div><ul class="tree-children" id="folder-209a64aec9e6" hidden><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html"><span class="page-number"></span><span>HW 1</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span class="page-number"></span><span>HW 2</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span class="page-number"></span><span>HW 3</span></a></li></ul></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html"><span class="page-number">1</span><span>Vectors and Matrices</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span class="page-number">2</span><span>Storing Matrices &amp; Vectors</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span class="page-number">3</span><span>LU Factorization and Zero Pivots</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span class="page-number">4</span><span>LU Factorization with Pivoting</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span class="page-number">5</span><span>Least Squares and Gram-Schmidt</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html"><span class="page-number">6</span><span>Error Bounds and Householder QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span class="page-number">7</span><span>Orthogonal Transformations and QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html"><span class="page-number">8</span><span>Least Squares and Normal Equations</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span class="page-number">9</span><span>Cholesky Factorization and Schur Complements</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span class="page-number">10</span><span>Eigenvalues and Iterative Methods</span></a></li><li class="file-node"><a class="note-link is-current" aria-current="page" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/11.%20Schur%20Factorization.html"><span class="page-number">11</span><span>Schur Factorization</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/12.%20Orthogonal%20Iteration.html"><span class="page-number">12</span><span>Orthogonal Iteration</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/13.%20QR%20without%20Shifts.html"><span class="page-number">13</span><span>QR without Shifts</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/14.%20Hessenberg%20QR%20and%20Bulge%20Chasing.html"><span class="page-number">14</span><span>Hessenberg QR and Bulge Chasing</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/15.%20Shifted%20QR%20Iteration.html"><span class="page-number">15</span><span>Shifted QR Iteration</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span class="page-number"></span><span>Midterm Study Plan</span></a></li></ul></nav></aside>
+<main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a></nav><h1 id="reader-title">11. Schur Factorization</h1><p class="article-meta">2026-10-14</p></header><div id="article-body" class="prose"><p><em>Numerical Methods I — Florian Schaefer. Source: <a href="https://brightspace.nyu.edu/content/enforced/609409-FA26_MATH-GA_2010_1_001_crse/Lecture%2011.pdf">Lecture 11.pdf</a>, pp.&nbsp;1–9.</em></p>
+<h2 data-original-heading="11.1 Recap: Eigenvalue Computations" id="recap-eigenvalue-computations">11.1 Recap: Eigenvalue Computations</h2>
+<!-- Source: Lecture 11.pdf, p. 1. -->
+<p>An eigenvalue can be a root of a polynomial. For the monic polynomial</p>
+<p><span class="math display">\[
+p(z)=z^m+\sum_{i=0}^{m-1}a_i z^i,
+\]</span></p>
+<p>the companion matrix</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}
+0&amp;1&amp;0&amp;\cdots&amp;0\\
+0&amp;0&amp;1&amp;\ddots&amp;\vdots\\
+\vdots&amp;&amp;\ddots&amp;\ddots&amp;0\\
+0&amp;\cdots&amp;0&amp;0&amp;1\\
+-a_0&amp;-a_1&amp;\cdots&amp;-a_{m-2}&amp;-a_{m-1}
+\end{pmatrix}
+\]</span></p>
+<p>satisfies <span class="math inline">\(Ax=zx\)</span> for <span class="math inline">\(x=(1,z,\ldots,z^{m-1})^T\)</span> precisely when <span class="math inline">\(p(z)=0\)</span>.</p>
+<p>If <span class="math inline">\(A=X\Lambda X^{-1}\)</span> and <span class="math inline">\(z=X\varphi\)</span>, power iteration gives</p>
+<p><span class="math display">\[
+A^kz=X\Lambda^k\varphi,
+\qquad
+\Lambda^k=\operatorname{diag}(\lambda_1^k,\ldots,\lambda_m^k).
+\]</span></p>
+<p>The powers favor the eigendirection of largest magnitude: if <span class="math inline">\(|\lambda_1|&gt;|\lambda_j|\)</span> for <span class="math inline">\(j&gt;1\)</span>, then</p>
+<p><span class="math display">\[
+\lambda_1^{-k}\Lambda^k
+=\operatorname{diag}\!\left(1,(\lambda_2/\lambda_1)^k,\ldots,(\lambda_m/\lambda_1)^k\right)
+\longrightarrow\operatorname{diag}(1,0,\ldots,0).
+\]</span></p>
+<p>The companion-matrix construction is the preceding lecture’s negative result: an exact general eigenvalue formula would give an exact general polynomial-root formula. The lecture also recalls matrix functions, inverse iteration, and Rayleigh-quotient iteration. The spectrum sketch illustrates inversion moving an eigenvalue close to zero far away from the other eigenvalues.</p>
+<h2 data-original-heading="11.2 Deflation" id="deflation">11.2 Deflation</h2>
+<!-- Source: Lecture 11.pdf, p. 2. -->
+<p>Suppose we have computed a largest eigenpair <span class="math inline">\((x,\lambda_1)\)</span>. How can we avoid finding the same eigenpair again? The lecture proposes deflation by forming</p>
+<p><span class="math display">\[
+A-\lambda_1\frac{xx^*}{x^*x}.
+\]</span></p>
+<p>The computed eigenvalue becomes zero for the direction <span class="math inline">\(x\)</span>. Deflation raises the question of how to obtain the remaining eigenpairs without recomputing the same one.</p>
+<h2 data-original-heading="11.3 Subspace Iteration" id="subspace-iteration">11.3 Subspace Iteration</h2>
+<!-- Source: Lecture 11.pdf, p. 3. -->
+<p>Individual eigenvalues can in principle be computed one by one, and individual eigenpairs can in principle be computed one by one. Doing so needs at least <span class="math inline">\(m\)</span> matrix-vector products for <span class="math inline">\(m\)</span> eigenpairs. Because these products happen serially, the matrix must be loaded from RAM <span class="math inline">\(m\)</span> times.</p>
+<p>The alternative is to apply power iteration simultaneously to multiple vectors. Matrix-vector products become matrix-matrix products: <strong>subspace iteration</strong>.</p>
+<h2 data-original-heading="11.4 Eigenvalue Computation as Matrix Factorization" id="eigenvalue-computation-as-matrix-factorization">11.4 Eigenvalue Computation as Matrix Factorization</h2>
+<!-- Source: Lecture 11.pdf, p. 4. -->
+<p>If <span class="math inline">\(A\in\mathbb K^{m\times m}\)</span> has <span class="math inline">\(m\)</span> distinct eigenvalues <span class="math inline">\(\lambda_1,\ldots,\lambda_m\)</span> and corresponding eigenvectors <span class="math inline">\(x_1,\ldots,x_m\)</span>, collect the eigenvectors into <span class="math inline">\(X=(x_1,\ldots,x_m)\)</span>. Then</p>
+<p><span class="math display">\[
+A=X\Lambda X^{-1},
+\qquad \Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_m).
+\]</span></p>
+<p>For a self-adjoint matrix, <span class="math inline">\(X\)</span> can be chosen unitary, so <span class="math inline">\(A=X\Lambda X^*\)</span>.</p>
+<h2 data-original-heading="11.5 Defective Matrices and Invariant Subspaces" id="defective-matrices-and-invariant-subspaces">11.5 Defective Matrices and Invariant Subspaces</h2>
+<!-- Source: Lecture 11.pdf, p. 5. -->
+<p>Are all matrices diagonalizable? Consider</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}\lambda&amp;1\\0&amp;\lambda\end{pmatrix}.
+\]</span></p>
+<p>Its eigenpairs have eigenvalue <span class="math inline">\(\lambda\)</span> and eigenvectors proportional to <span class="math inline">\(e_1\)</span>. The matrix has only one linearly independent eigenvector. Such a matrix is called <strong>defective</strong>. For <span class="math inline">\(\lambda=0\)</span>, the source’s sketch is the action</p>
+<p><span class="math display">\[
+\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}e_2=e_1,
+\qquad
+\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}e_1=0.
+\]</span></p>
+<p>The lecture describes the common exponential scale as “<span class="math inline">\(\lambda^n\)</span> growth,” motivating an invariant subspace in place of an eigenspace. This is an intuition about the eigenvalue scale, not an exact formula for all iterates of a Jordan block.</p>
+<p>This motivates replacing the search for a <span class="math inline">\(\lambda\)</span>-eigenspace with the search for an <strong>invariant subspace</strong>. A subspace spanned by the columns of <span class="math inline">\(X\in\mathbb K^{m\times n}\)</span> is <span class="math inline">\(A\)</span>-invariant when</p>
+<p><span class="math display">\[
+AX=X\beta
+\quad\text{for some }\beta\in\mathbb K^{n\times n}.
+\]</span></p>
+<!-- Source: Lecture 11.pdf, p. 6. -->
+<p>The Jordan normal form states that for every <span class="math inline">\(A\in\mathbb K^{m\times m}\)</span> there is a nonsingular <span class="math inline">\(S\in\mathbb C^{m\times m}\)</span> such that</p>
+<p><span class="math display">\[
+A=SJS^{-1},
+\qquad
+J=\operatorname{diag}(J_1,\ldots,J_r),
+\qquad
+J_\ell=\begin{pmatrix}
+\lambda_\ell&amp;1&amp;&amp;0\\
+&amp;\lambda_\ell&amp;\ddots&amp;\\
+&amp;&amp;\ddots&amp;1\\
+0&amp;&amp;&amp;\lambda_\ell
+\end{pmatrix}.
+\]</span></p>
+<p>Each Jordan block has only one linearly independent eigenvector, its first coordinate vector. Jordan form decomposes the space into invariant subspaces, but it is <strong>not numerically stable</strong>: a small perturbation can change the block structure, for example</p>
+<p><span class="math display">\[
+\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}
+\longrightarrow
+\begin{pmatrix}\epsilon&amp;1\\0&amp;2\epsilon\end{pmatrix}.
+\]</span></p>
+<h2 data-original-heading="11.6 Schur Factorization" id="schur-factorization">11.6 Schur Factorization</h2>
+<!-- Source: Lecture 11.pdf, p. 7. -->
+<p><strong>Theorem (complex Schur form).</strong> For any <span class="math inline">\(A\in\mathbb C^{m\times m}\)</span>, there exist a unitary <span class="math inline">\(Q\)</span> and an upper-triangular <span class="math inline">\(T\)</span> such that</p>
+<p><span class="math display">\[
+A=QTQ^*.
+\]</span></p>
+<p>The eigenvalues of <span class="math inline">\(A\)</span> appear on the diagonal of <span class="math inline">\(T\)</span>.</p>
+<p><strong>Proof.</strong> Every complex square matrix has at least one eigenvalue <span class="math inline">\(\lambda\)</span> with an eigenvector <span class="math inline">\(u\)</span>. Normalize <span class="math inline">\(u\)</span> and extend it to a unitary matrix <span class="math inline">\(U=(u,\widetilde U)\)</span>. Then</p>
+<p><span class="math display">\[
+U^*AU=
+\begin{pmatrix}
+u^*Au&amp;u^*A\widetilde U\\
+\widetilde U^*Au&amp;\widetilde U^*A\widetilde U
+\end{pmatrix}
+=\begin{pmatrix}
+\lambda&amp;u^*A\widetilde U\\
+0&amp;\widetilde U^*A\widetilde U
+\end{pmatrix},
+\]</span></p>
+<p>because <span class="math inline">\(Au=\lambda u\)</span> and <span class="math inline">\(\widetilde U^*u=0\)</span>. Apply the same construction recursively to the lower-right block. <span class="math inline">\(\square\)</span></p>
+<!-- Source: Lecture 11.pdf, p. 8. -->
+<p>For real matrices, it is preferable to stay in real arithmetic. <strong>Real Schur form</strong> gives an orthogonal <span class="math inline">\(Q\)</span> and a block-upper-triangular <span class="math inline">\(T\)</span> with diagonal blocks of size <span class="math inline">\(1\times1\)</span> or <span class="math inline">\(2\times2\)</span> such that <span class="math inline">\(A=QTQ^*\)</span>. The <span class="math inline">\(2\times2\)</span> blocks represent complex-conjugate eigenvalue pairs.</p>
+<h2 data-original-heading="11.7 Computing Eigenvectors from Schur Form" id="computing-eigenvectors-from-schur-form">11.7 Computing Eigenvectors from Schur Form</h2>
+<!-- Source: Lecture 11.pdf, p. 9. -->
+<p>Schur factorization yields eigenvalues directly. To obtain an eigenvector, solve <span class="math inline">\(Tx=\lambda x\)</span> and then use <span class="math inline">\(Qx\)</span>, since</p>
+<p><span class="math display">\[
+A(Qx)=QTQ^*(Qx)=QTx=\lambda Qx.
+\]</span></p>
+<p>Partition the upper-triangular matrix around a chosen diagonal entry <span class="math inline">\(\lambda\)</span>. Here <span class="math inline">\(T_{11}\)</span> and <span class="math inline">\(T_{33}\)</span> denote the leading and trailing triangular blocks, while the middle diagonal block is the scalar <span class="math inline">\(\lambda\)</span>:</p>
+<p><span class="math display">\[
+(T-\lambda I)x=
+\begin{pmatrix}
+T_{11}-\lambda I&amp;T_{12}&amp;T_{13}\\
+0&amp;0&amp;T_{23}\\
+0&amp;0&amp;T_{33}-\lambda I
+\end{pmatrix}
+\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}=0.
+\]</span></p>
+<p>The block equations are</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+(T_{11}-\lambda I)x_1+T_{12}x_2+T_{13}x_3\\
+T_{23}x_3\\
+(T_{33}-\lambda I)x_3
+\end{pmatrix}=0.
+\]</span></p>
+<p>Take <span class="math inline">\(x_2=1\)</span> and <span class="math inline">\(x_3=0\)</span>. If <span class="math inline">\(\lambda I-T_{11}\)</span> is nonsingular, solve the first block row by triangular substitution:</p>
+<p><span class="math display">\[
+x=\begin{pmatrix}
+(\lambda I-T_{11})^{-1}T_{12}\\
+1\\
+0
+\end{pmatrix}.
+\]</span></p>
+<h2 data-original-heading="Corrections and Clarifications to the Source" id="corrections-and-clarifications-to-the-source">11.8 Corrections and Clarifications to the Source</h2>
+<ul>
+<li><strong>Notation:</strong> The handwritten lecture uses <span class="math inline">\(\delta\)</span> for eigenvalues. These notes use <span class="math inline">\(\lambda\)</span>, consistent with Lecture 10. Complex adjoints are denoted by <span class="math inline">\(^*\)</span>; for real vectors the deflation formula is exactly the source’s formula with <span class="math inline">\(x^T\)</span>.</li>
+<li><strong>Page 1:</strong> The companion matrix and its monic polynomial relation are written out where the source uses an abbreviated matrix picture.</li>
+<li><strong>Page 2:</strong> The stated deflation formula removes the computed eigenvalue along <span class="math inline">\(x\)</span>. For a general nonnormal matrix, computing other eigenpairs by deflation needs more care with left and right eigenvectors.</li>
+<li><strong>Pages 6–7:</strong> Jordan representation uses a complex similarity matrix even when <span class="math inline">\(A\)</span> is real. The Schur proof also uses a complex eigenvector; real Schur form is stated separately on page 8.</li>
+<li><strong>Page 5:</strong> The source’s “<span class="math inline">\(\lambda^n\)</span> growth” is an exponential-scale intuition; Jordan powers can also have polynomial factors. The zero-eigenvalue example is nilpotent.</li>
+<li><strong>Page 9:</strong> Made the block partition and the nonsingularity needed for <span class="math inline">\((\lambda I-T_{11})^{-1}\)</span> explicit. The formula denotes a triangular solve, not a recommendation to form an inverse.</li>
+</ul></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
     <a rel="prev" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span>← Previous page</span><span>10. Eigenvalues and Iterative Methods</span></a>
     <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/12.%20Orthogonal%20Iteration.html"><span>Next page →</span><span>12. Orthogonal Iteration</span></a>
   </nav></footer></article></main>
-<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"></aside></div>
+<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"><div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">11. Schur Factorization</a></div><div class="outline-contents" id="outline-contents"><div id="outline-progress" class="outline-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-controls="reading-viewport"><span class="outline-marker"></span></div><ol id="outline-items"><li style="--depth:0"><a href="#recap-eigenvalue-computations" class="is-active" aria-current="location">11.1 Recap: Eigenvalue Computations</a></li><li style="--depth:0"><a href="#deflation">11.2 Deflation</a></li><li style="--depth:0"><a href="#subspace-iteration">11.3 Subspace Iteration</a></li><li style="--depth:0"><a href="#eigenvalue-computation-as-matrix-factorization">11.4 Eigenvalue Computation as Matrix Factorization</a></li><li style="--depth:0"><a href="#defective-matrices-and-invariant-subspaces">11.5 Defective Matrices and Invariant Subspaces</a></li><li style="--depth:0"><a href="#schur-factorization">11.6 Schur Factorization</a></li><li style="--depth:0"><a href="#computing-eigenvectors-from-schur-form">11.7 Computing Eigenvectors from Schur Form</a></li><li style="--depth:0"><a href="#corrections-and-clarifications-to-the-source">11.8 Corrections and Clarifications to the Source</a></li></ol></div></aside></div>
 <button class="sidebar-scrim" tabindex="-1" aria-label="Close sidebar" hidden></button>
 <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-label"><form method="dialog" class="search-heading"><label id="search-label" for="search-input">Search notes</label><button value="close" aria-label="Close search">×</button></form><input id="search-input" type="search" placeholder="Title, topic, or phrase…" autocomplete="off"><p id="search-status" role="status">Search the published notes on this site.</p><ol id="search-results"></ol></dialog>
 <dialog id="appearance-dialog" class="appearance-dialog" aria-labelledby="appearance-label"><form method="dialog"><h2 id="appearance-label">Reading appearance</h2><button aria-label="Close text settings">×</button></form><p class="settings-label">Typeface</p><div class="font-options"><button data-font="termes">Classic textbook<small>TeX Gyre Termes</small></button><button data-font="stix">STIX Two Text<small>Original reader</small></button></div><p class="settings-label">Text size</p><div class="size-options"><button data-size="18">Compact</button><button data-size="20">Comfortable</button><button data-size="22">Large</button></div></dialog>

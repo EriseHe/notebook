@@ -1,21 +1,270 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light"><title>13. QR without Shifts — E.H. Notebook</title>
-<meta name="description" content="Numerical Methods I — Florian Schaefer. Source: Lecture 13.pdf, pp. 1–7.">
+<meta name="description" content="Numerical Methods I — Florian Schaefer. Source: Lecture 13.pdf, pp. 1–7.13.1 RecapThe preceding lecture related Schur factorization to diagonalization. If A=QTQ^* is norm">
 <link rel="stylesheet" href="/notebook/assets/reader.css"><link rel="preload" href="/notebook/assets/fonts/texgyretermes-regular.otf" as="font" type="font/otf" crossorigin>
 <script defer src="/notebook/assets/reader.js"></script>
-
-</head><body data-layout="reader" data-has-notes="true" data-has-outline="false" data-notes-open="true" data-outline-open="false" data-search-index="/notebook/assets/search.json">
+<script src="/notebook/assets/math-config.js"></script><script defer id="MathJax-script" src="/notebook/assets/vendor/mathjax/tex-chtml-full.js"></script>
+</head><body data-layout="reader" data-has-notes="true" data-has-outline="true" data-notes-open="true" data-outline-open="true" data-search-index="/notebook/assets/search.json">
 <a class="skip-link" href="#article-body">Skip to content</a>
 <header class="toolbar"><div class="identity"><button class="icon-button" id="notes-toggle" aria-label="Toggle notes sidebar" aria-controls="notes-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/sidebar.svg" alt="" width="20" height="20"></button><a class="brand" href="/notebook/">E.H. Notebook</a></div>
 <nav class="top-navigation" aria-label="Notebook sections"><a href="/notebook/content/notes/index.html" aria-current="page">Notes</a><a href="/notebook/content/posts/index.html">Posts</a><a href="/notebook/content/research/index.html">Research</a></nav>
-<div class="reading-tools"><button class="icon-button appearance-toggle" id="appearance-toggle" aria-label="Reading text size" aria-controls="appearance-dialog">Aa</button><button class="icon-button" id="search-toggle" aria-label="Search notes" aria-keyshortcuts="Control+k Meta+k"><img src="/notebook/assets/icons/search.svg" alt="" width="20" height="20"></button><a class="icon-button github-link" href="https://github.com/EriseHe/notebook" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><img src="/notebook/assets/icons/github.svg" alt="" width="20" height="20"></a><button class="icon-button" id="outline-toggle" aria-label="Toggle outline" aria-controls="outline-sidebar" aria-expanded="false" disabled><img src="/notebook/assets/icons/outline.svg" alt="" width="20" height="20"></button></div></header>
-<div class="reader-layout"><aside class="notes-sidebar" id="notes-sidebar" aria-label="Notes navigation"><nav aria-label="Numerical Linear Algbera file hierarchy" data-sidebar-root="content/notes/理论/Numerical Linear Algbera"><a class="sidebar-root" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><ul class="notes-tree"><li class="folder-node" data-folder="content/notes/理论/Numerical Linear Algbera/Homework" data-active-branch="false"><div class="folder-row"><button class="tree-toggle folder-label" aria-controls="folder-209a64aec9e6" aria-expanded="false"><img class="folder-chevron" src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""><span>Homework</span></button></div><ul class="tree-children" id="folder-209a64aec9e6" hidden><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html"><span class="page-number"></span><span>HW 1</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span class="page-number"></span><span>HW 2</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span class="page-number"></span><span>HW 3</span></a></li></ul></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html"><span class="page-number">1</span><span>Vectors and Matrices</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span class="page-number">2</span><span>Storing Matrices &amp; Vectors</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span class="page-number">3</span><span>LU Factorization and Zero Pivots</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span class="page-number">4</span><span>LU Factorization with Pivoting</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span class="page-number">5</span><span>Least Squares and Gram-Schmidt</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html"><span class="page-number">6</span><span>Error Bounds and Householder QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span class="page-number">7</span><span>Orthogonal Transformations and QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html"><span class="page-number">8</span><span>Least Squares and Normal Equations</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span class="page-number">9</span><span>Cholesky Factorization and Schur Complements</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span class="page-number">10</span><span>Eigenvalues and Iterative Methods</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/11.%20Schur%20Factorization.html"><span class="page-number">11</span><span>Schur Factorization</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/12.%20Orthogonal%20Iteration.html"><span class="page-number">12</span><span>Orthogonal Iteration</span></a></li><li class="file-node"><a class="note-link is-current" aria-current="page" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/13.%20QR%20without%20Shifts.html"><span class="page-number">13</span><span>QR without Shifts</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span class="page-number"></span><span>Midterm Study Plan</span></a></li></ul></nav></aside>
-<main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a></nav><h1 id="reader-title">13. QR without Shifts</h1><p class="article-meta">2026-10-21</p></header><div id="article-body" class="prose"><p><em>Numerical Methods I — Florian Schaefer. Source: <a href="https://brightspace.nyu.edu/content/enforced/609409-FA26_MATH-GA_2010_1_001_crse/Lecture%2013.pdf">Lecture 13.pdf</a>, pp.&nbsp;1–7.</em></p></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
+<div class="reading-tools"><button class="icon-button appearance-toggle" id="appearance-toggle" aria-label="Reading text size" aria-controls="appearance-dialog">Aa</button><button class="icon-button" id="search-toggle" aria-label="Search notes" aria-keyshortcuts="Control+k Meta+k"><img src="/notebook/assets/icons/search.svg" alt="" width="20" height="20"></button><a class="icon-button github-link" href="https://github.com/EriseHe/notebook" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><img src="/notebook/assets/icons/github.svg" alt="" width="20" height="20"></a><button class="icon-button" id="outline-toggle" aria-label="Toggle outline" aria-controls="outline-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/outline.svg" alt="" width="20" height="20"></button></div></header>
+<div class="reader-layout"><aside class="notes-sidebar" id="notes-sidebar" aria-label="Notes navigation"><nav aria-label="Numerical Linear Algbera file hierarchy" data-sidebar-root="content/notes/理论/Numerical Linear Algbera"><a class="sidebar-root" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><ul class="notes-tree"><li class="folder-node" data-folder="content/notes/理论/Numerical Linear Algbera/Homework" data-active-branch="false"><div class="folder-row"><button class="tree-toggle folder-label" aria-controls="folder-209a64aec9e6" aria-expanded="false"><img class="folder-chevron" src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""><span>Homework</span></button></div><ul class="tree-children" id="folder-209a64aec9e6" hidden><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html"><span class="page-number"></span><span>HW 1</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span class="page-number"></span><span>HW 2</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span class="page-number"></span><span>HW 3</span></a></li></ul></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html"><span class="page-number">1</span><span>Vectors and Matrices</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span class="page-number">2</span><span>Storing Matrices &amp; Vectors</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span class="page-number">3</span><span>LU Factorization and Zero Pivots</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span class="page-number">4</span><span>LU Factorization with Pivoting</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span class="page-number">5</span><span>Least Squares and Gram-Schmidt</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html"><span class="page-number">6</span><span>Error Bounds and Householder QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span class="page-number">7</span><span>Orthogonal Transformations and QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html"><span class="page-number">8</span><span>Least Squares and Normal Equations</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span class="page-number">9</span><span>Cholesky Factorization and Schur Complements</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span class="page-number">10</span><span>Eigenvalues and Iterative Methods</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/11.%20Schur%20Factorization.html"><span class="page-number">11</span><span>Schur Factorization</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/12.%20Orthogonal%20Iteration.html"><span class="page-number">12</span><span>Orthogonal Iteration</span></a></li><li class="file-node"><a class="note-link is-current" aria-current="page" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/13.%20QR%20without%20Shifts.html"><span class="page-number">13</span><span>QR without Shifts</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/14.%20Hessenberg%20QR%20and%20Bulge%20Chasing.html"><span class="page-number">14</span><span>Hessenberg QR and Bulge Chasing</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/15.%20Shifted%20QR%20Iteration.html"><span class="page-number">15</span><span>Shifted QR Iteration</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span class="page-number"></span><span>Midterm Study Plan</span></a></li></ul></nav></aside>
+<main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a></nav><h1 id="reader-title">13. QR without Shifts</h1><p class="article-meta">2026-10-21</p></header><div id="article-body" class="prose"><p><em>Numerical Methods I — Florian Schaefer. Source: <a href="https://brightspace.nyu.edu/content/enforced/609409-FA26_MATH-GA_2010_1_001_crse/Lecture%2013.pdf">Lecture 13.pdf</a>, pp.&nbsp;1–7.</em></p>
+<h2 data-original-heading="13.1 Recap" id="recap">13.1 Recap</h2>
+<!-- Source: Lecture 13.pdf, p. 1. -->
+<p>The preceding lecture related Schur factorization to diagonalization. If <span class="math inline">\(A=QTQ^*\)</span> is normal, then</p>
+<p><span class="math display">\[
+A^*A=AA^*
+\quad\Longrightarrow\quad
+T^*T=TT^*.
+\]</span></p>
+<p>Since <span class="math inline">\(T\)</span> is upper triangular, comparison of the first diagonal entries gives</p>
+<p><span class="math display">\[
+|T_{11}|^2=\sum_{j=1}^m|T_{1j}|^2,
+\]</span></p>
+<p>so the rest of the first row vanishes. Repeating this argument on the trailing block shows that <span class="math inline">\(T\)</span> is diagonal.</p>
+<p>For orthogonal iteration with two vectors, suppose the first vector has converged to a unit eigenvector <span class="math inline">\(x_1\)</span>. With <span class="math inline">\(P=I-x_1x_1^*\)</span>, the second vector is updated in the direction</p>
+<p><span class="math display">\[
+q_2^{(k)}\ \propto\ PAPq_2^{(k-1)}.
+\]</span></p>
+<p>For an eigenpair <span class="math inline">\(Ax_i=\lambda_i x_i\)</span>, the source’s relation is</p>
+<p><span class="math display">\[
+PAPx_i=\lambda_i Px_i.
+\]</span></p>
+<p>Because <span class="math inline">\(P^2=P\)</span>, this also gives <span class="math inline">\(PAP(Px_i)=\lambda_i Px_i\)</span>. Thus the second direction approaches <span class="math inline">\(Px_2\)</span>, subject to normalization and the power-iteration assumptions. In general <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> need not be orthogonal, so <span class="math inline">\(Px_2\)</span> need not equal <span class="math inline">\(x_2\)</span>.</p>
+<p>The general algorithm repeatedly multiplies all current vectors by <span class="math inline">\(A\)</span> and orthonormalizes them:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>iterations</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> A <span class="op">*</span> Q</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    Q, R <span class="op">=</span> <span class="fu">qr</span>(Q)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div>
+<p>Here and below <code>qr</code> denotes the mathematical QR factorization, with the required orthonormal columns of <span class="math inline">\(Q\)</span> made explicit. We use <span class="math inline">\(\lambda_i\)</span> for the eigenvalues, consistently with Lecture 10.</p>
+<h2 data-original-heading="13.2 Schur and Eigenvalue Decompositions" id="schur-and-eigenvalue-decompositions">13.2 Schur and Eigenvalue Decompositions</h2>
+<!-- Source: Lecture 13.pdf, p. 2. -->
+<p>Consider</p>
+<p><span class="math display">\[
+A=X\Lambda X^{-1},
+\qquad
+\Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_m),
+\qquad
+|\lambda_1|&gt;|\lambda_2|&gt;\cdots&gt;|\lambda_m|.
+\]</span></p>
+<p>The lecture calls this situation generic: over <span class="math inline">\(\mathbb C\)</span>, every matrix has a Schur factorization <span class="math inline">\(A=QTQ^*\)</span>, whose diagonal entries are its eigenvalues. An arbitrarily small diagonal perturbation <span class="math inline">\(D=\operatorname{diag}(\epsilon_1,\ldots,\epsilon_m)\)</span> can make the diagonal entries of <span class="math inline">\(T+D\)</span> have distinct magnitudes. Then</p>
+<p><span class="math display">\[
+\widetilde A=Q(T+D)Q^*=A+QDQ^*
+\]</span></p>
+<p>has eigenvalues of distinct magnitudes and is diagonalizable.</p>
+<p>Conversely, given an eigendecomposition, how do we obtain a Schur factorization? Factor the eigenvector matrix:</p>
+<p><span class="math display">\[
+\begin{aligned}
+X&amp;=QR\\
+A&amp;=QR\Lambda R^{-1}Q^*\\
+&amp;=Q\underbrace{(R\Lambda R^{-1})}_{\text{upper triangular}}Q^*.
+\end{aligned}
+\]</span></p>
+<p>Both <span class="math inline">\(R\)</span> and <span class="math inline">\(R^{-1}\)</span> are upper triangular, so <span class="math inline">\(T=R\Lambda R^{-1}\)</span> is upper triangular. Thus orthonormalizing the ordered eigenvectors produces Schur vectors.</p>
+<h2 data-original-heading="13.3 Convergence of Orthogonal Iteration" id="convergence-of-orthogonal-iteration">13.3 Convergence of Orthogonal Iteration</h2>
+<!-- Source: Lecture 13.pdf, p. 3. -->
+<p>Consider a diagonalizable matrix <span class="math inline">\(A=X\Lambda X^{-1}\)</span> and <span class="math inline">\(p\)</span> simultaneous vectors, with a spectral gap</p>
+<p><span class="math display">\[
+|\lambda_p|&gt;|\lambda_{p+1}|.
+\]</span></p>
+<p>Write <span class="math inline">\(Q_k\in\mathbb K^{m\times p}\)</span> for the orthonormal iterates. Since QR factorization does not change the column space of a full-rank matrix,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{span}(Q_{k+1})
+&amp;=\operatorname{span}(AQ_k)\\
+&amp;=\operatorname{span}(A^{k+1}Q_0)\\
+&amp;=\operatorname{span}(X\Lambda^{k+1}X^{-1}Q_0).
+\end{aligned}
+\]</span></p>
+<p>For an iteration index <span class="math inline">\(i\)</span>, scale the power by <span class="math inline">\(\lambda_p^i\)</span>:</p>
+<p><span class="math display">\[
+A^iQ_0
+=\lambda_p^i X
+\begin{pmatrix}
+(\lambda_1/\lambda_p)^i&amp;&amp;0\\
+&amp;\ddots&amp;\\
+0&amp;&amp;(\lambda_m/\lambda_p)^i
+\end{pmatrix}
+X^{-1}Q_0.
+\]</span></p>
+<p>For <span class="math inline">\(j\le p\)</span>, <span class="math inline">\(|\lambda_j/\lambda_p|\ge1\)</span>; for <span class="math inline">\(j&gt;p\)</span>, the ratio has magnitude less than one. Partition</p>
+<p><span class="math display">\[
+X=[\,X_p\ \ X_p'\,],
+\qquad
+X^{-1}Q_0=\begin{pmatrix}C_1\\C_2\end{pmatrix},
+\qquad C_1\in\mathbb K^{p\times p},
+\]</span></p>
+<p>and set</p>
+<p><span class="math display">\[
+\begin{pmatrix}V_i\\W_i\end{pmatrix}
+=
+\begin{pmatrix}
+(\lambda_1/\lambda_p)^i&amp;&amp;0\\
+&amp;\ddots&amp;\\
+0&amp;&amp;(\lambda_m/\lambda_p)^i
+\end{pmatrix}
+\begin{pmatrix}C_1\\C_2\end{pmatrix}.
+\]</span></p>
+<p>The lower block satisfies <span class="math inline">\(W_i\to0\)</span>, while</p>
+<p><span class="math display">\[
+\operatorname{span}(A^iQ_0)
+=\operatorname{span}(X_pV_i+X_p'W_i).
+\]</span></p>
+<p>If <span class="math inline">\(C_1\)</span> is nonsingular, so is <span class="math inline">\(V_i\)</span>. Multiplying on the right by <span class="math inline">\(V_i^{-1}\)</span> makes the limiting subspace explicit:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{span}(A^iQ_0)
+&amp;=\operatorname{span}(X_p+X_p'W_iV_i^{-1})\\
+W_iV_i^{-1}
+&amp;=D_2^iC_2C_1^{-1}D_1^{-i}\longrightarrow0,
+\end{aligned}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+D_1=\operatorname{diag}(\lambda_1/\lambda_p,\ldots,\lambda_p/\lambda_p),
+\qquad
+D_2=\operatorname{diag}(\lambda_{p+1}/\lambda_p,\ldots,\lambda_m/\lambda_p).
+\]</span></p>
+<p>Indeed,</p>
+<p><span class="math display">\[
+\|W_iV_i^{-1}\|_2
+\le
+\left|\frac{\lambda_{p+1}}{\lambda_p}\right|^i
+\|C_2C_1^{-1}\|_2
+\longrightarrow0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\operatorname{span}(Q_i)
+\longrightarrow
+\operatorname{span}(X_p)
+=\operatorname{span}(x_1,\ldots,x_p).
+\]</span></p>
+<p>It is the subspace that converges; individual columns need not converge to individual eigenvectors.</p>
+<h2 data-original-heading="13.4 Convergence to Schur Form" id="convergence-to-schur-form">13.4 Convergence to Schur Form</h2>
+<!-- Source: Lecture 13.pdf, pp. 4–5. -->
+<p><strong>Theorem.</strong> Consider full orthogonal iteration, with <span class="math inline">\(p=m\)</span> and <span class="math inline">\(Q_0=I\)</span>. Suppose the eigenvalues of <span class="math inline">\(A=X\Lambda X^{-1}\)</span> have distinct absolute values, ordered decreasingly, and the leading blocks</p>
+<p><span class="math display">\[
+(X^{-1})[1\!:\!j,1\!:\!j],
+\qquad j=1,\ldots,m-1,
+\]</span></p>
+<p>are nonsingular. Assume the QR steps are well defined. Then the entries below the diagonal of</p>
+<p><span class="math display">\[
+A_i=Q_i^*AQ_i
+\]</span></p>
+<p>tend to zero: the iteration approaches Schur form. With compatible limiting column phases, a limiting matrix is a Schur factor of <span class="math inline">\(A\)</span>.</p>
+<p><strong>Proof.</strong> For any <span class="math inline">\(1\le p&lt;m\)</span>, partition the full orthogonal matrix into its first <span class="math inline">\(p\)</span> columns and the remaining columns:</p>
+<p><span class="math display">\[
+Q_i=[\,\overline Q_i\ \ \widetilde Q_i\,],
+\qquad
+\overline Q_i\in\mathbb K^{m\times p}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+A_i=
+\begin{pmatrix}
+\overline Q_i^*A\overline Q_i&amp;\overline Q_i^*A\widetilde Q_i\\
+\widetilde Q_i^*A\overline Q_i&amp;\widetilde Q_i^*A\widetilde Q_i
+\end{pmatrix}.
+\]</span></p>
+<p>The first <span class="math inline">\(p\)</span> columns follow the same subspace iteration as in the preceding section. Its initial overlap matrix is</p>
+<p><span class="math display">\[
+(X^{-1}Q_0[:,1\!:\!p])[1\!:\!p,:]
+=(X^{-1})[1\!:\!p,1\!:\!p],
+\]</span></p>
+<p>which is nonsingular by hypothesis. Consequently,</p>
+<p><span class="math display">\[
+\operatorname{span}(\overline Q_i)
+\longrightarrow\operatorname{span}(x_1,\ldots,x_p).
+\]</span></p>
+<p>The limiting subspace is invariant under <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[
+A[\,x_1\ \cdots\ x_p\,]
+=[\,x_1\ \cdots\ x_p\,]\operatorname{diag}(\lambda_1,\ldots,\lambda_p).
+\]</span></p>
+<p>Thus <span class="math inline">\(A\overline Q_i\)</span> approaches the subspace spanned by <span class="math inline">\(\overline Q_i\)</span>. Since <span class="math inline">\(\widetilde Q_i\)</span> is orthogonal to that subspace,</p>
+<p><span class="math display">\[
+\widetilde Q_i^*A\overline Q_i\longrightarrow0.
+\]</span></p>
+<p>This holds for every splitting point <span class="math inline">\(p\)</span>, so all entries below the diagonal of <span class="math inline">\(Q_i^*AQ_i\)</span> tend to zero. Each <span class="math inline">\(A_i\)</span> is unitarily similar to <span class="math inline">\(A\)</span>, hence any upper-triangular limit is a Schur form of <span class="math inline">\(A\)</span>.</p>
+<h2 data-original-heading="13.5 Deriving Basic QR Iteration" id="deriving-basic-qr-iteration">13.5 Deriving Basic QR Iteration</h2>
+<!-- Source: Lecture 13.pdf, p. 6. -->
+<p>Orthogonal iteration gives</p>
+<p><span class="math display">\[
+T_k=Q_k^*AQ_k.
+\]</span></p>
+<p>Computing the next iterate this way requires <span class="math inline">\(Q_k\)</span> and multiplication by <span class="math inline">\(A\)</span>. Can we obtain <span class="math inline">\(T_{k+1}\)</span> directly from <span class="math inline">\(T_k\)</span>?</p>
+<p>The orthogonal-iteration step is</p>
+<p><span class="math display">\[
+AQ_k=Q_{k+1}R_{k+1}.
+\]</span></p>
+<p>Since the <span class="math inline">\(Q_k\)</span> are square and unitary,</p>
+<p><span class="math display">\[
+\begin{aligned}
+R_{k+1}Q_k^*&amp;=Q_{k+1}^*A\\
+T_k&amp;=Q_k^*(Q_{k+1}R_{k+1})\\
+T_{k+1}&amp;=(R_{k+1}Q_k^*)Q_{k+1}.
+\end{aligned}
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+U_{k+1}=Q_k^*Q_{k+1}.
+\]</span></p>
+<p>This matrix is unitary, and the preceding relations become</p>
+<p><span class="math display">\[
+\boxed{
+T_k=U_{k+1}R_{k+1},
+\qquad
+T_{k+1}=R_{k+1}U_{k+1}.
+}
+\]</span></p>
+<p>The first equation is a QR factorization of <span class="math inline">\(T_k\)</span>; the second reverses the order of its factors. Also,</p>
+<p><span class="math display">\[
+T_{k+1}=U_{k+1}^*T_kU_{k+1},
+\]</span></p>
+<p>so each step preserves the eigenvalues.</p>
+<h2 data-original-heading="13.6 Algorithm: Basic QR without Shifts" id="algorithm-basic-qr-without-shifts">13.6 Algorithm: Basic QR without Shifts</h2>
+<!-- Source: Lecture 13.pdf, p. 7. -->
+<p>Simply compute QR and swap the order of the factors:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> A</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>max_iter</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    U, R <span class="op">=</span> <span class="fu">qr</span>(T)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    T <span class="op">=</span> R <span class="op">*</span> U</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> <span class="fu">diag</span>(T)</span></code></pre></div>
+<p>The diagonal approximates the eigenvalues when <span class="math inline">\(T\)</span> has become approximately upper triangular under the preceding convergence assumptions.</p>
+<p>How do we recover the Schur vectors <span class="math inline">\(Q\)</span>? The basic algorithm implicitly starts with <span class="math inline">\(Q_0=I\)</span>. Since</p>
+<p><span class="math display">\[
+U_{k+1}=Q_k^*Q_{k+1},
+\]</span></p>
+<p>the accumulated product telescopes:</p>
+<p><span class="math display">\[
+\begin{aligned}
+U_1U_2\cdots U_{k+1}
+&amp;=(Q_0^*Q_1)(Q_1^*Q_2)\cdots(Q_k^*Q_{k+1})\\
+&amp;=Q_0^*Q_{k+1}\\
+&amp;=Q_{k+1}.
+\end{aligned}
+\]</span></p>
+<p>Thus the <span class="math inline">\(U_i\)</span> give successive orthogonal or unitary corrections taking <span class="math inline">\(I\)</span> to the current Schur-vector approximation. One can accumulate them by updating <span class="math inline">\(Q\leftarrow QU\)</span> at every step. Near a suitably phase-aligned limit, these are small corrections.</p>
+<h2 data-original-heading="Corrections and Clarifications to the Source" id="corrections-and-clarifications-to-the-source">13.7 Corrections and Clarifications to the Source</h2>
+<ul>
+<li><strong>Notation:</strong> Used <span class="math inline">\(\lambda_i\)</span> for the source’s <span class="math inline">\(\delta_i\)</span>, following Lecture 10, and <span class="math inline">\(Q^*\)</span> for the adjoint. For real matrices this is the source’s <span class="math inline">\(Q^T\)</span>. The prime in <span class="math inline">\(X_p'\)</span> labels the remaining eigenvector columns; it is not a transpose.</li>
+<li><strong>Page 1:</strong> The projected power update is a direction followed by normalization. The displayed relation <span class="math inline">\(PAPx_i=\lambda_i Px_i\)</span> also makes <span class="math inline">\(Px_i\)</span> an eigenvector of <span class="math inline">\(PAP\)</span> because <span class="math inline">\(P^2=P\)</span>.</li>
+<li><strong>Page 2:</strong> A diagonal perturbation in Schur coordinates changes <span class="math inline">\(A\)</span> by <span class="math inline">\(QDQ^*\)</span>; it is not generally a diagonal perturbation in the original coordinates. The genericity argument is over <span class="math inline">\(\mathbb C\)</span>.</li>
+<li><strong>Page 3:</strong> Restored the power <span class="math inline">\(\Lambda^i\)</span> in the convergence calculation, used one iteration index consistently, and made the nonsingularity of <span class="math inline">\(C_1\)</span> explicit. Multiplication by <span class="math inline">\(V_i^{-1}\)</span> completes the source’s subspace-limit argument.</li>
+<li><strong>Pages 4–5:</strong> The required leading-block condition is on <span class="math inline">\(X^{-1}Q_0\)</span> (on <span class="math inline">\(X^{-1}\)</span> when <span class="math inline">\(Q_0=I\)</span>), rather than the leading blocks of <span class="math inline">\(X\)</span> written in the theorem. The proof shows that entries below the diagonal tend to zero. Signs or complex phases can prevent literal convergence of all entries without a phase convention.</li>
+<li><strong>Page 7:</strong> The recovered columns are Schur vectors; they need not be eigenvectors for a nonnormal matrix. The description of each update as a small rotation presumes compatible column signs or phases near convergence.</li>
+</ul></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
     <a rel="prev" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/12.%20Orthogonal%20Iteration.html"><span>← Previous page</span><span>12. Orthogonal Iteration</span></a>
-    <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span>Next page →</span><span>NMI Midterm Study Plan</span></a>
+    <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/14.%20Hessenberg%20QR%20and%20Bulge%20Chasing.html"><span>Next page →</span><span>14. Hessenberg QR and Bulge Chasing</span></a>
   </nav></footer></article></main>
-<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"></aside></div>
+<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"><div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">13. QR without Shifts</a></div><div class="outline-contents" id="outline-contents"><div id="outline-progress" class="outline-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-controls="reading-viewport"><span class="outline-marker"></span></div><ol id="outline-items"><li style="--depth:0"><a href="#recap" class="is-active" aria-current="location">13.1 Recap</a></li><li style="--depth:0"><a href="#schur-and-eigenvalue-decompositions">13.2 Schur and Eigenvalue Decompositions</a></li><li style="--depth:0"><a href="#convergence-of-orthogonal-iteration">13.3 Convergence of Orthogonal Iteration</a></li><li style="--depth:0"><a href="#convergence-to-schur-form">13.4 Convergence to Schur Form</a></li><li style="--depth:0"><a href="#deriving-basic-qr-iteration">13.5 Deriving Basic QR Iteration</a></li><li style="--depth:0"><a href="#algorithm-basic-qr-without-shifts">13.6 Algorithm: Basic QR without Shifts</a></li><li style="--depth:0"><a href="#corrections-and-clarifications-to-the-source">13.7 Corrections and Clarifications to the Source</a></li></ol></div></aside></div>
 <button class="sidebar-scrim" tabindex="-1" aria-label="Close sidebar" hidden></button>
 <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-label"><form method="dialog" class="search-heading"><label id="search-label" for="search-input">Search notes</label><button value="close" aria-label="Close search">×</button></form><input id="search-input" type="search" placeholder="Title, topic, or phrase…" autocomplete="off"><p id="search-status" role="status">Search the published notes on this site.</p><ol id="search-results"></ol></dialog>
 <dialog id="appearance-dialog" class="appearance-dialog" aria-labelledby="appearance-label"><form method="dialog"><h2 id="appearance-label">Reading appearance</h2><button aria-label="Close text settings">×</button></form><p class="settings-label">Typeface</p><div class="font-options"><button data-font="termes">Classic textbook<small>TeX Gyre Termes</small></button><button data-font="stix">STIX Two Text<small>Original reader</small></button></div><p class="settings-label">Text size</p><div class="size-options"><button data-size="18">Compact</button><button data-size="20">Comfortable</button><button data-size="22">Large</button></div></dialog>

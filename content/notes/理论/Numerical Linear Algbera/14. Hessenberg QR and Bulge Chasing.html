@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>14. Hessenberg QR and Bulge Chasing — E.H. Notebook</title>
+<meta name="description" content="Numerical Methods I — Florian Schaefer. Source: Lecture 14.pdf, pp. 1–7.14.1 Recap: Schur Factorization and Orthogonal IterationThe preceding lecture connected the eigenv">
+<link rel="stylesheet" href="/notebook/assets/reader.css"><link rel="preload" href="/notebook/assets/fonts/texgyretermes-regular.otf" as="font" type="font/otf" crossorigin>
+<script defer src="/notebook/assets/reader.js"></script>
+<script src="/notebook/assets/math-config.js"></script><script defer id="MathJax-script" src="/notebook/assets/vendor/mathjax/tex-chtml-full.js"></script>
+</head><body data-layout="reader" data-has-notes="true" data-has-outline="true" data-notes-open="true" data-outline-open="true" data-search-index="/notebook/assets/search.json">
+<a class="skip-link" href="#article-body">Skip to content</a>
+<header class="toolbar"><div class="identity"><button class="icon-button" id="notes-toggle" aria-label="Toggle notes sidebar" aria-controls="notes-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/sidebar.svg" alt="" width="20" height="20"></button><a class="brand" href="/notebook/">E.H. Notebook</a></div>
+<nav class="top-navigation" aria-label="Notebook sections"><a href="/notebook/content/notes/index.html" aria-current="page">Notes</a><a href="/notebook/content/posts/index.html">Posts</a><a href="/notebook/content/research/index.html">Research</a></nav>
+<div class="reading-tools"><button class="icon-button appearance-toggle" id="appearance-toggle" aria-label="Reading text size" aria-controls="appearance-dialog">Aa</button><button class="icon-button" id="search-toggle" aria-label="Search notes" aria-keyshortcuts="Control+k Meta+k"><img src="/notebook/assets/icons/search.svg" alt="" width="20" height="20"></button><a class="icon-button github-link" href="https://github.com/EriseHe/notebook" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><img src="/notebook/assets/icons/github.svg" alt="" width="20" height="20"></a><button class="icon-button" id="outline-toggle" aria-label="Toggle outline" aria-controls="outline-sidebar" aria-expanded="true" ><img src="/notebook/assets/icons/outline.svg" alt="" width="20" height="20"></button></div></header>
+<div class="reader-layout"><aside class="notes-sidebar" id="notes-sidebar" aria-label="Notes navigation"><nav aria-label="Numerical Linear Algbera file hierarchy" data-sidebar-root="content/notes/理论/Numerical Linear Algbera"><a class="sidebar-root" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a><ul class="notes-tree"><li class="folder-node" data-folder="content/notes/理论/Numerical Linear Algbera/Homework" data-active-branch="false"><div class="folder-row"><button class="tree-toggle folder-label" aria-controls="folder-209a64aec9e6" aria-expanded="false"><img class="folder-chevron" src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""><span>Homework</span></button></div><ul class="tree-children" id="folder-209a64aec9e6" hidden><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%201.html"><span class="page-number"></span><span>HW 1</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%202.html"><span class="page-number"></span><span>HW 2</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Homework/HW%203.html"><span class="page-number"></span><span>HW 3</span></a></li></ul></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/1.%20Vectors%20and%20Matrices.html"><span class="page-number">1</span><span>Vectors and Matrices</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/2.%20Storing%20Matrices%20%26%20Vectors.html"><span class="page-number">2</span><span>Storing Matrices &amp; Vectors</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/3.%20Lecture.html"><span class="page-number">3</span><span>LU Factorization and Zero Pivots</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/4.%20LU%20Factorization%20with%20Pivoting.html"><span class="page-number">4</span><span>LU Factorization with Pivoting</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/5.%20Least%20Squares%20and%20Gram-Schmidt.html"><span class="page-number">5</span><span>Least Squares and Gram-Schmidt</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/6.%20Error%20Bounds%20and%20Householder%20QR.html"><span class="page-number">6</span><span>Error Bounds and Householder QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/7.%20Orthogonal%20Transformations%20and%20QR.html"><span class="page-number">7</span><span>Orthogonal Transformations and QR</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/8.%20Least%20Squares%20and%20Normal%20Equations.html"><span class="page-number">8</span><span>Least Squares and Normal Equations</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/9.%20Cholesky%20Factorization%20and%20Schur%20Complements.html"><span class="page-number">9</span><span>Cholesky Factorization and Schur Complements</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/10.%20Eigenvalues%20and%20Iterative%20Methods.html"><span class="page-number">10</span><span>Eigenvalues and Iterative Methods</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/11.%20Schur%20Factorization.html"><span class="page-number">11</span><span>Schur Factorization</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/12.%20Orthogonal%20Iteration.html"><span class="page-number">12</span><span>Orthogonal Iteration</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/13.%20QR%20without%20Shifts.html"><span class="page-number">13</span><span>QR without Shifts</span></a></li><li class="file-node"><a class="note-link is-current" aria-current="page" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/14.%20Hessenberg%20QR%20and%20Bulge%20Chasing.html"><span class="page-number">14</span><span>Hessenberg QR and Bulge Chasing</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/15.%20Shifted%20QR%20Iteration.html"><span class="page-number">15</span><span>Shifted QR Iteration</span></a></li><li class="file-node"><a class="note-link" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/Midterm%20Study%20Plan.html"><span class="page-number"></span><span>Midterm Study Plan</span></a></li></ul></nav></aside>
+<main class="reading-viewport" id="reading-viewport" tabindex="-1"><article class="article"><header class="article-header"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/index.html">理论</a><span aria-hidden="true"> / </span><a href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/index.html">Numerical Linear Algbera</a></nav><h1 id="reader-title">14. Hessenberg QR and Bulge Chasing</h1></header><div id="article-body" class="prose"><p><em>Numerical Methods I — Florian Schaefer. Source: <a href="https://brightspace.nyu.edu/content/enforced/609409-FA26_MATH-GA_2010_1_001_crse/Lecture%2014.pdf">Lecture 14.pdf</a>, pp.&nbsp;1–7.</em></p>
+<h2 data-original-heading="14.1 Recap: Schur Factorization and Orthogonal Iteration" id="recap-schur-factorization-and-orthogonal-iteration">14.1 Recap: Schur Factorization and Orthogonal Iteration</h2>
+<!-- Source: Lecture 14.pdf, p. 1. -->
+<p>The preceding lecture connected the eigenvalue decomposition, orthogonal iteration, and Schur factorization. If <span class="math inline">\(A=X\Lambda X^{-1}\)</span> and <span class="math inline">\(X=QR\)</span>, then</p>
+<p><span class="math display">\[
+A=Q(R\Lambda R^{-1})Q^*,
+\]</span></p>
+<p>where <span class="math inline">\(R\Lambda R^{-1}\)</span> is upper triangular. For orthogonal iteration, <span class="math inline">\(A^kQ_0=Q_k(R_k\cdots R_1)\)</span>, so the columns of <span class="math inline">\(Q_k\)</span> span the columns of <span class="math inline">\(A^kQ_0\)</span>. For the first <span class="math inline">\(p\)</span> columns, denoted <span class="math inline">\(\bar Q_k\)</span>,</p>
+<p><span class="math display">\[
+\operatorname{span}(\bar Q_{k+1})
+=\operatorname{span}(A\bar Q_k)
+=\operatorname{span}(A^{k+1}\bar Q_0).
+\]</span></p>
+<p>In eigenvector coordinates,</p>
+<p><span class="math display">\[
+A^i\bar Q_0
+=X\Lambda^iX^{-1}\bar Q_0
+=\lambda_p^iX\operatorname{diag}\!\left(
+(\lambda_1/\lambda_p)^i,\ldots,(\lambda_m/\lambda_p)^i
+\right)X^{-1}\bar Q_0.
+\]</span></p>
+<p>Assuming <span class="math inline">\(|\lambda_1|\ge\cdots\ge|\lambda_p|&gt;|\lambda_{p+1}|\ge\cdots\)</span>, the ratios for <span class="math inline">\(j&gt;p\)</span> tend to zero. With the nonsingular starting overlap from Lecture 13, <span class="math inline">\(\operatorname{span}(\bar Q_k)\)</span> approaches <span class="math inline">\(\operatorname{span}(x_1,\ldots,x_p)\)</span>. Writing the orthogonal basis as <span class="math inline">\(Q_k=(\bar Q_k,\widetilde Q_k)\)</span> gives the block picture</p>
+<p><span class="math display">\[
+Q_k^*AQ_k=
+\begin{pmatrix}
+\bar Q_k^*A\bar Q_k&amp;\bar Q_k^*A\widetilde Q_k\\
+\widetilde Q_k^*A\bar Q_k&amp;\widetilde Q_k^*A\widetilde Q_k
+\end{pmatrix}.
+\]</span></p>
+<p>As <span class="math inline">\(\operatorname{span}(\bar Q_k)\)</span> approaches an invariant eigenspace, <span class="math inline">\(\operatorname{span}(A\bar Q_k)\)</span> approaches that same space. The lower-left block therefore approaches zero, giving the upper-triangular form of a Schur factorization.</p>
+<p>The basic QR iteration starts from <span class="math inline">\(T_0=A\)</span> and repeats</p>
+<p><span class="math display">\[
+T_{k-1}=U_kR_k,
+\qquad T_k=R_kU_k.
+\]</span></p>
+<p>The QR factors are denoted by <span class="math inline">\(U_k,R_k\)</span> to distinguish them from the accumulated orthogonal basis. After enough iterations, the diagonal of <span class="math inline">\(T_k\)</span> approximates the eigenvalues.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> A</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>max_iter</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    U, R <span class="op">=</span> <span class="fu">qr</span>(T)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    T <span class="op">=</span> R <span class="op">*</span> U</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> <span class="fu">diag</span>(T)</span></code></pre></div>
+<h2 data-original-heading="14.2 Why a Direct QR Step Is Expensive" id="why-a-direct-qr-step-is-expensive">14.2 Why a Direct QR Step Is Expensive</h2>
+<!-- Source: Lecture 14.pdf, p. 2. -->
+<p>Computing a dense QR factorization afresh at every step can cost <span class="math inline">\(O(m^3)\)</span> per iteration. Up to <span class="math inline">\(m\)</span> successive eigenvalue deflations may be needed, so even if each takes only <span class="math inline">\(O(1)\)</span> iterations, this can total <span class="math inline">\(O(m^4)\)</span>. The idea is to preprocess <span class="math inline">\(A\)</span> so that each later QR factorization is cheaper.</p>
+<p>Find an orthogonal <span class="math inline">\(Q\)</span> such that</p>
+<p><span class="math display">\[
+H=Q^*AQ
+\]</span></p>
+<p>is <strong>upper Hessenberg</strong>: <span class="math inline">\(H_{ij}=0\)</span> whenever <span class="math inline">\(i&gt;j+1\)</span>. Only its first subdiagonal can be nonzero below the diagonal. We now study QR iteration on this <span class="math inline">\(H\)</span>.</p>
+<h2 data-original-heading="14.3 Reduction to Upper Hessenberg Form" id="reduction-to-upper-hessenberg-form">14.3 Reduction to Upper Hessenberg Form</h2>
+<!-- Source: Lecture 14.pdf, p. 3. -->
+<p>Use Householder reflections to reduce one column at a time. First choose <span class="math inline">\(P_1\in\mathbb K^{(m-1)\times(m-1)}\)</span> mapping the lower part of the first column to a multiple of its first coordinate vector:</p>
+<p><span class="math display">\[
+P_1A[2\!:\!m,1]=\alpha_1e_1,
+\qquad
+Q_1=\begin{pmatrix}1&amp;0\\0&amp;P_1\end{pmatrix}.
+\]</span></p>
+<p>The source takes <span class="math inline">\(\alpha_1=\|v\|\)</span> for <span class="math inline">\(v=A[2\!:\!m,1]\)</span>; a sign or phase choice gives the same zero pattern. With a self-adjoint Householder reflector <span class="math inline">\(P_1\)</span>, the left-then-right matrix pictures are</p>
+<p><span class="math display">\[
+\begin{aligned}
+\begin{pmatrix}1&amp;0\\0&amp;P_1\end{pmatrix}
+\begin{pmatrix}a&amp;r\\v&amp;B\end{pmatrix}
+&amp;=\begin{pmatrix}a&amp;r\\\alpha_1e_1&amp;P_1B\end{pmatrix},\\
+\begin{pmatrix}1&amp;0\\0&amp;P_1\end{pmatrix}
+\begin{pmatrix}a&amp;r\\v&amp;B\end{pmatrix}
+\begin{pmatrix}1&amp;0\\0&amp;P_1^*\end{pmatrix}
+&amp;=\begin{pmatrix}a&amp;rP_1^*\\\alpha_1e_1&amp;P_1BP_1^*\end{pmatrix}.
+\end{aligned}
+\]</span></p>
+<p>Thus the similarity zeros entries <span class="math inline">\(3,\ldots,m\)</span> of column 1. The multiplication on the right preserves those zeros because <span class="math inline">\(Q_1\)</span> fixes the first coordinate. Repeat on the trailing submatrix, acting on coordinates <span class="math inline">\(3,\ldots,m\)</span> to zero entries below the first subdiagonal of column 2, then continue. With <span class="math inline">\(Q=Q_1Q_2\cdots Q_{m-2}\)</span>,</p>
+<p><span class="math display">\[
+Q^*AQ=H,
+\qquad H_{ij}=0\quad(i&gt;j+1).
+\]</span></p>
+<p>The source asks why the same construction does not make the matrix upper triangular directly, citing Abel’s theorem. Exact triangularization by a fixed finite sequence of arithmetic and radical operations would expose arbitrary polynomial roots; a general radical formula does not exist from degree five onward. Here the reflector preserves the norm of <span class="math inline">\(v\)</span> and cannot also zero its remaining subdiagonal entry unless <span class="math inline">\(v=0\)</span>. Hessenberg reduction leaves the eigenvalue computation to the subsequent numerical QR iteration.</p>
+<h2 data-original-heading="14.4 QR Iteration on a Hessenberg Matrix" id="qr-iteration-on-a-hessenberg-matrix">14.4 QR Iteration on a Hessenberg Matrix</h2>
+<!-- Source: Lecture 14.pdf, p. 4. -->
+<p>For a Hessenberg iterate <span class="math inline">\(T_{k-1}\)</span>, compute its QR factorization with <span class="math inline">\(m-1\)</span> adjacent Givens rotations:</p>
+<p><span class="math display">\[
+T_{k-1}=U_kR_k,
+\qquad U_k=G_1G_2\cdots G_{m-1},
+\qquad R_k=G_{m-1}^*\cdots G_2^*G_1^*T_{k-1}.
+\]</span></p>
+<p>Each rotation zeros the next subdiagonal entry. Its action on the matrix costs <span class="math inline">\(O(m)\)</span>, so this factorization costs <span class="math inline">\(O(m^2)\)</span>. The second half of the QR step is</p>
+<p><span class="math display">\[
+T_k=R_kU_k=R_kG_1G_2\cdots G_{m-1}.
+\]</span></p>
+<p>It costs another <span class="math inline">\(O(m^2)\)</span>. Thus <span class="math inline">\(m\)</span> steps cost <span class="math inline">\(O(m^3)\)</span> after the initial Hessenberg reduction. The matrix <span class="math inline">\(T_k\)</span> is again upper Hessenberg; the next two pages explain this through the movement of a small <strong>bulge</strong> below the first subdiagonal.</p>
+<h2 data-original-heading="14.5 Bulge Chasing" id="bulge-chasing">14.5 Bulge Chasing</h2>
+<!-- Source: Lecture 14.pdf, pp. 5–6. -->
+<p>If all the left rotations are applied first, they make <span class="math inline">\(R_k\)</span> upper triangular. The remaining product <span class="math inline">\(R_kG_1\cdots G_{m-1}\)</span> is upper Hessenberg: successive right rotations of an upper-triangular matrix introduce only the allowed first-subdiagonal entries. The <strong>bulge</strong> arises when the left and right rotations are interleaved on the Hessenberg matrix <span class="math inline">\(T_{k-1}\)</span>.</p>
+<p>The first similarity uses <span class="math inline">\(G_1\)</span> on the right and <span class="math inline">\(G_1^*\)</span> on the left:</p>
+<p><span class="math display">\[
+G_1^*T_{k-1}G_1.
+\]</span></p>
+<p>The right multiplication mixes columns 1 and 2, so the nonzero at position <span class="math inline">\((3,2)\)</span> can enter position <span class="math inline">\((3,1)\)</span>; the left multiplication of rows 1 and 2 does not remove it. This is the first bulge below the Hessenberg band. Schematically, with <span class="math inline">\(\ast\)</span> marking a possible nonzero,</p>
+<p><span class="math display">\[
+T_{k-1}\sim
+\begin{pmatrix}
+\ast&amp;\ast&amp;\ast&amp;\ast&amp;\ast\\
+\ast&amp;\ast&amp;\ast&amp;\ast&amp;\ast\\
+0&amp;\ast&amp;\ast&amp;\ast&amp;\ast\\
+0&amp;0&amp;\ast&amp;\ast&amp;\ast\\
+0&amp;0&amp;0&amp;\ast&amp;\ast
+\end{pmatrix}
+\xrightarrow{\ G_1^*(\cdot)G_1\ }
+\begin{pmatrix}
+\ast&amp;\ast&amp;\ast&amp;\ast&amp;\ast\\
+\ast&amp;\ast&amp;\ast&amp;\ast&amp;\ast\\
+\boxed{\ast}&amp;\ast&amp;\ast&amp;\ast&amp;\ast\\
+0&amp;0&amp;\ast&amp;\ast&amp;\ast\\
+0&amp;0&amp;0&amp;\ast&amp;\ast
+\end{pmatrix}.
+\]</span></p>
+<p>Choose <span class="math inline">\(G_2\)</span> to remove this bulge by mixing rows 2 and 3 on the left. Its matching right multiplication mixes columns 2 and 3 and produces the next bulge at <span class="math inline">\((4,2)\)</span>. The next stage has the pattern</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+\ast&amp;\ast&amp;\ast&amp;\ast&amp;\ast\\
+\ast&amp;\ast&amp;\ast&amp;\ast&amp;\ast\\
+0&amp;\ast&amp;\ast&amp;\ast&amp;\ast\\
+0&amp;\boxed{\ast}&amp;\ast&amp;\ast&amp;\ast\\
+0&amp;0&amp;0&amp;\ast&amp;\ast
+\end{pmatrix}.
+\]</span></p>
+<p>Repeating with <span class="math inline">\(G_3,G_4,\ldots\)</span> chases the bulge down and right until it leaves the matrix, restoring upper Hessenberg form. Each paired operation is a unitary similarity, so the eigenvalues are preserved.</p>
+<p>The point left open in the lecture is how to select the next rotation from the current bulged matrix, rather than requiring the complete <span class="math inline">\(R_k\)</span> in advance. The implicit <span class="math inline">\(Q\)</span> theorem supplies the needed uniqueness principle.</p>
+<h2 data-original-heading="14.6 The Implicit Q Theorem" id="the-implicit-q-theorem">14.6 The Implicit <span class="math inline">\(Q\)</span> Theorem</h2>
+<!-- Source: Lecture 14.pdf, p. 7. -->
+<p><strong>Theorem.</strong> Assume <span class="math inline">\(Q\)</span> is orthogonal and</p>
+<p><span class="math display">\[
+Q^*AQ=H
+\]</span></p>
+<p>is <strong>unreduced upper Hessenberg</strong>, meaning every first-subdiagonal entry <span class="math inline">\(H_{i+1,i}\)</span> is nonzero. Then columns <span class="math inline">\(2,\ldots,m\)</span> of <span class="math inline">\(Q\)</span> are uniquely determined by its first column up to signs.</p>
+<p>The proof is given at the start of Lecture 15. This is why the first column is enough to identify the orthogonal similarity that an implicit QR step must reproduce.</p>
+<h2 data-original-heading="Corrections and Clarifications to the Source" id="corrections-and-clarifications-to-the-source">14.7 Corrections and Clarifications to the Source</h2>
+<ul>
+<li><strong>Page 3:</strong> Made the left-then-right block products and accumulated factor order explicit. The Abel remark concerns exact finite radical formulas, not numerical convergence.</li>
+<li><strong>Pages 4–6:</strong> Made the Givens factor order explicit and distinguished the complete <span class="math inline">\(RQ\)</span> product from interleaved similarities. The source’s diagrams show that a bulge appears in the interleaved construction; ordinary postmultiplication of triangular <span class="math inline">\(R_k\)</span> does not create an entry below the Hessenberg band.</li>
+<li><strong>Page 7:</strong> “Unreduced” means every first-subdiagonal entry is nonzero. The theorem statement in the source says this as “not block upper triangular.”</li>
+</ul></div><footer class="article-footer"><nav class="page-navigation" aria-label="Previous and next pages">
+    <a rel="prev" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/13.%20QR%20without%20Shifts.html"><span>← Previous page</span><span>13. QR without Shifts</span></a>
+    <a rel="next" href="/notebook/content/notes/%E7%90%86%E8%AE%BA/Numerical%20Linear%20Algbera/15.%20Shifted%20QR%20Iteration.html"><span>Next page →</span><span>15. Shifted QR Iteration</span></a>
+  </nav></footer></article></main>
+<aside class="outline-sidebar" id="outline-sidebar" aria-label="Current note outline"><div class="outline-document"><button id="outline-fold" class="outline-fold" aria-label="Collapse or expand outline entries" aria-expanded="true" aria-controls="outline-items"><img src="/notebook/assets/icons/chevron.svg" width="12" height="12" alt=""></button><a class="outline-title" href="#reader-title">14. Hessenberg QR and Bulge Chasing</a></div><div class="outline-contents" id="outline-contents"><div id="outline-progress" class="outline-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-controls="reading-viewport"><span class="outline-marker"></span></div><ol id="outline-items"><li style="--depth:0"><a href="#recap-schur-factorization-and-orthogonal-iteration" class="is-active" aria-current="location">14.1 Recap: Schur Factorization and Orthogonal Iteration</a></li><li style="--depth:0"><a href="#why-a-direct-qr-step-is-expensive">14.2 Why a Direct QR Step Is Expensive</a></li><li style="--depth:0"><a href="#reduction-to-upper-hessenberg-form">14.3 Reduction to Upper Hessenberg Form</a></li><li style="--depth:0"><a href="#qr-iteration-on-a-hessenberg-matrix">14.4 QR Iteration on a Hessenberg Matrix</a></li><li style="--depth:0"><a href="#bulge-chasing">14.5 Bulge Chasing</a></li><li style="--depth:0"><a href="#the-implicit-q-theorem">14.6 The Implicit Q Theorem</a></li><li style="--depth:0"><a href="#corrections-and-clarifications-to-the-source">14.7 Corrections and Clarifications to the Source</a></li></ol></div></aside></div>
+<button class="sidebar-scrim" tabindex="-1" aria-label="Close sidebar" hidden></button>
+<dialog id="search-dialog" class="search-dialog" aria-labelledby="search-label"><form method="dialog" class="search-heading"><label id="search-label" for="search-input">Search notes</label><button value="close" aria-label="Close search">×</button></form><input id="search-input" type="search" placeholder="Title, topic, or phrase…" autocomplete="off"><p id="search-status" role="status">Search the published notes on this site.</p><ol id="search-results"></ol></dialog>
+<dialog id="appearance-dialog" class="appearance-dialog" aria-labelledby="appearance-label"><form method="dialog"><h2 id="appearance-label">Reading appearance</h2><button aria-label="Close text settings">×</button></form><p class="settings-label">Typeface</p><div class="font-options"><button data-font="termes">Classic textbook<small>TeX Gyre Termes</small></button><button data-font="stix">STIX Two Text<small>Original reader</small></button></div><p class="settings-label">Text size</p><div class="size-options"><button data-size="18">Compact</button><button data-size="20">Comfortable</button><button data-size="22">Large</button></div></dialog>
+</body></html>
